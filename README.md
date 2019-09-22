@@ -1,2 +1,2 @@
-# kodonoto
-Rapid development of web application prototypes from a basic core UML class diagram features by using Acceleo code generator templates for defining your own custom target application code
+# OdinModel
+Rapid development of web application prototypes from core features of the UML class diagram by using Acceleo code generator templates for defining your own custom target application code
