@@ -14,7 +14,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#"/>
         <body xsi:type="mtl:ProtectedAreaBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#-- HINT: define server port&#xA;server.port=5000&#xA;&#xA;#-- HINT: Log Level may be ERROR, WARN, INFO (for production), DEBUG, or TRACE&#xA;logging.level.org.springframework.web=DEBUG&#xA;&#xA;#--------- H2 embedded setup -----------&#xA;&#xA;#-- HINT: enable h2 console with true; disable with false&#xA;spring.h2.console.enabled=true&#xA;&#xA;#-- HINT: set console path&#xA;spring.h2.console.path=/h2&#xA;&#xA;#-- HINT: set schema-name and local path for database file  &#xA;spring.datasource.url=jdbc:h2:file:c:/h2/schema-name&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;&#xA;When using database URLs like jdbc:h2:~/test, &#xA;the database is stored in the user directory. &#xA;For Windows, this is usually C:\Documents and Settings\&lt;userName> or C:\Users\&lt;userName>. &#xA;If the base directory is not set (as in jdbc:h2:./test), &#xA;the database files are stored in the directory where the application is started (the current working directory). &#xA;When using the H2 Console application from the start menu, &#xA;this is &lt;Installation Directory>/bin. The base directory can be set in the database URL. &#xA;A fixed or relative path can be used. When using the URL jdbc:h2:file:./data/sample, &#xA;the database is stored in the directory data (relative to the current working directory). &#xA;The directory is created automatically if it does not yet exist. &#xA;It is also possible to use the fully qualified directory name (and for Windows, drive name). &#xA;Example: jdbc:h2:file:C:/data/test&#xA;&#xA;&#xA;&#xA;#spring.datasource.driver-class-name=org.h2.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- MySQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:mysql://localhost:3306/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=com.mysql.jdbc.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- JPA Hibernate setup ---------&#xA;&#xA;#-- HINT: true or false&#xA;#spring.jpa.show-sql = false&#xA;&#xA;#-- HINT: Hibernate ddl auto (create, create-drop, update, none, validate)&#xA;#spring.jpa.hibernate.ddl-auto = update&#xA;&#xA;#----------------------------------------&#xA;&#xA;#"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#-- HINT: define server port&#xA;server.port=5000&#xA;&#xA;#-- HINT: Log Level may be ERROR, WARN, INFO (for production), DEBUG, or TRACE&#xA;logging.level.org.springframework.web=DEBUG&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- H2 embedded setup -----------&#xA;&#xA;#-- HINT: enable h2 console with true; disable with false&#xA;spring.h2.console.enabled=true&#xA;&#xA;#-- HINT: set console path&#xA;spring.h2.console.path=/h2&#xA;&#xA;#-- HINT: set schema-name and local path for database file&#xA;#-- HINT: when using the URL jdbc:h2:file:./data/sample, the database is stored in the directory data (relative to the current working directory). The directory is created automatically if it does not yet exist.&#xA;#-- HINT: an example for using the fully qualified directory name (and for Windows, drive name) is jdbc:h2:file:c:/h2/schema-name&#xA;spring.datasource.url=jdbc:h2:file:./h2data/classicCars&#xA;&#xA;#-- HINT: add username&#xA;spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;spring.datasource.password=&#xA;&#xA;#-- HINT: h2 driver&#xA;spring.datasource.driver-class-name=org.h2.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- MySQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:mysql://localhost:3306/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=com.mysql.jdbc.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- JPA Hibernate setup ---------&#xA;&#xA;#-- HINT: true or false&#xA;spring.jpa.show-sql = false&#xA;&#xA;#-- HINT: Hibernate ddl auto (create, create-drop, update, none, validate)&#xA;spring.jpa.hibernate.ddl-auto = update&#xA;&#xA;#----------------------------------------&#xA;&#xA;#"/>
           <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="application.properties">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </marker>
@@ -116,7 +116,7 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/application_properties">
       <details key="start" value="202"/>
-      <details key="end" value="3379"/>
+      <details key="end" value="2975"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/application_properties/%">
@@ -126,7 +126,7 @@
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/application_properties/%.1">
       <details key="start" value="339"/>
-      <details key="end" value="3367"/>
+      <details key="end" value="2963"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/application_properties/%.1/%">
@@ -141,7 +141,7 @@
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/application_properties/%.1/%.2">
       <details key="start" value="684"/>
-      <details key="end" value="3358"/>
+      <details key="end" value="2954"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/application_properties/%.1/%.2/%">
@@ -150,9 +150,9 @@
       <details key="line" value="16"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/application_properties/%.1/%.2/%.1">
-      <details key="start" value="823"/>
-      <details key="end" value="3346"/>
-      <details key="line" value="18"/>
+      <details key="start" value="902"/>
+      <details key="end" value="2942"/>
+      <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/application_properties/%.1/%.2/%.2">
       <details key="start" value="696"/>
@@ -160,9 +160,9 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/application_properties/%.1/%.3">
-      <details key="start" value="3358"/>
-      <details key="end" value="3360"/>
-      <details key="line" value="93"/>
+      <details key="start" value="2954"/>
+      <details key="end" value="2956"/>
+      <details key="line" value="83"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/application_properties/%.1/%.4">
       <details key="start" value="346"/>

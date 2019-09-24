@@ -1,7 +1,13 @@
 [comment encoding = UTF-8 /]
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[comment: Importing templates/]
+[import com::vladolium::odinmodel::configuration::application_properties /]
 
 [template public main(aClass : Class)]
 [comment @main/]
+
+[comment: Referencing imported templates/]
+
+[comment [application_properties()/]
 [/template]
