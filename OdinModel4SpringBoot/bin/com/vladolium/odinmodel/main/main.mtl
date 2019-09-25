@@ -3,11 +3,29 @@
 
 [comment: Importing templates/]
 [import com::vladolium::odinmodel::configuration::application_properties /]
+[import com::vladolium::odinmodel::domain::entity /]
 
 [template public main(aClass : Class)]
 [comment @main/]
+[comment:
+-------------------------------------------------- 
+	- Configuration templates.
+--------------------------------------------------
+/]
+[aClass.application_properties()/]
+[comment: 
+--------------------------------------------------
+	- Domain templates.
+--------------------------------------------------
+/]
+[aClass.entity()/]
 
-[comment: Referencing imported templates/]
+[comment: Repository templates/]
 
-[comment [application_properties()/]
+[comment: Controller templates/]
+
+[comment: Service templates/]
+
+[comment: Service implementation templates/]
+
 [/template]

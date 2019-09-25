@@ -1,21 +1,22 @@
 [comment encoding = UTF-8 /]
 [module application_properties('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment: Defining name of the template and 
-in the brackets that we are not using UML elements./]
-[template public application_properties(application_properties : OclAny)]
+[comment: Defining name of the template./]
+[template public application_properties(aClass : Class)]
 
 [comment: Defining target file location in Spring Boot app./]
 [file ('src/main/resources/application.properties', false, 'UTF-8')]
 
-[comment: Defining that the following code after the next line user may change and 
-it will not be removed in case of another code generation. Also,
-we hide it behind the target file's comments to avoid errors reporting. Finally,
-we give it a unique name in the brackets./]
+[comment: 
+	- Defining that the code between protected will not be removed 
+	in case of another code generation. 
+	- We hide it behind the target file's comments to avoid errors.
+	- We give it a unique name in the brackets./]
 #[protected ('application.properties')]
 
-[comment: What follows is the boilerplate code of the target file with OdinModel default values.
-H2 database is the defaul database and its file is within Spring Boot project./]
+[comment: 
+	- The boilerplate code of the target file with OdinModel default values.
+	- H2 database is the defaul database./]
 #-- HINT: define server port
 server.port=5000
 

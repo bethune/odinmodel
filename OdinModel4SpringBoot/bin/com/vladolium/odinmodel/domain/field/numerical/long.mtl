@@ -1,0 +1,50 @@
+[comment encoding = UTF-8 /]
+[module long('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[template public long(aClass : Class)]
+[comment : 
+--------------------------------------------------
+	- For all properties of the current class.
+--------------------------------------------------
+/]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
+[comment : 
+--------------------------------------------------
+	- is type long.
+--------------------------------------------------
+/]
+	[if p.type.name = 'Long']
+[comment : 
+--------------------------------------------------
+	- is id.
+--------------------------------------------------
+/]
+		[if p.isID = true]
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+		[/if]
+[comment : 
+--------------------------------------------------
+	- is not null.
+--------------------------------------------------
+/]
+		[if p.lower = 1 and p.isID = false]
+@NotNull
+		[/if]
+[comment : 
+--------------------------------------------------
+	- is unique.
+--------------------------------------------------
+/]
+		[if p.isUnique = true and p.isID = false]
+@Column(unique=true)
+		[/if]
+[comment : 
+--------------------------------------------------
+	- field definition.
+--------------------------------------------------
+/]
+private [p.type.name/] [p.name/];
+	[/if]
+[/for]
+[/template]
