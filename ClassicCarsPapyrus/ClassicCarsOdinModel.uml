@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_fOXI4N6YEemmoMLEjqVmQg" name="ClassicCarsOdinModel" URI=""/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_fOXI4N6YEemmoMLEjqVmQg" name="ClassicCarsOdinModel" URI="">
+  <packagedElement xmi:type="uml:Package" xmi:id="_PQyUAN9rEemJF-HGxlolYw" name="com/vladolium/odinmodel">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZoCbsN9rEemJF-HGxlolYw" name="ProductLines"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cMlcEN9rEemJF-HGxlolYw" name="Persons" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eWzQ4N9rEemJF-HGxlolYw" name="Offices"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_f9CO4N9rEemJF-HGxlolYw" name="Products"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_noWUwN9rEemJF-HGxlolYw" name="Customers"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pNCaoN9rEemJF-HGxlolYw" name="Employees"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_7B-b4N9rEemJF-HGxlolYw" name="OrderDetails"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9Pe1QN9rEemJF-HGxlolYw" name="Orders"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BvMh0N9sEemJF-HGxlolYw" name="Payments"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FXPmkN9sEemJF-HGxlolYw" name="Comments"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_JFxt0N9sEemJF-HGxlolYw" name="Gifts"/>
+  </packagedElement>
+</uml:Model>
