@@ -10,14 +10,9 @@ import lombok.*;
 public class OrderDetails {
 
 
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
-
-
-@NotNull
-private Integer quantityOrdered;
 
 
 
@@ -25,6 +20,15 @@ private Integer quantityOrdered;
 private Integer orderLineNumber;
 
 
+@NotNull
+private Integer quantityOrdered;
+
+
+
+
+
+@NotNull
+		private Double priceEach;
 
 
 

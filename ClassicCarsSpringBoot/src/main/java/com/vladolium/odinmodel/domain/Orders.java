@@ -11,11 +11,15 @@ public class Orders {
 
 
 
-
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
+
+
+
+
+
+
 
 
 

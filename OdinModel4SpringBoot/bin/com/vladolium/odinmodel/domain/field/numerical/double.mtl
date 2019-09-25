@@ -1,7 +1,41 @@
 [comment encoding = UTF-8 /]
 [module double('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-
 [template public double(aClass : Class)]
-
+[comment : 
+--------------------------------------------------
+	- For all properties of the current class.
+--------------------------------------------------
+/]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
+[comment : 
+--------------------------------------------------
+	- is type integer.
+--------------------------------------------------
+/]
+	[if p.type.name = 'Double']
+[comment : 
+--------------------------------------------------
+	- is not null.
+--------------------------------------------------
+/]
+		[if p.lower = 1]
+@NotNull
+		[/if]
+[comment : 
+--------------------------------------------------
+	- is unique.
+--------------------------------------------------
+/]
+		[if p.isUnique = true]
+			@Column(unique=true)
+		[/if]
+[comment : 
+--------------------------------------------------
+	- field definition.
+--------------------------------------------------
+/]
+		private [p.type.name/] [p.name/];
+	[/if]
+[/for]
 [/template]

@@ -9,9 +9,13 @@ import lombok.*;
 @Setter
 public class Gifts {
 
+
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
+
+
 
 
 

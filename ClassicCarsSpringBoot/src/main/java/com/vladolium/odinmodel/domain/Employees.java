@@ -12,6 +12,7 @@ public class Employees {
 
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
@@ -20,6 +21,11 @@ private Long id;
 
 @NotNull
 private Integer reportsTo;
+
+
+
+
+
 
 
 

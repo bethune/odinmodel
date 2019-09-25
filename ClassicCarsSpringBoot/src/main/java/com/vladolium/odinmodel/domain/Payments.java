@@ -22,6 +22,10 @@ private Long id;
 
 
 
+@NotNull
+		private Double ammount;
+
+
 
 
 

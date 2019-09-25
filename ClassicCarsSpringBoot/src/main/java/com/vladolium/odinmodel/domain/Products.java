@@ -9,15 +9,59 @@ import lombok.*;
 @Setter
 public class Products {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
 
-	@NotNull
-	@Column(unique = true)
-	private Integer quantityInStock;
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+private Long id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+@NotNull
+private Integer quantityInStock;
+
+
+
+
+@NotNull
+		private Double MSRP;
+
+
+
+
+
+
+@NotNull
+		private Double buyPrice;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Start of user code entity
 //End of user code
 
 }
+
