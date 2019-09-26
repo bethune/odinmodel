@@ -1,22 +1,13 @@
 [comment encoding = UTF-8 /]
 [module application_properties('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment: Defining name of the template./]
 [template public application_properties(aClass : Class)]
 
-[comment: Defining target file location in Spring Boot app./]
-[file ('src/main/resources/application.properties', false, 'UTF-8')]
+[file ('src/main/resources/application.properties', false, 'UTF-8')] [comment: Target file location in Spring Boot app./]
 
-[comment: 
-	- Defining that the code between protected will not be removed 
-	in case of another code generation. 
-	- We hide it behind the target file's comments to avoid errors.
-	- We give it a unique name in the brackets./]
-#[protected ('application.properties')]
+#Code between start and end will not be removed during generation.
+#[protected ('for application.properties')]
 
-[comment: 
-	- The boilerplate code of the target file with OdinModel default values.
-	- H2 database is the defaul database./]
 #-- HINT: define server port
 server.port=5000
 
@@ -83,6 +74,7 @@ spring.jpa.hibernate.ddl-auto = update
 #[/protected]
 
 [/file]
+
 [/template]
 
 

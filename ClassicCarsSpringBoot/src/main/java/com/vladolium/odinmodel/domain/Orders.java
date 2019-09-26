@@ -1,3 +1,5 @@
+
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -11,9 +13,36 @@ public class Orders {
 
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+private Long id; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@NotNull
+private String comments; 
+@NotNull
+private String status; 
 
 
 
@@ -41,12 +70,13 @@ private Long id;
 
 
 
-
-
-
-
-//Start of user code entity
+//Code between start and end will not be removed during generation.
+//Start of user code for this entity
 //End of user code
 
 }
+
+
+
+
 

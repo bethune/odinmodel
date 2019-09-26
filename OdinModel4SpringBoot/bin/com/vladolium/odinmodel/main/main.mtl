@@ -1,31 +1,16 @@
 [comment encoding = UTF-8 /]
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment: Importing templates/]
-[import com::vladolium::odinmodel::configuration::application_properties /]
+[comment: Importing subtemplates./]
 [import com::vladolium::odinmodel::domain::entity /]
+[import com::vladolium::odinmodel::configuration::application_properties /]
 
 [template public main(aClass : Class)]
+
 [comment @main/]
-[comment:
--------------------------------------------------- 
-	- Configuration templates.
---------------------------------------------------
-/]
-[aClass.application_properties()/]
-[comment: 
---------------------------------------------------
-	- Domain templates.
---------------------------------------------------
-/]
+
+[comment: Including subtemplates./]
 [aClass.entity()/]
-
-[comment: Repository templates/]
-
-[comment: Controller templates/]
-
-[comment: Service templates/]
-
-[comment: Service implementation templates/]
+[aClass.application_properties()/]
 
 [/template]

@@ -1,3 +1,5 @@
+
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -10,9 +12,14 @@ import lombok.*;
 public class Customers {
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+private Long id; 
+
+
+
+
 
 
 
@@ -21,7 +28,13 @@ private Long id;
 
 
 @NotNull
-		private Double creditLimit;
+		private Double creditLimit; 
+
+
+
+@NotNull
+@Column(unique=true)
+private String customerName; 
 
 
 
@@ -38,8 +51,18 @@ private Long id;
 
 
 
-//Start of user code entity
+
+
+
+
+
+//Code between start and end will not be removed during generation.
+//Start of user code for this entity
 //End of user code
 
 }
+
+
+
+
 

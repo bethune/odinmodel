@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="application_properties" nsURI="com::vladolium::odinmodel::configuration::application_properties" startHeaderPosition="29" endHeaderPosition="143">
+  <mtl:Module name="application_properties" nsURI="com::vladolium::odinmodel::configuration::application_properties" startHeaderPosition="29" endHeaderPosition="280">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="111" endPosition="143" value=": Defining name of the template."/>
-    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="application_properties" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;#Code between start and end will not be removed during generation.&#xA;#"/>
         <body xsi:type="mtl:ProtectedAreaBlock">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#-- HINT: define server port&#xA;server.port=5000&#xA;&#xA;#-- HINT: Log Level may be ERROR, WARN, INFO (for production), DEBUG, or TRACE&#xA;logging.level.org.springframework.web=DEBUG&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- H2 embedded setup -----------&#xA;&#xA;#-- HINT: enable h2 console with true; disable with false&#xA;spring.h2.console.enabled=true&#xA;&#xA;#-- HINT: set console path&#xA;spring.h2.console.path=/h2&#xA;&#xA;#-- HINT: set schema-name and local path for database file&#xA;#-- HINT: when using the URL jdbc:h2:file:./data/sample, the database is stored in the directory data (relative to the current working directory). The directory is created automatically if it does not yet exist.&#xA;#-- HINT: an example for using the fully qualified directory name (and for Windows, drive name) is jdbc:h2:file:c:/h2/schema-name&#xA;spring.datasource.url=jdbc:h2:file:./h2data/classicCars&#xA;&#xA;#-- HINT: add username&#xA;spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;spring.datasource.password=&#xA;&#xA;#-- HINT: h2 driver&#xA;spring.datasource.driver-class-name=org.h2.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- MySQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:mysql://localhost:3306/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=com.mysql.jdbc.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- JPA Hibernate setup ---------&#xA;&#xA;#-- HINT: true or false&#xA;spring.jpa.show-sql = false&#xA;&#xA;#-- HINT: Hibernate ddl auto (create, create-drop, update, none, validate)&#xA;spring.jpa.hibernate.ddl-auto = update&#xA;&#xA;#----------------------------------------&#xA;&#xA;#"/>
-          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="application.properties">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;#-- HINT: define server port&#xA;server.port=5000&#xA;&#xA;#-- HINT: Log Level may be ERROR, WARN, INFO (for production), DEBUG, or TRACE&#xA;logging.level.org.springframework.web=DEBUG&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- H2 embedded setup -----------&#xA;&#xA;#-- HINT: enable h2 console with true; disable with false&#xA;spring.h2.console.enabled=true&#xA;&#xA;#-- HINT: set console path&#xA;spring.h2.console.path=/h2&#xA;&#xA;#-- HINT: set schema-name and local path for database file&#xA;#-- HINT: when using the URL jdbc:h2:file:./data/sample, the database is stored in the directory data (relative to the current working directory). The directory is created automatically if it does not yet exist.&#xA;#-- HINT: an example for using the fully qualified directory name (and for Windows, drive name) is jdbc:h2:file:c:/h2/schema-name&#xA;spring.datasource.url=jdbc:h2:file:./h2data/classicCars&#xA;&#xA;#-- HINT: add username&#xA;spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;spring.datasource.password=&#xA;&#xA;#-- HINT: h2 driver&#xA;spring.datasource.driver-class-name=org.h2.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- MySQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:mysql://localhost:3306/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=com.mysql.jdbc.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- JPA Hibernate setup ---------&#xA;&#xA;#-- HINT: true or false&#xA;spring.jpa.show-sql = false&#xA;&#xA;#-- HINT: Hibernate ddl auto (create, create-drop, update, none, validate)&#xA;spring.jpa.hibernate.ddl-auto = update&#xA;&#xA;#----------------------------------------&#xA;&#xA;#"/>
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="for application.properties">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </marker>
         </body>
@@ -27,6 +22,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
@@ -114,75 +110,65 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
+    <eAnnotations source="positions.0" references="/0/application_properties">
       <details key="start" value="103"/>
-      <details key="end" value="145"/>
-      <details key="line" value="0"/>
+      <details key="end" value="2470"/>
+      <details key="line" value="4"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/application_properties">
-      <details key="start" value="146"/>
-      <details key="end" value="2802"/>
+    <eAnnotations source="positions.1" references="/0/application_properties/%">
+      <details key="start" value="160"/>
+      <details key="end" value="161"/>
       <details key="line" value="5"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/application_properties/%">
-      <details key="start" value="203"/>
-      <details key="end" value="204"/>
+    <eAnnotations source="positions.2" references="/0/application_properties/%.1">
+      <details key="start" value="161"/>
+      <details key="end" value="2457"/>
       <details key="line" value="6"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/application_properties/%.1">
-      <details key="start" value="266"/>
-      <details key="end" value="2790"/>
-      <details key="line" value="8"/>
+    <eAnnotations source="positions.3" references="/0/application_properties/%.1/%">
+      <details key="start" value="283"/>
+      <details key="end" value="352"/>
+      <details key="line" value="7"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/application_properties/%.1/%">
-      <details key="start" value="335"/>
-      <details key="end" value="336"/>
+    <eAnnotations source="positions.4" references="/0/application_properties/%.1/%.1">
+      <details key="start" value="352"/>
+      <details key="end" value="2448"/>
       <details key="line" value="9"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/application_properties/%.1/%.1">
-      <details key="start" value="562"/>
-      <details key="end" value="563"/>
-      <details key="line" value="15"/>
+    <eAnnotations source="positions.5" references="/0/application_properties/%.1/%.1/%">
+      <details key="start" value="394"/>
+      <details key="end" value="2436"/>
+      <details key="line" value="10"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/application_properties/%.1/%.2">
-      <details key="start" value="563"/>
-      <details key="end" value="2781"/>
-      <details key="line" value="15"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/application_properties/%.1/%.2/%">
-      <details key="start" value="601"/>
-      <details key="end" value="603"/>
-      <details key="line" value="16"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/application_properties/%.1/%.2/%.1">
-      <details key="start" value="729"/>
-      <details key="end" value="2769"/>
-      <details key="line" value="20"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/application_properties/%.1/%.2/%.2">
-      <details key="start" value="575"/>
-      <details key="end" value="599"/>
+    <eAnnotations source="positions.6" references="/0/application_properties/%.1/%.1/%.1">
+      <details key="start" value="364"/>
+      <details key="end" value="392"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/application_properties/%.1/%.3">
-      <details key="start" value="2781"/>
-      <details key="end" value="2783"/>
-      <details key="line" value="84"/>
+    <eAnnotations source="positions.7" references="/0/application_properties/%.1/%.2">
+      <details key="start" value="2448"/>
+      <details key="end" value="2450"/>
+      <details key="line" value="75"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/application_properties/%.1/%.4">
-      <details key="start" value="273"/>
-      <details key="end" value="316"/>
+    <eAnnotations source="positions.8" references="/0/application_properties/%.1/%.3">
+      <details key="start" value="168"/>
+      <details key="end" value="211"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/application_properties/%.1/%.5">
-      <details key="start" value="325"/>
-      <details key="end" value="332"/>
+    <eAnnotations source="positions.9" references="/0/application_properties/%.1/%.4">
+      <details key="start" value="220"/>
+      <details key="end" value="227"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/application_properties/aClass">
-      <details key="start" value="186"/>
-      <details key="end" value="200"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.10" references="/0/application_properties/%.2">
+      <details key="start" value="2458"/>
+      <details key="end" value="2459"/>
+      <details key="line" value="77"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/application_properties/aClass">
+      <details key="start" value="143"/>
+      <details key="end" value="157"/>
+      <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

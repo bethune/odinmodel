@@ -1,3 +1,5 @@
+
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -13,14 +15,38 @@ public class Employees {
 
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+private Long id; 
+
+
 
 
 
 @NotNull
-private Integer reportsTo;
+private Integer reportsTo; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@NotNull
+private String email; 
+@NotNull
+private String jobTitle; 
+@NotNull
+private String extension; 
 
 
 
@@ -41,14 +67,22 @@ private Integer reportsTo;
 
 
 
+@NotNull
+private Boolean isActive; 
 
 
 
 
 
 
-//Start of user code entity
+
+//Code between start and end will not be removed during generation.
+//Start of user code for this entity
 //End of user code
 
 }
+
+
+
+
 

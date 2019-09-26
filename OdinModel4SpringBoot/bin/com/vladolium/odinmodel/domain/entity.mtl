@@ -1,131 +1,94 @@
 [comment encoding = UTF-8 /]
 [module entity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment: Importing templates/]
-[import com::vladolium::odinmodel::domain::field::numerical::integer /]
-[import com::vladolium::odinmodel::domain::field::numerical::long /]
-[import com::vladolium::odinmodel::domain::field::numerical::double /]
-[import com::vladolium::odinmodel::domain::field::textual::string /]
-[import com::vladolium::odinmodel::domain::field::textual::enum /]
-[import com::vladolium::odinmodel::domain::field::datetime::date /]
-[import com::vladolium::odinmodel::domain::field::datetime::dateTime /]
-[import com::vladolium::odinmodel::domain::field::datetime::time /]
-[import com::vladolium::odinmodel::domain::field::logical::boolean /]
-[import com::vladolium::odinmodel::domain::field::binary::blob /]
+[import com::vladolium::odinmodel::domain::entityJavaImports /]
+
+[import com::vladolium::odinmodel::domain::entitySubtemplatesImports /]
+
+[import com::vladolium::odinmodel::domain::entityLombok /]
 
 [template public entity(aClass : Class)
 	{
-		packageNameVar : String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
-		packagePathNameVar : String = aClass._package.name.toLowerCase();
-		entityNameVar : String = aClass.name.toUpperFirst();
-		abstractNameVar : Collection(T) = aClass.general.name.toUpperFirst();
-		isAbstractVar : Boolean = aClass.isAbstract;
-		notInheritorVar : Boolean = aClass.general->isEmpty();
-}]
-[comment: Defining target files location in Spring Boot app./]
-[file ('src/main/java/' + packagePathNameVar + '/domain/' + entityNameVar + '.java', false, 'UTF-8')]
+		packageNameVar 		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
+		packagePathNameVar 	: String = aClass._package.name.toLowerCase();
+		entityNameVar 		: String = aClass.name.toUpperFirst();
+		abstractNameVar 	: Collection(T) = aClass.general.name.toUpperFirst();
+		isAbstractVar 		: Boolean = aClass.isAbstract;
+		doesNotInheritVar 	: Boolean = aClass.general->isEmpty();
+	}
+]
+
+[file ('src/main/java/' + packagePathNameVar + '/domain/' + entityNameVar + '.java', false, 'UTF-8')] [comment: Target file location in Spring Boot app./]
+
 [comment: 
---------------------------------------------------	
-	- Generate abstract class.
 --------------------------------------------------
-/]
-[if isAbstractVar]
+	Generate entity class.
+--------------------------------------------------/]
+
+[if isAbstractVar=false and doesNotInheritVar]
 package [packageNameVar/];
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import lombok.*;
-
-@MappedSuperclass
-@Getter
-@Setter
-public abstract class [entityNameVar/] {
-
-[aClass.long()/]
-[aClass.integer()/]
-[aClass.double()/]
-[aClass.string()/]
-[aClass.enum()/]
-[aClass.date()/]
-[aClass.dateTime()/]
-[aClass.time()/]
-[aClass.boolean()/]
-[aClass.blob()/]
-
-[comment: Custom user code./]
-//[protected ('abstract')]
-//[/protected]
-
-}
-[/if]
-[comment:
---------------------------------------------------
-	- Generate entity.
---------------------------------------------------
-/]
-[if isAbstractVar=false and notInheritorVar]
-package [packageNameVar/];
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import lombok.*;
+[aClass.entityJavaImports()/]
 
 @Entity
-@Getter
-@Setter
+[aClass.entityLombok()/]
 public class [entityNameVar/] {
 
-[aClass.long()/]
-[aClass.integer()/]
-[aClass.double()/]
-[aClass.string()/]
-[aClass.enum()/]
-[aClass.date()/]
-[aClass.dateTime()/]
-[aClass.time()/]
-[aClass.boolean()/]
-[aClass.blob()/]
+[aClass.entitySubtemplatesImports()/]
 
-[comment: Custom user code./]
-//[protected ('entity')]
+//Code between start and end will not be removed during generation.
+//[protected ('for this entity')]
 //[/protected]
 
 }
 [/if]
-[comment: 
---------------------------------------------------
-	- Generate entity that extends (inherits) abstract class.
---------------------------------------------------
-/]
-[if isAbstractVar=false and notInheritorVar=false]
+
+[comment:
+-------------------------------------------------- 
+	Generate abstract class.
+--------------------------------------------------/]
+
+[if isAbstractVar] 
 package [packageNameVar/];
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import lombok.*;
+[aClass.entityJavaImports()/]
+
+@MappedSuperclass
+[aClass.entityLombok()/]
+public abstract class [entityNameVar/] {
+
+[aClass.entitySubtemplatesImports()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this abstract class')]
+//[/protected]
+
+}
+[/if]
+
+[comment: 
+--------------------------------------------------
+	Generate entity that extends (inherits) abstract class.
+--------------------------------------------------/]
+
+[if isAbstractVar=false and doesNotInheritVar=false]
+package [packageNameVar/];
+
+[aClass.entityJavaImports()/]
 
 @Entity
-@Getter
-@Setter
+[aClass.entityLombok()/]
 public class [entityNameVar/] extends [abstractNameVar/] {
 
-[aClass.long()/]
-[aClass.integer()/]
-[aClass.double()/]
-[aClass.string()/]
-[aClass.enum()/]
-[aClass.date()/]
-[aClass.dateTime()/]
-[aClass.time()/]
-[aClass.boolean()/]
-[aClass.blob()/]
+[aClass.entitySubtemplatesImports()/]
 
-[comment: Custom user code./]
-//[protected ('inheritor')]
+//Code between start and end will not be removed during generation.
+//[protected ('for this inheriting entity')]
 //[/protected]
 
 }
 [/if]
 
 [/file]
+
 [/template]

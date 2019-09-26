@@ -1,3 +1,5 @@
+
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -10,9 +12,12 @@ import lombok.*;
 public class Products {
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+private Long id; 
+
+
 
 
 
@@ -27,13 +32,7 @@ private Long id;
 
 
 @NotNull
-private Integer quantityInStock;
-
-
-
-
-@NotNull
-		private Double MSRP;
+private Integer quantityInStock; 
 
 
 
@@ -41,7 +40,31 @@ private Integer quantityInStock;
 
 
 @NotNull
-		private Double buyPrice;
+		private Double MSRP; 
+
+
+
+
+
+
+@NotNull
+		private Double buyPrice; 
+
+
+
+
+
+@NotNull
+@Column(unique=true)
+private String productCode; 
+@NotNull
+private String productVendor; 
+@NotNull
+private String productDescription; 
+@NotNull
+private String productScale; 
+@NotNull
+private String productName; 
 
 
 
@@ -60,8 +83,28 @@ private Integer quantityInStock;
 
 
 
-//Start of user code entity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Code between start and end will not be removed during generation.
+//Start of user code for this entity
 //End of user code
 
 }
+
+
+
+
 

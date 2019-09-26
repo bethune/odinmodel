@@ -1,12 +1,7 @@
-[comment encoding = UTF-8 /]
-[module application_properties('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public application_properties(aClass : Class)]
-
-[file ('src/main/resources/application.properties', false, 'UTF-8')] [comment: Target file location in Spring Boot app./]
-
-#Code between start and end will not be removed during generation.
-#[protected ('for application.properties')]
+Thu Sep 26 09:28:53 CEST 2019
+================================================================================
+Start of user code application.properties
 
 #-- HINT: define server port
 server.port=5000
@@ -71,10 +66,4 @@ spring.jpa.hibernate.ddl-auto = update
 
 #----------------------------------------
 
-#[/protected]
-
-[/file]
-
-[/template]
-
-
+#End of user code

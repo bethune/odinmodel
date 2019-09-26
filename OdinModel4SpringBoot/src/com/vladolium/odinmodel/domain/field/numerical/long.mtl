@@ -2,49 +2,22 @@
 [module long('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public long(aClass : Class)]
-[comment : 
---------------------------------------------------
-	- For all properties of the current class.
---------------------------------------------------
-/]
+
+[comment : For all fields of the current entity./]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
-[comment : 
---------------------------------------------------
-	- is type long.
---------------------------------------------------
-/]
 	[if p.type.name = 'Long']
-[comment : 
---------------------------------------------------
-	- is id.
---------------------------------------------------
-/]
-		[if p.isID = true]
+		[if p.isID = true] [comment : Generate primary key./]
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 		[/if]
-[comment : 
---------------------------------------------------
-	- is not null.
---------------------------------------------------
-/]
-		[if p.lower = 1 and p.isID = false]
+		[if p.lower = 1 and p.isID = false] [comment : Generate the not null constraint./]
 @NotNull
 		[/if]
-[comment : 
---------------------------------------------------
-	- is unique.
---------------------------------------------------
-/]
-		[if p.isUnique = true and p.isID = false]
+		[if p.isUnique = true and p.isID = false] [comment : Generate the unique constraint./]
 @Column(unique=true)
 		[/if]
-[comment : 
---------------------------------------------------
-	- field definition.
---------------------------------------------------
-/]
-private [p.type.name/] [p.name/];
+private [p.type.name/] [p.name/]; [comment : Define the field's type and name./]
 	[/if]
 [/for]
+
 [/template]
