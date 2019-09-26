@@ -40,7 +40,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OY25kN-DEemhFrfFZLxexQ" name="extension" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QeAoMN-DEemhFrfFZLxexQ" name="email" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_SdSYUN-DEemhFrfFZLxexQ" name="reportsTo" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Vwl8IN-DEemhFrfFZLxexQ" name="jobTitle" type="_k0uCoN-DEemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Vwl8IN-DEemhFrfFZLxexQ" name="jobTitle" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5eA2sN_XEemc_OofB7ydVg" name="isActive" type="_JMm4IN94EemhFrfFZLxexQ" isUnique="false"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_7B-b4N9rEemJF-HGxlolYw" name="OrderDetails">
@@ -100,15 +100,5 @@
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Pv3lQN-CEemhFrfFZLxexQ" name="FREE"/>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_RWbTYN-CEemhFrfFZLxexQ" name="PLATINUM"/>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_VS4h4N-CEemhFrfFZLxexQ" name="LIMITED"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_N6EEIN_YEemc_OofB7ydVg" name="_50%"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Enumeration" xmi:id="_k0uCoN-DEemhFrfFZLxexQ" name="JobTitle">
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_nSPN8N-DEemhFrfFZLxexQ" name="President"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_p4KuYN-DEemhFrfFZLxexQ" name="VP Sales"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_uFRoAN-DEemhFrfFZLxexQ" name="Sales Manager (APAC)"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_zFjrAN-DEemhFrfFZLxexQ" name="VP Marketing"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_252cAN-DEemhFrfFZLxexQ" name="Sale Manager (EMEA)"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_5zvaQN-DEemhFrfFZLxexQ" name="Sales Manager (NA)"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BLaycN-EEemhFrfFZLxexQ" name="Sales Rep"/>
   </packagedElement>
 </uml:Model>

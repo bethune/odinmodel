@@ -747,59 +747,13 @@
         <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_VS4h4N-CEemhFrfFZLxexQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_VTipMd-CEemhFrfFZLxexQ"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_N6uLcN_YEemc_OofB7ydVg" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_N6EEIN_YEemc_OofB7ydVg"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_N6uLcd_YEemc_OofB7ydVg"/>
-      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_JEy0ZN-CEemhFrfFZLxexQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_JEy0Zd-CEemhFrfFZLxexQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_JEy0Zt-CEemhFrfFZLxexQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JEy0Z9-CEemhFrfFZLxexQ"/>
     </children>
     <element xmi:type="uml:Enumeration" href="ClassicCarsOdinModel.uml#_JEwYIN-CEemhFrfFZLxexQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JEyNUd-CEemhFrfFZLxexQ" x="800" y="40" height="121"/>
-  </children>
-  <children xmi:type="notation:Shape" xmi:id="_k0vQwN-DEemhFrfFZLxexQ" type="Enumeration_Shape">
-    <children xmi:type="notation:DecorationNode" xmi:id="_k0v30N-DEemhFrfFZLxexQ" type="Enumeration_NameLabel"/>
-    <children xmi:type="notation:DecorationNode" xmi:id="_k0v30d-DEemhFrfFZLxexQ" type="Enumeration_FloatingNameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_k0v30t-DEemhFrfFZLxexQ" y="15"/>
-    </children>
-    <children xmi:type="notation:BasicCompartment" xmi:id="_k0v309-DEemhFrfFZLxexQ" type="Enumeration_LiteralCompartment">
-      <children xmi:type="notation:Shape" xmi:id="_nSsg8N-DEemhFrfFZLxexQ" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_nSPN8N-DEemhFrfFZLxexQ"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_nSsg8d-DEemhFrfFZLxexQ"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_p4mMMN-DEemhFrfFZLxexQ" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_p4KuYN-DEemhFrfFZLxexQ"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_p4mMMd-DEemhFrfFZLxexQ"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_uFsewN-DEemhFrfFZLxexQ" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_uFRoAN-DEemhFrfFZLxexQ"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_uFsewd-DEemhFrfFZLxexQ"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_zF5pQN-DEemhFrfFZLxexQ" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_zFjrAN-DEemhFrfFZLxexQ"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_zF5pQd-DEemhFrfFZLxexQ"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_26O2gN-DEemhFrfFZLxexQ" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_252cAN-DEemhFrfFZLxexQ"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_26O2gd-DEemhFrfFZLxexQ"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_50H0wN-DEemhFrfFZLxexQ" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_5zvaQN-DEemhFrfFZLxexQ"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_50H0wd-DEemhFrfFZLxexQ"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_BL0bEN-EEemhFrfFZLxexQ" type="EnumerationLiteral_LiteralLabel">
-        <element xmi:type="uml:EnumerationLiteral" href="ClassicCarsOdinModel.uml#_BLaycN-EEemhFrfFZLxexQ"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_BL0bEd-EEemhFrfFZLxexQ"/>
-      </children>
-      <styles xmi:type="notation:TitleStyle" xmi:id="_k0v31N-DEemhFrfFZLxexQ"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_k0v31d-DEemhFrfFZLxexQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_k0v31t-DEemhFrfFZLxexQ"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k0v319-DEemhFrfFZLxexQ"/>
-    </children>
-    <element xmi:type="uml:Enumeration" href="ClassicCarsOdinModel.uml#_k0uCoN-DEemhFrfFZLxexQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k0vQwd-DEemhFrfFZLxexQ" x="804" y="209"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JEyNUd-CEemhFrfFZLxexQ" x="800" y="40" height="101"/>
   </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="_fXfPsd6YEemmoMLEjqVmQg" name="diagram_compatibility_version" stringValue="1.4.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_fXfPst6YEemmoMLEjqVmQg"/>
