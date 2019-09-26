@@ -31,10 +31,16 @@ private Long id;
 
 
 
+
 @NotNull
 private Integer quantityInStock; 
 
 
+
+
+
+@NotNull
+		private Double buyPrice; 
 
 
 
@@ -47,24 +53,18 @@ private Integer quantityInStock;
 
 
 
-@NotNull
-		private Double buyPrice; 
-
-
-
-
 
 @NotNull
-@Column(unique=true)
-private String productCode; 
-@NotNull
-private String productVendor; 
-@NotNull
-private String productDescription; 
+private String productName; 
 @NotNull
 private String productScale; 
 @NotNull
-private String productName; 
+private String productDescription; 
+@NotNull
+private String productVendor; 
+@NotNull
+@Column(unique=true)
+private String productCode; 
 
 
 

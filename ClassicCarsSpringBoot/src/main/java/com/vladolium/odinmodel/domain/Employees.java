@@ -16,6 +16,7 @@ public class Employees {
 
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id; 
@@ -40,13 +41,13 @@ private Integer reportsTo;
 
 
 
-
+@NotNull
+private String extension; 
 @NotNull
 private String email; 
 @NotNull
 private String jobTitle; 
-@NotNull
-private String extension; 
+
 
 
 
@@ -69,7 +70,6 @@ private String extension;
 
 @NotNull
 private Boolean isActive; 
-
 
 
 

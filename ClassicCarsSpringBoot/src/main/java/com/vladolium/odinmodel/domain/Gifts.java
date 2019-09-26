@@ -13,10 +13,10 @@ public class Gifts {
 
 
 
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id; 
+
 
 
 
@@ -39,9 +39,6 @@ private String giftName;
 
 
 
-
-
-
 public enum GiftType {
 	FREE, 
 	PLATINUM, 
@@ -59,11 +56,14 @@ private GiftType giftType;
 
 
 
+
+
+
+
+
+
 @NotNull
 private Boolean isActive; 
-
-
-
 
 
 

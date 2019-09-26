@@ -12,6 +12,7 @@ import lombok.*;
 public class Offices {
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id; 
@@ -29,12 +30,11 @@ private Long id;
 
 
 
-
+@NotNull
+private String territory; 
 @NotNull
 @Column(unique=true)
 private String officeCode; 
-@NotNull
-private String territory; 
 
 
 

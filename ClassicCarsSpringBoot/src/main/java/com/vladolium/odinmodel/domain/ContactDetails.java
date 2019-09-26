@@ -42,18 +42,18 @@ public abstract class ContactDetails {
 
 
 @NotNull
+private String postalCode; 
+@NotNull
+private String phone; 
+private String adressLine2; 
+@NotNull
+private String state; 
+@NotNull
 private String adressLine1; 
 @NotNull
 private String country; 
 @NotNull
-private String state; 
-private String adressLine2; 
-@NotNull
-private String postalCode; 
-@NotNull
 private String city; 
-@NotNull
-private String phone; 
 
 
 

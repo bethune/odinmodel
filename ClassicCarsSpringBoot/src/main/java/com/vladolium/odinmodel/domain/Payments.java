@@ -12,7 +12,6 @@ import lombok.*;
 public class Payments {
 
 
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id; 
@@ -31,6 +30,7 @@ private Long id;
 
 @NotNull
 		private Double ammount; 
+
 
 
 

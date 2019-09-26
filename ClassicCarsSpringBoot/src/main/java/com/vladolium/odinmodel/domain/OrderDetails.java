@@ -21,21 +21,21 @@ private Long id;
 
 
 
+
+
 @NotNull
 private Integer orderLineNumber; 
-
 
 @NotNull
 private Integer quantityOrdered; 
 
 
 
-
-
-
-
 @NotNull
 		private Double priceEach; 
+
+
+
 
 
 
