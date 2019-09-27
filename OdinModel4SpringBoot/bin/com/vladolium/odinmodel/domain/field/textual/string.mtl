@@ -1,6 +1,8 @@
 [comment encoding = UTF-8 /]
 [module string('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::domain::field::fieldLombok /]
+
 [template public string(aClass : Class)]
 
 [comment : For all fields of the current entity./]
@@ -12,6 +14,7 @@
 		[if p.isUnique = true] [comment : Generate the unique constraint./]
 @Column(unique=true)
 		[/if]
+[aClass.fieldLombok()/]
 private [p.type.name/] [p.name/]; [comment : Define the field's type and name./]
 	[/if]
 [/for]

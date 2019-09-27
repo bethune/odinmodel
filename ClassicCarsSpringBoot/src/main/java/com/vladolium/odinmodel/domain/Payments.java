@@ -7,13 +7,13 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class Payments {
 
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
+@Getter
+@Setter
 private Long id; 
 
 
@@ -29,14 +29,26 @@ private Long id;
 
 
 @NotNull
-		private Double ammount; 
+@Getter
+@Setter
+private Double ammount; 
 
 
 
 
 
 @NotNull
+@Getter
+@Setter
 private String checkNumber; 
+
+
+
+
+
+
+
+
 
 
 

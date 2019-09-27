@@ -2,10 +2,8 @@
 [module entity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::domain::entityJavaImports /]
-
-[import com::vladolium::odinmodel::domain::entitySubtemplatesImports /]
-
-[import com::vladolium::odinmodel::domain::entityLombok /]
+[import com::vladolium::odinmodel::domain::entityFieldImports /]
+[import com::vladolium::odinmodel::domain::entityRelationshipImports /]
 
 [template public entity(aClass : Class)
 	{
@@ -31,10 +29,10 @@ package [packageNameVar/];
 [aClass.entityJavaImports()/]
 
 @Entity
-[aClass.entityLombok()/]
 public class [entityNameVar/] {
 
-[aClass.entitySubtemplatesImports()/]
+[aClass.entityFieldImports()/]
+[aClass.entityRelationshipImports()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this entity')]
@@ -54,10 +52,9 @@ package [packageNameVar/];
 [aClass.entityJavaImports()/]
 
 @MappedSuperclass
-[aClass.entityLombok()/]
 public abstract class [entityNameVar/] {
 
-[aClass.entitySubtemplatesImports()/]
+[aClass.entityFieldImports()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this abstract class')]
@@ -77,10 +74,10 @@ package [packageNameVar/];
 [aClass.entityJavaImports()/]
 
 @Entity
-[aClass.entityLombok()/]
 public class [entityNameVar/] extends [abstractNameVar/] {
 
-[aClass.entitySubtemplatesImports()/]
+[aClass.entityFieldImports()/]
+[aClass.entityRelationshipImports()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this inheriting entity')]

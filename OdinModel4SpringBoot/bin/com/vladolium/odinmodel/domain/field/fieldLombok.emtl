@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="entityLombok" nsURI="com::vladolium::odinmodel::domain::entityLombok" startHeaderPosition="29" endHeaderPosition="-1">
+  <mtl:Module name="fieldLombok" nsURI="com::vladolium::odinmodel::domain::field::fieldLombok" startHeaderPosition="29" endHeaderPosition="-1">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Template" name="entityLombok" visibility="Public">
+    <ownedModuleElement xsi:type="mtl:Template" name="fieldLombok" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@Getter&#xA;@Setter"/>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -31,11 +31,11 @@
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eAnnotations>
-      <eOperations name="entityLombok">
+      <eOperations name="fieldLombok">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
-        <eAnnotations source="MTL" references="/0/entityLombok"/>
+        <eAnnotations source="MTL" references="/0/fieldLombok"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -84,19 +84,19 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/entityLombok">
-      <details key="start" value="93"/>
-      <details key="end" value="167"/>
+    <eAnnotations source="positions.0" references="/0/fieldLombok">
+      <details key="start" value="92"/>
+      <details key="end" value="165"/>
       <details key="line" value="4"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/entityLombok/%">
-      <details key="start" value="140"/>
-      <details key="end" value="155"/>
+    <eAnnotations source="positions.1" references="/0/fieldLombok/%">
+      <details key="start" value="138"/>
+      <details key="end" value="153"/>
       <details key="line" value="5"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/entityLombok/aClass">
-      <details key="start" value="123"/>
-      <details key="end" value="137"/>
+    <eAnnotations source="positions.2" references="/0/fieldLombok/aClass">
+      <details key="start" value="121"/>
+      <details key="end" value="135"/>
       <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>

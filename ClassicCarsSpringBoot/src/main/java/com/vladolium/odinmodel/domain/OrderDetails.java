@@ -7,14 +7,14 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class OrderDetails {
 
 
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
+@Getter
+@Setter
 private Long id; 
 
 
@@ -24,15 +24,29 @@ private Long id;
 
 
 @NotNull
+@Getter
+@Setter
 private Integer orderLineNumber; 
 
 @NotNull
+@Getter
+@Setter
 private Integer quantityOrdered; 
 
 
 
 @NotNull
-		private Double priceEach; 
+@Getter
+@Setter
+private Double priceEach; 
+
+
+
+
+
+
+
+
 
 
 

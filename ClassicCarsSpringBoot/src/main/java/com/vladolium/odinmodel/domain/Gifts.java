@@ -7,14 +7,14 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class Gifts {
 
 
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
+@Getter
+@Setter
 private Long id; 
 
 
@@ -35,6 +35,8 @@ private Long id;
 
 @NotNull
 @Column(unique=true)
+@Getter
+@Setter
 private String giftName; 
 
 
@@ -46,6 +48,8 @@ public enum GiftType {
 }
 @NotNull
 @Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
+@Getter
+@Setter
 private GiftType giftType; 
 
 
@@ -63,7 +67,17 @@ private GiftType giftType;
 
 
 @NotNull
+@Getter
+@Setter
 private Boolean isActive; 
+
+
+
+
+
+
+
+
 
 
 

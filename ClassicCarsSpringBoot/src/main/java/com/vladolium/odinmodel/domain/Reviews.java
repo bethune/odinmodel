@@ -7,8 +7,6 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class Reviews {
 
 
@@ -16,6 +14,8 @@ public class Reviews {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
+@Getter
+@Setter
 private Long id; 
 
 
@@ -34,7 +34,17 @@ private Long id;
 
 
 @NotNull
+@Getter
+@Setter
 private String reviewText; 
+
+
+
+
+
+
+
+
 
 
 

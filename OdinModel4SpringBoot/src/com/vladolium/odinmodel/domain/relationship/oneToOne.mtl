@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[module oneToOne('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::domain::field::fieldLombok /]
+
+[template public oneToOne(aClass : Class)]
+
+[comment : For all relatinships of the current entity./]
+[for (p : Property | aClass.getAssociations().memberEnd){
+		isStartEntityOneVar	: Boolean = p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst();
+		isEndEntityOneVar 	: Boolean = p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1;
+		endEntityNameVar	: String = p.opposite.type.name.toLowerFirst();
+		endEntityTypeVar 	: String = p.opposite.type.name.toUpperFirst();
+	}
+]
+	[if isStartEntityOneVar and isEndEntityOneVar] [comment : Generate the oneToOne relationship./]
+@OneToOne
+@JoinColumn(name="[endEntityNameVar/]_id")
+[aClass.fieldLombok()/]
+private [endEntityTypeVar/] [endEntityNameVar/];
+	[/if]
+[/for]
+
+[/template]

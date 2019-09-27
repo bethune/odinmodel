@@ -7,8 +7,6 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class Orders {
 
 
@@ -19,6 +17,8 @@ public class Orders {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
+@Getter
+@Setter
 private Long id; 
 
 
@@ -40,9 +40,21 @@ private Long id;
 
 
 @NotNull
+@Getter
+@Setter
 private String comments; 
 @NotNull
+@Getter
+@Setter
 private String status; 
+
+
+
+
+
+
+
+
 
 
 

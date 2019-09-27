@@ -7,8 +7,6 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class Employees {
 
 
@@ -19,6 +17,8 @@ public class Employees {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
+@Getter
+@Setter
 private Long id; 
 
 
@@ -26,6 +26,8 @@ private Long id;
 
 
 @NotNull
+@Getter
+@Setter
 private Integer reportsTo; 
 
 
@@ -42,10 +44,16 @@ private Integer reportsTo;
 
 
 @NotNull
+@Getter
+@Setter
 private String extension; 
 @NotNull
+@Getter
+@Setter
 private String email; 
 @NotNull
+@Getter
+@Setter
 private String jobTitle; 
 
 
@@ -69,7 +77,17 @@ private String jobTitle;
 
 
 @NotNull
+@Getter
+@Setter
 private Boolean isActive; 
+
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module entitySubtemplatesImports('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module entityFieldImports('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::domain::field::numerical::integer /]
 [import com::vladolium::odinmodel::domain::field::numerical::long /]
@@ -16,7 +16,7 @@
 
 [import com::vladolium::odinmodel::domain::field::binary::blob /]
 
-[template public entitySubtemplatesImports(aClass : Class)]
+[template public entityFieldImports(aClass : Class)]
 [aClass.long()/]
 [aClass.integer()/]
 [aClass.double()/]

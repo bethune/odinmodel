@@ -7,14 +7,14 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class Offices {
 
 
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
+@Getter
+@Setter
 private Long id; 
 
 
@@ -31,10 +31,22 @@ private Long id;
 
 
 @NotNull
+@Getter
+@Setter
 private String territory; 
 @NotNull
 @Column(unique=true)
+@Getter
+@Setter
 private String officeCode; 
+
+
+
+
+
+
+
+
 
 
 

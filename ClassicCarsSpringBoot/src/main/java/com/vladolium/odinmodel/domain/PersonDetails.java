@@ -9,8 +9,6 @@ import javax.validation.constraints.*;
 import lombok.*;
 
 @MappedSuperclass
-@Getter
-@Setter
 public abstract class PersonDetails {
 
 
@@ -27,8 +25,12 @@ public abstract class PersonDetails {
 
 
 @NotNull
+@Getter
+@Setter
 private String firstName; 
 @NotNull
+@Getter
+@Setter
 private String lastName; 
 
 
