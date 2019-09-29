@@ -14,6 +14,10 @@ public class Orders {
 
 
 
+
+
+
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
@@ -41,19 +45,10 @@ private Long id;
 
 
 
-
-
-
-
 @NotNull
 @Getter
 @Setter
 private String status; 
-@NotNull
-@Getter
-@Setter
-private String comments; 
-
 
 
 
@@ -75,12 +70,13 @@ private String comments;
 private LocalDate requiredDate; 
 
 
-@NotNull
+
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 @Getter
 @Setter
 private LocalDate shippedDate; 
+
 
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
@@ -121,6 +117,18 @@ private LocalDate orderDate;
 
 
 
+
+
+
+
+
+
+
+
+@Lob
+@Getter
+@Setter
+private String comments; 
 
 
 

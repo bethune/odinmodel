@@ -109,6 +109,12 @@ private LocalTime reviewTime;
 
 
 
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this entity
 //End of user code

@@ -148,6 +148,15 @@ private Boolean isExpired;
 
 
 
+
+
+
+
+
+
+
+
+
 @ManyToMany
 @JoinTable(name="gifts_customers", 
 	joinColumns = @JoinColumn(name = "gifts_id"), 

@@ -34,21 +34,10 @@ private Long id;
 
 
 
-
-
-
 @NotNull
 @Getter
 @Setter
 private String territory; 
-@NotNull
-@Column(unique=true)
-@Getter
-@Setter
-private String officeCode; 
-
-
-
 
 
 

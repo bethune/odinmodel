@@ -15,19 +15,18 @@ public class Products {
 
 
 
+
+
+
+
+
+
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
 @Setter
 private Long id; 
-
-
-
-
-
-
-
-
 
 
 
@@ -54,18 +53,24 @@ private Integer quantityInStock;
 @NotNull
 @Getter
 @Setter
+private Double buyPrice; 
+
+@NotNull
+@Getter
+@Setter
 private Double MSRP; 
 
 
 
 
+
+
+
 @NotNull
+@Column(unique=true)
 @Getter
 @Setter
-private Double buyPrice; 
-
-
-
+private String productCode; 
 @NotNull
 @Getter
 @Setter
@@ -74,15 +79,6 @@ private String productVendor;
 @Getter
 @Setter
 private String productScale; 
-@NotNull
-@Getter
-@Setter
-private String productDescription; 
-@NotNull
-@Column(unique=true)
-@Getter
-@Setter
-private String productCode; 
 @NotNull
 @Getter
 @Setter
@@ -157,6 +153,23 @@ private String productName;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+@NotNull
+@Lob
+@Getter
+@Setter
+private String productDescription; 
 
 
 

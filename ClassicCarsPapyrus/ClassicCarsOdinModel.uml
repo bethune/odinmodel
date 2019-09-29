@@ -4,10 +4,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_ZoCbsN9rEemJF-HGxlolYw" name="ProductLines">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_lYI5wN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_BbgAYN-FEemhFrfFZLxexQ" name="productLine" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Gjd_wN-FEemhFrfFZLxexQ" name="textDescription" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_hm-CUN-FEemhFrfFZLxexQ" name="htmlDescription" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j40JIN-FEemhFrfFZLxexQ"/>
-      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Gjd_wN-FEemhFrfFZLxexQ" name="textDescription" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_lgWHoN-FEemhFrfFZLxexQ" name="image" type="_LdfVoN94EemhFrfFZLxexQ" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gl4ocOA4Eemwf5LQs8Iftw"/>
       </ownedAttribute>
@@ -15,7 +12,6 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_eWzQ4N9rEemJF-HGxlolYw" name="Offices">
       <generalization xmi:type="uml:Generalization" xmi:id="_Szpq8OElEemxFfBtMY4P2Q" general="_a7sr4N9_EemhFrfFZLxexQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2CVmMN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_FJvbcN9_EemhFrfFZLxexQ" name="officeCode" type="_LFJuIN94EemhFrfFZLxexQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_dC_doN-BEemhFrfFZLxexQ" name="territory" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_f9CO4N9rEemJF-HGxlolYw" name="Products">
@@ -24,7 +20,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_B4oy4N-GEemhFrfFZLxexQ" name="productName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_EVvHcN-GEemhFrfFZLxexQ" name="productVendor" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_IFAOgN-GEemhFrfFZLxexQ" name="productScale" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_KkP4IN-GEemhFrfFZLxexQ" name="productDescription" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KkP4IN-GEemhFrfFZLxexQ" name="productDescription" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OiYhoN-GEemhFrfFZLxexQ" name="quantityInStock" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RbYIAN-GEemhFrfFZLxexQ" name="buyPrice" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_TlyKEN-GEemhFrfFZLxexQ" name="MSRP" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
@@ -47,7 +43,9 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3vK7cN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OY25kN-DEemhFrfFZLxexQ" name="extension" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QeAoMN-DEemhFrfFZLxexQ" name="email" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_SdSYUN-DEemhFrfFZLxexQ" name="reportsTo" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_SdSYUN-DEemhFrfFZLxexQ" name="reportsTo" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n2Va0OL3EemqlKIOh2pa2g"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Vwl8IN-DEemhFrfFZLxexQ" name="jobTitle" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5eA2sN_XEemc_OofB7ydVg" name="isActive" type="_JMm4IN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_9VDl8eElEemxFfBtMY4P2Q" type="_eWzQ4N9rEemJF-HGxlolYw" association="_9VBwwOElEemxFfBtMY4P2Q"/>
@@ -66,16 +64,20 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6D0eoN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_lff9oN-GEemhFrfFZLxexQ" name="orderDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_tQOH8N-GEemhFrfFZLxexQ" name="requiredDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_wjsq4N-GEemhFrfFZLxexQ" name="shippedDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wjsq4N-GEemhFrfFZLxexQ" name="shippedDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k1SqsOMCEemqlKIOh2pa2g"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_0cAZMN-GEemhFrfFZLxexQ" name="status" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_2TgtYN-GEemhFrfFZLxexQ" name="comments" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2TgtYN-GEemhFrfFZLxexQ" name="comments" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bVTiMOMCEemqlKIOh2pa2g"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_0qr20OElEemxFfBtMY4P2Q" type="_noWUwN9rEemJF-HGxlolYw" association="_0qpakOElEemxFfBtMY4P2Q"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_BvMh0N9sEemJF-HGxlolYw" name="Payments">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6T8lUN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_M8lTYN-EEemhFrfFZLxexQ" name="checkNumber" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_UOpLwN-EEemhFrfFZLxexQ" name="paymentDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_ahb_gN-EEemhFrfFZLxexQ" name="ammount" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ahb_gN-EEemhFrfFZLxexQ" name="amount" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_BnCYgOEmEemxFfBtMY4P2Q" type="_noWUwN9rEemJF-HGxlolYw" association="_BnAjUOEmEemxFfBtMY4P2Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_TY-m4OIoEemqlKIOh2pa2g" name="paymentTimestamp" type="_6xwZgOInEemqlKIOh2pa2g" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O1XegOI4EemqlKIOh2pa2g"/>
@@ -101,14 +103,20 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_a7sr4N9_EemhFrfFZLxexQ" name="ContactDetails" isAbstract="true">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_CzrtkN-AEemhFrfFZLxexQ" name="city" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_KFmcAN-AEemhFrfFZLxexQ" name="phone" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_QB9swN-AEemhFrfFZLxexQ" name="adressLine1" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TGB6sN-AEemhFrfFZLxexQ" name="adressLine2" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KFmcAN-AEemhFrfFZLxexQ" name="phone" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4pWPkOL4EemqlKIOh2pa2g"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QB9swN-AEemhFrfFZLxexQ" name="addressLine1" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_TGB6sN-AEemhFrfFZLxexQ" name="addressLine2" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x-ff0N-EEemhFrfFZLxexQ"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_XJjagN-AEemhFrfFZLxexQ" name="state" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_XJjagN-AEemhFrfFZLxexQ" name="state" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z9DYoOK8EemqlKIOh2pa2g"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ZlzagN-AEemhFrfFZLxexQ" name="country" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_co3i4N-AEemhFrfFZLxexQ" name="postalCode" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_co3i4N-AEemhFrfFZLxexQ" name="postalCode" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OJbQYOL6EemqlKIOh2pa2g"/>
+      </ownedAttribute>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_wovgwN93EemhFrfFZLxexQ" name="Integer"/>
@@ -116,7 +124,7 @@
   <packagedElement xmi:type="uml:DataType" xmi:id="_xvWjgN93EemhFrfFZLxexQ" name="Double"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_JMm4IN94EemhFrfFZLxexQ" name="Boolean"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_LFJuIN94EemhFrfFZLxexQ" name="String"/>
-  <packagedElement xmi:type="uml:DataType" xmi:id="_LdfVoN94EemhFrfFZLxexQ" name="Lob"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_LdfVoN94EemhFrfFZLxexQ" name="Blob"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_L0lnAN94EemhFrfFZLxexQ" name="Date"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_MEiukN94EemhFrfFZLxexQ" name="DateTime"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_MTP48N94EemhFrfFZLxexQ" name="Time"/>
@@ -201,4 +209,7 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_DkMoweEmEemxFfBtMY4P2Q" type="_noWUwN9rEemJF-HGxlolYw" association="_DkKMgOEmEemxFfBtMY4P2Q"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_6xwZgOInEemqlKIOh2pa2g" name="Timestamp"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_coD-oOLCEemqlKIOh2pa2g" name="Clob">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_QhFBEOL2EemqlKIOh2pa2g" name="Operation1"/>
+  </packagedElement>
 </uml:Model>

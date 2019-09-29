@@ -16,7 +16,6 @@ public class ProductLines {
 
 
 
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
@@ -37,15 +36,6 @@ private Long id;
 
 
 
-
-
-@Getter
-@Setter
-private String htmlDescription; 
-@NotNull
-@Getter
-@Setter
-private String textDescription; 
 @NotNull
 @Getter
 @Setter
@@ -90,8 +80,11 @@ private String productLine;
 
 
 
-
-
+@NotNull
+@Lob
+@Getter
+@Setter
+private String textDescription; 
 
 
 
@@ -101,6 +94,7 @@ private String productLine;
 @Getter
 @Setter
 private byte[] image; 
+
 
 
 

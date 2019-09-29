@@ -42,33 +42,39 @@ public abstract class ContactDetails {
 
 
 
-@NotNull
 @Getter
 @Setter
-private String adressLine1; 
+private String postalCode; 
 @NotNull
 @Getter
 @Setter
 private String city; 
-@NotNull
 @Getter
 @Setter
 private String phone; 
+@Getter
+@Setter
+private String state; 
+@NotNull
+@Getter
+@Setter
+private String addressLine1; 
+@Getter
+@Setter
+private String addressLine2; 
 @NotNull
 @Getter
 @Setter
 private String country; 
-@NotNull
-@Getter
-@Setter
-private String state; 
-@Getter
-@Setter
-private String adressLine2; 
-@NotNull
-@Getter
-@Setter
-private String postalCode; 
+
+
+
+
+
+
+
+
+
 
 
 

@@ -37,7 +37,7 @@ private Long id;
 @NotNull
 @Getter
 @Setter
-private Double ammount; 
+private Double amount; 
 
 
 
@@ -100,6 +100,14 @@ private LocalDate paymentDate;
 @Getter
 @Setter
 private Instant paymentTimestamp = Instant.now(); 
+
+
+
+
+
+
+
+
 
 
 

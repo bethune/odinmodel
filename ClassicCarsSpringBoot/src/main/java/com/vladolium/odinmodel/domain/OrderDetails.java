@@ -13,8 +13,6 @@ import lombok.*;
 public class OrderDetails {
 
 
-
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
@@ -26,16 +24,19 @@ private Long id;
 
 
 
-@NotNull
-@Getter
-@Setter
-private Integer orderLineNumber; 
+
+
+
 
 @NotNull
 @Getter
 @Setter
 private Integer quantityOrdered; 
 
+@NotNull
+@Getter
+@Setter
+private Integer orderLineNumber; 
 
 
 
@@ -49,6 +50,13 @@ private Integer quantityOrdered;
 @Getter
 @Setter
 private Double priceEach; 
+
+
+
+
+
+
+
 
 
 
