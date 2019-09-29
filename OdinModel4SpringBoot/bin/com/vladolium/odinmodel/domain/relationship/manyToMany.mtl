@@ -6,21 +6,15 @@
 [template public manyToMany(aClass : Class)]
 
 [comment : For all relatinships of the current entity./]
-[for (p : Property | aClass.getAssociations().memberEnd){
-		isStartEntityManyVar	: Boolean = p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst();
-		isEndEntityManyVar 		: Boolean = p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1;
-		startEntityNameVar		: String = p.type.name.toLowerFirst();
-		endEntityNameVar		: String = p.opposite.type.name.toLowerFirst();
-		endEntityTypeVar 		: String = p.opposite.type.name.toUpperFirst();
-	}
-]
-	[if isStartEntityManyVar and isEndEntityManyVar] [comment : Generate the manyToMany relationship./]
+[for (p : Property | aClass.getAssociations().memberEnd)]
+	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and
+		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1] [comment : Generate the manyToMany relationship./]
 @ManyToMany
-@JoinTable(name="[startEntityNameVar/]_[endEntityNameVar/]", 
-	joinColumns = @JoinColumn(name = "[startEntityNameVar/]_id"), 
-	inverseJoinColumns = @JoinColumn(name = "[endEntityNameVar/]_id"))
+@JoinTable(name="[p.type.name.toLowerFirst()/]_[p.opposite.type.name.toLowerFirst()/]", 
+	joinColumns = @JoinColumn(name = "[p.type.name.toLowerFirst()/]_id"), 
+	inverseJoinColumns = @JoinColumn(name = "[p.opposite.type.name.toLowerFirst()/]_id"))
 [aClass.fieldLombok()/]
-private Set<[endEntityTypeVar/]> [endEntityNameVar/]Set = new HashSet<>();
+private Set<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set = new HashSet<>();
 	[/if]
 [/for]
 

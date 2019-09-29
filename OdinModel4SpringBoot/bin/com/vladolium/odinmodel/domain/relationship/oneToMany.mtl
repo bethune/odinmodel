@@ -6,19 +6,13 @@
 [template public oneToMany(aClass : Class)]
 
 [comment : For all relatinships of the current entity./]
-[for (p : Property | aClass.getAssociations().memberEnd){
-		isStartEntityOneVar	: Boolean = p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst();
-		isEndEntityManyVar 	: Boolean = p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1;
-		startEntityNameVar	: String = p.type.name.toLowerFirst();		
-		endEntityNameVar	: String = p.opposite.type.name.toLowerFirst();
-		endEntityTypeVar 	: String = p.opposite.type.name.toUpperFirst();
-	}
-]
-	[if isStartEntityOneVar and isEndEntityManyVar] [comment : Generate the oneToMany relationship./]
+[for (p : Property | aClass.getAssociations().memberEnd)]
+	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1] [comment : Generate the oneToMany relationship./]
 @OneToMany
-@JoinColumn(name="[startEntityNameVar/]_id")
+@JoinColumn(name="[p.type.name.toLowerFirst()/]_id")
 [aClass.fieldLombok()/]
-private List<[endEntityTypeVar/]> [endEntityNameVar/]List;
+private List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List;
 	[/if]
 [/for]
 

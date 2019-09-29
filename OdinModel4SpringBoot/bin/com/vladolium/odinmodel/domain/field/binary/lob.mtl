@@ -1,0 +1,20 @@
+[comment encoding = UTF-8 /]
+[module lob('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::domain::field::fieldLombok /]
+
+[template public lob(aClass : Class)]
+
+[comment : For all fields of the current entity./]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
+	[if p.type.name = 'Lob']
+		[if p.lower = 1 and p.isID = false] [comment : Generate the not null constraint./]
+@NotNull
+		[/if]
+@Lob
+[aClass.fieldLombok()/]
+private byte['['/][']'/] [p.name/]; [comment : Define the field's type and name./]
+	[/if]
+[/for]
+
+[/template]

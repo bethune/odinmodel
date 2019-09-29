@@ -1,14 +1,20 @@
 
 
+
+
+
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @Entity
-public class Offices {
-
+public class Offices extends ContactDetails {
 
 
 @Id
@@ -16,6 +22,7 @@ public class Offices {
 @Getter
 @Setter
 private Long id; 
+
 
 
 
@@ -68,13 +75,30 @@ private String officeCode;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
-//Start of user code for this entity
+//Start of user code for this inheriting entity
 //End of user code
 
 }
-
-
-
-
 

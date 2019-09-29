@@ -8,207 +8,21 @@
     <ownedModuleElement xsi:type="mtl:Template" name="oneToMany" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:ForBlock">
-        <init>
-          <variable name="isStartEntityOneVar">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <initExpression xsi:type="ocl.ecore:OperationCallExp">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <source xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/lower"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                  </argument>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-                </source>
-                <argument xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/upper"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                  </argument>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-              </source>
-              <argument xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <source xsi:type="ocl.ecore:PropertyCallExp">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                      </source>
-                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-                  </source>
-                </source>
-                <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/oneToMany/aClass">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-                  </source>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
-              </argument>
-              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-            </initExpression>
-          </variable>
-          <variable name="isEndEntityManyVar">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <initExpression xsi:type="ocl.ecore:OperationCallExp">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <source xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Namespace"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/namespace"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/10">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/association"/>
-                  </argument>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
-                </source>
-                <argument xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                    <source xsi:type="ocl.ecore:PropertyCallExp">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                      </source>
-                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/lower"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                  </argument>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-              </source>
-              <argument xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/upper"/>
-                </source>
-                <argument xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                  <source xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                  </source>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/-.1"/>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-              </argument>
-              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-            </initExpression>
-          </variable>
-          <variable name="startEntityNameVar">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-              </source>
-            </initExpression>
-          </variable>
-          <variable name="endEntityNameVar">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-              </source>
-            </initExpression>
-          </variable>
-          <variable name="endEntityTypeVar">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-              </source>
-            </initExpression>
-          </variable>
-        </init>
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@OneToMany&#xA;@JoinColumn(name=&quot;"/>
-          <body xsi:type="ocl.ecore:VariableExp" name="startEntityNameVar" referredVariable="/0/oneToMany/%.1/@init/@variable.2">
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
           </body>
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_id&quot;)&#xA;"/>
           <body xsi:type="mtl:TemplateInvocation">
@@ -219,21 +33,175 @@
             </argument>
           </body>
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;private List&lt;"/>
-          <body xsi:type="ocl.ecore:VariableExp" name="endEntityTypeVar" referredVariable="/0/oneToMany/%.1/@init/@variable.4">
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
           </body>
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="> "/>
-          <body xsi:type="ocl.ecore:VariableExp" name="endEntityNameVar" referredVariable="/0/oneToMany/%.1/@init/@variable.3">
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
           </body>
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="List;&#xA;"/>
           <ifExpr xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <source xsi:type="ocl.ecore:VariableExp" name="isStartEntityOneVar" referredVariable="/0/oneToMany/%.1/@init/@variable.0">
+            <source xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                    <source xsi:type="ocl.ecore:OperationCallExp">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                      <source xsi:type="ocl.ecore:PropertyCallExp">
+                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                        <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                        </source>
+                        <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/lower"/>
+                      </source>
+                      <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
+                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                      </argument>
+                      <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+                    </source>
+                    <argument xsi:type="ocl.ecore:OperationCallExp">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                      <source xsi:type="ocl.ecore:PropertyCallExp">
+                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                        <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                        </source>
+                        <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/upper"/>
+                      </source>
+                      <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
+                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                      </argument>
+                      <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+                    </argument>
+                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:OperationCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                    <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                      <source xsi:type="ocl.ecore:PropertyCallExp">
+                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                        <source xsi:type="ocl.ecore:PropertyCallExp">
+                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                          <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                          </source>
+                          <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+                        </source>
+                        <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                      </source>
+                    </source>
+                    <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                      <source xsi:type="ocl.ecore:PropertyCallExp">
+                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                        <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/oneToMany/aClass">
+                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                        </source>
+                        <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                      </source>
+                    </argument>
+                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
+                </source>
+                <argument xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Namespace"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/namespace"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/9">
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/association"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
+              </source>
+              <argument xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/lower"/>
+                </source>
+                <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
             </source>
-            <argument xsi:type="ocl.ecore:VariableExp" name="isEndEntityManyVar" referredVariable="/0/oneToMany/%.1/@init/@variable.1">
+            <argument xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/oneToMany/%.1/p">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/upper"/>
+              </source>
+              <argument xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/-.1"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
             </argument>
             <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
           </ifExpr>
@@ -387,21 +355,6 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="i">
@@ -413,7 +366,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/oneToMany">
       <details key="start" value="156"/>
-      <details key="end" value="1017"/>
+      <details key="end" value="755"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/oneToMany/%">
@@ -423,400 +376,345 @@
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/oneToMany/%.1">
       <details key="start" value="258"/>
-      <details key="end" value="1004"/>
+      <details key="end" value="742"/>
       <details key="line" value="9"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/oneToMany/%.1/@init">
-      <details key="start" value="314"/>
-      <details key="end" value="750"/>
-      <details key="line" value="9"/>
-    </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/oneToMany/%.1/@init/@variable.0">
-      <details key="start" value="318"/>
-      <details key="end" value="437"/>
+    <eAnnotations source="positions.3" references="/0/oneToMany/%.1/%">
+      <details key="start" value="317"/>
+      <details key="end" value="735"/>
       <details key="line" value="10"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/oneToMany/%.1/@init/@variable.0/%">
-      <details key="start" value="350"/>
-      <details key="end" value="437"/>
+    <eAnnotations source="positions.4" references="/0/oneToMany/%.1/%/%">
+      <details key="start" value="544"/>
+      <details key="end" value="573"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/oneToMany/%.1/%/%.1">
+      <details key="start" value="574"/>
+      <details key="end" value="600"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/oneToMany/%.1/@init/@variable.0/%/%">
-      <details key="start" value="350"/>
-      <details key="end" value="377"/>
+    <eAnnotations source="positions.6" references="/0/oneToMany/%.1/%/%.1/%">
+      <details key="start" value="574"/>
+      <details key="end" value="585"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%">
-      <details key="start" value="350"/>
-      <details key="end" value="361"/>
+    <eAnnotations source="positions.7" references="/0/oneToMany/%.1/%/%.1/%/%">
+      <details key="start" value="574"/>
+      <details key="end" value="580"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%/%">
-      <details key="start" value="350"/>
-      <details key="end" value="357"/>
+    <eAnnotations source="positions.8" references="/0/oneToMany/%.1/%/%.1/%/%/p">
+      <details key="start" value="574"/>
+      <details key="end" value="575"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%/%/p">
-      <details key="start" value="350"/>
-      <details key="end" value="351"/>
+    <eAnnotations source="positions.9" references="/0/oneToMany/%.1/%/%.2">
+      <details key="start" value="602"/>
+      <details key="end" value="608"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/oneToMany/%.1/%/%.3">
+      <details key="start" value="609"/>
+      <details key="end" value="629"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%/%.1">
-      <details key="start" value="360"/>
-      <details key="end" value="361"/>
+    <eAnnotations source="positions.11" references="/0/oneToMany/%.1/%/%.3/aClass">
+      <details key="start" value="609"/>
+      <details key="end" value="615"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%.1">
-      <details key="start" value="366"/>
-      <details key="end" value="377"/>
+    <eAnnotations source="positions.12" references="/0/oneToMany/%.1/%/%.4">
+      <details key="start" value="631"/>
+      <details key="end" value="645"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/oneToMany/%.1/%/%.5">
+      <details key="start" value="646"/>
+      <details key="end" value="681"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%.1/%">
-      <details key="start" value="366"/>
-      <details key="end" value="373"/>
+    <eAnnotations source="positions.14" references="/0/oneToMany/%.1/%/%.5/%">
+      <details key="start" value="646"/>
+      <details key="end" value="666"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%.1/%/p">
-      <details key="start" value="366"/>
-      <details key="end" value="367"/>
+    <eAnnotations source="positions.15" references="/0/oneToMany/%.1/%/%.5/%/%">
+      <details key="start" value="646"/>
+      <details key="end" value="661"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/oneToMany/%.1/@init/@variable.0/%/%/%.1/%.1">
-      <details key="start" value="376"/>
-      <details key="end" value="377"/>
+    <eAnnotations source="positions.16" references="/0/oneToMany/%.1/%/%.5/%/%/%">
+      <details key="start" value="646"/>
+      <details key="end" value="656"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1">
-      <details key="start" value="382"/>
-      <details key="end" value="437"/>
+    <eAnnotations source="positions.17" references="/0/oneToMany/%.1/%/%.5/%/%/%/p">
+      <details key="start" value="646"/>
+      <details key="end" value="647"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1/%">
+    <eAnnotations source="positions.18" references="/0/oneToMany/%.1/%/%.6">
+      <details key="start" value="683"/>
+      <details key="end" value="685"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/oneToMany/%.1/%/%.7">
+      <details key="start" value="686"/>
+      <details key="end" value="721"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/oneToMany/%.1/%/%.7/%">
+      <details key="start" value="686"/>
+      <details key="end" value="706"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/oneToMany/%.1/%/%.7/%/%">
+      <details key="start" value="686"/>
+      <details key="end" value="701"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/oneToMany/%.1/%/%.7/%/%/%">
+      <details key="start" value="686"/>
+      <details key="end" value="696"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/oneToMany/%.1/%/%.7/%/%/%/p">
+      <details key="start" value="686"/>
+      <details key="end" value="687"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/oneToMany/%.1/%/%.8">
+      <details key="start" value="723"/>
+      <details key="end" value="729"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/oneToMany/%.1/%/%.9">
+      <details key="start" value="321"/>
+      <details key="end" value="492"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/oneToMany/%.1/%/%.9/%">
+      <details key="start" value="321"/>
+      <details key="end" value="466"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/oneToMany/%.1/%/%.9/%/%">
+      <details key="start" value="321"/>
+      <details key="end" value="441"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/oneToMany/%.1/%/%.9/%/%/%">
+      <details key="start" value="321"/>
+      <details key="end" value="408"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/oneToMany/%.1/%/%.9/%/%/%/%">
+      <details key="start" value="321"/>
+      <details key="end" value="348"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%">
+      <details key="start" value="321"/>
+      <details key="end" value="332"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%/%">
+      <details key="start" value="321"/>
+      <details key="end" value="328"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%/%/p">
+      <details key="start" value="321"/>
+      <details key="end" value="322"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%/%.1">
+      <details key="start" value="331"/>
+      <details key="end" value="332"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%.1">
+      <details key="start" value="337"/>
+      <details key="end" value="348"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%.1/%">
+      <details key="start" value="337"/>
+      <details key="end" value="344"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%.1/%/p">
+      <details key="start" value="337"/>
+      <details key="end" value="338"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/oneToMany/%.1/%/%.9/%/%/%/%/%.1/%.1">
+      <details key="start" value="347"/>
+      <details key="end" value="348"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1">
+      <details key="start" value="353"/>
+      <details key="end" value="408"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1/%">
+      <details key="start" value="353"/>
+      <details key="end" value="379"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1/%/%">
+      <details key="start" value="353"/>
+      <details key="end" value="364"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1/%/%/%">
+      <details key="start" value="353"/>
+      <details key="end" value="359"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1/%/%/%/p">
+      <details key="start" value="353"/>
+      <details key="end" value="354"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1/%.1">
       <details key="start" value="382"/>
       <details key="end" value="408"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1/%/%">
+    <eAnnotations source="positions.44" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1/%.1/%">
       <details key="start" value="382"/>
       <details key="end" value="393"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1/%/%/%">
+    <eAnnotations source="positions.45" references="/0/oneToMany/%.1/%/%.9/%/%/%/%.1/%.1/%/aClass">
       <details key="start" value="382"/>
       <details key="end" value="388"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1/%/%/%/p">
-      <details key="start" value="382"/>
-      <details key="end" value="383"/>
+    <eAnnotations source="positions.46" references="/0/oneToMany/%.1/%/%.9/%/%/%.1">
+      <details key="start" value="416"/>
+      <details key="end" value="441"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1/%.1">
-      <details key="start" value="411"/>
-      <details key="end" value="437"/>
+    <eAnnotations source="positions.47" references="/0/oneToMany/%.1/%/%.9/%/%/%.1/%">
+      <details key="start" value="416"/>
+      <details key="end" value="427"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1/%.1/%">
-      <details key="start" value="411"/>
-      <details key="end" value="422"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/oneToMany/%.1/@init/@variable.0/%/%.1/%.1/%/aClass">
-      <details key="start" value="411"/>
+    <eAnnotations source="positions.48" references="/0/oneToMany/%.1/%/%.9/%/%/%.1/%/p">
+      <details key="start" value="416"/>
       <details key="end" value="417"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/oneToMany/%.1/@init/@variable.1">
-      <details key="start" value="441"/>
-      <details key="end" value="549"/>
-      <details key="line" value="11"/>
-    </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/oneToMany/%.1/@init/@variable.1/%">
-      <details key="start" value="473"/>
-      <details key="end" value="549"/>
+    <eAnnotations source="positions.49" references="/0/oneToMany/%.1/%/%.9/%/%/%.1/%.1">
+      <details key="start" value="430"/>
+      <details key="end" value="441"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/oneToMany/%.1/@init/@variable.1/%/%">
-      <details key="start" value="473"/>
-      <details key="end" value="523"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%">
-      <details key="start" value="473"/>
-      <details key="end" value="498"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%/%">
-      <details key="start" value="473"/>
-      <details key="end" value="484"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%/%/p">
-      <details key="start" value="473"/>
-      <details key="end" value="474"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.29" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%/%.1">
-      <details key="start" value="487"/>
-      <details key="end" value="498"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.30" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%/%.1/self">
+    <eAnnotations source="positions.50" references="/0/oneToMany/%.1/%/%.9/%/%/%.1/%.1/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%.1">
-      <details key="start" value="503"/>
-      <details key="end" value="523"/>
+    <eAnnotations source="positions.51" references="/0/oneToMany/%.1/%/%.9/%/%.1">
+      <details key="start" value="446"/>
+      <details key="end" value="466"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.32" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%.1/%">
-      <details key="start" value="503"/>
-      <details key="end" value="519"/>
+    <eAnnotations source="positions.52" references="/0/oneToMany/%.1/%/%.9/%/%.1/%">
+      <details key="start" value="446"/>
+      <details key="end" value="462"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.33" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%.1/%/%">
-      <details key="start" value="503"/>
-      <details key="end" value="513"/>
+    <eAnnotations source="positions.53" references="/0/oneToMany/%.1/%/%.9/%/%.1/%/%">
+      <details key="start" value="446"/>
+      <details key="end" value="456"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.34" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%.1/%/%/p">
-      <details key="start" value="503"/>
-      <details key="end" value="504"/>
+    <eAnnotations source="positions.54" references="/0/oneToMany/%.1/%/%.9/%/%.1/%/%/p">
+      <details key="start" value="446"/>
+      <details key="end" value="447"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.35" references="/0/oneToMany/%.1/@init/@variable.1/%/%/%.1/%.1">
-      <details key="start" value="522"/>
-      <details key="end" value="523"/>
+    <eAnnotations source="positions.55" references="/0/oneToMany/%.1/%/%.9/%/%.1/%.1">
+      <details key="start" value="465"/>
+      <details key="end" value="466"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.36" references="/0/oneToMany/%.1/@init/@variable.1/%/%.1">
-      <details key="start" value="528"/>
-      <details key="end" value="549"/>
+    <eAnnotations source="positions.56" references="/0/oneToMany/%.1/%/%.9/%.1">
+      <details key="start" value="471"/>
+      <details key="end" value="492"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.37" references="/0/oneToMany/%.1/@init/@variable.1/%/%.1/%">
-      <details key="start" value="528"/>
-      <details key="end" value="544"/>
+    <eAnnotations source="positions.57" references="/0/oneToMany/%.1/%/%.9/%.1/%">
+      <details key="start" value="471"/>
+      <details key="end" value="487"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.38" references="/0/oneToMany/%.1/@init/@variable.1/%/%.1/%/%">
-      <details key="start" value="528"/>
-      <details key="end" value="538"/>
+    <eAnnotations source="positions.58" references="/0/oneToMany/%.1/%/%.9/%.1/%/%">
+      <details key="start" value="471"/>
+      <details key="end" value="481"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.39" references="/0/oneToMany/%.1/@init/@variable.1/%/%.1/%/%/p">
-      <details key="start" value="528"/>
-      <details key="end" value="529"/>
+    <eAnnotations source="positions.59" references="/0/oneToMany/%.1/%/%.9/%.1/%/%/p">
+      <details key="start" value="471"/>
+      <details key="end" value="472"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.40" references="/0/oneToMany/%.1/@init/@variable.1/%/%.1/%.1">
-      <details key="start" value="547"/>
-      <details key="end" value="549"/>
+    <eAnnotations source="positions.60" references="/0/oneToMany/%.1/%/%.9/%.1/%.1">
+      <details key="start" value="490"/>
+      <details key="end" value="492"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.41" references="/0/oneToMany/%.1/@init/@variable.1/%/%.1/%.1/%">
-      <details key="start" value="548"/>
-      <details key="end" value="549"/>
+    <eAnnotations source="positions.61" references="/0/oneToMany/%.1/%/%.9/%.1/%.1/%">
+      <details key="start" value="491"/>
+      <details key="end" value="492"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.42" references="/0/oneToMany/%.1/@init/@variable.2">
-      <details key="start" value="553"/>
-      <details key="end" value="609"/>
-      <details key="line" value="12"/>
-    </eAnnotations>
-    <eAnnotations source="positions.43" references="/0/oneToMany/%.1/@init/@variable.2/%">
-      <details key="start" value="583"/>
-      <details key="end" value="609"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.44" references="/0/oneToMany/%.1/@init/@variable.2/%/%">
-      <details key="start" value="583"/>
-      <details key="end" value="594"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.45" references="/0/oneToMany/%.1/@init/@variable.2/%/%/%">
-      <details key="start" value="583"/>
-      <details key="end" value="589"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.46" references="/0/oneToMany/%.1/@init/@variable.2/%/%/%/p">
-      <details key="start" value="583"/>
-      <details key="end" value="584"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.47" references="/0/oneToMany/%.1/@init/@variable.3">
-      <details key="start" value="615"/>
-      <details key="end" value="678"/>
-      <details key="line" value="13"/>
-    </eAnnotations>
-    <eAnnotations source="positions.48" references="/0/oneToMany/%.1/@init/@variable.3/%">
-      <details key="start" value="643"/>
-      <details key="end" value="678"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.49" references="/0/oneToMany/%.1/@init/@variable.3/%/%">
-      <details key="start" value="643"/>
-      <details key="end" value="663"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.50" references="/0/oneToMany/%.1/@init/@variable.3/%/%/%">
-      <details key="start" value="643"/>
-      <details key="end" value="658"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.51" references="/0/oneToMany/%.1/@init/@variable.3/%/%/%/%">
-      <details key="start" value="643"/>
-      <details key="end" value="653"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.52" references="/0/oneToMany/%.1/@init/@variable.3/%/%/%/%/p">
-      <details key="start" value="643"/>
-      <details key="end" value="644"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.53" references="/0/oneToMany/%.1/@init/@variable.4">
-      <details key="start" value="682"/>
-      <details key="end" value="746"/>
-      <details key="line" value="14"/>
-    </eAnnotations>
-    <eAnnotations source="positions.54" references="/0/oneToMany/%.1/@init/@variable.4/%">
-      <details key="start" value="711"/>
-      <details key="end" value="746"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.55" references="/0/oneToMany/%.1/@init/@variable.4/%/%">
-      <details key="start" value="711"/>
-      <details key="end" value="731"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.56" references="/0/oneToMany/%.1/@init/@variable.4/%/%/%">
-      <details key="start" value="711"/>
-      <details key="end" value="726"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.57" references="/0/oneToMany/%.1/@init/@variable.4/%/%/%/%">
-      <details key="start" value="711"/>
-      <details key="end" value="721"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.58" references="/0/oneToMany/%.1/@init/@variable.4/%/%/%/%/p">
-      <details key="start" value="711"/>
-      <details key="end" value="712"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.59" references="/0/oneToMany/%.1/%">
-      <details key="start" value="754"/>
-      <details key="end" value="997"/>
-      <details key="line" value="17"/>
-    </eAnnotations>
-    <eAnnotations source="positions.60" references="/0/oneToMany/%.1/%/%">
-      <details key="start" value="852"/>
-      <details key="end" value="881"/>
-      <details key="line" value="18"/>
-    </eAnnotations>
-    <eAnnotations source="positions.61" references="/0/oneToMany/%.1/%/startEntityNameVar">
-      <details key="start" value="882"/>
-      <details key="end" value="900"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.62" references="/0/oneToMany/%.1/%/%.1">
-      <details key="start" value="902"/>
-      <details key="end" value="908"/>
-      <details key="line" value="19"/>
-    </eAnnotations>
-    <eAnnotations source="positions.63" references="/0/oneToMany/%.1/%/%.2">
-      <details key="start" value="909"/>
-      <details key="end" value="929"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.64" references="/0/oneToMany/%.1/%/%.2/aClass">
-      <details key="start" value="909"/>
-      <details key="end" value="915"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.65" references="/0/oneToMany/%.1/%/%.3">
-      <details key="start" value="931"/>
-      <details key="end" value="945"/>
-      <details key="line" value="21"/>
-    </eAnnotations>
-    <eAnnotations source="positions.66" references="/0/oneToMany/%.1/%/endEntityTypeVar">
-      <details key="start" value="946"/>
-      <details key="end" value="962"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.67" references="/0/oneToMany/%.1/%/%.4">
-      <details key="start" value="964"/>
-      <details key="end" value="966"/>
-      <details key="line" value="21"/>
-    </eAnnotations>
-    <eAnnotations source="positions.68" references="/0/oneToMany/%.1/%/endEntityNameVar">
-      <details key="start" value="967"/>
-      <details key="end" value="983"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.69" references="/0/oneToMany/%.1/%/%.5">
-      <details key="start" value="985"/>
-      <details key="end" value="991"/>
-      <details key="line" value="21"/>
-    </eAnnotations>
-    <eAnnotations source="positions.70" references="/0/oneToMany/%.1/%/%.6">
-      <details key="start" value="758"/>
-      <details key="end" value="800"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.71" references="/0/oneToMany/%.1/%/%.6/isStartEntityOneVar">
-      <details key="start" value="758"/>
-      <details key="end" value="777"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.72" references="/0/oneToMany/%.1/%/%.6/isEndEntityManyVar">
-      <details key="start" value="782"/>
-      <details key="end" value="800"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.73" references="/0/oneToMany/%.1/p">
+    <eAnnotations source="positions.62" references="/0/oneToMany/%.1/p">
       <details key="start" value="264"/>
       <details key="end" value="276"/>
       <details key="line" value="9"/>
     </eAnnotations>
-    <eAnnotations source="positions.74" references="/0/oneToMany/%.1/collect">
+    <eAnnotations source="positions.63" references="/0/oneToMany/%.1/collect">
       <details key="start" value="279"/>
       <details key="end" value="313"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.75" references="/0/oneToMany/%.1/collect/%">
+    <eAnnotations source="positions.64" references="/0/oneToMany/%.1/collect/%">
       <details key="start" value="279"/>
       <details key="end" value="303"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.76" references="/0/oneToMany/%.1/collect/%/aClass">
+    <eAnnotations source="positions.65" references="/0/oneToMany/%.1/collect/%/aClass">
       <details key="start" value="279"/>
       <details key="end" value="285"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.77" references="/0/oneToMany/%.1/collect/%.1">
+    <eAnnotations source="positions.66" references="/0/oneToMany/%.1/collect/%.1">
       <details key="start" value="304"/>
       <details key="end" value="313"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.78" references="/0/oneToMany/%.1/collect/%.1/temp1">
+    <eAnnotations source="positions.67" references="/0/oneToMany/%.1/collect/%.1/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.79" references="/0/oneToMany/%.1/collect/temp1">
+    <eAnnotations source="positions.68" references="/0/oneToMany/%.1/collect/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.80" references="/0/oneToMany/%.2">
-      <details key="start" value="1005"/>
-      <details key="end" value="1006"/>
-      <details key="line" value="24"/>
+    <eAnnotations source="positions.69" references="/0/oneToMany/%.2">
+      <details key="start" value="743"/>
+      <details key="end" value="744"/>
+      <details key="line" value="18"/>
     </eAnnotations>
-    <eAnnotations source="positions.81" references="/0/oneToMany/aClass">
+    <eAnnotations source="positions.70" references="/0/oneToMany/aClass">
       <details key="start" value="183"/>
       <details key="end" value="197"/>
       <details key="line" value="6"/>

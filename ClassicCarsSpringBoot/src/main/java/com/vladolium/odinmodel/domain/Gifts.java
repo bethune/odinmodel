@@ -4,11 +4,13 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @Entity
 public class Gifts {
-
 
 
 @Id
@@ -33,11 +35,23 @@ private Long id;
 
 
 
+
+
+
+
+
+
+
+
+
+
 @NotNull
 @Column(unique=true)
 @Getter
 @Setter
 private String giftName; 
+
+
 
 
 
@@ -66,10 +80,53 @@ private GiftType giftType;
 
 
 
+
+
+
+
+
+@NotNull
+@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+//@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+@Getter
+@Setter
+private LocalDateTime beginsOn; 
+
+@NotNull
+@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+//@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+@Getter
+@Setter
+private LocalDateTime expiresOn; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @NotNull
 @Getter
 @Setter
-private Boolean isActive; 
+private Boolean isExpired; 
 
 
 
@@ -77,6 +134,27 @@ private Boolean isActive;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@ManyToMany
+@JoinTable(name="gifts_customers", 
+	joinColumns = @JoinColumn(name = "gifts_id"), 
+	inverseJoinColumns = @JoinColumn(name = "customers_id"))
+@Getter
+@Setter
+private Set<Customers> customersSet = new HashSet<>();
 
 
 

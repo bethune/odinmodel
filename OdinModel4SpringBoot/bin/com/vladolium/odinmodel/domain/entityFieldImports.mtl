@@ -11,10 +11,11 @@
 [import com::vladolium::odinmodel::domain::field::datetime::date /]
 [import com::vladolium::odinmodel::domain::field::datetime::dateTime /]
 [import com::vladolium::odinmodel::domain::field::datetime::time /]
+[import com::vladolium::odinmodel::domain::field::datetime::timestamp /]
 
 [import com::vladolium::odinmodel::domain::field::logical::boolean /]
 
-[import com::vladolium::odinmodel::domain::field::binary::blob /]
+[import com::vladolium::odinmodel::domain::field::binary::lob /]
 
 [template public entityFieldImports(aClass : Class)]
 [aClass.long()/]
@@ -25,6 +26,7 @@
 [aClass.date()/]
 [aClass.dateTime()/]
 [aClass.time()/]
+[aClass.timestamp()/]
 [aClass.boolean()/]
-[aClass.blob()/]
+[aClass.lob()/]
 [/template]

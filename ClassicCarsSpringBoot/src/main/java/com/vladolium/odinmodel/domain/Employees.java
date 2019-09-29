@@ -4,11 +4,13 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @Entity
 public class Employees {
-
 
 
 
@@ -20,6 +22,15 @@ public class Employees {
 @Getter
 @Setter
 private Long id; 
+
+
+
+
+
+
+
+
+
 
 
 
@@ -43,6 +54,7 @@ private Integer reportsTo;
 
 
 
+
 @NotNull
 @Getter
 @Setter
@@ -50,11 +62,59 @@ private String extension;
 @NotNull
 @Getter
 @Setter
-private String email; 
+private String jobTitle; 
 @NotNull
 @Getter
 @Setter
-private String jobTitle; 
+private String lastName; 
+@NotNull
+@Getter
+@Setter
+private String firstName; 
+@NotNull
+@Getter
+@Setter
+private String email; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82,6 +142,28 @@ private String jobTitle;
 private Boolean isActive; 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@ManyToOne
+@JoinColumn(name="offices_id")
+@Getter
+@Setter
+private Offices offices;
 
 
 

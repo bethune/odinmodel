@@ -4,10 +4,14 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @Entity
 public class OrderDetails {
+
 
 
 
@@ -16,7 +20,6 @@ public class OrderDetails {
 @Getter
 @Setter
 private Long id; 
-
 
 
 
@@ -32,6 +35,13 @@ private Integer orderLineNumber;
 @Getter
 @Setter
 private Integer quantityOrdered; 
+
+
+
+
+
+
+
 
 
 
@@ -67,6 +77,55 @@ private Double priceEach;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@ManyToOne
+@JoinColumn(name="products_id")
+@Getter
+@Setter
+private Products products;
+
+
+
+@OneToOne
+@JoinColumn(name="orders_id")
+@Getter
+@Setter
+private Orders orders;
 
 
 

@@ -6,6 +6,9 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @MappedSuperclass
@@ -42,22 +45,15 @@ public abstract class ContactDetails {
 @NotNull
 @Getter
 @Setter
-private String postalCode; 
+private String adressLine1; 
+@NotNull
+@Getter
+@Setter
+private String city; 
 @NotNull
 @Getter
 @Setter
 private String phone; 
-@Getter
-@Setter
-private String adressLine2; 
-@NotNull
-@Getter
-@Setter
-private String state; 
-@NotNull
-@Getter
-@Setter
-private String adressLine1; 
 @NotNull
 @Getter
 @Setter
@@ -65,7 +61,51 @@ private String country;
 @NotNull
 @Getter
 @Setter
-private String city; 
+private String state; 
+@Getter
+@Setter
+private String adressLine2; 
+@NotNull
+@Getter
+@Setter
+private String postalCode; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

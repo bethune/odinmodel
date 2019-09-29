@@ -4,10 +4,14 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @Entity
 public class Reviews {
+
 
 
 
@@ -32,11 +36,48 @@ private Long id;
 
 
 
-
 @NotNull
 @Getter
 @Setter
 private String reviewText; 
+
+
+
+
+
+
+
+
+
+
+
+@NotNull
+@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+//@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+@Getter
+@Setter
+private LocalDate reviewDate; 
+
+
+
+
+
+
+
+
+
+
+
+@NotNull
+@DateTimeFormat(pattern = "HH:mm") //for database
+//@JsonFormat(pattern = "HH:mm") //for frontend
+@Getter
+@Setter
+private LocalTime reviewTime; 
+
+
+
+
 
 
 

@@ -4,10 +4,14 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @Entity
 public class Products {
+
 
 
 
@@ -16,11 +20,6 @@ public class Products {
 @Getter
 @Setter
 private Long id; 
-
-
-
-
-
 
 
 
@@ -41,10 +40,13 @@ private Integer quantityInStock;
 
 
 
-@NotNull
-@Getter
-@Setter
-private Double buyPrice; 
+
+
+
+
+
+
+
 
 
 
@@ -57,13 +59,17 @@ private Double MSRP;
 
 
 
+@NotNull
+@Getter
+@Setter
+private Double buyPrice; 
 
 
 
 @NotNull
 @Getter
 @Setter
-private String productName; 
+private String productVendor; 
 @NotNull
 @Getter
 @Setter
@@ -73,14 +79,14 @@ private String productScale;
 @Setter
 private String productDescription; 
 @NotNull
-@Getter
-@Setter
-private String productVendor; 
-@NotNull
 @Column(unique=true)
 @Getter
 @Setter
 private String productCode; 
+@NotNull
+@Getter
+@Setter
+private String productName; 
 
 
 
@@ -110,6 +116,69 @@ private String productCode;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@ManyToOne
+@JoinColumn(name="productLines_id")
+@Getter
+@Setter
+private ProductLines productLines;
 
 
 

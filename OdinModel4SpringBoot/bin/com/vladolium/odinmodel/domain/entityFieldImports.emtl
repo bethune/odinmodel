@@ -4,20 +4,21 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="field/numerical/integer.emtl#/0"/>
-    <imports href="field/numerical/long.emtl#/0"/>
-    <imports href="field/numerical/double.emtl#/0"/>
-    <imports href="field/textual/string.emtl#/0"/>
-    <imports href="field/textual/enum.emtl#/0"/>
-    <imports href="field/datetime/date.emtl#/0"/>
-    <imports href="field/datetime/dateTime.emtl#/0"/>
-    <imports href="field/datetime/time.emtl#/0"/>
-    <imports href="field/logical/boolean.emtl#/0"/>
-    <imports href="field/binary/blob.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/integer.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/long.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/double.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/textual/string.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/textual/enum.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/date.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/dateTime.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/time.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/timestamp.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/logical/boolean.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/binary/lob.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="entityFieldImports" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/numerical/long.emtl#/0/long"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/long.emtl#/0/long"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -25,7 +26,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/numerical/integer.emtl#/0/integer"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/integer.emtl#/0/integer"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -33,7 +34,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/numerical/double.emtl#/0/double"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/double.emtl#/0/double"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -41,7 +42,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/textual/string.emtl#/0/string"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/textual/string.emtl#/0/string"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -49,7 +50,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/textual/enum.emtl#/0/enum"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/textual/enum.emtl#/0/enum"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -57,7 +58,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/datetime/date.emtl#/0/date"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/date.emtl#/0/date"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -65,7 +66,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/datetime/dateTime.emtl#/0/dateTime"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/dateTime.emtl#/0/dateTime"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -73,7 +74,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/datetime/time.emtl#/0/time"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/time.emtl#/0/time"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -81,7 +82,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/logical/boolean.emtl#/0/boolean"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/timestamp.emtl#/0/timestamp"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -89,7 +90,15 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="field/binary/blob.emtl#/0/blob"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/logical/boolean.emtl#/0/boolean"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/binary/lob.emtl#/0/lob"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityFieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -134,7 +143,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/numerical/integer.emtl#/0/integer"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/integer.emtl#/0/integer"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -146,7 +155,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/numerical/long.emtl#/0/long"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/long.emtl#/0/long"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -158,7 +167,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/numerical/double.emtl#/0/double"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/numerical/double.emtl#/0/double"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -170,7 +179,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/textual/string.emtl#/0/string"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/textual/string.emtl#/0/string"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -182,7 +191,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/textual/enum.emtl#/0/enum"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/textual/enum.emtl#/0/enum"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -194,7 +203,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/datetime/date.emtl#/0/date"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/date.emtl#/0/date"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -206,7 +215,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/datetime/dateTime.emtl#/0/dateTime"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/dateTime.emtl#/0/dateTime"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -218,7 +227,19 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/datetime/time.emtl#/0/time"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/time.emtl#/0/time"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="timestamp">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/datetime/timestamp.emtl#/0/timestamp"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -230,19 +251,19 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/logical/boolean.emtl#/0/boolean"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/logical/boolean.emtl#/0/boolean"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
-      <eOperations name="blob">
+      <eOperations name="lob">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="field/binary/blob.emtl#/0/blob"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/binary/lob.emtl#/0/lob"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -319,163 +340,181 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/entityFieldImports">
-      <details key="start" value="796"/>
-      <details key="end" value="1044"/>
-      <details key="line" value="19"/>
+      <details key="start" value="868"/>
+      <details key="end" value="1137"/>
+      <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/entityFieldImports/%">
-      <details key="start" value="850"/>
-      <details key="end" value="863"/>
+      <details key="start" value="922"/>
+      <details key="end" value="935"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/entityFieldImports/%/aClass">
-      <details key="start" value="850"/>
-      <details key="end" value="856"/>
+      <details key="start" value="922"/>
+      <details key="end" value="928"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/entityFieldImports/%.1">
-      <details key="start" value="865"/>
-      <details key="end" value="866"/>
-      <details key="line" value="21"/>
-    </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/entityFieldImports/%.2">
-      <details key="start" value="867"/>
-      <details key="end" value="883"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/entityFieldImports/%.2/aClass">
-      <details key="start" value="867"/>
-      <details key="end" value="873"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/entityFieldImports/%.3">
-      <details key="start" value="885"/>
-      <details key="end" value="886"/>
+      <details key="start" value="937"/>
+      <details key="end" value="938"/>
       <details key="line" value="22"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/entityFieldImports/%.4">
-      <details key="start" value="887"/>
-      <details key="end" value="902"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/entityFieldImports/%.4/aClass">
-      <details key="start" value="887"/>
-      <details key="end" value="893"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/entityFieldImports/%.5">
-      <details key="start" value="904"/>
-      <details key="end" value="905"/>
-      <details key="line" value="23"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/entityFieldImports/%.6">
-      <details key="start" value="906"/>
-      <details key="end" value="921"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/entityFieldImports/%.6/aClass">
-      <details key="start" value="906"/>
-      <details key="end" value="912"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/entityFieldImports/%.7">
-      <details key="start" value="923"/>
-      <details key="end" value="924"/>
-      <details key="line" value="24"/>
-    </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/entityFieldImports/%.8">
-      <details key="start" value="925"/>
-      <details key="end" value="938"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/entityFieldImports/%.8/aClass">
-      <details key="start" value="925"/>
-      <details key="end" value="931"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/entityFieldImports/%.9">
-      <details key="start" value="940"/>
-      <details key="end" value="941"/>
-      <details key="line" value="25"/>
-    </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/entityFieldImports/%.10">
-      <details key="start" value="942"/>
+    <eAnnotations source="positions.4" references="/0/entityFieldImports/%.2">
+      <details key="start" value="939"/>
       <details key="end" value="955"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/entityFieldImports/%.10/aClass">
-      <details key="start" value="942"/>
-      <details key="end" value="948"/>
+    <eAnnotations source="positions.5" references="/0/entityFieldImports/%.2/aClass">
+      <details key="start" value="939"/>
+      <details key="end" value="945"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/entityFieldImports/%.11">
+    <eAnnotations source="positions.6" references="/0/entityFieldImports/%.3">
       <details key="start" value="957"/>
       <details key="end" value="958"/>
-      <details key="line" value="26"/>
+      <details key="line" value="23"/>
     </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/entityFieldImports/%.12">
+    <eAnnotations source="positions.7" references="/0/entityFieldImports/%.4">
       <details key="start" value="959"/>
-      <details key="end" value="976"/>
+      <details key="end" value="974"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/entityFieldImports/%.12/aClass">
+    <eAnnotations source="positions.8" references="/0/entityFieldImports/%.4/aClass">
       <details key="start" value="959"/>
       <details key="end" value="965"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/entityFieldImports/%.13">
-      <details key="start" value="978"/>
-      <details key="end" value="979"/>
-      <details key="line" value="27"/>
+    <eAnnotations source="positions.9" references="/0/entityFieldImports/%.5">
+      <details key="start" value="976"/>
+      <details key="end" value="977"/>
+      <details key="line" value="24"/>
     </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/entityFieldImports/%.14">
-      <details key="start" value="980"/>
+    <eAnnotations source="positions.10" references="/0/entityFieldImports/%.6">
+      <details key="start" value="978"/>
       <details key="end" value="993"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/entityFieldImports/%.14/aClass">
-      <details key="start" value="980"/>
-      <details key="end" value="986"/>
+    <eAnnotations source="positions.11" references="/0/entityFieldImports/%.6/aClass">
+      <details key="start" value="978"/>
+      <details key="end" value="984"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/entityFieldImports/%.15">
+    <eAnnotations source="positions.12" references="/0/entityFieldImports/%.7">
       <details key="start" value="995"/>
       <details key="end" value="996"/>
-      <details key="line" value="28"/>
+      <details key="line" value="25"/>
     </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/entityFieldImports/%.16">
+    <eAnnotations source="positions.13" references="/0/entityFieldImports/%.8">
       <details key="start" value="997"/>
-      <details key="end" value="1013"/>
+      <details key="end" value="1010"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/entityFieldImports/%.16/aClass">
+    <eAnnotations source="positions.14" references="/0/entityFieldImports/%.8/aClass">
       <details key="start" value="997"/>
       <details key="end" value="1003"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/entityFieldImports/%.17">
-      <details key="start" value="1015"/>
-      <details key="end" value="1016"/>
+    <eAnnotations source="positions.15" references="/0/entityFieldImports/%.9">
+      <details key="start" value="1012"/>
+      <details key="end" value="1013"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/entityFieldImports/%.10">
+      <details key="start" value="1014"/>
+      <details key="end" value="1027"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/entityFieldImports/%.10/aClass">
+      <details key="start" value="1014"/>
+      <details key="end" value="1020"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/entityFieldImports/%.11">
+      <details key="start" value="1029"/>
+      <details key="end" value="1030"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/entityFieldImports/%.12">
+      <details key="start" value="1031"/>
+      <details key="end" value="1048"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/entityFieldImports/%.12/aClass">
+      <details key="start" value="1031"/>
+      <details key="end" value="1037"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/entityFieldImports/%.13">
+      <details key="start" value="1050"/>
+      <details key="end" value="1051"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/entityFieldImports/%.14">
+      <details key="start" value="1052"/>
+      <details key="end" value="1065"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/entityFieldImports/%.14/aClass">
+      <details key="start" value="1052"/>
+      <details key="end" value="1058"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/entityFieldImports/%.15">
+      <details key="start" value="1067"/>
+      <details key="end" value="1068"/>
       <details key="line" value="29"/>
     </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/entityFieldImports/%.16">
+      <details key="start" value="1069"/>
+      <details key="end" value="1087"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/entityFieldImports/%.16/aClass">
+      <details key="start" value="1069"/>
+      <details key="end" value="1075"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/entityFieldImports/%.17">
+      <details key="start" value="1089"/>
+      <details key="end" value="1090"/>
+      <details key="line" value="30"/>
+    </eAnnotations>
     <eAnnotations source="positions.28" references="/0/entityFieldImports/%.18">
-      <details key="start" value="1017"/>
-      <details key="end" value="1030"/>
+      <details key="start" value="1091"/>
+      <details key="end" value="1107"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/entityFieldImports/%.18/aClass">
-      <details key="start" value="1017"/>
-      <details key="end" value="1023"/>
+      <details key="start" value="1091"/>
+      <details key="end" value="1097"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.30" references="/0/entityFieldImports/aClass">
-      <details key="start" value="832"/>
-      <details key="end" value="846"/>
-      <details key="line" value="19"/>
+    <eAnnotations source="positions.30" references="/0/entityFieldImports/%.19">
+      <details key="start" value="1109"/>
+      <details key="end" value="1110"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/entityFieldImports/%.20">
+      <details key="start" value="1111"/>
+      <details key="end" value="1123"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/entityFieldImports/%.20/aClass">
+      <details key="start" value="1111"/>
+      <details key="end" value="1117"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/entityFieldImports/aClass">
+      <details key="start" value="904"/>
+      <details key="end" value="918"/>
+      <details key="line" value="20"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

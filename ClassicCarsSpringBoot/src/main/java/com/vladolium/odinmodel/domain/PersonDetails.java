@@ -6,6 +6,8 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
 import lombok.*;
 
 @MappedSuperclass
@@ -32,6 +34,18 @@ private String firstName;
 @Getter
 @Setter
 private String lastName; 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

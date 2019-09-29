@@ -4,10 +4,14 @@ package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.*;
 import lombok.*;
 
 @Entity
 public class Payments {
+
 
 
 @Id
@@ -28,10 +32,15 @@ private Long id;
 
 
 
+
+
 @NotNull
 @Getter
 @Setter
 private Double ammount; 
+
+
+
 
 
 
@@ -56,10 +65,65 @@ private String checkNumber;
 
 
 
+@NotNull
+@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+//@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+@Getter
+@Setter
+private LocalDate paymentDate; 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+@Getter
+@Setter
+private Instant paymentTimestamp = Instant.now(); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@ManyToOne
+@JoinColumn(name="customers_id")
+@Getter
+@Setter
+private Customers customers;
 
 
 
