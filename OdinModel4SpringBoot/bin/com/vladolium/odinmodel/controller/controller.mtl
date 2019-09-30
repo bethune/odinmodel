@@ -1,0 +1,67 @@
+[comment encoding = UTF-8 /]
+[module controller('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::controller::path::create /]
+[import com::vladolium::odinmodel::controller::path::update /]
+[import com::vladolium::odinmodel::controller::path::delete /]
+[import com::vladolium::odinmodel::controller::path::readOne /]
+[import com::vladolium::odinmodel::controller::path::readAll /]
+[import com::vladolium::odinmodel::controller::path::search /]
+
+[template public controller(aClass : Class)
+	{
+		isEntityVar 				: Boolean = aClass.isAbstract = false;
+		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
+		entityNameVar 				: String = aClass.name.toUpperFirst();
+		packageControllerPathVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+		entityApiNameVar			: String = aClass.name.toLowerFirst();
+	}
+]
+
+[if isEntityVar] [comment: generate the controller methods just for entities/]
+	[file ('src/main/java/' + packageFilePathNameVar + '/controller/' + entityNameVar + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+
+package [packageControllerPathVar/].controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.*;
+import org.springframework.format.annotation.*;
+
+import java.time.*;
+import java.util.*;
+
+import [packageControllerPathVar/].domain.*;
+import [packageControllerPathVar/].domain.[entityNameVar/];
+import [packageControllerPathVar/].domain.[entityNameVar/].*;
+import [packageControllerPathVar/].service.[entityNameVar/]Service;
+import [packageControllerPathVar/].service.*;
+
+@CrossOrigin(origins = "http://localhost:8080")
+@RestController
+@RequestMapping("/api/[entityApiNameVar/]")
+public class [entityNameVar/]Controller {
+
+	private [entityNameVar/]Service [entityApiNameVar/]Service;
+
+	@Autowired
+	public void set[entityNameVar/]Service([entityNameVar/]Service [entityApiNameVar/]Service) {
+		this.[entityApiNameVar/]Service = [entityApiNameVar/]Service;
+	}
+
+[aClass.create()/]
+[aClass.update()/]	
+[aClass.delete()/]
+[aClass.readAll()/]
+[aClass.readOne()/]
+[aClass.search()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('controller')]
+//[/protected]
+
+}
+	[/file]
+[/if]
+
+[/template]

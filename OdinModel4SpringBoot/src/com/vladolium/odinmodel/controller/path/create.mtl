@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module create('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+
+[template public create(aClass : Class)
+	{
+		entityNameVar 		: String = aClass.name.toUpperFirst();
+		entityApiNameVar	: String = aClass.name.toLowerFirst();
+	}
+]
+@PostMapping("")
+public [entityNameVar/] createOne(@RequestBody [entityNameVar/] [entityApiNameVar/]) {
+	return [entityApiNameVar/]Service.saveOne([entityApiNameVar/]);
+}
+[/template]

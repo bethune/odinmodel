@@ -16,7 +16,7 @@
 	}
 ]
 
-[file ('src/main/java/' + packagePathNameVar + '/domain/' + entityNameVar + '.java', false, 'UTF-8')] [comment: Target file location in Spring Boot app./]
+[file ('src/main/java/' + packagePathNameVar + '/domain/' + entityNameVar + '.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 
 [comment: 
 --------------------------------------------------

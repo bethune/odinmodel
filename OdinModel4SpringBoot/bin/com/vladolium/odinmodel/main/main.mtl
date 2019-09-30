@@ -3,7 +3,10 @@
 
 [comment: Importing subtemplates./]
 [import com::vladolium::odinmodel::domain::entity /]
+[import com::vladolium::odinmodel::controller::controller /]
+[import com::vladolium::odinmodel::repository::repository /]
 [import com::vladolium::odinmodel::configuration::application_properties /]
+[import com::vladolium::odinmodel::configuration::swagger2 /]
 
 [template public main(aClass : Class)]
 
@@ -11,6 +14,9 @@
 
 [comment: Including subtemplates./]
 [aClass.entity()/]
+[aClass.controller()/]
+[comment][aClass.repository()/][/comment]
 [aClass.application_properties()/]
+[aClass.swagger2()/]
 
 [/template]
