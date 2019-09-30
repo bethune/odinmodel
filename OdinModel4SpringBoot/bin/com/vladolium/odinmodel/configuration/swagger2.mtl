@@ -5,7 +5,7 @@
 	{
 		packagePathNameVar 	: String = aClass._package.name.toLowerCase();
 		packageNameVar 		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.config');
-		packageApiNameVar 	: String = aClass._package.name.toLowerCase().concat('.controller');
+		packageApiNameVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.controller');
 	}
 ]
 

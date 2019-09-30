@@ -12,14 +12,14 @@
 	{
 		isEntityVar 				: Boolean = aClass.isAbstract = false;
 		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
-		entityNameVar 				: String = aClass.name.toUpperFirst();
+		entityClassNameVar 			: String = aClass.name.toUpperFirst();
 		packageControllerPathVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
-		entityApiNameVar			: String = aClass.name.toLowerFirst();
+		entityPropertyNameVar		: String = aClass.name.toLowerFirst();
 	}
 ]
 
-[if isEntityVar] [comment: generate the controller methods just for entities/]
-	[file ('src/main/java/' + packageFilePathNameVar + '/controller/' + entityNameVar + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+[if isEntityVar] [comment: generate just for entities/]
+	[file ('src/main/java/' + packageFilePathNameVar + '/controller/' + entityClassNameVar + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 
 package [packageControllerPathVar/].controller;
 
@@ -32,29 +32,29 @@ import java.time.*;
 import java.util.*;
 
 import [packageControllerPathVar/].domain.*;
-import [packageControllerPathVar/].domain.[entityNameVar/];
-import [packageControllerPathVar/].domain.[entityNameVar/].*;
-import [packageControllerPathVar/].service.[entityNameVar/]Service;
+import [packageControllerPathVar/].domain.[entityClassNameVar/];
+import [packageControllerPathVar/].domain.[entityClassNameVar/].*;
+import [packageControllerPathVar/].service.[entityClassNameVar/]Service;
 import [packageControllerPathVar/].service.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/api/[entityApiNameVar/]")
-public class [entityNameVar/]Controller {
+@RequestMapping("/api/[entityPropertyNameVar/]")
+public class [entityClassNameVar/]Controller {
 
-	private [entityNameVar/]Service [entityApiNameVar/]Service;
+	private [entityClassNameVar/]Service [entityPropertyNameVar/]Service;
 
 	@Autowired
-	public void set[entityNameVar/]Service([entityNameVar/]Service [entityApiNameVar/]Service) {
-		this.[entityApiNameVar/]Service = [entityApiNameVar/]Service;
+	public void set[entityClassNameVar/]Service([entityClassNameVar/]Service [entityPropertyNameVar/]Service) {
+		this.[entityPropertyNameVar/]Service = [entityPropertyNameVar/]Service;
 	}
 
 [aClass.create()/]
-[aClass.update()/]	
+[comment][aClass.update()/]	
 [aClass.delete()/]
 [aClass.readAll()/]
 [aClass.readOne()/]
-[aClass.search()/]
+[aClass.search()/][/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('controller')]

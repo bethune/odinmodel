@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="swagger2" nsURI="com::vladolium::odinmodel::configuration::swagger2" startHeaderPosition="29" endHeaderPosition="522">
+  <mtl:Module name="swagger2" nsURI="com::vladolium::odinmodel::configuration::swagger2" startHeaderPosition="29" endHeaderPosition="543">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
@@ -64,16 +64,25 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:PropertyCallExp">
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/swagger2/aClass">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/swagger2/aClass">
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type/package"/>
                   </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type/package"/>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
                 </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
               </source>
               <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLowerCase"/>
             </source>
@@ -243,12 +252,12 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/swagger2">
       <details key="start" value="89"/>
-      <details key="end" value="1937"/>
+      <details key="end" value="1958"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/swagger2/@init">
       <details key="start" value="132"/>
-      <details key="end" value="400"/>
+      <details key="end" value="421"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/swagger2/@init/@variable.0">
@@ -328,130 +337,145 @@
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/swagger2/@init/@variable.2">
       <details key="start" value="310"/>
-      <details key="end" value="396"/>
+      <details key="end" value="417"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/swagger2/@init/@variable.2/%">
       <details key="start" value="340"/>
-      <details key="end" value="396"/>
+      <details key="end" value="417"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/swagger2/@init/@variable.2/%/%">
       <details key="start" value="340"/>
-      <details key="end" value="374"/>
+      <details key="end" value="395"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/swagger2/@init/@variable.2/%/%/%">
       <details key="start" value="340"/>
-      <details key="end" value="360"/>
+      <details key="end" value="381"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/swagger2/@init/@variable.2/%/%/%/%">
       <details key="start" value="340"/>
+      <details key="end" value="360"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/swagger2/@init/@variable.2/%/%/%/%/%">
+      <details key="start" value="340"/>
       <details key="end" value="355"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/swagger2/@init/@variable.2/%/%/%/%/aClass">
+    <eAnnotations source="positions.23" references="/0/swagger2/@init/@variable.2/%/%/%/%/%/aClass">
       <details key="start" value="340"/>
       <details key="end" value="346"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/swagger2/@init/@variable.2/%/%.1">
-      <details key="start" value="382"/>
-      <details key="end" value="395"/>
+    <eAnnotations source="positions.24" references="/0/swagger2/@init/@variable.2/%/%/%/%.1">
+      <details key="start" value="372"/>
+      <details key="end" value="375"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/swagger2/%">
+    <eAnnotations source="positions.25" references="/0/swagger2/@init/@variable.2/%/%/%/%.2">
+      <details key="start" value="377"/>
+      <details key="end" value="380"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/swagger2/@init/@variable.2/%/%.1">
       <details key="start" value="403"/>
-      <details key="end" value="404"/>
+      <details key="end" value="416"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/swagger2/%">
+      <details key="start" value="424"/>
+      <details key="end" value="425"/>
       <details key="line" value="11"/>
     </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/swagger2/%.1">
-      <details key="start" value="404"/>
-      <details key="end" value="1924"/>
+    <eAnnotations source="positions.28" references="/0/swagger2/%.1">
+      <details key="start" value="425"/>
+      <details key="end" value="1945"/>
       <details key="line" value="12"/>
     </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/swagger2/%.1/%">
-      <details key="start" value="499"/>
-      <details key="end" value="507"/>
+    <eAnnotations source="positions.29" references="/0/swagger2/%.1/%">
+      <details key="start" value="520"/>
+      <details key="end" value="528"/>
       <details key="line" value="13"/>
     </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/swagger2/%.1/packageNameVar">
-      <details key="start" value="508"/>
-      <details key="end" value="522"/>
+    <eAnnotations source="positions.30" references="/0/swagger2/%.1/packageNameVar">
+      <details key="start" value="529"/>
+      <details key="end" value="543"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/swagger2/%.1/%.1">
-      <details key="start" value="524"/>
-      <details key="end" value="1143"/>
+    <eAnnotations source="positions.31" references="/0/swagger2/%.1/%.1">
+      <details key="start" value="545"/>
+      <details key="end" value="1164"/>
       <details key="line" value="13"/>
     </eAnnotations>
-    <eAnnotations source="positions.29" references="/0/swagger2/%.1/%.2">
-      <details key="start" value="1143"/>
-      <details key="end" value="1914"/>
+    <eAnnotations source="positions.32" references="/0/swagger2/%.1/%.2">
+      <details key="start" value="1164"/>
+      <details key="end" value="1935"/>
       <details key="line" value="29"/>
     </eAnnotations>
-    <eAnnotations source="positions.30" references="/0/swagger2/%.1/%.2/%">
-      <details key="start" value="1166"/>
-      <details key="end" value="1347"/>
+    <eAnnotations source="positions.33" references="/0/swagger2/%.1/%.2/%">
+      <details key="start" value="1187"/>
+      <details key="end" value="1368"/>
       <details key="line" value="30"/>
     </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/swagger2/%.1/%.2/packageApiNameVar">
-      <details key="start" value="1348"/>
-      <details key="end" value="1365"/>
+    <eAnnotations source="positions.34" references="/0/swagger2/%.1/%.2/packageApiNameVar">
+      <details key="start" value="1369"/>
+      <details key="end" value="1386"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.32" references="/0/swagger2/%.1/%.2/%.1">
-      <details key="start" value="1367"/>
-      <details key="end" value="1902"/>
+    <eAnnotations source="positions.35" references="/0/swagger2/%.1/%.2/%.1">
+      <details key="start" value="1388"/>
+      <details key="end" value="1923"/>
       <details key="line" value="34"/>
     </eAnnotations>
-    <eAnnotations source="positions.33" references="/0/swagger2/%.1/%.2/%.2">
-      <details key="start" value="1155"/>
-      <details key="end" value="1164"/>
+    <eAnnotations source="positions.36" references="/0/swagger2/%.1/%.2/%.2">
+      <details key="start" value="1176"/>
+      <details key="end" value="1185"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.34" references="/0/swagger2/%.1/%.3">
-      <details key="start" value="1914"/>
-      <details key="end" value="1917"/>
+    <eAnnotations source="positions.37" references="/0/swagger2/%.1/%.3">
+      <details key="start" value="1935"/>
+      <details key="end" value="1938"/>
       <details key="line" value="51"/>
     </eAnnotations>
-    <eAnnotations source="positions.35" references="/0/swagger2/%.1/%.4">
-      <details key="start" value="411"/>
-      <details key="end" value="480"/>
+    <eAnnotations source="positions.38" references="/0/swagger2/%.1/%.4">
+      <details key="start" value="432"/>
+      <details key="end" value="501"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.36" references="/0/swagger2/%.1/%.4/%">
-      <details key="start" value="411"/>
+    <eAnnotations source="positions.39" references="/0/swagger2/%.1/%.4/%">
+      <details key="start" value="432"/>
+      <details key="end" value="469"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/swagger2/%.1/%.4/%/%">
+      <details key="start" value="432"/>
       <details key="end" value="448"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.37" references="/0/swagger2/%.1/%.4/%/%">
-      <details key="start" value="411"/>
-      <details key="end" value="427"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.38" references="/0/swagger2/%.1/%.4/%/packagePathNameVar">
-      <details key="start" value="430"/>
-      <details key="end" value="448"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.39" references="/0/swagger2/%.1/%.4/%.1">
+    <eAnnotations source="positions.41" references="/0/swagger2/%.1/%.4/%/packagePathNameVar">
       <details key="start" value="451"/>
-      <details key="end" value="480"/>
+      <details key="end" value="469"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.40" references="/0/swagger2/%.1/%.5">
-      <details key="start" value="489"/>
-      <details key="end" value="496"/>
+    <eAnnotations source="positions.42" references="/0/swagger2/%.1/%.4/%.1">
+      <details key="start" value="472"/>
+      <details key="end" value="501"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.41" references="/0/swagger2/%.2">
-      <details key="start" value="1925"/>
-      <details key="end" value="1926"/>
+    <eAnnotations source="positions.43" references="/0/swagger2/%.1/%.5">
+      <details key="start" value="510"/>
+      <details key="end" value="517"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/swagger2/%.2">
+      <details key="start" value="1946"/>
+      <details key="end" value="1947"/>
       <details key="line" value="53"/>
     </eAnnotations>
-    <eAnnotations source="positions.42" references="/0/swagger2/aClass">
+    <eAnnotations source="positions.45" references="/0/swagger2/aClass">
       <details key="start" value="115"/>
       <details key="end" value="129"/>
       <details key="line" value="4"/>

@@ -1,0 +1,61 @@
+[comment encoding = UTF-8 /]
+[module serviceImpl('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::serviceImpl::path::createUpdate /]
+[import com::vladolium::odinmodel::serviceImpl::path::delete /]
+[import com::vladolium::odinmodel::serviceImpl::path::readAll /]
+[import com::vladolium::odinmodel::serviceImpl::path::readOne /]
+[import com::vladolium::odinmodel::serviceImpl::path::search /]
+
+[template public serviceImpl(aClass : Class)
+	{
+		isEntityVar 				: Boolean = aClass.isAbstract = false;
+		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
+		entityClassNameVar 			: String = aClass.name.toUpperFirst();
+		packageServiceImplPathVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+		entityPropertyNameVar		: String = aClass.name.toLowerFirst();
+	}
+]
+
+[if isEntityVar] [comment: generate just for entities/]
+	[file ('src/main/java/' + packageFilePathNameVar + '/serviceImpl/' + entityClassNameVar + 'ServiceImpl.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+
+package [packageServiceImplPathVar/].serviceImpl;
+
+import [packageServiceImplPathVar/].domain.*;
+import [packageServiceImplPathVar/].domain.[entityClassNameVar/];
+import [packageServiceImplPathVar/].domain.[entityClassNameVar/].*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.data.domain.*;
+
+import java.time.*;
+import java.util.*;
+
+import [packageServiceImplPathVar/].repository.[aClass.name.toUpperFirst()/]Repository;
+import [packageServiceImplPathVar/].service.[aClass.name.toUpperFirst()/]Service;
+
+@Service
+public class [aClass.name.toUpperFirst()/]ServiceImpl implements [entityClassNameVar/]Service {
+
+	private [aClass.name.toUpperFirst()/]Repository [entityPropertyNameVar/]Repository;
+
+	@Autowired
+	public void set[entityClassNameVar/]Repository([entityClassNameVar/]Repository [entityPropertyNameVar/]Repository) {
+		this.[entityPropertyNameVar/]Repository = [entityPropertyNameVar/]Repository;
+	}
+
+[aClass.createUpdate()/]
+[comment][aClass.delete()/]
+[aClass.retrieveAll()/]
+[aClass.retrieveOne()/][/comment]
+
+//Code between start and end will not be removed during generation.
+//[protected ('serviceImpl')]
+//[/protected]
+
+}
+	[/file]
+[/if]
+
+[/template]

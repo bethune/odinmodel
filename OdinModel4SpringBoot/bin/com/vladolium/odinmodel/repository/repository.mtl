@@ -3,159 +3,33 @@
 
 [template public repository(aClass : Class)
 	{
-		isEntityVar 		: Boolean = aClass.isAbstract = false;
-		packagePathNameVar 	: String = aClass._package.name.toLowerCase();
-		entityNameVar 		: String = aClass.name.toUpperFirst();
-		abstractNameVar 	: Collection(T) = aClass.general.name.toUpperFirst();
-		
-		doesNotInheritVar 	: Boolean = aClass.general->isEmpty();
+		isEntityVar 				: Boolean = aClass.isAbstract = false;
+		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
+		entityClassNameVar 			: String = aClass.name.toUpperFirst();
+		packageRepositoryPathVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+		entityPropertyNameVar		: String = aClass.name.toLowerFirst();
 	}
 ]
 
 [if isEntityVar] [comment: generate the repository methods for entities/]
-[file ('src/main/java/' + packagePathNameVar + '/repository/' + entityNameVar + 'Repository.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
-package [aClass._package.name.replaceAll('/', '.').toLowerCase()/].repository;
+	[file ('src/main/java/' + packageFilePathNameVar + '/repository/' + entityClassNameVar + 'Repository.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+package [packageRepositoryPathVar/].repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import org.springframework.data.querydsl.*;
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
+import [packageRepositoryPathVar/].domain.[entityClassNameVar/];
 
-	[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-		[if p.isID = true]
-public interface [aClass.name.toUpperFirst()/]Repository extends JpaRepository<[aClass.name.toUpperFirst()/], [p.type.name.toUpperFirst()/]>, QuerydslPredicateExecutor<[aClass.name.toUpperFirst()/]> {
-		[/if]
-	[/for]
-[comment : 
--------------------------------
--------------------------------
-
-	findOneByUniqueField
-
--------------------------------
--------------------------------/]
-	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-		[if p.isUnique = true]
-	[aClass.name.toUpperFirst()/] findBy[p.name.toUpperFirst()/]Equals([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
-		[/if]
-	[/for]
-[comment : 
--------------------------------
--------------------------------
-
-	findAllByParentId ManyToOne
-
--------------------------------
--------------------------------/]
-	[for (p : Property | aClass.getAssociations().memberEnd)]
-		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-			[for (pack : Package | aClass._package)]
-				[for (m : Class | pack.member -> filter(Class))]
-					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-							[if a.isID = true]
-	Iterable <[p.type.name.toUpperFirst()/]> findBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/]Equals([a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/]);
-							[/if]
-						[/for]
-					[/if]
-				[/for]
-			[/for]
-		[/if]
-	[/for]
-[comment : 
--------------------------------
--------------------------------
-
-	findAllByParentUniqueField ManyToOne
-
--------------------------------
--------------------------------/]
-
-[comment : 
--------------------------------
--------------------------------
-
-	findOneByIdAndParentId ManyToOne
-
--------------------------------
--------------------------------/]
-	[for (p : Property | aClass.getAssociations().memberEnd)]
-		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-			[for (ap: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-				[if ap.isID = true]
-					[for (pack : Package | aClass._package)]
-						[for (m : Class | pack.member -> filter(Class))]
-							[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-								[for (ac: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-									[if ac.isID = true]
-	[p.type.name.toUpperFirst()/] findBy[ap.name.toUpperFirst()/]EqualsAnd[p.opposite.type.name.toUpperFirst()/][ac.name.toUpperFirst()/]Equals([ap.type.name.toUpperFirst()/] [ap.name.toLowerFirst()/], [ac.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][ac.name.toUpperFirst()/]);
-									[/if]
-								[/for]
-							[/if]
-						[/for]
-					[/for]
-				[/if]
-			[/for]
-		[/if]
-	[/for]
-[comment : 
--------------------------------
--------------------------------
-
-	findOneByUniqueFieldAndParentId ManyToOne
-
--------------------------------
--------------------------------/]
-	[for (p : Property | aClass.getAssociations().memberEnd)]
-		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-			[for (ap: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-				[if ap.isUnique = true]
-					[for (pack : Package | aClass._package)]
-						[for (m : Class | pack.member -> filter(Class))]
-							[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-								[for (ac: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-									[if ac.isID = true]
-	[p.type.name.toUpperFirst()/] findBy[ap.name.toUpperFirst()/]EqualsAnd[p.opposite.type.name.toUpperFirst()/][ac.name.toUpperFirst()/]Equals([ap.type.name.toUpperFirst()/] [ap.name.toLowerFirst()/], [ac.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][ac.name.toUpperFirst()/]);
-									[/if]
-								[/for]
-							[/if]
-						[/for]
-					[/for]
-				[/if]
-			[/for]
-		[/if]
-	[/for]
-[comment : 
--------------------------------
--------------------------------
-
-	findOneByIdAndParentUniqueField ManyToOne
-
--------------------------------
--------------------------------/]
+		[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+			[if p.isID = true]
+public interface [entityClassNameVar/]Repository extends JpaRepository<[entityClassNameVar/], [p.type.name.toUpperFirst()/]> {
+			[/if]
+		[/for]
 	
-[comment : 
--------------------------------
--------------------------------
-
-findOneByUniqueFieldAndParentUniqueField ManyToOne
-
--------------------------------
--------------------------------/]
-	
-
+//Code between start and end will not be removed during generation.
 //[protected ('repository')]
 //[/protected]
 
 }
-[/file]
+	[/file]
 [/if]
-
-
-
-
-
-
-
 
 [/template]

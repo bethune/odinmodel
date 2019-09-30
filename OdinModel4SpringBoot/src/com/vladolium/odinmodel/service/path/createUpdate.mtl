@@ -1,0 +1,13 @@
+[comment encoding = UTF-8 /]
+[module createUpdate('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+
+[template public createUpdate(aClass : Class)
+	{
+		entityClassNameVar 		: String = aClass.name.toUpperFirst();
+		entityPropertyNameVar	: String = aClass.name.toLowerFirst();
+	}
+]
+// covers create & update
+[entityClassNameVar/] createUpdate([entityClassNameVar/] [entityPropertyNameVar/]);
+[/template]

@@ -4,12 +4,12 @@
 
 [template public create(aClass : Class)
 	{
-		entityNameVar 		: String = aClass.name.toUpperFirst();
-		entityApiNameVar	: String = aClass.name.toLowerFirst();
+		entityClassNameVar 		: String = aClass.name.toUpperFirst();
+		entityPropertyNameVar	: String = aClass.name.toLowerFirst();
 	}
 ]
 @PostMapping("")
-public [entityNameVar/] createOne(@RequestBody [entityNameVar/] [entityApiNameVar/]) {
-	return [entityApiNameVar/]Service.saveOne([entityApiNameVar/]);
+public [entityClassNameVar/] createOne(@RequestBody [entityClassNameVar/] [entityPropertyNameVar/]) {
+	return [entityPropertyNameVar/]Service.createUpdate([entityPropertyNameVar/]);
 }
 [/template]
