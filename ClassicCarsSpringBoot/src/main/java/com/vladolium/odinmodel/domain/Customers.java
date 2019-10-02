@@ -42,6 +42,8 @@ private Long id;
 
 
 
+
+
 @NotNull
 @Getter
 @Setter
@@ -51,16 +53,14 @@ private Double creditLimit;
 
 
 
-
-
-@NotNull
-@Getter
-@Setter
-private String firstName; 
 @NotNull
 @Getter
 @Setter
 private String lastName; 
+@NotNull
+@Getter
+@Setter
+private String firstName; 
 @NotNull
 @Column(unique=true)
 @Getter

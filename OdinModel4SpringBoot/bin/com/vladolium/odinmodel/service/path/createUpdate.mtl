@@ -4,10 +4,10 @@
 
 [template public createUpdate(aClass : Class)
 	{
-		entityClassNameVar 		: String = aClass.name.toUpperFirst();
-		entityPropertyNameVar	: String = aClass.name.toLowerFirst();
+		entity 		: String = aClass.name.toUpperFirst();
+		property	: String = aClass.name.toLowerFirst();
 	}
 ]
 // covers create & update
-[entityClassNameVar/] createUpdate([entityClassNameVar/] [entityPropertyNameVar/]);
+[entity/] createUpdate([entity/] [property/]);
 [/template]

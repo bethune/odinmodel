@@ -27,18 +27,18 @@ private Long id;
 
 
 
-
-@NotNull
-@Getter
-@Setter
-private Integer quantityOrdered; 
-
 @NotNull
 @Getter
 @Setter
 private Integer orderLineNumber; 
 
 
+
+
+@NotNull
+@Getter
+@Setter
+private Integer quantityOrdered; 
 
 
 

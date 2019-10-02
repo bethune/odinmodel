@@ -13,16 +13,16 @@ import lombok.*;
 public class Orders {
 
 
-
-
-
-
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
 @Setter
 private Long id; 
+
+
+
+
+
 
 
 
@@ -62,6 +62,20 @@ private String status;
 
 
 
+
+@NotNull
+@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+//@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+@Getter
+@Setter
+private LocalDate orderDate; 
+
+@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+//@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+@Getter
+@Setter
+private LocalDate shippedDate; 
+
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -71,19 +85,8 @@ private LocalDate requiredDate;
 
 
 
-@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-//@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-@Getter
-@Setter
-private LocalDate shippedDate; 
 
 
-@NotNull
-@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-//@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-@Getter
-@Setter
-private LocalDate orderDate; 
 
 
 
@@ -129,9 +132,6 @@ private LocalDate orderDate;
 @Getter
 @Setter
 private String comments; 
-
-
-
 
 
 

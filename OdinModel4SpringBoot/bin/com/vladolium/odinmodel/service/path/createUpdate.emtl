@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="createUpdate" nsURI="com::vladolium::odinmodel::service::path::createUpdate" startHeaderPosition="29" endHeaderPosition="318">
+  <mtl:Module name="createUpdate" nsURI="com::vladolium::odinmodel::service::path::createUpdate" startHeaderPosition="29" endHeaderPosition="281">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="createUpdate" visibility="Public">
       <init>
-        <variable name="entityClassNameVar">
+        <variable name="entity">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -19,7 +19,7 @@
             </source>
           </initExpression>
         </variable>
-        <variable name="entityPropertyNameVar">
+        <variable name="property">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -34,15 +34,15 @@
         </variable>
       </init>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="// covers create &amp; update&#xA;"/>
-      <body xsi:type="ocl.ecore:VariableExp" name="entityClassNameVar" referredVariable="/0/createUpdate/@init/@variable.0">
+      <body xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/createUpdate/@init/@variable.0">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" createUpdate("/>
-      <body xsi:type="ocl.ecore:VariableExp" name="entityClassNameVar" referredVariable="/0/createUpdate/@init/@variable.0">
+      <body xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/createUpdate/@init/@variable.0">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
-      <body xsi:type="ocl.ecore:VariableExp" name="entityPropertyNameVar" referredVariable="/0/createUpdate/@init/@variable.1">
+      <body xsi:type="ocl.ecore:VariableExp" name="property" referredVariable="/0/createUpdate/@init/@variable.1">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");"/>
@@ -149,87 +149,87 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/createUpdate">
       <details key="start" value="94"/>
-      <details key="end" value="394"/>
+      <details key="end" value="332"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/createUpdate/@init">
       <details key="start" value="141"/>
-      <details key="end" value="270"/>
+      <details key="end" value="245"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/createUpdate/@init/@variable.0">
       <details key="start" value="145"/>
-      <details key="end" value="203"/>
+      <details key="end" value="191"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/createUpdate/@init/@variable.0/%">
-      <details key="start" value="177"/>
-      <details key="end" value="203"/>
+      <details key="start" value="165"/>
+      <details key="end" value="191"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/createUpdate/@init/@variable.0/%/%">
-      <details key="start" value="177"/>
-      <details key="end" value="188"/>
+      <details key="start" value="165"/>
+      <details key="end" value="176"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/createUpdate/@init/@variable.0/%/%/aClass">
-      <details key="start" value="177"/>
-      <details key="end" value="183"/>
+      <details key="start" value="165"/>
+      <details key="end" value="171"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/createUpdate/@init/@variable.1">
-      <details key="start" value="207"/>
-      <details key="end" value="266"/>
+      <details key="start" value="195"/>
+      <details key="end" value="241"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/createUpdate/@init/@variable.1/%">
-      <details key="start" value="240"/>
-      <details key="end" value="266"/>
+      <details key="start" value="215"/>
+      <details key="end" value="241"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/createUpdate/@init/@variable.1/%/%">
-      <details key="start" value="240"/>
-      <details key="end" value="251"/>
+      <details key="start" value="215"/>
+      <details key="end" value="226"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/createUpdate/@init/@variable.1/%/%/aClass">
-      <details key="start" value="240"/>
-      <details key="end" value="246"/>
+      <details key="start" value="215"/>
+      <details key="end" value="221"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/createUpdate/%">
-      <details key="start" value="273"/>
-      <details key="end" value="299"/>
+      <details key="start" value="248"/>
+      <details key="end" value="274"/>
       <details key="line" value="11"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/createUpdate/entityClassNameVar">
-      <details key="start" value="300"/>
-      <details key="end" value="318"/>
+    <eAnnotations source="positions.11" references="/0/createUpdate/entity">
+      <details key="start" value="275"/>
+      <details key="end" value="281"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/createUpdate/%.1">
-      <details key="start" value="320"/>
-      <details key="end" value="334"/>
+      <details key="start" value="283"/>
+      <details key="end" value="297"/>
       <details key="line" value="12"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/createUpdate/entityClassNameVar.1">
-      <details key="start" value="335"/>
-      <details key="end" value="353"/>
+    <eAnnotations source="positions.13" references="/0/createUpdate/entity.1">
+      <details key="start" value="298"/>
+      <details key="end" value="304"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/createUpdate/%.2">
-      <details key="start" value="355"/>
-      <details key="end" value="356"/>
+      <details key="start" value="306"/>
+      <details key="end" value="307"/>
       <details key="line" value="12"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/createUpdate/entityPropertyNameVar">
-      <details key="start" value="357"/>
-      <details key="end" value="378"/>
+    <eAnnotations source="positions.15" references="/0/createUpdate/property">
+      <details key="start" value="308"/>
+      <details key="end" value="316"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/createUpdate/%.3">
-      <details key="start" value="380"/>
-      <details key="end" value="382"/>
+      <details key="start" value="318"/>
+      <details key="end" value="320"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/createUpdate/aClass">

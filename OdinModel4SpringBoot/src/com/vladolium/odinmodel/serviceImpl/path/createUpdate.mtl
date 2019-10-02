@@ -3,12 +3,12 @@
 
 [template public createUpdate(aClass : Class)
 	{
-		entityClassNameVar 		: String = aClass.name.toUpperFirst();
-		entityPropertyNameVar	: String = aClass.name.toLowerFirst();
+		entity 		: String = aClass.name.toUpperFirst();
+		property	: String = aClass.name.toLowerFirst();
 	}
 ]
 @Override
-public [entityClassNameVar/] createUpdate([entityClassNameVar/] [entityPropertyNameVar/]) {
-	return [entityPropertyNameVar/]Repository.save([entityPropertyNameVar/]);
+public [entity/] createUpdate([entity/] [property/]) {
+	return [property/]Repository.save([property/]);
 }
 [/template]

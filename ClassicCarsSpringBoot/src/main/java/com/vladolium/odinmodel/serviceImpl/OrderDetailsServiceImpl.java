@@ -2,8 +2,6 @@
 package com.vladolium.odinmodel.serviceImpl;
 
 import com.vladolium.odinmodel.domain.*;
-import com.vladolium.odinmodel.domain.OrderDetails;
-import com.vladolium.odinmodel.domain.OrderDetails.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
@@ -30,7 +28,7 @@ public OrderDetails createUpdate(OrderDetails orderDetails) {
 }
 
 //Code between start and end will not be removed during generation.
-//Start of user code serviceImpl
+//Start of user code for this serviceImpl
 //End of user code
 
 }

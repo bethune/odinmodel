@@ -10,8 +10,6 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.domain.*;
-import com.vladolium.odinmodel.domain.Reviews;
-import com.vladolium.odinmodel.domain.Reviews.*;
 import com.vladolium.odinmodel.service.ReviewsService;
 import com.vladolium.odinmodel.service.*;
 
@@ -33,7 +31,7 @@ public Reviews createOne(@RequestBody Reviews reviews) {
 }
 
 //Code between start and end will not be removed during generation.
-//Start of user code controller
+//Start of user code for this controller
 //End of user code
 
 }

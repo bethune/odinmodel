@@ -25,7 +25,7 @@ public interface [entityClassNameVar/]Repository extends JpaRepository<[entityCl
 		[/for]
 	
 //Code between start and end will not be removed during generation.
-//[protected ('repository')]
+//[protected ('for this repository')]
 //[/protected]
 
 }

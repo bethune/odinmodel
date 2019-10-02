@@ -10,18 +10,18 @@
 
 [template public controller(aClass : Class)
 	{
-		isEntityVar 				: Boolean = aClass.isAbstract = false;
-		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
-		entityClassNameVar 			: String = aClass.name.toUpperFirst();
-		packageControllerPathVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
-		entityPropertyNameVar		: String = aClass.name.toLowerFirst();
+		isEntity 		: Boolean = aClass.isAbstract = false;
+		packagePath 	: String = aClass._package.name.toLowerCase();
+		entity 			: String = aClass.name.toUpperFirst();
+		controllerPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+		property		: String = aClass.name.toLowerFirst();
 	}
 ]
 
-[if isEntityVar] [comment: generate just for entities/]
-	[file ('src/main/java/' + packageFilePathNameVar + '/controller/' + entityClassNameVar + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+[if isEntity] [comment: generate just for entities/]
+	[file ('src/main/java/' + packagePath + '/controller/' + entity + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 
-package [packageControllerPathVar/].controller;
+package [controllerPath/].controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,22 +31,22 @@ import org.springframework.format.annotation.*;
 import java.time.*;
 import java.util.*;
 
-import [packageControllerPathVar/].domain.*;
-import [packageControllerPathVar/].domain.[entityClassNameVar/];
-import [packageControllerPathVar/].domain.[entityClassNameVar/].*;
-import [packageControllerPathVar/].service.[entityClassNameVar/]Service;
-import [packageControllerPathVar/].service.*;
+import [controllerPath/].domain.*;
+[comment]import [packageControllerPathVar/].domain.[entityClassNameVar/];
+import [packageControllerPathVar/].domain.[entityClassNameVar/].*;[/comment]
+import [controllerPath/].service.[entity/]Service;
+import [controllerPath/].service.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/api/[entityPropertyNameVar/]")
-public class [entityClassNameVar/]Controller {
+@RequestMapping("/api/[property/]")
+public class [entity/]Controller {
 
-	private [entityClassNameVar/]Service [entityPropertyNameVar/]Service;
+	private [entity/]Service [property/]Service;
 
 	@Autowired
-	public void set[entityClassNameVar/]Service([entityClassNameVar/]Service [entityPropertyNameVar/]Service) {
-		this.[entityPropertyNameVar/]Service = [entityPropertyNameVar/]Service;
+	public void set[entity/]Service([entity/]Service [property/]Service) {
+		this.[property/]Service = [property/]Service;
 	}
 
 [aClass.create()/]
@@ -57,7 +57,7 @@ public class [entityClassNameVar/]Controller {
 [aClass.search()/][/comment]
 
 //Code between start and end will not be removed during generation.
-//[protected ('controller')]
+//[protected ('for this controller')]
 //[/protected]
 
 }

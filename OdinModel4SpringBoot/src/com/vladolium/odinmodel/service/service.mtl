@@ -9,25 +9,25 @@
 
 [template public service(aClass : Class)
 	{
-		isEntityVar 				: Boolean = aClass.isAbstract = false;
-		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
-		entityClassNameVar 			: String = aClass.name.toUpperFirst();
-		packageServicePathVar 		: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+		isEntity 		: Boolean = aClass.isAbstract = false;
+		packagePath 	: String = aClass._package.name.toLowerCase();
+		entity 			: String = aClass.name.toUpperFirst();
+		servicePath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
 	}
 ]
 
-[if isEntityVar] [comment: generate just for entities/]
-	[file ('src/main/java/' + packageFilePathNameVar + '/service/' + entityClassNameVar + 'Service.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
-package [packageServicePathVar/].service;
+[if isEntity] [comment: generate just for entities/]
+	[file ('src/main/java/' + packagePath + '/service/' + entity + 'Service.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+package [servicePath/].service;
 
-import [packageServicePathVar/].domain.*;
-import [packageServicePathVar/].domain.[entityClassNameVar/];
-import [packageServicePathVar/].domain.[entityClassNameVar/].*;
+import [servicePath/].domain.*;
+[comment]import [packageServicePathVar/].domain.[entityClassNameVar/];
+import [packageServicePathVar/].domain.[entityClassNameVar/].*;[/comment]
 import java.time.*;
 import java.util.*;
 import org.springframework.data.domain.*;
 
-public interface [entityClassNameVar/]Service {
+public interface [entity/]Service {
 
 [aClass.createUpdate()/]
 [comment][aClass.delete()/]
@@ -35,7 +35,7 @@ public interface [entityClassNameVar/]Service {
 [aClass.retrieveOne()/][/comment]
 
 //Code between start and end will not be removed during generation.
-//[protected ('service')]
+//[protected ('for this service')]
 //[/protected]
 
 }

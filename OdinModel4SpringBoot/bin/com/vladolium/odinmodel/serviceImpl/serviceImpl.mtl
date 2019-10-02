@@ -9,22 +9,22 @@
 
 [template public serviceImpl(aClass : Class)
 	{
-		isEntityVar 				: Boolean = aClass.isAbstract = false;
-		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
-		entityClassNameVar 			: String = aClass.name.toUpperFirst();
-		packageServiceImplPathVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
-		entityPropertyNameVar		: String = aClass.name.toLowerFirst();
+		isEntity 		: Boolean = aClass.isAbstract = false;
+		packagePath 	: String = aClass._package.name.toLowerCase();
+		entity 			: String = aClass.name.toUpperFirst();
+		serviceImplPath : String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+		property		: String = aClass.name.toLowerFirst();
 	}
 ]
 
-[if isEntityVar] [comment: generate just for entities/]
-	[file ('src/main/java/' + packageFilePathNameVar + '/serviceImpl/' + entityClassNameVar + 'ServiceImpl.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+[if isEntity] [comment: generate just for entities/]
+	[file ('src/main/java/' + packagePath + '/serviceImpl/' + entity + 'ServiceImpl.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 
-package [packageServiceImplPathVar/].serviceImpl;
+package [serviceImplPath/].serviceImpl;
 
-import [packageServiceImplPathVar/].domain.*;
-import [packageServiceImplPathVar/].domain.[entityClassNameVar/];
-import [packageServiceImplPathVar/].domain.[entityClassNameVar/].*;
+import [serviceImplPath/].domain.*;
+[comment]import [packageServiceImplPathVar/].domain.[entityClassNameVar/];
+import [packageServiceImplPathVar/].domain.[entityClassNameVar/].*;[/comment]
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
@@ -32,17 +32,17 @@ import org.springframework.data.domain.*;
 import java.time.*;
 import java.util.*;
 
-import [packageServiceImplPathVar/].repository.[aClass.name.toUpperFirst()/]Repository;
-import [packageServiceImplPathVar/].service.[aClass.name.toUpperFirst()/]Service;
+import [serviceImplPath/].repository.[entity/]Repository;
+import [serviceImplPath/].service.[entity/]Service;
 
 @Service
-public class [aClass.name.toUpperFirst()/]ServiceImpl implements [entityClassNameVar/]Service {
+public class [entity/]ServiceImpl implements [entity/]Service {
 
-	private [aClass.name.toUpperFirst()/]Repository [entityPropertyNameVar/]Repository;
+	private [entity/]Repository [property/]Repository;
 
 	@Autowired
-	public void set[entityClassNameVar/]Repository([entityClassNameVar/]Repository [entityPropertyNameVar/]Repository) {
-		this.[entityPropertyNameVar/]Repository = [entityPropertyNameVar/]Repository;
+	public void set[entity/]Repository([entity/]Repository [property/]Repository) {
+		this.[property/]Repository = [property/]Repository;
 	}
 
 [aClass.createUpdate()/]
@@ -51,7 +51,7 @@ public class [aClass.name.toUpperFirst()/]ServiceImpl implements [entityClassNam
 [aClass.retrieveOne()/][/comment]
 
 //Code between start and end will not be removed during generation.
-//[protected ('serviceImpl')]
+//[protected ('for this serviceImpl')]
 //[/protected]
 
 }

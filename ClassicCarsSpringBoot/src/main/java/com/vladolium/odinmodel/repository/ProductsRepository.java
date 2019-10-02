@@ -9,13 +9,13 @@ import com.vladolium.odinmodel.domain.Products;
 
 
 
-
-
-
 public interface ProductsRepository extends JpaRepository<Products, Long> {
+
+
+
 	
 //Code between start and end will not be removed during generation.
-//Start of user code repository
+//Start of user code for this repository
 //End of user code
 
 }

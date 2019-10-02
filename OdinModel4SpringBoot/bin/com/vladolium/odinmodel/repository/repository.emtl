@@ -168,7 +168,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;//Code between start and end will not be removed during generation.&#xA;//"/>
           <body xsi:type="mtl:ProtectedAreaBlock">
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;//"/>
-            <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="repository">
+            <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="for this repository">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </marker>
           </body>
@@ -382,7 +382,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/repository">
       <details key="start" value="91"/>
-      <details key="end" value="1296"/>
+      <details key="end" value="1305"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/repository/@init">
@@ -527,12 +527,12 @@
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/repository/%.1">
       <details key="start" value="498"/>
-      <details key="end" value="1283"/>
+      <details key="end" value="1292"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/repository/%.1/%">
       <details key="start" value="573"/>
-      <details key="end" value="1277"/>
+      <details key="end" value="1286"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/repository/%.1/%/%">
@@ -677,22 +677,22 @@
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/repository/%.1/%/%.6">
       <details key="start" value="1224"/>
-      <details key="end" value="1265"/>
+      <details key="end" value="1274"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/repository/%.1/%/%.6/%">
-      <details key="start" value="1250"/>
-      <details key="end" value="1253"/>
+      <details key="start" value="1259"/>
+      <details key="end" value="1262"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/repository/%.1/%/%.6/%.1">
       <details key="start" value="1236"/>
-      <details key="end" value="1248"/>
+      <details key="end" value="1257"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/repository/%.1/%/%.7">
-      <details key="start" value="1265"/>
-      <details key="end" value="1269"/>
+      <details key="start" value="1274"/>
+      <details key="end" value="1278"/>
       <details key="line" value="30"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/repository/%.1/%/%.8">
@@ -751,8 +751,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/repository/%.2">
-      <details key="start" value="1284"/>
-      <details key="end" value="1285"/>
+      <details key="start" value="1293"/>
+      <details key="end" value="1294"/>
       <details key="line" value="34"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/repository/aClass">

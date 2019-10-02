@@ -1,7 +1,56 @@
 [comment encoding = UTF-8 /]
 [module update('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[template public update(aClass : Class)
+	{
+		classType 		: String = aClass.name.toUpperFirst();
+		classProperty	: String = aClass.name.toLowerFirst();
+	}
+]
 
-[template public update(aClass : Class)]
+[comment: 
+--------------------------------------------------
+	update one by id
+--------------------------------------------------/]
+
+[for (p: Property | aClass.getAllAttributes()) separator('\n')
+	{
+		path	: String = p.name.toLowerFirst();
+		propertyType : String = p.type.name.toUpperFirst();
+		
+	}
+]
+	[if p.isID = true]
+@PutMapping("/{[path/]}")
+public [classType/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/], @RequestBody [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/]) {
+	[classType/] current = [aClass.name.toLowerFirst()/]Service.findOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
+		[for (p : Property | aClass.getAssociations().memberEnd)]
+[comment : ManyToOne/]
+			[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+	current.set[p.opposite.type.name.toUpperFirst()/]([aClass.name.toLowerFirst()/].get[p.opposite.type.name.toUpperFirst()/]());
+			[/if]
+[comment : OneToOne/]
+			[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+	current.set[p.opposite.type.name.toUpperFirst()/]([aClass.name.toLowerFirst()/].get[p.opposite.type.name.toUpperFirst()/]());
+			[/if]
+[comment : ManyToMany/]
+			[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+	current.set[p.opposite.type.name.toUpperFirst()/]Set([aClass.name.toLowerFirst()/].get[p.opposite.type.name.toUpperFirst()/]Set());
+			[/if]
+[comment : OneToMany/]
+			[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+	current.set[p.opposite.type.name.toUpperFirst()/]List([aClass.name.toLowerFirst()/].get[p.opposite.type.name.toUpperFirst()/]List());
+			[/if]
+		[/for]
+		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+			[if p.isID = false]	
+	current.set[p.name.toUpperFirst()/]([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]());
+			[/if]
+		[/for]
+	return [aClass.name.toLowerFirst()/]Service.saveOne(current);
+}
+	[/if]
+[/for]
+
 
 [/template]

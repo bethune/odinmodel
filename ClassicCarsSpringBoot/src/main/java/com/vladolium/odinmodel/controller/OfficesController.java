@@ -10,8 +10,6 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.domain.*;
-import com.vladolium.odinmodel.domain.Offices;
-import com.vladolium.odinmodel.domain.Offices.*;
 import com.vladolium.odinmodel.service.OfficesService;
 import com.vladolium.odinmodel.service.*;
 
@@ -33,7 +31,7 @@ public Offices createOne(@RequestBody Offices offices) {
 }
 
 //Code between start and end will not be removed during generation.
-//Start of user code controller
+//Start of user code for this controller
 //End of user code
 
 }

@@ -10,8 +10,6 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.domain.*;
-import com.vladolium.odinmodel.domain.Orders;
-import com.vladolium.odinmodel.domain.Orders.*;
 import com.vladolium.odinmodel.service.OrdersService;
 import com.vladolium.odinmodel.service.*;
 
@@ -33,7 +31,7 @@ public Orders createOne(@RequestBody Orders orders) {
 }
 
 //Code between start and end will not be removed during generation.
-//Start of user code controller
+//Start of user code for this controller
 //End of user code
 
 }
