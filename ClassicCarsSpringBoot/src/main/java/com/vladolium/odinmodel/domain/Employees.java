@@ -19,13 +19,13 @@ public class Employees {
 
 
 
-
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
 @Setter
 private Long id; 
+
+
 
 
 
@@ -57,11 +57,15 @@ private Integer reportsTo;
 @NotNull
 @Getter
 @Setter
-private String extension; 
+private String firstName; 
 @NotNull
 @Getter
 @Setter
-private String jobTitle; 
+private String email; 
+@NotNull
+@Getter
+@Setter
+private String extension; 
 @NotNull
 @Getter
 @Setter
@@ -69,11 +73,14 @@ private String lastName;
 @NotNull
 @Getter
 @Setter
-private String firstName; 
-@NotNull
-@Getter
-@Setter
-private String email; 
+private String jobTitle; 
+
+
+
+
+
+
+
 
 
 
@@ -136,13 +143,6 @@ private String email;
 @Getter
 @Setter
 private Boolean isActive; 
-
-
-
-
-
-
-
 
 
 

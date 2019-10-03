@@ -30,6 +30,35 @@ public ProductLines createOne(@RequestBody ProductLines productLines) {
 	return productLinesService.createUpdate(productLines);
 }
 
+
+
+
+
+@PutMapping("/{id}")
+public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
+	ProductLines current = productLinesService.readOneById(id);
+	current.setImage(productLines.getImage());
+
+	current.setTextDescription(productLines.getTextDescription());
+
+	current.setProductLine(productLines.getProductLine());
+
+	return productLinesService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

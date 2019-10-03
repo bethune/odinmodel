@@ -10,6 +10,22 @@ public interface PaymentsService {
 // covers create & update
 Payments createUpdate(Payments payments);
 
+
+
+Payments readOneById(Long id);
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code

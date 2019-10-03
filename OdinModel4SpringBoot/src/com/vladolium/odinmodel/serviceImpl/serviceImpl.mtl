@@ -46,9 +46,10 @@ public class [entity/]ServiceImpl implements [entity/]Service {
 	}
 
 [aClass.createUpdate()/]
+[aClass.readOne()/]
 [comment][aClass.delete()/]
 [aClass.retrieveAll()/]
-[aClass.retrieveOne()/][/comment]
+[/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this serviceImpl')]

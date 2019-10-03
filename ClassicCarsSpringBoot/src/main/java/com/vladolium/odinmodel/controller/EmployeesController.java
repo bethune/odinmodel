@@ -30,6 +30,53 @@ public Employees createOne(@RequestBody Employees employees) {
 	return employeesService.createUpdate(employees);
 }
 
+
+
+
+
+
+
+
+@PutMapping("/{id}")
+public Employees updateOneById(@PathVariable Long id, @RequestBody Employees employees) {
+	Employees current = employeesService.readOneById(id);
+	current.setOffices(employees.getOffices());
+	current.setFirstName(employees.getFirstName());
+
+	current.setEmail(employees.getEmail());
+
+	current.setReportsTo(employees.getReportsTo());
+
+	current.setExtension(employees.getExtension());
+
+	current.setLastName(employees.getLastName());
+
+
+	current.setIsActive(employees.getIsActive());
+
+	current.setJobTitle(employees.getJobTitle());
+	return employeesService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

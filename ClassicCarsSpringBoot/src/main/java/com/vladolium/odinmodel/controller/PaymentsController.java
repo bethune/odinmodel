@@ -30,6 +30,41 @@ public Payments createOne(@RequestBody Payments payments) {
 	return paymentsService.createUpdate(payments);
 }
 
+
+
+@PutMapping("/{id}")
+public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payments) {
+	Payments current = paymentsService.readOneById(id);
+	current.setCustomers(payments.getCustomers());
+	current.setAmount(payments.getAmount());
+
+
+	current.setCheckNumber(payments.getCheckNumber());
+
+	current.setPaymentDate(payments.getPaymentDate());
+
+	current.setPaymentTimestamp(payments.getPaymentTimestamp());
+	return paymentsService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

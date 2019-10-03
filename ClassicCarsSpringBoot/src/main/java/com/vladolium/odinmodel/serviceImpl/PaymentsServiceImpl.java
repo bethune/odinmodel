@@ -27,6 +27,24 @@ public Payments createUpdate(Payments payments) {
 	return paymentsRepository.save(payments);
 }
 
+
+
+@Override
+public Payments readOneById(Long id) {
+	return paymentsRepository.getOne(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

@@ -30,6 +30,61 @@ public Gifts createOne(@RequestBody Gifts gifts) {
 	return giftsService.createUpdate(gifts);
 }
 
+
+@PutMapping("/{id}")
+public Gifts updateOneById(@PathVariable Long id, @RequestBody Gifts gifts) {
+	Gifts current = giftsService.readOneById(id);
+	current.setCustomersSet(gifts.getCustomersSet());
+
+	current.setGiftName(gifts.getGiftName());
+
+	current.setGiftType(gifts.getGiftType());
+
+	current.setIsExpired(gifts.getIsExpired());
+
+	current.setBeginsOn(gifts.getBeginsOn());
+
+	current.setExpiresOn(gifts.getExpiresOn());
+	return giftsService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+@PutMapping("/giftName={giftName}")
+public Gifts updateOneByGiftName(@PathVariable String giftName, @RequestBody Gifts gifts) {
+	Gifts current = giftsService.readOneByGiftName(giftName);
+	current.setCustomersSet(gifts.getCustomersSet());
+
+	current.setGiftName(gifts.getGiftName());
+
+	current.setGiftType(gifts.getGiftType());
+
+	current.setIsExpired(gifts.getIsExpired());
+
+	current.setBeginsOn(gifts.getBeginsOn());
+
+	current.setExpiresOn(gifts.getExpiresOn());
+	return giftsService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

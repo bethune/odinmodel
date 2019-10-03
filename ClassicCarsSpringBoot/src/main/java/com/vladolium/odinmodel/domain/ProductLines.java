@@ -80,7 +80,6 @@ private String productLine;
 
 
 
-
 @NotNull
 @Lob
 @Getter
@@ -95,6 +94,7 @@ private String textDescription;
 @Getter
 @Setter
 private byte[] image; 
+
 
 
 

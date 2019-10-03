@@ -10,6 +10,19 @@ public interface ReviewsService {
 // covers create & update
 Reviews createUpdate(Reviews reviews);
 
+
+
+
+
+Reviews readOneById(Long id);
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code

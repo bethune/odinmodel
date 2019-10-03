@@ -30,6 +30,35 @@ public Reviews createOne(@RequestBody Reviews reviews) {
 	return reviewsService.createUpdate(reviews);
 }
 
+
+
+
+
+@PutMapping("/{id}")
+public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews) {
+	Reviews current = reviewsService.readOneById(id);
+	current.setReviewText(reviews.getReviewText());
+
+	current.setReviewTime(reviews.getReviewTime());
+
+	current.setReviewDate(reviews.getReviewDate());
+
+	return reviewsService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

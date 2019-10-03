@@ -27,6 +27,23 @@ public OrderDetails createUpdate(OrderDetails orderDetails) {
 	return orderDetailsRepository.save(orderDetails);
 }
 
+
+@Override
+public OrderDetails readOneById(Long id) {
+	return orderDetailsRepository.getOne(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

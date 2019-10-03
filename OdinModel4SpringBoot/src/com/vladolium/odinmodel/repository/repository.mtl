@@ -3,27 +3,40 @@
 
 [template public repository(aClass : Class)
 	{
-		isEntityVar 				: Boolean = aClass.isAbstract = false;
-		packageFilePathNameVar 		: String = aClass._package.name.toLowerCase();
-		entityClassNameVar 			: String = aClass.name.toUpperFirst();
-		packageRepositoryPathVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
-		entityPropertyNameVar		: String = aClass.name.toLowerFirst();
+		isEntity 		: Boolean = aClass.isAbstract = false;
+		packagePath		: String = aClass._package.name.toLowerCase();
+		entity 			: String = aClass.name.toUpperFirst();
+		repositoryPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+		property		: String = aClass.name.toLowerFirst();
 	}
 ]
 
-[if isEntityVar] [comment: generate the repository methods for entities/]
-	[file ('src/main/java/' + packageFilePathNameVar + '/repository/' + entityClassNameVar + 'Repository.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
-package [packageRepositoryPathVar/].repository;
+[if isEntity] [comment: generate the repository methods for entities/]
+	[file ('src/main/java/' + packagePath + '/repository/' + entity + 'Repository.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+package [repositoryPath/].repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import [packageRepositoryPathVar/].domain.[entityClassNameVar/];
+import [repositoryPath/].domain.[entity/];
 
 		[for (p: Property | aClass.getAllAttributes()) separator('\n')]
 			[if p.isID = true]
-public interface [entityClassNameVar/]Repository extends JpaRepository<[entityClassNameVar/], [p.type.name.toUpperFirst()/]> {
+public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.name.toUpperFirst()/]> {
 			[/if]
 		[/for]
-	
+
+[comment: 
+--------------------------------------------------
+	read one by field with unique values
+--------------------------------------------------/]
+
+		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+			[if p.isUnique = true]
+[entity/] findBy[p.name.toUpperFirst()/]Equals([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
+			[/if]
+		[/for]
+
+
+
 //Code between start and end will not be removed during generation.
 //[protected ('for this repository')]
 //[/protected]

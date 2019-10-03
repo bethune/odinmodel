@@ -17,12 +17,12 @@ import lombok.*;
 public class Offices extends ContactDetails {
 
 
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
 @Setter
 private Long id; 
+
 
 
 

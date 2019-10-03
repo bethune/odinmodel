@@ -27,6 +27,30 @@ public Employees createUpdate(Employees employees) {
 	return employeesRepository.save(employees);
 }
 
+
+
+
+
+
+
+
+@Override
+public Employees readOneById(Long id) {
+	return employeesRepository.getOne(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

@@ -4,7 +4,7 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/fieldLombok.emtl#/0"/>
+    <imports href="../field/fieldLombok.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="manyToMany" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:ForBlock">
@@ -80,7 +80,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_id&quot;))&#xA;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/fieldLombok.emtl#/0/fieldLombok"/>
+            <definition href="../field/fieldLombok.emtl#/0/fieldLombok"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/manyToMany/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -333,7 +333,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/field/fieldLombok.emtl#/0/fieldLombok"/>
+          <references href="../field/fieldLombok.emtl#/0/fieldLombok"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">

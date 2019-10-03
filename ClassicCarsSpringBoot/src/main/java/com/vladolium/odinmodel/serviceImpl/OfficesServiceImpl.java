@@ -27,6 +27,31 @@ public Offices createUpdate(Offices offices) {
 	return officesRepository.save(offices);
 }
 
+
+@Override
+public Offices readOneById(Long id) {
+	return officesRepository.getOne(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

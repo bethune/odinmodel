@@ -15,12 +15,12 @@ public class Reviews {
 
 
 
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
 @Setter
 private Long id; 
-
 
 
 
@@ -49,14 +49,14 @@ private String reviewText;
 
 
 
+
+
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 @Getter
 @Setter
 private LocalDate reviewDate; 
-
-
 
 
 

@@ -14,14 +14,12 @@ public class Payments {
 
 
 
-
-
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
 @Setter
 private Long id; 
+
 
 
 
@@ -46,10 +44,13 @@ private Double amount;
 
 
 
+
+
 @NotNull
 @Getter
 @Setter
 private String checkNumber; 
+
 
 
 
@@ -91,15 +92,14 @@ private LocalDate paymentDate;
 
 
 
+
+
+
+
 //@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
 @Getter
 @Setter
 private Instant paymentTimestamp = Instant.now(); 
-
-
-
-
-
 
 
 

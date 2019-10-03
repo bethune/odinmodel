@@ -27,6 +27,30 @@ public Gifts createUpdate(Gifts gifts) {
 	return giftsRepository.save(gifts);
 }
 
+
+@Override
+public Gifts readOneById(Long id) {
+	return giftsRepository.getOne(id);
+}
+
+
+
+
+
+
+
+
+
+@Override
+public Gifts readOneByGiftName(String giftName) {
+	return giftsRepository.findByGiftNameEquals(giftName);
+}
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

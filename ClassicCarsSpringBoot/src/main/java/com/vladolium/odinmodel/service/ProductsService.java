@@ -10,6 +10,31 @@ public interface ProductsService {
 // covers create & update
 Products createUpdate(Products products);
 
+
+
+
+
+
+
+
+
+
+
+Products readOneById(Long id);
+
+
+
+Products readOneByProductCode(String productCode);
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code

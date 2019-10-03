@@ -27,6 +27,21 @@ public ProductLines createUpdate(ProductLines productLines) {
 	return productLinesRepository.save(productLines);
 }
 
+
+
+
+
+@Override
+public ProductLines readOneById(Long id) {
+	return productLinesRepository.getOne(id);
+}
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

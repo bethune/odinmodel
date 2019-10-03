@@ -30,9 +30,10 @@ import org.springframework.data.domain.*;
 public interface [entity/]Service {
 
 [aClass.createUpdate()/]
+[aClass.readOne()/]
 [comment][aClass.delete()/]
 [aClass.retrieveAll()/]
-[aClass.retrieveOne()/][/comment]
+[/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this service')]

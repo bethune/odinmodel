@@ -27,6 +27,36 @@ public Products createUpdate(Products products) {
 	return productsRepository.save(products);
 }
 
+
+
+
+
+
+
+
+
+
+
+@Override
+public Products readOneById(Long id) {
+	return productsRepository.getOne(id);
+}
+
+
+
+@Override
+public Products readOneByProductCode(String productCode) {
+	return productsRepository.findByProductCodeEquals(productCode);
+}
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

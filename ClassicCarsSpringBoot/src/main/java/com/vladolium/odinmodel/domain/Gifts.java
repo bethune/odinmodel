@@ -13,13 +13,13 @@ import lombok.*;
 public class Gifts {
 
 
-
-
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Getter
 @Setter
 private Long id; 
+
+
 
 
 
@@ -55,10 +55,6 @@ private String giftName;
 
 
 
-
-
-
-
 public enum GiftType {
 	FREE, 
 	PLATINUM, 
@@ -82,13 +78,19 @@ private GiftType giftType;
 
 
 
+
+
+
+
+
+
+
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
 @Getter
 @Setter
 private LocalDateTime beginsOn; 
-
 
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
@@ -120,13 +122,11 @@ private LocalDateTime expiresOn;
 
 
 
+
 @NotNull
 @Getter
 @Setter
 private Boolean isExpired; 
-
-
-
 
 
 

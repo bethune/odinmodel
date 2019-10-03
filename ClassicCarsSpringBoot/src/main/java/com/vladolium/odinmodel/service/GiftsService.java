@@ -10,6 +10,25 @@ public interface GiftsService {
 // covers create & update
 Gifts createUpdate(Gifts gifts);
 
+
+Gifts readOneById(Long id);
+
+
+
+
+
+
+
+
+
+Gifts readOneByGiftName(String giftName);
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code

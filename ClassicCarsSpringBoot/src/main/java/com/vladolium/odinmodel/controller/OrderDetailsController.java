@@ -30,6 +30,39 @@ public OrderDetails createOne(@RequestBody OrderDetails orderDetails) {
 	return orderDetailsService.createUpdate(orderDetails);
 }
 
+
+@PutMapping("/{id}")
+public OrderDetails updateOneById(@PathVariable Long id, @RequestBody OrderDetails orderDetails) {
+	OrderDetails current = orderDetailsService.readOneById(id);
+	current.setOrders(orderDetails.getOrders());
+	current.setProducts(orderDetails.getProducts());
+
+	current.setQuantityOrdered(orderDetails.getQuantityOrdered());
+
+	current.setOrderLineNumber(orderDetails.getOrderLineNumber());
+
+	current.setPriceEach(orderDetails.getPriceEach());
+	return orderDetailsService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

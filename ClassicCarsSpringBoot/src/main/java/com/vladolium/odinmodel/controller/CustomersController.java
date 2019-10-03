@@ -30,6 +30,100 @@ public Customers createOne(@RequestBody Customers customers) {
 	return customersService.createUpdate(customers);
 }
 
+
+
+
+
+@PutMapping("/{id}")
+public Customers updateOneById(@PathVariable Long id, @RequestBody Customers customers) {
+	Customers current = customersService.readOneById(id);
+	current.setReviewsList(customers.getReviewsList());
+	current.setEmployees(customers.getEmployees());
+	current.setPostalCode(customers.getPostalCode());
+
+	current.setCity(customers.getCity());
+
+
+	current.setCreditLimit(customers.getCreditLimit());
+
+	current.setFirstName(customers.getFirstName());
+
+	current.setAddressLine2(customers.getAddressLine2());
+
+	current.setLastName(customers.getLastName());
+
+	current.setPhone(customers.getPhone());
+
+	current.setState(customers.getState());
+
+	current.setCustomerName(customers.getCustomerName());
+
+	current.setAddressLine1(customers.getAddressLine1());
+
+	current.setCountry(customers.getCountry());
+	return customersService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@PutMapping("/customerName={customerName}")
+public Customers updateOneByCustomerName(@PathVariable String customerName, @RequestBody Customers customers) {
+	Customers current = customersService.readOneByCustomerName(customerName);
+	current.setReviewsList(customers.getReviewsList());
+	current.setEmployees(customers.getEmployees());
+	current.setPostalCode(customers.getPostalCode());
+
+	current.setCity(customers.getCity());
+
+
+	current.setCreditLimit(customers.getCreditLimit());
+
+	current.setFirstName(customers.getFirstName());
+
+	current.setAddressLine2(customers.getAddressLine2());
+
+	current.setLastName(customers.getLastName());
+
+	current.setPhone(customers.getPhone());
+
+	current.setState(customers.getState());
+
+	current.setCustomerName(customers.getCustomerName());
+
+	current.setAddressLine1(customers.getAddressLine1());
+
+	current.setCountry(customers.getCountry());
+	return customersService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

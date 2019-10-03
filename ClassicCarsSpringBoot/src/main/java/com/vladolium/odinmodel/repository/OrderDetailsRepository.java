@@ -9,7 +9,14 @@ public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long
 
 
 
-	
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this repository
 //End of user code

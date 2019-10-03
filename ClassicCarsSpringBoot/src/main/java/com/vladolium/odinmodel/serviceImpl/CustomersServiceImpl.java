@@ -27,6 +27,43 @@ public Customers createUpdate(Customers customers) {
 	return customersRepository.save(customers);
 }
 
+
+
+
+
+@Override
+public Customers readOneById(Long id) {
+	return customersRepository.getOne(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@Override
+public Customers readOneByCustomerName(String customerName) {
+	return customersRepository.findByCustomerNameEquals(customerName);
+}
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

@@ -10,6 +10,38 @@ public interface CustomersService {
 // covers create & update
 Customers createUpdate(Customers customers);
 
+
+
+
+
+Customers readOneById(Long id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Customers readOneByCustomerName(String customerName);
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code

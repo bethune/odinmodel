@@ -30,6 +30,79 @@ public Products createOne(@RequestBody Products products) {
 	return productsService.createUpdate(products);
 }
 
+
+
+
+
+
+
+
+
+
+
+@PutMapping("/{id}")
+public Products updateOneById(@PathVariable Long id, @RequestBody Products products) {
+	Products current = productsService.readOneById(id);
+	current.setProductLines(products.getProductLines());
+	current.setQuantityInStock(products.getQuantityInStock());
+
+	current.setProductCode(products.getProductCode());
+
+	current.setProductVendor(products.getProductVendor());
+
+	current.setBuyPrice(products.getBuyPrice());
+
+	current.setMSRP(products.getMSRP());
+
+	current.setProductScale(products.getProductScale());
+
+	current.setProductDescription(products.getProductDescription());
+
+	current.setProductName(products.getProductName());
+
+	return productsService.createUpdate(current);
+}
+
+
+
+@PutMapping("/productCode={productCode}")
+public Products updateOneByProductCode(@PathVariable String productCode, @RequestBody Products products) {
+	Products current = productsService.readOneByProductCode(productCode);
+	current.setProductLines(products.getProductLines());
+	current.setQuantityInStock(products.getQuantityInStock());
+
+	current.setProductCode(products.getProductCode());
+
+	current.setProductVendor(products.getProductVendor());
+
+	current.setBuyPrice(products.getBuyPrice());
+
+	current.setMSRP(products.getMSRP());
+
+	current.setProductScale(products.getProductScale());
+
+	current.setProductDescription(products.getProductDescription());
+
+	current.setProductName(products.getProductName());
+
+	return productsService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

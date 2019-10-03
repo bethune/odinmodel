@@ -30,6 +30,55 @@ public Offices createOne(@RequestBody Offices offices) {
 	return officesService.createUpdate(offices);
 }
 
+
+@PutMapping("/{id}")
+public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices) {
+	Offices current = officesService.readOneById(id);
+
+	current.setPostalCode(offices.getPostalCode());
+
+	current.setCity(offices.getCity());
+
+	current.setPhone(offices.getPhone());
+
+	current.setTerritory(offices.getTerritory());
+
+	current.setState(offices.getState());
+
+	current.setAddressLine1(offices.getAddressLine1());
+
+	current.setAddressLine2(offices.getAddressLine2());
+
+	current.setCountry(offices.getCountry());
+	return officesService.createUpdate(current);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

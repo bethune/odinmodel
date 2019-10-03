@@ -50,11 +50,15 @@ public class [entity/]Controller {
 	}
 
 [aClass.create()/]
+[aClass.update()/]
+[aClass.readOne()/]
+[aClass.readAll()/]
+[aClass.search()/]
 [comment][aClass.update()/]	
 [aClass.delete()/]
-[aClass.readAll()/]
-[aClass.readOne()/]
-[aClass.search()/][/comment]
+
+
+[/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]

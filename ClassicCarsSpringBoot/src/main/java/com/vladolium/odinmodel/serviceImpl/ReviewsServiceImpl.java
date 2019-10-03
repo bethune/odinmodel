@@ -27,6 +27,21 @@ public Reviews createUpdate(Reviews reviews) {
 	return reviewsRepository.save(reviews);
 }
 
+
+
+
+
+@Override
+public Reviews readOneById(Long id) {
+	return reviewsRepository.getOne(id);
+}
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code
