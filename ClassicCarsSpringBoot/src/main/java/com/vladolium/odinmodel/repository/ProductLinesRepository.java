@@ -12,6 +12,7 @@ public interface ProductLinesRepository extends JpaRepository<ProductLines, Long
 
 
 
+ProductLines findByIdEquals(Long id);
 
 
 

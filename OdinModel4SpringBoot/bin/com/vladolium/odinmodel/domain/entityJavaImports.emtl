@@ -5,7 +5,7 @@
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="entityJavaImports" visibility="Public">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import javax.persistence.*;&#xA;import javax.validation.constraints.*;&#xA;import java.time.*;&#xA;import org.springframework.format.annotation.DateTimeFormat;&#xA;import java.util.*;&#xA;import lombok.*;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import javax.persistence.*;&#xA;import javax.validation.constraints.*;&#xA;import java.time.*;&#xA;import org.springframework.format.annotation.DateTimeFormat;&#xA;import java.util.*;"/>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
@@ -86,12 +86,12 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/entityJavaImports">
       <details key="start" value="98"/>
-      <details key="end" value="346"/>
+      <details key="end" value="329"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/entityJavaImports/%">
       <details key="start" value="150"/>
-      <details key="end" value="334"/>
+      <details key="end" value="317"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/entityJavaImports/aClass">

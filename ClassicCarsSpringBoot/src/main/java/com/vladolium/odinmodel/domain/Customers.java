@@ -11,7 +11,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Customers extends ContactDetails {
@@ -20,10 +19,16 @@ public class Customers extends ContactDetails {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
 
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
 
 
 
@@ -43,10 +48,16 @@ private Long id;
 
 
 @NotNull
-@Getter
-@Setter
 private Double creditLimit; 
 
+public Double getCreditLimit() {
+	return creditLimit;
+}
+
+public void setCreditLimit(Double creditLimit) {
+	this.creditLimit = creditLimit;
+}
+
 
 
 
@@ -54,18 +65,36 @@ private Double creditLimit;
 
 
 @NotNull
-@Getter
-@Setter
 private String firstName; 
+
+public String getFirstName() {
+	return firstName;
+}
+
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
+}
 @NotNull
-@Getter
-@Setter
 private String lastName; 
+
+public String getLastName() {
+	return lastName;
+}
+
+public void setLastName(String lastName) {
+	this.lastName = lastName;
+}
 @NotNull
 @Column(unique=true)
-@Getter
-@Setter
 private String customerName; 
+
+public String getCustomerName() {
+	return customerName;
+}
+
+public void setCustomerName(String customerName) {
+	this.customerName = customerName;
+}
 
 
 
@@ -143,9 +172,15 @@ private String customerName;
 
 @ManyToOne
 @JoinColumn(name="employees_id")
-@Getter
-@Setter
 private Employees employees;
+
+public Employees getEmployees() {
+	return employees;
+}
+
+public void setEmployees(Employees employees) {
+	this.employees = employees;
+}
 
 
 
@@ -157,9 +192,15 @@ private Employees employees;
 
 @OneToMany
 @JoinColumn(name="customers_id")
-@Getter
-@Setter
 private List<Reviews> reviewsList;
+
+public List<Reviews> getReviewsList() {
+	return reviewsList;
+}
+
+public void setReviewsList(List<Reviews> reviewsList) {
+	this.reviewsList = reviewsList;
+}
 
 
 

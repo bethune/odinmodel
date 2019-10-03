@@ -58,6 +58,22 @@ public OrderDetails updateOneById(@PathVariable Long id, @RequestBody OrderDetai
 
 
 
+@GetMapping("/{id}")
+public OrderDetails findOneById(@PathVariable Long id) {
+	return orderDetailsService.readOneById(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -78,6 +78,29 @@ public Employees updateOneById(@PathVariable Long id, @RequestBody Employees emp
 
 
 
+@GetMapping("/{id}")
+public Employees findOneById(@PathVariable Long id) {
+	return employeesService.readOneById(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

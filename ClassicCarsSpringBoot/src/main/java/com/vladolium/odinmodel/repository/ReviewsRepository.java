@@ -12,6 +12,7 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Long> {
 
 
 
+Reviews findByIdEquals(Long id);
 
 
 

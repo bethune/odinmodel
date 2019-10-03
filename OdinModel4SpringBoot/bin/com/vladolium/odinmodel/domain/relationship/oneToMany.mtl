@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module oneToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::domain::field::fieldLombok /]
-
 [template public oneToMany(aClass : Class)]
 
 [comment : For all relatinships of the current entity./]
@@ -11,8 +9,16 @@
 		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1] [comment : Generate the oneToMany relationship./]
 @OneToMany
 @JoinColumn(name="[p.type.name.toLowerFirst()/]_id")
-[aClass.fieldLombok()/]
 private List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List;
+
+[comment : Get and Set/]
+public List<[p.opposite.type.name.toUpperFirst()/]> get[p.opposite.type.name.toUpperFirst()/]List() {
+	return [p.opposite.type.name.toLowerFirst()/]List;
+}
+
+public void set[p.opposite.type.name.toUpperFirst()/]List(List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List) {
+	this.[p.opposite.type.name.toLowerFirst()/]List = [p.opposite.type.name.toLowerFirst()/]List;
+}
 	[/if]
 [/for]
 

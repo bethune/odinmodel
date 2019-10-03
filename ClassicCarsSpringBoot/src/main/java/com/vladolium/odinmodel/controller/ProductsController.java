@@ -69,26 +69,41 @@ public Products updateOneById(@PathVariable Long id, @RequestBody Products produ
 public Products updateOneByProductCode(@PathVariable String productCode, @RequestBody Products products) {
 	Products current = productsService.readOneByProductCode(productCode);
 	current.setProductLines(products.getProductLines());
-	current.setQuantityInStock(products.getQuantityInStock());
-
 	current.setProductCode(products.getProductCode());
-
-	current.setProductVendor(products.getProductVendor());
-
-	current.setBuyPrice(products.getBuyPrice());
-
-	current.setMSRP(products.getMSRP());
-
-	current.setProductScale(products.getProductScale());
-
-	current.setProductDescription(products.getProductDescription());
-
-	current.setProductName(products.getProductName());
 
 	return productsService.createUpdate(current);
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@GetMapping("/{id}")
+public Products findOneById(@PathVariable Long id) {
+	return productsService.readOneById(id);
+}
+
+
+
+@GetMapping("/productCode={productCode}")
+public Products findOneByProductCode(@PathVariable String productCode) {
+	return productsService.readOneByProductCode(productCode);
+}
 
 
 

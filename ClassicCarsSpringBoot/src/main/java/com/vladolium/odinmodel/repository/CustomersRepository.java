@@ -21,6 +21,7 @@ public interface CustomersRepository extends JpaRepository<Customers, Long> {
 
 
 
+Customers findByIdEquals(Long id);
 
 
 

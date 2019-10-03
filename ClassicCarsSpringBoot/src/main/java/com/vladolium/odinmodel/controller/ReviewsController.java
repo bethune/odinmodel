@@ -57,6 +57,20 @@ public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews
 
 
 
+@GetMapping("/{id}")
+public Reviews findOneById(@PathVariable Long id) {
+	return reviewsService.readOneById(id);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

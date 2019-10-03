@@ -57,6 +57,20 @@ public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLin
 
 
 
+@GetMapping("/{id}")
+public ProductLines findOneById(@PathVariable Long id) {
+	return productLinesService.readOneById(id);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

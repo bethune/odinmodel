@@ -32,8 +32,6 @@ import java.time.*;
 import java.util.*;
 
 import [controllerPath/].domain.*;
-[comment]import [packageControllerPathVar/].domain.[entityClassNameVar/];
-import [packageControllerPathVar/].domain.[entityClassNameVar/].*;[/comment]
 import [controllerPath/].service.[entity/]Service;
 import [controllerPath/].service.*;
 

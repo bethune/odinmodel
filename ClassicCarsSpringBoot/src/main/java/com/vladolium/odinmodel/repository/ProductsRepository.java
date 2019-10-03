@@ -24,6 +24,7 @@ Products findByProductCodeEquals(String productCode);
 
 
 
+Products findByIdEquals(Long id);
 
 
 

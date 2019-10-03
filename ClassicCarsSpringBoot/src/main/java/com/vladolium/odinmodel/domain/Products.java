@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Products {
@@ -24,17 +23,29 @@ public class Products {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
 
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
 
 
 @NotNull
-@Getter
-@Setter
 private Integer quantityInStock; 
 
+public Integer getQuantityInStock() {
+	return quantityInStock;
+}
+
+public void setQuantityInStock(Integer quantityInStock) {
+	this.quantityInStock = quantityInStock;
+}
+
 
 
 
@@ -51,14 +62,26 @@ private Integer quantityInStock;
 
 
 @NotNull
-@Getter
-@Setter
 private Double buyPrice; 
 
+public Double getBuyPrice() {
+	return buyPrice;
+}
+
+public void setBuyPrice(Double buyPrice) {
+	this.buyPrice = buyPrice;
+}
+
 @NotNull
-@Getter
-@Setter
 private Double MSRP; 
+
+public Double getMSRP() {
+	return MSRP;
+}
+
+public void setMSRP(Double MSRP) {
+	this.MSRP = MSRP;
+}
 
 
 
@@ -68,21 +91,45 @@ private Double MSRP;
 
 @NotNull
 @Column(unique=true)
-@Getter
-@Setter
 private String productCode; 
+
+public String getProductCode() {
+	return productCode;
+}
+
+public void setProductCode(String productCode) {
+	this.productCode = productCode;
+}
 @NotNull
-@Getter
-@Setter
 private String productVendor; 
+
+public String getProductVendor() {
+	return productVendor;
+}
+
+public void setProductVendor(String productVendor) {
+	this.productVendor = productVendor;
+}
 @NotNull
-@Getter
-@Setter
 private String productScale; 
+
+public String getProductScale() {
+	return productScale;
+}
+
+public void setProductScale(String productScale) {
+	this.productScale = productScale;
+}
 @NotNull
-@Getter
-@Setter
 private String productName; 
+
+public String getProductName() {
+	return productName;
+}
+
+public void setProductName(String productName) {
+	this.productName = productName;
+}
 
 
 
@@ -167,9 +214,15 @@ private String productName;
 
 @NotNull
 @Lob
-@Getter
-@Setter
 private String productDescription; 
+
+public String getProductDescription() {
+	return productDescription;
+}
+
+public void setProductDescription(String productDescription) {
+	this.productDescription = productDescription;
+}
 
 
 
@@ -189,9 +242,15 @@ private String productDescription;
 
 @ManyToOne
 @JoinColumn(name="productLines_id")
-@Getter
-@Setter
 private ProductLines productLines;
+
+public ProductLines getProductLines() {
+	return productLines;
+}
+
+public void setProductLines(ProductLines productLines) {
+	this.productLines = productLines;
+}
 
 
 

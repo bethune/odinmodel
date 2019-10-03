@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module integer('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::domain::field::fieldLombok /]
-
 [template public integer(aClass : Class)]
 
 [comment : For all fields of the current entity./]
@@ -18,8 +16,16 @@
 		[if p.isUnique = true and p.isID = false] [comment : Generate the unique constraint./]
 @Column(unique=true)
 		[/if]
-[aClass.fieldLombok()/]
 private [p.type.name/] [p.name/]; [comment : Define the field's type and name./]
+
+[comment : Get and Set/]
+public [p.type.name/] get[p.name.toUpperFirst()/]() {
+	return [p.name/];
+}
+
+public void set[p.name.toUpperFirst()/]([p.type.name/] [p.name/]) {
+	this.[p.name/] = [p.name/];
+}
 	[/if]
 [/for]
 

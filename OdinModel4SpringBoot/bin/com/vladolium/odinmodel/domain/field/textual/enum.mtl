@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module enum('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::domain::field::fieldLombok /]
-
 [template public enum(aClass : Class)]
 
 [comment : For all enumerations in the model./]
@@ -23,8 +21,16 @@ public enum [p.type.name/] {
 @Column(unique=true)
 			[/if]
 @Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
-[aClass.fieldLombok()/]
 private [p.type.name/] [p.name/]; [comment : Define the field's type and name./]
+
+[comment : Get and Set/]
+public [p.type.name/] get[p.name.toUpperFirst()/]() {
+	return [p.name/];
+}
+
+public void set[p.name.toUpperFirst()/]([p.type.name/] [p.name/]) {
+	this.[p.name/] = [p.name/];
+}
 		[/if]
 	[/for]
 [/for]

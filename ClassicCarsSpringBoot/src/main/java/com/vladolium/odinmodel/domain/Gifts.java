@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Gifts {
@@ -15,9 +14,15 @@ public class Gifts {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
+
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
 
 
 
@@ -47,9 +52,15 @@ private Long id;
 
 @NotNull
 @Column(unique=true)
-@Getter
-@Setter
 private String giftName; 
+
+public String getGiftName() {
+	return giftName;
+}
+
+public void setGiftName(String giftName) {
+	this.giftName = giftName;
+}
 
 
 
@@ -62,10 +73,16 @@ public enum GiftType {
 }
 @NotNull
 @Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
-@Getter
-@Setter
 private GiftType giftType; 
 
+public GiftType getGiftType() {
+	return giftType;
+}
+
+public void setGiftType(GiftType giftType) {
+	this.giftType = giftType;
+}
+
 
 
 
@@ -88,16 +105,28 @@ private GiftType giftType;
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
-@Getter
-@Setter
 private LocalDateTime beginsOn; 
 
+public LocalDateTime getBeginsOn() {
+	return beginsOn;
+}
+
+public void setBeginsOn(LocalDateTime beginsOn) {
+	this.beginsOn = beginsOn;
+}
+
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
-@Getter
-@Setter
 private LocalDateTime expiresOn; 
+
+public LocalDateTime getExpiresOn() {
+	return expiresOn;
+}
+
+public void setExpiresOn(LocalDateTime expiresOn) {
+	this.expiresOn = expiresOn;
+}
 
 
 
@@ -124,9 +153,15 @@ private LocalDateTime expiresOn;
 
 
 @NotNull
-@Getter
-@Setter
 private Boolean isExpired; 
+
+public Boolean getIsExpired() {
+	return isExpired;
+}
+
+public void setIsExpired(Boolean isExpired) {
+	this.isExpired = isExpired;
+}
 
 
 
@@ -161,9 +196,15 @@ private Boolean isExpired;
 @JoinTable(name="gifts_customers", 
 	joinColumns = @JoinColumn(name = "gifts_id"), 
 	inverseJoinColumns = @JoinColumn(name = "customers_id"))
-@Getter
-@Setter
 private Set<Customers> customersSet = new HashSet<>();
+
+public Set<Customers> getCustomersSet() {
+	return customersSet;
+}
+
+public void setCustomersSet(Set<Customers> customersSet) {
+	this.customersSet = customersSet;
+}
 
 
 

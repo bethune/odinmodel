@@ -11,7 +11,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Offices extends ContactDetails {
@@ -19,9 +18,15 @@ public class Offices extends ContactDetails {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
+
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
 
 
 
@@ -35,9 +40,15 @@ private Long id;
 
 
 @NotNull
-@Getter
-@Setter
 private String territory; 
+
+public String getTerritory() {
+	return territory;
+}
+
+public void setTerritory(String territory) {
+	this.territory = territory;
+}
 
 
 

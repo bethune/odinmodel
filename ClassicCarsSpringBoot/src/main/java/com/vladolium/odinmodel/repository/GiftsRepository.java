@@ -12,6 +12,7 @@ public interface GiftsRepository extends JpaRepository<Gifts, Long> {
 
 
 
+Gifts findByIdEquals(Long id);
 
 Gifts findByGiftNameEquals(String giftName);
 

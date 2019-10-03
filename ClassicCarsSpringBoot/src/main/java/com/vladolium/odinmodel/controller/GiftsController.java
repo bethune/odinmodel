@@ -60,20 +60,35 @@ public Gifts updateOneById(@PathVariable Long id, @RequestBody Gifts gifts) {
 public Gifts updateOneByGiftName(@PathVariable String giftName, @RequestBody Gifts gifts) {
 	Gifts current = giftsService.readOneByGiftName(giftName);
 	current.setCustomersSet(gifts.getCustomersSet());
-
 	current.setGiftName(gifts.getGiftName());
 
-	current.setGiftType(gifts.getGiftType());
-
-	current.setIsExpired(gifts.getIsExpired());
-
-	current.setBeginsOn(gifts.getBeginsOn());
-
-	current.setExpiresOn(gifts.getExpiresOn());
 	return giftsService.createUpdate(current);
 }
 
 
+
+
+
+
+
+
+@GetMapping("/{id}")
+public Gifts findOneById(@PathVariable Long id) {
+	return giftsService.readOneById(id);
+}
+
+
+
+
+
+
+
+
+
+@GetMapping("/giftName={giftName}")
+public Gifts findOneByGiftName(@PathVariable String giftName) {
+	return giftsService.readOneByGiftName(giftName);
+}
 
 
 

@@ -12,6 +12,7 @@ public interface PaymentsRepository extends JpaRepository<Payments, Long> {
 
 
 
+Payments findByIdEquals(Long id);
 
 
 

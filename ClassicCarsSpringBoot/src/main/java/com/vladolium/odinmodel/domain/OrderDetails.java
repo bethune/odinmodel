@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class OrderDetails {
@@ -15,10 +14,16 @@ public class OrderDetails {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
 
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
 
 
 
@@ -29,15 +34,27 @@ private Long id;
 
 
 @NotNull
-@Getter
-@Setter
 private Integer quantityOrdered; 
 
+public Integer getQuantityOrdered() {
+	return quantityOrdered;
+}
+
+public void setQuantityOrdered(Integer quantityOrdered) {
+	this.quantityOrdered = quantityOrdered;
+}
+
 @NotNull
-@Getter
-@Setter
 private Integer orderLineNumber; 
 
+public Integer getOrderLineNumber() {
+	return orderLineNumber;
+}
+
+public void setOrderLineNumber(Integer orderLineNumber) {
+	this.orderLineNumber = orderLineNumber;
+}
+
 
 
 
@@ -47,9 +64,15 @@ private Integer orderLineNumber;
 
 
 @NotNull
-@Getter
-@Setter
 private Double priceEach; 
+
+public Double getPriceEach() {
+	return priceEach;
+}
+
+public void setPriceEach(Double priceEach) {
+	this.priceEach = priceEach;
+}
 
 
 
@@ -123,17 +146,29 @@ private Double priceEach;
 
 @ManyToOne
 @JoinColumn(name="products_id")
-@Getter
-@Setter
 private Products products;
+
+public Products getProducts() {
+	return products;
+}
+
+public void setProducts(Products products) {
+	this.products = products;
+}
 
 
 
 @OneToOne
 @JoinColumn(name="orders_id")
-@Getter
-@Setter
 private Orders orders;
+
+public Orders getOrders() {
+	return orders;
+}
+
+public void setOrders(Orders orders) {
+	this.orders = orders;
+}
 
 
 

@@ -1,7 +1,39 @@
 [comment encoding = UTF-8 /]
 [module readOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[template public readOne(aClass : Class)
+	{
+		entity 		: String = aClass.name.toUpperFirst();
+		property	: String = aClass.name.toLowerFirst();
+	}
+]
 
-[template public readOne(aClass : Class)]
+[comment: 
+--------------------------------------------------
+	Read one by id.
+--------------------------------------------------/]
+
+[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+	[if p.isID = true]
+@GetMapping("/{[p.name.toLowerFirst()/]}")
+public [entity/] findOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]) {
+	return [property/]Service.readOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
+}
+	[/if]
+[/for]
+
+[comment: 
+--------------------------------------------------
+	Read one by field with unique values.
+--------------------------------------------------/]
+
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+	[if p.isUnique = true and p.isID = false]
+@GetMapping("/[p.name.toLowerFirst()/]={[p.name.toLowerFirst()/]}")
+public [entity/] findOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]) {
+	return [property/]Service.readOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
+}
+	[/if]
+[/for]
 
 [/template]

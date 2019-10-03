@@ -19,6 +19,7 @@ public interface EmployeesRepository extends JpaRepository<Employees, Long> {
 
 
 
+Employees findByIdEquals(Long id);
 
 
 

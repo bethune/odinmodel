@@ -9,7 +9,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @MappedSuperclass
 public abstract class ContactDetails {
@@ -42,30 +41,72 @@ public abstract class ContactDetails {
 
 
 
-@Getter
-@Setter
 private String postalCode; 
+
+public String getPostalCode() {
+	return postalCode;
+}
+
+public void setPostalCode(String postalCode) {
+	this.postalCode = postalCode;
+}
 @NotNull
-@Getter
-@Setter
 private String city; 
-@Getter
-@Setter
+
+public String getCity() {
+	return city;
+}
+
+public void setCity(String city) {
+	this.city = city;
+}
 private String phone; 
-@Getter
-@Setter
+
+public String getPhone() {
+	return phone;
+}
+
+public void setPhone(String phone) {
+	this.phone = phone;
+}
 private String state; 
+
+public String getState() {
+	return state;
+}
+
+public void setState(String state) {
+	this.state = state;
+}
 @NotNull
-@Getter
-@Setter
 private String addressLine1; 
-@Getter
-@Setter
+
+public String getAddressLine1() {
+	return addressLine1;
+}
+
+public void setAddressLine1(String addressLine1) {
+	this.addressLine1 = addressLine1;
+}
 private String addressLine2; 
+
+public String getAddressLine2() {
+	return addressLine2;
+}
+
+public void setAddressLine2(String addressLine2) {
+	this.addressLine2 = addressLine2;
+}
 @NotNull
-@Getter
-@Setter
 private String country; 
+
+public String getCountry() {
+	return country;
+}
+
+public void setCountry(String country) {
+	this.country = country;
+}
 
 
 

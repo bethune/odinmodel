@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module time('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::domain::field::fieldLombok /]
-
 [template public time(aClass : Class)]
 
 [comment : For all fields of the current entity./]
@@ -16,8 +14,16 @@
 		[/if]
 @DateTimeFormat(pattern = "HH:mm") //for database
 //@JsonFormat(pattern = "HH:mm") //for frontend
-[aClass.fieldLombok()/]
 private LocalTime [p.name/]; [comment : Define the field's type and name./]
+
+[comment : Get and Set/]
+public LocalTime get[p.name.toUpperFirst()/]() {
+	return [p.name/];
+}
+
+public void set[p.name.toUpperFirst()/](LocalTime [p.name/]) {
+	this.[p.name/] = [p.name/];
+}
 	[/if]
 [/for]
 

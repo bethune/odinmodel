@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Orders {
@@ -20,10 +19,16 @@ public class Orders {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
 
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
 
 
 
@@ -46,10 +51,16 @@ private Long id;
 
 
 @NotNull
-@Getter
-@Setter
 private String status; 
 
+public String getStatus() {
+	return status;
+}
+
+public void setStatus(String status) {
+	this.status = status;
+}
+
 
 
 
@@ -65,25 +76,43 @@ private String status;
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-@Getter
-@Setter
 private LocalDate requiredDate; 
 
+public LocalDate getRequiredDate() {
+	return requiredDate;
+}
+
+public void setRequiredDate(LocalDate requiredDate) {
+	this.requiredDate = requiredDate;
+}
+
 
 
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-@Getter
-@Setter
 private LocalDate shippedDate; 
+
+public LocalDate getShippedDate() {
+	return shippedDate;
+}
+
+public void setShippedDate(LocalDate shippedDate) {
+	this.shippedDate = shippedDate;
+}
 
 
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-@Getter
-@Setter
 private LocalDate orderDate; 
+
+public LocalDate getOrderDate() {
+	return orderDate;
+}
+
+public void setOrderDate(LocalDate orderDate) {
+	this.orderDate = orderDate;
+}
 
 
 
@@ -126,9 +155,15 @@ private LocalDate orderDate;
 
 
 @Lob
-@Getter
-@Setter
 private String comments; 
+
+public String getComments() {
+	return comments;
+}
+
+public void setComments(String comments) {
+	this.comments = comments;
+}
 
 
 
@@ -147,9 +182,15 @@ private String comments;
 
 @ManyToOne
 @JoinColumn(name="customers_id")
-@Getter
-@Setter
 private Customers customers;
+
+public Customers getCustomers() {
+	return customers;
+}
+
+public void setCustomers(Customers customers) {
+	this.customers = customers;
+}
 
 
 

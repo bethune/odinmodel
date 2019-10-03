@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Reviews {
@@ -18,9 +17,15 @@ public class Reviews {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
+
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
 
 
 
@@ -37,9 +42,15 @@ private Long id;
 
 
 @NotNull
-@Getter
-@Setter
 private String reviewText; 
+
+public String getReviewText() {
+	return reviewText;
+}
+
+public void setReviewText(String reviewText) {
+	this.reviewText = reviewText;
+}
 
 
 
@@ -54,9 +65,15 @@ private String reviewText;
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-@Getter
-@Setter
 private LocalDate reviewDate; 
+
+public LocalDate getReviewDate() {
+	return reviewDate;
+}
+
+public void setReviewDate(LocalDate reviewDate) {
+	this.reviewDate = reviewDate;
+}
 
 
 
@@ -71,9 +88,15 @@ private LocalDate reviewDate;
 @NotNull
 @DateTimeFormat(pattern = "HH:mm") //for database
 //@JsonFormat(pattern = "HH:mm") //for frontend
-@Getter
-@Setter
 private LocalTime reviewTime; 
+
+public LocalTime getReviewTime() {
+	return reviewTime;
+}
+
+public void setReviewTime(LocalTime reviewTime) {
+	this.reviewTime = reviewTime;
+}
 
 
 

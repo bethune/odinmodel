@@ -14,6 +14,7 @@ public interface OfficesRepository extends JpaRepository<Offices, Long> {
 
 
 
+Offices findByIdEquals(Long id);
 
 
 

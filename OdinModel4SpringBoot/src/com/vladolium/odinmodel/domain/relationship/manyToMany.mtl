@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module manyToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::domain::field::fieldLombok /]
-
 [template public manyToMany(aClass : Class)]
 
 [comment : For all relatinships of the current entity./]
@@ -13,8 +11,16 @@
 @JoinTable(name="[p.type.name.toLowerFirst()/]_[p.opposite.type.name.toLowerFirst()/]", 
 	joinColumns = @JoinColumn(name = "[p.type.name.toLowerFirst()/]_id"), 
 	inverseJoinColumns = @JoinColumn(name = "[p.opposite.type.name.toLowerFirst()/]_id"))
-[aClass.fieldLombok()/]
 private Set<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set = new HashSet<>();
+
+[comment : Get and Set/]
+public Set<[p.opposite.type.name.toUpperFirst()/]> get[p.opposite.type.name.toUpperFirst()/]Set() {
+	return [p.opposite.type.name.toLowerFirst()/]Set;
+}
+
+public void set[p.opposite.type.name.toUpperFirst()/]Set(Set<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set) {
+	this.[p.opposite.type.name.toLowerFirst()/]Set = [p.opposite.type.name.toLowerFirst()/]Set;
+}
 	[/if]
 [/for]
 

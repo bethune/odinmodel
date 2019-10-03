@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class ProductLines {
@@ -18,10 +17,16 @@ public class ProductLines {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
 
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
 
 
 
@@ -37,10 +42,16 @@ private Long id;
 
 
 @NotNull
-@Getter
-@Setter
 private String productLine; 
 
+public String getProductLine() {
+	return productLine;
+}
+
+public void setProductLine(String productLine) {
+	this.productLine = productLine;
+}
+
 
 
 
@@ -82,18 +93,30 @@ private String productLine;
 
 @NotNull
 @Lob
-@Getter
-@Setter
 private String textDescription; 
+
+public String getTextDescription() {
+	return textDescription;
+}
+
+public void setTextDescription(String textDescription) {
+	this.textDescription = textDescription;
+}
 
 
 
 
 
 @Lob
-@Getter
-@Setter
 private byte[] image; 
+
+public byte[] getImage() {
+	return image;
+}
+
+public void setImage(byte[] image) {
+	this.image = image;
+}
 
 
 

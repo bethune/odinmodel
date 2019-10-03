@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Employees {
@@ -21,10 +20,15 @@ public class Employees {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
 
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
 
 
 
@@ -32,10 +36,17 @@ private Long id;
 
 
 
-@Getter
-@Setter
+
 private Integer reportsTo; 
 
+public Integer getReportsTo() {
+	return reportsTo;
+}
+
+public void setReportsTo(Integer reportsTo) {
+	this.reportsTo = reportsTo;
+}
+
 
 
 
@@ -55,26 +66,56 @@ private Integer reportsTo;
 
 
 @NotNull
-@Getter
-@Setter
 private String firstName; 
+
+public String getFirstName() {
+	return firstName;
+}
+
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
+}
 @NotNull
-@Getter
-@Setter
 private String email; 
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
 @NotNull
-@Getter
-@Setter
 private String extension; 
+
+public String getExtension() {
+	return extension;
+}
+
+public void setExtension(String extension) {
+	this.extension = extension;
+}
 @NotNull
-@Getter
-@Setter
 private String lastName; 
+
+public String getLastName() {
+	return lastName;
+}
+
+public void setLastName(String lastName) {
+	this.lastName = lastName;
+}
 @NotNull
-@Getter
-@Setter
 private String jobTitle; 
 
+public String getJobTitle() {
+	return jobTitle;
+}
+
+public void setJobTitle(String jobTitle) {
+	this.jobTitle = jobTitle;
+}
+
 
 
 
@@ -140,9 +181,15 @@ private String jobTitle;
 
 
 @NotNull
-@Getter
-@Setter
 private Boolean isActive; 
+
+public Boolean getIsActive() {
+	return isActive;
+}
+
+public void setIsActive(Boolean isActive) {
+	this.isActive = isActive;
+}
 
 
 
@@ -171,9 +218,15 @@ private Boolean isActive;
 
 @ManyToOne
 @JoinColumn(name="offices_id")
-@Getter
-@Setter
 private Offices offices;
+
+public Offices getOffices() {
+	return offices;
+}
+
+public void setOffices(Offices offices) {
+	this.offices = offices;
+}
 
 
 

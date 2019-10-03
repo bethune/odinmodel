@@ -7,7 +7,6 @@ import javax.validation.constraints.*;
 import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.*;
-import lombok.*;
 
 @Entity
 public class Payments {
@@ -16,10 +15,16 @@ public class Payments {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Getter
-@Setter
 private Long id; 
 
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
 
 
 
@@ -35,10 +40,16 @@ private Long id;
 
 
 @NotNull
-@Getter
-@Setter
 private Double amount; 
 
+public Double getAmount() {
+	return amount;
+}
+
+public void setAmount(Double amount) {
+	this.amount = amount;
+}
+
 
 
 
@@ -47,9 +58,15 @@ private Double amount;
 
 
 @NotNull
-@Getter
-@Setter
 private String checkNumber; 
+
+public String getCheckNumber() {
+	return checkNumber;
+}
+
+public void setCheckNumber(String checkNumber) {
+	this.checkNumber = checkNumber;
+}
 
 
 
@@ -68,9 +85,15 @@ private String checkNumber;
 @NotNull
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 //@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-@Getter
-@Setter
 private LocalDate paymentDate; 
+
+public LocalDate getPaymentDate() {
+	return paymentDate;
+}
+
+public void setPaymentDate(LocalDate paymentDate) {
+	this.paymentDate = paymentDate;
+}
 
 
 
@@ -97,9 +120,15 @@ private LocalDate paymentDate;
 
 
 //@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
-@Getter
-@Setter
 private Instant paymentTimestamp = Instant.now(); 
+
+public Instant getPaymentTimestamp() {
+    return paymentTimestamp;
+}
+
+public void setPaymentTimestamp(Instant paymentTimestamp) {
+    this.paymentTimestamp = paymentTimestamp;
+}
 
 
 
@@ -129,9 +158,15 @@ private Instant paymentTimestamp = Instant.now();
 
 @ManyToOne
 @JoinColumn(name="customers_id")
-@Getter
-@Setter
 private Customers customers;
+
+public Customers getCustomers() {
+	return customers;
+}
+
+public void setCustomers(Customers customers) {
+	this.customers = customers;
+}
 
 
 

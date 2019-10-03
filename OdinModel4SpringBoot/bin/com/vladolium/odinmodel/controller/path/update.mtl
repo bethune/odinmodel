@@ -56,7 +56,7 @@ public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.
 --------------------------------------------------/]
 
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-	[if p.isUnique = true]
+	[if p.isUnique = true and p.isID = false]
 @PutMapping("/[p.name.toLowerFirst()/]={[p.name.toLowerFirst()/]}")
 public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
 	[entity/] current = [property/]Service.readOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
@@ -82,11 +82,8 @@ public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.
 	current.set[p.opposite.type.name.toUpperFirst()/]List([property/].get[p.opposite.type.name.toUpperFirst()/]List());
 			[/if]
 		[/for]
-		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-			[if p.isID = false]
 	current.set[p.name.toUpperFirst()/]([property/].get[p.name.toUpperFirst()/]());
-			[/if]
-		[/for]
+
 	return [property/]Service.createUpdate(current);
 }
 	[/if]

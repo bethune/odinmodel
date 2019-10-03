@@ -61,6 +61,23 @@ public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payme
 
 
 
+@GetMapping("/{id}")
+public Payments findOneById(@PathVariable Long id) {
+	return paymentsService.readOneById(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

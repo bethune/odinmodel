@@ -153,17 +153,35 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;"/>
           <ifExpr xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <source xsi:type="ocl.ecore:PropertyCallExp">
+            <source xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/readOne/%.5/p">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/readOne/%.5/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/isUnique"/>
               </source>
-              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/isUnique"/>
+              <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="true">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/="/>
             </source>
-            <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="true">
+            <argument xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/readOne/%.5/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/isID"/>
+              </source>
+              <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="false">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/="/>
             </argument>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/="/>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
           </ifExpr>
         </body>
         <loopVariable name="p">
@@ -377,7 +395,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/readOne">
       <details key="start" value="88"/>
-      <details key="end" value="987"/>
+      <details key="end" value="1006"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/readOne/@init">
@@ -572,170 +590,195 @@
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/readOne/%.5">
       <details key="start" value="724"/>
-      <details key="end" value="973"/>
+      <details key="end" value="992"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/readOne/%.5/%">
       <details key="start" value="836"/>
-      <details key="end" value="966"/>
+      <details key="end" value="985"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/readOne/%.5/%/entity">
-      <details key="start" value="860"/>
-      <details key="end" value="866"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.42" references="/0/readOne/%.5/%/%">
-      <details key="start" value="868"/>
-      <details key="end" value="878"/>
-      <details key="line" value="29"/>
-    </eAnnotations>
-    <eAnnotations source="positions.43" references="/0/readOne/%.5/%/%.1">
-      <details key="start" value="879"/>
-      <details key="end" value="900"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.44" references="/0/readOne/%.5/%/%.1/%">
       <details key="start" value="879"/>
       <details key="end" value="885"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/readOne/%.5/%/%">
+      <details key="start" value="887"/>
+      <details key="end" value="897"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/readOne/%.5/%/%.1">
+      <details key="start" value="898"/>
+      <details key="end" value="919"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/readOne/%.5/%/%.1/%">
+      <details key="start" value="898"/>
+      <details key="end" value="904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.45" references="/0/readOne/%.5/%/%.1/%/p">
-      <details key="start" value="879"/>
-      <details key="end" value="880"/>
+      <details key="start" value="898"/>
+      <details key="end" value="899"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/readOne/%.5/%/%.2">
-      <details key="start" value="902"/>
-      <details key="end" value="903"/>
+      <details key="start" value="921"/>
+      <details key="end" value="922"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/readOne/%.5/%/%.3">
-      <details key="start" value="904"/>
-      <details key="end" value="930"/>
+      <details key="start" value="923"/>
+      <details key="end" value="949"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/readOne/%.5/%/%.3/%">
-      <details key="start" value="904"/>
-      <details key="end" value="915"/>
+      <details key="start" value="923"/>
+      <details key="end" value="934"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/readOne/%.5/%/%.3/%/%">
-      <details key="start" value="904"/>
-      <details key="end" value="910"/>
+      <details key="start" value="923"/>
+      <details key="end" value="929"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/readOne/%.5/%/%.3/%/%/p">
-      <details key="start" value="904"/>
-      <details key="end" value="905"/>
+      <details key="start" value="923"/>
+      <details key="end" value="924"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/readOne/%.5/%/%.4">
-      <details key="start" value="932"/>
-      <details key="end" value="933"/>
+      <details key="start" value="951"/>
+      <details key="end" value="952"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/readOne/%.5/%/%.5">
-      <details key="start" value="934"/>
-      <details key="end" value="955"/>
+      <details key="start" value="953"/>
+      <details key="end" value="974"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/readOne/%.5/%/%.5/%">
-      <details key="start" value="934"/>
-      <details key="end" value="940"/>
+      <details key="start" value="953"/>
+      <details key="end" value="959"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/readOne/%.5/%/%.5/%/p">
-      <details key="start" value="934"/>
-      <details key="end" value="935"/>
+      <details key="start" value="953"/>
+      <details key="end" value="954"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/readOne/%.5/%/%.6">
-      <details key="start" value="957"/>
-      <details key="end" value="960"/>
+      <details key="start" value="976"/>
+      <details key="end" value="979"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/readOne/%.5/%/%.7">
       <details key="start" value="840"/>
-      <details key="end" value="857"/>
+      <details key="end" value="876"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/readOne/%.5/%/%.7/%">
       <details key="start" value="840"/>
+      <details key="end" value="857"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/readOne/%.5/%/%.7/%/%">
+      <details key="start" value="840"/>
       <details key="end" value="850"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.58" references="/0/readOne/%.5/%/%.7/%/p">
+    <eAnnotations source="positions.59" references="/0/readOne/%.5/%/%.7/%/%/p">
       <details key="start" value="840"/>
       <details key="end" value="841"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.59" references="/0/readOne/%.5/%/%.7/%.1">
+    <eAnnotations source="positions.60" references="/0/readOne/%.5/%/%.7/%/%.1">
       <details key="start" value="853"/>
       <details key="end" value="857"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.60" references="/0/readOne/%.5/p">
+    <eAnnotations source="positions.61" references="/0/readOne/%.5/%/%.7/%.1">
+      <details key="start" value="862"/>
+      <details key="end" value="876"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/readOne/%.5/%/%.7/%.1/%">
+      <details key="start" value="862"/>
+      <details key="end" value="868"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/readOne/%.5/%/%.7/%.1/%/p">
+      <details key="start" value="862"/>
+      <details key="end" value="863"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/readOne/%.5/%/%.7/%.1/%.1">
+      <details key="start" value="871"/>
+      <details key="end" value="876"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/readOne/%.5/p">
       <details key="start" value="730"/>
       <details key="end" value="741"/>
       <details key="line" value="27"/>
     </eAnnotations>
-    <eAnnotations source="positions.61" references="/0/readOne/%.5/%.1">
+    <eAnnotations source="positions.66" references="/0/readOne/%.5/%.1">
       <details key="start" value="744"/>
       <details key="end" value="816"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.62" references="/0/readOne/%.5/%.1/%">
+    <eAnnotations source="positions.67" references="/0/readOne/%.5/%.1/%">
       <details key="start" value="744"/>
       <details key="end" value="769"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.63" references="/0/readOne/%.5/%.1/%/aClass">
+    <eAnnotations source="positions.68" references="/0/readOne/%.5/%.1/%/aClass">
       <details key="start" value="744"/>
       <details key="end" value="750"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.64" references="/0/readOne/%.5/%.1/collect">
+    <eAnnotations source="positions.69" references="/0/readOne/%.5/%.1/collect">
       <details key="start" value="781"/>
       <details key="end" value="815"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.65" references="/0/readOne/%.5/%.1/collect/%">
+    <eAnnotations source="positions.70" references="/0/readOne/%.5/%.1/collect/%">
       <details key="start" value="781"/>
       <details key="end" value="805"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.66" references="/0/readOne/%.5/%.1/collect/%/aClass">
+    <eAnnotations source="positions.71" references="/0/readOne/%.5/%.1/collect/%/aClass">
       <details key="start" value="781"/>
       <details key="end" value="787"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.67" references="/0/readOne/%.5/%.1/collect/%.1">
+    <eAnnotations source="positions.72" references="/0/readOne/%.5/%.1/collect/%.1">
       <details key="start" value="806"/>
       <details key="end" value="815"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.68" references="/0/readOne/%.5/%.1/collect/%.1/temp1">
+    <eAnnotations source="positions.73" references="/0/readOne/%.5/%.1/collect/%.1/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.69" references="/0/readOne/%.5/%.1/collect/temp1">
+    <eAnnotations source="positions.74" references="/0/readOne/%.5/%.1/collect/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.70" references="/0/readOne/%.5/%.2">
+    <eAnnotations source="positions.75" references="/0/readOne/%.5/%.2">
       <details key="start" value="828"/>
       <details key="end" value="832"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.71" references="/0/readOne/%.6">
-      <details key="start" value="974"/>
-      <details key="end" value="975"/>
+    <eAnnotations source="positions.76" references="/0/readOne/%.6">
+      <details key="start" value="993"/>
+      <details key="end" value="994"/>
       <details key="line" value="32"/>
     </eAnnotations>
-    <eAnnotations source="positions.72" references="/0/readOne/aClass">
+    <eAnnotations source="positions.77" references="/0/readOne/aClass">
       <details key="start" value="113"/>
       <details key="end" value="127"/>
       <details key="line" value="4"/>

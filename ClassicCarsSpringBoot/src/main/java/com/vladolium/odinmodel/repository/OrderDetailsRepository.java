@@ -11,6 +11,7 @@ public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long
 
 
 
+OrderDetails findByIdEquals(Long id);
 
 
 

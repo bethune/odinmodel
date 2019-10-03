@@ -74,6 +74,30 @@ public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices
 
 
 
+@GetMapping("/{id}")
+public Offices findOneById(@PathVariable Long id) {
+	return officesService.readOneById(id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
