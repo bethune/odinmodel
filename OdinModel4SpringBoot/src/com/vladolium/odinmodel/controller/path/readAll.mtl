@@ -1,7 +1,34 @@
 [comment encoding = UTF-8 /]
 [module readAll('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[template public readAll(aClass : Class)
+	{
+		entity 		: String = aClass.name.toUpperFirst();
+		property	: String = aClass.name.toLowerFirst();
+	}
+]
 
-[template public readAll(aClass : Class)]
+[comment: 
+--------------------------------------------------
+	Read all.
+--------------------------------------------------/]
+@GetMapping("")
+public Iterable<[entity/]> readAll() {
+	return [entity/]Service.readAll();
+}
+
+[comment: 
+--------------------------------------------------
+	Read all with pagination.
+--------------------------------------------------/]
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<[aClass.name.toUpperFirst()/]> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return [aClass.name.toLowerFirst()/]Service.readAllPagination(page);
+}
+
 
 [/template]
