@@ -54,11 +54,7 @@ public class [entity/]Controller {
 [aClass.readOne()/]
 [aClass.readAll()/]
 [aClass.search()/]
-[comment][aClass.update()/]	
-[aClass.delete()/]
-
-
-[/comment]
+[aClass.delete()/]	
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]

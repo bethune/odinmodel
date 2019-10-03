@@ -28,6 +28,17 @@ Orders readOneById(Long id);
 
 
 
+
+
+
+
+
+
+void deleteOneById(Long id);
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code

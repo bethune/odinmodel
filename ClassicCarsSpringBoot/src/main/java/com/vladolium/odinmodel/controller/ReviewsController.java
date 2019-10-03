@@ -59,6 +59,17 @@ public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews
 
 
 
+
+
+
+
+@DeleteMapping("/{id}")
+public void deleteOneById(@PathVariable Long id) {
+	reviewsService.deleteOneById(id);
+}
+
+	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

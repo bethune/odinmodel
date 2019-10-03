@@ -8,31 +8,10 @@
 	Delete one by id.
 --------------------------------------------------/]
 
-	[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-		[if p.isID = true]
-	@DeleteMapping("/{[p.name.toLowerFirst()/]}")
-	public void deleteOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]) {
-		[aClass.name.toLowerFirst()/]Service.deleteOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
-	}
-		[/if]
-	[/for]
+[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+	[if p.isID = true]
+void deleteOneBy[p.name.toUpperFirst()/]([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
+	[/if]
+[/for]
 
-[comment: 
---------------------------------------------------
-	Delete one by unique field.
---------------------------------------------------/]
-
-	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-		[if p.isUnique = true]
-	@DeleteMapping("/[p.name.toLowerFirst()/]={[p.name.toLowerFirst()/]}")
-	public void deleteOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]) {
-		[aClass.name.toUpperFirst()/] current = [aClass.name.toLowerFirst()/]Service.findOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
-			[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-				[if p.isID = true]
-		[aClass.name.toLowerFirst()/]Service.deleteOneBy[p.name.toUpperFirst()/](current.get[p.name.toUpperFirst()/]());
-				[/if]
-			[/for]
-	}
-		[/if]
-	[/for]
 [/template]

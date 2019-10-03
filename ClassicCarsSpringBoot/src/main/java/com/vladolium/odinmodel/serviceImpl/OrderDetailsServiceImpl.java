@@ -44,6 +44,18 @@ public OrderDetails readOneById(Long id) {
 
 
 
+
+@Override
+public void deleteOneById(Long id) {
+	orderDetailsRepository.deleteById(id);
+}
+
+
+
+
+
+
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code

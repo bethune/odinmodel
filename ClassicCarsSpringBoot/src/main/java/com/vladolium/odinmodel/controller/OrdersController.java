@@ -69,6 +69,20 @@ public Orders updateOneById(@PathVariable Long id, @RequestBody Orders orders) {
 
 
 
+
+
+
+
+
+
+@DeleteMapping("/{id}")
+public void deleteOneById(@PathVariable Long id) {
+	ordersService.deleteOneById(id);
+}
+
+
+	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

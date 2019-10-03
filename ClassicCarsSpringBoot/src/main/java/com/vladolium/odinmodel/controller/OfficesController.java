@@ -79,6 +79,22 @@ public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices
 
 
 
+
+@DeleteMapping("/{id}")
+public void deleteOneById(@PathVariable Long id) {
+	officesService.deleteOneById(id);
+}
+
+
+
+
+
+
+
+
+
+	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

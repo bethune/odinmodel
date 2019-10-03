@@ -10,7 +10,7 @@
 
 [comment: 
 --------------------------------------------------
-	update one by id
+	Update one by id.
 --------------------------------------------------/]
 
 [for (p: Property | aClass.getAllAttributes()) separator('\n')]
@@ -52,7 +52,7 @@ public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.
 
 [comment: 
 --------------------------------------------------
-	update one by field with unique values
+	Update one by field with unique values.
 --------------------------------------------------/]
 
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]

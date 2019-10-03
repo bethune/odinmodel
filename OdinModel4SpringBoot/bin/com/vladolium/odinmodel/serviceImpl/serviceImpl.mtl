@@ -47,6 +47,7 @@ public class [entity/]ServiceImpl implements [entity/]Service {
 
 [aClass.createUpdate()/]
 [aClass.readOne()/]
+[aClass.delete()/]
 [comment][aClass.delete()/]
 [aClass.retrieveAll()/]
 [/comment]

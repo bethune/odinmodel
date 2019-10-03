@@ -85,6 +85,20 @@ public Gifts updateOneByGiftName(@PathVariable String giftName, @RequestBody Gif
 
 
 
+
+@DeleteMapping("/{id}")
+public void deleteOneById(@PathVariable Long id) {
+	giftsService.deleteOneById(id);
+}
+
+
+
+
+
+
+
+	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

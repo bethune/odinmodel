@@ -77,6 +77,22 @@ public Employees updateOneById(@PathVariable Long id, @RequestBody Employees emp
 
 
 
+
+
+
+
+
+
+
+@DeleteMapping("/{id}")
+public void deleteOneById(@PathVariable Long id) {
+	employeesService.deleteOneById(id);
+}
+
+
+
+	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

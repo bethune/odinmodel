@@ -31,7 +31,8 @@ public interface [entity/]Service {
 
 [aClass.createUpdate()/]
 [aClass.readOne()/]
-[comment][aClass.delete()/]
+[aClass.delete()/]
+[comment]
 [aClass.retrieveAll()/]
 [/comment]
 
