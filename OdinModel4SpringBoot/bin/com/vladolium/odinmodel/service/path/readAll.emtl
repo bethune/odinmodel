@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="readAll" nsURI="com::vladolium::odinmodel::service::path::readAll" startHeaderPosition="29" endHeaderPosition="-1">
+  <mtl:Module name="readAll" nsURI="com::vladolium::odinmodel::service::path::readAll" startHeaderPosition="29" endHeaderPosition="361">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="readAll" visibility="Public">
+      <init>
+        <variable name="entity">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/readAll/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+        <variable name="property">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/readAll/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+      </init>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;Iterable&lt;"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/readAll/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="> readAll();&#xA;&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;Page&lt;"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/readAll/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="> readAllPagination(Pageable page);&#xA;"/>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
@@ -16,6 +54,14 @@
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </eAnnotations>
+      <eOperations name="toUpperFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="toLowerFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -81,23 +127,110 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/readAll">
-      <details key="start" value="89"/>
-      <details key="end" value="143"/>
+      <details key="start" value="88"/>
+      <details key="end" value="602"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/readAll/@init">
+      <details key="start" value="130"/>
+      <details key="end" value="234"/>
       <details key="line" value="5"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/readAll/%">
-      <details key="start" value="131"/>
-      <details key="end" value="132"/>
+    <eAnnotations source="positions.2" references="/0/readAll/@init/@variable.0">
+      <details key="start" value="134"/>
+      <details key="end" value="180"/>
       <details key="line" value="6"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/readAll/aClass">
-      <details key="start" value="114"/>
-      <details key="end" value="128"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.3" references="/0/readAll/@init/@variable.0/%">
+      <details key="start" value="154"/>
+      <details key="end" value="180"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/readAll/@init/@variable.0/%/%">
+      <details key="start" value="154"/>
+      <details key="end" value="165"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/readAll/@init/@variable.0/%/%/aClass">
+      <details key="start" value="154"/>
+      <details key="end" value="160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/readAll/@init/@variable.1">
+      <details key="start" value="184"/>
+      <details key="end" value="230"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/readAll/@init/@variable.1/%">
+      <details key="start" value="204"/>
+      <details key="end" value="230"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/readAll/@init/@variable.1/%/%">
+      <details key="start" value="204"/>
+      <details key="end" value="215"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/readAll/@init/@variable.1/%/%/aClass">
+      <details key="start" value="204"/>
+      <details key="end" value="210"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/readAll/%">
+      <details key="start" value="237"/>
+      <details key="end" value="238"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/readAll/%.1">
+      <details key="start" value="364"/>
+      <details key="end" value="374"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/readAll/entity">
+      <details key="start" value="375"/>
+      <details key="end" value="381"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/readAll/%.2">
+      <details key="start" value="383"/>
+      <details key="end" value="397"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/readAll/%.3">
+      <details key="start" value="539"/>
+      <details key="end" value="545"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/readAll/entity.1">
+      <details key="start" value="546"/>
+      <details key="end" value="552"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/readAll/%.4">
+      <details key="start" value="554"/>
+      <details key="end" value="590"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/readAll/aClass">
+      <details key="start" value="113"/>
+      <details key="end" value="127"/>
+      <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

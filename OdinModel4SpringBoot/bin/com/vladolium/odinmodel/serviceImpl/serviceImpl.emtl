@@ -182,13 +182,28 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/serviceImpl/path/delete.emtl#/0/delete"/>
+            <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/serviceImpl/path/readAll.emtl#/0/readAll"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/serviceImpl/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
           </body>
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;//Code between start and end will not be removed during generation.&#xA;//"/>
+          <body xsi:type="mtl:TemplateInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/serviceImpl/path/search.emtl#/0/search"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/serviceImpl/aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <body xsi:type="mtl:TemplateInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/serviceImpl/path/delete.emtl#/0/delete"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/serviceImpl/aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;//Code between start and end will not be removed during generation.&#xA;//"/>
           <body xsi:type="mtl:ProtectedAreaBlock">
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;//"/>
             <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="for this serviceImpl">
@@ -316,12 +331,36 @@
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
+      <eOperations name="readAll">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/serviceImpl/path/readAll.emtl#/0/readAll"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
       <eOperations name="readOne">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
           <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/serviceImpl/path/readOne.emtl#/0/readOne"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="search">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/serviceImpl/path/search.emtl#/0/search"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -449,12 +488,18 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/serviceImpl">
       <details key="start" value="421"/>
-      <details key="end" value="1920"/>
+      <details key="end" value="1896"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/serviceImpl/@init">
@@ -599,12 +644,12 @@
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/serviceImpl/%.1">
       <details key="start" value="777"/>
-      <details key="end" value="1907"/>
+      <details key="end" value="1883"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/serviceImpl/%.1/%">
       <details key="start" value="831"/>
-      <details key="end" value="1901"/>
+      <details key="end" value="1877"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/serviceImpl/%.1/%/%">
@@ -794,7 +839,7 @@
     </eAnnotations>
     <eAnnotations source="positions.68" references="/0/serviceImpl/%.1/%/%.20">
       <details key="start" value="1686"/>
-      <details key="end" value="1701"/>
+      <details key="end" value="1702"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.69" references="/0/serviceImpl/%.1/%/%.20/aClass">
@@ -803,96 +848,121 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.70" references="/0/serviceImpl/%.1/%/%.21">
-      <details key="start" value="1703"/>
-      <details key="end" value="1704"/>
+      <details key="start" value="1704"/>
+      <details key="end" value="1705"/>
       <details key="line" value="49"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/serviceImpl/%.1/%/%.22">
-      <details key="start" value="1767"/>
-      <details key="end" value="1838"/>
-      <details key="line" value="52"/>
-    </eAnnotations>
-    <eAnnotations source="positions.72" references="/0/serviceImpl/%.1/%/%.23">
-      <details key="start" value="1838"/>
-      <details key="end" value="1889"/>
-      <details key="line" value="54"/>
-    </eAnnotations>
-    <eAnnotations source="positions.73" references="/0/serviceImpl/%.1/%/%.23/%">
-      <details key="start" value="1874"/>
-      <details key="end" value="1877"/>
-      <details key="line" value="55"/>
-    </eAnnotations>
-    <eAnnotations source="positions.74" references="/0/serviceImpl/%.1/%/%.23/%.1">
-      <details key="start" value="1850"/>
-      <details key="end" value="1872"/>
+      <details key="start" value="1706"/>
+      <details key="end" value="1721"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.75" references="/0/serviceImpl/%.1/%/%.24">
-      <details key="start" value="1889"/>
-      <details key="end" value="1893"/>
-      <details key="line" value="56"/>
+    <eAnnotations source="positions.72" references="/0/serviceImpl/%.1/%/%.22/aClass">
+      <details key="start" value="1706"/>
+      <details key="end" value="1712"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/serviceImpl/%.1/%/%.23">
+      <details key="start" value="1723"/>
+      <details key="end" value="1724"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/serviceImpl/%.1/%/%.24">
+      <details key="start" value="1725"/>
+      <details key="end" value="1740"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/serviceImpl/%.1/%/%.24/aClass">
+      <details key="start" value="1725"/>
+      <details key="end" value="1731"/>
+      <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.76" references="/0/serviceImpl/%.1/%/%.25">
+      <details key="start" value="1742"/>
+      <details key="end" value="1814"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/serviceImpl/%.1/%/%.26">
+      <details key="start" value="1814"/>
+      <details key="end" value="1865"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/serviceImpl/%.1/%/%.26/%">
+      <details key="start" value="1850"/>
+      <details key="end" value="1853"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/serviceImpl/%.1/%/%.26/%.1">
+      <details key="start" value="1826"/>
+      <details key="end" value="1848"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/serviceImpl/%.1/%/%.27">
+      <details key="start" value="1865"/>
+      <details key="end" value="1869"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/serviceImpl/%.1/%/%.28">
       <details key="start" value="838"/>
       <details key="end" value="916"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.77" references="/0/serviceImpl/%.1/%/%.25/%">
+    <eAnnotations source="positions.82" references="/0/serviceImpl/%.1/%/%.28/%">
       <details key="start" value="838"/>
       <details key="end" value="895"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.78" references="/0/serviceImpl/%.1/%/%.25/%/%">
+    <eAnnotations source="positions.83" references="/0/serviceImpl/%.1/%/%.28/%/%">
       <details key="start" value="838"/>
       <details key="end" value="886"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.79" references="/0/serviceImpl/%.1/%/%.25/%/%/%">
+    <eAnnotations source="positions.84" references="/0/serviceImpl/%.1/%/%.28/%/%/%">
       <details key="start" value="838"/>
       <details key="end" value="868"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.80" references="/0/serviceImpl/%.1/%/%.25/%/%/%/%">
+    <eAnnotations source="positions.85" references="/0/serviceImpl/%.1/%/%.28/%/%/%/%">
       <details key="start" value="838"/>
       <details key="end" value="854"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.81" references="/0/serviceImpl/%.1/%/%.25/%/%/%/packagePath">
+    <eAnnotations source="positions.86" references="/0/serviceImpl/%.1/%/%.28/%/%/%/packagePath">
       <details key="start" value="857"/>
       <details key="end" value="868"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.82" references="/0/serviceImpl/%.1/%/%.25/%/%/%.1">
+    <eAnnotations source="positions.87" references="/0/serviceImpl/%.1/%/%.28/%/%/%.1">
       <details key="start" value="871"/>
       <details key="end" value="886"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.83" references="/0/serviceImpl/%.1/%/%.25/%/entity">
+    <eAnnotations source="positions.88" references="/0/serviceImpl/%.1/%/%.28/%/entity">
       <details key="start" value="889"/>
       <details key="end" value="895"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.84" references="/0/serviceImpl/%.1/%/%.25/%.1">
+    <eAnnotations source="positions.89" references="/0/serviceImpl/%.1/%/%.28/%.1">
       <details key="start" value="898"/>
       <details key="end" value="916"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.85" references="/0/serviceImpl/%.1/%/%.26">
+    <eAnnotations source="positions.90" references="/0/serviceImpl/%.1/%/%.29">
       <details key="start" value="925"/>
       <details key="end" value="932"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.86" references="/0/serviceImpl/%.1/isEntity">
+    <eAnnotations source="positions.91" references="/0/serviceImpl/%.1/isEntity">
       <details key="start" value="781"/>
       <details key="end" value="789"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.87" references="/0/serviceImpl/%.2">
-      <details key="start" value="1908"/>
-      <details key="end" value="1909"/>
-      <details key="line" value="60"/>
+    <eAnnotations source="positions.92" references="/0/serviceImpl/%.2">
+      <details key="start" value="1884"/>
+      <details key="end" value="1885"/>
+      <details key="line" value="59"/>
     </eAnnotations>
-    <eAnnotations source="positions.88" references="/0/serviceImpl/aClass">
+    <eAnnotations source="positions.93" references="/0/serviceImpl/aClass">
       <details key="start" value="450"/>
       <details key="end" value="464"/>
       <details key="line" value="10"/>

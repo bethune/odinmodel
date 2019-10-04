@@ -65,6 +65,21 @@ public Customers readOneByCustomerName(String customerName) {
 
 
 
+@Override
+public Iterable<Customers> readAll() {
+	return customersRepository.findAll();
+}
+
+
+@Override
+public Page<Customers> readAllPagination(Pageable page) {
+	return customersRepository.findAll(page);
+}
+
+
+
+
+
 
 
 

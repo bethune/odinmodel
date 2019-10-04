@@ -46,6 +46,21 @@ public OrderDetails readOneById(Long id) {
 
 
 @Override
+public Iterable<OrderDetails> readAll() {
+	return orderDetailsRepository.findAll();
+}
+
+
+@Override
+public Page<OrderDetails> readAllPagination(Pageable page) {
+	return orderDetailsRepository.findAll(page);
+}
+
+
+
+
+
+@Override
 public void deleteOneById(Long id) {
 	orderDetailsRepository.deleteById(id);
 }

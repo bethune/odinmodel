@@ -100,6 +100,22 @@ public Offices findOneById(@PathVariable Long id) {
 
 
 
+@GetMapping("")
+public Iterable<Offices> readAll() {
+	return officesService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<Offices> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return officesService.readAllPagination(page);
+}
+
+
 
 
 

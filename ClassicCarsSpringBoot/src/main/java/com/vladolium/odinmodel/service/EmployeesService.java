@@ -33,6 +33,15 @@ Employees readOneById(Long id);
 
 
 
+Iterable<Employees> readAll();
+
+
+Page<Employees> readAllPagination(Pageable page);
+
+
+
+
+
 
 
 

@@ -137,6 +137,22 @@ public Customers findOneByCustomerName(@PathVariable String customerName) {
 
 
 
+@GetMapping("")
+public Iterable<Customers> readAll() {
+	return customersService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<Customers> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return customersService.readAllPagination(page);
+}
+
+
 
 
 

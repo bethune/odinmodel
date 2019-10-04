@@ -30,6 +30,15 @@ Gifts readOneByGiftName(String giftName);
 
 
 
+Iterable<Gifts> readAll();
+
+
+Page<Gifts> readAllPagination(Pageable page);
+
+
+
+
+
 void deleteOneById(Long id);
 
 

@@ -36,6 +36,15 @@ Products readOneByProductCode(String productCode);
 
 
 
+Iterable<Products> readAll();
+
+
+Page<Products> readAllPagination(Pageable page);
+
+
+
+
+
 
 
 

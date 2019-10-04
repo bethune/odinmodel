@@ -29,10 +29,9 @@ public interface [entity/]Service {
 
 [aClass.createUpdate()/]
 [aClass.readOne()/]
+[aClass.readAll()/]
+[aClass.search()/]
 [aClass.delete()/]
-[comment]
-[aClass.retrieveAll()/]
-[/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this service')]

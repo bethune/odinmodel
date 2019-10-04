@@ -26,6 +26,15 @@ OrderDetails readOneById(Long id);
 
 
 
+Iterable<OrderDetails> readAll();
+
+
+Page<OrderDetails> readAllPagination(Pageable page);
+
+
+
+
+
 void deleteOneById(Long id);
 
 

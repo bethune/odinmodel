@@ -58,6 +58,21 @@ public Products readOneByProductCode(String productCode) {
 
 
 
+@Override
+public Iterable<Products> readAll() {
+	return productsRepository.findAll();
+}
+
+
+@Override
+public Page<Products> readAllPagination(Pageable page) {
+	return productsRepository.findAll(page);
+}
+
+
+
+
+
 
 
 

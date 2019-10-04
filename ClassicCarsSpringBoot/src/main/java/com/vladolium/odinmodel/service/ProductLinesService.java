@@ -24,6 +24,15 @@ ProductLines readOneById(Long id);
 
 
 
+Iterable<ProductLines> readAll();
+
+
+Page<ProductLines> readAllPagination(Pageable page);
+
+
+
+
+
 
 
 

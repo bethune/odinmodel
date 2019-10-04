@@ -70,6 +70,22 @@ public ProductLines findOneById(@PathVariable Long id) {
 
 
 
+@GetMapping("")
+public Iterable<ProductLines> readAll() {
+	return productLinesService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<ProductLines> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return productLinesService.readAllPagination(page);
+}
+
+
 
 
 

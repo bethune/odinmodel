@@ -12,22 +12,24 @@
 --------------------------------------------------
 	Read all.
 --------------------------------------------------/]
+
 @GetMapping("")
 public Iterable<[entity/]> readAll() {
-	return [entity/]Service.readAll();
+	return [property/]Service.readAll();
 }
 
 [comment: 
 --------------------------------------------------
 	Read all with pagination.
 --------------------------------------------------/]
+
 @GetMapping("/page={pageNumber}/per-page={perPageNumber}")
-public Page<[aClass.name.toUpperFirst()/]> readAllPagination(
+public Page<[entity/]> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
 ) {
 	Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	return [aClass.name.toLowerFirst()/]Service.readAllPagination(page);
+	return [property/]Service.readAllPagination(page);
 }
 
 

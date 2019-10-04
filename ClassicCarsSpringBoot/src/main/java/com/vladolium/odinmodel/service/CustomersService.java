@@ -43,6 +43,15 @@ Customers readOneByCustomerName(String customerName);
 
 
 
+Iterable<Customers> readAll();
+
+
+Page<Customers> readAllPagination(Pageable page);
+
+
+
+
+
 
 
 

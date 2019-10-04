@@ -43,6 +43,21 @@ public ProductLines readOneById(Long id) {
 
 
 
+@Override
+public Iterable<ProductLines> readAll() {
+	return productLinesRepository.findAll();
+}
+
+
+@Override
+public Page<ProductLines> readAllPagination(Pageable page) {
+	return productLinesRepository.findAll(page);
+}
+
+
+
+
+
 
 
 

@@ -27,6 +27,15 @@ Payments readOneById(Long id);
 
 
 
+Iterable<Payments> readAll();
+
+
+Page<Payments> readAllPagination(Pageable page);
+
+
+
+
+
 
 void deleteOneById(Long id);
 

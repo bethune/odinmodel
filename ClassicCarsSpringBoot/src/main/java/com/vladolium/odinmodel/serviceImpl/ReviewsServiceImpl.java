@@ -43,6 +43,21 @@ public Reviews readOneById(Long id) {
 
 
 
+@Override
+public Iterable<Reviews> readAll() {
+	return reviewsRepository.findAll();
+}
+
+
+@Override
+public Page<Reviews> readAllPagination(Pageable page) {
+	return reviewsRepository.findAll(page);
+}
+
+
+
+
+
 
 
 

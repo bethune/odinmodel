@@ -48,6 +48,21 @@ public Orders readOneById(Long id) {
 
 
 
+@Override
+public Iterable<Orders> readAll() {
+	return ordersRepository.findAll();
+}
+
+
+@Override
+public Page<Orders> readAllPagination(Pageable page) {
+	return ordersRepository.findAll(page);
+}
+
+
+
+
+
 
 
 

@@ -24,6 +24,15 @@ Reviews readOneById(Long id);
 
 
 
+Iterable<Reviews> readAll();
+
+
+Page<Reviews> readAllPagination(Pageable page);
+
+
+
+
+
 
 
 

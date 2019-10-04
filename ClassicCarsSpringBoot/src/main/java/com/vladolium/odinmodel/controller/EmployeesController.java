@@ -97,6 +97,22 @@ public Employees findOneById(@PathVariable Long id) {
 
 
 
+@GetMapping("")
+public Iterable<Employees> readAll() {
+	return employeesService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<Employees> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return employeesService.readAllPagination(page);
+}
+
+
 
 
 

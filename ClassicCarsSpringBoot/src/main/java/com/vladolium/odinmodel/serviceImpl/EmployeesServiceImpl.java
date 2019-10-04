@@ -52,6 +52,21 @@ public Employees readOneById(Long id) {
 
 
 
+@Override
+public Iterable<Employees> readAll() {
+	return employeesRepository.findAll();
+}
+
+
+@Override
+public Page<Employees> readAllPagination(Pageable page) {
+	return employeesRepository.findAll(page);
+}
+
+
+
+
+
 
 
 

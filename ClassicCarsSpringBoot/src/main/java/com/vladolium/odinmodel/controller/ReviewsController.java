@@ -70,6 +70,22 @@ public Reviews findOneById(@PathVariable Long id) {
 
 
 
+@GetMapping("")
+public Iterable<Reviews> readAll() {
+	return reviewsService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<Reviews> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return reviewsService.readAllPagination(page);
+}
+
+
 
 
 

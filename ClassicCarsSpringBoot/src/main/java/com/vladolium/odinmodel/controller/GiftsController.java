@@ -97,6 +97,22 @@ public Gifts findOneByGiftName(@PathVariable String giftName) {
 
 
 
+@GetMapping("")
+public Iterable<Gifts> readAll() {
+	return giftsService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<Gifts> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return giftsService.readAllPagination(page);
+}
+
+
 
 
 

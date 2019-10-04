@@ -53,6 +53,21 @@ public Gifts readOneByGiftName(String giftName) {
 
 
 @Override
+public Iterable<Gifts> readAll() {
+	return giftsRepository.findAll();
+}
+
+
+@Override
+public Page<Gifts> readAllPagination(Pageable page) {
+	return giftsRepository.findAll(page);
+}
+
+
+
+
+
+@Override
 public void deleteOneById(Long id) {
 	giftsRepository.deleteById(id);
 }

@@ -46,6 +46,21 @@ public Payments readOneById(Long id) {
 
 
 
+@Override
+public Iterable<Payments> readAll() {
+	return paymentsRepository.findAll();
+}
+
+
+@Override
+public Page<Payments> readAllPagination(Pageable page) {
+	return paymentsRepository.findAll(page);
+}
+
+
+
+
+
 
 @Override
 public void deleteOneById(Long id) {

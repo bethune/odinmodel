@@ -29,6 +29,15 @@ Orders readOneById(Long id);
 
 
 
+Iterable<Orders> readAll();
+
+
+Page<Orders> readAllPagination(Pageable page);
+
+
+
+
+
 
 
 

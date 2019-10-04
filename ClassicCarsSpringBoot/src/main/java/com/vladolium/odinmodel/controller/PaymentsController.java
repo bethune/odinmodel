@@ -79,6 +79,22 @@ public Payments findOneById(@PathVariable Long id) {
 
 
 
+@GetMapping("")
+public Iterable<Payments> readAll() {
+	return paymentsService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<Payments> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return paymentsService.readAllPagination(page);
+}
+
+
 
 
 

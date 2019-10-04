@@ -34,6 +34,15 @@ Offices readOneById(Long id);
 
 
 
+Iterable<Offices> readAll();
+
+
+Page<Offices> readAllPagination(Pageable page);
+
+
+
+
+
 void deleteOneById(Long id);
 
 

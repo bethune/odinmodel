@@ -115,6 +115,22 @@ public Products findOneByProductCode(@PathVariable String productCode) {
 
 
 
+@GetMapping("")
+public Iterable<Products> readAll() {
+	return productsService.readAll();
+}
+
+
+@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+public Page<Products> readAllPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return productsService.readAllPagination(page);
+}
+
+
 
 
 
