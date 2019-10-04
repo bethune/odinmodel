@@ -100,6 +100,12 @@ public Page<Payments> readAllPagination(
 
 
 
+
+
+
+
+
+
 @DeleteMapping("/{id}")
 public void deleteOneById(@PathVariable Long id) {
 	paymentsService.deleteOneById(id);

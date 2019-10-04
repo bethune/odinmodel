@@ -117,6 +117,12 @@ public Page<Gifts> readAllPagination(
 
 
 
+
+
+
+
+
+
 @DeleteMapping("/{id}")
 public void deleteOneById(@PathVariable Long id) {
 	giftsService.deleteOneById(id);

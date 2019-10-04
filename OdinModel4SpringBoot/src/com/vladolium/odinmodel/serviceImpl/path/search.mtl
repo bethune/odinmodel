@@ -5,3 +5,20 @@
 [template public search(aClass : Class)]
 
 [/template]
+[comment]public Condition condition(HttpServletRequest request) {
+    Condition result = trueCondition();
+    
+    if (request.getParameter("title") != null)
+        result = result.and(BOOK.TITLE.like("%" + request.getParameter("title") + "%"));
+        
+    if (request.getParameter("author") != null)
+        result = result.and(BOOK.AUTHOR_ID.in(
+            selectOne().from(AUTHOR).where(
+                    AUTHOR.FIRST_NAME.like("%" + request.getParameter("author") + "%")
+                .or(AUTHOR.LAST_NAME .like("%" + request.getParameter("author") + "%"))
+            )
+        ));
+    
+    return result;
+private final DSLContext jooq;
+}[/comment]

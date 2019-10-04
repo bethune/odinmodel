@@ -144,6 +144,12 @@ public Page<Products> readAllPagination(
 
 
 
+
+
+
+
+
+
 @DeleteMapping("/{id}")
 public void deleteOneById(@PathVariable Long id) {
 	productsService.deleteOneById(id);

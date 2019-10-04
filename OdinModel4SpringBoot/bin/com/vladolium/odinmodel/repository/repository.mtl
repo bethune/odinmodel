@@ -16,10 +16,14 @@
 package [repositoryPath/].repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import [repositoryPath/].domain.[entity/];
 
 		[for (p: Property | aClass.getAllAttributes()) separator('\n')]
 			[if p.isID = true]
+@Repository
+@Transactional
 public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.name.toUpperFirst()/]> {
 			[/if]
 		[/for]

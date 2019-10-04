@@ -1,8 +1,12 @@
 package com.vladolium.odinmodel.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import com.vladolium.odinmodel.domain.Offices;
 
+@Repository
+@Transactional
 public interface OfficesRepository extends JpaRepository<Offices, Long> {
 
 

@@ -110,6 +110,12 @@ public Page<Orders> readAllPagination(
 
 
 
+
+
+
+
+
+
 @DeleteMapping("/{id}")
 public void deleteOneById(@PathVariable Long id) {
 	ordersService.deleteOneById(id);

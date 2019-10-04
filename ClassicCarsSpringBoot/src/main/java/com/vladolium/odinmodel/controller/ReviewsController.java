@@ -93,6 +93,12 @@ public Page<Reviews> readAllPagination(
 
 
 
+
+
+
+
+
+
 @DeleteMapping("/{id}")
 public void deleteOneById(@PathVariable Long id) {
 	reviewsService.deleteOneById(id);

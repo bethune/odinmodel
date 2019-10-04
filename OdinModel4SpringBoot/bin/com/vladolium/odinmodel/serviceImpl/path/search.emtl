@@ -10,6 +10,9 @@
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
     </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="151" endPosition="794" value="public Condition condition(HttpServletRequest request) {&#xA;    Condition result = trueCondition();&#xA;    &#xA;    if (request.getParameter(&quot;title&quot;) != null)&#xA;        result = result.and(BOOK.TITLE.like(&quot;%&quot; + request.getParameter(&quot;title&quot;) + &quot;%&quot;));&#xA;        &#xA;    if (request.getParameter(&quot;author&quot;) != null)&#xA;        result = result.and(BOOK.AUTHOR_ID.in(&#xA;            selectOne().from(AUTHOR).where(&#xA;                    AUTHOR.FIRST_NAME.like(&quot;%&quot; + request.getParameter(&quot;author&quot;) + &quot;%&quot;)&#xA;                .or(AUTHOR.LAST_NAME .like(&quot;%&quot; + request.getParameter(&quot;author&quot;) + &quot;%&quot;))&#xA;            )&#xA;        ));&#xA;    &#xA;    return result;&#xA;private final DSLContext jooq;&#xA;}"/>
+    </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
@@ -98,6 +101,11 @@
       <details key="start" value="112"/>
       <details key="end" value="126"/>
       <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/%">
+      <details key="start" value="142"/>
+      <details key="end" value="804"/>
+      <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>
