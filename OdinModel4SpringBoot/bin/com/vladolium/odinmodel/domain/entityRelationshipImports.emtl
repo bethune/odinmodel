@@ -4,14 +4,15 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="relationship/manyToOne.emtl#/0"/>
-    <imports href="relationship/oneToOne.emtl#/0"/>
-    <imports href="relationship/manyToMany.emtl#/0"/>
-    <imports href="relationship/oneToMany.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/manyToOne.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/oneToOne.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/manyToMany.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/oneToMany.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="entityRelationshipImports" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="relationship/manyToOne.emtl#/0/manyToOne"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/manyToOne.emtl#/0/manyToOne"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityRelationshipImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -19,7 +20,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="relationship/oneToOne.emtl#/0/oneToOne"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/oneToOne.emtl#/0/oneToOne"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityRelationshipImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -27,7 +28,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="relationship/manyToMany.emtl#/0/manyToMany"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/manyToMany.emtl#/0/manyToMany"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityRelationshipImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -35,11 +36,12 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="relationship/oneToMany.emtl#/0/oneToMany"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/oneToMany.emtl#/0/oneToMany"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/entityRelationshipImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
       </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
@@ -80,7 +82,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="relationship/manyToOne.emtl#/0/manyToOne"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/manyToOne.emtl#/0/manyToOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -92,7 +94,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="relationship/oneToOne.emtl#/0/oneToOne"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/oneToOne.emtl#/0/oneToOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -104,7 +106,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="relationship/manyToMany.emtl#/0/manyToMany"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/manyToMany.emtl#/0/manyToMany"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -116,7 +118,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="relationship/oneToMany.emtl#/0/oneToMany"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationship/oneToMany.emtl#/0/oneToMany"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -180,65 +182,75 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/entityRelationshipImports">
       <details key="start" value="387"/>
-      <details key="end" value="546"/>
+      <details key="end" value="548"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/entityRelationshipImports/%">
-      <details key="start" value="448"/>
-      <details key="end" value="466"/>
+      <details key="start" value="447"/>
+      <details key="end" value="448"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/entityRelationshipImports/%.1">
+      <details key="start" value="449"/>
+      <details key="end" value="467"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/entityRelationshipImports/%/aClass">
-      <details key="start" value="448"/>
-      <details key="end" value="454"/>
+    <eAnnotations source="positions.3" references="/0/entityRelationshipImports/%.1/aClass">
+      <details key="start" value="449"/>
+      <details key="end" value="455"/>
       <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/entityRelationshipImports/%.1">
-      <details key="start" value="468"/>
-      <details key="end" value="469"/>
-      <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/entityRelationshipImports/%.2">
-      <details key="start" value="470"/>
-      <details key="end" value="487"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/entityRelationshipImports/%.2/aClass">
-      <details key="start" value="470"/>
-      <details key="end" value="476"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/entityRelationshipImports/%.3">
-      <details key="start" value="489"/>
-      <details key="end" value="490"/>
+      <details key="start" value="469"/>
+      <details key="end" value="470"/>
       <details key="line" value="12"/>
     </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/entityRelationshipImports/%.3">
+      <details key="start" value="471"/>
+      <details key="end" value="488"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/entityRelationshipImports/%.3/aClass">
+      <details key="start" value="471"/>
+      <details key="end" value="477"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.7" references="/0/entityRelationshipImports/%.4">
-      <details key="start" value="491"/>
-      <details key="end" value="510"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/entityRelationshipImports/%.4/aClass">
-      <details key="start" value="491"/>
-      <details key="end" value="497"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/entityRelationshipImports/%.5">
-      <details key="start" value="512"/>
-      <details key="end" value="513"/>
+      <details key="start" value="490"/>
+      <details key="end" value="491"/>
       <details key="line" value="13"/>
     </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/entityRelationshipImports/%.5">
+      <details key="start" value="492"/>
+      <details key="end" value="511"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/entityRelationshipImports/%.5/aClass">
+      <details key="start" value="492"/>
+      <details key="end" value="498"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.10" references="/0/entityRelationshipImports/%.6">
-      <details key="start" value="514"/>
-      <details key="end" value="532"/>
+      <details key="start" value="513"/>
+      <details key="end" value="514"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/entityRelationshipImports/%.7">
+      <details key="start" value="515"/>
+      <details key="end" value="533"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/entityRelationshipImports/%.6/aClass">
-      <details key="start" value="514"/>
-      <details key="end" value="520"/>
+    <eAnnotations source="positions.12" references="/0/entityRelationshipImports/%.7/aClass">
+      <details key="start" value="515"/>
+      <details key="end" value="521"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/entityRelationshipImports/aClass">
+    <eAnnotations source="positions.13" references="/0/entityRelationshipImports/%.8">
+      <details key="start" value="535"/>
+      <details key="end" value="536"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/entityRelationshipImports/aClass">
       <details key="start" value="430"/>
       <details key="end" value="444"/>
       <details key="line" value="9"/>

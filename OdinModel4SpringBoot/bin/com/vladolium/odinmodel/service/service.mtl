@@ -16,14 +16,18 @@
 	}
 ]
 
-[if isEntity] [comment: generate just for entities/]
-	[file ('src/main/java/' + packagePath + '/service/' + entity + 'Service.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+	[if isEntity] [comment: generate just for entities/]
+		[file ('src/main/java/' + packagePath + '/service/' + entity + 'Service.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 package [servicePath/].service;
 
 import [servicePath/].domain.*;
 import java.time.*;
 import java.util.*;
 import org.springframework.data.domain.*;
+
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
 
 public interface [entity/]Service {
 
@@ -38,7 +42,7 @@ public interface [entity/]Service {
 //[/protected]
 
 }
-	[/file]
-[/if]
+		[/file]
+	[/if]
 
 [/template]

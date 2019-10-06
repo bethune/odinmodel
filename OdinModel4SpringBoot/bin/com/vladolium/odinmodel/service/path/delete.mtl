@@ -8,10 +8,10 @@
 	Delete one by id.
 --------------------------------------------------/]
 
-[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-	[if p.isID = true]
+	[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+		[if p.isID = true]
 void deleteOneBy[p.name.toUpperFirst()/]([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
-	[/if]
-[/for]
+		[/if]
+	[/for]
 
 [/template]

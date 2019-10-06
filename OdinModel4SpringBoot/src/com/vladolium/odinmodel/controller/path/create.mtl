@@ -8,8 +8,15 @@
 		property	: String = aClass.name.toLowerFirst();
 	}
 ]
+
+[comment: 
+--------------------------------------------------
+	Create one.
+--------------------------------------------------/]
+
 @PostMapping("")
 public [entity/] createOne(@RequestBody [entity/] [property/]) {
 	return [property/]Service.createUpdate([property/]);
 }
+
 [/template]

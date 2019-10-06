@@ -3,12 +3,11 @@
 
 [template public blob(aClass : Class)]
 
-[comment : For all fields of the current entity./]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
-	[if p.type.name = 'Blob']
-		[if p.lower = 1 and p.isID = false] [comment : Generate the not null constraint./]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')] [comment : For all fields of the current entity./]
+		[if p.type.name = 'Blob']
+			[if p.lower = 1 and p.isID = false] [comment : Generate the not null constraint./]
 @NotNull
-		[/if]
+			[/if]
 @Lob
 private byte['['/][']'/] [p.name/]; [comment : Define the field's type and name./]
 
@@ -20,7 +19,7 @@ public byte['['/][']'/] get[p.name.toUpperFirst()/]() {
 public void set[p.name.toUpperFirst()/](byte['['/][']'/] [p.name/]) {
 	this.[p.name/] = [p.name/];
 }
-	[/if]
-[/for]
+		[/if]
+	[/for]
 
 [/template]

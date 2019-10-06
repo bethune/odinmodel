@@ -13,6 +13,10 @@ import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.service.OfficesService;
 import com.vladolium.odinmodel.service.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Offices;
+import com.vladolium.odinmodel.domain.Offices.*;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/offices")
@@ -25,10 +29,13 @@ public class OfficesController {
 		this.officesService = officesService;
 	}
 
+
+
 @PostMapping("")
 public Offices createOne(@RequestBody Offices offices) {
 	return officesService.createUpdate(offices);
 }
+
 
 
 @PutMapping("/{id}")
@@ -75,7 +82,7 @@ public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices
 
 
 @GetMapping("/{id}")
-public Offices findOneById(@PathVariable Long id) {
+public Offices readOneById(@PathVariable Long id) {
 	return officesService.readOneById(id);
 }
 
@@ -106,7 +113,7 @@ public Iterable<Offices> readAll() {
 }
 
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<Offices> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -119,6 +126,35 @@ public Page<Offices> readAllPagination(
 
 
 
+
+
+
+
+
+@GetMapping("/search")
+public Iterable<Offices> search(
+
+
+	@RequestParam(value = "postalCode", required = false) String postalCode,
+	@RequestParam(value = "city", required = false) String city,
+	@RequestParam(value = "phone", required = false) String phone,
+	@RequestParam(value = "territory", required = false) String territory,
+	@RequestParam(value = "state", required = false) String state,
+	@RequestParam(value = "addressLine1", required = false) String addressLine1,
+	@RequestParam(value = "addressLine2", required = false) String addressLine2,
+	@RequestParam(value = "country", required = false) String country
+) {
+	return officesService.search(
+	postalCode,
+	city,
+	phone,
+	territory,
+	state,
+	addressLine1,
+	addressLine2,
+	country
+	);
+}
 
 
 

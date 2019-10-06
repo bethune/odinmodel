@@ -5,10 +5,16 @@ import java.time.*;
 import java.util.*;
 import org.springframework.data.domain.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.ProductLines;
+import com.vladolium.odinmodel.domain.ProductLines.*;
+
 public interface ProductLinesService {
+
 
 // covers create & update
 ProductLines createUpdate(ProductLines productLines);
+
 
 
 
@@ -30,6 +36,12 @@ Iterable<ProductLines> readAll();
 Page<ProductLines> readAllPagination(Pageable page);
 
 
+
+Iterable<ProductLines> search(
+	byte[] image,
+	String textDescription,
+	String productLine
+);
 
 
 

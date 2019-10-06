@@ -13,6 +13,10 @@ import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.service.ProductLinesService;
 import com.vladolium.odinmodel.service.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.ProductLines;
+import com.vladolium.odinmodel.domain.ProductLines.*;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/productLines")
@@ -25,10 +29,13 @@ public class ProductLinesController {
 		this.productLinesService = productLinesService;
 	}
 
+
+
 @PostMapping("")
 public ProductLines createOne(@RequestBody ProductLines productLines) {
 	return productLinesService.createUpdate(productLines);
 }
+
 
 
 
@@ -58,7 +65,7 @@ public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLin
 
 
 @GetMapping("/{id}")
-public ProductLines findOneById(@PathVariable Long id) {
+public ProductLines readOneById(@PathVariable Long id) {
 	return productLinesService.readOneById(id);
 }
 
@@ -76,7 +83,7 @@ public Iterable<ProductLines> readAll() {
 }
 
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<ProductLines> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -89,6 +96,25 @@ public Page<ProductLines> readAllPagination(
 
 
 
+
+
+
+
+
+@GetMapping("/search")
+public Iterable<ProductLines> search(
+
+
+	@RequestParam(value = "image", required = false) byte[] image,
+	@RequestParam(value = "textDescription", required = false) String textDescription,
+	@RequestParam(value = "productLine", required = false) String productLine
+) {
+	return productLinesService.search(
+	image,
+	textDescription,
+	productLine
+	);
+}
 
 
 

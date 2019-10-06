@@ -15,15 +15,10 @@
 		doesNotInherit 	: Boolean = aClass.general->isEmpty();
 	}
 ]
-
+	
 [file ('src/main/java/' + packagePath + '/domain/' + entity + '.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 
-[comment: 
---------------------------------------------------
-	Generate entity class.
---------------------------------------------------/]
-
-[if isAbstract = false and doesNotInherit]
+	[if isAbstract = false and doesNotInherit] [comment: If entity class./]
 package [packageName/];
 
 [aClass.entityJavaImports()/]
@@ -31,22 +26,18 @@ package [packageName/];
 @Entity
 public class [entity/] {
 
-[aClass.entityFieldImports()/]
-[aClass.entityRelationshipImports()/]
+	[aClass.entityFieldImports()/]
+	[aClass.entityRelationshipImports()/]
 
-//Code between start and end will not be removed during generation.
-//[protected ('for this entity')]
-//[/protected]
+	//Code between start and end will not be removed during generation.
+	//[protected ('for this entity')]
+	//[/protected]
 
 }
-[/if]
+	[/if]
 
-[comment:
--------------------------------------------------- 
-	Generate abstract class.
---------------------------------------------------/]
-
-[if isAbstract] 
+	
+	[if isAbstract] [comment: If abstract class./]
 package [packageName/];
 
 [aClass.entityJavaImports()/]
@@ -54,21 +45,16 @@ package [packageName/];
 @MappedSuperclass
 public abstract class [entity/] {
 
-[aClass.entityFieldImports()/]
+	[aClass.entityFieldImports()/]
 
-//Code between start and end will not be removed during generation.
-//[protected ('for this abstract class')]
-//[/protected]
-
+	//Code between start and end will not be removed during generation.
+	//[protected ('for this abstract class')]
+	//[/protected]
 }
-[/if]
+	[/if]
 
-[comment: 
---------------------------------------------------
-	Generate entity that extends (inherits) abstract class.
---------------------------------------------------/]
 
-[if isAbstract = false and doesNotInherit = false]
+	[if isAbstract = false and doesNotInherit = false] [comment: If entity extends (inherits) abstract class./]
 package [packageName/];
 
 [aClass.entityJavaImports()/]
@@ -76,15 +62,14 @@ package [packageName/];
 @Entity
 public class [entity/] extends [abstract/] {
 
-[aClass.entityFieldImports()/]
-[aClass.entityRelationshipImports()/]
-
-//Code between start and end will not be removed during generation.
-//[protected ('for this inheriting entity')]
-//[/protected]
-
+	[aClass.entityFieldImports()/]
+	[aClass.entityRelationshipImports()/]
+		
+	//Code between start and end will not be removed during generation.
+	//[protected ('for this inheriting entity')]
+	//[/protected]
 }
-[/if]
+	[/if]
 
 [/file]
 

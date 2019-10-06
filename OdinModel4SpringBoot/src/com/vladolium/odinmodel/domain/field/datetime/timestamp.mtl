@@ -3,13 +3,11 @@
 
 [template public timestamp(aClass : Class)]
 
-[comment : For all fields of the current entity./]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
-	[if p.type.name = 'Timestamp']
-		[if p.lower = 1] [comment : Generate the not null constraint./]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')] [comment : For all fields of the current entity./]
+		[if p.type.name = 'Timestamp']
+			[if p.lower = 1] [comment : Generate the not null constraint./]
 @NotNull
-		[/if]
-//@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+			[/if]
 private Instant [p.name/] = Instant.now(); [comment : Define the field's type and name and value./]
 
 [comment : Get and Set/]
@@ -20,7 +18,7 @@ public Instant get[p.name.toUpperFirst()/]() {
 public void set[p.name.toUpperFirst()/](Instant [p.name/]) {
     this.[p.name/] = [p.name/];
 }
-	[/if]
-[/for]
+		[/if]
+	[/for]
 
 [/template]

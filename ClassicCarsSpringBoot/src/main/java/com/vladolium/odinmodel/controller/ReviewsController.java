@@ -13,6 +13,10 @@ import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.service.ReviewsService;
 import com.vladolium.odinmodel.service.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Reviews;
+import com.vladolium.odinmodel.domain.Reviews.*;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/reviews")
@@ -25,10 +29,13 @@ public class ReviewsController {
 		this.reviewsService = reviewsService;
 	}
 
+
+
 @PostMapping("")
 public Reviews createOne(@RequestBody Reviews reviews) {
 	return reviewsService.createUpdate(reviews);
 }
+
 
 
 
@@ -58,7 +65,7 @@ public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews
 
 
 @GetMapping("/{id}")
-public Reviews findOneById(@PathVariable Long id) {
+public Reviews readOneById(@PathVariable Long id) {
 	return reviewsService.readOneById(id);
 }
 
@@ -76,7 +83,7 @@ public Iterable<Reviews> readAll() {
 }
 
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<Reviews> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -89,6 +96,25 @@ public Page<Reviews> readAllPagination(
 
 
 
+
+
+
+
+
+@GetMapping("/search")
+public Iterable<Reviews> search(
+
+
+	@RequestParam(value = "reviewText", required = false) String reviewText,
+	@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime,
+	@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate
+) {
+	return reviewsService.search(
+	reviewText,
+	reviewTime,
+	reviewDate
+	);
+}
 
 
 

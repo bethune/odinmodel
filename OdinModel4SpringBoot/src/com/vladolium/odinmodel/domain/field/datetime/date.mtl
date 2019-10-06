@@ -3,17 +3,16 @@
 
 [template public date(aClass : Class)]
 
-[comment : For all fields of the current entity./]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
-	[if p.type.name = 'Date']
-		[if p.lower = 1] [comment : Generate the not null constraint./]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')] [comment : For all fields of the current entity./]
+		[if p.type.name = 'Date']
+			[if p.lower = 1] [comment : Generate the not null constraint./]
 @NotNull
-		[/if]
-		[if p.isUnique = true] [comment : Generate the unique constraint./]
+			[/if]
+			[if p.isUnique = true] [comment : Generate the unique constraint./]
 @Column(unique=true)
-		[/if]
+			[/if]
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-//@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 private LocalDate [p.name/]; [comment : Define the field's type and name./]
 
 [comment : Get and Set/]
@@ -24,7 +23,7 @@ public LocalDate get[p.name.toUpperFirst()/]() {
 public void set[p.name.toUpperFirst()/](LocalDate [p.name/]) {
 	this.[p.name/] = [p.name/];
 }
-	[/if]
-[/for]
+		[/if]
+	[/for]
 
 [/template]

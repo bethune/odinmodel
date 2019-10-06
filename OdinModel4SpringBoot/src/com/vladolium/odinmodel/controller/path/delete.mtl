@@ -12,13 +12,13 @@
 	Delete one by id.
 --------------------------------------------------/]
 
-[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-	[if p.isID = true]
+	[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+		[if p.isID = true]
 @DeleteMapping("/{[p.name.toLowerFirst()/]}")
 public void deleteOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]) {
 	[property/]Service.deleteOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
 }
-	[/if]
-[/for]
+		[/if]
+	[/for]
 
 [/template]

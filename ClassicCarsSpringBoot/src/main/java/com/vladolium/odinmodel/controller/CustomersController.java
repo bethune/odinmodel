@@ -13,6 +13,10 @@ import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.service.CustomersService;
 import com.vladolium.odinmodel.service.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Customers;
+import com.vladolium.odinmodel.domain.Customers.*;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/customers")
@@ -25,10 +29,13 @@ public class CustomersController {
 		this.customersService = customersService;
 	}
 
+
+
 @PostMapping("")
 public Customers createOne(@RequestBody Customers customers) {
 	return customersService.createUpdate(customers);
 }
+
 
 
 
@@ -84,7 +91,7 @@ public Customers updateOneById(@PathVariable Long id, @RequestBody Customers cus
 
 
 
-@PutMapping("/customerName={customerName}")
+@PutMapping("/{customerName}")
 public Customers updateOneByCustomerName(@PathVariable String customerName, @RequestBody Customers customers) {
 	Customers current = customersService.readOneByCustomerName(customerName);
 	current.setReviewsList(customers.getReviewsList());
@@ -103,7 +110,7 @@ public Customers updateOneByCustomerName(@PathVariable String customerName, @Req
 
 
 @GetMapping("/{id}")
-public Customers findOneById(@PathVariable Long id) {
+public Customers readOneById(@PathVariable Long id) {
 	return customersService.readOneById(id);
 }
 
@@ -127,8 +134,8 @@ public Customers findOneById(@PathVariable Long id) {
 
 
 
-@GetMapping("/customerName={customerName}")
-public Customers findOneByCustomerName(@PathVariable String customerName) {
+@GetMapping("/{customerName}")
+public Customers readOneByCustomerName(@PathVariable String customerName) {
 	return customersService.readOneByCustomerName(customerName);
 }
 
@@ -143,7 +150,7 @@ public Iterable<Customers> readAll() {
 }
 
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<Customers> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -156,6 +163,59 @@ public Page<Customers> readAllPagination(
 
 
 
+
+
+
+
+
+@GetMapping("/search")
+public Iterable<Customers> search(
+
+	@RequestParam(value = "reviewsList", required = false) List<Reviews> reviewsList,
+
+
+
+
+
+	@RequestParam(value = "employeesId", required = false) Long employeesId,
+
+
+
+	@RequestParam(value = "postalCode", required = false) String postalCode,
+	@RequestParam(value = "lastName", required = false) String lastName,
+	@RequestParam(value = "city", required = false) String city,
+	@RequestParam(value = "phone", required = false) String phone,
+	@RequestParam(value = "state", required = false) String state,
+	@RequestParam(value = "customerName", required = false) String customerName,
+	@RequestParam(value = "addressLine1", required = false) String addressLine1,
+	@RequestParam(value = "creditLimit", required = false) Double creditLimit,
+	@RequestParam(value = "firstName", required = false) String firstName,
+	@RequestParam(value = "addressLine2", required = false) String addressLine2,
+	@RequestParam(value = "country", required = false) String country
+) {
+	return customersService.search(
+	reviewsList,
+
+
+
+
+
+	employeesId,
+
+
+	postalCode,
+	lastName,
+	city,
+	phone,
+	state,
+	customerName,
+	addressLine1,
+	creditLimit,
+	firstName,
+	addressLine2,
+	country
+	);
+}
 
 
 

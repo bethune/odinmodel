@@ -196,7 +196,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/delete">
       <details key="start" value="87"/>
-      <details key="end" value="472"/>
+      <details key="end" value="476"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/delete/%">
@@ -210,128 +210,128 @@
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/delete/%.2">
-      <details key="start" value="264"/>
-      <details key="end" value="459"/>
+      <details key="start" value="265"/>
+      <details key="end" value="463"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/delete/%.2/%">
-      <details key="start" value="329"/>
-      <details key="end" value="452"/>
+      <details key="start" value="331"/>
+      <details key="end" value="455"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/delete/%.2/%/%">
-      <details key="start" value="348"/>
-      <details key="end" value="364"/>
+      <details key="start" value="350"/>
+      <details key="end" value="366"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/delete/%.2/%/%.1">
-      <details key="start" value="365"/>
-      <details key="end" value="386"/>
+      <details key="start" value="367"/>
+      <details key="end" value="388"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/delete/%.2/%/%.1/%">
-      <details key="start" value="365"/>
-      <details key="end" value="371"/>
+      <details key="start" value="367"/>
+      <details key="end" value="373"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/delete/%.2/%/%.1/%/p">
-      <details key="start" value="365"/>
-      <details key="end" value="366"/>
+      <details key="start" value="367"/>
+      <details key="end" value="368"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/delete/%.2/%/%.2">
-      <details key="start" value="388"/>
-      <details key="end" value="389"/>
+      <details key="start" value="390"/>
+      <details key="end" value="391"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/delete/%.2/%/%.3">
-      <details key="start" value="390"/>
-      <details key="end" value="416"/>
+      <details key="start" value="392"/>
+      <details key="end" value="418"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/delete/%.2/%/%.3/%">
-      <details key="start" value="390"/>
-      <details key="end" value="401"/>
+      <details key="start" value="392"/>
+      <details key="end" value="403"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/delete/%.2/%/%.3/%/%">
-      <details key="start" value="390"/>
-      <details key="end" value="396"/>
+      <details key="start" value="392"/>
+      <details key="end" value="398"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/delete/%.2/%/%.3/%/%/p">
-      <details key="start" value="390"/>
-      <details key="end" value="391"/>
+      <details key="start" value="392"/>
+      <details key="end" value="393"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/delete/%.2/%/%.4">
-      <details key="start" value="418"/>
-      <details key="end" value="419"/>
+      <details key="start" value="420"/>
+      <details key="end" value="421"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/delete/%.2/%/%.5">
-      <details key="start" value="420"/>
-      <details key="end" value="441"/>
+      <details key="start" value="422"/>
+      <details key="end" value="443"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/delete/%.2/%/%.5/%">
-      <details key="start" value="420"/>
-      <details key="end" value="426"/>
+      <details key="start" value="422"/>
+      <details key="end" value="428"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/delete/%.2/%/%.5/%/p">
-      <details key="start" value="420"/>
-      <details key="end" value="421"/>
+      <details key="start" value="422"/>
+      <details key="end" value="423"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/delete/%.2/%/%.6">
-      <details key="start" value="443"/>
-      <details key="end" value="446"/>
+      <details key="start" value="445"/>
+      <details key="end" value="448"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/delete/%.2/%/%.7">
-      <details key="start" value="333"/>
-      <details key="end" value="346"/>
+      <details key="start" value="335"/>
+      <details key="end" value="348"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/delete/%.2/%/%.7/%">
-      <details key="start" value="333"/>
-      <details key="end" value="339"/>
+      <details key="start" value="335"/>
+      <details key="end" value="341"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/delete/%.2/%/%.7/%/p">
-      <details key="start" value="333"/>
-      <details key="end" value="334"/>
+      <details key="start" value="335"/>
+      <details key="end" value="336"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/delete/%.2/%/%.7/%.1">
-      <details key="start" value="342"/>
-      <details key="end" value="346"/>
+      <details key="start" value="344"/>
+      <details key="end" value="348"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/delete/%.2/p">
-      <details key="start" value="270"/>
-      <details key="end" value="281"/>
+      <details key="start" value="271"/>
+      <details key="end" value="282"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/delete/%.2/%.1">
-      <details key="start" value="284"/>
-      <details key="end" value="309"/>
+      <details key="start" value="285"/>
+      <details key="end" value="310"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/delete/%.2/%.1/aClass">
-      <details key="start" value="284"/>
-      <details key="end" value="290"/>
+      <details key="start" value="285"/>
+      <details key="end" value="291"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/delete/%.2/%.2">
-      <details key="start" value="321"/>
-      <details key="end" value="325"/>
+      <details key="start" value="322"/>
+      <details key="end" value="326"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/delete/%.3">
-      <details key="start" value="460"/>
-      <details key="end" value="461"/>
+      <details key="start" value="464"/>
+      <details key="end" value="465"/>
       <details key="line" value="16"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/delete/aClass">

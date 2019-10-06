@@ -5,10 +5,16 @@ import java.time.*;
 import java.util.*;
 import org.springframework.data.domain.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Payments;
+import com.vladolium.odinmodel.domain.Payments.*;
+
 public interface PaymentsService {
+
 
 // covers create & update
 Payments createUpdate(Payments payments);
+
 
 
 
@@ -33,6 +39,25 @@ Iterable<Payments> readAll();
 Page<Payments> readAllPagination(Pageable page);
 
 
+
+Iterable<Payments> search(
+
+
+	Long customersId,
+
+
+
+
+
+
+
+
+
+	Double amount,
+	String checkNumber,
+	LocalDate paymentDate,
+	Instant paymentTimestamp
+);
 
 
 

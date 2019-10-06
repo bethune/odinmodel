@@ -5,10 +5,16 @@ import java.time.*;
 import java.util.*;
 import org.springframework.data.domain.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Reviews;
+import com.vladolium.odinmodel.domain.Reviews.*;
+
 public interface ReviewsService {
+
 
 // covers create & update
 Reviews createUpdate(Reviews reviews);
+
 
 
 
@@ -30,6 +36,12 @@ Iterable<Reviews> readAll();
 Page<Reviews> readAllPagination(Pageable page);
 
 
+
+Iterable<Reviews> search(
+	String reviewText,
+	LocalTime reviewTime,
+	LocalDate reviewDate
+);
 
 
 

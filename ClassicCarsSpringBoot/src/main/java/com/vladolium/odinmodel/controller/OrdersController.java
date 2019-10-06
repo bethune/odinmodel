@@ -13,6 +13,10 @@ import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.service.OrdersService;
 import com.vladolium.odinmodel.service.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Orders;
+import com.vladolium.odinmodel.domain.Orders.*;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/orders")
@@ -25,10 +29,13 @@ public class OrdersController {
 		this.ordersService = ordersService;
 	}
 
+
+
 @PostMapping("")
 public Orders createOne(@RequestBody Orders orders) {
 	return ordersService.createUpdate(orders);
 }
+
 
 
 
@@ -70,7 +77,7 @@ public Orders updateOneById(@PathVariable Long id, @RequestBody Orders orders) {
 
 
 @GetMapping("/{id}")
-public Orders findOneById(@PathVariable Long id) {
+public Orders readOneById(@PathVariable Long id) {
 	return ordersService.readOneById(id);
 }
 
@@ -91,7 +98,7 @@ public Iterable<Orders> readAll() {
 }
 
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<Orders> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -104,6 +111,53 @@ public Page<Orders> readAllPagination(
 
 
 
+
+
+
+
+
+@GetMapping("/search")
+public Iterable<Orders> search(
+
+
+
+	@RequestParam(value = "customersId", required = false) Long customersId,
+
+
+
+
+
+
+
+
+
+
+	@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
+	@RequestParam(value = "comments", required = false) String comments,
+	@RequestParam(value = "status", required = false) String status,
+	@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
+	@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate
+) {
+	return ordersService.search(
+
+
+	customersId,
+
+
+
+
+
+
+
+
+
+	requiredDate,
+	comments,
+	status,
+	shippedDate,
+	orderDate
+	);
+}
 
 
 

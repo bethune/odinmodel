@@ -3,23 +3,20 @@
 
 [template public enum(aClass : Class)]
 
-[comment : For all enumerations in the model./]
-[for (e: Enumeration | aClass.getModel().eContents(Enumeration)) separator('\n')]
-	[comment : For all fields of the current entity./]
-	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
-		[if p.type.name = e.name] [comment : If the field's type is an enumeration./]
+	[for (e: Enumeration | aClass.getModel().eContents(Enumeration)) separator('\n')] [comment : For all enumerations in the model./]
+		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')] [comment : For all fields of the current entity./]
+			[if p.type.name = e.name] [comment : If the field's type is an enumeration./]
 public enum [p.type.name/] {
-			[comment : For all values of the current enumeration./]
-			[for (el: EnumerationLiteral | e.ownedLiteral)]
-	[el.name/], [comment : Define the enumeration values./]
-			[/for]
+				[for (el: EnumerationLiteral | e.ownedLiteral)] [comment : For all values of the current enumeration./]
+	[el.name/],
+				[/for]
 }
-			[if p.lower = 1] [comment : Generate the not null constraint./]
+				[if p.lower = 1] [comment : Generate the not null constraint./]
 @NotNull
-			[/if]
-			[if p.isUnique = true] [comment : Generate the unique constraint./]
+				[/if]
+				[if p.isUnique = true] [comment : Generate the unique constraint./]
 @Column(unique=true)
-			[/if]
+				[/if]
 @Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
 private [p.type.name/] [p.name/]; [comment : Define the field's type and name./]
 
@@ -31,8 +28,8 @@ public [p.type.name/] get[p.name.toUpperFirst()/]() {
 public void set[p.name.toUpperFirst()/]([p.type.name/] [p.name/]) {
 	this.[p.name/] = [p.name/];
 }
-		[/if]
+			[/if]
+		[/for]
 	[/for]
-[/for]
 
 [/template]

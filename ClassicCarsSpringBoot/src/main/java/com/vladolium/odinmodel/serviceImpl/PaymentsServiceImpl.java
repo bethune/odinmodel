@@ -12,6 +12,10 @@ import java.util.*;
 import com.vladolium.odinmodel.repository.PaymentsRepository;
 import com.vladolium.odinmodel.service.PaymentsService;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Payments;
+import com.vladolium.odinmodel.domain.Payments.*;
+
 @Service
 public class PaymentsServiceImpl implements PaymentsService {
 
@@ -22,10 +26,13 @@ public class PaymentsServiceImpl implements PaymentsService {
 		this.paymentsRepository = paymentsRepository;
 	}
 
+
+// covers create & update
 @Override
 public Payments createUpdate(Payments payments) {
 	return paymentsRepository.save(payments);
 }
+
 
 
 

@@ -18,8 +18,8 @@
 	}
 ]
 
-[if isEntity] [comment: generate just for entities/]
-	[file ('src/main/java/' + packagePath + '/controller/' + entity + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+	[if isEntity] [comment: generate just for entities/]
+		[file ('src/main/java/' + packagePath + '/controller/' + entity + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 
 package [controllerPath/].controller;
 
@@ -34,6 +34,10 @@ import java.util.*;
 import [controllerPath/].domain.*;
 import [controllerPath/].service.[entity/]Service;
 import [controllerPath/].service.*;
+
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -59,7 +63,7 @@ public class [entity/]Controller {
 //[/protected]
 
 }
-	[/file]
-[/if]
+		[/file]
+	[/if]
 
 [/template]

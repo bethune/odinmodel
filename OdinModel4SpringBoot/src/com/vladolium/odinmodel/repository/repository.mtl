@@ -11,8 +11,8 @@
 	}
 ]
 
-[if isEntity] [comment: generate the repository methods for entities/]
-	[file ('src/main/java/' + packagePath + '/repository/' + entity + 'Repository.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+	[if isEntity] [comment: generate the repository methods for entities/]
+		[file ('src/main/java/' + packagePath + '/repository/' + entity + 'Repository.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 package [repositoryPath/].repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,33 +20,36 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import [repositoryPath/].domain.[entity/];
 
-		[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-			[if p.isID = true]
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
+
+			[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+				[if p.isID = true]
 @Repository
 @Transactional
 public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.name.toUpperFirst()/]> {
-			[/if]
-		[/for]
+				[/if]
+			[/for]
 
 [comment: 
 --------------------------------------------------
 	read one by field with unique values
 --------------------------------------------------/]
 
-		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-			[if p.isUnique = true]
+			[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+				[if p.isUnique = true]
 [entity/] findBy[p.name.toUpperFirst()/]Equals([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
-			[/if]
-		[/for]
+				[/if]
+			[/for]
 
 
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this repository')]
 //[/protected]
-
 }
-	[/file]
-[/if]
+		[/file]
+	[/if]
 
 [/template]

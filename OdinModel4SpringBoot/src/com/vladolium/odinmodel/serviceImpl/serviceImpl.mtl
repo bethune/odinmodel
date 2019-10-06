@@ -17,8 +17,8 @@
 	}
 ]
 
-[if isEntity] [comment: generate just for entities/]
-	[file ('src/main/java/' + packagePath + '/serviceImpl/' + entity + 'ServiceImpl.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+	[if isEntity] [comment: generate just for entities/]
+		[file ('src/main/java/' + packagePath + '/serviceImpl/' + entity + 'ServiceImpl.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
 
 package [serviceImplPath/].serviceImpl;
 
@@ -32,6 +32,10 @@ import java.util.*;
 
 import [serviceImplPath/].repository.[entity/]Repository;
 import [serviceImplPath/].service.[entity/]Service;
+
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
+import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
 
 @Service
 public class [entity/]ServiceImpl implements [entity/]Service {
@@ -54,7 +58,7 @@ public class [entity/]ServiceImpl implements [entity/]Service {
 //[/protected]
 
 }
-	[/file]
-[/if]
+		[/file]
+	[/if]
 
 [/template]

@@ -13,6 +13,10 @@ import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.service.PaymentsService;
 import com.vladolium.odinmodel.service.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Payments;
+import com.vladolium.odinmodel.domain.Payments.*;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/payments")
@@ -25,10 +29,13 @@ public class PaymentsController {
 		this.paymentsService = paymentsService;
 	}
 
+
+
 @PostMapping("")
 public Payments createOne(@RequestBody Payments payments) {
 	return paymentsService.createUpdate(payments);
 }
+
 
 
 
@@ -62,7 +69,7 @@ public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payme
 
 
 @GetMapping("/{id}")
-public Payments findOneById(@PathVariable Long id) {
+public Payments readOneById(@PathVariable Long id) {
 	return paymentsService.readOneById(id);
 }
 
@@ -85,7 +92,7 @@ public Iterable<Payments> readAll() {
 }
 
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<Payments> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -98,6 +105,51 @@ public Page<Payments> readAllPagination(
 
 
 
+
+
+
+
+
+@GetMapping("/search")
+public Iterable<Payments> search(
+
+
+
+	@RequestParam(value = "customersId", required = false) Long customersId,
+
+
+
+
+
+
+
+
+
+
+	@RequestParam(value = "amount", required = false) Double amount,
+	@RequestParam(value = "checkNumber", required = false) String checkNumber,
+	@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
+	@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp
+) {
+	return paymentsService.search(
+
+
+	customersId,
+
+
+
+
+
+
+
+
+
+	amount,
+	checkNumber,
+	paymentDate,
+	paymentTimestamp
+	);
+}
 
 
 

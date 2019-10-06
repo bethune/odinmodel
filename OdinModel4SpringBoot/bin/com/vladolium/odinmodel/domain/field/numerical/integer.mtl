@@ -3,19 +3,18 @@
 
 [template public integer(aClass : Class)]
 
-[comment : For all fields of the current entity./]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
-	[if p.type.name = 'Integer']
-		[if p.isID = true] [comment : Generate primary key./]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')] [comment : For all fields of the current entity./]
+		[if p.type.name = 'Integer']
+			[if p.isID = true] [comment : Generate primary key./]
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-		[/if]
-		[if p.lower = 1 and p.isID = false] [comment : Generate the not null constraint./]
+			[/if]
+			[if p.lower = 1 and p.isID = false] [comment : Generate the not null constraint./]
 @NotNull
-		[/if]
-		[if p.isUnique = true and p.isID = false] [comment : Generate the unique constraint./]
+			[/if]
+			[if p.isUnique = true and p.isID = false] [comment : Generate the unique constraint./]
 @Column(unique=true)
-		[/if]
+			[/if]
 private [p.type.name/] [p.name/]; [comment : Define the field's type and name./]
 
 [comment : Get and Set/]
@@ -26,7 +25,7 @@ public [p.type.name/] get[p.name.toUpperFirst()/]() {
 public void set[p.name.toUpperFirst()/]([p.type.name/] [p.name/]) {
 	this.[p.name/] = [p.name/];
 }
-	[/if]
-[/for]
+		[/if]
+	[/for]
 
 [/template]

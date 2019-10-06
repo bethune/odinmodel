@@ -1,11 +1,303 @@
 [comment encoding = UTF-8 /]
 [module search('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-
 [template public search(aClass : Class)]
 
+[comment: 
+--------------------------------------------------
+	Search all.
+--------------------------------------------------/]
+
+@Override
+public Iterable<[aClass.name.toUpperFirst()/]> search(
+	[comment: 
+	 ---------------Foreign keys-----------------------------------/]
+	[for (p : Property | aClass.getAssociations().memberEnd)]
+		[comment: 
+		 ---------------If ManyToOne-----------------------------------/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+	[a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+		[comment: 
+		 ---------------If OneToOne-----------------------------------/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+	[a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+		[comment: 
+		 ---------------If ManyToMany-----------------------------------/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+	Set<[a.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set,
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+		[comment: 
+		 ---------------If OneToMany-----------------------------------/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+	List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List,
+		[/if]
+	[/for]
+	[comment: 
+	 ---------------Entity fields-----------------------------------/]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(p | p.isID = false)) ]
+		[if p.type.name = 'Date']
+	LocalDate [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name = 'Time']
+	LocalTime [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name = 'DateTime']
+	LocalDateTime [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name = 'Timestamp']
+	Instant [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name = 'Blob']
+	byte['['/][']'/] [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name = 'Clob']
+	String [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name <> 'Date' and p.type.name <> 'Time' and p.type.name <> 'DateTime' and p.type.name <> 'Timestamp' and p.type.name <> 'Blob' and p.type.name <> 'Clob']
+	[p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+	[/for]
+	) {
+		BooleanBuilder where = dynamicWhere(
+	[comment: 
+	 ---------------Foreign keys-----------------------------------/]
+	[for (p : Property | aClass.getAssociations().memberEnd)]
+		[comment: 
+		 ---------------If ManyToOne-----------------------------------/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+	[p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+		[comment: 
+		 ---------------If OneToOne-----------------------------------/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+	[p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+		[comment: 
+		 ---------------If ManyToMany-----------------------------------/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+	[p.opposite.type.name.toLowerFirst()/]Set,
+		[/if]
+		[comment: 
+		 ---------------If OneToMany-----------------------------------/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+	[p.opposite.type.name.toLowerFirst()/]List,
+		[/if]
+	[/for]
+	[comment: 
+	 ---------------Entity fields-----------------------------------/]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(p | p.isID = false)) ]
+	[p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/for]
+	);
+
+	return [aClass.name.toLowerFirst()/]Repository.findAll(where);
+}
+
+
+
+[comment: 
+--------------------------------------------------
+	Dynamic where for search all and search all with pagination.
+--------------------------------------------------/]
+
+
+public BooleanBuilder dynamicWhere(
+	[for (p : Property | aClass.getAssociations().memberEnd)]
+[comment : ManyToOne/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+		[a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+[comment : OneToOne/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+		[a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+[comment : ManyToMany/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+		Set<[a.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set,
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+[comment : OneToMany/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+		List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List,
+		[/if]
+	[/for]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(p | p.isID = false)) ]
+		[if p.type.name = 'Date']
+		LocalDate [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name = 'Time']
+		LocalTime [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name = 'DateTime']
+		LocalDateTime [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+		[if p.type.name <> 'Date' and p.type.name <> 'Time' and p.type.name <> 'DateTime']
+		[p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+		[/if]
+	[/for]
+	) {
+		Q[aClass.name.toUpperFirst()/] q[aClass.name.toUpperFirst()/] = Q[aClass.name.toUpperFirst()/].[aClass.name.toLowerFirst()/];
+
+		BooleanBuilder where = new BooleanBuilder();
+
+	[for (p : Property | aClass.getAssociations().memberEnd)]
+[comment : ManyToOne/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+		if ([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/] != null) {
+			where.and(q[aClass.name.toUpperFirst()/].[p.opposite.type.name.toLowerFirst()/].[a.name.toLowerFirst()/].eq([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/]));
+		}
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+[comment : OneToOne/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+		if ([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/] != null) {
+			where.and(q[aClass.name.toUpperFirst()/].[p.opposite.type.name.toLowerFirst()/].[a.name.toLowerFirst()/].eq([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/]));
+		}
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+[comment : ManyToMany/]
+		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+			[for (pack : Package | aClass._package)]
+				[for (m : Class | pack.member -> filter(Class))]
+					[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+						[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+							[if a.isID = true]
+		if ([p.opposite.type.name.toLowerFirst()/]Set != null) {
+			where.and(q[aClass.name.toUpperFirst()/].[p.opposite.type.name.toLowerFirst()/]Set.any().[a.name.toLowerFirst()/].in([p.opposite.type.name.toLowerFirst()/]Set));
+		}
+							[/if]
+						[/for]
+					[/if]
+				[/for]
+			[/for]
+		[/if]
+[comment : OneToMany/]
+		[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+		if ([p.opposite.type.name.toLowerFirst()/]List != null) {
+			where.and(q[aClass.name.toUpperFirst()/].[p.opposite.type.name.toLowerFirst()/]List.any().in([p.opposite.type.name.toLowerFirst()/]List));
+		}
+		[/if]
+	[/for]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(p | p.isID = false)) ]
+		[if p.type.name = 'String']
+		if ([p.name.toLowerFirst()/] != null) {
+			where.and(q[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/].containsIgnoreCase([p.name.toLowerFirst()/]));
+		}
+		[else]
+		if ([p.name.toLowerFirst()/] != null) {
+			where.and(q[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/].eq([p.name.toLowerFirst()/]));
+		}
+		[/if]
+	[/for]
+
+		return where;
+	}
+
 [/template]
-[comment]public Condition condition(HttpServletRequest request) {
+[comment]
+
+import static org.jooq.impl.DSL.*;
+
+public Condition condition(HttpServletRequest request) {
     Condition result = trueCondition();
     
     if (request.getParameter("title") != null)
@@ -21,4 +313,8 @@
     
     return result;
 private final DSLContext jooq;
+
+List<Condition> filterList = new ArrayList<>();
+filterList.add(field("column1", String.class).eq(y));
+filterList.add(field("column2", Integer.class).eq(z));
 }[/comment]

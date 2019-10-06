@@ -7,8 +7,10 @@
 [import com::vladolium::odinmodel::domain::relationship::oneToMany /]
 
 [template public entityRelationshipImports(aClass : Class)]
+
 [aClass.manyToOne()/]
 [aClass.oneToOne()/]
 [aClass.manyToMany()/]
 [aClass.oneToMany()/]
+
 [/template]

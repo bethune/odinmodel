@@ -13,6 +13,10 @@ import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.service.OrderDetailsService;
 import com.vladolium.odinmodel.service.*;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.OrderDetails;
+import com.vladolium.odinmodel.domain.OrderDetails.*;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/orderDetails")
@@ -25,10 +29,13 @@ public class OrderDetailsController {
 		this.orderDetailsService = orderDetailsService;
 	}
 
+
+
 @PostMapping("")
 public OrderDetails createOne(@RequestBody OrderDetails orderDetails) {
 	return orderDetailsService.createUpdate(orderDetails);
 }
+
 
 
 @PutMapping("/{id}")
@@ -59,7 +66,7 @@ public OrderDetails updateOneById(@PathVariable Long id, @RequestBody OrderDetai
 
 
 @GetMapping("/{id}")
-public OrderDetails findOneById(@PathVariable Long id) {
+public OrderDetails readOneById(@PathVariable Long id) {
 	return orderDetailsService.readOneById(id);
 }
 
@@ -82,7 +89,7 @@ public Iterable<OrderDetails> readAll() {
 }
 
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<OrderDetails> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -95,6 +102,55 @@ public Page<OrderDetails> readAllPagination(
 
 
 
+
+
+
+
+
+@GetMapping("/search")
+public Iterable<OrderDetails> search(
+
+
+
+
+
+	@RequestParam(value = "ordersId", required = false) Long ordersId,
+
+
+
+
+
+
+
+
+
+	@RequestParam(value = "productsId", required = false) Long productsId,
+
+	@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered,
+	@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber,
+	@RequestParam(value = "priceEach", required = false) Double priceEach
+) {
+	return orderDetailsService.search(
+
+
+
+
+	ordersId,
+
+
+
+
+
+
+
+
+
+	productsId,
+	quantityOrdered,
+	orderLineNumber,
+	priceEach
+	);
+}
 
 
 

@@ -12,6 +12,10 @@ import java.util.*;
 import com.vladolium.odinmodel.repository.OrdersRepository;
 import com.vladolium.odinmodel.service.OrdersService;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.Orders;
+import com.vladolium.odinmodel.domain.Orders.*;
+
 @Service
 public class OrdersServiceImpl implements OrdersService {
 
@@ -22,10 +26,13 @@ public class OrdersServiceImpl implements OrdersService {
 		this.ordersRepository = ordersRepository;
 	}
 
+
+// covers create & update
 @Override
 public Orders createUpdate(Orders orders) {
 	return ordersRepository.save(orders);
 }
+
 
 
 

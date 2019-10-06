@@ -7,8 +7,11 @@
 		property	: String = aClass.name.toLowerFirst();
 	}
 ]
+
+// covers create & update
 @Override
 public [entity/] createUpdate([entity/] [property/]) {
 	return [property/]Repository.save([property/]);
 }
+
 [/template]

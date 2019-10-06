@@ -23,7 +23,7 @@ public Iterable<[entity/]> readAll() {
 	Read all with pagination.
 --------------------------------------------------/]
 
-@GetMapping("/page={pageNumber}/per-page={perPageNumber}")
+@GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<[entity/]> readAllPagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber
@@ -39,12 +39,12 @@ public Page<[entity/]> readAllPagination(
 
 [comment: 
 --------------------------------------------------
-	Read all by parent field with unique values.
+	Read all by parent id with pagination.
 --------------------------------------------------/]
 
 [comment: 
 --------------------------------------------------
-	Read all by parent id with pagination.
+	Read all by parent field with unique values.
 --------------------------------------------------/]
 
 [comment: 

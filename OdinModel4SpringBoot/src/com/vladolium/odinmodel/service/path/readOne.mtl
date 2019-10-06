@@ -13,22 +13,21 @@
 	read one by id
 --------------------------------------------------/]
 
-[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-	[if p.isID = true]
+	[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+		[if p.isID = true]
 [entity/] readOneBy[p.name.toUpperFirst()/]([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
-	[/if]
-[/for]
+		[/if]
+	[/for]
 
 [comment: 
 --------------------------------------------------
 	read one by field with unique values
 --------------------------------------------------/]
 
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-	[if p.isUnique = true and p.isID = false]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+		[if p.isUnique = true and p.isID = false]
 [entity/] readOneBy[p.name.toUpperFirst()/]([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
-	[/if]
-[/for]
-
+		[/if]
+	[/for]
 
 [/template]

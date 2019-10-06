@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="clob" nsURI="com::vladolium::odinmodel::domain::field::binary::clob" startHeaderPosition="29" endHeaderPosition="173">
+  <mtl:Module name="clob" nsURI="com::vladolium::odinmodel::domain::field::binary::clob" startHeaderPosition="29" endHeaderPosition="279">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
@@ -293,7 +293,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/clob">
       <details key="start" value="85"/>
-      <details key="end" value="699"/>
+      <details key="end" value="705"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/clob/%">
@@ -302,264 +302,264 @@
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/clob/%.1">
-      <details key="start" value="176"/>
-      <details key="end" value="686"/>
-      <details key="line" value="7"/>
+      <details key="start" value="126"/>
+      <details key="end" value="692"/>
+      <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/clob/%.1/%">
-      <details key="start" value="282"/>
-      <details key="end" value="679"/>
-      <details key="line" value="8"/>
+      <details key="start" value="284"/>
+      <details key="end" value="684"/>
+      <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/clob/%.1/%/%">
-      <details key="start" value="310"/>
-      <details key="end" value="409"/>
-      <details key="line" value="9"/>
+      <details key="start" value="313"/>
+      <details key="end" value="413"/>
+      <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/clob/%.1/%/%/%">
-      <details key="start" value="393"/>
-      <details key="end" value="402"/>
-      <details key="line" value="10"/>
+      <details key="start" value="396"/>
+      <details key="end" value="405"/>
+      <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/clob/%.1/%/%/%.1">
-      <details key="start" value="314"/>
-      <details key="end" value="344"/>
+      <details key="start" value="317"/>
+      <details key="end" value="347"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/clob/%.1/%/%/%.1/%">
-      <details key="start" value="314"/>
-      <details key="end" value="325"/>
+      <details key="start" value="317"/>
+      <details key="end" value="328"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/clob/%.1/%/%/%.1/%/%">
-      <details key="start" value="314"/>
-      <details key="end" value="321"/>
+      <details key="start" value="317"/>
+      <details key="end" value="324"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/clob/%.1/%/%/%.1/%/%/p">
-      <details key="start" value="314"/>
-      <details key="end" value="315"/>
+      <details key="start" value="317"/>
+      <details key="end" value="318"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/clob/%.1/%/%/%.1/%/%.1">
-      <details key="start" value="324"/>
-      <details key="end" value="325"/>
+      <details key="start" value="327"/>
+      <details key="end" value="328"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/clob/%.1/%/%/%.1/%.1">
-      <details key="start" value="330"/>
-      <details key="end" value="344"/>
+      <details key="start" value="333"/>
+      <details key="end" value="347"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/clob/%.1/%/%/%.1/%.1/%">
-      <details key="start" value="330"/>
-      <details key="end" value="336"/>
+      <details key="start" value="333"/>
+      <details key="end" value="339"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/clob/%.1/%/%/%.1/%.1/%/p">
-      <details key="start" value="330"/>
-      <details key="end" value="331"/>
+      <details key="start" value="333"/>
+      <details key="end" value="334"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/clob/%.1/%/%/%.1/%.1/%.1">
-      <details key="start" value="339"/>
-      <details key="end" value="344"/>
+      <details key="start" value="342"/>
+      <details key="end" value="347"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/clob/%.1/%/%.1">
-      <details key="start" value="410"/>
-      <details key="end" value="430"/>
-      <details key="line" value="12"/>
+      <details key="start" value="414"/>
+      <details key="end" value="434"/>
+      <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/clob/%.1/%/%.2">
-      <details key="start" value="431"/>
-      <details key="end" value="437"/>
+      <details key="start" value="435"/>
+      <details key="end" value="441"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/clob/%.1/%/%.2/p">
-      <details key="start" value="431"/>
-      <details key="end" value="432"/>
+      <details key="start" value="435"/>
+      <details key="end" value="436"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/clob/%.1/%/%.3">
-      <details key="start" value="439"/>
-      <details key="end" value="441"/>
-      <details key="line" value="13"/>
+      <details key="start" value="443"/>
+      <details key="end" value="445"/>
+      <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/clob/%.1/%/%.4">
-      <details key="start" value="487"/>
-      <details key="end" value="489"/>
-      <details key="line" value="14"/>
+      <details key="start" value="491"/>
+      <details key="end" value="493"/>
+      <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/clob/%.1/%/%.5">
-      <details key="start" value="514"/>
-      <details key="end" value="531"/>
-      <details key="line" value="16"/>
+      <details key="start" value="518"/>
+      <details key="end" value="535"/>
+      <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/clob/%.1/%/%.6">
-      <details key="start" value="532"/>
-      <details key="end" value="553"/>
+      <details key="start" value="536"/>
+      <details key="end" value="557"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/clob/%.1/%/%.6/%">
-      <details key="start" value="532"/>
-      <details key="end" value="538"/>
+      <details key="start" value="536"/>
+      <details key="end" value="542"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/clob/%.1/%/%.6/%/p">
-      <details key="start" value="532"/>
-      <details key="end" value="533"/>
+      <details key="start" value="536"/>
+      <details key="end" value="537"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/clob/%.1/%/%.7">
-      <details key="start" value="555"/>
-      <details key="end" value="568"/>
-      <details key="line" value="16"/>
+      <details key="start" value="559"/>
+      <details key="end" value="572"/>
+      <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/clob/%.1/%/%.8">
-      <details key="start" value="569"/>
-      <details key="end" value="575"/>
+      <details key="start" value="573"/>
+      <details key="end" value="579"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/clob/%.1/%/%.8/p">
-      <details key="start" value="569"/>
-      <details key="end" value="570"/>
+      <details key="start" value="573"/>
+      <details key="end" value="574"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/clob/%.1/%/%.9">
-      <details key="start" value="577"/>
-      <details key="end" value="597"/>
-      <details key="line" value="17"/>
+      <details key="start" value="581"/>
+      <details key="end" value="601"/>
+      <details key="line" value="16"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/clob/%.1/%/%.10">
-      <details key="start" value="598"/>
-      <details key="end" value="619"/>
+      <details key="start" value="602"/>
+      <details key="end" value="623"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/clob/%.1/%/%.10/%">
-      <details key="start" value="598"/>
-      <details key="end" value="604"/>
+      <details key="start" value="602"/>
+      <details key="end" value="608"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/clob/%.1/%/%.10/%/p">
-      <details key="start" value="598"/>
-      <details key="end" value="599"/>
+      <details key="start" value="602"/>
+      <details key="end" value="603"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/clob/%.1/%/%.11">
-      <details key="start" value="621"/>
-      <details key="end" value="629"/>
-      <details key="line" value="20"/>
+      <details key="start" value="625"/>
+      <details key="end" value="633"/>
+      <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/clob/%.1/%/%.12">
-      <details key="start" value="630"/>
-      <details key="end" value="636"/>
+      <details key="start" value="634"/>
+      <details key="end" value="640"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/clob/%.1/%/%.12/p">
-      <details key="start" value="630"/>
-      <details key="end" value="631"/>
+      <details key="start" value="634"/>
+      <details key="end" value="635"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/clob/%.1/%/%.13">
-      <details key="start" value="638"/>
-      <details key="end" value="648"/>
-      <details key="line" value="20"/>
+      <details key="start" value="642"/>
+      <details key="end" value="652"/>
+      <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/clob/%.1/%/%.14">
-      <details key="start" value="649"/>
-      <details key="end" value="655"/>
+      <details key="start" value="653"/>
+      <details key="end" value="659"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/clob/%.1/%/%.14/p">
-      <details key="start" value="649"/>
-      <details key="end" value="650"/>
+      <details key="start" value="653"/>
+      <details key="end" value="654"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/clob/%.1/%/%.15">
-      <details key="start" value="657"/>
-      <details key="end" value="660"/>
-      <details key="line" value="21"/>
+      <details key="start" value="661"/>
+      <details key="end" value="664"/>
+      <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.38" references="/0/clob/%.1/%/%.16">
-      <details key="start" value="661"/>
-      <details key="end" value="667"/>
+      <details key="start" value="665"/>
+      <details key="end" value="671"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/clob/%.1/%/%.16/p">
-      <details key="start" value="661"/>
-      <details key="end" value="662"/>
+      <details key="start" value="665"/>
+      <details key="end" value="666"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/clob/%.1/%/%.17">
-      <details key="start" value="669"/>
-      <details key="end" value="673"/>
-      <details key="line" value="21"/>
+      <details key="start" value="673"/>
+      <details key="end" value="677"/>
+      <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/clob/%.1/%/%.18">
-      <details key="start" value="286"/>
-      <details key="end" value="306"/>
+      <details key="start" value="288"/>
+      <details key="end" value="308"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.42" references="/0/clob/%.1/%/%.18/%">
-      <details key="start" value="286"/>
-      <details key="end" value="297"/>
+      <details key="start" value="288"/>
+      <details key="end" value="299"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.43" references="/0/clob/%.1/%/%.18/%/%">
-      <details key="start" value="286"/>
-      <details key="end" value="292"/>
+      <details key="start" value="288"/>
+      <details key="end" value="294"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.44" references="/0/clob/%.1/%/%.18/%/%/p">
-      <details key="start" value="286"/>
-      <details key="end" value="287"/>
+      <details key="start" value="288"/>
+      <details key="end" value="289"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.45" references="/0/clob/%.1/%/%.18/%.1">
-      <details key="start" value="300"/>
-      <details key="end" value="306"/>
+      <details key="start" value="302"/>
+      <details key="end" value="308"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/clob/%.1/p">
-      <details key="start" value="182"/>
-      <details key="end" value="193"/>
-      <details key="line" value="7"/>
+      <details key="start" value="132"/>
+      <details key="end" value="143"/>
+      <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/clob/%.1/%.1">
-      <details key="start" value="196"/>
-      <details key="end" value="262"/>
+      <details key="start" value="146"/>
+      <details key="end" value="212"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/clob/%.1/%.1/%">
-      <details key="start" value="196"/>
-      <details key="end" value="221"/>
+      <details key="start" value="146"/>
+      <details key="end" value="171"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/clob/%.1/%.1/%/aClass">
-      <details key="start" value="196"/>
-      <details key="end" value="202"/>
+      <details key="start" value="146"/>
+      <details key="end" value="152"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/clob/%.1/%.1/%.1">
-      <details key="start" value="233"/>
-      <details key="end" value="261"/>
+      <details key="start" value="183"/>
+      <details key="end" value="211"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/clob/%.1/%.1/%.1/aClass">
-      <details key="start" value="233"/>
-      <details key="end" value="239"/>
+      <details key="start" value="183"/>
+      <details key="end" value="189"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/clob/%.1/%.2">
-      <details key="start" value="274"/>
-      <details key="end" value="278"/>
+      <details key="start" value="224"/>
+      <details key="end" value="228"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/clob/%.2">
-      <details key="start" value="687"/>
-      <details key="end" value="688"/>
-      <details key="line" value="25"/>
+      <details key="start" value="693"/>
+      <details key="end" value="694"/>
+      <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/clob/aClass">
       <details key="start" value="107"/>

@@ -12,6 +12,10 @@ import java.util.*;
 import com.vladolium.odinmodel.repository.ProductLinesRepository;
 import com.vladolium.odinmodel.service.ProductLinesService;
 
+import com.vladolium.odinmodel.domain.*;
+import com.vladolium.odinmodel.domain.ProductLines;
+import com.vladolium.odinmodel.domain.ProductLines.*;
+
 @Service
 public class ProductLinesServiceImpl implements ProductLinesService {
 
@@ -22,10 +26,13 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		this.productLinesRepository = productLinesRepository;
 	}
 
+
+// covers create & update
 @Override
 public ProductLines createUpdate(ProductLines productLines) {
 	return productLinesRepository.save(productLines);
 }
+
 
 
 
