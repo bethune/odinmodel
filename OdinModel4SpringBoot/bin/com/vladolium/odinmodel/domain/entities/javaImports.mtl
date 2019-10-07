@@ -1,0 +1,12 @@
+[comment encoding = UTF-8 /]
+[module javaImports('http://www.eclipse.org/uml2/5.0.0/UML')]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public javaImports(aClass : Class)]
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.*;
+[/template]

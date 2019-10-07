@@ -1,0 +1,45 @@
+[comment encoding = UTF-8 /]
+[module time('http://www.eclipse.org/uml2/5.0.0/UML')]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: main template /]
+[template public time(aClass : Class)]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
+	[if p.type.name = 'Time']
+		[if p.lower = 1 and p.isID = false]
+[notNull(p)/]
+		[/if]
+		[if p.isUnique = true and p.isID = false]
+[unique(p)/]	
+		[/if]		
+@DateTimeFormat(pattern = "HH:mm") //for database
+@JsonFormat(pattern = "HH:mm") //for frontend
+private LocalTime [p.name/];
+[getSet(p)/]
+	[/if]
+[/for]
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 3 subtemplates follows /]
+[comment: 1st /]
+[template public notNull(p: Property)]
+@NotNull
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 2nd /]
+[template public unique(p: Property)]
+@Column(unique=true)
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 3rd /]
+[template public getSet(p: Property)]
+public LocalTime get[p.name.toUpperFirst()/]() {
+	return [p.name/];
+}
+public void set[p.name.toUpperFirst()/](LocalTime [p.name/]) {
+	this.[p.name/] = [p.name/];
+}
+[/template]

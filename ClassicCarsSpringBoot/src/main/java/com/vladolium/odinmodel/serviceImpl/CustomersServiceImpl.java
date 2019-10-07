@@ -85,6 +85,135 @@ public Page<Customers> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<Customers> search(
+	List<Reviews> reviewsList,
+
+
+
+
+
+	Long employeesId,
+
+
+	String postalCode,
+	String lastName,
+	String city,
+	String phone,
+	String state,
+	String customerName,
+	String addressLine1,
+	Double creditLimit,
+	String firstName,
+	String addressLine2,
+	String country
+	) {
+		BooleanBuilder where = dynamicWhere(
+	reviewsList,
+
+
+
+
+
+	employeesId,
+
+
+	postalCode,
+	lastName,
+	city,
+	phone,
+	state,
+	customerName,
+	addressLine1,
+	creditLimit,
+	firstName,
+	addressLine2,
+	country
+	);
+
+	return customersRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+		List<Reviews> reviewsList,
+
+
+
+
+
+		Long employeesId,
+
+
+		String postalCode,
+		String lastName,
+		String city,
+		String phone,
+		String state,
+		String customerName,
+		String addressLine1,
+		Double creditLimit,
+		String firstName,
+		String addressLine2,
+		String country
+	) {
+		QCustomers qCustomers = QCustomers.customers;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+		if (reviewsList != null) {
+			where.and(qCustomers.reviewsList.any().in(reviewsList));
+		}
+
+
+
+
+
+		if (employeesId != null) {
+			where.and(qCustomers.employees.id.eq(employeesId));
+		}
+
+
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
+		}
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
+		if (city != null) {
+			where.and(qCustomers.city.containsIgnoreCase(city));
+		}
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		}
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
+		}
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+
+		return where;
+	}
+
 
 
 

@@ -1,43 +1,36 @@
 [comment encoding = UTF-8 /]
 [module controller('http://www.eclipse.org/uml2/5.0.0/UML')]
-
+[comment:
+----------------------------------------------------------------------------------------------------/]
 [import com::vladolium::odinmodel::controller::path::create /]
 [import com::vladolium::odinmodel::controller::path::update /]
 [import com::vladolium::odinmodel::controller::path::delete /]
 [import com::vladolium::odinmodel::controller::path::readOne /]
 [import com::vladolium::odinmodel::controller::path::readAll /]
 [import com::vladolium::odinmodel::controller::path::search /]
-
-[template public controller(aClass : Class)
-	{
-		isEntity 		: Boolean = aClass.isAbstract = false;
-		packagePath 	: String = aClass._package.name.toLowerCase();
-		entity 			: String = aClass.name.toUpperFirst();
-		controllerPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
-		property		: String = aClass.name.toLowerFirst();
-	}
-]
-
-	[if isEntity] [comment: generate just for entities/]
-		[file ('src/main/java/' + packagePath + '/controller/' + entity + 'Controller.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
-
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public controller(aClass : Class){
+	isEntity 		: Boolean = aClass.isAbstract = false;
+	packagePath 	: String = aClass._package.name.toLowerCase();
+	entity 			: String = aClass.name.toUpperFirst();
+	controllerPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+	property		: String = aClass.name.toLowerFirst();}]
+[if isEntity]
+	[file ('src/main/java/' + packagePath + '/controller/' + entity + 'Controller.java', false, 'UTF-8')]
 package [controllerPath/].controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.*;
 import org.springframework.format.annotation.*;
-
 import java.time.*;
 import java.util.*;
-
 import [controllerPath/].domain.*;
+import [controllerPath/].domain.[entity/];
+import [controllerPath/].domain.[entity/].*;
 import [controllerPath/].service.[entity/]Service;
 import [controllerPath/].service.*;
-
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -51,19 +44,18 @@ public class [entity/]Controller {
 		this.[property/]Service = [property/]Service;
 	}
 
-[aClass.create()/]
-[aClass.update()/]
-[aClass.readOne()/]
-[aClass.readAll()/]
-[aClass.search()/]
-[aClass.delete()/]	
+	[aClass.create()/]
+	[aClass.update()/]
+	[aClass.readOne()/]
+	[aClass.readAll()/]
+	[aClass.search()/]
+	[aClass.delete()/]	
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]
 //[/protected]
 
 }
-		[/file]
-	[/if]
-
+	[/file]
+[/if]
 [/template]

@@ -149,11 +149,11 @@ public Iterable<[aClass.name.toUpperFirst()/]> search(
 
 [comment: 
 --------------------------------------------------
-	Dynamic where for search all and search all with pagination.
+	Dynamic condition for search all and search all with pagination.
 --------------------------------------------------/]
 
 
-public BooleanBuilder dynamicWhere(
+public Condition dynamicCondition(
 	[for (p : Property | aClass.getAssociations().memberEnd)]
 [comment : ManyToOne/]
 		[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]

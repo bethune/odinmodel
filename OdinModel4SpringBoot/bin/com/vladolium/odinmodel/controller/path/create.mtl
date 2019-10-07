@@ -1,22 +1,12 @@
 [comment encoding = UTF-8 /]
 [module create('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-
-[template public create(aClass : Class)
-	{
-		entity 		: String = aClass.name.toUpperFirst();
-		property	: String = aClass.name.toLowerFirst();
-	}
-]
-
-[comment: 
---------------------------------------------------
-	Create one.
---------------------------------------------------/]
-
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public create(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();
+	property	: String = aClass.name.toLowerFirst();}]
 @PostMapping("")
 public [entity/] createOne(@RequestBody [entity/] [property/]) {
 	return [property/]Service.createUpdate([property/]);
 }
-
 [/template]

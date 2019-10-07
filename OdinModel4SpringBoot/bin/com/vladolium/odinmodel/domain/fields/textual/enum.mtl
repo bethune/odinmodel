@@ -1,0 +1,51 @@
+[comment encoding = UTF-8 /]
+[module enum('http://www.eclipse.org/uml2/5.0.0/UML')]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: main template /]
+[template public enum(aClass : Class)]
+[for (e: Enumeration | aClass.getModel().eContents(Enumeration)) separator('\n')]
+	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
+		[if p.type.name = e.name]
+public enum [p.type.name/] {
+			[for (el: EnumerationLiteral | e.ownedLiteral)]
+	[el.name/],
+			[/for]
+}
+			[if p.lower = 1 and p.isID = false]
+[notNull(p)/]
+			[/if]
+			[if p.isUnique = true and p.isID = false]
+[unique(p)/]
+			[/if]			
+@Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
+private [p.type.name/] [p.name/];
+[getSet(p)/]
+		[/if]
+	[/for]
+[/for]
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 3 subtemplates follows /]
+[comment: 1st /]
+[template public notNull(p: Property)]
+@NotNull
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 2nd /]
+[template public unique(p: Property)]
+@Column(unique=true)
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 3rd /]
+[template public getSet(p: Property)]
+public [p.type.name/] get[p.name.toUpperFirst()/]() {
+	return [p.name/];
+}
+public void set[p.name.toUpperFirst()/]([p.type.name/] [p.name/]) {
+	this.[p.name/] = [p.name/];
+}
+[/template]

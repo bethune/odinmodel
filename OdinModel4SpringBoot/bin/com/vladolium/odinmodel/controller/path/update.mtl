@@ -1,93 +1,88 @@
 [comment encoding = UTF-8 /]
 [module update('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[template public update(aClass : Class)
-	{
-		entity 		: String = aClass.name.toUpperFirst();
-		property	: String = aClass.name.toLowerFirst();
-	}
-]
-
-[comment: 
---------------------------------------------------
-	Update one by id.
---------------------------------------------------/]
-
-	[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-		[if p.isID = true]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: main template /]
+[template public update(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();
+	property	: String = aClass.name.toLowerFirst();}]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: Update one by id /]
+[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+	[if p.isID = true]
 @PutMapping("/{[p.name.toLowerFirst()/]}")
 public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
 	[entity/] current = [property/]Service.readOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
-			[for (p : Property | aClass.getAssociations().memberEnd)]
-[comment : ManyToOne/]
-				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-	current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
-				[/if]
-[comment : OneToOne/]
-				[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-	current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
-				[/if]
-[comment : ManyToMany/]
-				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-	current.set[p.opposite.type.name.toUpperFirst()/]Set([property/].get[p.opposite.type.name.toUpperFirst()/]Set());
-				[/if]
-[comment : OneToMany/]
-				[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-	current.set[p.opposite.type.name.toUpperFirst()/]List([property/].get[p.opposite.type.name.toUpperFirst()/]List());
-				[/if]
-			[/for]
-			[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-				[if p.isID = false]	
-	current.set[p.name.toUpperFirst()/]([property/].get[p.name.toUpperFirst()/]());
-				[/if]
-			[/for]
+	[foreignKeys(aClass)/]
+	[fields(aClass)/]			
 	return [property/]Service.createUpdate(current);
 }
-		[/if]
-	[/for]
-
-[comment: 
---------------------------------------------------
-	Update one by field with unique values.
---------------------------------------------------/]
-
-	[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-		[if p.isUnique = true and p.isID = false]
+	[/if]
+[/for]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: Update one by field with unique values /]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+	[if p.isUnique = true and p.isID = false]
 @PutMapping("/{[p.name.toLowerFirst()/]}")
 public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
 	[entity/] current = [property/]Service.readOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
-			[for (p : Property | aClass.getAssociations().memberEnd)]
-[comment : ManyToOne/]
-				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-	current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
-				[/if]
-[comment : OneToOne/]
-				[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-	current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
-				[/if]
-[comment : ManyToMany/]
-				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-	current.set[p.opposite.type.name.toUpperFirst()/]Set([property/].get[p.opposite.type.name.toUpperFirst()/]Set());
-				[/if]
-[comment : OneToMany/]
-				[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-					p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-	current.set[p.opposite.type.name.toUpperFirst()/]List([property/].get[p.opposite.type.name.toUpperFirst()/]List());
-				[/if]
-			[/for]
-	current.set[p.name.toUpperFirst()/]([property/].get[p.name.toUpperFirst()/]());
-
+	[foreignKeys(aClass)/]		
+	[fields(aClass)/]
 	return [property/]Service.createUpdate(current);
 }
-		[/if]
-	[/for]
-
-
+	[/if]
+[/for]
+[/template]
+[comment:
+|
+|				N E X T		S U B T E M P L A T E
+|
+/]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 2 subtemplates follows /]
+[comment: 1st /]
+[template public foreignKeys(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();
+	property	: String = aClass.name.toLowerFirst();}]
+[for (p : Property | aClass.getAssociations().memberEnd)]
+	[comment : ManyToOne/]
+	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
+	[/if]
+	[comment : OneToOne/]
+	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
+	[/if]
+	[comment : ManyToMany/]
+	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+current.set[p.opposite.type.name.toUpperFirst()/]Set([property/].get[p.opposite.type.name.toUpperFirst()/]Set());
+	[/if]
+	[comment : OneToMany/]
+	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+current.set[p.opposite.type.name.toUpperFirst()/]List([property/].get[p.opposite.type.name.toUpperFirst()/]List());
+	[/if]
+[/for]
+[/template]
+[comment:
+|
+|				N E X T		S U B T E M P L A T E
+|
+/]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 2nd /]
+[template public fields(aClass : Class){
+	property	: String = aClass.name.toLowerFirst();}]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+	[if p.isID = false]	
+current.set[p.name.toUpperFirst()/]([property/].get[p.name.toUpperFirst()/]());
+	[/if]
+[/for]
 [/template]

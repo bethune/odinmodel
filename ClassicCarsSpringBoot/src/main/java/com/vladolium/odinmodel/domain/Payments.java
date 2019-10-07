@@ -1,6 +1,4 @@
-
 package com.vladolium.odinmodel.domain;
-
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -9,21 +7,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.*;
 
-
 @Entity
 public class Payments {
 
 	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id; 
-	
+	private Long id;
 	public Long getId() {
 		return id;
 	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -38,17 +31,11 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
 	@NotNull
-	private Double amount; 
-	
+	private Double amount;
 	public Double getAmount() {
 		return amount;
 	}
-	
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
@@ -60,13 +47,12 @@ public class Payments {
 	
 	
 	
-	@NotNull
-	private String checkNumber; 
 	
+	@NotNull
+	private String checkNumber;
 	public String getCheckNumber() {
 		return checkNumber;
 	}
-	
 	public void setCheckNumber(String checkNumber) {
 		this.checkNumber = checkNumber;
 	}
@@ -83,17 +69,13 @@ public class Payments {
 	
 	
 	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-	private LocalDate paymentDate; 
-	
+	private LocalDate paymentDate;
 	public LocalDate getPaymentDate() {
 		return paymentDate;
 	}
-	
 	public void setPaymentDate(LocalDate paymentDate) {
 		this.paymentDate = paymentDate;
 	}
@@ -116,18 +98,10 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	private Instant paymentTimestamp = Instant.now(); 
-	
+	private Instant paymentTimestamp = Instant.now();
 	public Instant getPaymentTimestamp() {
 	    return paymentTimestamp;
 	}
-	
 	public void setPaymentTimestamp(Instant paymentTimestamp) {
 	    this.paymentTimestamp = paymentTimestamp;
 	}
@@ -150,24 +124,12 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@ManyToOne
 	@JoinColumn(name="customers_id")
 	private Customers customers;
-	
 	public Customers getCustomers() {
 		return customers;
 	}
-	
 	public void setCustomers(Customers customers) {
 		this.customers = customers;
 	}
@@ -175,22 +137,11 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	//Code between start and end will not be removed during generation.
-	//Start of user code for this entity
+//Code between start and end will not be removed during generation.
+//Start of user code for this entity
 //End of user code
-
 }
 
+
 	
-
-
-

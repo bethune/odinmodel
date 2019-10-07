@@ -1,26 +1,27 @@
 [comment encoding = UTF-8 /]
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[comment: Importing subtemplates./]
-[import com::vladolium::odinmodel::domain::entity /]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: Importing subtemplates /]
+[import com::vladolium::odinmodel::domain::entities::entity /]
 [import com::vladolium::odinmodel::controller::controller /]
 [import com::vladolium::odinmodel::service::service /]
 [import com::vladolium::odinmodel::serviceImpl::serviceImpl /]
 [import com::vladolium::odinmodel::repository::repository /]
-[import com::vladolium::odinmodel::configuration::application_properties /]
+[import com::vladolium::odinmodel::configuration::applicationProperties /]
 [import com::vladolium::odinmodel::configuration::swagger2 /]
-
+[comment:
+----------------------------------------------------------------------------------------------------/]
 [template public main(aClass : Class)]
-
 [comment @main/]
-
-[comment: Including subtemplates./]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: Including subtemplates /]
 [aClass.entity()/]
 [aClass.controller()/]
 [aClass.service()/]
 [aClass.serviceImpl()/]
 [aClass.repository()/]
-[aClass.application_properties()/]
+[aClass.applicationProperties()/]
 [aClass.swagger2()/]
-
 [/template]

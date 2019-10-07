@@ -1,6 +1,4 @@
-
 package com.vladolium.odinmodel.domain;
-
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -8,7 +6,6 @@ import java.time.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.*;
-
 
 @Entity
 public class Products {
@@ -22,29 +19,21 @@ public class Products {
 	
 	
 	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id; 
-	
+	private Long id;
 	public Long getId() {
 		return id;
 	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
-	
-	
 	@NotNull
-	private Integer quantityInStock; 
-	
+	private Integer quantityInStock;
 	public Integer getQuantityInStock() {
 		return quantityInStock;
 	}
-	
 	public void setQuantityInStock(Integer quantityInStock) {
 		this.quantityInStock = quantityInStock;
 	}
@@ -62,26 +51,20 @@ public class Products {
 	
 	
 	
-	
-	
 	@NotNull
-	private Double buyPrice; 
-	
+	private Double buyPrice;
 	public Double getBuyPrice() {
 		return buyPrice;
 	}
-	
 	public void setBuyPrice(Double buyPrice) {
 		this.buyPrice = buyPrice;
 	}
 	
 	@NotNull
-	private Double MSRP; 
-	
+	private Double MSRP;
 	public Double getMSRP() {
 		return MSRP;
 	}
-	
 	public void setMSRP(Double MSRP) {
 		this.MSRP = MSRP;
 	}
@@ -94,42 +77,40 @@ public class Products {
 	
 	@NotNull
 	@Column(unique=true)
-	private String productCode; 
-	
+	private String productCode;
 	public String getProductCode() {
 		return productCode;
 	}
-	
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
-	@NotNull
-	private String productVendor; 
 	
+	@NotNull
+	private String productVendor;
 	public String getProductVendor() {
 		return productVendor;
 	}
-	
 	public void setProductVendor(String productVendor) {
 		this.productVendor = productVendor;
 	}
-	@NotNull
-	private String productScale; 
 	
+	
+	
+	@NotNull
+	private String productScale;
 	public String getProductScale() {
 		return productScale;
 	}
-	
 	public void setProductScale(String productScale) {
 		this.productScale = productScale;
 	}
-	@NotNull
-	private String productName; 
 	
+	
+	@NotNull
+	private String productName;
 	public String getProductName() {
 		return productName;
 	}
-	
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
@@ -202,27 +183,12 @@ public class Products {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@NotNull
 	@Lob
-	private String productDescription; 
-	
+	private String productDescription;
 	public String getProductDescription() {
 		return productDescription;
 	}
-	
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
@@ -239,20 +205,12 @@ public class Products {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	@ManyToOne
 	@JoinColumn(name="productLines_id")
 	private ProductLines productLines;
-	
 	public ProductLines getProductLines() {
 		return productLines;
 	}
-	
 	public void setProductLines(ProductLines productLines) {
 		this.productLines = productLines;
 	}
@@ -260,22 +218,11 @@ public class Products {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	//Code between start and end will not be removed during generation.
-	//Start of user code for this entity
+//Code between start and end will not be removed during generation.
+//Start of user code for this entity
 //End of user code
-
 }
 
+
 	
-
-
-

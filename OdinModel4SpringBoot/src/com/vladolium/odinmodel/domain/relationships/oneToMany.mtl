@@ -1,0 +1,28 @@
+[comment encoding = UTF-8 /]
+[module oneToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: main template /]
+[template public oneToMany(aClass : Class)]
+[for (p : Property | aClass.getAssociations().memberEnd)]
+	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+@OneToMany
+@JoinColumn(name="[p.type.name.toLowerFirst()/]_id")
+private List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List;
+[getSet(p)/]
+	[/if]
+[/for]
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 1 subtemplates follows /]
+[comment: 1st /]
+[template public getSet(p: Property)]
+public List<[p.opposite.type.name.toUpperFirst()/]> get[p.opposite.type.name.toUpperFirst()/]List() {
+	return [p.opposite.type.name.toLowerFirst()/]List;
+}
+public void set[p.opposite.type.name.toUpperFirst()/]List(List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List) {
+	this.[p.opposite.type.name.toLowerFirst()/]List = [p.opposite.type.name.toLowerFirst()/]List;
+}
+[/template]

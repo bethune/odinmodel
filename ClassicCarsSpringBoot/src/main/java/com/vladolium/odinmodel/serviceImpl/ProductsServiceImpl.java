@@ -78,6 +78,95 @@ public Page<Products> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<Products> search(
+
+
+
+	Long productLinesId,
+	Integer quantityInStock,
+	String productCode,
+	String productVendor,
+	Double buyPrice,
+	Double mSRP,
+	String productScale,
+	String productDescription,
+	String productName
+	) {
+		BooleanBuilder where = dynamicWhere(
+
+
+
+	productLinesId,
+	quantityInStock,
+	productCode,
+	productVendor,
+	buyPrice,
+	mSRP,
+	productScale,
+	productDescription,
+	productName
+	);
+
+	return productsRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+
+
+
+		Long productLinesId,
+		Integer quantityInStock,
+		String productCode,
+		String productVendor,
+		Double buyPrice,
+		Double mSRP,
+		String productScale,
+		Clob productDescription,
+		String productName
+	) {
+		QProducts qProducts = QProducts.products;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+
+
+
+		if (productLinesId != null) {
+			where.and(qProducts.productLines.id.eq(productLinesId));
+		}
+		if (quantityInStock != null) {
+			where.and(qProducts.quantityInStock.eq(quantityInStock));
+		}
+		if (productCode != null) {
+			where.and(qProducts.productCode.containsIgnoreCase(productCode));
+		}
+		if (productVendor != null) {
+			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
+		if (buyPrice != null) {
+			where.and(qProducts.buyPrice.eq(buyPrice));
+		}
+		if (mSRP != null) {
+			where.and(qProducts.mSRP.eq(mSRP));
+		}
+		if (productScale != null) {
+			where.and(qProducts.productScale.containsIgnoreCase(productScale));
+		}
+		if (productDescription != null) {
+			where.and(qProducts.productDescription.eq(productDescription));
+		}
+		if (productName != null) {
+			where.and(qProducts.productName.containsIgnoreCase(productName));
+		}
+
+		return where;
+	}
+
 
 
 

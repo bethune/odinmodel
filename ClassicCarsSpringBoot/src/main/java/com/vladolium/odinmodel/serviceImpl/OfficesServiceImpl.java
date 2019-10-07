@@ -73,6 +73,77 @@ public Page<Offices> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<Offices> search(
+	String postalCode,
+	String city,
+	String phone,
+	String territory,
+	String state,
+	String addressLine1,
+	String addressLine2,
+	String country
+	) {
+		BooleanBuilder where = dynamicWhere(
+	postalCode,
+	city,
+	phone,
+	territory,
+	state,
+	addressLine1,
+	addressLine2,
+	country
+	);
+
+	return officesRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+		String postalCode,
+		String city,
+		String phone,
+		String territory,
+		String state,
+		String addressLine1,
+		String addressLine2,
+		String country
+	) {
+		QOffices qOffices = QOffices.offices;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+		if (postalCode != null) {
+			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
+		}
+		if (city != null) {
+			where.and(qOffices.city.containsIgnoreCase(city));
+		}
+		if (phone != null) {
+			where.and(qOffices.phone.containsIgnoreCase(phone));
+		}
+		if (territory != null) {
+			where.and(qOffices.territory.containsIgnoreCase(territory));
+		}
+		if (state != null) {
+			where.and(qOffices.state.containsIgnoreCase(state));
+		}
+		if (addressLine1 != null) {
+			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (addressLine2 != null) {
+			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (country != null) {
+			where.and(qOffices.country.containsIgnoreCase(country));
+		}
+
+		return where;
+	}
+
 
 
 @Override

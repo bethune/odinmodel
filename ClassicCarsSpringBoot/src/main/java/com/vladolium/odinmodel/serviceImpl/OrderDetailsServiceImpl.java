@@ -65,6 +65,111 @@ public Page<OrderDetails> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<OrderDetails> search(
+
+
+
+
+	Long ordersId,
+
+
+
+
+
+
+
+
+
+	Long productsId,
+	Integer quantityOrdered,
+	Integer orderLineNumber,
+	Double priceEach
+	) {
+		BooleanBuilder where = dynamicWhere(
+
+
+
+
+	ordersId,
+
+
+
+
+
+
+
+
+
+	productsId,
+	quantityOrdered,
+	orderLineNumber,
+	priceEach
+	);
+
+	return orderDetailsRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+
+
+
+
+		Long ordersId,
+
+
+
+
+
+
+
+
+
+		Long productsId,
+		Integer quantityOrdered,
+		Integer orderLineNumber,
+		Double priceEach
+	) {
+		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+
+
+
+
+		if (ordersId != null) {
+			where.and(qOrderDetails.orders.id.eq(ordersId));
+		}
+
+
+
+
+
+
+
+
+
+		if (productsId != null) {
+			where.and(qOrderDetails.products.id.eq(productsId));
+		}
+		if (quantityOrdered != null) {
+			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
+		}
+		if (orderLineNumber != null) {
+			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
+		}
+		if (priceEach != null) {
+			where.and(qOrderDetails.priceEach.eq(priceEach));
+		}
+
+		return where;
+	}
+
 
 
 @Override

@@ -63,6 +63,47 @@ public Page<Reviews> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<Reviews> search(
+	String reviewText,
+	LocalTime reviewTime,
+	LocalDate reviewDate
+	) {
+		BooleanBuilder where = dynamicWhere(
+	reviewText,
+	reviewTime,
+	reviewDate
+	);
+
+	return reviewsRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+		String reviewText,
+		LocalTime reviewTime,
+		LocalDate reviewDate
+	) {
+		QReviews qReviews = QReviews.reviews;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+		if (reviewText != null) {
+			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
+		}
+		if (reviewTime != null) {
+			where.and(qReviews.reviewTime.eq(reviewTime));
+		}
+		if (reviewDate != null) {
+			where.and(qReviews.reviewDate.eq(reviewDate));
+		}
+
+		return where;
+	}
+
 
 
 

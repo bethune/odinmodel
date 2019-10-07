@@ -63,6 +63,47 @@ public Page<ProductLines> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<ProductLines> search(
+	byte[] image,
+	String textDescription,
+	String productLine
+	) {
+		BooleanBuilder where = dynamicWhere(
+	image,
+	textDescription,
+	productLine
+	);
+
+	return productLinesRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+		Blob image,
+		Clob textDescription,
+		String productLine
+	) {
+		QProductLines qProductLines = QProductLines.productLines;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+		if (image != null) {
+			where.and(qProductLines.image.eq(image));
+		}
+		if (textDescription != null) {
+			where.and(qProductLines.textDescription.eq(textDescription));
+		}
+		if (productLine != null) {
+			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
+		}
+
+		return where;
+	}
+
 
 
 

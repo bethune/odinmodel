@@ -66,6 +66,103 @@ public Page<Payments> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<Payments> search(
+
+
+	Long customersId,
+
+
+
+
+
+
+
+
+
+	Double amount,
+	String checkNumber,
+	LocalDate paymentDate,
+	Instant paymentTimestamp
+	) {
+		BooleanBuilder where = dynamicWhere(
+
+
+	customersId,
+
+
+
+
+
+
+
+
+
+	amount,
+	checkNumber,
+	paymentDate,
+	paymentTimestamp
+	);
+
+	return paymentsRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+
+
+		Long customersId,
+
+
+
+
+
+
+
+
+
+		Double amount,
+		String checkNumber,
+		LocalDate paymentDate,
+		Timestamp paymentTimestamp
+	) {
+		QPayments qPayments = QPayments.payments;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+
+
+		if (customersId != null) {
+			where.and(qPayments.customers.id.eq(customersId));
+		}
+
+
+
+
+
+
+
+
+
+		if (amount != null) {
+			where.and(qPayments.amount.eq(amount));
+		}
+		if (checkNumber != null) {
+			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
+		}
+		if (paymentDate != null) {
+			where.and(qPayments.paymentDate.eq(paymentDate));
+		}
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		}
+
+		return where;
+	}
+
 
 
 

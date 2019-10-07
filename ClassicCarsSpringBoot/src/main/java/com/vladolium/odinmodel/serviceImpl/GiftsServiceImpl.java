@@ -72,6 +72,98 @@ public Page<Gifts> readAllPagination(Pageable page) {
 
 
 
+@Override
+public Iterable<Gifts> search(
+
+
+	Set<Long> customersSet,
+
+
+
+
+
+
+
+
+
+	String giftName,
+	GiftType giftType,
+	Boolean isExpired,
+	LocalDateTime beginsOn,
+	LocalDateTime expiresOn
+	) {
+		BooleanBuilder where = dynamicWhere(
+	customersSet,
+	giftName,
+	giftType,
+	isExpired,
+	beginsOn,
+	expiresOn
+	);
+
+	return giftsRepository.findAll(where);
+}
+
+
+
+
+
+public Condition dynamicCondition(
+
+
+		Set<Long> customersSet,
+
+
+
+
+
+
+
+
+
+		String giftName,
+		GiftType giftType,
+		Boolean isExpired,
+		LocalDateTime beginsOn,
+		LocalDateTime expiresOn
+	) {
+		QGifts qGifts = QGifts.gifts;
+
+		BooleanBuilder where = new BooleanBuilder();
+
+
+
+		if (customersSet != null) {
+			where.and(qGifts.customersSet.any().id.in(customersSet));
+		}
+
+
+
+
+
+
+
+
+
+		if (giftName != null) {
+			where.and(qGifts.giftName.containsIgnoreCase(giftName));
+		}
+		if (giftType != null) {
+			where.and(qGifts.giftType.eq(giftType));
+		}
+		if (isExpired != null) {
+			where.and(qGifts.isExpired.eq(isExpired));
+		}
+		if (beginsOn != null) {
+			where.and(qGifts.beginsOn.eq(beginsOn));
+		}
+		if (expiresOn != null) {
+			where.and(qGifts.expiresOn.eq(expiresOn));
+		}
+
+		return where;
+	}
+
 
 
 @Override

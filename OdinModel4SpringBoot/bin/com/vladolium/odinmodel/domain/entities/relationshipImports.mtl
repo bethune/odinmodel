@@ -1,0 +1,16 @@
+[comment encoding = UTF-8 /]
+[module relationshipImports('http://www.eclipse.org/uml2/5.0.0/UML')]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[import com::vladolium::odinmodel::domain::relationships::manyToOne /]
+[import com::vladolium::odinmodel::domain::relationships::oneToOne /]
+[import com::vladolium::odinmodel::domain::relationships::manyToMany /]
+[import com::vladolium::odinmodel::domain::relationships::oneToMany /]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public relationshipImports(aClass : Class)]
+[aClass.manyToOne()/]
+[aClass.oneToOne()/]
+[aClass.manyToMany()/]
+[aClass.oneToMany()/]
+[/template]

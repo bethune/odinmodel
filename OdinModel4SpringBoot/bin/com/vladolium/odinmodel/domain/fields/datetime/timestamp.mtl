@@ -1,0 +1,34 @@
+[comment encoding = UTF-8 /]
+[module timestamp('http://www.eclipse.org/uml2/5.0.0/UML')]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: main template /]
+[template public timestamp(aClass : Class)]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
+	[if p.type.name = 'Timestamp']
+		[if p.lower = 1 and p.isID = false]
+[notNull(p)/]	
+		[/if]		
+private Instant [p.name/] = Instant.now();
+[getSet(p)/]
+	[/if]
+[/for]
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 2 subtemplates follows /]
+[comment: 1st /]
+[template public notNull(p: Property)]
+@NotNull
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 2nd /]
+[template public getSet(p: Property)]
+public Instant get[p.name.toUpperFirst()/]() {
+    return [p.name/];
+}
+public void set[p.name.toUpperFirst()/](Instant [p.name/]) {
+    this.[p.name/] = [p.name/];
+}
+[/template]

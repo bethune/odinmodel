@@ -1,0 +1,43 @@
+[comment encoding = UTF-8 /]
+[module boolean('http://www.eclipse.org/uml2/5.0.0/UML')]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: main template /]
+[template public boolean(aClass : Class)]
+[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
+	[if p.type.name = 'Boolean']
+		[if p.lower = 1 and p.isID = false]
+[notNull(p)/]
+		[/if]
+		[if p.isUnique = true and p.isID = false]
+[unique(p)/]	
+		[/if]		
+private [p.type.name/] [p.name/];
+[getSet(p)/]
+	[/if]
+[/for]
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 3 subtemplates follows /]
+[comment: 1st /]
+[template public notNull(p: Property)]
+@NotNull
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 2nd /]
+[template public unique(p: Property)]
+@Column(unique=true)
+[/template]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: 3rd /]
+[template public getSet(p: Property)]
+public [p.type.name/] get[p.name.toUpperFirst()/]() {
+	return [p.name/];
+}
+public void set[p.name.toUpperFirst()/]([p.type.name/] [p.name/]) {
+	this.[p.name/] = [p.name/];
+}
+[/template]
