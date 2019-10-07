@@ -123,8 +123,6 @@ public class OfficesController {
 		
 	) {
 		return officesService.search(
-				
-				
 			
 			postalCode,
 			city,

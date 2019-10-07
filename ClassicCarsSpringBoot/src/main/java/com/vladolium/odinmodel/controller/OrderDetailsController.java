@@ -115,9 +115,6 @@ public class OrderDetailsController {
 			
 			ordersId,
 			
-				
-				
-				
 			
 			
 			
@@ -127,7 +124,6 @@ public class OrderDetailsController {
 			
 			
 			productsId,
-				
 			
 			quantityOrdered,
 			orderLineNumber,

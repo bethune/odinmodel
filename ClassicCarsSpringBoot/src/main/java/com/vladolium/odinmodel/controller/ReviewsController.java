@@ -88,8 +88,6 @@ public class ReviewsController {
 		
 	) {
 		return reviewsService.search(
-				
-				
 			
 			reviewText,
 			reviewTime,

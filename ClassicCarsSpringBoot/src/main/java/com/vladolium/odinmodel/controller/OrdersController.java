@@ -117,9 +117,6 @@ public class OrdersController {
 		
 	) {
 		return ordersService.search(
-				
-				
-				
 			
 			
 			customersId,
@@ -132,7 +129,6 @@ public class OrdersController {
 			
 			
 			
-				
 			
 			requiredDate,
 			comments,

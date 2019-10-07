@@ -139,8 +139,6 @@ public class GiftsController {
 		
 	) {
 		return giftsService.search(
-				
-				
 			customersSet,
 			
 			giftName,

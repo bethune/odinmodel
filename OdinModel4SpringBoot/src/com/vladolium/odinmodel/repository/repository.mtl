@@ -1,47 +1,41 @@
 [comment encoding = UTF-8 /]
 [module repository('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[template public repository(aClass : Class)
-	{
-		isEntity 		: Boolean = aClass.isAbstract = false;
-		packagePath		: String = aClass._package.name.toLowerCase();
-		entity 			: String = aClass.name.toUpperFirst();
-		repositoryPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
-		property		: String = aClass.name.toLowerFirst();
-	}
-]
-
-	[if isEntity] [comment: generate the repository methods for entities/]
-		[file ('src/main/java/' + packagePath + '/repository/' + entity + 'Repository.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public repository(aClass : Class){
+	isEntity 		: Boolean = aClass.isAbstract = false;
+	packagePath		: String = aClass._package.name.toLowerCase();
+	entity 			: String = aClass.name.toUpperFirst();
+	repositoryPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+	property		: String = aClass.name.toLowerFirst();}]
+[if isEntity] [comment: generate the repository methods for entities/]
+	[file ('src/main/java/' + packagePath + '/repository/' + entity + 'Repository.java', false, 'UTF-8')]
 package [repositoryPath/].repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import [repositoryPath/].domain.[entity/];
-
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
 
-			[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-				[if p.isID = true]
+		[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+			[if p.isID = true]
 @Repository
 @Transactional
 public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.name.toUpperFirst()/]> {
-				[/if]
-			[/for]
+			[/if]
+		[/for]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: read one by field with unique values /]
 
-[comment: 
---------------------------------------------------
-	read one by field with unique values
---------------------------------------------------/]
-
-			[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-				[if p.isUnique = true]
+		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+			[if p.isUnique = true]
 [entity/] findBy[p.name.toUpperFirst()/]Equals([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
-				[/if]
-			[/for]
+			[/if]
+		[/for]
 
 
 
@@ -49,7 +43,6 @@ public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.na
 //[protected ('for this repository')]
 //[/protected]
 }
-		[/file]
-	[/if]
-
+	[/file]
+[/if]
 [/template]

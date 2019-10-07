@@ -1,44 +1,43 @@
 [comment encoding = UTF-8 /]
 [module serviceImpl('http://www.eclipse.org/uml2/5.0.0/UML')]
-
+[comment:
+----------------------------------------------------------------------------------------------------/]
 [import com::vladolium::odinmodel::serviceImpl::path::createUpdate /]
 [import com::vladolium::odinmodel::serviceImpl::path::delete /]
 [import com::vladolium::odinmodel::serviceImpl::path::readAll /]
 [import com::vladolium::odinmodel::serviceImpl::path::readOne /]
 [import com::vladolium::odinmodel::serviceImpl::path::search /]
-
-[template public serviceImpl(aClass : Class)
-	{
-		isEntity 		: Boolean = aClass.isAbstract = false;
-		packagePath 	: String = aClass._package.name.toLowerCase();
-		entity 			: String = aClass.name.toUpperFirst();
-		serviceImplPath : String = aClass._package.name.replaceAll('/', '.').toLowerCase();
-		property		: String = aClass.name.toLowerFirst();
-	}
-]
-
-	[if isEntity] [comment: generate just for entities/]
-		[file ('src/main/java/' + packagePath + '/serviceImpl/' + entity + 'ServiceImpl.java', false, 'UTF-8')] [comment: Target file in Spring Boot app./]
-
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public serviceImpl(aClass : Class){
+	isEntity 		: Boolean = aClass.isAbstract = false;
+	packagePath 	: String = aClass._package.name.toLowerCase();
+	entity 			: String = aClass.name.toUpperFirst();
+	serviceImplPath : String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+	property		: String = aClass.name.toLowerFirst();}]
+[if isEntity] [comment: generate just for entities/]
+	[file ('src/main/java/' + packagePath + '/serviceImpl/' + entity + 'ServiceImpl.java', false, 'UTF-8')]
 package [serviceImplPath/].serviceImpl;
 
 import [serviceImplPath/].domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
-
 import java.time.*;
 import java.util.*;
-
 import [serviceImplPath/].repository.[entity/]Repository;
 import [serviceImplPath/].service.[entity/]Service;
-
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
+import static org.jooq.impl.DSL.*;
+import org.jooq.Condition;
+import org.jooq.DSLContext;
 
 @Service
 public class [entity/]ServiceImpl implements [entity/]Service {
+
+	private final DSLContext jooq;
 
 	private [entity/]Repository [property/]Repository;
 
@@ -47,18 +46,17 @@ public class [entity/]ServiceImpl implements [entity/]Service {
 		this.[property/]Repository = [property/]Repository;
 	}
 
-[aClass.createUpdate()/]
-[aClass.readOne()/]
-[aClass.readAll()/]
-[aClass.search()/]
-[aClass.delete()/]
+	[aClass.createUpdate()/]
+	[aClass.readOne()/]
+	[aClass.readAll()/]
+	[aClass.search()/]
+	[aClass.delete()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this serviceImpl')]
 //[/protected]
 
 }
-		[/file]
-	[/if]
-
+	[/file]
+[/if]
 [/template]

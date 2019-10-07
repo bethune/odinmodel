@@ -25,11 +25,6 @@ public Iterable<[entity/]> search(
 
 [/template]
 [comment:
-|
-|				N E X T		S U B T E M P L A T E
-|
-/]
-[comment:
 ----------------------------------------------------------------------------------------------------/]
 [comment: 4 subtemplates follows /]
 [comment: 1st /]
@@ -89,11 +84,6 @@ public Iterable<[entity/]> search(
 [/for]
 [/template]
 [comment:
-|
-|				N E X T		S U B T E M P L A T E
-|
-/]
-[comment:
 ----------------------------------------------------------------------------------------------------/]
 [comment: 2nd /]
 [template public requestFields(aClass : Class)]
@@ -121,11 +111,6 @@ public Iterable<[entity/]> search(
 	[/if]
 [/for]
 [/template]
-[comment:
-|
-|				N E X T		S U B T E M P L A T E
-|
-/]
 [comment:
 ----------------------------------------------------------------------------------------------------/]
 [comment: 3rd /]
@@ -163,7 +148,6 @@ public Iterable<[entity/]> search(
 		[/for]
 	[/if]
 	[comment : ManyToMany/]
-	
 	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
 		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
 [p.opposite.type.name.toLowerFirst()/]Set,
@@ -175,11 +159,6 @@ public Iterable<[entity/]> search(
 	[/if]
 [/for]
 [/template]
-[comment:
-|
-|				N E X T		S U B T E M P L A T E
-|
-/]
 [comment:
 ----------------------------------------------------------------------------------------------------/]
 [comment: 4th /]

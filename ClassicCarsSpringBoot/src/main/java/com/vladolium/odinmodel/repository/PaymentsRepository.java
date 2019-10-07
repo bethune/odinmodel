@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.vladolium.odinmodel.domain.Payments;
-
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.Payments.*;
@@ -13,7 +12,6 @@ import com.vladolium.odinmodel.domain.Payments.*;
 @Repository
 @Transactional
 public interface PaymentsRepository extends JpaRepository<Payments, Long> {
-
 
 
 

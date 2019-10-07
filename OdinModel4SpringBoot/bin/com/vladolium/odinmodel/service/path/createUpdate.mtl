@@ -1,15 +1,10 @@
 [comment encoding = UTF-8 /]
 [module createUpdate('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-
-[template public createUpdate(aClass : Class)
-	{
-		entity 		: String = aClass.name.toUpperFirst();
-		property	: String = aClass.name.toLowerFirst();
-	}
-]
-
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public createUpdate(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();
+	property	: String = aClass.name.toLowerFirst();}]
 // covers create & update
 [entity/] createUpdate([entity/] [property/]);
-
 [/template]

@@ -1,24 +1,19 @@
 [comment encoding = UTF-8 /]
 [module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[template public delete(aClass : Class)
-	{
-		entity 		: String = aClass.name.toUpperFirst();
-		property	: String = aClass.name.toLowerFirst();
-	}
-]
-
-[comment: 
---------------------------------------------------
-	Delete one by id.
---------------------------------------------------/]
-
-	[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-		[if p.isID = true]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[template public delete(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();
+	property	: String = aClass.name.toLowerFirst();}]
+[comment:
+----------------------------------------------------------------------------------------------------/]
+[comment: Delete one by id /]
+[for (p: Property | aClass.getAllAttributes()) separator('\n')]
+	[if p.isID = true]
 @Override
 public void deleteOneBy[p.name.toUpperFirst()/]([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]) {
 	[property/]Repository.deleteById([p.name.toLowerFirst()/]);
 }
-		[/if]
-	[/for]
+	[/if]
+[/for]
 [/template]

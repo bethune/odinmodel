@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.vladolium.odinmodel.domain.Orders;
-
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Orders;
 import com.vladolium.odinmodel.domain.Orders.*;
@@ -17,7 +16,6 @@ import com.vladolium.odinmodel.domain.Orders.*;
 @Repository
 @Transactional
 public interface OrdersRepository extends JpaRepository<Orders, Long> {
-
 
 
 

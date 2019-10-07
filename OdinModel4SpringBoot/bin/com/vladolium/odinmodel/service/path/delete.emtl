@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="delete" nsURI="com::vladolium::odinmodel::service::path::delete" startHeaderPosition="29" endHeaderPosition="260">
+  <mtl:Module name="delete" nsURI="com::vladolium::odinmodel::service::path::delete" startHeaderPosition="29" endHeaderPosition="196">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="94" endPosition="196" value=":&#xA;----------------------------------------------------------------------------------------------------"/>
+    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="delete" visibility="Public">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="void deleteOneBy"/>
@@ -14,7 +15,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%.2/p">
+              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </source>
               <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -27,7 +28,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%.2/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
@@ -40,7 +41,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%.2/p">
+              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </source>
               <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -51,7 +52,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%.2/p">
+              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/delete/%/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </source>
               <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/isID"/>
@@ -75,7 +76,6 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </each>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
@@ -194,150 +194,140 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/delete">
-      <details key="start" value="87"/>
-      <details key="end" value="476"/>
-      <details key="line" value="4"/>
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="86"/>
+      <details key="end" value="198"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/delete/%">
-      <details key="start" value="128"/>
-      <details key="end" value="129"/>
+    <eAnnotations source="positions.1" references="/0/delete">
+      <details key="start" value="199"/>
+      <details key="end" value="590"/>
       <details key="line" value="5"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/delete/%.1">
-      <details key="start" value="263"/>
-      <details key="end" value="264"/>
+    <eAnnotations source="positions.2" references="/0/delete/%">
+      <details key="start" value="383"/>
+      <details key="end" value="578"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/delete/%/%">
+      <details key="start" value="448"/>
+      <details key="end" value="571"/>
       <details key="line" value="10"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/delete/%.2">
-      <details key="start" value="265"/>
-      <details key="end" value="463"/>
+    <eAnnotations source="positions.4" references="/0/delete/%/%/%">
+      <details key="start" value="467"/>
+      <details key="end" value="483"/>
       <details key="line" value="11"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/delete/%.2/%">
-      <details key="start" value="331"/>
-      <details key="end" value="455"/>
-      <details key="line" value="12"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/delete/%.2/%/%">
-      <details key="start" value="350"/>
-      <details key="end" value="366"/>
-      <details key="line" value="13"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/delete/%.2/%/%.1">
-      <details key="start" value="367"/>
-      <details key="end" value="388"/>
+    <eAnnotations source="positions.5" references="/0/delete/%/%/%.1">
+      <details key="start" value="484"/>
+      <details key="end" value="505"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/delete/%.2/%/%.1/%">
-      <details key="start" value="367"/>
-      <details key="end" value="373"/>
+    <eAnnotations source="positions.6" references="/0/delete/%/%/%.1/%">
+      <details key="start" value="484"/>
+      <details key="end" value="490"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/delete/%.2/%/%.1/%/p">
-      <details key="start" value="367"/>
-      <details key="end" value="368"/>
+    <eAnnotations source="positions.7" references="/0/delete/%/%/%.1/%/p">
+      <details key="start" value="484"/>
+      <details key="end" value="485"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/delete/%.2/%/%.2">
-      <details key="start" value="390"/>
-      <details key="end" value="391"/>
-      <details key="line" value="13"/>
+    <eAnnotations source="positions.8" references="/0/delete/%/%/%.2">
+      <details key="start" value="507"/>
+      <details key="end" value="508"/>
+      <details key="line" value="11"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/delete/%.2/%/%.3">
-      <details key="start" value="392"/>
-      <details key="end" value="418"/>
+    <eAnnotations source="positions.9" references="/0/delete/%/%/%.3">
+      <details key="start" value="509"/>
+      <details key="end" value="535"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/delete/%.2/%/%.3/%">
-      <details key="start" value="392"/>
-      <details key="end" value="403"/>
+    <eAnnotations source="positions.10" references="/0/delete/%/%/%.3/%">
+      <details key="start" value="509"/>
+      <details key="end" value="520"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/delete/%.2/%/%.3/%/%">
-      <details key="start" value="392"/>
-      <details key="end" value="398"/>
+    <eAnnotations source="positions.11" references="/0/delete/%/%/%.3/%/%">
+      <details key="start" value="509"/>
+      <details key="end" value="515"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/delete/%.2/%/%.3/%/%/p">
-      <details key="start" value="392"/>
-      <details key="end" value="393"/>
+    <eAnnotations source="positions.12" references="/0/delete/%/%/%.3/%/%/p">
+      <details key="start" value="509"/>
+      <details key="end" value="510"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/delete/%.2/%/%.4">
-      <details key="start" value="420"/>
-      <details key="end" value="421"/>
-      <details key="line" value="13"/>
+    <eAnnotations source="positions.13" references="/0/delete/%/%/%.4">
+      <details key="start" value="537"/>
+      <details key="end" value="538"/>
+      <details key="line" value="11"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/delete/%.2/%/%.5">
-      <details key="start" value="422"/>
-      <details key="end" value="443"/>
+    <eAnnotations source="positions.14" references="/0/delete/%/%/%.5">
+      <details key="start" value="539"/>
+      <details key="end" value="560"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/delete/%.2/%/%.5/%">
-      <details key="start" value="422"/>
+    <eAnnotations source="positions.15" references="/0/delete/%/%/%.5/%">
+      <details key="start" value="539"/>
+      <details key="end" value="545"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/delete/%/%/%.5/%/p">
+      <details key="start" value="539"/>
+      <details key="end" value="540"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/delete/%/%/%.6">
+      <details key="start" value="562"/>
+      <details key="end" value="565"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/delete/%/%/%.7">
+      <details key="start" value="452"/>
+      <details key="end" value="465"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/delete/%/%/%.7/%">
+      <details key="start" value="452"/>
+      <details key="end" value="458"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/delete/%/%/%.7/%/p">
+      <details key="start" value="452"/>
+      <details key="end" value="453"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/delete/%/%/%.7/%.1">
+      <details key="start" value="461"/>
+      <details key="end" value="465"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/delete/%/p">
+      <details key="start" value="389"/>
+      <details key="end" value="400"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/delete/%/%.1">
+      <details key="start" value="403"/>
       <details key="end" value="428"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/delete/%.2/%/%.5/%/p">
-      <details key="start" value="422"/>
-      <details key="end" value="423"/>
+    <eAnnotations source="positions.24" references="/0/delete/%/%.1/aClass">
+      <details key="start" value="403"/>
+      <details key="end" value="409"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/delete/%.2/%/%.6">
-      <details key="start" value="445"/>
-      <details key="end" value="448"/>
-      <details key="line" value="13"/>
-    </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/delete/%.2/%/%.7">
-      <details key="start" value="335"/>
-      <details key="end" value="348"/>
+    <eAnnotations source="positions.25" references="/0/delete/%/%.2">
+      <details key="start" value="440"/>
+      <details key="end" value="444"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/delete/%.2/%/%.7/%">
-      <details key="start" value="335"/>
-      <details key="end" value="341"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/delete/%.2/%/%.7/%/p">
-      <details key="start" value="335"/>
-      <details key="end" value="336"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/delete/%.2/%/%.7/%.1">
-      <details key="start" value="344"/>
-      <details key="end" value="348"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/delete/%.2/p">
-      <details key="start" value="271"/>
-      <details key="end" value="282"/>
-      <details key="line" value="11"/>
-    </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/delete/%.2/%.1">
-      <details key="start" value="285"/>
-      <details key="end" value="310"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/delete/%.2/%.1/aClass">
-      <details key="start" value="285"/>
-      <details key="end" value="291"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/delete/%.2/%.2">
-      <details key="start" value="322"/>
-      <details key="end" value="326"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/delete/%.3">
-      <details key="start" value="464"/>
-      <details key="end" value="465"/>
-      <details key="line" value="16"/>
-    </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/delete/aClass">
-      <details key="start" value="111"/>
-      <details key="end" value="125"/>
-      <details key="line" value="4"/>
+    <eAnnotations source="positions.26" references="/0/delete/aClass">
+      <details key="start" value="223"/>
+      <details key="end" value="237"/>
+      <details key="line" value="5"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

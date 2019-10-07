@@ -88,8 +88,6 @@ public class ProductLinesController {
 		
 	) {
 		return productLinesService.search(
-				
-				
 			
 			image,
 			textDescription,

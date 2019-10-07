@@ -36,11 +36,6 @@ public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.
 [/for]
 [/template]
 [comment:
-|
-|				N E X T		S U B T E M P L A T E
-|
-/]
-[comment:
 ----------------------------------------------------------------------------------------------------/]
 [comment: 2 subtemplates follows /]
 [comment: 1st /]
@@ -70,11 +65,6 @@ current.set[p.opposite.type.name.toUpperFirst()/]List([property/].get[p.opposite
 	[/if]
 [/for]
 [/template]
-[comment:
-|
-|				N E X T		S U B T E M P L A T E
-|
-/]
 [comment:
 ----------------------------------------------------------------------------------------------------/]
 [comment: 2nd /]

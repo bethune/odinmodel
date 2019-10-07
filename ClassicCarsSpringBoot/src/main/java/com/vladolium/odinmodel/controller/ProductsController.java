@@ -158,14 +158,10 @@ public class ProductsController {
 		
 	) {
 		return productsService.search(
-				
-				
-				
 			
 			
 			
 			productLinesId,
-				
 			
 			quantityInStock,
 			productCode,
