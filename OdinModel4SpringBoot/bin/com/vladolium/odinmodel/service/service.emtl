@@ -8,7 +8,7 @@
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/service/path/delete.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/service/path/readAll.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/service/path/readOne.emtl#/0"/>
-    <imports href="path/search.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/service/path/search.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="95" endPosition="197" value=":&#xA;----------------------------------------------------------------------------------------------------"/>
     </ownedModuleElement>
@@ -231,7 +231,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="path/search.emtl#/0/search"/>
+            <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/service/path/search.emtl#/0/search"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/service/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -396,7 +396,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="path/search.emtl#/0/search"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/service/path/search.emtl#/0/search"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">

@@ -87,7 +87,7 @@ public class CustomersServiceImpl implements CustomersService {
 	}
 
 	if (employeesId != null) {
-	    condition.and(Customers.employees.id.eq(employeesId));
+	    condition.and(Customers.EMPLOYEES.id.eq(employeesId));
 	}
 
 	if (postalCode != null) {
