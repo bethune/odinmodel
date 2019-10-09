@@ -106,50 +106,6 @@ public class EmployeesController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Employees> search(
-		@RequestParam(value = "officesId", required = false) Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "email", required = false) String email,
-		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
-		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "lastName", required = false) String lastName,
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle
-		
-	) {
-		return employeesService.search(
-			officesId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			reportsTo,
-			extension,
-			lastName,
-			isActive,
-			jobTitle
-			
-		);
-	}
-	
-	
 	
 	
 	

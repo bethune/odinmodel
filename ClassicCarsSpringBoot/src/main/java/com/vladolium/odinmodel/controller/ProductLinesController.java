@@ -79,24 +79,6 @@ public class ProductLinesController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<ProductLines> search(
-		
-		@RequestParam(value = "image", required = false) byte[] image,
-		@RequestParam(value = "textDescription", required = false) String textDescription,
-		@RequestParam(value = "productLine", required = false) String productLine
-		
-	) {
-		return productLinesService.search(
-			
-			image,
-			textDescription,
-			productLine
-			
-		);
-	}
-	
-	
 	
 	
 	

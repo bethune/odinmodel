@@ -79,24 +79,6 @@ public class ReviewsController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Reviews> search(
-		
-		@RequestParam(value = "reviewText", required = false) String reviewText,
-		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime,
-		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate
-		
-	) {
-		return reviewsService.search(
-			
-			reviewText,
-			reviewTime,
-			reviewDate
-			
-		);
-	}
-	
-	
 	
 	
 	

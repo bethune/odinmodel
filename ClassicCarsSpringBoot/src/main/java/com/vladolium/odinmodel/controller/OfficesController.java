@@ -109,34 +109,6 @@ public class OfficesController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Offices> search(
-		
-		@RequestParam(value = "postalCode", required = false) String postalCode,
-		@RequestParam(value = "city", required = false) String city,
-		@RequestParam(value = "phone", required = false) String phone,
-		@RequestParam(value = "territory", required = false) String territory,
-		@RequestParam(value = "state", required = false) String state,
-		@RequestParam(value = "addressLine1", required = false) String addressLine1,
-		@RequestParam(value = "addressLine2", required = false) String addressLine2,
-		@RequestParam(value = "country", required = false) String country
-		
-	) {
-		return officesService.search(
-			
-			postalCode,
-			city,
-			phone,
-			territory,
-			state,
-			addressLine1,
-			addressLine2,
-			country
-			
-		);
-	}
-	
-	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		officesService.deleteOneById(id);

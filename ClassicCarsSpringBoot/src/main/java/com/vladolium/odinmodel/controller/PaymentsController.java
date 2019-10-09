@@ -88,50 +88,6 @@ public class PaymentsController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Payments> search(
-		
-		
-		@RequestParam(value = "customersId", required = false) Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "amount", required = false) Double amount,
-		@RequestParam(value = "checkNumber", required = false) String checkNumber,
-		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
-		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp
-		
-	) {
-		return paymentsService.search(
-			
-			
-			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			amount,
-			checkNumber,
-			paymentDate,
-			paymentTimestamp
-			
-		);
-	}
-	
-	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {

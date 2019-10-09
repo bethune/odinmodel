@@ -27,28 +27,6 @@ public interface OrdersService {
 	
 	Iterable<Orders> readAll();
 	Page<Orders> readAllPagination(Pageable page);
-	Iterable<Orders> search(
-		
-		
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		LocalDate requiredDate,
-		String comments,
-		String status,
-		LocalDate shippedDate,
-		LocalDate orderDate
-		
-	);
-	
 	
 	
 	

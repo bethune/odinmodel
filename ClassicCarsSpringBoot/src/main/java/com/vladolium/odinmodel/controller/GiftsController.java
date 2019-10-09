@@ -116,41 +116,6 @@ public class GiftsController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Gifts> search(
-		
-		
-		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "giftName", required = false) String giftName,
-		@RequestParam(value = "giftType", required = false) GiftType giftType,
-		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
-		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn,
-		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn
-		
-	) {
-		return giftsService.search(
-			customersSet,
-			
-			giftName,
-			giftType,
-			isExpired,
-			beginsOn,
-			expiresOn
-			
-		);
-	}
-	
-	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		giftsService.deleteOneById(id);

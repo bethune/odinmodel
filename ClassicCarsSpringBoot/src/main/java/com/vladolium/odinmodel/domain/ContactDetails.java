@@ -1,5 +1,3 @@
-
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -153,4 +151,4 @@ public abstract class ContactDetails {
 //Start of user code for this abstract class
 //End of user code
 }
-	
+

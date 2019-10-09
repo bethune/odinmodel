@@ -11,12 +11,9 @@ import com.vladolium.odinmodel.service.GiftsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Gifts;
 import com.vladolium.odinmodel.domain.Gifts.*;
-import static org.jooq.impl.DSL.*;
 
 @Service
 public class GiftsServiceImpl implements GiftsService {
-
-	private final DSLContext jooq;
 
 	private GiftsRepository giftsRepository;
 
@@ -58,106 +55,6 @@ public class GiftsServiceImpl implements GiftsService {
 	public Page<Gifts> readAllPagination(Pageable page) {
 		return giftsRepository.findAll(page);
 	}
-	@Override
-	public Iterable<Gifts> search(
-		
-		
-		Set<Long> customersSet,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		String giftName,
-		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime beginsOn,
-		LocalDateTime expiresOn
-		
-	) {
-		Condition condition = dynamicCondition(
-			
-			
-			Set<Long> customersSet,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			giftName,
-			giftType,
-			isExpired,
-			beginsOn,
-			expiresOn
-		);
-		return giftsRepository.findAll(condition);
-	}
-	public Condition dynamicCondition(
-		
-		
-		Set<Long> customersSet,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		String giftName,
-		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime beginsOn,
-		LocalDateTime expiresOn
-		
-	) {
-		Condition condition = trueCondition();
-	
-	
-	
-			if (customersSet != null) {
-				where.and(qGifts.customersSet.any().id.in(customersSet));
-			}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-			if (giftName != null) {
-				where.and(qGifts.giftName.containsIgnoreCase(giftName));
-			}
-			if (giftType != null) {
-				where.and(qGifts.giftType.eq(giftType));
-			}
-			if (isExpired != null) {
-				where.and(qGifts.isExpired.eq(isExpired));
-			}
-			if (beginsOn != null) {
-				where.and(qGifts.beginsOn.eq(beginsOn));
-			}
-			if (expiresOn != null) {
-				where.and(qGifts.expiresOn.eq(expiresOn));
-			}
-	
-			return where;
-		}
-	
 	@Override
 	public void deleteOneById(Long id) {
 		giftsRepository.deleteById(id);

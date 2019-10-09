@@ -25,27 +25,6 @@ public interface PaymentsService {
 	
 	Iterable<Payments> readAll();
 	Page<Payments> readAllPagination(Pageable page);
-	Iterable<Payments> search(
-		
-		
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		Double amount,
-		String checkNumber,
-		LocalDate paymentDate,
-		Instant paymentTimestamp
-		
-	);
-	
 	
 	void deleteOneById(Long id);
 	

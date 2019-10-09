@@ -168,58 +168,6 @@ public class CustomersController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Customers> search(
-		@RequestParam(value = "reviewsList", required = false) List<Reviews> reviewsList,
-		
-		
-		
-		
-		
-		@RequestParam(value = "employeesId", required = false) Long employeesId,
-		
-		
-		
-		@RequestParam(value = "postalCode", required = false) String postalCode,
-		@RequestParam(value = "lastName", required = false) String lastName,
-		@RequestParam(value = "city", required = false) String city,
-		@RequestParam(value = "phone", required = false) String phone,
-		@RequestParam(value = "state", required = false) String state,
-		@RequestParam(value = "customerName", required = false) String customerName,
-		@RequestParam(value = "addressLine1", required = false) String addressLine1,
-		@RequestParam(value = "creditLimit", required = false) Double creditLimit,
-		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "addressLine2", required = false) String addressLine2,
-		@RequestParam(value = "country", required = false) String country
-		
-	) {
-		return customersService.search(
-			reviewsList,
-			
-			
-			
-			
-			
-			employeesId,
-			
-			
-			
-			postalCode,
-			lastName,
-			city,
-			phone,
-			state,
-			customerName,
-			addressLine1,
-			creditLimit,
-			firstName,
-			addressLine2,
-			country
-			
-		);
-	}
-	
-	
 	
 	
 	

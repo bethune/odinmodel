@@ -11,12 +11,9 @@ import com.vladolium.odinmodel.service.EmployeesService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
-import static org.jooq.impl.DSL.*;
 
 @Service
 public class EmployeesServiceImpl implements EmployeesService {
-
-	private final DSLContext jooq;
 
 	private EmployeesRepository employeesRepository;
 
@@ -58,106 +55,6 @@ public class EmployeesServiceImpl implements EmployeesService {
 	public Page<Employees> readAllPagination(Pageable page) {
 		return employeesRepository.findAll(page);
 	}
-	@Override
-	public Iterable<Employees> search(
-		Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		Integer reportsTo,
-		String extension,
-		String lastName,
-		Boolean isActive,
-		String jobTitle
-		
-	) {
-		Condition condition = dynamicCondition(
-			Long officesId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			reportsTo,
-			extension,
-			lastName,
-			isActive,
-			jobTitle
-		);
-		return employeesRepository.findAll(condition);
-	}
-	public Condition dynamicCondition(
-		Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		Integer reportsTo,
-		String extension,
-		String lastName,
-		Boolean isActive,
-		String jobTitle
-		
-	) {
-		Condition condition = trueCondition();
-	
-		if (officesId != null) {
-			condition.and(employees.offices.id.eq(officesId));
-		}
-	
-	
-	
-	
-	
-	
-	
-	
-			if (firstName != null) {
-				where.and(qEmployees.firstName.containsIgnoreCase(firstName));
-			}
-			if (email != null) {
-				where.and(qEmployees.email.containsIgnoreCase(email));
-			}
-			if (reportsTo != null) {
-				where.and(qEmployees.reportsTo.eq(reportsTo));
-			}
-			if (extension != null) {
-				where.and(qEmployees.extension.containsIgnoreCase(extension));
-			}
-			if (lastName != null) {
-				where.and(qEmployees.lastName.containsIgnoreCase(lastName));
-			}
-			if (isActive != null) {
-				where.and(qEmployees.isActive.eq(isActive));
-			}
-			if (jobTitle != null) {
-				where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
-			}
-	
-			return where;
-		}
-	
 	
 	
 	

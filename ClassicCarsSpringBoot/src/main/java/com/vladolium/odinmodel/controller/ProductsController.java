@@ -140,42 +140,6 @@ public class ProductsController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Products> search(
-		
-		
-		
-		@RequestParam(value = "productLinesId", required = false) Long productLinesId,
-		
-		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock,
-		@RequestParam(value = "productCode", required = false) String productCode,
-		@RequestParam(value = "productVendor", required = false) String productVendor,
-		@RequestParam(value = "buyPrice", required = false) Double buyPrice,
-		@RequestParam(value = "mSRP", required = false) Double mSRP,
-		@RequestParam(value = "productScale", required = false) String productScale,
-		@RequestParam(value = "productDescription", required = false) String productDescription,
-		@RequestParam(value = "productName", required = false) String productName
-		
-	) {
-		return productsService.search(
-			
-			
-			
-			productLinesId,
-			
-			quantityInStock,
-			productCode,
-			productVendor,
-			buyPrice,
-			mSRP,
-			productScale,
-			productDescription,
-			productName
-			
-		);
-	}
-	
-	
 	
 	
 	

@@ -28,28 +28,6 @@ public interface GiftsService {
 	
 	Iterable<Gifts> readAll();
 	Page<Gifts> readAllPagination(Pageable page);
-	Iterable<Gifts> search(
-		
-		
-		Set<Long> customersSet,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		String giftName,
-		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime beginsOn,
-		LocalDateTime expiresOn
-		
-	);
-	
 	void deleteOneById(Long id);
 	
 	

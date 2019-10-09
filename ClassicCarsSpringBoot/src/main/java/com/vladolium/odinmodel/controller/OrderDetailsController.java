@@ -85,54 +85,6 @@ public class OrderDetailsController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<OrderDetails> search(
-		
-		
-		
-		
-		@RequestParam(value = "ordersId", required = false) Long ordersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "productsId", required = false) Long productsId,
-		
-		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered,
-		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber,
-		@RequestParam(value = "priceEach", required = false) Double priceEach
-		
-	) {
-		return orderDetailsService.search(
-			
-			
-			
-			
-			ordersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			productsId,
-			
-			quantityOrdered,
-			orderLineNumber,
-			priceEach
-			
-		);
-	}
-	
-	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		orderDetailsService.deleteOneById(id);

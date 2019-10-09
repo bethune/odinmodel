@@ -105,5 +105,3 @@ public class Reviews {
 //End of user code
 }
 
-
-	

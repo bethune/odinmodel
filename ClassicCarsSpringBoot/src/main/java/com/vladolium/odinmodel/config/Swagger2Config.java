@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.config;
 
 import org.springframework.context.annotation.Bean;
@@ -37,3 +38,4 @@ public class Swagger2Config {
     }
 //End of user code
 }
+

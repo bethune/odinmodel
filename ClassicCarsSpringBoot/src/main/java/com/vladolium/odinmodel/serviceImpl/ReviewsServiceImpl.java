@@ -11,12 +11,9 @@ import com.vladolium.odinmodel.service.ReviewsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Reviews;
 import com.vladolium.odinmodel.domain.Reviews.*;
-import static org.jooq.impl.DSL.*;
 
 @Service
 public class ReviewsServiceImpl implements ReviewsService {
-
-	private final DSLContext jooq;
 
 	private ReviewsRepository reviewsRepository;
 
@@ -49,44 +46,6 @@ public class ReviewsServiceImpl implements ReviewsService {
 	public Page<Reviews> readAllPagination(Pageable page) {
 		return reviewsRepository.findAll(page);
 	}
-	@Override
-	public Iterable<Reviews> search(
-		
-		String reviewText,
-		LocalTime reviewTime,
-		LocalDate reviewDate
-		
-	) {
-		Condition condition = dynamicCondition(
-			
-			reviewText,
-			reviewTime,
-			reviewDate
-		);
-		return reviewsRepository.findAll(condition);
-	}
-	public Condition dynamicCondition(
-		
-		String reviewText,
-		LocalTime reviewTime,
-		LocalDate reviewDate
-		
-	) {
-		Condition condition = trueCondition();
-	
-			if (reviewText != null) {
-				where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
-			}
-			if (reviewTime != null) {
-				where.and(qReviews.reviewTime.eq(reviewTime));
-			}
-			if (reviewDate != null) {
-				where.and(qReviews.reviewDate.eq(reviewDate));
-			}
-	
-			return where;
-		}
-	
 	
 	
 	

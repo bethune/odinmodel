@@ -94,52 +94,6 @@ public class OrdersController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Orders> search(
-		
-		
-		@RequestParam(value = "customersId", required = false) Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
-		@RequestParam(value = "comments", required = false) String comments,
-		@RequestParam(value = "status", required = false) String status,
-		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
-		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate
-		
-	) {
-		return ordersService.search(
-			
-			
-			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			requiredDate,
-			comments,
-			status,
-			shippedDate,
-			orderDate
-			
-		);
-	}
-	
-	
 	
 	
 	

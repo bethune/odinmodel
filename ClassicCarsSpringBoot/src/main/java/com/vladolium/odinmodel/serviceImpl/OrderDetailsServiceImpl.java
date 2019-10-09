@@ -11,12 +11,9 @@ import com.vladolium.odinmodel.service.OrderDetailsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
-import static org.jooq.impl.DSL.*;
 
 @Service
 public class OrderDetailsServiceImpl implements OrderDetailsService {
-
-	private final DSLContext jooq;
 
 	private OrderDetailsRepository orderDetailsRepository;
 
@@ -51,108 +48,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public Page<OrderDetails> readAllPagination(Pageable page) {
 		return orderDetailsRepository.findAll(page);
 	}
-	@Override
-	public Iterable<OrderDetails> search(
-		
-		
-		
-		
-		Long ordersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		Long productsId,
-		
-		Integer quantityOrdered,
-		Integer orderLineNumber,
-		Double priceEach
-		
-	) {
-		Condition condition = dynamicCondition(
-			
-			
-			
-			
-			Long ordersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			Long productsId,
-			
-			quantityOrdered,
-			orderLineNumber,
-			priceEach
-		);
-		return orderDetailsRepository.findAll(condition);
-	}
-	public Condition dynamicCondition(
-		
-		
-		
-		
-		Long ordersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		Long productsId,
-		
-		Integer quantityOrdered,
-		Integer orderLineNumber,
-		Double priceEach
-		
-	) {
-		Condition condition = trueCondition();
-	
-	
-	
-	
-	
-			if (ordersId != null) {
-				where.and(qOrderDetails.orders.id.eq(ordersId));
-			}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		if (productsId != null) {
-			condition.and(orderDetails.products.id.eq(productsId));
-		}
-			if (quantityOrdered != null) {
-				where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
-			}
-			if (orderLineNumber != null) {
-				where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
-			}
-			if (priceEach != null) {
-				where.and(qOrderDetails.priceEach.eq(priceEach));
-			}
-	
-			return where;
-		}
-	
 	@Override
 	public void deleteOneById(Long id) {
 		orderDetailsRepository.deleteById(id);

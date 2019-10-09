@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="javaImports" nsURI="com::vladolium::odinmodel::domain::entities::javaImports" startHeaderPosition="29" endHeaderPosition="201">
+  <mtl:Module name="javaImports" nsURI="com::vladolium::odinmodel::domain::entities::javaImports" startHeaderPosition="29" endHeaderPosition="-1">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="99" endPosition="201" value=":&#xA;----------------------------------------------------------------------------------------------------"/>
-    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="javaImports" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import javax.persistence.*;&#xA;import javax.validation.constraints.*;&#xA;import java.time.*;&#xA;import org.springframework.format.annotation.DateTimeFormat;&#xA;import com.fasterxml.jackson.annotation.JsonFormat;&#xA;import java.util.*;"/>
       <parameter name="aClass">
@@ -87,25 +84,20 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="91"/>
-      <details key="end" value="203"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.0" references="/0/javaImports">
+      <details key="start" value="92"/>
+      <details key="end" value="369"/>
+      <details key="line" value="4"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/javaImports">
-      <details key="start" value="204"/>
-      <details key="end" value="481"/>
+    <eAnnotations source="positions.1" references="/0/javaImports/%">
+      <details key="start" value="138"/>
+      <details key="end" value="357"/>
       <details key="line" value="5"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/javaImports/%">
-      <details key="start" value="250"/>
-      <details key="end" value="469"/>
-      <details key="line" value="6"/>
-    </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/javaImports/aClass">
-      <details key="start" value="233"/>
-      <details key="end" value="247"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.2" references="/0/javaImports/aClass">
+      <details key="start" value="121"/>
+      <details key="end" value="135"/>
+      <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

@@ -11,12 +11,9 @@ import com.vladolium.odinmodel.service.ProductLinesService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.ProductLines;
 import com.vladolium.odinmodel.domain.ProductLines.*;
-import static org.jooq.impl.DSL.*;
 
 @Service
 public class ProductLinesServiceImpl implements ProductLinesService {
-
-	private final DSLContext jooq;
 
 	private ProductLinesRepository productLinesRepository;
 
@@ -49,44 +46,6 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	public Page<ProductLines> readAllPagination(Pageable page) {
 		return productLinesRepository.findAll(page);
 	}
-	@Override
-	public Iterable<ProductLines> search(
-		
-		byte[] image,
-		String textDescription,
-		String productLine
-		
-	) {
-		Condition condition = dynamicCondition(
-			
-			image,
-			textDescription,
-			productLine
-		);
-		return productLinesRepository.findAll(condition);
-	}
-	public Condition dynamicCondition(
-		
-		byte[] image,
-		String textDescription,
-		String productLine
-		
-	) {
-		Condition condition = trueCondition();
-	
-			if (image != null) {
-				where.and(qProductLines.image.eq(image));
-			}
-			if (textDescription != null) {
-				where.and(qProductLines.textDescription.eq(textDescription));
-			}
-			if (productLine != null) {
-				where.and(qProductLines.productLine.containsIgnoreCase(productLine));
-			}
-	
-			return where;
-		}
-	
 	
 	
 	

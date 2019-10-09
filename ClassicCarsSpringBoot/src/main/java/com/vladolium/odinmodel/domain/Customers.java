@@ -1,4 +1,3 @@
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -165,4 +164,3 @@ public class Customers extends ContactDetails {
 //End of user code
 }
 
-	

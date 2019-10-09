@@ -11,12 +11,9 @@ import com.vladolium.odinmodel.service.OfficesService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Offices;
 import com.vladolium.odinmodel.domain.Offices.*;
-import static org.jooq.impl.DSL.*;
 
 @Service
 public class OfficesServiceImpl implements OfficesService {
-
-	private final DSLContext jooq;
 
 	private OfficesRepository officesRepository;
 
@@ -59,74 +56,6 @@ public class OfficesServiceImpl implements OfficesService {
 	public Page<Offices> readAllPagination(Pageable page) {
 		return officesRepository.findAll(page);
 	}
-	@Override
-	public Iterable<Offices> search(
-		
-		String postalCode,
-		String city,
-		String phone,
-		String territory,
-		String state,
-		String addressLine1,
-		String addressLine2,
-		String country
-		
-	) {
-		Condition condition = dynamicCondition(
-			
-			postalCode,
-			city,
-			phone,
-			territory,
-			state,
-			addressLine1,
-			addressLine2,
-			country
-		);
-		return officesRepository.findAll(condition);
-	}
-	public Condition dynamicCondition(
-		
-		String postalCode,
-		String city,
-		String phone,
-		String territory,
-		String state,
-		String addressLine1,
-		String addressLine2,
-		String country
-		
-	) {
-		Condition condition = trueCondition();
-	
-			if (postalCode != null) {
-				where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
-			}
-			if (city != null) {
-				where.and(qOffices.city.containsIgnoreCase(city));
-			}
-			if (phone != null) {
-				where.and(qOffices.phone.containsIgnoreCase(phone));
-			}
-			if (territory != null) {
-				where.and(qOffices.territory.containsIgnoreCase(territory));
-			}
-			if (state != null) {
-				where.and(qOffices.state.containsIgnoreCase(state));
-			}
-			if (addressLine1 != null) {
-				where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
-			}
-			if (addressLine2 != null) {
-				where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
-			}
-			if (country != null) {
-				where.and(qOffices.country.containsIgnoreCase(country));
-			}
-	
-			return where;
-		}
-	
 	@Override
 	public void deleteOneById(Long id) {
 		officesRepository.deleteById(id);

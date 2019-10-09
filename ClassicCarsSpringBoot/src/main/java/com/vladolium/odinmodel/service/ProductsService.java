@@ -34,23 +34,6 @@ public interface ProductsService {
 	
 	Iterable<Products> readAll();
 	Page<Products> readAllPagination(Pageable page);
-	Iterable<Products> search(
-		
-		
-		
-		Long productLinesId,
-		
-		Integer quantityInStock,
-		String productCode,
-		String productVendor,
-		Double buyPrice,
-		Double mSRP,
-		String productScale,
-		String productDescription,
-		String productName
-		
-	);
-	
 	
 	
 	

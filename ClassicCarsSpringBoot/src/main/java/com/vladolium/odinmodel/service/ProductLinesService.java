@@ -22,14 +22,6 @@ public interface ProductLinesService {
 	
 	Iterable<ProductLines> readAll();
 	Page<ProductLines> readAllPagination(Pageable page);
-	Iterable<ProductLines> search(
-		
-		byte[] image,
-		String textDescription,
-		String productLine
-		
-	);
-	
 	
 	
 	

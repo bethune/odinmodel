@@ -32,19 +32,6 @@ public interface OfficesService {
 	
 	Iterable<Offices> readAll();
 	Page<Offices> readAllPagination(Pageable page);
-	Iterable<Offices> search(
-		
-		String postalCode,
-		String city,
-		String phone,
-		String territory,
-		String state,
-		String addressLine1,
-		String addressLine2,
-		String country
-		
-	);
-	
 	void deleteOneById(Long id);
 	
 	

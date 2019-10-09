@@ -31,27 +31,6 @@ public interface EmployeesService {
 	
 	Iterable<Employees> readAll();
 	Page<Employees> readAllPagination(Pageable page);
-	Iterable<Employees> search(
-		Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		Integer reportsTo,
-		String extension,
-		String lastName,
-		Boolean isActive,
-		String jobTitle
-		
-	);
-	
 	
 	
 	

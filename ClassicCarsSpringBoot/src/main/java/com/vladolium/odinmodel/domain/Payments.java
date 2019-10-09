@@ -143,5 +143,3 @@ public class Payments {
 //End of user code
 }
 
-
-	

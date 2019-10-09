@@ -30,14 +30,9 @@ import [serviceImplPath/].service.[entity/]Service;
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
-import static org.jooq.impl.DSL.*;
-import org.jooq.Condition;
-import org.jooq.DSLContext;
 
 @Service
 public class [entity/]ServiceImpl implements [entity/]Service {
-
-	private final DSLContext jooq;
 
 	private [entity/]Repository [property/]Repository;
 
@@ -49,7 +44,7 @@ public class [entity/]ServiceImpl implements [entity/]Service {
 	[aClass.createUpdate()/]
 	[aClass.readOne()/]
 	[aClass.readAll()/]
-	[aClass.search()/]
+[comment]	[aClass.search()/][/comment]
 	[aClass.delete()/]
 
 //Code between start and end will not be removed during generation.

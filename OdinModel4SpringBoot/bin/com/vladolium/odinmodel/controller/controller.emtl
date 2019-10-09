@@ -213,15 +213,8 @@
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
-          <body xsi:type="mtl:TemplateInvocation">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/controller/path/search.emtl#/0/search"/>
-            <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-            </argument>
-          </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/controller/path/delete.emtl#/0/delete"/>
@@ -392,18 +385,6 @@
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
-      <eOperations name="search">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/controller/path/search.emtl#/0/search"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -540,9 +521,6 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
@@ -558,7 +536,7 @@
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/controller">
       <details key="start" value="696"/>
-      <details key="end" value="2243"/>
+      <details key="end" value="2262"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/controller/@init">
@@ -698,12 +676,12 @@
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/controller/%">
       <details key="start" value="1040"/>
-      <details key="end" value="2231"/>
+      <details key="end" value="2250"/>
       <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/controller/%/%">
       <details key="start" value="1055"/>
-      <details key="end" value="2225"/>
+      <details key="end" value="2244"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/controller/%/%/%">
@@ -948,115 +926,105 @@
     </eAnnotations>
     <eAnnotations source="positions.80" references="/0/controller/%/%/%.26">
       <details key="start" value="2050"/>
-      <details key="end" value="2052"/>
+      <details key="end" value="2051"/>
       <details key="line" value="51"/>
     </eAnnotations>
     <eAnnotations source="positions.81" references="/0/controller/%/%/%.27">
-      <details key="start" value="2053"/>
-      <details key="end" value="2068"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.82" references="/0/controller/%/%/%.27/aClass">
-      <details key="start" value="2053"/>
-      <details key="end" value="2059"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.83" references="/0/controller/%/%/%.28">
-      <details key="start" value="2070"/>
-      <details key="end" value="2072"/>
+      <details key="start" value="2090"/>
+      <details key="end" value="2091"/>
       <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/controller/%/%/%.28">
+      <details key="start" value="2092"/>
+      <details key="end" value="2107"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/controller/%/%/%.28/aClass">
+      <details key="start" value="2092"/>
+      <details key="end" value="2098"/>
+      <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.84" references="/0/controller/%/%/%.29">
-      <details key="start" value="2073"/>
-      <details key="end" value="2088"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.85" references="/0/controller/%/%/%.29/aClass">
-      <details key="start" value="2073"/>
-      <details key="end" value="2079"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.86" references="/0/controller/%/%/%.30">
-      <details key="start" value="2090"/>
-      <details key="end" value="2163"/>
+      <details key="start" value="2109"/>
+      <details key="end" value="2182"/>
       <details key="line" value="52"/>
     </eAnnotations>
-    <eAnnotations source="positions.87" references="/0/controller/%/%/%.31">
-      <details key="start" value="2163"/>
-      <details key="end" value="2213"/>
+    <eAnnotations source="positions.85" references="/0/controller/%/%/%.30">
+      <details key="start" value="2182"/>
+      <details key="end" value="2232"/>
       <details key="line" value="55"/>
     </eAnnotations>
-    <eAnnotations source="positions.88" references="/0/controller/%/%/%.31/%">
-      <details key="start" value="2198"/>
-      <details key="end" value="2201"/>
+    <eAnnotations source="positions.86" references="/0/controller/%/%/%.30/%">
+      <details key="start" value="2217"/>
+      <details key="end" value="2220"/>
       <details key="line" value="56"/>
     </eAnnotations>
-    <eAnnotations source="positions.89" references="/0/controller/%/%/%.31/%.1">
-      <details key="start" value="2175"/>
-      <details key="end" value="2196"/>
+    <eAnnotations source="positions.87" references="/0/controller/%/%/%.30/%.1">
+      <details key="start" value="2194"/>
+      <details key="end" value="2215"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.90" references="/0/controller/%/%/%.32">
-      <details key="start" value="2213"/>
-      <details key="end" value="2217"/>
+    <eAnnotations source="positions.88" references="/0/controller/%/%/%.31">
+      <details key="start" value="2232"/>
+      <details key="end" value="2236"/>
       <details key="line" value="57"/>
     </eAnnotations>
-    <eAnnotations source="positions.91" references="/0/controller/%/%/%.33">
+    <eAnnotations source="positions.89" references="/0/controller/%/%/%.32">
       <details key="start" value="1062"/>
       <details key="end" value="1138"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.92" references="/0/controller/%/%/%.33/%">
+    <eAnnotations source="positions.90" references="/0/controller/%/%/%.32/%">
       <details key="start" value="1062"/>
       <details key="end" value="1118"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.93" references="/0/controller/%/%/%.33/%/%">
+    <eAnnotations source="positions.91" references="/0/controller/%/%/%.32/%/%">
       <details key="start" value="1062"/>
       <details key="end" value="1109"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.94" references="/0/controller/%/%/%.33/%/%/%">
+    <eAnnotations source="positions.92" references="/0/controller/%/%/%.32/%/%/%">
       <details key="start" value="1062"/>
       <details key="end" value="1092"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.95" references="/0/controller/%/%/%.33/%/%/%/%">
+    <eAnnotations source="positions.93" references="/0/controller/%/%/%.32/%/%/%/%">
       <details key="start" value="1062"/>
       <details key="end" value="1078"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.96" references="/0/controller/%/%/%.33/%/%/%/packagePath">
+    <eAnnotations source="positions.94" references="/0/controller/%/%/%.32/%/%/%/packagePath">
       <details key="start" value="1081"/>
       <details key="end" value="1092"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.97" references="/0/controller/%/%/%.33/%/%/%.1">
+    <eAnnotations source="positions.95" references="/0/controller/%/%/%.32/%/%/%.1">
       <details key="start" value="1095"/>
       <details key="end" value="1109"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.98" references="/0/controller/%/%/%.33/%/entity">
+    <eAnnotations source="positions.96" references="/0/controller/%/%/%.32/%/entity">
       <details key="start" value="1112"/>
       <details key="end" value="1118"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.99" references="/0/controller/%/%/%.33/%.1">
+    <eAnnotations source="positions.97" references="/0/controller/%/%/%.32/%.1">
       <details key="start" value="1121"/>
       <details key="end" value="1138"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.100" references="/0/controller/%/%/%.34">
+    <eAnnotations source="positions.98" references="/0/controller/%/%/%.33">
       <details key="start" value="1147"/>
       <details key="end" value="1154"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.101" references="/0/controller/%/isEntity">
+    <eAnnotations source="positions.99" references="/0/controller/%/isEntity">
       <details key="start" value="1044"/>
       <details key="end" value="1052"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.102" references="/0/controller/aClass">
+    <eAnnotations source="positions.100" references="/0/controller/aClass">
       <details key="start" value="724"/>
       <details key="end" value="738"/>
       <details key="line" value="13"/>

@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="relationshipImports" nsURI="com::vladolium::odinmodel::domain::entities::relationshipImports" startHeaderPosition="29" endHeaderPosition="209">
+  <mtl:Module name="relationshipImports" nsURI="com::vladolium::odinmodel::domain::entities::relationshipImports" startHeaderPosition="29" endHeaderPosition="168">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../relationships/manyToOne.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/manyToOne.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/oneToOne.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/manyToMany.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/oneToMany.emtl#/0"/>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="107" endPosition="209" value=":&#xA;----------------------------------------------------------------------------------------------------"/>
-    </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="504" endPosition="606" value=":&#xA;----------------------------------------------------------------------------------------------------"/>
-    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="relationshipImports" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="../relationships/manyToOne.emtl#/0/manyToOne"/>
+        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/manyToOne.emtl#/0/manyToOne"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/relationshipImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -86,7 +80,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../relationships/manyToOne.emtl#/0/manyToOne"/>
+          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/manyToOne.emtl#/0/manyToOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -189,80 +183,70 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="99"/>
-      <details key="end" value="211"/>
+    <eAnnotations source="positions.0" references="/0/relationshipImports">
+      <details key="start" value="385"/>
+      <details key="end" value="538"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/relationshipImports/%">
+      <details key="start" value="440"/>
+      <details key="end" value="458"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/%.1">
-      <details key="start" value="496"/>
-      <details key="end" value="608"/>
+    <eAnnotations source="positions.2" references="/0/relationshipImports/%/aClass">
+      <details key="start" value="440"/>
+      <details key="end" value="446"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/relationshipImports">
-      <details key="start" value="609"/>
-      <details key="end" value="762"/>
+    <eAnnotations source="positions.3" references="/0/relationshipImports/%.1">
+      <details key="start" value="460"/>
+      <details key="end" value="461"/>
       <details key="line" value="11"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/relationshipImports/%">
-      <details key="start" value="664"/>
-      <details key="end" value="682"/>
+    <eAnnotations source="positions.4" references="/0/relationshipImports/%.2">
+      <details key="start" value="462"/>
+      <details key="end" value="479"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/relationshipImports/%/aClass">
-      <details key="start" value="664"/>
-      <details key="end" value="670"/>
+    <eAnnotations source="positions.5" references="/0/relationshipImports/%.2/aClass">
+      <details key="start" value="462"/>
+      <details key="end" value="468"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/relationshipImports/%.1">
-      <details key="start" value="684"/>
-      <details key="end" value="685"/>
+    <eAnnotations source="positions.6" references="/0/relationshipImports/%.3">
+      <details key="start" value="481"/>
+      <details key="end" value="482"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/relationshipImports/%.4">
+      <details key="start" value="483"/>
+      <details key="end" value="502"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/relationshipImports/%.4/aClass">
+      <details key="start" value="483"/>
+      <details key="end" value="489"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/relationshipImports/%.5">
+      <details key="start" value="504"/>
+      <details key="end" value="505"/>
       <details key="line" value="13"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/relationshipImports/%.2">
-      <details key="start" value="686"/>
-      <details key="end" value="703"/>
+    <eAnnotations source="positions.10" references="/0/relationshipImports/%.6">
+      <details key="start" value="506"/>
+      <details key="end" value="524"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/relationshipImports/%.2/aClass">
-      <details key="start" value="686"/>
-      <details key="end" value="692"/>
+    <eAnnotations source="positions.11" references="/0/relationshipImports/%.6/aClass">
+      <details key="start" value="506"/>
+      <details key="end" value="512"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/relationshipImports/%.3">
-      <details key="start" value="705"/>
-      <details key="end" value="706"/>
-      <details key="line" value="14"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/relationshipImports/%.4">
-      <details key="start" value="707"/>
-      <details key="end" value="726"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/relationshipImports/%.4/aClass">
-      <details key="start" value="707"/>
-      <details key="end" value="713"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/relationshipImports/%.5">
-      <details key="start" value="728"/>
-      <details key="end" value="729"/>
-      <details key="line" value="15"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/relationshipImports/%.6">
-      <details key="start" value="730"/>
-      <details key="end" value="748"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/relationshipImports/%.6/aClass">
-      <details key="start" value="730"/>
-      <details key="end" value="736"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/relationshipImports/aClass">
-      <details key="start" value="646"/>
-      <details key="end" value="660"/>
-      <details key="line" value="11"/>
+    <eAnnotations source="positions.12" references="/0/relationshipImports/aClass">
+      <details key="start" value="422"/>
+      <details key="end" value="436"/>
+      <details key="line" value="9"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

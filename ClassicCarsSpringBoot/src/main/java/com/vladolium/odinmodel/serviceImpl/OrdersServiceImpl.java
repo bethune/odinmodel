@@ -11,12 +11,9 @@ import com.vladolium.odinmodel.service.OrdersService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Orders;
 import com.vladolium.odinmodel.domain.Orders.*;
-import static org.jooq.impl.DSL.*;
 
 @Service
 public class OrdersServiceImpl implements OrdersService {
-
-	private final DSLContext jooq;
 
 	private OrdersRepository ordersRepository;
 
@@ -54,106 +51,6 @@ public class OrdersServiceImpl implements OrdersService {
 	public Page<Orders> readAllPagination(Pageable page) {
 		return ordersRepository.findAll(page);
 	}
-	@Override
-	public Iterable<Orders> search(
-		
-		
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		LocalDate requiredDate,
-		String comments,
-		String status,
-		LocalDate shippedDate,
-		LocalDate orderDate
-		
-	) {
-		Condition condition = dynamicCondition(
-			
-			
-			Long customersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			requiredDate,
-			comments,
-			status,
-			shippedDate,
-			orderDate
-		);
-		return ordersRepository.findAll(condition);
-	}
-	public Condition dynamicCondition(
-		
-		
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		LocalDate requiredDate,
-		String comments,
-		String status,
-		LocalDate shippedDate,
-		LocalDate orderDate
-		
-	) {
-		Condition condition = trueCondition();
-	
-	
-	
-		if (customersId != null) {
-			condition.and(orders.customers.id.eq(customersId));
-		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-			if (requiredDate != null) {
-				where.and(qOrders.requiredDate.eq(requiredDate));
-			}
-			if (comments != null) {
-				where.and(qOrders.comments.eq(comments));
-			}
-			if (status != null) {
-				where.and(qOrders.status.containsIgnoreCase(status));
-			}
-			if (shippedDate != null) {
-				where.and(qOrders.shippedDate.eq(shippedDate));
-			}
-			if (orderDate != null) {
-				where.and(qOrders.orderDate.eq(orderDate));
-			}
-	
-			return where;
-		}
-	
 	
 	
 	
