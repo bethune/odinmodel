@@ -7,18 +7,18 @@ import com.vladolium.odinmodel.domain.Reviews;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Reviews;
 import com.vladolium.odinmodel.domain.Reviews.*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
-
-@Repository
-@Transactional
-public interface ReviewsRepository extends JpaRepository<Reviews, Long> {
+public interface ReviewsRepository extends JpaRepository<Reviews, Long>, QuerydslPredicateExecutor<Reviews> {
 
 
 
 
 Reviews findByIdEquals(Long id);
+
 
 
 

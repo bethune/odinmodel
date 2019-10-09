@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="fieldImports" nsURI="com::vladolium::odinmodel::domain::entities::fieldImports" startHeaderPosition="29" endHeaderPosition="126">
+  <mtl:Module name="field" nsURI="com::vladolium::odinmodel::domain::fields::field" startHeaderPosition="29" endHeaderPosition="156">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
@@ -11,29 +11,11 @@
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/textual/enum.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/datetime/date.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/datetime/dateTime.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/datetime/time.emtl#/0"/>
+    <imports href="datetime/time.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/datetime/timestamp.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/logical/boolean.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/binary/clob.emtl#/0"/>
     <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/binary/blob.emtl#/0"/>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="101" endPosition="126" value=": numerical subtemplates "/>
-    </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="353" endPosition="376" value=": textual subtemplates "/>
-    </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="526" endPosition="546" value=": time subtemplates "/>
-    </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="843" endPosition="866" value=": logical subtemplates "/>
-    </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="949" endPosition="978" value=": large objects subtemplates "/>
-    </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="1123" endPosition="1225" value=":&#xA;----------------------------------------------------------------------------------------------------"/>
-    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="fieldImports" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -93,7 +75,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/datetime/time.emtl#/0/time"/>
+        <definition href="datetime/time.emtl#/0/time"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/fieldImports/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -254,7 +236,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/datetime/time.emtl#/0/time"/>
+          <references href="datetime/time.emtl#/0/time"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -335,11 +317,6 @@
         <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="uml_Property_Class">
-      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-      </eAnnotations>
-    </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -393,220 +370,190 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="93"/>
-      <details key="end" value="128"/>
+    <eAnnotations source="positions.0" references="/0/fieldImports">
+      <details key="start" value="930"/>
+      <details key="end" value="1211"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/fieldImports/%">
+      <details key="start" value="978"/>
+      <details key="end" value="991"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/%.1">
-      <details key="start" value="345"/>
-      <details key="end" value="378"/>
+    <eAnnotations source="positions.2" references="/0/fieldImports/%/aClass">
+      <details key="start" value="978"/>
+      <details key="end" value="984"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/%.2">
-      <details key="start" value="518"/>
-      <details key="end" value="548"/>
+    <eAnnotations source="positions.3" references="/0/fieldImports/%.1">
+      <details key="start" value="993"/>
+      <details key="end" value="994"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/fieldImports/%.2">
+      <details key="start" value="995"/>
+      <details key="end" value="1011"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/%.3">
-      <details key="start" value="835"/>
-      <details key="end" value="868"/>
+    <eAnnotations source="positions.5" references="/0/fieldImports/%.2/aClass">
+      <details key="start" value="995"/>
+      <details key="end" value="1001"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/%.4">
-      <details key="start" value="941"/>
-      <details key="end" value="980"/>
+    <eAnnotations source="positions.6" references="/0/fieldImports/%.3">
+      <details key="start" value="1013"/>
+      <details key="end" value="1014"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/fieldImports/%.4">
+      <details key="start" value="1015"/>
+      <details key="end" value="1030"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/%.5">
-      <details key="start" value="1115"/>
-      <details key="end" value="1227"/>
+    <eAnnotations source="positions.8" references="/0/fieldImports/%.4/aClass">
+      <details key="start" value="1015"/>
+      <details key="end" value="1021"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/fieldImports">
-      <details key="start" value="1228"/>
-      <details key="end" value="1509"/>
+    <eAnnotations source="positions.9" references="/0/fieldImports/%.5">
+      <details key="start" value="1032"/>
+      <details key="end" value="1033"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/fieldImports/%.6">
+      <details key="start" value="1034"/>
+      <details key="end" value="1049"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/fieldImports/%.6/aClass">
+      <details key="start" value="1034"/>
+      <details key="end" value="1040"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/fieldImports/%.7">
+      <details key="start" value="1051"/>
+      <details key="end" value="1052"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/fieldImports/%.8">
+      <details key="start" value="1053"/>
+      <details key="end" value="1066"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/fieldImports/%.8/aClass">
+      <details key="start" value="1053"/>
+      <details key="end" value="1059"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/fieldImports/%.9">
+      <details key="start" value="1068"/>
+      <details key="end" value="1069"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/fieldImports/%.10">
+      <details key="start" value="1070"/>
+      <details key="end" value="1083"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/fieldImports/%.10/aClass">
+      <details key="start" value="1070"/>
+      <details key="end" value="1076"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/fieldImports/%.11">
+      <details key="start" value="1085"/>
+      <details key="end" value="1086"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/fieldImports/%.12">
+      <details key="start" value="1087"/>
+      <details key="end" value="1104"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/fieldImports/%.12/aClass">
+      <details key="start" value="1087"/>
+      <details key="end" value="1093"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/fieldImports/%.13">
+      <details key="start" value="1106"/>
+      <details key="end" value="1107"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/fieldImports/%.14">
+      <details key="start" value="1108"/>
+      <details key="end" value="1121"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/fieldImports/%.14/aClass">
+      <details key="start" value="1108"/>
+      <details key="end" value="1114"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/fieldImports/%.15">
+      <details key="start" value="1123"/>
+      <details key="end" value="1124"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/fieldImports/%.16">
+      <details key="start" value="1125"/>
+      <details key="end" value="1143"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/fieldImports/%.16/aClass">
+      <details key="start" value="1125"/>
+      <details key="end" value="1131"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/fieldImports/%.17">
+      <details key="start" value="1145"/>
+      <details key="end" value="1146"/>
       <details key="line" value="27"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/fieldImports/%">
-      <details key="start" value="1276"/>
-      <details key="end" value="1289"/>
+    <eAnnotations source="positions.28" references="/0/fieldImports/%.18">
+      <details key="start" value="1147"/>
+      <details key="end" value="1163"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/fieldImports/%/aClass">
-      <details key="start" value="1276"/>
-      <details key="end" value="1282"/>
+    <eAnnotations source="positions.29" references="/0/fieldImports/%.18/aClass">
+      <details key="start" value="1147"/>
+      <details key="end" value="1153"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/fieldImports/%.1">
-      <details key="start" value="1291"/>
-      <details key="end" value="1292"/>
+    <eAnnotations source="positions.30" references="/0/fieldImports/%.19">
+      <details key="start" value="1165"/>
+      <details key="end" value="1166"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/fieldImports/%.20">
+      <details key="start" value="1167"/>
+      <details key="end" value="1180"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/fieldImports/%.20/aClass">
+      <details key="start" value="1167"/>
+      <details key="end" value="1173"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/fieldImports/%.21">
+      <details key="start" value="1182"/>
+      <details key="end" value="1183"/>
       <details key="line" value="29"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/fieldImports/%.2">
-      <details key="start" value="1293"/>
-      <details key="end" value="1309"/>
+    <eAnnotations source="positions.34" references="/0/fieldImports/%.22">
+      <details key="start" value="1184"/>
+      <details key="end" value="1197"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/fieldImports/%.2/aClass">
-      <details key="start" value="1293"/>
-      <details key="end" value="1299"/>
+    <eAnnotations source="positions.35" references="/0/fieldImports/%.22/aClass">
+      <details key="start" value="1184"/>
+      <details key="end" value="1190"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/fieldImports/%.3">
-      <details key="start" value="1311"/>
-      <details key="end" value="1312"/>
-      <details key="line" value="30"/>
-    </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/fieldImports/%.4">
-      <details key="start" value="1313"/>
-      <details key="end" value="1328"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/fieldImports/%.4/aClass">
-      <details key="start" value="1313"/>
-      <details key="end" value="1319"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/fieldImports/%.5">
-      <details key="start" value="1330"/>
-      <details key="end" value="1331"/>
-      <details key="line" value="31"/>
-    </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/fieldImports/%.6">
-      <details key="start" value="1332"/>
-      <details key="end" value="1347"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/fieldImports/%.6/aClass">
-      <details key="start" value="1332"/>
-      <details key="end" value="1338"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/fieldImports/%.7">
-      <details key="start" value="1349"/>
-      <details key="end" value="1350"/>
-      <details key="line" value="32"/>
-    </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/fieldImports/%.8">
-      <details key="start" value="1351"/>
-      <details key="end" value="1364"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/fieldImports/%.8/aClass">
-      <details key="start" value="1351"/>
-      <details key="end" value="1357"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/fieldImports/%.9">
-      <details key="start" value="1366"/>
-      <details key="end" value="1367"/>
-      <details key="line" value="33"/>
-    </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/fieldImports/%.10">
-      <details key="start" value="1368"/>
-      <details key="end" value="1381"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/fieldImports/%.10/aClass">
-      <details key="start" value="1368"/>
-      <details key="end" value="1374"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/fieldImports/%.11">
-      <details key="start" value="1383"/>
-      <details key="end" value="1384"/>
-      <details key="line" value="34"/>
-    </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/fieldImports/%.12">
-      <details key="start" value="1385"/>
-      <details key="end" value="1402"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/fieldImports/%.12/aClass">
-      <details key="start" value="1385"/>
-      <details key="end" value="1391"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/fieldImports/%.13">
-      <details key="start" value="1404"/>
-      <details key="end" value="1405"/>
-      <details key="line" value="35"/>
-    </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/fieldImports/%.14">
-      <details key="start" value="1406"/>
-      <details key="end" value="1419"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.29" references="/0/fieldImports/%.14/aClass">
-      <details key="start" value="1406"/>
-      <details key="end" value="1412"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.30" references="/0/fieldImports/%.15">
-      <details key="start" value="1421"/>
-      <details key="end" value="1422"/>
-      <details key="line" value="36"/>
-    </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/fieldImports/%.16">
-      <details key="start" value="1423"/>
-      <details key="end" value="1441"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.32" references="/0/fieldImports/%.16/aClass">
-      <details key="start" value="1423"/>
-      <details key="end" value="1429"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.33" references="/0/fieldImports/%.17">
-      <details key="start" value="1443"/>
-      <details key="end" value="1444"/>
-      <details key="line" value="37"/>
-    </eAnnotations>
-    <eAnnotations source="positions.34" references="/0/fieldImports/%.18">
-      <details key="start" value="1445"/>
-      <details key="end" value="1461"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.35" references="/0/fieldImports/%.18/aClass">
-      <details key="start" value="1445"/>
-      <details key="end" value="1451"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.36" references="/0/fieldImports/%.19">
-      <details key="start" value="1463"/>
-      <details key="end" value="1464"/>
-      <details key="line" value="38"/>
-    </eAnnotations>
-    <eAnnotations source="positions.37" references="/0/fieldImports/%.20">
-      <details key="start" value="1465"/>
-      <details key="end" value="1478"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.38" references="/0/fieldImports/%.20/aClass">
-      <details key="start" value="1465"/>
-      <details key="end" value="1471"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.39" references="/0/fieldImports/%.21">
-      <details key="start" value="1480"/>
-      <details key="end" value="1481"/>
-      <details key="line" value="39"/>
-    </eAnnotations>
-    <eAnnotations source="positions.40" references="/0/fieldImports/%.22">
-      <details key="start" value="1482"/>
-      <details key="end" value="1495"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.41" references="/0/fieldImports/%.22/aClass">
-      <details key="start" value="1482"/>
-      <details key="end" value="1488"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.42" references="/0/fieldImports/aClass">
-      <details key="start" value="1258"/>
-      <details key="end" value="1272"/>
-      <details key="line" value="27"/>
+    <eAnnotations source="positions.36" references="/0/fieldImports/aClass">
+      <details key="start" value="960"/>
+      <details key="end" value="974"/>
+      <details key="line" value="17"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

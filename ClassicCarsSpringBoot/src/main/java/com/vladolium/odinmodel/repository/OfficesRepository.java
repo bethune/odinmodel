@@ -7,10 +7,10 @@ import com.vladolium.odinmodel.domain.Offices;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Offices;
 import com.vladolium.odinmodel.domain.Offices.*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-@Repository
-@Transactional
-public interface OfficesRepository extends JpaRepository<Offices, Long> {
+public interface OfficesRepository extends JpaRepository<Offices, Long>, QuerydslPredicateExecutor<Offices> {
 
 
 

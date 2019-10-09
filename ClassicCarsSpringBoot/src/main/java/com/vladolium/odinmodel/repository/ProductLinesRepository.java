@@ -7,13 +7,13 @@ import com.vladolium.odinmodel.domain.ProductLines;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.ProductLines;
 import com.vladolium.odinmodel.domain.ProductLines.*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
 
-@Repository
-@Transactional
-public interface ProductLinesRepository extends JpaRepository<ProductLines, Long> {
+public interface ProductLinesRepository extends JpaRepository<ProductLines, Long>, QuerydslPredicateExecutor<ProductLines> {
 
 
 

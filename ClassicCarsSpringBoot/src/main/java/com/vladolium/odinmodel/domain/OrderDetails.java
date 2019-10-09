@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -10,9 +11,14 @@ import java.util.*;
 @Entity
 public class OrderDetails {
 
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -21,14 +27,9 @@ public class OrderDetails {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
 	@NotNull
 	private Integer quantityOrdered;
+	
 	public Integer getQuantityOrdered() {
 		return quantityOrdered;
 	}
@@ -36,8 +37,10 @@ public class OrderDetails {
 		this.quantityOrdered = quantityOrdered;
 	}
 	
+	
 	@NotNull
 	private Integer orderLineNumber;
+	
 	public Integer getOrderLineNumber() {
 		return orderLineNumber;
 	}
@@ -53,6 +56,7 @@ public class OrderDetails {
 	
 	@NotNull
 	private Double priceEach;
+	
 	public Double getPriceEach() {
 		return priceEach;
 	}
@@ -115,9 +119,11 @@ public class OrderDetails {
 	
 	
 	
+	
 	@ManyToOne
 	@JoinColumn(name="products_id")
 	private Products products;
+	
 	public Products getProducts() {
 		return products;
 	}
@@ -128,6 +134,7 @@ public class OrderDetails {
 	@OneToOne
 	@JoinColumn(name="orders_id")
 	private Orders orders;
+	
 	public Orders getOrders() {
 		return orders;
 	}
@@ -143,3 +150,5 @@ public class OrderDetails {
 //End of user code
 }
 
+
+	

@@ -24,76 +24,6 @@ public class ProductsController {
 		this.productsService = productsService;
 	}
 
-	@PostMapping("")
-	public Products createOne(@RequestBody Products products) {
-		return productsService.createUpdate(products);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/{id}")
-	public Products updateOneById(@PathVariable Long id, @RequestBody Products products) {
-		Products current = productsService.readOneById(id);
-		current.setProductLines(products.getProductLines());
-		
-		current.setQuantityInStock(products.getQuantityInStock());
-		
-		current.setProductCode(products.getProductCode());
-		
-		current.setProductVendor(products.getProductVendor());
-		
-		current.setBuyPrice(products.getBuyPrice());
-		
-		current.setMSRP(products.getMSRP());
-		
-		current.setProductScale(products.getProductScale());
-		
-		current.setProductDescription(products.getProductDescription());
-		
-		current.setProductName(products.getProductName());
-		
-					
-		return productsService.createUpdate(current);
-	}
-	
-	@PutMapping("/{productCode}")
-	public Products updateOneByProductCode(@PathVariable String productCode, @RequestBody Products products) {
-		Products current = productsService.readOneByProductCode(productCode);
-		current.setProductLines(products.getProductLines());
-				
-		current.setQuantityInStock(products.getQuantityInStock());
-		
-		current.setProductCode(products.getProductCode());
-		
-		current.setProductVendor(products.getProductVendor());
-		
-		current.setBuyPrice(products.getBuyPrice());
-		
-		current.setMSRP(products.getMSRP());
-		
-		current.setProductScale(products.getProductScale());
-		
-		current.setProductDescription(products.getProductDescription());
-		
-		current.setProductName(products.getProductName());
-		
-		
-		return productsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -108,7 +38,8 @@ public class ProductsController {
 		return productsService.readOneById(id);
 	}
 	
-	@GetMapping("/{productCode}")
+	
+	@GetMapping("/productCode={productCode}")
 	public Products readOneByProductCode(@PathVariable String productCode) {
 		return productsService.readOneByProductCode(productCode);
 	}
@@ -120,40 +51,6 @@ public class ProductsController {
 	
 	
 	
-	@GetMapping("")
-	public Iterable<Products> readAll() {
-		return productsService.readAll();
-	}
-	@GetMapping("/{pageNumber}/{perPageNumber}")
-	public Page<Products> readAllPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return productsService.readAllPagination(page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable Long id) {
-		productsService.deleteOneById(id);
-	}
-		
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller

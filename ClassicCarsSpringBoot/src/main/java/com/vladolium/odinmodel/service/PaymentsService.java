@@ -10,23 +10,12 @@ import com.vladolium.odinmodel.domain.Payments.*;
 
 public interface PaymentsService {
 
-	// covers create & update
-	Payments createUpdate(Payments payments);
+	
+	
+	
+	
 	
 	Payments readOneById(Long id);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	Iterable<Payments> readAll();
-	Page<Payments> readAllPagination(Pageable page);
-	
-	void deleteOneById(Long id);
 	
 	
 	

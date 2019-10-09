@@ -22,11 +22,10 @@ public class GiftsServiceImpl implements GiftsService {
 		this.giftsRepository = giftsRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Gifts createUpdate(Gifts gifts) {
-		return giftsRepository.save(gifts);
-	}
+	
+	
+	
+	
 	@Override
 	public Gifts readOneById(Long id) {
 		return giftsRepository.getOne(id);
@@ -35,33 +34,10 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
-	
-	
-	
 	@Override
 	public Gifts readOneByGiftName(String giftName) {
 		return giftsRepository.findByGiftNameEquals(giftName);
 	}
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<Gifts> readAll() {
-		return giftsRepository.findAll();
-	}
-	@Override
-	public Page<Gifts> readAllPagination(Pageable page) {
-		return giftsRepository.findAll(page);
-	}
-	@Override
-	public void deleteOneById(Long id) {
-		giftsRepository.deleteById(id);
-	}
-	
-	
-	
 	
 	
 	

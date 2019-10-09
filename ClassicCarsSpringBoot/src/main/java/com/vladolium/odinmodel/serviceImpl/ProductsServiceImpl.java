@@ -22,11 +22,6 @@ public class ProductsServiceImpl implements ProductsService {
 		this.productsRepository = productsRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Products createUpdate(Products products) {
-		return productsRepository.save(products);
-	}
 	
 	
 	
@@ -52,28 +47,6 @@ public class ProductsServiceImpl implements ProductsService {
 	
 	
 	
-	
-	@Override
-	public Iterable<Products> readAll() {
-		return productsRepository.findAll();
-	}
-	@Override
-	public Page<Products> readAllPagination(Pageable page) {
-		return productsRepository.findAll(page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public void deleteOneById(Long id) {
-		productsRepository.deleteById(id);
-	}
 	
 
 //Code between start and end will not be removed during generation.

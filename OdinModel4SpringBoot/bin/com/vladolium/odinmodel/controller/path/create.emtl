@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="create" nsURI="com::vladolium::odinmodel::controller::path::create" startHeaderPosition="29" endHeaderPosition="196">
+  <mtl:Module name="create" nsURI="com::vladolium::odinmodel::controller::path::create" startHeaderPosition="29" endHeaderPosition="259">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="94" endPosition="196" value=":&#xA;----------------------------------------------------------------------------------------------------"/>
-    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="create" visibility="Public">
       <init>
         <variable name="entity">
@@ -164,120 +161,115 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="86"/>
-      <details key="end" value="198"/>
+    <eAnnotations source="positions.0" references="/0/create">
+      <details key="start" value="87"/>
+      <details key="end" value="377"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/create/@init">
+      <details key="start" value="126"/>
+      <details key="end" value="226"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/create/@init/@variable.0">
+      <details key="start" value="129"/>
+      <details key="end" value="175"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/create/@init/@variable.0/%">
+      <details key="start" value="149"/>
+      <details key="end" value="175"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/create">
-      <details key="start" value="199"/>
-      <details key="end" value="489"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.4" references="/0/create/@init/@variable.0/%/%">
+      <details key="start" value="149"/>
+      <details key="end" value="160"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/create/@init">
-      <details key="start" value="238"/>
-      <details key="end" value="338"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.5" references="/0/create/@init/@variable.0/%/%/aClass">
+      <details key="start" value="149"/>
+      <details key="end" value="155"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/create/@init/@variable.0">
-      <details key="start" value="241"/>
-      <details key="end" value="287"/>
+    <eAnnotations source="positions.6" references="/0/create/@init/@variable.1">
+      <details key="start" value="178"/>
+      <details key="end" value="224"/>
       <details key="line" value="6"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/create/@init/@variable.0/%">
-      <details key="start" value="261"/>
-      <details key="end" value="287"/>
+    <eAnnotations source="positions.7" references="/0/create/@init/@variable.1/%">
+      <details key="start" value="198"/>
+      <details key="end" value="224"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/create/@init/@variable.0/%/%">
-      <details key="start" value="261"/>
-      <details key="end" value="272"/>
+    <eAnnotations source="positions.8" references="/0/create/@init/@variable.1/%/%">
+      <details key="start" value="198"/>
+      <details key="end" value="209"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/create/@init/@variable.0/%/%/aClass">
-      <details key="start" value="261"/>
-      <details key="end" value="267"/>
+    <eAnnotations source="positions.9" references="/0/create/@init/@variable.1/%/%/aClass">
+      <details key="start" value="198"/>
+      <details key="end" value="204"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/create/@init/@variable.1">
-      <details key="start" value="290"/>
-      <details key="end" value="336"/>
+    <eAnnotations source="positions.10" references="/0/create/%">
+      <details key="start" value="228"/>
+      <details key="end" value="252"/>
       <details key="line" value="7"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/create/@init/@variable.1/%">
-      <details key="start" value="310"/>
-      <details key="end" value="336"/>
+    <eAnnotations source="positions.11" references="/0/create/entity">
+      <details key="start" value="253"/>
+      <details key="end" value="259"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/create/@init/@variable.1/%/%">
-      <details key="start" value="310"/>
-      <details key="end" value="321"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/create/@init/@variable.1/%/%/aClass">
-      <details key="start" value="310"/>
-      <details key="end" value="316"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/create/%">
-      <details key="start" value="340"/>
-      <details key="end" value="364"/>
+    <eAnnotations source="positions.12" references="/0/create/%.1">
+      <details key="start" value="261"/>
+      <details key="end" value="285"/>
       <details key="line" value="8"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/create/entity">
-      <details key="start" value="365"/>
-      <details key="end" value="371"/>
+    <eAnnotations source="positions.13" references="/0/create/entity.1">
+      <details key="start" value="286"/>
+      <details key="end" value="292"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/create/%.1">
-      <details key="start" value="373"/>
-      <details key="end" value="397"/>
+    <eAnnotations source="positions.14" references="/0/create/%.2">
+      <details key="start" value="294"/>
+      <details key="end" value="295"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/create/property">
+      <details key="start" value="296"/>
+      <details key="end" value="304"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/create/%.3">
+      <details key="start" value="306"/>
+      <details key="end" value="318"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/create/property.1">
+      <details key="start" value="319"/>
+      <details key="end" value="327"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/create/%.4">
+      <details key="start" value="329"/>
+      <details key="end" value="350"/>
       <details key="line" value="9"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/create/entity.1">
-      <details key="start" value="398"/>
-      <details key="end" value="404"/>
+    <eAnnotations source="positions.19" references="/0/create/property.2">
+      <details key="start" value="351"/>
+      <details key="end" value="359"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/create/%.2">
-      <details key="start" value="406"/>
-      <details key="end" value="407"/>
+    <eAnnotations source="positions.20" references="/0/create/%.5">
+      <details key="start" value="361"/>
+      <details key="end" value="365"/>
       <details key="line" value="9"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/create/property">
-      <details key="start" value="408"/>
-      <details key="end" value="416"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/create/%.3">
-      <details key="start" value="418"/>
-      <details key="end" value="430"/>
-      <details key="line" value="9"/>
-    </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/create/property.1">
-      <details key="start" value="431"/>
-      <details key="end" value="439"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/create/%.4">
-      <details key="start" value="441"/>
-      <details key="end" value="462"/>
-      <details key="line" value="10"/>
-    </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/create/property.2">
-      <details key="start" value="463"/>
-      <details key="end" value="471"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/create/%.5">
-      <details key="start" value="473"/>
-      <details key="end" value="477"/>
-      <details key="line" value="10"/>
-    </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/create/aClass">
-      <details key="start" value="223"/>
-      <details key="end" value="237"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.21" references="/0/create/aClass">
+      <details key="start" value="111"/>
+      <details key="end" value="125"/>
+      <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

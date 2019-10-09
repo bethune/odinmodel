@@ -7,15 +7,14 @@ import com.vladolium.odinmodel.domain.Orders;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Orders;
 import com.vladolium.odinmodel.domain.Orders.*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
 
 
-
-@Repository
-@Transactional
-public interface OrdersRepository extends JpaRepository<Orders, Long> {
+public interface OrdersRepository extends JpaRepository<Orders, Long>, QuerydslPredicateExecutor<Orders> {
 
 
 
@@ -23,6 +22,7 @@ public interface OrdersRepository extends JpaRepository<Orders, Long> {
 
 
 Orders findByIdEquals(Long id);
+
 
 
 

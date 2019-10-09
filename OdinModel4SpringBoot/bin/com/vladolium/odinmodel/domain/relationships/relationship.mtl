@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module relationshipImports('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module relationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::domain::relationships::manyToOne /]
 [import com::vladolium::odinmodel::domain::relationships::oneToOne /]

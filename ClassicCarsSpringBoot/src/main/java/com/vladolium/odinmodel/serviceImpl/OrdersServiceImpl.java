@@ -22,12 +22,6 @@ public class OrdersServiceImpl implements OrdersService {
 		this.ordersRepository = ordersRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Orders createUpdate(Orders orders) {
-		return ordersRepository.save(orders);
-	}
-	
 	
 	
 	
@@ -42,24 +36,6 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
-	
-	@Override
-	public Iterable<Orders> readAll() {
-		return ordersRepository.findAll();
-	}
-	@Override
-	public Page<Orders> readAllPagination(Pageable page) {
-		return ordersRepository.findAll(page);
-	}
-	
-	
-	
-	
-	
-	@Override
-	public void deleteOneById(Long id) {
-		ordersRepository.deleteById(id);
-	}
 	
 	
 

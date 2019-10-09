@@ -10,8 +10,6 @@ import com.vladolium.odinmodel.domain.Offices.*;
 
 public interface OfficesService {
 
-	// covers create & update
-	Offices createUpdate(Offices offices);
 	Offices readOneById(Long id);
 	
 	
@@ -21,18 +19,6 @@ public interface OfficesService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	Iterable<Offices> readAll();
-	Page<Offices> readAllPagination(Pageable page);
-	void deleteOneById(Long id);
 	
 	
 	

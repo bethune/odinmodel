@@ -10,8 +10,8 @@ import com.vladolium.odinmodel.domain.Employees.*;
 
 public interface EmployeesService {
 
-	// covers create & update
-	Employees createUpdate(Employees employees);
+	
+	
 	
 	
 	
@@ -24,20 +24,6 @@ public interface EmployeesService {
 	
 	
 	
-	
-	
-	
-	
-	
-	Iterable<Employees> readAll();
-	Page<Employees> readAllPagination(Pageable page);
-	
-	
-	
-	
-	
-	
-	void deleteOneById(Long id);
 	
 	
 	

@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -14,10 +15,10 @@ public class Orders {
 	
 	
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -43,8 +44,13 @@ public class Orders {
 	
 	
 	
+	
+	
+	
+	
 	@NotNull
 	private String status;
+	
 	public String getStatus() {
 		return status;
 	}
@@ -60,13 +66,11 @@ public class Orders {
 	
 	
 	
-	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 	private LocalDate requiredDate;
+	
 	public LocalDate getRequiredDate() {
 		return requiredDate;
 	}
@@ -74,11 +78,10 @@ public class Orders {
 		this.requiredDate = requiredDate;
 	}
 	
-	
-	
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 	private LocalDate shippedDate;
+	
 	public LocalDate getShippedDate() {
 		return shippedDate;
 	}
@@ -86,11 +89,11 @@ public class Orders {
 		this.shippedDate = shippedDate;
 	}
 	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 	private LocalDate orderDate;
+	
 	public LocalDate getOrderDate() {
 		return orderDate;
 	}
@@ -128,8 +131,15 @@ public class Orders {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	@Lob
 	private String comments;
+	
 	public String getComments() {
 		return comments;
 	}
@@ -145,12 +155,10 @@ public class Orders {
 	
 	
 	
-	
-	
-	
 	@ManyToOne
 	@JoinColumn(name="customers_id")
 	private Customers customers;
+	
 	public Customers getCustomers() {
 		return customers;
 	}
@@ -167,3 +175,5 @@ public class Orders {
 //End of user code
 }
 
+
+	

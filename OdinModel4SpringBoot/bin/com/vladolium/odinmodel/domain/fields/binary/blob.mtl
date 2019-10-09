@@ -1,8 +1,9 @@
 [comment encoding = UTF-8 /]
 [module blob('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: main template /]
+
+[import com::vladolium::odinmodel::domain::fields::constraints::notNull /]
+[import com::vladolium::odinmodel::domain::fields::constraints::unique /]
+
 [template public blob(aClass : Class)]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
 	[if p.type.name = 'Blob']
@@ -11,25 +12,13 @@
 		[/if]			
 @Lob
 private byte['['/][']'/] [p.name/];
-[getSet(p)/]
-	[/if]
-[/for]
-[/template]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 2 subtemplates follows /]
-[comment: 1st /]
-[template public notNull(p: Property)]
-@NotNull
-[/template]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 2nd /]
-[template public getSet(p: Property)]
+
 public byte['['/][']'/] get[p.name.toUpperFirst()/]() {
 	return [p.name/];
 }
 public void set[p.name.toUpperFirst()/](byte['['/][']'/] [p.name/]) {
 	this.[p.name/] = [p.name/];
 }
+	[/if]
+[/for]
 [/template]

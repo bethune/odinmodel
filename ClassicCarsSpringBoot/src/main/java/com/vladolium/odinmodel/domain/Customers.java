@@ -1,3 +1,5 @@
+
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -10,10 +12,10 @@ import java.util.*;
 @Entity
 public class Customers extends ContactDetails {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -35,8 +37,10 @@ public class Customers extends ContactDetails {
 	
 	
 	
+	
 	@NotNull
 	private Double creditLimit;
+	
 	public Double getCreditLimit() {
 		return creditLimit;
 	}
@@ -49,19 +53,9 @@ public class Customers extends ContactDetails {
 	
 	
 	
-	
-	
-	@NotNull
-	private String firstName;
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
 	@NotNull
 	private String lastName;
+	
 	public String getLastName() {
 		return lastName;
 	}
@@ -73,12 +67,25 @@ public class Customers extends ContactDetails {
 	@NotNull
 	@Column(unique=true)
 	private String customerName;
+	
 	public String getCustomerName() {
 		return customerName;
 	}
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+	
+	
+	@NotNull
+	private String firstName;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
 	
 	
 	
@@ -139,6 +146,7 @@ public class Customers extends ContactDetails {
 	@ManyToOne
 	@JoinColumn(name="employees_id")
 	private Employees employees;
+	
 	public Employees getEmployees() {
 		return employees;
 	}
@@ -151,6 +159,7 @@ public class Customers extends ContactDetails {
 	@OneToMany
 	@JoinColumn(name="customers_id")
 	private List<Reviews> reviewsList;
+	
 	public List<Reviews> getReviewsList() {
 		return reviewsList;
 	}
@@ -164,3 +173,4 @@ public class Customers extends ContactDetails {
 //End of user code
 }
 
+	

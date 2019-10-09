@@ -7,6 +7,8 @@ import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
@@ -14,9 +16,9 @@ import com.vladolium.odinmodel.domain.Employees.*;
 
 
 
-@Repository
-@Transactional
-public interface EmployeesRepository extends JpaRepository<Employees, Long> {
+
+
+public interface EmployeesRepository extends JpaRepository<Employees, Long>, QuerydslPredicateExecutor<Employees> {
 
 
 
@@ -26,8 +28,6 @@ public interface EmployeesRepository extends JpaRepository<Employees, Long> {
 
 
 Employees findByIdEquals(Long id);
-
-
 
 
 

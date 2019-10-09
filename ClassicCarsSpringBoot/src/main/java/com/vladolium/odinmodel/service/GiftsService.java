@@ -10,28 +10,16 @@ import com.vladolium.odinmodel.domain.Gifts.*;
 
 public interface GiftsService {
 
-	// covers create & update
-	Gifts createUpdate(Gifts gifts);
+	
+	
+	
+	
 	Gifts readOneById(Long id);
 	
 	
 	
 	
-	
-	
-	
 	Gifts readOneByGiftName(String giftName);
-	
-	
-	
-	
-	
-	Iterable<Gifts> readAll();
-	Page<Gifts> readAllPagination(Pageable page);
-	void deleteOneById(Long id);
-	
-	
-	
 	
 	
 	

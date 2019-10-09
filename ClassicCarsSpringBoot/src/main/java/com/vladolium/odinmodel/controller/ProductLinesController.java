@@ -24,30 +24,6 @@ public class ProductLinesController {
 		this.productLinesService = productLinesService;
 	}
 
-	@PostMapping("")
-	public ProductLines createOne(@RequestBody ProductLines productLines) {
-		return productLinesService.createUpdate(productLines);
-	}
-	
-	
-	
-	@PutMapping("/{id}")
-	public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
-		ProductLines current = productLinesService.readOneById(id);
-		
-		current.setImage(productLines.getImage());
-		
-		current.setTextDescription(productLines.getTextDescription());
-		
-		current.setProductLine(productLines.getProductLine());
-		
-					
-		return productLinesService.createUpdate(current);
-	}
-	
-	
-	
-	
 	
 	
 	
@@ -59,34 +35,7 @@ public class ProductLinesController {
 	
 	
 	
-	@GetMapping("")
-	public Iterable<ProductLines> readAll() {
-		return productLinesService.readAll();
-	}
-	@GetMapping("/{pageNumber}/{perPageNumber}")
-	public Page<ProductLines> readAllPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return productLinesService.readAllPagination(page);
-	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable Long id) {
-		productLinesService.deleteOneById(id);
-	}
-		
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller

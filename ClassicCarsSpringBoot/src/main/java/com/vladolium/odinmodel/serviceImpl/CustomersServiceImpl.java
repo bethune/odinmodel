@@ -22,11 +22,6 @@ public class CustomersServiceImpl implements CustomersService {
 		this.customersRepository = customersRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Customers createUpdate(Customers customers) {
-		return customersRepository.save(customers);
-	}
 	
 	
 	
@@ -52,36 +47,10 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
-	
 	@Override
 	public Customers readOneByCustomerName(String customerName) {
 		return customersRepository.findByCustomerNameEquals(customerName);
 	}
-	
-	
-	
-	@Override
-	public Iterable<Customers> readAll() {
-		return customersRepository.findAll();
-	}
-	@Override
-	public Page<Customers> readAllPagination(Pageable page) {
-		return customersRepository.findAll(page);
-	}
-	
-	
-	
-	@Override
-	public void deleteOneById(Long id) {
-		customersRepository.deleteById(id);
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

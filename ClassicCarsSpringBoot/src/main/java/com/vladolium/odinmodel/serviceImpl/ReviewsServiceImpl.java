@@ -22,12 +22,6 @@ public class ReviewsServiceImpl implements ReviewsService {
 		this.reviewsRepository = reviewsRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Reviews createUpdate(Reviews reviews) {
-		return reviewsRepository.save(reviews);
-	}
-	
 	
 	
 	@Override
@@ -38,21 +32,6 @@ public class ReviewsServiceImpl implements ReviewsService {
 	
 	
 	
-	@Override
-	public Iterable<Reviews> readAll() {
-		return reviewsRepository.findAll();
-	}
-	@Override
-	public Page<Reviews> readAllPagination(Pageable page) {
-		return reviewsRepository.findAll(page);
-	}
-	
-	
-	
-	@Override
-	public void deleteOneById(Long id) {
-		reviewsRepository.deleteById(id);
-	}
 	
 
 //Code between start and end will not be removed during generation.

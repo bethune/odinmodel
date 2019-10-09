@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -16,9 +17,12 @@ public class Employees {
 	
 	
 	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -31,7 +35,10 @@ public class Employees {
 	
 	
 	
+	
+	
 	private Integer reportsTo;
+	
 	public Integer getReportsTo() {
 		return reportsTo;
 	}
@@ -49,41 +56,19 @@ public class Employees {
 	
 	
 	
-	
-	
-	
-	
-	
 	@NotNull
-	private String firstName;
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+	private String jobTitle;
 	
-	@NotNull
-	private String email;
-	public String getEmail() {
-		return email;
+	public String getJobTitle() {
+		return jobTitle;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
-	@NotNull
-	private String extension;
-	public String getExtension() {
-		return extension;
-	}
-	public void setExtension(String extension) {
-		this.extension = extension;
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 	
 	@NotNull
 	private String lastName;
+	
 	public String getLastName() {
 		return lastName;
 	}
@@ -94,16 +79,34 @@ public class Employees {
 	
 	
 	@NotNull
-	private String jobTitle;
-	public String getJobTitle() {
-		return jobTitle;
+	private String extension;
+	
+	public String getExtension() {
+		return extension;
 	}
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
+	public void setExtension(String extension) {
+		this.extension = extension;
 	}
 	
+	@NotNull
+	private String firstName;
 	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 	
+	@NotNull
+	private String email;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
 	
@@ -156,6 +159,7 @@ public class Employees {
 	
 	@NotNull
 	private Boolean isActive;
+	
 	public Boolean getIsActive() {
 		return isActive;
 	}
@@ -182,9 +186,15 @@ public class Employees {
 	
 	
 	
+	
+	
+	
+	
+	
 	@ManyToOne
 	@JoinColumn(name="offices_id")
 	private Offices offices;
+	
 	public Offices getOffices() {
 		return offices;
 	}
@@ -201,3 +211,5 @@ public class Employees {
 //End of user code
 }
 
+
+	

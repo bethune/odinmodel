@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -11,9 +12,14 @@ import java.util.*;
 public class Payments {
 
 	
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -30,9 +36,9 @@ public class Payments {
 	
 	
 	
-	
 	@NotNull
 	private Double amount;
+	
 	public Double getAmount() {
 		return amount;
 	}
@@ -42,14 +48,9 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	@NotNull
 	private String checkNumber;
+	
 	public String getCheckNumber() {
 		return checkNumber;
 	}
@@ -73,6 +74,7 @@ public class Payments {
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 	private LocalDate paymentDate;
+	
 	public LocalDate getPaymentDate() {
 		return paymentDate;
 	}
@@ -98,7 +100,10 @@ public class Payments {
 	
 	
 	
+	
+	
 	private Instant paymentTimestamp = Instant.now();
+	
 	public Instant getPaymentTimestamp() {
 	    return paymentTimestamp;
 	}
@@ -124,9 +129,11 @@ public class Payments {
 	
 	
 	
+	
 	@ManyToOne
 	@JoinColumn(name="customers_id")
 	private Customers customers;
+	
 	public Customers getCustomers() {
 		return customers;
 	}
@@ -143,3 +150,5 @@ public class Payments {
 //End of user code
 }
 
+
+	

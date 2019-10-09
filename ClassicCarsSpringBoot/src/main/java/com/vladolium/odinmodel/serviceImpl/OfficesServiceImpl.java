@@ -22,11 +22,6 @@ public class OfficesServiceImpl implements OfficesService {
 		this.officesRepository = officesRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Offices createUpdate(Offices offices) {
-		return officesRepository.save(offices);
-	}
 	@Override
 	public Offices readOneById(Long id) {
 		return officesRepository.getOne(id);
@@ -39,27 +34,6 @@ public class OfficesServiceImpl implements OfficesService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<Offices> readAll() {
-		return officesRepository.findAll();
-	}
-	@Override
-	public Page<Offices> readAllPagination(Pageable page) {
-		return officesRepository.findAll(page);
-	}
-	@Override
-	public void deleteOneById(Long id) {
-		officesRepository.deleteById(id);
-	}
 	
 	
 	

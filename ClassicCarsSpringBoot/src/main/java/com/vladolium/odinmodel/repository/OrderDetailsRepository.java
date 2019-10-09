@@ -7,20 +7,20 @@ import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-@Repository
-@Transactional
-public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long> {
 
+
+
+
+public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long>, QuerydslPredicateExecutor<OrderDetails> {
 
 
 
 
 
 OrderDetails findByIdEquals(Long id);
-
-
-
 
 
 

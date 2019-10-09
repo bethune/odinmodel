@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Products {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -29,8 +31,14 @@ public class Products {
 		this.id = id;
 	}
 	
+	
+	
+	
+	
+	
 	@NotNull
 	private Integer quantityInStock;
+	
 	public Integer getQuantityInStock() {
 		return quantityInStock;
 	}
@@ -48,11 +56,9 @@ public class Products {
 	
 	
 	
-	
-	
-	
 	@NotNull
 	private Double buyPrice;
+	
 	public Double getBuyPrice() {
 		return buyPrice;
 	}
@@ -60,8 +66,10 @@ public class Products {
 		this.buyPrice = buyPrice;
 	}
 	
+	
 	@NotNull
 	private Double MSRP;
+	
 	public Double getMSRP() {
 		return MSRP;
 	}
@@ -71,13 +79,20 @@ public class Products {
 	
 	
 	
+	@NotNull
+	private String productName;
 	
-	
-	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 	
 	@NotNull
 	@Column(unique=true)
 	private String productCode;
+	
 	public String getProductCode() {
 		return productCode;
 	}
@@ -87,6 +102,7 @@ public class Products {
 	
 	@NotNull
 	private String productVendor;
+	
 	public String getProductVendor() {
 		return productVendor;
 	}
@@ -94,10 +110,9 @@ public class Products {
 		this.productVendor = productVendor;
 	}
 	
-	
-	
 	@NotNull
 	private String productScale;
+	
 	public String getProductScale() {
 		return productScale;
 	}
@@ -106,14 +121,8 @@ public class Products {
 	}
 	
 	
-	@NotNull
-	private String productName;
-	public String getProductName() {
-		return productName;
-	}
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+	
+	
 	
 	
 	
@@ -186,6 +195,7 @@ public class Products {
 	@NotNull
 	@Lob
 	private String productDescription;
+	
 	public String getProductDescription() {
 		return productDescription;
 	}
@@ -208,6 +218,7 @@ public class Products {
 	@ManyToOne
 	@JoinColumn(name="productLines_id")
 	private ProductLines productLines;
+	
 	public ProductLines getProductLines() {
 		return productLines;
 	}
@@ -224,3 +235,5 @@ public class Products {
 //End of user code
 }
 
+
+	

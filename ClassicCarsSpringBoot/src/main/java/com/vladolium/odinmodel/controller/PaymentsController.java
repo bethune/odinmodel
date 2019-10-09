@@ -24,32 +24,6 @@ public class PaymentsController {
 		this.paymentsService = paymentsService;
 	}
 
-	@PostMapping("")
-	public Payments createOne(@RequestBody Payments payments) {
-		return paymentsService.createUpdate(payments);
-	}
-	
-	@PutMapping("/{id}")
-	public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payments) {
-		Payments current = paymentsService.readOneById(id);
-		current.setCustomers(payments.getCustomers());
-		
-		current.setAmount(payments.getAmount());
-		
-		
-		current.setCheckNumber(payments.getCheckNumber());
-		
-		current.setPaymentDate(payments.getPaymentDate());
-		
-		current.setPaymentTimestamp(payments.getPaymentTimestamp());
-					
-		return paymentsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -65,39 +39,6 @@ public class PaymentsController {
 	
 	
 	
-	
-	
-	
-	@GetMapping("")
-	public Iterable<Payments> readAll() {
-		return paymentsService.readAll();
-	}
-	@GetMapping("/{pageNumber}/{perPageNumber}")
-	public Page<Payments> readAllPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return paymentsService.readAllPagination(page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable Long id) {
-		paymentsService.deleteOneById(id);
-	}
-	
-	
-	
-	
-		
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller

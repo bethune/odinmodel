@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -12,10 +13,10 @@ public class Reviews {
 
 	
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -31,8 +32,13 @@ public class Reviews {
 	
 	
 	
+	
+	
+	
+	
 	@NotNull
 	private String reviewText;
+	
 	public String getReviewText() {
 		return reviewText;
 	}
@@ -44,15 +50,11 @@ public class Reviews {
 	
 	
 	
-	
-	
-	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 	private LocalDate reviewDate;
+	
 	public LocalDate getReviewDate() {
 		return reviewDate;
 	}
@@ -66,10 +68,13 @@ public class Reviews {
 	
 	
 	
+	
+	
 	@NotNull
 	@DateTimeFormat(pattern = "HH:mm") //for database
 	@JsonFormat(pattern = "HH:mm") //for frontend
 	private LocalTime reviewTime;
+	
 	public LocalTime getReviewTime() {
 		return reviewTime;
 	}
@@ -105,3 +110,5 @@ public class Reviews {
 //End of user code
 }
 
+
+	

@@ -1,20 +1,15 @@
 [comment encoding = UTF-8 /]
 [module readAll('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: main template /]
+
 [template public readAll(aClass : Class){
 	entity 		: String = aClass.name.toUpperFirst();
 	property	: String = aClass.name.toLowerFirst();}]
-[comment:
-----------------------------------------------------------------------------------------------------/]
 [comment: Read all /]
 @GetMapping("")
 public Iterable<[entity/]> readAll() {
 	return [property/]Service.readAll();
 }
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [comment: Read all with pagination /]
 @GetMapping("/{pageNumber}/{perPageNumber}")
 public Page<[entity/]> readAllPagination(
@@ -25,35 +20,13 @@ public Page<[entity/]> readAllPagination(
 	return [property/]Service.readAllPagination(page);
 }
 
-[comment: 
---------------------------------------------------
-	Read all by parent id.
---------------------------------------------------/]
+[comment: Read all by parent id /]
 
-[comment: 
---------------------------------------------------
-	Read all by parent id with pagination.
---------------------------------------------------/]
+[comment: Read all by parent id with pagination /]
 
-[comment: 
---------------------------------------------------
-	Read all by parent field with unique values.
---------------------------------------------------/]
+[comment: Read first 10 inserts /]
 
-[comment: 
---------------------------------------------------
-	Read all by parent field with unique values with pagination.
---------------------------------------------------/]
-
-[comment: 
---------------------------------------------------
-	Read first 10 inserts.
---------------------------------------------------/]
-
-[comment: 
---------------------------------------------------
-	Read last 10 inserts.
---------------------------------------------------/]
+[comment: Read last 10 inserts /]
 
 
 [/template]

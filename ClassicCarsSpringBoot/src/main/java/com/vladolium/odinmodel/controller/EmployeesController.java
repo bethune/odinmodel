@@ -24,46 +24,6 @@ public class EmployeesController {
 		this.employeesService = employeesService;
 	}
 
-	@PostMapping("")
-	public Employees createOne(@RequestBody Employees employees) {
-		return employeesService.createUpdate(employees);
-	}
-	
-	
-	
-	
-	
-	
-	@PutMapping("/{id}")
-	public Employees updateOneById(@PathVariable Long id, @RequestBody Employees employees) {
-		Employees current = employeesService.readOneById(id);
-		current.setOffices(employees.getOffices());
-		
-		current.setFirstName(employees.getFirstName());
-		
-		current.setEmail(employees.getEmail());
-		
-		current.setReportsTo(employees.getReportsTo());
-		
-		current.setExtension(employees.getExtension());
-		
-		current.setLastName(employees.getLastName());
-		
-		
-		current.setIsActive(employees.getIsActive());
-		
-		current.setJobTitle(employees.getJobTitle());
-					
-		return employeesService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -85,40 +45,6 @@ public class EmployeesController {
 	
 	
 	
-	
-	@GetMapping("")
-	public Iterable<Employees> readAll() {
-		return employeesService.readAll();
-	}
-	@GetMapping("/{pageNumber}/{perPageNumber}")
-	public Page<Employees> readAllPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return employeesService.readAllPagination(page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable Long id) {
-		employeesService.deleteOneById(id);
-	}
-	
-	
-		
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller

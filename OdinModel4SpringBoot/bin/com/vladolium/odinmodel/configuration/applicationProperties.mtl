@@ -69,6 +69,8 @@ spring.jpa.show-sql = false
 #-- HINT: Hibernate ddl auto (create, create-drop, update, none, validate)
 spring.jpa.hibernate.ddl-auto = update
 
+spring.jackson.serialization.fail-on-empty-beans=false
+
 #----------------------------------------
 
 #[/protected]

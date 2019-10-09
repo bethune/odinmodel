@@ -1,15 +1,13 @@
 [comment encoding = UTF-8 /]
 [module controller('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [import com::vladolium::odinmodel::controller::path::create /]
 [import com::vladolium::odinmodel::controller::path::update /]
 [import com::vladolium::odinmodel::controller::path::delete /]
 [import com::vladolium::odinmodel::controller::path::readOne /]
 [import com::vladolium::odinmodel::controller::path::readAll /]
 [import com::vladolium::odinmodel::controller::path::search /]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [template public controller(aClass : Class){
 	isEntity 		: Boolean = aClass.isAbstract = false;
 	packagePath 	: String = aClass._package.name.toLowerCase();
@@ -44,12 +42,12 @@ public class [entity/]Controller {
 		this.[property/]Service = [property/]Service;
 	}
 
-	[aClass.create()/]
-	[aClass.update()/]
+[comment]	[aClass.create()/][/comment]
+[comment]	[aClass.update()/][/comment]
 	[aClass.readOne()/]
-	[aClass.readAll()/]
+[comment]	[aClass.readAll()/][/comment]
 [comment]	[aClass.search()/][/comment]
-	[aClass.delete()/]	
+[comment]	[aClass.delete()/]	[/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]

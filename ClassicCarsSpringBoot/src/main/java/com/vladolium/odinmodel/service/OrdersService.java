@@ -10,9 +10,6 @@ import com.vladolium.odinmodel.domain.Orders.*;
 
 public interface OrdersService {
 
-	// covers create & update
-	Orders createUpdate(Orders orders);
-	
 	
 	
 	
@@ -24,15 +21,6 @@ public interface OrdersService {
 	
 	
 	
-	
-	Iterable<Orders> readAll();
-	Page<Orders> readAllPagination(Pageable page);
-	
-	
-	
-	
-	
-	void deleteOneById(Long id);
 	
 	
 

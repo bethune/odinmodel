@@ -10,9 +10,6 @@ import com.vladolium.odinmodel.domain.Reviews.*;
 
 public interface ReviewsService {
 
-	// covers create & update
-	Reviews createUpdate(Reviews reviews);
-	
 	
 	
 	Reviews readOneById(Long id);
@@ -20,12 +17,6 @@ public interface ReviewsService {
 	
 	
 	
-	Iterable<Reviews> readAll();
-	Page<Reviews> readAllPagination(Pageable page);
-	
-	
-	
-	void deleteOneById(Long id);
 	
 
 //Code between start and end will not be removed during generation.

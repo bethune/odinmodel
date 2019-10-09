@@ -1,8 +1,9 @@
 [comment encoding = UTF-8 /]
 [module boolean('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: main template /]
+
+[import com::vladolium::odinmodel::domain::fields::constraints::notNull /]
+[import com::vladolium::odinmodel::domain::fields::constraints::unique /]
+
 [template public boolean(aClass : Class)]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
 	[if p.type.name = 'Boolean']
@@ -13,31 +14,13 @@
 [unique(p)/]	
 		[/if]		
 private [p.type.name/] [p.name/];
-[getSet(p)/]
-	[/if]
-[/for]
-[/template]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 3 subtemplates follows /]
-[comment: 1st /]
-[template public notNull(p: Property)]
-@NotNull
-[/template]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 2nd /]
-[template public unique(p: Property)]
-@Column(unique=true)
-[/template]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 3rd /]
-[template public getSet(p: Property)]
+
 public [p.type.name/] get[p.name.toUpperFirst()/]() {
 	return [p.name/];
 }
 public void set[p.name.toUpperFirst()/]([p.type.name/] [p.name/]) {
 	this.[p.name/] = [p.name/];
 }
+	[/if]
+[/for]
 [/template]

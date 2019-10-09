@@ -22,11 +22,8 @@ public class EmployeesServiceImpl implements EmployeesService {
 		this.employeesRepository = employeesRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Employees createUpdate(Employees employees) {
-		return employeesRepository.save(employees);
-	}
+	
+	
 	
 	
 	
@@ -42,29 +39,6 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<Employees> readAll() {
-		return employeesRepository.findAll();
-	}
-	@Override
-	public Page<Employees> readAllPagination(Pageable page) {
-		return employeesRepository.findAll(page);
-	}
-	
-	
-	
-	
-	
-	
-	@Override
-	public void deleteOneById(Long id) {
-		employeesRepository.deleteById(id);
-	}
 	
 	
 	

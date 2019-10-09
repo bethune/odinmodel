@@ -24,54 +24,6 @@ public class GiftsController {
 		this.giftsService = giftsService;
 	}
 
-	@PostMapping("")
-	public Gifts createOne(@RequestBody Gifts gifts) {
-		return giftsService.createUpdate(gifts);
-	}
-	@PutMapping("/{id}")
-	public Gifts updateOneById(@PathVariable Long id, @RequestBody Gifts gifts) {
-		Gifts current = giftsService.readOneById(id);
-		current.setCustomersSet(gifts.getCustomersSet());
-		
-		
-		current.setGiftName(gifts.getGiftName());
-		
-		current.setGiftType(gifts.getGiftType());
-		
-		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setBeginsOn(gifts.getBeginsOn());
-		
-		current.setExpiresOn(gifts.getExpiresOn());
-					
-		return giftsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/{giftName}")
-	public Gifts updateOneByGiftName(@PathVariable String giftName, @RequestBody Gifts gifts) {
-		Gifts current = giftsService.readOneByGiftName(giftName);
-		current.setCustomersSet(gifts.getCustomersSet());
-				
-		
-		current.setGiftName(gifts.getGiftName());
-		
-		current.setGiftType(gifts.getGiftType());
-		
-		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setBeginsOn(gifts.getBeginsOn());
-		
-		current.setExpiresOn(gifts.getExpiresOn());
-		
-		return giftsService.createUpdate(current);
-	}
-	
 	
 	
 	
@@ -85,9 +37,7 @@ public class GiftsController {
 	
 	
 	
-	
-	
-	@GetMapping("/{giftName}")
+	@GetMapping("/giftName={giftName}")
 	public Gifts readOneByGiftName(@PathVariable String giftName) {
 		return giftsService.readOneByGiftName(giftName);
 	}
@@ -95,38 +45,6 @@ public class GiftsController {
 	
 	
 	
-	
-	@GetMapping("")
-	public Iterable<Gifts> readAll() {
-		return giftsService.readAll();
-	}
-	@GetMapping("/{pageNumber}/{perPageNumber}")
-	public Page<Gifts> readAllPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return giftsService.readAllPagination(page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable Long id) {
-		giftsService.deleteOneById(id);
-	}
-	
-	
-	
-	
-	
-	
-		
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller

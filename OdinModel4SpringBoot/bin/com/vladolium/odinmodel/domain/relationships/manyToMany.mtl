@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module manyToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: main template /]
+
 [template public manyToMany(aClass : Class)]
 [for (p : Property | aClass.getAssociations().memberEnd)]
 	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and
@@ -12,19 +10,13 @@
 	joinColumns = @JoinColumn(name = "[p.type.name.toLowerFirst()/]_id"), 
 	inverseJoinColumns = @JoinColumn(name = "[p.opposite.type.name.toLowerFirst()/]_id"))
 private Set<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set = new HashSet<>();
-[getSet(p)/]
-	[/if]
-[/for]
-[/template]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 1 subtemplates follows /]
-[comment: 1st /]
-[template public getSet(p: Property)]
+
 public Set<[p.opposite.type.name.toUpperFirst()/]> get[p.opposite.type.name.toUpperFirst()/]Set() {
 	return [p.opposite.type.name.toLowerFirst()/]Set;
 }
 public void set[p.opposite.type.name.toUpperFirst()/]Set(Set<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set) {
 	this.[p.opposite.type.name.toLowerFirst()/]Set = [p.opposite.type.name.toLowerFirst()/]Set;
 }
+	[/if]
+[/for]
 [/template]

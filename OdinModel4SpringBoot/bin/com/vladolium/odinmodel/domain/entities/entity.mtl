@@ -33,8 +33,8 @@ subtemplates
 /]
 
 [import com::vladolium::odinmodel::domain::entities::javaImports /]
-[import com::vladolium::odinmodel::domain::entities::fieldImports /]
-[import com::vladolium::odinmodel::domain::entities::relationshipImports /]
+[import com::vladolium::odinmodel::domain::fields::field /]
+[import com::vladolium::odinmodel::domain::relationships::relationship /]
 
 [template public commonEntity(aClass : Class){
 	packageName		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');

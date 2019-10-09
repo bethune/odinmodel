@@ -1,7 +1,6 @@
 [comment encoding = UTF-8 /]
 [module repository('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [template public repository(aClass : Class){
 	isEntity 		: Boolean = aClass.isAbstract = false;
 	packagePath		: String = aClass._package.name.toLowerCase();
@@ -19,18 +18,16 @@ import [repositoryPath/].domain.[entity/];
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 		[for (p: Property | aClass.getAllAttributes()) separator('\n')]
 			[if p.isID = true]
-@Repository
-@Transactional
-public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.name.toUpperFirst()/]> {
+public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.name.toUpperFirst()/]>, QuerydslPredicateExecutor<[aClass.name.toUpperFirst()/]> {
 			[/if]
 		[/for]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: read one by field with unique values /]
 
+		[comment: read one by field with unique values /]
 		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
 			[if p.isUnique = true]
 [entity/] findBy[p.name.toUpperFirst()/]Equals([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);

@@ -22,37 +22,14 @@ public class PaymentsServiceImpl implements PaymentsService {
 		this.paymentsRepository = paymentsRepository;
 	}
 
-	// covers create & update
-	@Override
-	public Payments createUpdate(Payments payments) {
-		return paymentsRepository.save(payments);
-	}
+	
+	
+	
+	
 	
 	@Override
 	public Payments readOneById(Long id) {
 		return paymentsRepository.getOne(id);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<Payments> readAll() {
-		return paymentsRepository.findAll();
-	}
-	@Override
-	public Page<Payments> readAllPagination(Pageable page) {
-		return paymentsRepository.findAll(page);
-	}
-	
-	@Override
-	public void deleteOneById(Long id) {
-		paymentsRepository.deleteById(id);
 	}
 	
 	

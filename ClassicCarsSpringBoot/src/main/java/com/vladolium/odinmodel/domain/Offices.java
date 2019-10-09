@@ -1,3 +1,5 @@
+
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -13,6 +15,7 @@ public class Offices extends ContactDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -28,6 +31,7 @@ public class Offices extends ContactDetails {
 	
 	@NotNull
 	private String territory;
+	
 	public String getTerritory() {
 		return territory;
 	}
@@ -61,3 +65,4 @@ public class Offices extends ContactDetails {
 //End of user code
 }
 
+	

@@ -7,22 +7,22 @@ import com.vladolium.odinmodel.domain.Gifts;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Gifts;
 import com.vladolium.odinmodel.domain.Gifts.*;
-
-@Repository
-@Transactional
-public interface GiftsRepository extends JpaRepository<Gifts, Long> {
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
 
 
+public interface GiftsRepository extends JpaRepository<Gifts, Long>, QuerydslPredicateExecutor<Gifts> {
 
 
-Gifts findByIdEquals(Long id);
+
+
 
 Gifts findByGiftNameEquals(String giftName);
 
-
+Gifts findByIdEquals(Long id);
 
 
 

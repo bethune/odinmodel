@@ -22,37 +22,14 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		this.orderDetailsRepository = orderDetailsRepository;
 	}
 
-	// covers create & update
-	@Override
-	public OrderDetails createUpdate(OrderDetails orderDetails) {
-		return orderDetailsRepository.save(orderDetails);
-	}
+	
+	
+	
+	
 	@Override
 	public OrderDetails readOneById(Long id) {
 		return orderDetailsRepository.getOne(id);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<OrderDetails> readAll() {
-		return orderDetailsRepository.findAll();
-	}
-	@Override
-	public Page<OrderDetails> readAllPagination(Pageable page) {
-		return orderDetailsRepository.findAll(page);
-	}
-	@Override
-	public void deleteOneById(Long id) {
-		orderDetailsRepository.deleteById(id);
-	}
-	
 	
 	
 	

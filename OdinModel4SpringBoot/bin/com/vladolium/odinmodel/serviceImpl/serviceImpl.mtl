@@ -41,11 +41,11 @@ public class [entity/]ServiceImpl implements [entity/]Service {
 		this.[property/]Repository = [property/]Repository;
 	}
 
-	[aClass.createUpdate()/]
+[comment]	[aClass.createUpdate()/][/comment]
 	[aClass.readOne()/]
-	[aClass.readAll()/]
+[comment]	[aClass.readAll()/][/comment]
 [comment]	[aClass.search()/][/comment]
-	[aClass.delete()/]
+[comment]	[aClass.delete()/][/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this serviceImpl')]

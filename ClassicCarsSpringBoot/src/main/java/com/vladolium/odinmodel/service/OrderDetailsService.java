@@ -10,22 +10,11 @@ import com.vladolium.odinmodel.domain.OrderDetails.*;
 
 public interface OrderDetailsService {
 
-	// covers create & update
-	OrderDetails createUpdate(OrderDetails orderDetails);
+	
+	
+	
+	
 	OrderDetails readOneById(Long id);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	Iterable<OrderDetails> readAll();
-	Page<OrderDetails> readAllPagination(Pageable page);
-	void deleteOneById(Long id);
-	
 	
 	
 	

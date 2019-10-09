@@ -10,8 +10,6 @@ import com.vladolium.odinmodel.domain.Customers.*;
 
 public interface CustomersService {
 
-	// covers create & update
-	Customers createUpdate(Customers customers);
 	
 	
 	
@@ -34,24 +32,7 @@ public interface CustomersService {
 	
 	
 	
-	
 	Customers readOneByCustomerName(String customerName);
-	
-	
-	
-	Iterable<Customers> readAll();
-	Page<Customers> readAllPagination(Pageable page);
-	
-	
-	
-	void deleteOneById(Long id);
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

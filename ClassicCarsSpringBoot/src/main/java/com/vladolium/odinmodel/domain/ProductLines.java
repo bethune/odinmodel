@@ -1,3 +1,4 @@
+
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class ProductLines {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -31,10 +33,9 @@ public class ProductLines {
 	
 	
 	
-	
-	
 	@NotNull
 	private String productLine;
+	
 	public String getProductLine() {
 		return productLine;
 	}
@@ -68,9 +69,13 @@ public class ProductLines {
 	
 	
 	
+	
+	
+	
 	@NotNull
 	@Lob
 	private String textDescription;
+	
 	public String getTextDescription() {
 		return textDescription;
 	}
@@ -82,6 +87,7 @@ public class ProductLines {
 	
 	@Lob
 	private byte[] image;
+	
 	public byte[] getImage() {
 		return image;
 	}
@@ -95,10 +101,11 @@ public class ProductLines {
 	
 	
 	
-	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this entity
 //End of user code
 }
 
+
+	

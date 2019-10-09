@@ -7,21 +7,21 @@ import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.Payments.*;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
-@Repository
-@Transactional
-public interface PaymentsRepository extends JpaRepository<Payments, Long> {
 
+
+
+
+public interface PaymentsRepository extends JpaRepository<Payments, Long>, QuerydslPredicateExecutor<Payments> {
 
 
 
 
 
 Payments findByIdEquals(Long id);
-
-
-
 
 
 

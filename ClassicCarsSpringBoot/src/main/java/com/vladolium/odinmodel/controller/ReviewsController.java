@@ -24,31 +24,6 @@ public class ReviewsController {
 		this.reviewsService = reviewsService;
 	}
 
-	@PostMapping("")
-	public Reviews createOne(@RequestBody Reviews reviews) {
-		return reviewsService.createUpdate(reviews);
-	}
-	
-	
-	
-	@PutMapping("/{id}")
-	public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews) {
-		Reviews current = reviewsService.readOneById(id);
-		
-		current.setReviewText(reviews.getReviewText());
-		
-		current.setReviewTime(reviews.getReviewTime());
-		
-		current.setReviewDate(reviews.getReviewDate());
-		
-					
-		return reviewsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
 	
 	
 	@GetMapping("/{id}")
@@ -59,34 +34,8 @@ public class ReviewsController {
 	
 	
 	
-	@GetMapping("")
-	public Iterable<Reviews> readAll() {
-		return reviewsService.readAll();
-	}
-	@GetMapping("/{pageNumber}/{perPageNumber}")
-	public Page<Reviews> readAllPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return reviewsService.readAllPagination(page);
-	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable Long id) {
-		reviewsService.deleteOneById(id);
-	}
-		
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller

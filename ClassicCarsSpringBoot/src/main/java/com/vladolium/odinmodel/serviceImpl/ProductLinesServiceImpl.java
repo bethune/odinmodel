@@ -22,11 +22,6 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		this.productLinesRepository = productLinesRepository;
 	}
 
-	// covers create & update
-	@Override
-	public ProductLines createUpdate(ProductLines productLines) {
-		return productLinesRepository.save(productLines);
-	}
 	
 	
 	
@@ -37,22 +32,6 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	
 	
 	
-	
-	@Override
-	public Iterable<ProductLines> readAll() {
-		return productLinesRepository.findAll();
-	}
-	@Override
-	public Page<ProductLines> readAllPagination(Pageable page) {
-		return productLinesRepository.findAll(page);
-	}
-	
-	
-	
-	@Override
-	public void deleteOneById(Long id) {
-		productLinesRepository.deleteById(id);
-	}
 	
 
 //Code between start and end will not be removed during generation.
