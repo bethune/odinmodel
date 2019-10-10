@@ -10,6 +10,13 @@ import com.vladolium.odinmodel.domain.Offices.*;
 
 public interface OfficesService {
 
+	// covers create & update
+	Offices createUpdate(Offices offices);
+	
+	
+	
+	
+	
 	Offices readOneById(Long id);
 	
 	
@@ -24,6 +31,26 @@ public interface OfficesService {
 	
 	
 	
+	Iterable<Offices> readAll();
+	
+	Page<Offices> readAllPagination(Pageable page);
+	Iterable<Offices> search(
+		String city,
+		String phone,
+		String addressLine1,
+		String territory,
+		String country,
+		String addressLine2,
+		String state,
+		String postalCode
+		
+	);
+	
+	
+	
+	
+	
+	void deleteOneById(Long id);
 	
 	
 	
@@ -32,5 +59,4 @@ public interface OfficesService {
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code
-
 }

@@ -1,10 +1,7 @@
 [comment encoding = UTF-8 /]
 [module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [template public delete(aClass : Class)]
-[comment:
-----------------------------------------------------------------------------------------------------/]
 [comment: Delete one by id /]
 [for (p: Property | aClass.getAllAttributes()) separator('\n')]
 	[if p.isID = true]

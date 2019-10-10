@@ -1,21 +1,19 @@
 [comment encoding = UTF-8 /]
 [module serviceImpl('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [import com::vladolium::odinmodel::serviceImpl::path::createUpdate /]
 [import com::vladolium::odinmodel::serviceImpl::path::delete /]
 [import com::vladolium::odinmodel::serviceImpl::path::readAll /]
 [import com::vladolium::odinmodel::serviceImpl::path::readOne /]
-[import com::vladolium::odinmodel::serviceImpl::path::search /]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+[import com::vladolium::odinmodel::serviceImpl::path::searchQueryDSL /]
+
 [template public serviceImpl(aClass : Class){
 	isEntity 		: Boolean = aClass.isAbstract = false;
 	packagePath 	: String = aClass._package.name.toLowerCase();
 	entity 			: String = aClass.name.toUpperFirst();
 	serviceImplPath : String = aClass._package.name.replaceAll('/', '.').toLowerCase();
 	property		: String = aClass.name.toLowerFirst();}]
-[if isEntity] [comment: generate just for entities/]
+[if isEntity]
 	[file ('src/main/java/' + packagePath + '/serviceImpl/' + entity + 'ServiceImpl.java', false, 'UTF-8')]
 package [serviceImplPath/].serviceImpl;
 
@@ -30,6 +28,7 @@ import [serviceImplPath/].service.[entity/]Service;
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
 import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
+import com.querydsl.core.BooleanBuilder;
 
 @Service
 public class [entity/]ServiceImpl implements [entity/]Service {
@@ -41,16 +40,15 @@ public class [entity/]ServiceImpl implements [entity/]Service {
 		this.[property/]Repository = [property/]Repository;
 	}
 
-[comment]	[aClass.createUpdate()/][/comment]
+	[aClass.createUpdate()/]
 	[aClass.readOne()/]
-[comment]	[aClass.readAll()/][/comment]
-[comment]	[aClass.search()/][/comment]
-[comment]	[aClass.delete()/][/comment]
+	[aClass.readAll()/]
+	[aClass.searchQueryDSL()/]
+	[aClass.delete()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this serviceImpl')]
 //[/protected]
-
 }
 	[/file]
 [/if]

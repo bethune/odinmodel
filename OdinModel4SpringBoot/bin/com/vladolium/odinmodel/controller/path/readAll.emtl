@@ -42,7 +42,7 @@
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Service.readAll();&#xA;}&#xA;&#xA;"/>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@GetMapping(&quot;/{pageNumber}/{perPageNumber}&quot;)&#xA;public Page&lt;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@GetMapping(&quot;/page={pageNumber}/perPage={perPageNumber}&quot;)&#xA;public Page&lt;"/>
       <body xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/readAll/@init/@variable.0">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </body>
@@ -161,7 +161,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/readAll">
       <details key="start" value="88"/>
-      <details key="end" value="835"/>
+      <details key="end" value="848"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/readAll/@init">
@@ -236,47 +236,47 @@
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/readAll/%.3">
       <details key="start" value="386"/>
-      <details key="end" value="443"/>
+      <details key="end" value="456"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/readAll/entity.1">
-      <details key="start" value="444"/>
-      <details key="end" value="450"/>
+      <details key="start" value="457"/>
+      <details key="end" value="463"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/readAll/%.4">
-      <details key="start" value="452"/>
-      <details key="end" value="617"/>
+      <details key="start" value="465"/>
+      <details key="end" value="630"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/readAll/property.1">
-      <details key="start" value="618"/>
-      <details key="end" value="626"/>
+      <details key="start" value="631"/>
+      <details key="end" value="639"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/readAll/%.5">
-      <details key="start" value="628"/>
-      <details key="end" value="664"/>
+      <details key="start" value="641"/>
+      <details key="end" value="677"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/readAll/%.6">
-      <details key="start" value="699"/>
-      <details key="end" value="700"/>
+      <details key="start" value="712"/>
+      <details key="end" value="713"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/readAll/%.7">
-      <details key="start" value="751"/>
-      <details key="end" value="752"/>
+      <details key="start" value="764"/>
+      <details key="end" value="765"/>
       <details key="line" value="26"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/readAll/%.8">
-      <details key="start" value="787"/>
-      <details key="end" value="788"/>
+      <details key="start" value="800"/>
+      <details key="end" value="801"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/readAll/%.9">
-      <details key="start" value="822"/>
-      <details key="end" value="823"/>
+      <details key="start" value="835"/>
+      <details key="end" value="836"/>
       <details key="line" value="30"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/readAll/aClass">

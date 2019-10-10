@@ -7,7 +7,7 @@
 	entity 			: String = aClass.name.toUpperFirst();
 	repositoryPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();
 	property		: String = aClass.name.toLowerFirst();}]
-[if isEntity] [comment: generate the repository methods for entities/]
+[if isEntity]
 	[file ('src/main/java/' + packagePath + '/repository/' + entity + 'Repository.java', false, 'UTF-8')]
 package [repositoryPath/].repository;
 

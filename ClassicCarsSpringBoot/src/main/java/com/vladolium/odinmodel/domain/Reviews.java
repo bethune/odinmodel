@@ -11,8 +11,6 @@ import java.util.*;
 @Entity
 public class Reviews {
 
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,6 +21,7 @@ public class Reviews {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	
 	
 	
@@ -50,6 +49,8 @@ public class Reviews {
 	
 	
 	
+	
+	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -70,6 +71,7 @@ public class Reviews {
 	
 	
 	
+	
 	@NotNull
 	@DateTimeFormat(pattern = "HH:mm") //for database
 	@JsonFormat(pattern = "HH:mm") //for frontend
@@ -81,8 +83,6 @@ public class Reviews {
 	public void setReviewTime(LocalTime reviewTime) {
 		this.reviewTime = reviewTime;
 	}
-	
-	
 	
 	
 	

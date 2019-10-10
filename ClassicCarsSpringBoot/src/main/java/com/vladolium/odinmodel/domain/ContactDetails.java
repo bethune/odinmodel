@@ -34,13 +34,33 @@ public abstract class ContactDetails {
 	
 	
 	
-	private String addressLine2;
+	@NotNull
+	private String city;
 	
-	public String getAddressLine2() {
-		return addressLine2;
+	public String getCity() {
+		return city;
 	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
+	private String phone;
+	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	@NotNull
+	private String addressLine1;
+	
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
 	}
 	
 	@NotNull
@@ -53,13 +73,13 @@ public abstract class ContactDetails {
 		this.country = country;
 	}
 	
-	private String phone;
+	private String addressLine2;
 	
-	public String getPhone() {
-		return phone;
+	public String getAddressLine2() {
+		return addressLine2;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 	
 	private String state;
@@ -78,26 +98,6 @@ public abstract class ContactDetails {
 	}
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
-	}
-	
-	@NotNull
-	private String addressLine1;
-	
-	public String getAddressLine1() {
-		return addressLine1;
-	}
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
-	}
-	
-	@NotNull
-	private String city;
-	
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
 	}
 	
 	

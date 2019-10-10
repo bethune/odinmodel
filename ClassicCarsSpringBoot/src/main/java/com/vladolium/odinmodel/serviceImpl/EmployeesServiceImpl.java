@@ -11,6 +11,7 @@ import com.vladolium.odinmodel.service.EmployeesService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
+import com.querydsl.core.BooleanBuilder;
 
 @Service
 public class EmployeesServiceImpl implements EmployeesService {
@@ -22,8 +23,11 @@ public class EmployeesServiceImpl implements EmployeesService {
 		this.employeesRepository = employeesRepository;
 	}
 
-	
-	
+	// covers create & update
+	@Override
+	public Employees createUpdate(Employees employees) {
+		return employeesRepository.save(employees);
+	}
 	
 	
 	
@@ -42,9 +46,134 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
+	
+	
+	
+	@Override
+	public Iterable<Employees> readAll() {
+		return employeesRepository.findAll();
+	}
+	
+	@Override
+	public Page<Employees> readAllPagination(Pageable page) {
+		return employeesRepository.findAll(page);
+	}
+	@Override
+	public Iterable<Employees> search(
+		
+		
+		
+		
+		
+		Long officesId,
+		
+		
+		
+		String lastName,
+		String extension,
+		String firstName,
+		Boolean isActive,
+		String email,
+		String jobTitle,
+		Integer reportsTo
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
+			officesId,
+			
+			
+			
+			lastName,
+			extension,
+			firstName,
+			isActive,
+			email,
+			jobTitle,
+			reportsTo
+				
+		);
+		return employeesRepository.findAll(where);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		
+		
+		
+		
+		
+		Long officesId,
+		
+		
+		
+		String lastName,
+		String extension,
+		String firstName,
+		Boolean isActive,
+		String email,
+		String jobTitle,
+		Integer reportsTo
+		
+	) {
+		QEmployees qEmployees = QEmployees.employees;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		
+		
+		
+		
+		
+		if (officesId != null) {
+			where.and(qEmployees.offices.id.eq(officesId));
+		}
+		
+		
+		
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
+		}
+		if (extension != null) {
+			where.and(qEmployees.extension.containsIgnoreCase(extension));
+		}
+		if (firstName != null) {
+			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
+		}
+		if (isActive != null) {
+			where.and(qEmployees.isActive.eq(isActive));
+		}
+		if (email != null) {
+			where.and(qEmployees.email.containsIgnoreCase(email));
+		}
+		if (jobTitle != null) {
+			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
+		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
+		}
+		
+	
+		return where;
+	}
+	
+	
+	
+	
+	
+	
+	@Override
+	public void deleteOneById(Long id) {
+		employeesRepository.deleteById(id);
+	}
+	
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code
-
 }

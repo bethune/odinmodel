@@ -24,6 +24,29 @@ public class ReviewsController {
 		this.reviewsService = reviewsService;
 	}
 
+	@PostMapping("")
+	public Reviews createOne(@RequestBody Reviews reviews) {
+		return reviewsService.createUpdate(reviews);
+	}
+	@PutMapping("/{id}")
+	public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews) {
+		Reviews current = reviewsService.readOneById(id);
+		
+		
+		current.setReviewDate(reviews.getReviewDate());
+		
+		current.setReviewText(reviews.getReviewText());
+		
+		current.setReviewTime(reviews.getReviewTime());
+					
+		return reviewsService.createUpdate(current);
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	@GetMapping("/{id}")
@@ -36,9 +59,51 @@ public class ReviewsController {
 	
 	
 	
+	
+	
+	@GetMapping("")
+	public Iterable<Reviews> readAll() {
+		return reviewsService.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Reviews> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return reviewsService.readAllPagination(page);
+	}
+	
+	
+	
+	
+	
+	
+	@GetMapping("/search")
+	public Iterable<Reviews> search(
+		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate,
+		@RequestParam(value = "reviewText", required = false) String reviewText,
+		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime
+		
+	) {
+		return reviewsService.search(
+			reviewDate,
+			reviewText,
+			reviewTime
+			
+		);
+	}
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		reviewsService.deleteOneById(id);
+	}
+	
+	
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code
-
 }

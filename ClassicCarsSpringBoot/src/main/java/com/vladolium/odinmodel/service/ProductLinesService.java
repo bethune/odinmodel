@@ -10,11 +10,28 @@ import com.vladolium.odinmodel.domain.ProductLines.*;
 
 public interface ProductLinesService {
 
-	
-	
+	// covers create & update
+	ProductLines createUpdate(ProductLines productLines);
 	
 	ProductLines readOneById(Long id);
 	
+	
+	
+	
+	
+	
+	
+	Iterable<ProductLines> readAll();
+	
+	Page<ProductLines> readAllPagination(Pageable page);
+	Iterable<ProductLines> search(
+		String textDescription,
+		byte[] image,
+		String productLine
+		
+	);
+	
+	void deleteOneById(Long id);
 	
 	
 	
@@ -22,5 +39,4 @@ public interface ProductLinesService {
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code
-
 }

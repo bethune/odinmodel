@@ -1,20 +1,18 @@
 [comment encoding = UTF-8 /]
 [module service('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [import com::vladolium::odinmodel::service::path::createUpdate /]
 [import com::vladolium::odinmodel::service::path::delete /]
 [import com::vladolium::odinmodel::service::path::readAll /]
 [import com::vladolium::odinmodel::service::path::readOne /]
 [import com::vladolium::odinmodel::service::path::search /]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [template public service(aClass : Class) {
 	isEntity 		: Boolean = aClass.isAbstract = false;
 	packagePath 	: String = aClass._package.name.toLowerCase();
 	entity 			: String = aClass.name.toUpperFirst();
 	servicePath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();}]
-[if isEntity] [comment: generate just for entities/]
+[if isEntity]
 	[file ('src/main/java/' + packagePath + '/service/' + entity + 'Service.java', false, 'UTF-8')]
 package [servicePath/].service;
 
@@ -28,16 +26,15 @@ import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass
 
 public interface [entity/]Service {
 
-[comment]	[aClass.createUpdate()/][/comment]
+	[aClass.createUpdate()/]
 	[aClass.readOne()/]
-[comment]	[aClass.readAll()/][/comment]
-[comment]	[aClass.search()/][/comment]
-[comment]	[aClass.delete()/][/comment]
+	[aClass.readAll()/]
+	[aClass.search()/]
+	[aClass.delete()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this service')]
 //[/protected]
-
 }
 	[/file]
 [/if]

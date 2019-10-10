@@ -18,8 +18,8 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
-
 public interface ProductsRepository extends JpaRepository<Products, Long>, QuerydslPredicateExecutor<Products> {
+
 
 
 Products findByProductCodeEquals(String productCode);
@@ -29,8 +29,8 @@ Products findByProductCodeEquals(String productCode);
 
 
 
-
 Products findByIdEquals(Long id);
+
 
 
 

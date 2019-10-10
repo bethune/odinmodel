@@ -19,7 +19,6 @@ public class Products {
 	
 	
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -36,6 +35,11 @@ public class Products {
 	
 	
 	
+	
+	
+	
+	
+	
 	@NotNull
 	private Integer quantityInStock;
 	
@@ -45,16 +49,6 @@ public class Products {
 	public void setQuantityInStock(Integer quantityInStock) {
 		this.quantityInStock = quantityInStock;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	@NotNull
 	private Double buyPrice;
@@ -67,27 +61,23 @@ public class Products {
 	}
 	
 	
-	@NotNull
-	private Double MSRP;
-	
-	public Double getMSRP() {
-		return MSRP;
-	}
-	public void setMSRP(Double MSRP) {
-		this.MSRP = MSRP;
-	}
-	
 	
 	
 	@NotNull
-	private String productName;
+	private Double msrp;
 	
-	public String getProductName() {
-		return productName;
+	public Double getMsrp() {
+		return msrp;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setMsrp(Double msrp) {
+		this.msrp = msrp;
 	}
+	
+	
+	
+	
+	
+	
 	
 	@NotNull
 	@Column(unique=true)
@@ -98,16 +88,6 @@ public class Products {
 	}
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
-	}
-	
-	@NotNull
-	private String productVendor;
-	
-	public String getProductVendor() {
-		return productVendor;
-	}
-	public void setProductVendor(String productVendor) {
-		this.productVendor = productVendor;
 	}
 	
 	@NotNull
@@ -123,9 +103,25 @@ public class Products {
 	
 	
 	
+	@NotNull
+	private String productName;
 	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 	
+	@NotNull
+	private String productVendor;
 	
+	public String getProductVendor() {
+		return productVendor;
+	}
+	public void setProductVendor(String productVendor) {
+		this.productVendor = productVendor;
+	}
 	
 	
 	
@@ -202,6 +198,10 @@ public class Products {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
+	
+	
+	
+	
 	
 	
 	

@@ -1,15 +1,11 @@
 [comment encoding = UTF-8 /]
 [module readAll('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [template public readAll(aClass : Class){
 	entity 		: String = aClass.name.toUpperFirst();}]
-[comment:
-----------------------------------------------------------------------------------------------------/]
 [comment: Read all /]
 Iterable<[entity/]> readAll();
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [comment: Read all with pagination /]
 Page<[entity/]> readAllPagination(Pageable page);
 [/template]

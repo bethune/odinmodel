@@ -10,7 +10,8 @@ import com.vladolium.odinmodel.domain.OrderDetails.*;
 
 public interface OrderDetailsService {
 
-	
+	// covers create & update
+	OrderDetails createUpdate(OrderDetails orderDetails);
 	
 	
 	
@@ -20,9 +21,41 @@ public interface OrderDetailsService {
 	
 	
 	
+	
+	
+	Iterable<OrderDetails> readAll();
+	
+	Page<OrderDetails> readAllPagination(Pageable page);
+	Iterable<OrderDetails> search(
+		
+		Long ordersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long productsId,
+		
+		Integer orderLineNumber,
+		Integer quantityOrdered,
+		Double priceEach
+		
+	);
+	
+	
+	
+	void deleteOneById(Long id);
+	
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this service
 //End of user code
-
 }

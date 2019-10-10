@@ -1,12 +1,9 @@
 [comment encoding = UTF-8 /]
 [module readOne('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [template public readOne(aClass : Class){
 	entity 		: String = aClass.name.toUpperFirst();
 	property	: String = aClass.name.toLowerFirst();}]
-[comment:
-----------------------------------------------------------------------------------------------------/]
 [comment: read one by id /]
 [for (p: Property | aClass.getAllAttributes()) separator('\n')]
 	[if p.isID = true]
@@ -16,8 +13,7 @@ public [entity/] readOneBy[p.name.toUpperFirst()/]([p.type.name.toUpperFirst()/]
 }
 	[/if]
 [/for]
-[comment:
-----------------------------------------------------------------------------------------------------/]
+
 [comment: read one by field with unique values /]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
 	[if p.isUnique = true and p.isID = false]

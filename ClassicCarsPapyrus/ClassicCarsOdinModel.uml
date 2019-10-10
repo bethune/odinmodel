@@ -23,7 +23,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_KkP4IN-GEemhFrfFZLxexQ" name="productDescription" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OiYhoN-GEemhFrfFZLxexQ" name="quantityInStock" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RbYIAN-GEemhFrfFZLxexQ" name="buyPrice" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_TlyKEN-GEemhFrfFZLxexQ" name="MSRP" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_TlyKEN-GEemhFrfFZLxexQ" name="msrp" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wd9-wOElEemxFfBtMY4P2Q" type="_ZoCbsN9rEemJF-HGxlolYw" association="_wdp1sOElEemxFfBtMY4P2Q"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_noWUwN9rEemJF-HGxlolYw" name="Customers">

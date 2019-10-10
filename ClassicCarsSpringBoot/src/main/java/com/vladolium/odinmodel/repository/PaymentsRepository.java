@@ -14,7 +14,6 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
-
 public interface PaymentsRepository extends JpaRepository<Payments, Long>, QuerydslPredicateExecutor<Payments> {
 
 
@@ -22,6 +21,7 @@ public interface PaymentsRepository extends JpaRepository<Payments, Long>, Query
 
 
 Payments findByIdEquals(Long id);
+
 
 
 

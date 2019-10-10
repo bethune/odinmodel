@@ -10,9 +10,6 @@ import com.vladolium.odinmodel.domain.Customers.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-
-
-
 public interface CustomersRepository extends JpaRepository<Customers, Long>, QuerydslPredicateExecutor<Customers> {
 
 
@@ -34,8 +31,11 @@ Customers findByIdEquals(Long id);
 
 
 
-Customers findByCustomerNameEquals(String customerName);
 
+
+
+
+Customers findByCustomerNameEquals(String customerName);
 
 
 

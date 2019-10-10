@@ -14,7 +14,6 @@ public class OrderDetails {
 	
 	
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -27,16 +26,6 @@ public class OrderDetails {
 	}
 	
 	
-	@NotNull
-	private Integer quantityOrdered;
-	
-	public Integer getQuantityOrdered() {
-		return quantityOrdered;
-	}
-	public void setQuantityOrdered(Integer quantityOrdered) {
-		this.quantityOrdered = quantityOrdered;
-	}
-	
 	
 	@NotNull
 	private Integer orderLineNumber;
@@ -46,6 +35,16 @@ public class OrderDetails {
 	}
 	public void setOrderLineNumber(Integer orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
+	}
+	
+	@NotNull
+	private Integer quantityOrdered;
+	
+	public Integer getQuantityOrdered() {
+		return quantityOrdered;
+	}
+	public void setQuantityOrdered(Integer quantityOrdered) {
+		this.quantityOrdered = quantityOrdered;
 	}
 	
 	
@@ -63,6 +62,7 @@ public class OrderDetails {
 	public void setPriceEach(Double priceEach) {
 		this.priceEach = priceEach;
 	}
+	
 	
 	
 	

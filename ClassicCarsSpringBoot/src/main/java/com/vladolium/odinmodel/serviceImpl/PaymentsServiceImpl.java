@@ -11,6 +11,7 @@ import com.vladolium.odinmodel.service.PaymentsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.Payments.*;
+import com.querydsl.core.BooleanBuilder;
 
 @Service
 public class PaymentsServiceImpl implements PaymentsService {
@@ -22,7 +23,11 @@ public class PaymentsServiceImpl implements PaymentsService {
 		this.paymentsRepository = paymentsRepository;
 	}
 
-	
+	// covers create & update
+	@Override
+	public Payments createUpdate(Payments payments) {
+		return paymentsRepository.save(payments);
+	}
 	
 	
 	
@@ -36,9 +41,124 @@ public class PaymentsServiceImpl implements PaymentsService {
 	
 	
 	
+	
+	
+	@Override
+	public Iterable<Payments> readAll() {
+		return paymentsRepository.findAll();
+	}
+	
+	@Override
+	public Page<Payments> readAllPagination(Pageable page) {
+		return paymentsRepository.findAll(page);
+	}
+	@Override
+	public Iterable<Payments> search(
+		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDate paymentDate,
+		Instant paymentTimestamp,
+		Double amount,
+		String checkNumber
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersId,
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			paymentDate,
+			paymentTimestamp,
+			amount,
+			checkNumber
+				
+		);
+		return paymentsRepository.findAll(where);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDate paymentDate,
+		Instant paymentTimestamp,
+		Double amount,
+		String checkNumber
+		
+	) {
+		QPayments qPayments = QPayments.payments;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (customersId != null) {
+			where.and(qPayments.customers.id.eq(customersId));
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		if (paymentDate != null) {
+			where.and(qPayments.paymentDate.eq(paymentDate));
+		}
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		}
+		if (amount != null) {
+			where.and(qPayments.amount.eq(amount));
+		}
+		if (checkNumber != null) {
+			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
+		}
+		
+	
+		return where;
+	}
+	
+	
+	
+	
+	@Override
+	public void deleteOneById(Long id) {
+		paymentsRepository.deleteById(id);
+	}
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code
-
 }

@@ -13,8 +13,8 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
-
 public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long>, QuerydslPredicateExecutor<OrderDetails> {
+
 
 
 

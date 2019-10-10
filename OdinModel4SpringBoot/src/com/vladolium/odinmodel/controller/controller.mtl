@@ -42,17 +42,16 @@ public class [entity/]Controller {
 		this.[property/]Service = [property/]Service;
 	}
 
-[comment]	[aClass.create()/][/comment]
-[comment]	[aClass.update()/][/comment]
+	[aClass.create()/]
+	[aClass.update()/]
 	[aClass.readOne()/]
-[comment]	[aClass.readAll()/][/comment]
-[comment]	[aClass.search()/][/comment]
-[comment]	[aClass.delete()/]	[/comment]
+	[aClass.readAll()/]
+	[aClass.search()/]
+	[aClass.delete()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]
 //[/protected]
-
 }
 	[/file]
 [/if]

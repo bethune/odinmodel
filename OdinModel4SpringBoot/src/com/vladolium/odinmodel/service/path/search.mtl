@@ -1,24 +1,24 @@
 [comment encoding = UTF-8 /]
 [module search('http://www.eclipse.org/uml2/5.0.0/UML')]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: main template /]
-[template public search(aClass : Class){
-	entity 		: String = aClass.name.toUpperFirst();
-	property	: String = aClass.name.toLowerFirst();}]
-[comment: Search all where equals /]
-Iterable<[entity/]> search(
-	[foreignKeys(aClass)/]
-	[fields(aClass)/]
-);
 
+[comment: base template /]
+[template public search(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();}]
+[comment : search all/]
+Iterable<[entity/]> search(
+	[searchParameters(aClass)/]
+);
 [/template]
+
 [comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 2 subtemplates follows /]
-[comment: 1st /]
-[template public foreignKeys(aClass : Class){
-	entity 	: String = aClass.name.toUpperFirst();}]
+----------------------------------------------------------------------------------------------------
+subtemplates
+----------------------------------------------------------------------------------------------------
+/]
+
+[template public searchParameters(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();}]
+[comment: foreign keys/]
 [for (p : Property | aClass.getAssociations().memberEnd)]
 	[comment : ManyToOne/]
 	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
@@ -36,7 +36,8 @@ Iterable<[entity/]> search(
 		[/for]
 	[/if]
 	[comment : OneToOne/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 		[for (pack : Package | aClass._package)]
 			[for (m : Class | pack.member -> filter(Class))]
 				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
@@ -50,7 +51,8 @@ Iterable<[entity/]> search(
 		[/for]
 	[/if]
 	[comment : ManyToMany/]
-	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
 		[for (pack : Package | aClass._package)]
 			[for (m : Class | pack.member -> filter(Class))]
 				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
@@ -64,15 +66,12 @@ Set<[a.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]Set,
 		[/for]
 	[/if]
 	[comment : OneToMany/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
+	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
 List<[p.opposite.type.name.toUpperFirst()/]> [p.opposite.type.name.toLowerFirst()/]List,
 	[/if]
 [/for]
-[/template]
-[comment:
-----------------------------------------------------------------------------------------------------/]
-[comment: 2nd /]
-[template public fields(aClass : Class)]
+[comment: fields/]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(p | p.isID = false)) ]
 	[if p.type.name = 'Date']
 LocalDate [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]

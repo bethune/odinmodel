@@ -24,6 +24,29 @@ public class ProductLinesController {
 		this.productLinesService = productLinesService;
 	}
 
+	@PostMapping("")
+	public ProductLines createOne(@RequestBody ProductLines productLines) {
+		return productLinesService.createUpdate(productLines);
+	}
+	
+	@PutMapping("/{id}")
+	public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
+		ProductLines current = productLinesService.readOneById(id);
+		
+		current.setTextDescription(productLines.getTextDescription());
+		
+		
+		current.setImage(productLines.getImage());
+		
+		current.setProductLine(productLines.getProductLine());
+					
+		return productLinesService.createUpdate(current);
+	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -36,9 +59,51 @@ public class ProductLinesController {
 	
 	
 	
+	
+	
+	@GetMapping("")
+	public Iterable<ProductLines> readAll() {
+		return productLinesService.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<ProductLines> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return productLinesService.readAllPagination(page);
+	}
+	
+	
+	
+	
+	
+	
+	@GetMapping("/search")
+	public Iterable<ProductLines> search(
+		@RequestParam(value = "textDescription", required = false) String textDescription,
+		@RequestParam(value = "image", required = false) byte[] image,
+		@RequestParam(value = "productLine", required = false) String productLine
+		
+	) {
+		return productLinesService.search(
+			textDescription,
+			image,
+			productLine
+			
+		);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		productLinesService.deleteOneById(id);
+	}
+	
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code
-
 }
