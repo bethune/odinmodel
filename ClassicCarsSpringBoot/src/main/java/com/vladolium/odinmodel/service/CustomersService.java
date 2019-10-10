@@ -66,6 +66,31 @@ public interface CustomersService {
 		String postalCode
 		
 	);
+	
+	Page<Customers> searchPagination(
+		Pageable page,
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		
+		List<Reviews> reviewsList,
+		String city,
+		String firstName,
+		String phone,
+		String lastName,
+		String addressLine1,
+		String customerName,
+		Double creditLimit,
+		String country,
+		String addressLine2,
+		String state,
+		String postalCode
+		
+	);
 	void deleteOneById(Long id);
 	
 	

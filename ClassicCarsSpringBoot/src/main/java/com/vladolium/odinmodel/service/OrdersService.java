@@ -50,6 +50,28 @@ public interface OrdersService {
 		
 	);
 	
+	Page<Orders> searchPagination(
+		Pageable page,
+		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDate shippedDate,
+		String comments,
+		String status,
+		LocalDate orderDate,
+		LocalDate requiredDate
+		
+	);
+	
 	
 	void deleteOneById(Long id);
 	

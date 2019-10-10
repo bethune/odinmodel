@@ -95,6 +95,26 @@ public class ProductLinesController {
 		);
 	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<ProductLines> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@RequestParam(value = "textDescription", required = false) String textDescription,
+		@RequestParam(value = "image", required = false) byte[] image,
+		@RequestParam(value = "productLine", required = false) String productLine
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return productLinesService.searchPagination(
+			page,
+			textDescription,
+			image,
+			productLine
+			
+		);
+	}
+	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		productLinesService.deleteOneById(id);

@@ -53,6 +53,27 @@ public interface EmployeesService {
 		
 	);
 	
+	Page<Employees> searchPagination(
+		Pageable page,
+		
+		
+		
+		
+		
+		Long officesId,
+		
+		
+		
+		String lastName,
+		String extension,
+		String firstName,
+		Boolean isActive,
+		String email,
+		String jobTitle,
+		Integer reportsTo
+		
+	);
+	
 	
 	
 	

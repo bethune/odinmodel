@@ -65,6 +65,23 @@ public class ReviewsServiceImpl implements ReviewsService {
 		return reviewsRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<Reviews> searchPagination(
+		Pageable page,
+		LocalDate reviewDate,
+		String reviewText,
+		LocalTime reviewTime
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			reviewDate,
+			reviewText,
+			reviewTime
+			
+		);
+		return reviewsRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		LocalDate reviewDate,
 		String reviewText,
@@ -88,6 +105,7 @@ public class ReviewsServiceImpl implements ReviewsService {
 	
 		return where;
 	}
+	
 	@Override
 	public void deleteOneById(Long id) {
 		reviewsRepository.deleteById(id);

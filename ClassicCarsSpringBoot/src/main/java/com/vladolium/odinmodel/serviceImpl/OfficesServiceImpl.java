@@ -85,6 +85,33 @@ public class OfficesServiceImpl implements OfficesService {
 		return officesRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<Offices> searchPagination(
+		Pageable page,
+		String city,
+		String phone,
+		String addressLine1,
+		String territory,
+		String country,
+		String addressLine2,
+		String state,
+		String postalCode
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			city,
+			phone,
+			addressLine1,
+			territory,
+			country,
+			addressLine2,
+			state,
+			postalCode
+			
+		);
+		return officesRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		String city,
 		String phone,
@@ -128,6 +155,7 @@ public class OfficesServiceImpl implements OfficesService {
 	
 		return where;
 	}
+	
 	
 	
 	

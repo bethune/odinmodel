@@ -14,6 +14,21 @@ public Iterable<[entity/]> search(
 		[searchParameters(aClass)/]
 	);
 }
+
+[comment : search all with pagination /]
+@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+public Page<[entity/]> searchPagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber,
+	[searchRequests(aClass)/]
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+
+	return [property/]Service.searchPagination(
+		page,
+		[searchParameters(aClass)/]
+	);
+}
 [/template]
 
 [comment:

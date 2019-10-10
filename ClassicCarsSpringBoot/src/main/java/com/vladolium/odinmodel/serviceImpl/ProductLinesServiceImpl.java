@@ -65,6 +65,23 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		return productLinesRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<ProductLines> searchPagination(
+		Pageable page,
+		String textDescription,
+		byte[] image,
+		String productLine
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			textDescription,
+			image,
+			productLine
+			
+		);
+		return productLinesRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		String textDescription,
 		byte[] image,
@@ -88,6 +105,7 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	
 		return where;
 	}
+	
 	
 	@Override
 	public void deleteOneById(Long id) {

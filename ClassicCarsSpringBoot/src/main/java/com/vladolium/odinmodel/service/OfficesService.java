@@ -46,6 +46,19 @@ public interface OfficesService {
 		
 	);
 	
+	Page<Offices> searchPagination(
+		Pageable page,
+		String city,
+		String phone,
+		String addressLine1,
+		String territory,
+		String country,
+		String addressLine2,
+		String state,
+		String postalCode
+		
+	);
+	
 	
 	
 	

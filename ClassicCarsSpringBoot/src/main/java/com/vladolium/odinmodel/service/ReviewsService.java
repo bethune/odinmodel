@@ -30,6 +30,14 @@ public interface ReviewsService {
 		LocalTime reviewTime
 		
 	);
+	
+	Page<Reviews> searchPagination(
+		Pageable page,
+		LocalDate reviewDate,
+		String reviewText,
+		LocalTime reviewTime
+		
+	);
 	void deleteOneById(Long id);
 	
 	

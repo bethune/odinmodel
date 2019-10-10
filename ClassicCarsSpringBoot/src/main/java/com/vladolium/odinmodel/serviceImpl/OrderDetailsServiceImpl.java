@@ -97,6 +97,53 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		return orderDetailsRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<OrderDetails> searchPagination(
+		Pageable page,
+		
+		Long ordersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long productsId,
+		
+		Integer orderLineNumber,
+		Integer quantityOrdered,
+		Double priceEach
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			
+			ordersId,
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			productsId,
+			
+			orderLineNumber,
+			quantityOrdered,
+			priceEach
+			
+		);
+		return orderDetailsRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		
 		Long ordersId,
@@ -154,6 +201,7 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	
 		return where;
 	}
+	
 	
 	
 	

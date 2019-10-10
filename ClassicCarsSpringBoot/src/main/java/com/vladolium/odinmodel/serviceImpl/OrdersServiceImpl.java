@@ -98,6 +98,51 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<Orders> searchPagination(
+		Pageable page,
+		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDate shippedDate,
+		String comments,
+		String status,
+		LocalDate orderDate,
+		LocalDate requiredDate
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersId,
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			shippedDate,
+			comments,
+			status,
+			orderDate,
+			requiredDate
+			
+		);
+		return ordersRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
 		
@@ -155,6 +200,7 @@ public class OrdersServiceImpl implements OrdersService {
 	
 		return where;
 	}
+	
 	
 	
 	@Override

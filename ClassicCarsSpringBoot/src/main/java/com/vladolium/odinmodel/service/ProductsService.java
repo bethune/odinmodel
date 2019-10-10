@@ -52,6 +52,23 @@ public interface ProductsService {
 		
 	);
 	
+	Page<Products> searchPagination(
+		Pageable page,
+		
+		Long productLinesId,
+		
+		
+		Double buyPrice,
+		String productCode,
+		String productScale,
+		String productDescription,
+		Double msrp,
+		String productName,
+		String productVendor,
+		Integer quantityInStock
+		
+	);
+	
 	
 	
 	

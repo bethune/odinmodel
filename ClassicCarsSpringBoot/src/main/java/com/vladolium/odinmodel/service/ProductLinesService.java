@@ -31,6 +31,14 @@ public interface ProductLinesService {
 		
 	);
 	
+	Page<ProductLines> searchPagination(
+		Pageable page,
+		String textDescription,
+		byte[] image,
+		String productLine
+		
+	);
+	
 	void deleteOneById(Long id);
 	
 	

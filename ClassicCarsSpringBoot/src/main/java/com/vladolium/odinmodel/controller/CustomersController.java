@@ -217,6 +217,60 @@ public class CustomersController {
 			
 		);
 	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Customers> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		
+		
+		
+		
+		
+		
+		@RequestParam(value = "employeesId", required = false) Long employeesId,
+		
+		@RequestParam(value = "reviewsList", required = false) List<Reviews> reviewsList,
+		@RequestParam(value = "city", required = false) String city,
+		@RequestParam(value = "firstName", required = false) String firstName,
+		@RequestParam(value = "phone", required = false) String phone,
+		@RequestParam(value = "lastName", required = false) String lastName,
+		@RequestParam(value = "addressLine1", required = false) String addressLine1,
+		@RequestParam(value = "customerName", required = false) String customerName,
+		@RequestParam(value = "creditLimit", required = false) Double creditLimit,
+		@RequestParam(value = "country", required = false) String country,
+		@RequestParam(value = "addressLine2", required = false) String addressLine2,
+		@RequestParam(value = "state", required = false) String state,
+		@RequestParam(value = "postalCode", required = false) String postalCode
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return customersService.searchPagination(
+			page,
+			
+			
+			
+			
+			
+			
+			employeesId,
+			
+			reviewsList,
+			city,
+			firstName,
+			phone,
+			lastName,
+			addressLine1,
+			customerName,
+			creditLimit,
+			country,
+			addressLine2,
+			state,
+			postalCode
+			
+		);
+	}
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		customersService.deleteOneById(id);

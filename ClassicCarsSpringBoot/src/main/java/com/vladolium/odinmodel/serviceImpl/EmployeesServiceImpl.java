@@ -100,6 +100,49 @@ public class EmployeesServiceImpl implements EmployeesService {
 		return employeesRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<Employees> searchPagination(
+		Pageable page,
+		
+		
+		
+		
+		
+		Long officesId,
+		
+		
+		
+		String lastName,
+		String extension,
+		String firstName,
+		Boolean isActive,
+		String email,
+		String jobTitle,
+		Integer reportsTo
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
+			officesId,
+			
+			
+			
+			lastName,
+			extension,
+			firstName,
+			isActive,
+			email,
+			jobTitle,
+			reportsTo
+			
+		);
+		return employeesRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		
 		
@@ -159,6 +202,7 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 		return where;
 	}
+	
 	
 	
 	

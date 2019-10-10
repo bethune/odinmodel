@@ -148,6 +148,52 @@ public class EmployeesController {
 		);
 	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Employees> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		
+		
+		
+		
+		
+		@RequestParam(value = "officesId", required = false) Long officesId,
+		
+		
+		
+		@RequestParam(value = "lastName", required = false) String lastName,
+		@RequestParam(value = "extension", required = false) String extension,
+		@RequestParam(value = "firstName", required = false) String firstName,
+		@RequestParam(value = "isActive", required = false) Boolean isActive,
+		@RequestParam(value = "email", required = false) String email,
+		@RequestParam(value = "jobTitle", required = false) String jobTitle,
+		@RequestParam(value = "reportsTo", required = false) Integer reportsTo
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return employeesService.searchPagination(
+			page,
+			
+			
+			
+			
+			
+			officesId,
+			
+			
+			
+			lastName,
+			extension,
+			firstName,
+			isActive,
+			email,
+			jobTitle,
+			reportsTo
+			
+		);
+	}
+	
 	
 	
 	

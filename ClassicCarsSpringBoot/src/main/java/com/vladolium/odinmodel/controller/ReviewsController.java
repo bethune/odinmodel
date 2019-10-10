@@ -94,6 +94,26 @@ public class ReviewsController {
 			
 		);
 	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Reviews> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate,
+		@RequestParam(value = "reviewText", required = false) String reviewText,
+		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return reviewsService.searchPagination(
+			page,
+			reviewDate,
+			reviewText,
+			reviewTime
+			
+		);
+	}
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		reviewsService.deleteOneById(id);

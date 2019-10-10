@@ -149,6 +149,43 @@ public class GiftsController {
 		);
 	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Gifts> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
+		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
+		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn,
+		@RequestParam(value = "giftName", required = false) String giftName,
+		@RequestParam(value = "giftType", required = false) GiftType giftType
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return giftsService.searchPagination(
+			page,
+			customersSet,
+			isExpired,
+			expiresOn,
+			beginsOn,
+			giftName,
+			giftType
+			
+		);
+	}
+	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {

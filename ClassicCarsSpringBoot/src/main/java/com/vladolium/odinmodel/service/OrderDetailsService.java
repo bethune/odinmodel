@@ -48,6 +48,29 @@ public interface OrderDetailsService {
 		
 	);
 	
+	Page<OrderDetails> searchPagination(
+		Pageable page,
+		
+		Long ordersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long productsId,
+		
+		Integer orderLineNumber,
+		Integer quantityOrdered,
+		Double priceEach
+		
+	);
+	
 	
 	
 	void deleteOneById(Long id);

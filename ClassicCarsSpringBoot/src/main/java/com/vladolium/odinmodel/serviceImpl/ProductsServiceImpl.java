@@ -98,6 +98,41 @@ public class ProductsServiceImpl implements ProductsService {
 		return productsRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<Products> searchPagination(
+		Pageable page,
+		
+		Long productLinesId,
+		
+		
+		Double buyPrice,
+		String productCode,
+		String productScale,
+		String productDescription,
+		Double msrp,
+		String productName,
+		String productVendor,
+		Integer quantityInStock
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			
+			productLinesId,
+			
+			
+			buyPrice,
+			productCode,
+			productScale,
+			productDescription,
+			msrp,
+			productName,
+			productVendor,
+			quantityInStock
+			
+		);
+		return productsRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		
 		Long productLinesId,
@@ -151,6 +186,7 @@ public class ProductsServiceImpl implements ProductsService {
 	
 		return where;
 	}
+	
 	
 	
 	

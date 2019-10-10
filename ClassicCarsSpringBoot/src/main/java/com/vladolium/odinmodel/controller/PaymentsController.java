@@ -130,6 +130,52 @@ public class PaymentsController {
 		);
 	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@RequestParam(value = "customersId", required = false) Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
+		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp,
+		@RequestParam(value = "amount", required = false) Double amount,
+		@RequestParam(value = "checkNumber", required = false) String checkNumber
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return paymentsService.searchPagination(
+			page,
+			customersId,
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			paymentDate,
+			paymentTimestamp,
+			amount,
+			checkNumber
+			
+		);
+	}
+	
 	
 	
 	

@@ -51,6 +51,28 @@ public interface GiftsService {
 		
 	);
 	
+	Page<Gifts> searchPagination(
+		Pageable page,
+		Set<Long> customersSet,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Boolean isExpired,
+		LocalDateTime expiresOn,
+		LocalDateTime beginsOn,
+		String giftName,
+		GiftType giftType
+		
+	);
+	
 	
 	void deleteOneById(Long id);
 	

@@ -91,6 +91,40 @@ public class GiftsServiceImpl implements GiftsService {
 		return giftsRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<Gifts> searchPagination(
+		Pageable page,
+		Set<Long> customersSet,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Boolean isExpired,
+		LocalDateTime expiresOn,
+		LocalDateTime beginsOn,
+		String giftName,
+		GiftType giftType
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersSet,
+			isExpired,
+			expiresOn,
+			beginsOn,
+			giftName,
+			giftType
+			
+		);
+		return giftsRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		Set<Long> customersSet,
 		
@@ -148,6 +182,7 @@ public class GiftsServiceImpl implements GiftsService {
 	
 		return where;
 	}
+	
 	
 	
 	@Override

@@ -94,6 +94,49 @@ public class PaymentsServiceImpl implements PaymentsService {
 		return paymentsRepository.findAll(where);
 	}
 	
+	@Override
+	public Page<Payments> searchPagination(
+		Pageable page,
+		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDate paymentDate,
+		Instant paymentTimestamp,
+		Double amount,
+		String checkNumber
+		
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersId,
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			paymentDate,
+			paymentTimestamp,
+			amount,
+			checkNumber
+			
+		);
+		return paymentsRepository.findAll(where, page);
+	}
+	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
 		
@@ -147,6 +190,7 @@ public class PaymentsServiceImpl implements PaymentsService {
 	
 		return where;
 	}
+	
 	
 	
 	

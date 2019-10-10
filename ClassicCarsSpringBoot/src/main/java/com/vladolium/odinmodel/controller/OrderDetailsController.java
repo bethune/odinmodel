@@ -131,6 +131,56 @@ public class OrderDetailsController {
 		);
 	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<OrderDetails> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		
+		@RequestParam(value = "ordersId", required = false) Long ordersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		@RequestParam(value = "productsId", required = false) Long productsId,
+		
+		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber,
+		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered,
+		@RequestParam(value = "priceEach", required = false) Double priceEach
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return orderDetailsService.searchPagination(
+			page,
+			
+			ordersId,
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			productsId,
+			
+			orderLineNumber,
+			quantityOrdered,
+			priceEach
+			
+		);
+	}
+	
 	
 	
 	@DeleteMapping("/{id}")

@@ -47,6 +47,27 @@ public interface PaymentsService {
 		
 	);
 	
+	Page<Payments> searchPagination(
+		Pageable page,
+		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDate paymentDate,
+		Instant paymentTimestamp,
+		Double amount,
+		String checkNumber
+		
+	);
+	
 	
 	
 	

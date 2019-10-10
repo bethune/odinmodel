@@ -174,6 +174,44 @@ public class ProductsController {
 		);
 	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Products> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		
+		@RequestParam(value = "productLinesId", required = false) Long productLinesId,
+		
+		
+		@RequestParam(value = "buyPrice", required = false) Double buyPrice,
+		@RequestParam(value = "productCode", required = false) String productCode,
+		@RequestParam(value = "productScale", required = false) String productScale,
+		@RequestParam(value = "productDescription", required = false) String productDescription,
+		@RequestParam(value = "msrp", required = false) Double msrp,
+		@RequestParam(value = "productName", required = false) String productName,
+		@RequestParam(value = "productVendor", required = false) String productVendor,
+		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return productsService.searchPagination(
+			page,
+			
+			productLinesId,
+			
+			
+			buyPrice,
+			productCode,
+			productScale,
+			productDescription,
+			msrp,
+			productName,
+			productVendor,
+			quantityInStock
+			
+		);
+	}
+	
 	
 	
 	

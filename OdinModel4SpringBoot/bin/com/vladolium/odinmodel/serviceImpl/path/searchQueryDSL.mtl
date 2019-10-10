@@ -17,6 +17,19 @@ public Iterable<[entity/]> search(
 	return [property/]Repository.findAll(where);
 }
 
+[comment : search all with pagination /]
+@Override
+public Page<[entity/]> searchPagination(
+	Pageable page,
+	[searchParameters(aClass)/]
+) {
+	BooleanBuilder where = dynamicWhere(
+		[queryParameters(aClass)/]
+	);
+	return [property/]Repository.findAll(where, page);
+}
+
+[comment : building dynamic query/]
 public BooleanBuilder dynamicWhere(
 	[searchParameters(aClass)/]
 ) {
@@ -28,6 +41,7 @@ public BooleanBuilder dynamicWhere(
 
 	return where;
 }
+
 [/template]
 
 [comment:

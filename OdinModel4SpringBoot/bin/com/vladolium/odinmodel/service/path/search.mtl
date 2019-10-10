@@ -8,6 +8,12 @@
 Iterable<[entity/]> search(
 	[searchParameters(aClass)/]
 );
+
+[comment : search all with pagination /]
+Page<[entity/]> searchPagination(
+	Pageable page,
+	[searchParameters(aClass)/]
+);
 [/template]
 
 [comment:

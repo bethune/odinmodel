@@ -138,6 +138,54 @@ public class OrdersController {
 		);
 	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@RequestParam(value = "customersId", required = false) Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
+		@RequestParam(value = "comments", required = false) String comments,
+		@RequestParam(value = "status", required = false) String status,
+		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
+		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return ordersService.searchPagination(
+			page,
+			customersId,
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			shippedDate,
+			comments,
+			status,
+			orderDate,
+			requiredDate
+			
+		);
+	}
+	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
