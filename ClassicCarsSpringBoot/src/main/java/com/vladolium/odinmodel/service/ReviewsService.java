@@ -24,6 +24,9 @@ public interface ReviewsService {
 	Iterable<Reviews> readAll();
 	
 	Page<Reviews> readAllPagination(Pageable page);
+	
+	
+	
 	Iterable<Reviews> search(
 		LocalDate reviewDate,
 		String reviewText,

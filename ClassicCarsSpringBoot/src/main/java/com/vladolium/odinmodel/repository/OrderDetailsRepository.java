@@ -3,7 +3,7 @@ package com.vladolium.odinmodel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.vladolium.odinmodel.domain.OrderDetails;
+import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
@@ -21,6 +21,30 @@ public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long
 
 
 OrderDetails findByIdEquals(Long id);
+
+
+
+
+
+
+
+
+Iterable <OrderDetails> findByProductsIdEquals(Long productsId);
+
+Page <OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
+
+
+
+Iterable <OrderDetails> findByProductsProductCodeEquals(String productsProductCode);
+
+Page <OrderDetails> findByProductsProductCodeEquals(String productsProductCode, Pageable page);
+
+
+
+
+
+
+
 
 
 

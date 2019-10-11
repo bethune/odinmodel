@@ -30,6 +30,9 @@ public interface GiftsService {
 	Iterable<Gifts> readAll();
 	
 	Page<Gifts> readAllPagination(Pageable page);
+	
+	
+	
 	Iterable<Gifts> search(
 		Set<Long> customersSet,
 		

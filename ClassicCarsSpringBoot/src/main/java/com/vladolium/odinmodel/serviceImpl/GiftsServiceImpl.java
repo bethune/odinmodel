@@ -58,6 +58,9 @@ public class GiftsServiceImpl implements GiftsService {
 	public Page<Gifts> readAllPagination(Pageable page) {
 		return giftsRepository.findAll(page);
 	}
+	
+	
+	
 	@Override
 	public Iterable<Gifts> search(
 		Set<Long> customersSet,

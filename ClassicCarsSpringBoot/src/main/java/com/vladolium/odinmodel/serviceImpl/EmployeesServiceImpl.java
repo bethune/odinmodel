@@ -58,6 +58,34 @@ public class EmployeesServiceImpl implements EmployeesService {
 	public Page<Employees> readAllPagination(Pageable page) {
 		return employeesRepository.findAll(page);
 	}
+	
+	
+	
+	
+	
+	
+	@Override
+	public Iterable<Employees> readAllByOfficesId(Long officesId) {
+		return employeesRepository.findByOfficesIdEquals(officesId);
+	}
+	
+	@Override
+	public Page<Employees> readAllByOfficesId(Long officesId, Pageable page) {
+		return employeesRepository.findByOfficesIdEquals(officesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Employees> search(
 		

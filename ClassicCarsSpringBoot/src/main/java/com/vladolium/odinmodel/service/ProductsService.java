@@ -36,6 +36,18 @@ public interface ProductsService {
 	Iterable<Products> readAll();
 	
 	Page<Products> readAllPagination(Pageable page);
+	
+	
+	Iterable <Products> readAllByProductLinesId(Long productLinesId);
+	
+	Page<Products> readAllByProductLinesId(Long productLinesId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
 	Iterable<Products> search(
 		
 		Long productLinesId,

@@ -3,7 +3,7 @@ package com.vladolium.odinmodel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.vladolium.odinmodel.domain.Payments;
+import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.Payments.*;
@@ -21,6 +21,36 @@ public interface PaymentsRepository extends JpaRepository<Payments, Long>, Query
 
 
 Payments findByIdEquals(Long id);
+
+
+Iterable <Payments> findByCustomersIdEquals(Long customersId);
+
+Page <Payments> findByCustomersIdEquals(Long customersId, Pageable page);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iterable <Payments> findByCustomersCustomerNameEquals(String customersCustomerName);
+
+Page <Payments> findByCustomersCustomerNameEquals(String customersCustomerName, Pageable page);
+
 
 
 

@@ -3,7 +3,7 @@ package com.vladolium.odinmodel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.vladolium.odinmodel.domain.Reviews;
+import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Reviews;
 import com.vladolium.odinmodel.domain.Reviews.*;
@@ -16,6 +16,8 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Long>, Queryds
 
 
 Reviews findByIdEquals(Long id);
+
+
 
 
 

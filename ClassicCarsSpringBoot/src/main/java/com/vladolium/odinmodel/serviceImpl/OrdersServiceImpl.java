@@ -54,6 +54,49 @@ public class OrdersServiceImpl implements OrdersService {
 	public Page<Orders> readAllPagination(Pageable page) {
 		return ordersRepository.findAll(page);
 	}
+	
+	@Override
+	public Iterable<Orders> readAllByCustomersId(Long customersId) {
+		return ordersRepository.findByCustomersIdEquals(customersId);
+	}
+	
+	@Override
+	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
+		return ordersRepository.findByCustomersIdEquals(customersId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName) {
+		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName);
+	}
+	
+	@Override
+	public Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
+		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
+	}
+	
+	
+	
 	@Override
 	public Iterable<Orders> search(
 		Long customersId,

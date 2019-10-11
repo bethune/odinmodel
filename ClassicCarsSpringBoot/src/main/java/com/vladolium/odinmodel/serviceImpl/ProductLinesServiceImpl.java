@@ -49,6 +49,9 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	public Page<ProductLines> readAllPagination(Pageable page) {
 		return productLinesRepository.findAll(page);
 	}
+	
+	
+	
 	@Override
 	public Iterable<ProductLines> search(
 		String textDescription,

@@ -75,6 +75,34 @@ public class ProductLinesController {
 		return productLinesService.readAllPagination(page);
 	}
 	
+	private ProductsService productsService;
+	
+	@Autowired
+	public void setProductsService(ProductsService productsService) {
+		this.productsService = productsService;
+	}
+	
+	@GetMapping("/{productLinesId}/products")
+	public Iterable<Products> readAllProductsByProductLinesId(@PathVariable Long productLinesId) {
+		return productsService.readAllByProductLinesId(productLinesId);
+	}
+	
+	@GetMapping("/{productLinesId}/products/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Products> readAllProductsByProductLinesIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long productLinesId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return productsService.readAllByProductLinesId(productLinesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -51,6 +51,43 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public Page<OrderDetails> readAllPagination(Pageable page) {
 		return orderDetailsRepository.findAll(page);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public Iterable<OrderDetails> readAllByProductsId(Long productsId) {
+		return orderDetailsRepository.findByProductsIdEquals(productsId);
+	}
+	
+	@Override
+	public Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page) {
+		return orderDetailsRepository.findByProductsIdEquals(productsId, page);
+	}
+	
+	
+	
+	@Override
+	public Iterable<OrderDetails> readAllByProductsProductCode(String productsProductCode) {
+		return orderDetailsRepository.findByProductsProductCodeEquals(productsProductCode);
+	}
+	
+	@Override
+	public Page<OrderDetails> readAllByProductsProductCode(String productsProductCode, Pageable page) {
+		return orderDetailsRepository.findByProductsProductCodeEquals(productsProductCode, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<OrderDetails> search(
 		

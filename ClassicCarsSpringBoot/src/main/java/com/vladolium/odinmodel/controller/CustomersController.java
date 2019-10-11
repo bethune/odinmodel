@@ -164,6 +164,125 @@ public class CustomersController {
 		return customersService.readAllPagination(page);
 	}
 	
+	private OrdersService ordersService;
+	
+	@Autowired
+	public void setOrdersService(OrdersService ordersService) {
+		this.ordersService = ordersService;
+	}
+	@GetMapping("/{customersId}/orders")
+	public Iterable<Orders> readAllOrdersByCustomersId(@PathVariable Long customersId) {
+		return ordersService.readAllByCustomersId(customersId);
+	}
+	
+	@GetMapping("/{customersId}/orders/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> readAllOrdersByCustomersIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long customersId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return ordersService.readAllByCustomersId(customersId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/customerName={customersCustomerName}/orders")
+	public Iterable<Orders> readAllOrdersByCustomersCustomerName(@PathVariable String customersCustomerName) {
+		return ordersService.readAllByCustomersCustomerName(customersCustomerName);
+	}
+	
+	@GetMapping("/customerName={customersCustomerName}/orders/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> readAllOrdersByCustomersCustomerNamePagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable String customersCustomerName
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return ordersService.readAllByCustomersCustomerName(customersCustomerName, page);
+	}
+	
+	
+	private PaymentsService paymentsService;
+	
+	@Autowired
+	public void setPaymentsService(PaymentsService paymentsService) {
+		this.paymentsService = paymentsService;
+	}
+	@GetMapping("/{customersId}/payments")
+	public Iterable<Payments> readAllPaymentsByCustomersId(@PathVariable Long customersId) {
+		return paymentsService.readAllByCustomersId(customersId);
+	}
+	
+	@GetMapping("/{customersId}/payments/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> readAllPaymentsByCustomersIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long customersId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return paymentsService.readAllByCustomersId(customersId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/customerName={customersCustomerName}/payments")
+	public Iterable<Payments> readAllPaymentsByCustomersCustomerName(@PathVariable String customersCustomerName) {
+		return paymentsService.readAllByCustomersCustomerName(customersCustomerName);
+	}
+	
+	@GetMapping("/customerName={customersCustomerName}/payments/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> readAllPaymentsByCustomersCustomerNamePagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable String customersCustomerName
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return paymentsService.readAllByCustomersCustomerName(customersCustomerName, page);
+	}
+	
+	
+	
 	
 	
 	

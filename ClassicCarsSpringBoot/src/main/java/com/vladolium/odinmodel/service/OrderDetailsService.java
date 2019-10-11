@@ -26,6 +26,31 @@ public interface OrderDetailsService {
 	Iterable<OrderDetails> readAll();
 	
 	Page<OrderDetails> readAllPagination(Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	Iterable <OrderDetails> readAllByProductsId(Long productsId);
+	
+	Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page);
+	
+	
+	
+	Iterable <OrderDetails> readAllByProductsProductCode(String productsProductCode);
+	
+	Page<OrderDetails> readAllByProductsProductCode(String productsProductCode, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
 	Iterable<OrderDetails> search(
 		
 		Long ordersId,

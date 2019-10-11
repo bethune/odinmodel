@@ -105,6 +105,44 @@ public class OfficesController {
 		return officesService.readAllPagination(page);
 	}
 	
+	private EmployeesService employeesService;
+	
+	@Autowired
+	public void setEmployeesService(EmployeesService employeesService) {
+		this.employeesService = employeesService;
+	}
+	
+	
+	
+	
+	
+	@GetMapping("/{officesId}/employees")
+	public Iterable<Employees> readAllEmployeesByOfficesId(@PathVariable Long officesId) {
+		return employeesService.readAllByOfficesId(officesId);
+	}
+	
+	@GetMapping("/{officesId}/employees/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Employees> readAllEmployeesByOfficesIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long officesId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return employeesService.readAllByOfficesId(officesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

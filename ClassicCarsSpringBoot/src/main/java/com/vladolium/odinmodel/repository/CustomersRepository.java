@@ -3,7 +3,7 @@ package com.vladolium.odinmodel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.vladolium.odinmodel.domain.Customers;
+import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Customers;
 import com.vladolium.odinmodel.domain.Customers.*;
@@ -36,6 +36,25 @@ Customers findByIdEquals(Long id);
 
 
 Customers findByCustomerNameEquals(String customerName);
+
+
+
+
+
+
+
+
+
+Iterable <Customers> findByEmployeesIdEquals(Long employeesId);
+
+Page <Customers> findByEmployeesIdEquals(Long employeesId, Pageable page);
+
+
+
+
+
+
+
 
 
 

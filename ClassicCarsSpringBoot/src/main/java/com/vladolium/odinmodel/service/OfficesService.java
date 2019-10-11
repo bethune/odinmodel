@@ -34,6 +34,9 @@ public interface OfficesService {
 	Iterable<Offices> readAll();
 	
 	Page<Offices> readAllPagination(Pageable page);
+	
+	
+	
 	Iterable<Offices> search(
 		String city,
 		String phone,

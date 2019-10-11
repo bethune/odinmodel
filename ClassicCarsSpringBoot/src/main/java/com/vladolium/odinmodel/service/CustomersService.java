@@ -43,6 +43,26 @@ public interface CustomersService {
 	Iterable<Customers> readAll();
 	
 	Page<Customers> readAllPagination(Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	Iterable <Customers> readAllByEmployeesId(Long employeesId);
+	
+	Page<Customers> readAllByEmployeesId(Long employeesId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	Iterable<Customers> search(
 		
 		

@@ -14,10 +14,10 @@ package [repositoryPath/].repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.*;
+import [repositoryPath/].domain.*;
 import [repositoryPath/].domain.[entity/];
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
+import [repositoryPath/].domain.[entity/].*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
@@ -31,6 +31,50 @@ public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.na
 		[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
 			[if p.isUnique = true]
 [entity/] findBy[p.name.toUpperFirst()/]Equals([p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]);
+			[/if]
+		[/for]
+
+		[comment: Read all by parent id in many to one relationship /]
+		[for (p : Property | aClass.getAssociations().memberEnd)]
+			[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+				[for (pack : Package | aClass._package)]
+					[for (m : Class | pack.member -> filter(Class))]
+						[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+							[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+								[if a.isID = true]
+[comment: Read all by parent id /]
+Iterable <[p.type.name.toUpperFirst()/]> findBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/]Equals([a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/]);
+
+[comment: Read all by parent id with pagination /]
+Page <[p.type.name.toUpperFirst()/]> findBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/]Equals([a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/], Pageable page);
+								[/if]
+							[/for]
+						[/if]
+					[/for]
+				[/for]
+			[/if]
+		[/for]
+
+		[comment: Read all by parent unique field in many to one relationship /]
+		[for (p : Property | aClass.getAssociations().memberEnd)]
+			[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+				[for (pack : Package | aClass._package)]
+					[for (m : Class | pack.member -> filter(Class))]
+						[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+							[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+								[if a.isUnique = true and a.isID = false]
+[comment: Read all by parent unique field /]
+Iterable <[p.type.name.toUpperFirst()/]> findBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/]Equals([a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/]);
+
+[comment: Read all by parent unique field with pagination /]
+Page <[p.type.name.toUpperFirst()/]> findBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/]Equals([a.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/], Pageable page);
+								[/if]
+							[/for]
+						[/if]
+					[/for]
+				[/for]
 			[/if]
 		[/for]
 

@@ -59,6 +59,9 @@ public class OfficesServiceImpl implements OfficesService {
 	public Page<Offices> readAllPagination(Pageable page) {
 		return officesRepository.findAll(page);
 	}
+	
+	
+	
 	@Override
 	public Iterable<Offices> search(
 		String city,

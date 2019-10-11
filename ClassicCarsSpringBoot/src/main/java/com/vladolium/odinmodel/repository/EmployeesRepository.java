@@ -3,7 +3,7 @@ package com.vladolium.odinmodel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.vladolium.odinmodel.domain.Employees;
+import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
@@ -27,6 +27,27 @@ public interface EmployeesRepository extends JpaRepository<Employees, Long>, Que
 
 
 Employees findByIdEquals(Long id);
+
+
+
+
+
+
+
+Iterable <Employees> findByOfficesIdEquals(Long officesId);
+
+Page <Employees> findByOfficesIdEquals(Long officesId, Pageable page);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

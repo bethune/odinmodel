@@ -3,7 +3,7 @@ package com.vladolium.odinmodel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.vladolium.odinmodel.domain.Products;
+import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Products;
 import com.vladolium.odinmodel.domain.Products.*;
@@ -30,6 +30,17 @@ Products findByProductCodeEquals(String productCode);
 
 
 Products findByIdEquals(Long id);
+
+
+
+Iterable <Products> findByProductLinesIdEquals(Long productLinesId);
+
+Page <Products> findByProductLinesIdEquals(Long productLinesId, Pageable page);
+
+
+
+
+
 
 
 

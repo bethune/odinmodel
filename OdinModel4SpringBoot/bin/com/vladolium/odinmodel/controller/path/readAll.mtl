@@ -20,6 +20,69 @@ public Page<[entity/]> readAllPagination(
 	return [property/]Service.readAllPagination(page);
 }
 
+[comment: Read all by parent id in many to one relationship /]
+[for (pack : Package | aClass._package)]
+	[for (m : Class | pack.member -> filter(Class))]
+		[if m.name.toLower() <> aClass.name.toLower()]
+			[for (p : Property | m.getAssociations().memberEnd)]
+				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = m.name.toUpperFirst() and p.opposite.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+					p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+private [p.type.name.toUpperFirst()/]Service [p.type.name.toLowerFirst()/]Service;
+
+@Autowired
+public void set[p.type.name.toUpperFirst()/]Service([p.type.name.toUpperFirst()/]Service [p.type.name.toLowerFirst()/]Service) {
+	this.[p.type.name.toLowerFirst()/]Service = [p.type.name.toLowerFirst()/]Service;
+}
+					[comment: By parent id /]
+					[for (ap: Property | aClass.getAllAttributes()) separator('\n')]
+						[if ap.isID = true]
+[comment: Read all by parent id /]
+@GetMapping("/{[p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]}/[p.type.name.toLowerFirst()/]")
+public Iterable<[p.type.name.toUpperFirst()/]> readAll[p.type.name.toUpperFirst()/]By[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/](@PathVariable [ap.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]) {
+	return [p.type.name.toLowerFirst()/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/]([p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]);
+}
+
+[comment: Read all by parent id with pagination /]
+@GetMapping("/{[p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]}/[p.type.name.toLowerFirst()/]/page={pageNumber}/perPage={perPageNumber}")
+public Page<[p.type.name.toUpperFirst()/]> readAll[p.type.name.toUpperFirst()/]By[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/]Pagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber,
+	@PathVariable [ap.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return [p.type.name.toLowerFirst()/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/]([p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/], page);
+}
+						[/if]
+					[/for]
+
+					[comment: By parent unique field /]
+					[for (ap: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+						[if ap.isUnique = true and ap.isID = false]
+[comment: Read all by parent unique field /]
+@GetMapping("/[ap.name.toLowerFirst()/]={[p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]}/[p.type.name.toLowerFirst()/]")
+public Iterable<[p.type.name.toUpperFirst()/]> readAll[p.type.name.toUpperFirst()/]By[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/](@PathVariable [ap.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]) {
+	return [p.type.name.toLowerFirst()/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/]([p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]);
+}
+
+[comment: Read all by parent unique field with pagination /]
+@GetMapping("/[ap.name.toLowerFirst()/]={[p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]}/[p.type.name.toLowerFirst()/]/page={pageNumber}/perPage={perPageNumber}")
+public Page<[p.type.name.toUpperFirst()/]> readAll[p.type.name.toUpperFirst()/]By[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/]Pagination(
+	@PathVariable Integer pageNumber,
+	@PathVariable Integer perPageNumber,
+	@PathVariable [ap.type.name.toUpperFirst()/] [p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/]
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	return [p.type.name.toLowerFirst()/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][ap.name.toUpperFirst()/]([p.opposite.type.name.toLowerFirst()/][ap.name.toUpperFirst()/], page);
+}
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/if]
+	[/for]
+[/for]
+
+[comment: Read all by parent id in many to many relationship /]
 [comment: Read all by parent id /]
 
 [comment: Read all by parent id with pagination /]

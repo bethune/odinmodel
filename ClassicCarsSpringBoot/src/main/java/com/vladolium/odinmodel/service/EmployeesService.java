@@ -33,6 +33,28 @@ public interface EmployeesService {
 	Iterable<Employees> readAll();
 	
 	Page<Employees> readAllPagination(Pageable page);
+	
+	
+	
+	
+	
+	
+	Iterable <Employees> readAllByOfficesId(Long officesId);
+	
+	Page<Employees> readAllByOfficesId(Long officesId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	Iterable<Employees> search(
 		
 		

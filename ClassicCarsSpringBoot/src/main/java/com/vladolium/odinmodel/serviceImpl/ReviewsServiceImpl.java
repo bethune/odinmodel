@@ -49,6 +49,9 @@ public class ReviewsServiceImpl implements ReviewsService {
 	public Page<Reviews> readAllPagination(Pageable page) {
 		return reviewsRepository.findAll(page);
 	}
+	
+	
+	
 	@Override
 	public Iterable<Reviews> search(
 		LocalDate reviewDate,

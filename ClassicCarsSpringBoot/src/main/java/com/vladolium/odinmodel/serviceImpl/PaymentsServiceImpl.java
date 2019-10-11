@@ -52,6 +52,49 @@ public class PaymentsServiceImpl implements PaymentsService {
 	public Page<Payments> readAllPagination(Pageable page) {
 		return paymentsRepository.findAll(page);
 	}
+	
+	@Override
+	public Iterable<Payments> readAllByCustomersId(Long customersId) {
+		return paymentsRepository.findByCustomersIdEquals(customersId);
+	}
+	
+	@Override
+	public Page<Payments> readAllByCustomersId(Long customersId, Pageable page) {
+		return paymentsRepository.findByCustomersIdEquals(customersId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName) {
+		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName);
+	}
+	
+	@Override
+	public Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
+		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
+	}
+	
+	
+	
 	@Override
 	public Iterable<Payments> search(
 		Long customersId,

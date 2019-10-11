@@ -102,6 +102,43 @@ public class EmployeesController {
 		return employeesService.readAllPagination(page);
 	}
 	
+	private CustomersService customersService;
+	
+	@Autowired
+	public void setCustomersService(CustomersService customersService) {
+		this.customersService = customersService;
+	}
+	
+	
+	
+	
+	
+	
+	@GetMapping("/{employeesId}/customers")
+	public Iterable<Customers> readAllCustomersByEmployeesId(@PathVariable Long employeesId) {
+		return customersService.readAllByEmployeesId(employeesId);
+	}
+	
+	@GetMapping("/{employeesId}/customers/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Customers> readAllCustomersByEmployeesIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long employeesId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return customersService.readAllByEmployeesId(employeesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

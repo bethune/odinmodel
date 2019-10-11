@@ -27,6 +27,37 @@ public interface PaymentsService {
 	Iterable<Payments> readAll();
 	
 	Page<Payments> readAllPagination(Pageable page);
+	
+	Iterable <Payments> readAllByCustomersId(Long customersId);
+	
+	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Iterable <Payments> readAllByCustomersCustomerName(String customersCustomerName);
+	
+	Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
+	
+	
+	
 	Iterable<Payments> search(
 		Long customersId,
 		

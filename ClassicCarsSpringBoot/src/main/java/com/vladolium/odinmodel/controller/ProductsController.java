@@ -136,6 +136,59 @@ public class ProductsController {
 		return productsService.readAllPagination(page);
 	}
 	
+	private OrderDetailsService orderDetailsService;
+	
+	@Autowired
+	public void setOrderDetailsService(OrderDetailsService orderDetailsService) {
+		this.orderDetailsService = orderDetailsService;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/{productsId}/orderDetails")
+	public Iterable<OrderDetails> readAllOrderDetailsByProductsId(@PathVariable Long productsId) {
+		return orderDetailsService.readAllByProductsId(productsId);
+	}
+	
+	@GetMapping("/{productsId}/orderDetails/page={pageNumber}/perPage={perPageNumber}")
+	public Page<OrderDetails> readAllOrderDetailsByProductsIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long productsId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return orderDetailsService.readAllByProductsId(productsId, page);
+	}
+	
+	
+	
+	@GetMapping("/productCode={productsProductCode}/orderDetails")
+	public Iterable<OrderDetails> readAllOrderDetailsByProductsProductCode(@PathVariable String productsProductCode) {
+		return orderDetailsService.readAllByProductsProductCode(productsProductCode);
+	}
+	
+	@GetMapping("/productCode={productsProductCode}/orderDetails/page={pageNumber}/perPage={perPageNumber}")
+	public Page<OrderDetails> readAllOrderDetailsByProductsProductCodePagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable String productsProductCode
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return orderDetailsService.readAllByProductsProductCode(productsProductCode, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

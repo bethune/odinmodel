@@ -64,6 +64,24 @@ public class ProductsServiceImpl implements ProductsService {
 	public Page<Products> readAllPagination(Pageable page) {
 		return productsRepository.findAll(page);
 	}
+	
+	
+	@Override
+	public Iterable<Products> readAllByProductLinesId(Long productLinesId) {
+		return productsRepository.findByProductLinesIdEquals(productLinesId);
+	}
+	
+	@Override
+	public Page<Products> readAllByProductLinesId(Long productLinesId, Pageable page) {
+		return productsRepository.findByProductLinesIdEquals(productLinesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Products> search(
 		
