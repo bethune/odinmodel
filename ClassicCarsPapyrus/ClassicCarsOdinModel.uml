@@ -95,7 +95,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_GD2y8N-CEemhFrfFZLxexQ" name="giftType" type="_JEwYIN-CEemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Ao6XIN_YEemc_OofB7ydVg" name="isExpired" type="_JMm4IN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_AOIr4OEmEemxFfBtMY4P2Q" type="_noWUwN9rEemJF-HGxlolYw" association="_AOFBgOEmEemxFfBtMY4P2Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AOJS8OEmEemxFfBtMY4P2Q"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NReM0O3_EemHBeJL5OMV3w"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AOJ6AOEmEemxFfBtMY4P2Q" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_tyG2wOIoEemqlKIOh2pa2g" name="beginsOn" type="_MEiukN94EemhFrfFZLxexQ" isUnique="false"/>

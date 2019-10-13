@@ -283,11 +283,6 @@ public class CustomersController {
 	
 	
 	
-	
-	
-	
-	
-	
 	@GetMapping("/search")
 	public Iterable<Customers> search(
 		

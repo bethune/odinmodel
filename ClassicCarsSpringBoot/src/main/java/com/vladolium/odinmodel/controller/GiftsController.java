@@ -113,11 +113,6 @@ public class GiftsController {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@GetMapping("/search")
 	public Iterable<Gifts> search(
 		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,

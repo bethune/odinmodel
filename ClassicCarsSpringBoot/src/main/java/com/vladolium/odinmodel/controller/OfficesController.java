@@ -143,11 +143,6 @@ public class OfficesController {
 	
 	
 	
-	
-	
-	
-	
-	
 	@GetMapping("/search")
 	public Iterable<Offices> search(
 		@RequestParam(value = "city", required = false) String city,

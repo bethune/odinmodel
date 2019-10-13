@@ -25,7 +25,7 @@ public Page<[entity/]> readAllPagination(
 	[for (m : Class | pack.member -> filter(Class))]
 		[if m.name.toLower() <> aClass.name.toLower()]
 			[for (p : Property | m.getAssociations().memberEnd)]
-				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = m.name.toUpperFirst() and p.opposite.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = m.name.toUpperFirst() and p.opposite.type.name.toUpperFirst() = entity and 
 					p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 private [p.type.name.toUpperFirst()/]Service [p.type.name.toLowerFirst()/]Service;
 
@@ -81,15 +81,4 @@ public Page<[p.type.name.toUpperFirst()/]> readAll[p.type.name.toUpperFirst()/]B
 		[/if]
 	[/for]
 [/for]
-
-[comment: Read all by parent id in many to many relationship /]
-[comment: Read all by parent id /]
-
-[comment: Read all by parent id with pagination /]
-
-[comment: Read first 10 inserts /]
-
-[comment: Read last 10 inserts /]
-
-
 [/template]

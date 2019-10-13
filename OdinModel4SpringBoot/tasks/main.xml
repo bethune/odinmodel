@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="main" name="OdinModel4SpringBoot">
-    <property name="ECLIPSE_HOME" value="C:/odinmodel/sts-4.4.0.RELEASE"/>
+    <property name="ECLIPSE_HOME" value="../../../../alati/sts-4.4.0.RELEASE"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../razvoj"/>
 
     <!-- The classpath with only the dependencies used by the project -->

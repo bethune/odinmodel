@@ -103,11 +103,6 @@ public class ProductLinesController {
 	
 	
 	
-	
-	
-	
-	
-	
 	@GetMapping("/search")
 	public Iterable<ProductLines> search(
 		@RequestParam(value = "textDescription", required = false) String textDescription,
