@@ -10,11 +10,6 @@ import com.vladolium.odinmodel.domain.Offices.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-
-
-
-
-
 public interface OfficesRepository extends JpaRepository<Offices, Long>, QuerydslPredicateExecutor<Offices> {
 
 
@@ -26,6 +21,11 @@ public interface OfficesRepository extends JpaRepository<Offices, Long>, Queryds
 
 
 Offices findByIdEquals(Long id);
+
+
+
+
+
 
 
 

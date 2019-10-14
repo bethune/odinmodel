@@ -14,17 +14,17 @@ public interface GiftsService {
 	Gifts createUpdate(Gifts gifts);
 	
 	
+	
+	
+	
 	Gifts readOneById(Long id);
 	
 	
 	
 	
 	
-	
-	
-	
-	
 	Gifts readOneByGiftName(String giftName);
+	
 	
 	
 	Iterable<Gifts> readAll();
@@ -34,53 +34,53 @@ public interface GiftsService {
 	
 	
 	Iterable<Gifts> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		GiftType giftType,
 		Boolean isExpired,
-		LocalDateTime beginsOn,
 		LocalDateTime expiresOn,
 		String giftName,
-		GiftType giftType
+		LocalDateTime beginsOn
 		
 	);
 	
 	Page<Gifts> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		GiftType giftType,
 		Boolean isExpired,
-		LocalDateTime beginsOn,
 		LocalDateTime expiresOn,
 		String giftName,
-		GiftType giftType
+		LocalDateTime beginsOn
 		
 	);
 	
 	
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
 	
 	
 

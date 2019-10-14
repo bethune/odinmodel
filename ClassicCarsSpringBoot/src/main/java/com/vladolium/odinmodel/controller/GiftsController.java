@@ -30,28 +30,27 @@ public class GiftsController {
 	}
 	
 	
+	
+	
+	
 	@PutMapping("/{id}")
 	public Gifts updateOneById(@PathVariable Long id, @RequestBody Gifts gifts) {
 		Gifts current = giftsService.readOneById(id);
 		current.setCustomersSet(gifts.getCustomersSet());
 		
+		current.setGiftType(gifts.getGiftType());
+		
 		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setBeginsOn(gifts.getBeginsOn());
-		
 		
 		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setGiftName(gifts.getGiftName());
 		
-		current.setGiftType(gifts.getGiftType());
+		
+		current.setBeginsOn(gifts.getBeginsOn());
 					
 		return giftsService.createUpdate(current);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -62,19 +61,23 @@ public class GiftsController {
 		Gifts current = giftsService.readOneByGiftName(giftName);
 		current.setCustomersSet(gifts.getCustomersSet());
 				
+		current.setGiftType(gifts.getGiftType());
+		
 		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setBeginsOn(gifts.getBeginsOn());
-		
 		
 		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setGiftName(gifts.getGiftName());
 		
-		current.setGiftType(gifts.getGiftType());
+		
+		current.setBeginsOn(gifts.getBeginsOn());
 		
 		return giftsService.createUpdate(current);
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -88,14 +91,11 @@ public class GiftsController {
 	
 	
 	
-	
-	
-	
-	
 	@GetMapping("/giftName={giftName}")
 	public Gifts readOneByGiftName(@PathVariable String giftName) {
 		return giftsService.readOneByGiftName(giftName);
 	}
+	
 	
 	
 	@GetMapping("")
@@ -115,32 +115,32 @@ public class GiftsController {
 	
 	@GetMapping("/search")
 	public Iterable<Gifts> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		@RequestParam(value = "giftType", required = false) GiftType giftType,
 		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
-		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn,
 		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
 		@RequestParam(value = "giftName", required = false) String giftName,
-		@RequestParam(value = "giftType", required = false) GiftType giftType
+		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn
 		
 	) {
 		return giftsService.search(
 			customersSet,
+			giftType,
 			isExpired,
-			beginsOn,
 			expiresOn,
 			giftName,
-			giftType
+			beginsOn
 			
 		);
 	}
@@ -149,23 +149,23 @@ public class GiftsController {
 	public Page<Gifts> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
+		
+		
+		
+		
+		
+		
+		
+		
 		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		@RequestParam(value = "giftType", required = false) GiftType giftType,
 		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
-		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn,
 		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
 		@RequestParam(value = "giftName", required = false) String giftName,
-		@RequestParam(value = "giftType", required = false) GiftType giftType
+		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -173,23 +173,23 @@ public class GiftsController {
 		return giftsService.searchPagination(
 			page,
 			customersSet,
+			giftType,
 			isExpired,
-			beginsOn,
 			expiresOn,
 			giftName,
-			giftType
+			beginsOn
 			
 		);
 	}
+	
+	
+	
 	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		giftsService.deleteOneById(id);
 	}
-	
-	
-	
 	
 	
 

@@ -34,6 +34,7 @@ public abstract class ContactDetails {
 	
 	
 	
+	@Size(max=15)
 	private String postalCode;
 	
 	public String getPostalCode() {
@@ -44,7 +45,18 @@ public abstract class ContactDetails {
 	}
 	
 	@NotNull
+	@Size(max=50)
+	private String addressLine1;
 	
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+	
+	@NotNull
+	@Size(max=50)
 	private String country;
 	
 	public String getCountry() {
@@ -54,26 +66,7 @@ public abstract class ContactDetails {
 		this.country = country;
 	}
 	
-	@NotNull
-	
-	private String city;
-	
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	
-	private String addressLine2;
-	
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
-	}
-	
+	@Size(max=50)@Pattern(regexp="(d{3})d{3}-d{4}")
 	private String phone;
 	
 	public String getPhone() {
@@ -84,16 +77,27 @@ public abstract class ContactDetails {
 	}
 	
 	@NotNull
+	@Size(max=50)
+	private String city;
 	
-	private String addressLine1;
-	
-	public String getAddressLine1() {
-		return addressLine1;
+	public String getCity() {
+		return city;
 	}
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
+	@Size(max=50)
+	private String addressLine2;
+	
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+	
+	@Size(max=50)
 	private String state;
 	
 	public String getState() {

@@ -18,7 +18,6 @@ public class Employees {
 	
 	
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -29,6 +28,9 @@ public class Employees {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	
 	
 	
 	
@@ -54,22 +56,30 @@ public class Employees {
 	
 	
 	
-	
-	
-	
 	@NotNull
+	@Size(max=50)
+	private String firstName;
 	
-	private String extension;
-	
-	public String getExtension() {
-		return extension;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setExtension(String extension) {
-		this.extension = extension;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	
 	@NotNull
+	@Size(max=100)
+	private String email;
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	@NotNull
+	@Size(max=50)
 	private String jobTitle;
 	
 	public String getJobTitle() {
@@ -80,8 +90,22 @@ public class Employees {
 	}
 	
 	
-	@NotNull
 	
+	
+	@NotNull
+	@Size(max=10)
+	private String extension;
+	
+	public String getExtension() {
+		return extension;
+	}
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
+	
+	
+	@NotNull
+	@Size(max=50)
 	private String lastName;
 	
 	public String getLastName() {
@@ -91,28 +115,7 @@ public class Employees {
 		this.lastName = lastName;
 	}
 	
-	@NotNull
 	
-	private String firstName;
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	
-	@NotNull
-	
-	private String email;
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	
 	
 	
@@ -169,9 +172,6 @@ public class Employees {
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
-	
-	
-	
 	
 	
 	

@@ -30,6 +30,9 @@ public class GiftsServiceImpl implements GiftsService {
 	}
 	
 	
+	
+	
+	
 	@Override
 	public Gifts readOneById(Long id) {
 		return giftsRepository.getOne(id);
@@ -39,14 +42,11 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
-	
-	
-	
-	
 	@Override
 	public Gifts readOneByGiftName(String giftName) {
 		return giftsRepository.findByGiftNameEquals(giftName);
 	}
+	
 	
 	
 	@Override
@@ -63,32 +63,32 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	@Override
 	public Iterable<Gifts> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		GiftType giftType,
 		Boolean isExpired,
-		LocalDateTime beginsOn,
 		LocalDateTime expiresOn,
 		String giftName,
-		GiftType giftType
+		LocalDateTime beginsOn
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
+			giftType,
 			isExpired,
-			beginsOn,
 			expiresOn,
 			giftName,
-			giftType
+			beginsOn
 				
 		);
 		return giftsRepository.findAll(where);
@@ -97,80 +97,80 @@ public class GiftsServiceImpl implements GiftsService {
 	@Override
 	public Page<Gifts> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		GiftType giftType,
 		Boolean isExpired,
-		LocalDateTime beginsOn,
 		LocalDateTime expiresOn,
 		String giftName,
-		GiftType giftType
+		LocalDateTime beginsOn
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
+			giftType,
 			isExpired,
-			beginsOn,
 			expiresOn,
 			giftName,
-			giftType
+			beginsOn
 			
 		);
 		return giftsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		GiftType giftType,
 		Boolean isExpired,
-		LocalDateTime beginsOn,
 		LocalDateTime expiresOn,
 		String giftName,
-		GiftType giftType
+		LocalDateTime beginsOn
 		
 	) {
 		QGifts qGifts = QGifts.gifts;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
+		
+		
+		
+		
+		
+		
+		
 		if (customersSet != null) {
 			where.and(qGifts.customersSet.any().id.in(customersSet));
 		}
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		if (giftType != null) {
+			where.and(qGifts.giftType.eq(giftType));
+		}
 		if (isExpired != null) {
 			where.and(qGifts.isExpired.eq(isExpired));
-		}
-		if (beginsOn != null) {
-			where.and(qGifts.beginsOn.eq(beginsOn));
 		}
 		if (expiresOn != null) {
 			where.and(qGifts.expiresOn.eq(expiresOn));
@@ -178,8 +178,8 @@ public class GiftsServiceImpl implements GiftsService {
 		if (giftName != null) {
 			where.and(qGifts.giftName.containsIgnoreCase(giftName));
 		}
-		if (giftType != null) {
-			where.and(qGifts.giftType.eq(giftType));
+		if (beginsOn != null) {
+			where.and(qGifts.beginsOn.eq(beginsOn));
 		}
 		
 	
@@ -188,13 +188,13 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 		giftsRepository.deleteById(id);
 	}
-	
-	
-	
 	
 	
 

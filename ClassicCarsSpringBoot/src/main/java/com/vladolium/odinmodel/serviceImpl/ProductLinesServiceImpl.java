@@ -28,11 +28,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	public ProductLines createUpdate(ProductLines productLines) {
 		return productLinesRepository.save(productLines);
 	}
-	
 	@Override
 	public ProductLines readOneById(Long id) {
 		return productLinesRepository.getOne(id);
 	}
+	
 	
 	
 	
@@ -109,11 +109,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		return where;
 	}
 	
-	
 	@Override
 	public void deleteOneById(Long id) {
 		productLinesRepository.deleteById(id);
 	}
+	
 	
 	
 	

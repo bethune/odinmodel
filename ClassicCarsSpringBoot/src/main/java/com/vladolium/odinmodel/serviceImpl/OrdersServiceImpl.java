@@ -28,12 +28,12 @@ public class OrdersServiceImpl implements OrdersService {
 	public Orders createUpdate(Orders orders) {
 		return ordersRepository.save(orders);
 	}
+	
+	
 	@Override
 	public Orders readOneById(Long id) {
 		return ordersRepository.getOne(id);
 	}
-	
-	
 	
 	
 	
@@ -55,6 +55,14 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersRepository.findAll(page);
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Orders> readAllByCustomersId(Long customersId) {
 		return ordersRepository.findByCustomersIdEquals(customersId);
@@ -64,20 +72,6 @@ public class OrdersServiceImpl implements OrdersService {
 	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
 		return ordersRepository.findByCustomersIdEquals(customersId, page);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -97,45 +91,51 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Orders> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		String status,
-		LocalDate orderDate,
 		LocalDate shippedDate,
-		LocalDate requiredDate,
-		String comments
+		String comments,
+		LocalDate orderDate,
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			status,
-			orderDate,
 			shippedDate,
-			requiredDate,
-			comments
+			comments,
+			orderDate,
+			status,
+			requiredDate
 				
 		);
 		return ordersRepository.findAll(where);
@@ -144,112 +144,112 @@ public class OrdersServiceImpl implements OrdersService {
 	@Override
 	public Page<Orders> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		String status,
-		LocalDate orderDate,
 		LocalDate shippedDate,
-		LocalDate requiredDate,
-		String comments
+		String comments,
+		LocalDate orderDate,
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			status,
-			orderDate,
 			shippedDate,
-			requiredDate,
-			comments
+			comments,
+			orderDate,
+			status,
+			requiredDate
 			
 		);
 		return ordersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		String status,
-		LocalDate orderDate,
 		LocalDate shippedDate,
-		LocalDate requiredDate,
-		String comments
+		String comments,
+		LocalDate orderDate,
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		QOrders qOrders = QOrders.orders;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
+		
+		
+		
+		
+		
+		
+		
 		if (customersId != null) {
 			where.and(qOrders.customers.id.eq(customersId));
 		}
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		if (status != null) {
-			where.and(qOrders.status.containsIgnoreCase(status));
+		if (shippedDate != null) {
+			where.and(qOrders.shippedDate.eq(shippedDate));
+		}
+		if (comments != null) {
+			where.and(qOrders.comments.eq(comments));
 		}
 		if (orderDate != null) {
 			where.and(qOrders.orderDate.eq(orderDate));
 		}
-		if (shippedDate != null) {
-			where.and(qOrders.shippedDate.eq(shippedDate));
+		if (status != null) {
+			where.and(qOrders.status.containsIgnoreCase(status));
 		}
 		if (requiredDate != null) {
 			where.and(qOrders.requiredDate.eq(requiredDate));
-		}
-		if (comments != null) {
-			where.and(qOrders.comments.eq(comments));
 		}
 		
 	
 		return where;
 	}
 	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 		ordersRepository.deleteById(id);
 	}
-	
-	
 	
 	
 	

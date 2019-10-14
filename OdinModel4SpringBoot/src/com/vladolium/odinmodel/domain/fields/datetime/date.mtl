@@ -3,6 +3,7 @@
 
 [import com::vladolium::odinmodel::domain::fields::constraints::notNull /]
 [import com::vladolium::odinmodel::domain::fields::constraints::unique /]
+[import com::vladolium::odinmodel::domain::fields::constraints::jpa /]
 
 [template public date(aClass : Class)]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
@@ -12,7 +13,10 @@
 		[/if]
 		[if p.isUnique = true and p.isID = false]
 [unique(p)/]
-		[/if]			
+		[/if]		
+		[if p.ownedComment._body->isEmpty() = false ]
+[jpa(p)/]
+		[/if]	
 @DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 @JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 private LocalDate [p.name/];

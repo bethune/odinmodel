@@ -1,0 +1,6 @@
+[comment encoding = UTF-8 /]
+[module jpa('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[template public jpa(p : Property)]
+[p.ownedComment._body/]
+[/template]

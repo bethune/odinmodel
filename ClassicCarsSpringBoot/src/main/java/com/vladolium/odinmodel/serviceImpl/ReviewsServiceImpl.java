@@ -29,11 +29,11 @@ public class ReviewsServiceImpl implements ReviewsService {
 		return reviewsRepository.save(reviews);
 	}
 	
-	
 	@Override
 	public Reviews readOneById(Long id) {
 		return reviewsRepository.getOne(id);
 	}
+	
 	
 	
 	
@@ -54,15 +54,15 @@ public class ReviewsServiceImpl implements ReviewsService {
 	
 	@Override
 	public Iterable<Reviews> search(
-		LocalDate reviewDate,
+		String reviewText,
 		LocalTime reviewTime,
-		String reviewText
+		LocalDate reviewDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			reviewDate,
+			reviewText,
 			reviewTime,
-			reviewText
+			reviewDate
 				
 		);
 		return reviewsRepository.findAll(where);
@@ -71,38 +71,38 @@ public class ReviewsServiceImpl implements ReviewsService {
 	@Override
 	public Page<Reviews> searchPagination(
 		Pageable page,
-		LocalDate reviewDate,
+		String reviewText,
 		LocalTime reviewTime,
-		String reviewText
+		LocalDate reviewDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			reviewDate,
+			reviewText,
 			reviewTime,
-			reviewText
+			reviewDate
 			
 		);
 		return reviewsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		LocalDate reviewDate,
+		String reviewText,
 		LocalTime reviewTime,
-		String reviewText
+		LocalDate reviewDate
 		
 	) {
 		QReviews qReviews = QReviews.reviews;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (reviewDate != null) {
-			where.and(qReviews.reviewDate.eq(reviewDate));
+		if (reviewText != null) {
+			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
 		}
 		if (reviewTime != null) {
 			where.and(qReviews.reviewTime.eq(reviewTime));
 		}
-		if (reviewText != null) {
-			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
+		if (reviewDate != null) {
+			where.and(qReviews.reviewDate.eq(reviewDate));
 		}
 		
 	
@@ -110,11 +110,11 @@ public class ReviewsServiceImpl implements ReviewsService {
 	}
 	
 	
-	
 	@Override
 	public void deleteOneById(Long id) {
 		reviewsRepository.deleteById(id);
 	}
+	
 	
 	
 

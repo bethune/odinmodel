@@ -28,25 +28,19 @@ public class CustomersServiceImpl implements CustomersService {
 	public Customers createUpdate(Customers customers) {
 		return customersRepository.save(customers);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Customers readOneById(Long id) {
 		return customersRepository.getOne(id);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -62,6 +56,12 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Customers> readAll() {
 		return customersRepository.findAll();
@@ -71,7 +71,6 @@ public class CustomersServiceImpl implements CustomersService {
 	public Page<Customers> readAllPagination(Pageable page) {
 		return customersRepository.findAll(page);
 	}
-	
 	
 	
 	
@@ -97,10 +96,9 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
+	
 	@Override
 	public Iterable<Customers> search(
-		List<Reviews> reviewsList,
-		
 		
 		
 		
@@ -108,22 +106,22 @@ public class CustomersServiceImpl implements CustomersService {
 		
 		
 		Long employeesId,
+		
+		List<Reviews> reviewsList,
 		String postalCode,
+		String addressLine1,
 		String lastName,
-		String country,
-		String city,
-		String addressLine2,
-		String customerName,
 		Double creditLimit,
 		String firstName,
+		String country,
+		String customerName,
 		String phone,
-		String addressLine1,
+		String addressLine2,
+		String city,
 		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			reviewsList,
-			
 			
 			
 			
@@ -131,16 +129,18 @@ public class CustomersServiceImpl implements CustomersService {
 			
 			
 			employeesId,
+			
+			reviewsList,
 			postalCode,
+			addressLine1,
 			lastName,
-			country,
-			city,
-			addressLine2,
-			customerName,
 			creditLimit,
 			firstName,
+			country,
+			customerName,
 			phone,
-			addressLine1,
+			addressLine2,
+			city,
 			state
 				
 		);
@@ -150,8 +150,6 @@ public class CustomersServiceImpl implements CustomersService {
 	@Override
 	public Page<Customers> searchPagination(
 		Pageable page,
-		List<Reviews> reviewsList,
-		
 		
 		
 		
@@ -159,22 +157,22 @@ public class CustomersServiceImpl implements CustomersService {
 		
 		
 		Long employeesId,
+		
+		List<Reviews> reviewsList,
 		String postalCode,
+		String addressLine1,
 		String lastName,
-		String country,
-		String city,
-		String addressLine2,
-		String customerName,
 		Double creditLimit,
 		String firstName,
+		String country,
+		String customerName,
 		String phone,
-		String addressLine1,
+		String addressLine2,
+		String city,
 		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			reviewsList,
-			
 			
 			
 			
@@ -182,16 +180,18 @@ public class CustomersServiceImpl implements CustomersService {
 			
 			
 			employeesId,
+			
+			reviewsList,
 			postalCode,
+			addressLine1,
 			lastName,
-			country,
-			city,
-			addressLine2,
-			customerName,
 			creditLimit,
 			firstName,
+			country,
+			customerName,
 			phone,
-			addressLine1,
+			addressLine2,
+			city,
 			state
 			
 		);
@@ -199,8 +199,6 @@ public class CustomersServiceImpl implements CustomersService {
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		List<Reviews> reviewsList,
-		
 		
 		
 		
@@ -208,16 +206,18 @@ public class CustomersServiceImpl implements CustomersService {
 		
 		
 		Long employeesId,
+		
+		List<Reviews> reviewsList,
 		String postalCode,
+		String addressLine1,
 		String lastName,
-		String country,
-		String city,
-		String addressLine2,
-		String customerName,
 		Double creditLimit,
 		String firstName,
+		String country,
+		String customerName,
 		String phone,
-		String addressLine1,
+		String addressLine2,
+		String city,
 		String state
 		
 	) {
@@ -225,10 +225,6 @@ public class CustomersServiceImpl implements CustomersService {
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (reviewsList != null) {
-			where.and(qCustomers.reviewsList.any().in(reviewsList));
-		}
-		
 		
 		
 		
@@ -238,23 +234,18 @@ public class CustomersServiceImpl implements CustomersService {
 		if (employeesId != null) {
 			where.and(qCustomers.employees.id.eq(employeesId));
 		}
+		
+		if (reviewsList != null) {
+			where.and(qCustomers.reviewsList.any().in(reviewsList));
+		}
 		if (postalCode != null) {
 			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
 		if (lastName != null) {
 			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
-		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
-		}
-		if (city != null) {
-			where.and(qCustomers.city.containsIgnoreCase(city));
-		}
-		if (addressLine2 != null) {
-			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
-		}
-		if (customerName != null) {
-			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
 		}
 		if (creditLimit != null) {
 			where.and(qCustomers.creditLimit.eq(creditLimit));
@@ -262,11 +253,20 @@ public class CustomersServiceImpl implements CustomersService {
 		if (firstName != null) {
 			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
 		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
+		}
 		if (phone != null) {
 			where.and(qCustomers.phone.containsIgnoreCase(phone));
 		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (city != null) {
+			where.and(qCustomers.city.containsIgnoreCase(city));
 		}
 		if (state != null) {
 			where.and(qCustomers.state.containsIgnoreCase(state));
@@ -276,19 +276,19 @@ public class CustomersServiceImpl implements CustomersService {
 		return where;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 		customersRepository.deleteById(id);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

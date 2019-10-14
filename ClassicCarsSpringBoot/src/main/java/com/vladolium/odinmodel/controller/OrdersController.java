@@ -28,21 +28,23 @@ public class OrdersController {
 	public Orders createOne(@RequestBody Orders orders) {
 		return ordersService.createUpdate(orders);
 	}
+	
+	
 	@PutMapping("/{id}")
 	public Orders updateOneById(@PathVariable Long id, @RequestBody Orders orders) {
 		Orders current = ordersService.readOneById(id);
 		current.setCustomers(orders.getCustomers());
 		
+		current.setShippedDate(orders.getShippedDate());
 		
-		current.setStatus(orders.getStatus());
+		
+		current.setComments(orders.getComments());
 		
 		current.setOrderDate(orders.getOrderDate());
 		
-		current.setShippedDate(orders.getShippedDate());
+		current.setStatus(orders.getStatus());
 		
 		current.setRequiredDate(orders.getRequiredDate());
-		
-		current.setComments(orders.getComments());
 					
 		return ordersService.createUpdate(current);
 	}
@@ -74,8 +76,6 @@ public class OrdersController {
 	
 	
 	
-	
-	
 	@GetMapping("")
 	public Iterable<Orders> readAll() {
 		return ordersService.readAll();
@@ -93,43 +93,43 @@ public class OrdersController {
 	
 	@GetMapping("/search")
 	public Iterable<Orders> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		@RequestParam(value = "customersId", required = false) Long customersId,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "status", required = false) String status,
-		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
 		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
-		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
-		@RequestParam(value = "comments", required = false) String comments
+		@RequestParam(value = "comments", required = false) String comments,
+		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
+		@RequestParam(value = "status", required = false) String status,
+		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate
 		
 	) {
 		return ordersService.search(
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			status,
-			orderDate,
 			shippedDate,
-			requiredDate,
-			comments
+			comments,
+			orderDate,
+			status,
+			requiredDate
 			
 		);
 	}
@@ -138,55 +138,55 @@ public class OrdersController {
 	public Page<Orders> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
+		
+		
+		
+		
+		
+		
+		
+		
 		@RequestParam(value = "customersId", required = false) Long customersId,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "status", required = false) String status,
-		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
 		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
-		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
-		@RequestParam(value = "comments", required = false) String comments
+		@RequestParam(value = "comments", required = false) String comments,
+		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
+		@RequestParam(value = "status", required = false) String status,
+		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return ordersService.searchPagination(
 			page,
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			status,
-			orderDate,
 			shippedDate,
-			requiredDate,
-			comments
+			comments,
+			orderDate,
+			status,
+			requiredDate
 			
 		);
 	}
+	
+	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		ordersService.deleteOneById(id);
 	}
-	
-	
 	
 	
 	

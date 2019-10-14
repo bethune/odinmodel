@@ -12,7 +12,6 @@ import java.util.*;
 @Entity
 public class Offices extends ContactDetails {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -28,8 +27,10 @@ public class Offices extends ContactDetails {
 	
 	
 	
-	@NotNull
 	
+	
+	@NotNull
+	@Size(max=10)
 	private String territory;
 	
 	public String getTerritory() {
@@ -38,7 +39,6 @@ public class Offices extends ContactDetails {
 	public void setTerritory(String territory) {
 		this.territory = territory;
 	}
-	
 	
 	
 	

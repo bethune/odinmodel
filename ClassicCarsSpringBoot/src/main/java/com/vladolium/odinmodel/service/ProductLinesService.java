@@ -12,8 +12,8 @@ public interface ProductLinesService {
 
 	// covers create & update
 	ProductLines createUpdate(ProductLines productLines);
-	
 	ProductLines readOneById(Long id);
+	
 	
 	
 	
@@ -41,8 +41,8 @@ public interface ProductLinesService {
 		String productLine
 		
 	);
-	
 	void deleteOneById(Long id);
+	
 	
 	
 	
