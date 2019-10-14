@@ -28,12 +28,12 @@ public class ReviewsServiceImpl implements ReviewsService {
 	public Reviews createUpdate(Reviews reviews) {
 		return reviewsRepository.save(reviews);
 	}
+	
+	
 	@Override
 	public Reviews readOneById(Long id) {
 		return reviewsRepository.getOne(id);
 	}
-	
-	
 	
 	
 	
@@ -55,14 +55,14 @@ public class ReviewsServiceImpl implements ReviewsService {
 	@Override
 	public Iterable<Reviews> search(
 		LocalDate reviewDate,
-		String reviewText,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			reviewDate,
-			reviewText,
-			reviewTime
+			reviewTime,
+			reviewText
 				
 		);
 		return reviewsRepository.findAll(where);
@@ -72,14 +72,14 @@ public class ReviewsServiceImpl implements ReviewsService {
 	public Page<Reviews> searchPagination(
 		Pageable page,
 		LocalDate reviewDate,
-		String reviewText,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			reviewDate,
-			reviewText,
-			reviewTime
+			reviewTime,
+			reviewText
 			
 		);
 		return reviewsRepository.findAll(where, page);
@@ -87,8 +87,8 @@ public class ReviewsServiceImpl implements ReviewsService {
 	
 	public BooleanBuilder dynamicWhere(
 		LocalDate reviewDate,
-		String reviewText,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 		
 	) {
 		QReviews qReviews = QReviews.reviews;
@@ -98,23 +98,23 @@ public class ReviewsServiceImpl implements ReviewsService {
 		if (reviewDate != null) {
 			where.and(qReviews.reviewDate.eq(reviewDate));
 		}
-		if (reviewText != null) {
-			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
-		}
 		if (reviewTime != null) {
 			where.and(qReviews.reviewTime.eq(reviewTime));
+		}
+		if (reviewText != null) {
+			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
 		}
 		
 	
 		return where;
 	}
 	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 		reviewsRepository.deleteById(id);
 	}
-	
-	
 	
 	
 

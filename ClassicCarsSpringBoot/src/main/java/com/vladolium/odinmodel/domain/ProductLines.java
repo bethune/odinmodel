@@ -37,6 +37,7 @@ public class ProductLines {
 	
 	
 	@NotNull
+	
 	private String productLine;
 	
 	public String getProductLine() {

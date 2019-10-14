@@ -34,7 +34,28 @@ public abstract class ContactDetails {
 	
 	
 	
+	private String postalCode;
+	
+	public String getPostalCode() {
+		return postalCode;
+	}
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+	
 	@NotNull
+	
+	private String country;
+	
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	
+	@NotNull
+	
 	private String city;
 	
 	public String getCity() {
@@ -42,6 +63,15 @@ public abstract class ContactDetails {
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+	
+	private String addressLine2;
+	
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 	
 	private String phone;
@@ -54,6 +84,7 @@ public abstract class ContactDetails {
 	}
 	
 	@NotNull
+	
 	private String addressLine1;
 	
 	public String getAddressLine1() {
@@ -63,25 +94,6 @@ public abstract class ContactDetails {
 		this.addressLine1 = addressLine1;
 	}
 	
-	@NotNull
-	private String country;
-	
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
-	private String addressLine2;
-	
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
-	}
-	
 	private String state;
 	
 	public String getState() {
@@ -89,15 +101,6 @@ public abstract class ContactDetails {
 	}
 	public void setState(String state) {
 		this.state = state;
-	}
-	
-	private String postalCode;
-	
-	public String getPostalCode() {
-		return postalCode;
-	}
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
 	}
 	
 	

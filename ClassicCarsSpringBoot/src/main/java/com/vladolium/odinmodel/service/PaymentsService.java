@@ -51,10 +51,10 @@ public interface PaymentsService {
 	
 	
 	
-	
 	Iterable <Payments> readAllByCustomersCustomerName(String customersCustomerName);
 	
 	Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
+	
 	
 	
 	
@@ -71,10 +71,10 @@ public interface PaymentsService {
 		
 		
 		
-		LocalDate paymentDate,
 		Instant paymentTimestamp,
+		String checkNumber,
 		Double amount,
-		String checkNumber
+		LocalDate paymentDate
 		
 	);
 	
@@ -92,10 +92,10 @@ public interface PaymentsService {
 		
 		
 		
-		LocalDate paymentDate,
 		Instant paymentTimestamp,
+		String checkNumber,
 		Double amount,
-		String checkNumber
+		LocalDate paymentDate
 		
 	);
 	

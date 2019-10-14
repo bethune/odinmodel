@@ -34,12 +34,12 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
+	
+	
 	@Override
 	public Employees readOneById(Long id) {
 		return employeesRepository.getOne(id);
 	}
-	
-	
 	
 	
 	
@@ -97,13 +97,13 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		String lastName,
-		String extension,
-		String firstName,
 		Boolean isActive,
-		String email,
+		String extension,
 		String jobTitle,
-		Integer reportsTo
+		Integer reportsTo,
+		String lastName,
+		String firstName,
+		String email
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -116,13 +116,13 @@ public class EmployeesServiceImpl implements EmployeesService {
 			
 			
 			
-			lastName,
-			extension,
-			firstName,
 			isActive,
-			email,
+			extension,
 			jobTitle,
-			reportsTo
+			reportsTo,
+			lastName,
+			firstName,
+			email
 				
 		);
 		return employeesRepository.findAll(where);
@@ -140,13 +140,13 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		String lastName,
-		String extension,
-		String firstName,
 		Boolean isActive,
-		String email,
+		String extension,
 		String jobTitle,
-		Integer reportsTo
+		Integer reportsTo,
+		String lastName,
+		String firstName,
+		String email
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -159,13 +159,13 @@ public class EmployeesServiceImpl implements EmployeesService {
 			
 			
 			
-			lastName,
-			extension,
-			firstName,
 			isActive,
-			email,
+			extension,
 			jobTitle,
-			reportsTo
+			reportsTo,
+			lastName,
+			firstName,
+			email
 			
 		);
 		return employeesRepository.findAll(where, page);
@@ -181,13 +181,13 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		String lastName,
-		String extension,
-		String firstName,
 		Boolean isActive,
-		String email,
+		String extension,
 		String jobTitle,
-		Integer reportsTo
+		Integer reportsTo,
+		String lastName,
+		String firstName,
+		String email
 		
 	) {
 		QEmployees qEmployees = QEmployees.employees;
@@ -205,26 +205,26 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
-		}
-		if (extension != null) {
-			where.and(qEmployees.extension.containsIgnoreCase(extension));
-		}
-		if (firstName != null) {
-			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
-		}
 		if (isActive != null) {
 			where.and(qEmployees.isActive.eq(isActive));
 		}
-		if (email != null) {
-			where.and(qEmployees.email.containsIgnoreCase(email));
+		if (extension != null) {
+			where.and(qEmployees.extension.containsIgnoreCase(extension));
 		}
 		if (jobTitle != null) {
 			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
 		}
 		if (reportsTo != null) {
 			where.and(qEmployees.reportsTo.eq(reportsTo));
+		}
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
+		}
+		if (firstName != null) {
+			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
+		}
+		if (email != null) {
+			where.and(qEmployees.email.containsIgnoreCase(email));
 		}
 		
 	
@@ -237,12 +237,12 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 		employeesRepository.deleteById(id);
 	}
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

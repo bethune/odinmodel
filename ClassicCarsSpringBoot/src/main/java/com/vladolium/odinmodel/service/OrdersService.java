@@ -12,9 +12,9 @@ public interface OrdersService {
 
 	// covers create & update
 	Orders createUpdate(Orders orders);
-	
-	
 	Orders readOneById(Long id);
+	
+	
 	
 	
 	
@@ -53,10 +53,10 @@ public interface OrdersService {
 	
 	
 	
-	
 	Iterable <Orders> readAllByCustomersCustomerName(String customersCustomerName);
 	
 	Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
+	
 	
 	
 	
@@ -73,11 +73,11 @@ public interface OrdersService {
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
 		String status,
 		LocalDate orderDate,
-		LocalDate requiredDate
+		LocalDate shippedDate,
+		LocalDate requiredDate,
+		String comments
 		
 	);
 	
@@ -95,16 +95,16 @@ public interface OrdersService {
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
 		String status,
 		LocalDate orderDate,
-		LocalDate requiredDate
+		LocalDate shippedDate,
+		LocalDate requiredDate,
+		String comments
 		
 	);
-	
-	
 	void deleteOneById(Long id);
+	
+	
 	
 	
 	

@@ -35,7 +35,6 @@ public class Payments {
 	
 	
 	
-	
 	@NotNull
 	private Double amount;
 	
@@ -50,10 +49,8 @@ public class Payments {
 	
 	
 	
-	
-	
-	
 	@NotNull
+	
 	private String checkNumber;
 	
 	public String getCheckNumber() {
@@ -62,6 +59,13 @@ public class Payments {
 	public void setCheckNumber(String checkNumber) {
 		this.checkNumber = checkNumber;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -95,11 +99,6 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
-	
 	private Instant paymentTimestamp = Instant.now();
 	
 	public Instant getPaymentTimestamp() {
@@ -108,6 +107,8 @@ public class Payments {
 	public void setPaymentTimestamp(Instant paymentTimestamp) {
 	    this.paymentTimestamp = paymentTimestamp;
 	}
+	
+	
 	
 	
 	

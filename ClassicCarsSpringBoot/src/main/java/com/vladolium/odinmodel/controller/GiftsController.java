@@ -37,10 +37,10 @@ public class GiftsController {
 		
 		current.setIsExpired(gifts.getIsExpired());
 		
-		current.setExpiresOn(gifts.getExpiresOn());
-		
-		
 		current.setBeginsOn(gifts.getBeginsOn());
+		
+		
+		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setGiftName(gifts.getGiftName());
 		
@@ -64,10 +64,10 @@ public class GiftsController {
 				
 		current.setIsExpired(gifts.getIsExpired());
 		
-		current.setExpiresOn(gifts.getExpiresOn());
-		
-		
 		current.setBeginsOn(gifts.getBeginsOn());
+		
+		
+		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setGiftName(gifts.getGiftName());
 		
@@ -128,8 +128,8 @@ public class GiftsController {
 		
 		
 		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
-		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
 		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn,
+		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
 		@RequestParam(value = "giftName", required = false) String giftName,
 		@RequestParam(value = "giftType", required = false) GiftType giftType
 		
@@ -137,8 +137,8 @@ public class GiftsController {
 		return giftsService.search(
 			customersSet,
 			isExpired,
-			expiresOn,
 			beginsOn,
+			expiresOn,
 			giftName,
 			giftType
 			
@@ -162,8 +162,8 @@ public class GiftsController {
 		
 		
 		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
-		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
 		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn,
+		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
 		@RequestParam(value = "giftName", required = false) String giftName,
 		@RequestParam(value = "giftType", required = false) GiftType giftType
 		
@@ -174,8 +174,8 @@ public class GiftsController {
 			page,
 			customersSet,
 			isExpired,
-			expiresOn,
 			beginsOn,
+			expiresOn,
 			giftName,
 			giftType
 			

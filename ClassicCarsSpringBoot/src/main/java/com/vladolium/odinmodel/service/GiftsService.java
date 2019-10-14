@@ -47,8 +47,8 @@ public interface GiftsService {
 		
 		
 		Boolean isExpired,
-		LocalDateTime expiresOn,
 		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
 		String giftName,
 		GiftType giftType
 		
@@ -69,8 +69,8 @@ public interface GiftsService {
 		
 		
 		Boolean isExpired,
-		LocalDateTime expiresOn,
 		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
 		String giftName,
 		GiftType giftType
 		

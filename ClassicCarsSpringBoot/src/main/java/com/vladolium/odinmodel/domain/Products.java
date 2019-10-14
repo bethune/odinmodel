@@ -80,6 +80,7 @@ public class Products {
 	
 	
 	@NotNull
+	
 	@Column(unique=true)
 	private String productCode;
 	
@@ -91,6 +92,7 @@ public class Products {
 	}
 	
 	@NotNull
+	
 	private String productScale;
 	
 	public String getProductScale() {
@@ -104,6 +106,7 @@ public class Products {
 	
 	
 	@NotNull
+	
 	private String productName;
 	
 	public String getProductName() {
@@ -114,6 +117,7 @@ public class Products {
 	}
 	
 	@NotNull
+	
 	private String productVendor;
 	
 	public String getProductVendor() {

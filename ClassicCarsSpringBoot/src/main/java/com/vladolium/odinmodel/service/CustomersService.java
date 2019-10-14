@@ -35,14 +35,15 @@ public interface CustomersService {
 	
 	
 	
-	
 	Customers readOneByCustomerName(String customerName);
+	
 	
 	
 	
 	Iterable<Customers> readAll();
 	
 	Page<Customers> readAllPagination(Pageable page);
+	
 	
 	
 	
@@ -62,8 +63,9 @@ public interface CustomersService {
 	
 	
 	
-	
 	Iterable<Customers> search(
+		List<Reviews> reviewsList,
+		
 		
 		
 		
@@ -71,24 +73,24 @@ public interface CustomersService {
 		
 		
 		Long employeesId,
-		
-		List<Reviews> reviewsList,
-		String city,
-		String firstName,
-		String phone,
+		String postalCode,
 		String lastName,
-		String addressLine1,
+		String country,
+		String city,
+		String addressLine2,
 		String customerName,
 		Double creditLimit,
-		String country,
-		String addressLine2,
-		String state,
-		String postalCode
+		String firstName,
+		String phone,
+		String addressLine1,
+		String state
 		
 	);
 	
 	Page<Customers> searchPagination(
 		Pageable page,
+		List<Reviews> reviewsList,
+		
 		
 		
 		
@@ -96,19 +98,17 @@ public interface CustomersService {
 		
 		
 		Long employeesId,
-		
-		List<Reviews> reviewsList,
-		String city,
-		String firstName,
-		String phone,
+		String postalCode,
 		String lastName,
-		String addressLine1,
+		String country,
+		String city,
+		String addressLine2,
 		String customerName,
 		Double creditLimit,
-		String country,
-		String addressLine2,
-		String state,
-		String postalCode
+		String firstName,
+		String phone,
+		String addressLine1,
+		String state
 		
 	);
 	void deleteOneById(Long id);

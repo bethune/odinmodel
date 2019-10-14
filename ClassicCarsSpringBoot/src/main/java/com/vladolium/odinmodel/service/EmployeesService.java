@@ -18,9 +18,9 @@ public interface EmployeesService {
 	
 	
 	
+	
+	
 	Employees readOneById(Long id);
-	
-	
 	
 	
 	
@@ -65,13 +65,13 @@ public interface EmployeesService {
 		
 		
 		
-		String lastName,
-		String extension,
-		String firstName,
 		Boolean isActive,
-		String email,
+		String extension,
 		String jobTitle,
-		Integer reportsTo
+		Integer reportsTo,
+		String lastName,
+		String firstName,
+		String email
 		
 	);
 	
@@ -86,13 +86,13 @@ public interface EmployeesService {
 		
 		
 		
-		String lastName,
-		String extension,
-		String firstName,
 		Boolean isActive,
-		String email,
+		String extension,
 		String jobTitle,
-		Integer reportsTo
+		Integer reportsTo,
+		String lastName,
+		String firstName,
+		String email
 		
 	);
 	
@@ -101,9 +101,9 @@ public interface EmployeesService {
 	
 	
 	
+	
+	
 	void deleteOneById(Long id);
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

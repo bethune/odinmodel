@@ -37,14 +37,14 @@ public class PaymentsController {
 		Payments current = paymentsService.readOneById(id);
 		current.setCustomers(payments.getCustomers());
 		
-		current.setPaymentDate(payments.getPaymentDate());
-		
 		current.setPaymentTimestamp(payments.getPaymentTimestamp());
+		
+		current.setCheckNumber(payments.getCheckNumber());
 		
 		current.setAmount(payments.getAmount());
 		
+		current.setPaymentDate(payments.getPaymentDate());
 		
-		current.setCheckNumber(payments.getCheckNumber());
 					
 		return paymentsService.createUpdate(current);
 	}
@@ -99,10 +99,10 @@ public class PaymentsController {
 		
 		
 		
-		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
 		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp,
+		@RequestParam(value = "checkNumber", required = false) String checkNumber,
 		@RequestParam(value = "amount", required = false) Double amount,
-		@RequestParam(value = "checkNumber", required = false) String checkNumber
+		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate
 		
 	) {
 		return paymentsService.search(
@@ -118,10 +118,10 @@ public class PaymentsController {
 			
 			
 			
-			paymentDate,
 			paymentTimestamp,
+			checkNumber,
 			amount,
-			checkNumber
+			paymentDate
 			
 		);
 	}
@@ -142,10 +142,10 @@ public class PaymentsController {
 		
 		
 		
-		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
 		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp,
+		@RequestParam(value = "checkNumber", required = false) String checkNumber,
 		@RequestParam(value = "amount", required = false) Double amount,
-		@RequestParam(value = "checkNumber", required = false) String checkNumber
+		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -164,10 +164,10 @@ public class PaymentsController {
 			
 			
 			
-			paymentDate,
 			paymentTimestamp,
+			checkNumber,
 			amount,
-			checkNumber
+			paymentDate
 			
 		);
 	}

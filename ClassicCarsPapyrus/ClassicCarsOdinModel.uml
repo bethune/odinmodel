@@ -29,7 +29,11 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_noWUwN9rEemJF-HGxlolYw" name="Customers">
       <generalization xmi:type="uml:Generalization" xmi:id="_VKzIgOElEemxFfBtMY4P2Q" general="_a7sr4N9_EemhFrfFZLxexQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3JLScN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_qSgL4N-BEemhFrfFZLxexQ" name="customerName" type="_LFJuIN94EemhFrfFZLxexQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qSgL4N-BEemhFrfFZLxexQ" name="customerName" type="_LFJuIN94EemhFrfFZLxexQ">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_bjvRwO5xEemrUo-vZD0EJg">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Hjp8UN-DEemhFrfFZLxexQ" name="creditLimit" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_4f0VUOElEemxFfBtMY4P2Q" type="_pNCaoN9rEemJF-HGxlolYw" association="_4fygIOElEemxFfBtMY4P2Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_DkLaouEmEemxFfBtMY4P2Q" type="_FXPmkN9sEemJF-HGxlolYw" association="_DkKMgOEmEemxFfBtMY4P2Q">

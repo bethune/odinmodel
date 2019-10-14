@@ -29,6 +29,7 @@ public class Offices extends ContactDetails {
 	
 	
 	@NotNull
+	
 	private String territory;
 	
 	public String getTerritory() {

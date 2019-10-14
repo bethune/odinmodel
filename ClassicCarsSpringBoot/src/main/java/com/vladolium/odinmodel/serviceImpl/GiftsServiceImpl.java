@@ -76,8 +76,8 @@ public class GiftsServiceImpl implements GiftsService {
 		
 		
 		Boolean isExpired,
-		LocalDateTime expiresOn,
 		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
 		String giftName,
 		GiftType giftType
 		
@@ -85,8 +85,8 @@ public class GiftsServiceImpl implements GiftsService {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
 			isExpired,
-			expiresOn,
 			beginsOn,
+			expiresOn,
 			giftName,
 			giftType
 				
@@ -110,8 +110,8 @@ public class GiftsServiceImpl implements GiftsService {
 		
 		
 		Boolean isExpired,
-		LocalDateTime expiresOn,
 		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
 		String giftName,
 		GiftType giftType
 		
@@ -119,8 +119,8 @@ public class GiftsServiceImpl implements GiftsService {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
 			isExpired,
-			expiresOn,
 			beginsOn,
+			expiresOn,
 			giftName,
 			giftType
 			
@@ -142,8 +142,8 @@ public class GiftsServiceImpl implements GiftsService {
 		
 		
 		Boolean isExpired,
-		LocalDateTime expiresOn,
 		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
 		String giftName,
 		GiftType giftType
 		
@@ -169,11 +169,11 @@ public class GiftsServiceImpl implements GiftsService {
 		if (isExpired != null) {
 			where.and(qGifts.isExpired.eq(isExpired));
 		}
-		if (expiresOn != null) {
-			where.and(qGifts.expiresOn.eq(expiresOn));
-		}
 		if (beginsOn != null) {
 			where.and(qGifts.beginsOn.eq(beginsOn));
+		}
+		if (expiresOn != null) {
+			where.and(qGifts.expiresOn.eq(expiresOn));
 		}
 		if (giftName != null) {
 			where.and(qGifts.giftName.containsIgnoreCase(giftName));

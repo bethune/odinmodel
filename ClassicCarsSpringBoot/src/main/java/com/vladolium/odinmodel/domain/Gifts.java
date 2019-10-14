@@ -48,6 +48,7 @@ public class Gifts {
 	
 	
 	@NotNull
+	
 	@Column(unique=true)
 	private String giftName;
 	
@@ -92,19 +93,6 @@ public class Gifts {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
-	private LocalDateTime expiresOn;
-	
-	public LocalDateTime getExpiresOn() {
-		return expiresOn;
-	}
-	public void setExpiresOn(LocalDateTime expiresOn) {
-		this.expiresOn = expiresOn;
-	}
-	
-	
-	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
 	private LocalDateTime beginsOn;
 	
 	public LocalDateTime getBeginsOn() {
@@ -112,6 +100,19 @@ public class Gifts {
 	}
 	public void setBeginsOn(LocalDateTime beginsOn) {
 		this.beginsOn = beginsOn;
+	}
+	
+	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+	private LocalDateTime expiresOn;
+	
+	public LocalDateTime getExpiresOn() {
+		return expiresOn;
+	}
+	public void setExpiresOn(LocalDateTime expiresOn) {
+		this.expiresOn = expiresOn;
 	}
 	
 	

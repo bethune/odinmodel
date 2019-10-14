@@ -39,6 +39,8 @@ public class Customers extends ContactDetails {
 	
 	
 	
+	
+	
 	@NotNull
 	private Double creditLimit;
 	
@@ -51,9 +53,8 @@ public class Customers extends ContactDetails {
 	
 	
 	
-	
-	
 	@NotNull
+	
 	private String lastName;
 	
 	public String getLastName() {
@@ -63,9 +64,8 @@ public class Customers extends ContactDetails {
 		this.lastName = lastName;
 	}
 	
-	
-	
 	@NotNull
+	
 	private String firstName;
 	
 	public String getFirstName() {
@@ -75,7 +75,9 @@ public class Customers extends ContactDetails {
 		this.firstName = firstName;
 	}
 	
+	
 	@NotNull
+	@Size(max=50)
 	@Column(unique=true)
 	private String customerName;
 	
@@ -85,6 +87,7 @@ public class Customers extends ContactDetails {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+	
 	
 	
 	

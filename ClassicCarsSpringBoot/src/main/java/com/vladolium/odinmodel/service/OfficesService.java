@@ -38,27 +38,27 @@ public interface OfficesService {
 	
 	
 	Iterable<Offices> search(
+		String postalCode,
+		String country,
 		String city,
+		String territory,
+		String addressLine2,
 		String phone,
 		String addressLine1,
-		String territory,
-		String country,
-		String addressLine2,
-		String state,
-		String postalCode
+		String state
 		
 	);
 	
 	Page<Offices> searchPagination(
 		Pageable page,
+		String postalCode,
+		String country,
 		String city,
+		String territory,
+		String addressLine2,
 		String phone,
 		String addressLine1,
-		String territory,
-		String country,
-		String addressLine2,
-		String state,
-		String postalCode
+		String state
 		
 	);
 	

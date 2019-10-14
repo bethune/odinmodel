@@ -82,7 +82,6 @@ public class PaymentsServiceImpl implements PaymentsService {
 	
 	
 	
-	
 	@Override
 	public Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName) {
 		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName);
@@ -92,6 +91,7 @@ public class PaymentsServiceImpl implements PaymentsService {
 	public Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
 		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
+	
 	
 	
 	
@@ -109,10 +109,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		LocalDate paymentDate,
 		Instant paymentTimestamp,
+		String checkNumber,
 		Double amount,
-		String checkNumber
+		LocalDate paymentDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -128,10 +128,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 			
 			
 			
-			paymentDate,
 			paymentTimestamp,
+			checkNumber,
 			amount,
-			checkNumber
+			paymentDate
 				
 		);
 		return paymentsRepository.findAll(where);
@@ -152,10 +152,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		LocalDate paymentDate,
 		Instant paymentTimestamp,
+		String checkNumber,
 		Double amount,
-		String checkNumber
+		LocalDate paymentDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -171,10 +171,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 			
 			
 			
-			paymentDate,
 			paymentTimestamp,
+			checkNumber,
 			amount,
-			checkNumber
+			paymentDate
 			
 		);
 		return paymentsRepository.findAll(where, page);
@@ -193,10 +193,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		LocalDate paymentDate,
 		Instant paymentTimestamp,
+		String checkNumber,
 		Double amount,
-		String checkNumber
+		LocalDate paymentDate
 		
 	) {
 		QPayments qPayments = QPayments.payments;
@@ -217,17 +217,17 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		if (paymentDate != null) {
-			where.and(qPayments.paymentDate.eq(paymentDate));
-		}
 		if (paymentTimestamp != null) {
 			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		}
+		if (checkNumber != null) {
+			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
 		}
 		if (amount != null) {
 			where.and(qPayments.amount.eq(amount));
 		}
-		if (checkNumber != null) {
-			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
+		if (paymentDate != null) {
+			where.and(qPayments.paymentDate.eq(paymentDate));
 		}
 		
 	

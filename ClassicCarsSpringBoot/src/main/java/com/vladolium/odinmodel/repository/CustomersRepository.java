@@ -34,8 +34,9 @@ Customers findByIdEquals(Long id);
 
 
 
-
 Customers findByCustomerNameEquals(String customerName);
+
+
 
 
 
@@ -48,7 +49,6 @@ Customers findByCustomerNameEquals(String customerName);
 Iterable <Customers> findByEmployeesIdEquals(Long employeesId);
 
 Page <Customers> findByEmployeesIdEquals(Long employeesId, Pageable page);
-
 
 
 

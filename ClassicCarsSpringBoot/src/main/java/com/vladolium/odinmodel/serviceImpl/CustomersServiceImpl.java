@@ -54,11 +54,11 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
-	
 	@Override
 	public Customers readOneByCustomerName(String customerName) {
 		return customersRepository.findByCustomerNameEquals(customerName);
 	}
+	
 	
 	
 	
@@ -71,6 +71,7 @@ public class CustomersServiceImpl implements CustomersService {
 	public Page<Customers> readAllPagination(Pageable page) {
 		return customersRepository.findAll(page);
 	}
+	
 	
 	
 	
@@ -96,9 +97,10 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
-	
 	@Override
 	public Iterable<Customers> search(
+		List<Reviews> reviewsList,
+		
 		
 		
 		
@@ -106,22 +108,22 @@ public class CustomersServiceImpl implements CustomersService {
 		
 		
 		Long employeesId,
-		
-		List<Reviews> reviewsList,
-		String city,
-		String firstName,
-		String phone,
+		String postalCode,
 		String lastName,
-		String addressLine1,
+		String country,
+		String city,
+		String addressLine2,
 		String customerName,
 		Double creditLimit,
-		String country,
-		String addressLine2,
-		String state,
-		String postalCode
+		String firstName,
+		String phone,
+		String addressLine1,
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			reviewsList,
+			
 			
 			
 			
@@ -129,19 +131,17 @@ public class CustomersServiceImpl implements CustomersService {
 			
 			
 			employeesId,
-			
-			reviewsList,
-			city,
-			firstName,
-			phone,
+			postalCode,
 			lastName,
-			addressLine1,
+			country,
+			city,
+			addressLine2,
 			customerName,
 			creditLimit,
-			country,
-			addressLine2,
-			state,
-			postalCode
+			firstName,
+			phone,
+			addressLine1,
+			state
 				
 		);
 		return customersRepository.findAll(where);
@@ -150,6 +150,8 @@ public class CustomersServiceImpl implements CustomersService {
 	@Override
 	public Page<Customers> searchPagination(
 		Pageable page,
+		List<Reviews> reviewsList,
+		
 		
 		
 		
@@ -157,22 +159,22 @@ public class CustomersServiceImpl implements CustomersService {
 		
 		
 		Long employeesId,
-		
-		List<Reviews> reviewsList,
-		String city,
-		String firstName,
-		String phone,
+		String postalCode,
 		String lastName,
-		String addressLine1,
+		String country,
+		String city,
+		String addressLine2,
 		String customerName,
 		Double creditLimit,
-		String country,
-		String addressLine2,
-		String state,
-		String postalCode
+		String firstName,
+		String phone,
+		String addressLine1,
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			reviewsList,
+			
 			
 			
 			
@@ -180,25 +182,25 @@ public class CustomersServiceImpl implements CustomersService {
 			
 			
 			employeesId,
-			
-			reviewsList,
-			city,
-			firstName,
-			phone,
+			postalCode,
 			lastName,
-			addressLine1,
+			country,
+			city,
+			addressLine2,
 			customerName,
 			creditLimit,
-			country,
-			addressLine2,
-			state,
-			postalCode
+			firstName,
+			phone,
+			addressLine1,
+			state
 			
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		List<Reviews> reviewsList,
+		
 		
 		
 		
@@ -206,25 +208,27 @@ public class CustomersServiceImpl implements CustomersService {
 		
 		
 		Long employeesId,
-		
-		List<Reviews> reviewsList,
-		String city,
-		String firstName,
-		String phone,
+		String postalCode,
 		String lastName,
-		String addressLine1,
+		String country,
+		String city,
+		String addressLine2,
 		String customerName,
 		Double creditLimit,
-		String country,
-		String addressLine2,
-		String state,
-		String postalCode
+		String firstName,
+		String phone,
+		String addressLine1,
+		String state
 		
 	) {
 		QCustomers qCustomers = QCustomers.customers;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		if (reviewsList != null) {
+			where.and(qCustomers.reviewsList.any().in(reviewsList));
+		}
+		
 		
 		
 		
@@ -234,24 +238,20 @@ public class CustomersServiceImpl implements CustomersService {
 		if (employeesId != null) {
 			where.and(qCustomers.employees.id.eq(employeesId));
 		}
-		
-		if (reviewsList != null) {
-			where.and(qCustomers.reviewsList.any().in(reviewsList));
-		}
-		if (city != null) {
-			where.and(qCustomers.city.containsIgnoreCase(city));
-		}
-		if (firstName != null) {
-			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
-		}
-		if (phone != null) {
-			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
 		if (lastName != null) {
 			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
 		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (city != null) {
+			where.and(qCustomers.city.containsIgnoreCase(city));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
 		}
 		if (customerName != null) {
 			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
@@ -259,17 +259,17 @@ public class CustomersServiceImpl implements CustomersService {
 		if (creditLimit != null) {
 			where.and(qCustomers.creditLimit.eq(creditLimit));
 		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
 		}
-		if (addressLine2 != null) {
-			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
 		}
 		if (state != null) {
 			where.and(qCustomers.state.containsIgnoreCase(state));
-		}
-		if (postalCode != null) {
-			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
 		
 	

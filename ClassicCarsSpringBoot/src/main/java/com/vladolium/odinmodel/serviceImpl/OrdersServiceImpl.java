@@ -28,12 +28,12 @@ public class OrdersServiceImpl implements OrdersService {
 	public Orders createUpdate(Orders orders) {
 		return ordersRepository.save(orders);
 	}
-	
-	
 	@Override
 	public Orders readOneById(Long id) {
 		return ordersRepository.getOne(id);
 	}
+	
+	
 	
 	
 	
@@ -84,7 +84,6 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
-	
 	@Override
 	public Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName) {
 		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName);
@@ -94,6 +93,7 @@ public class OrdersServiceImpl implements OrdersService {
 	public Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
 		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
+	
 	
 	
 	
@@ -111,11 +111,11 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
 		String status,
 		LocalDate orderDate,
-		LocalDate requiredDate
+		LocalDate shippedDate,
+		LocalDate requiredDate,
+		String comments
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -131,11 +131,11 @@ public class OrdersServiceImpl implements OrdersService {
 			
 			
 			
-			shippedDate,
-			comments,
 			status,
 			orderDate,
-			requiredDate
+			shippedDate,
+			requiredDate,
+			comments
 				
 		);
 		return ordersRepository.findAll(where);
@@ -156,11 +156,11 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
 		String status,
 		LocalDate orderDate,
-		LocalDate requiredDate
+		LocalDate shippedDate,
+		LocalDate requiredDate,
+		String comments
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -176,11 +176,11 @@ public class OrdersServiceImpl implements OrdersService {
 			
 			
 			
-			shippedDate,
-			comments,
 			status,
 			orderDate,
-			requiredDate
+			shippedDate,
+			requiredDate,
+			comments
 			
 		);
 		return ordersRepository.findAll(where, page);
@@ -199,11 +199,11 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
 		String status,
 		LocalDate orderDate,
-		LocalDate requiredDate
+		LocalDate shippedDate,
+		LocalDate requiredDate,
+		String comments
 		
 	) {
 		QOrders qOrders = QOrders.orders;
@@ -224,32 +224,32 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		if (shippedDate != null) {
-			where.and(qOrders.shippedDate.eq(shippedDate));
-		}
-		if (comments != null) {
-			where.and(qOrders.comments.eq(comments));
-		}
 		if (status != null) {
 			where.and(qOrders.status.containsIgnoreCase(status));
 		}
 		if (orderDate != null) {
 			where.and(qOrders.orderDate.eq(orderDate));
 		}
+		if (shippedDate != null) {
+			where.and(qOrders.shippedDate.eq(shippedDate));
+		}
 		if (requiredDate != null) {
 			where.and(qOrders.requiredDate.eq(requiredDate));
+		}
+		if (comments != null) {
+			where.and(qOrders.comments.eq(comments));
 		}
 		
 	
 		return where;
 	}
 	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
 		ordersRepository.deleteById(id);
 	}
+	
+	
 	
 	
 	

@@ -11,8 +11,6 @@ import java.util.*;
 @Entity
 public class Orders {
 
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -45,8 +43,8 @@ public class Orders {
 	
 	
 	
-	
 	@NotNull
+	
 	private String status;
 	
 	public String getStatus() {
@@ -65,16 +63,6 @@ public class Orders {
 	
 	
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-	private LocalDate shippedDate;
-	
-	public LocalDate getShippedDate() {
-		return shippedDate;
-	}
-	public void setShippedDate(LocalDate shippedDate) {
-		this.shippedDate = shippedDate;
-	}
 	
 	
 	
@@ -90,6 +78,17 @@ public class Orders {
 	}
 	public void setOrderDate(LocalDate orderDate) {
 		this.orderDate = orderDate;
+	}
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+	private LocalDate shippedDate;
+	
+	public LocalDate getShippedDate() {
+		return shippedDate;
+	}
+	public void setShippedDate(LocalDate shippedDate) {
+		this.shippedDate = shippedDate;
 	}
 	
 	@NotNull
@@ -135,6 +134,10 @@ public class Orders {
 	
 	
 	
+	
+	
+	
+	
 	@Lob
 	private String comments;
 	
@@ -144,8 +147,6 @@ public class Orders {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	
-	
 	
 	
 	
