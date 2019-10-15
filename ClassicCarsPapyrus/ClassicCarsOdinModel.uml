@@ -210,7 +210,7 @@
           <body>@Size(max=50)</body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_o5fD4O6-EemYTtJqt4KN7Q">
-          <body>@Pattern(regexp=&quot;(d{3})d{3}-d{4}&quot;)</body>
+          <body>@Pattern(regexp=&quot;(\\(\\d{3}\\)\\d{3}-\\d{4}&quot;) // \(\d{3}\)\d{3}-?\d{4}</body>
         </ownedComment>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4pWPkOL4EemqlKIOh2pa2g"/>
       </ownedAttribute>
@@ -263,7 +263,6 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wd5GQOElEemxFfBtMY4P2Q" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_weHIsOElEemxFfBtMY4P2Q" type="_f9CO4N9rEemJF-HGxlolYw" association="_wdp1sOElEemxFfBtMY4P2Q">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_dWYOInEemqlKIOh2pa2g"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_gZsOInEemqlKIOh2pa2g" value="*"/>
     </ownedEnd>
   </packagedElement>
@@ -305,7 +304,6 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9VDl8OElEemxFfBtMY4P2Q" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_9VaLQOElEemxFfBtMY4P2Q" type="_pNCaoN9rEemJF-HGxlolYw" association="_9VBwwOElEemxFfBtMY4P2Q">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hCipUOInEemqlKIOh2pa2g"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hClsoOInEemqlKIOh2pa2g" value="*"/>
     </ownedEnd>
   </packagedElement>
