@@ -40,10 +40,12 @@ public class OfficesServiceImpl implements OfficesService {
 
     @Override
     public Offices createIric(Offices offices, Employees employees) {
-	officesRepository.save(offices);
-	employees.setOffices(officesRepository.getOne(offices.getId()));
+	System.out.println("ADRESA IZ UPITA ---------------- " + offices.getAddressLine1());
+	System.out.println("TITULA IZ UPITA ---------------- " + employees.getJobTitle());
+	Offices temp = officesRepository.save(offices);
+	employees.setOffices(temp);
 	employeesRepository.save(employees);
-	return officesRepository.save(offices);
+	return temp;
     }
 
     @Override
