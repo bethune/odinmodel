@@ -35,26 +35,25 @@ public class EmployeesController {
 	
 	
 	
-	
 	@PutMapping("/{id}")
 	public Employees updateOneById(@PathVariable Long id, @RequestBody Employees employees) {
 		Employees current = employeesService.readOneById(id);
 		current.setOffices(employees.getOffices());
 		
-		current.setIsActive(employees.getIsActive());
-		
-		current.setExtension(employees.getExtension());
-		
-		current.setJobTitle(employees.getJobTitle());
-		
-		current.setReportsTo(employees.getReportsTo());
-		
-		current.setLastName(employees.getLastName());
-		
 		current.setFirstName(employees.getFirstName());
 		
 		current.setEmail(employees.getEmail());
 		
+		current.setJobTitle(employees.getJobTitle());
+		
+		current.setIsActive(employees.getIsActive());
+		
+		current.setReportsTo(employees.getReportsTo());
+		
+		current.setExtension(employees.getExtension());
+		
+		
+		current.setLastName(employees.getLastName());
 					
 		return employeesService.createUpdate(current);
 	}
@@ -79,6 +78,7 @@ public class EmployeesController {
 	public Employees readOneById(@PathVariable Long id) {
 		return employeesService.readOneById(id);
 	}
+	
 	
 	
 	
@@ -115,7 +115,6 @@ public class EmployeesController {
 	
 	
 	
-	
 	@GetMapping("/{employeesId}/customers")
 	public Iterable<Customers> readAllCustomersByEmployeesId(@PathVariable Long employeesId) {
 		return customersService.readAllByEmployeesId(employeesId);
@@ -139,43 +138,44 @@ public class EmployeesController {
 	
 	
 	
+	
 	@GetMapping("/search")
 	public Iterable<Employees> search(
-		
-		
-		
-		
-		
 		@RequestParam(value = "officesId", required = false) Long officesId,
 		
 		
 		
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
-		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle,
-		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
-		@RequestParam(value = "lastName", required = false) String lastName,
+		
+		
+		
+		
+		
 		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "email", required = false) String email
+		@RequestParam(value = "email", required = false) String email,
+		@RequestParam(value = "jobTitle", required = false) String jobTitle,
+		@RequestParam(value = "isActive", required = false) Boolean isActive,
+		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
+		@RequestParam(value = "extension", required = false) String extension,
+		@RequestParam(value = "lastName", required = false) String lastName
 		
 	) {
 		return employeesService.search(
-			
-			
-			
-			
-			
 			officesId,
 			
 			
 			
-			isActive,
-			extension,
-			jobTitle,
-			reportsTo,
-			lastName,
+			
+			
+			
+			
+			
 			firstName,
-			email
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 			
 		);
 	}
@@ -184,48 +184,47 @@ public class EmployeesController {
 	public Page<Employees> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		
-		
-		
-		
-		
 		@RequestParam(value = "officesId", required = false) Long officesId,
 		
 		
 		
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
-		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle,
-		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
-		@RequestParam(value = "lastName", required = false) String lastName,
+		
+		
+		
+		
+		
 		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "email", required = false) String email
+		@RequestParam(value = "email", required = false) String email,
+		@RequestParam(value = "jobTitle", required = false) String jobTitle,
+		@RequestParam(value = "isActive", required = false) Boolean isActive,
+		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
+		@RequestParam(value = "extension", required = false) String extension,
+		@RequestParam(value = "lastName", required = false) String lastName
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return employeesService.searchPagination(
 			page,
-			
-			
-			
-			
-			
 			officesId,
 			
 			
 			
-			isActive,
-			extension,
-			jobTitle,
-			reportsTo,
-			lastName,
+			
+			
+			
+			
+			
 			firstName,
-			email
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 			
 		);
 	}
-	
 	
 	
 	
@@ -237,6 +236,7 @@ public class EmployeesController {
 	public void deleteOneById(@PathVariable Long id) {
 		employeesService.deleteOneById(id);
 	}
+	
 	
 
 //Code between start and end will not be removed during generation.

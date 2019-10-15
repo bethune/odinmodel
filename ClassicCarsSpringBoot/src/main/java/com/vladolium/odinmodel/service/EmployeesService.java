@@ -19,8 +19,8 @@ public interface EmployeesService {
 	
 	
 	
-	
 	Employees readOneById(Long id);
+	
 	
 	
 	
@@ -33,11 +33,6 @@ public interface EmployeesService {
 	Iterable<Employees> readAll();
 	
 	Page<Employees> readAllPagination(Pageable page);
-	
-	
-	
-	
-	
 	
 	Iterable <Employees> readAllByOfficesId(Long officesId);
 	
@@ -55,47 +50,51 @@ public interface EmployeesService {
 	
 	
 	
+	
+	
+	
+	
+	
 	Iterable<Employees> search(
-		
-		
-		
-		
-		
 		Long officesId,
 		
 		
 		
-		Boolean isActive,
-		String extension,
-		String jobTitle,
-		Integer reportsTo,
-		String lastName,
+		
+		
+		
+		
+		
 		String firstName,
-		String email
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	);
 	
 	Page<Employees> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
 		Long officesId,
 		
 		
 		
-		Boolean isActive,
-		String extension,
-		String jobTitle,
-		Integer reportsTo,
-		String lastName,
+		
+		
+		
+		
+		
 		String firstName,
-		String email
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	);
-	
 	
 	
 	
@@ -104,6 +103,7 @@ public interface EmployeesService {
 	
 	
 	void deleteOneById(Long id);
+	
 	
 
 //Code between start and end will not be removed during generation.

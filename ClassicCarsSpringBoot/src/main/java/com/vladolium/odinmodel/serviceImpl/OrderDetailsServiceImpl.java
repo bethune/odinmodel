@@ -4,6 +4,7 @@ import com.vladolium.odinmodel.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
 import com.vladolium.odinmodel.repository.OrderDetailsRepository;
@@ -14,6 +15,7 @@ import com.vladolium.odinmodel.domain.OrderDetails.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
+@Transactional
 public class OrderDetailsServiceImpl implements OrderDetailsService {
 
 	private OrderDetailsRepository orderDetailsRepository;
@@ -28,14 +30,14 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public OrderDetails createUpdate(OrderDetails orderDetails) {
 		return orderDetailsRepository.save(orderDetails);
 	}
+	
+	
+	
+	
 	@Override
 	public OrderDetails readOneById(Long id) {
 		return orderDetailsRepository.getOne(id);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -53,12 +55,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<OrderDetails> readAllByProductsId(Long productsId) {
 		return orderDetailsRepository.findByProductsIdEquals(productsId);
@@ -68,6 +64,18 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page) {
 		return orderDetailsRepository.findByProductsIdEquals(productsId, page);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -82,22 +90,10 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<OrderDetails> search(
+		
 		Long ordersId,
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -105,20 +101,20 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		Long productsId,
 		
-		Integer orderLineNumber,
+		
+		
+		
+		
+		
+		
+		Integer quantityOrdered,
 		Double priceEach,
-		Integer quantityOrdered
+		Integer orderLineNumber
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
 			ordersId,
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
@@ -126,9 +122,15 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 			
 			productsId,
 			
-			orderLineNumber,
+			
+			
+			
+			
+			
+			
+			quantityOrdered,
 			priceEach,
-			quantityOrdered
+			orderLineNumber
 				
 		);
 		return orderDetailsRepository.findAll(where);
@@ -137,14 +139,8 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	@Override
 	public Page<OrderDetails> searchPagination(
 		Pageable page,
+		
 		Long ordersId,
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -152,20 +148,20 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		Long productsId,
 		
-		Integer orderLineNumber,
+		
+		
+		
+		
+		
+		
+		Integer quantityOrdered,
 		Double priceEach,
-		Integer quantityOrdered
+		Integer orderLineNumber
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
 			ordersId,
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
@@ -173,23 +169,23 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 			
 			productsId,
 			
-			orderLineNumber,
+			
+			
+			
+			
+			
+			
+			quantityOrdered,
 			priceEach,
-			quantityOrdered
+			orderLineNumber
 			
 		);
 		return orderDetailsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
 		Long ordersId,
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -197,25 +193,25 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		Long productsId,
 		
-		Integer orderLineNumber,
+		
+		
+		
+		
+		
+		
+		Integer quantityOrdered,
 		Double priceEach,
-		Integer quantityOrdered
+		Integer orderLineNumber
 		
 	) {
 		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
 		if (ordersId != null) {
 			where.and(qOrderDetails.orders.id.eq(ordersId));
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -225,28 +221,34 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 			where.and(qOrderDetails.products.id.eq(productsId));
 		}
 		
-		if (orderLineNumber != null) {
-			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
+		
+		
+		
+		
+		
+		
+		if (quantityOrdered != null) {
+			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
 		}
 		if (priceEach != null) {
 			where.and(qOrderDetails.priceEach.eq(priceEach));
 		}
-		if (quantityOrdered != null) {
-			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
+		if (orderLineNumber != null) {
+			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
 		}
 		
 	
 		return where;
 	}
 	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 		orderDetailsRepository.deleteById(id);
 	}
-	
-	
-	
-	
 	
 	
 

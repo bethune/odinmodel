@@ -12,12 +12,12 @@ public interface OfficesService {
 
 	// covers create & update
 	Offices createUpdate(Offices offices);
-	
-	
-	
-	
-	
 	Offices readOneById(Long id);
+	
+	
+	
+	
+	
 	
 	
 	
@@ -39,12 +39,12 @@ public interface OfficesService {
 	
 	Iterable<Offices> search(
 		String postalCode,
-		String country,
-		String city,
-		String territory,
-		String addressLine2,
-		String phone,
 		String addressLine1,
+		String country,
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
 		String state
 		
 	);
@@ -52,21 +52,21 @@ public interface OfficesService {
 	Page<Offices> searchPagination(
 		Pageable page,
 		String postalCode,
-		String country,
-		String city,
-		String territory,
-		String addressLine2,
-		String phone,
 		String addressLine1,
+		String country,
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
 		String state
 		
 	);
-	
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
+	
 	
 	
 	

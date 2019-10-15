@@ -28,13 +28,12 @@ public class ProductLinesController {
 	public ProductLines createOne(@RequestBody ProductLines productLines) {
 		return productLinesService.createUpdate(productLines);
 	}
-	
 	@PutMapping("/{id}")
 	public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
 		ProductLines current = productLinesService.readOneById(id);
 		
-		current.setTextDescription(productLines.getTextDescription());
 		
+		current.setTextDescription(productLines.getTextDescription());
 		
 		current.setImage(productLines.getImage());
 		
@@ -54,6 +53,7 @@ public class ProductLinesController {
 	public ProductLines readOneById(@PathVariable Long id) {
 		return productLinesService.readOneById(id);
 	}
+	
 	
 	
 	
@@ -81,7 +81,6 @@ public class ProductLinesController {
 	public void setProductsService(ProductsService productsService) {
 		this.productsService = productsService;
 	}
-	
 	@GetMapping("/{productLinesId}/products")
 	public Iterable<Products> readAllProductsByProductLinesId(@PathVariable Long productLinesId) {
 		return productsService.readAllByProductLinesId(productLinesId);
@@ -96,6 +95,7 @@ public class ProductLinesController {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return productsService.readAllByProductLinesId(productLinesId, page);
 	}
+	
 	
 	
 	
@@ -137,11 +137,11 @@ public class ProductLinesController {
 			
 		);
 	}
-	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		productLinesService.deleteOneById(id);
 	}
+	
 	
 	
 	

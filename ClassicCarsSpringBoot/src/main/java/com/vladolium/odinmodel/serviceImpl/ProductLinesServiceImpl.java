@@ -4,6 +4,7 @@ import com.vladolium.odinmodel.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
 import com.vladolium.odinmodel.repository.ProductLinesRepository;
@@ -14,6 +15,7 @@ import com.vladolium.odinmodel.domain.ProductLines.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
+@Transactional
 public class ProductLinesServiceImpl implements ProductLinesService {
 
 	private ProductLinesRepository productLinesRepository;
@@ -28,11 +30,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	public ProductLines createUpdate(ProductLines productLines) {
 		return productLinesRepository.save(productLines);
 	}
-	
 	@Override
 	public ProductLines readOneById(Long id) {
 		return productLinesRepository.getOne(id);
 	}
+	
 	
 	
 	
@@ -109,11 +111,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		return where;
 	}
 	
-	
 	@Override
 	public void deleteOneById(Long id) {
 		productLinesRepository.deleteById(id);
 	}
+	
 	
 	
 	

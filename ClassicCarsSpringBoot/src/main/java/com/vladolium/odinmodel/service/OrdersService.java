@@ -12,9 +12,9 @@ public interface OrdersService {
 
 	// covers create & update
 	Orders createUpdate(Orders orders);
+	
+	
 	Orders readOneById(Long id);
-	
-	
 	
 	
 	
@@ -30,23 +30,17 @@ public interface OrdersService {
 	
 	Page<Orders> readAllPagination(Pageable page);
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	Iterable <Orders> readAllByCustomersId(Long customersId);
 	
 	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -60,51 +54,57 @@ public interface OrdersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	Iterable<Orders> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		String status,
-		LocalDate orderDate,
 		LocalDate shippedDate,
-		LocalDate requiredDate,
-		String comments
+		String comments,
+		LocalDate orderDate,
+		String status,
+		LocalDate requiredDate
 		
 	);
 	
 	Page<Orders> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		String status,
-		LocalDate orderDate,
 		LocalDate shippedDate,
-		LocalDate requiredDate,
-		String comments
+		String comments,
+		LocalDate orderDate,
+		String status,
+		LocalDate requiredDate
 		
 	);
+	
+	
 	void deleteOneById(Long id);
-	
-	
 	
 	
 	

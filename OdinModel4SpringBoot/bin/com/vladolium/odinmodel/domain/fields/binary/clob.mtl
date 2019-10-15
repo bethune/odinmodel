@@ -3,12 +3,16 @@
 
 [import com::vladolium::odinmodel::domain::fields::constraints::notNull /]
 [import com::vladolium::odinmodel::domain::fields::constraints::unique /]
+[import com::vladolium::odinmodel::domain::fields::constraints::jpa /]
 
 [template public clob(aClass : Class)]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
 	[if p.type.name = 'Clob']
 		[if p.lower = 1 and p.isID = false]
 [notNull(p)/]
+		[/if]
+		[if p.ownedComment._body->isEmpty() = false ]
+[jpa(p)/]
 		[/if]			
 @Lob
 private String [p.name/];

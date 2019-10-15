@@ -28,29 +28,24 @@ public class OfficesController {
 	public Offices createOne(@RequestBody Offices offices) {
 		return officesService.createUpdate(offices);
 	}
-	
-	
-	
-	
-	
 	@PutMapping("/{id}")
 	public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices) {
 		Offices current = officesService.readOneById(id);
 		
+		
 		current.setPostalCode(offices.getPostalCode());
+		
+		current.setAddressLine1(offices.getAddressLine1());
 		
 		current.setCountry(offices.getCountry());
 		
-		current.setCity(offices.getCity());
-		
 		current.setTerritory(offices.getTerritory());
-		
-		current.setAddressLine2(offices.getAddressLine2());
-		
 		
 		current.setPhone(offices.getPhone());
 		
-		current.setAddressLine1(offices.getAddressLine1());
+		current.setCity(offices.getCity());
+		
+		current.setAddressLine2(offices.getAddressLine2());
 		
 		current.setState(offices.getState());
 					
@@ -91,6 +86,11 @@ public class OfficesController {
 	
 	
 	
+	
+	
+	
+	
+	
 	@GetMapping("")
 	public Iterable<Offices> readAll() {
 		return officesService.readAll();
@@ -111,11 +111,6 @@ public class OfficesController {
 	public void setEmployeesService(EmployeesService employeesService) {
 		this.employeesService = employeesService;
 	}
-	
-	
-	
-	
-	
 	@GetMapping("/{officesId}/employees")
 	public Iterable<Employees> readAllEmployeesByOfficesId(@PathVariable Long officesId) {
 		return employeesService.readAllByOfficesId(officesId);
@@ -143,26 +138,31 @@ public class OfficesController {
 	
 	
 	
+	
+	
+	
+	
+	
 	@GetMapping("/search")
 	public Iterable<Offices> search(
 		@RequestParam(value = "postalCode", required = false) String postalCode,
-		@RequestParam(value = "country", required = false) String country,
-		@RequestParam(value = "city", required = false) String city,
-		@RequestParam(value = "territory", required = false) String territory,
-		@RequestParam(value = "addressLine2", required = false) String addressLine2,
-		@RequestParam(value = "phone", required = false) String phone,
 		@RequestParam(value = "addressLine1", required = false) String addressLine1,
+		@RequestParam(value = "country", required = false) String country,
+		@RequestParam(value = "territory", required = false) String territory,
+		@RequestParam(value = "phone", required = false) String phone,
+		@RequestParam(value = "city", required = false) String city,
+		@RequestParam(value = "addressLine2", required = false) String addressLine2,
 		@RequestParam(value = "state", required = false) String state
 		
 	) {
 		return officesService.search(
 			postalCode,
-			country,
-			city,
-			territory,
-			addressLine2,
-			phone,
 			addressLine1,
+			country,
+			territory,
+			phone,
+			city,
+			addressLine2,
 			state
 			
 		);
@@ -173,12 +173,12 @@ public class OfficesController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		@RequestParam(value = "postalCode", required = false) String postalCode,
-		@RequestParam(value = "country", required = false) String country,
-		@RequestParam(value = "city", required = false) String city,
-		@RequestParam(value = "territory", required = false) String territory,
-		@RequestParam(value = "addressLine2", required = false) String addressLine2,
-		@RequestParam(value = "phone", required = false) String phone,
 		@RequestParam(value = "addressLine1", required = false) String addressLine1,
+		@RequestParam(value = "country", required = false) String country,
+		@RequestParam(value = "territory", required = false) String territory,
+		@RequestParam(value = "phone", required = false) String phone,
+		@RequestParam(value = "city", required = false) String city,
+		@RequestParam(value = "addressLine2", required = false) String addressLine2,
 		@RequestParam(value = "state", required = false) String state
 		
 	) {
@@ -187,25 +187,25 @@ public class OfficesController {
 		return officesService.searchPagination(
 			page,
 			postalCode,
-			country,
-			city,
-			territory,
-			addressLine2,
-			phone,
 			addressLine1,
+			country,
+			territory,
+			phone,
+			city,
+			addressLine2,
 			state
 			
 		);
 	}
-	
-	
-	
-	
-	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		officesService.deleteOneById(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 	

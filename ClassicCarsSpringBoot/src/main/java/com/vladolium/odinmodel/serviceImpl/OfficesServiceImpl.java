@@ -4,6 +4,7 @@ import com.vladolium.odinmodel.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
 import com.vladolium.odinmodel.repository.OfficesRepository;
@@ -14,6 +15,7 @@ import com.vladolium.odinmodel.domain.Offices.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
+@Transactional
 public class OfficesServiceImpl implements OfficesService {
 
 	private OfficesRepository officesRepository;
@@ -28,15 +30,15 @@ public class OfficesServiceImpl implements OfficesService {
 	public Offices createUpdate(Offices offices) {
 		return officesRepository.save(offices);
 	}
-	
-	
-	
-	
-	
 	@Override
 	public Offices readOneById(Long id) {
 		return officesRepository.getOne(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -65,23 +67,23 @@ public class OfficesServiceImpl implements OfficesService {
 	@Override
 	public Iterable<Offices> search(
 		String postalCode,
-		String country,
-		String city,
-		String territory,
-		String addressLine2,
-		String phone,
 		String addressLine1,
+		String country,
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
 		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			postalCode,
-			country,
-			city,
-			territory,
-			addressLine2,
-			phone,
 			addressLine1,
+			country,
+			territory,
+			phone,
+			city,
+			addressLine2,
 			state
 				
 		);
@@ -92,23 +94,23 @@ public class OfficesServiceImpl implements OfficesService {
 	public Page<Offices> searchPagination(
 		Pageable page,
 		String postalCode,
-		String country,
-		String city,
-		String territory,
-		String addressLine2,
-		String phone,
 		String addressLine1,
+		String country,
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
 		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			postalCode,
-			country,
-			city,
-			territory,
-			addressLine2,
-			phone,
 			addressLine1,
+			country,
+			territory,
+			phone,
+			city,
+			addressLine2,
 			state
 			
 		);
@@ -117,12 +119,12 @@ public class OfficesServiceImpl implements OfficesService {
 	
 	public BooleanBuilder dynamicWhere(
 		String postalCode,
-		String country,
-		String city,
-		String territory,
-		String addressLine2,
-		String phone,
 		String addressLine1,
+		String country,
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
 		String state
 		
 	) {
@@ -133,23 +135,23 @@ public class OfficesServiceImpl implements OfficesService {
 		if (postalCode != null) {
 			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
 		}
+		if (addressLine1 != null) {
+			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
+		}
 		if (country != null) {
 			where.and(qOffices.country.containsIgnoreCase(country));
-		}
-		if (city != null) {
-			where.and(qOffices.city.containsIgnoreCase(city));
 		}
 		if (territory != null) {
 			where.and(qOffices.territory.containsIgnoreCase(territory));
 		}
-		if (addressLine2 != null) {
-			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
-		}
 		if (phone != null) {
 			where.and(qOffices.phone.containsIgnoreCase(phone));
 		}
-		if (addressLine1 != null) {
-			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
+		if (city != null) {
+			where.and(qOffices.city.containsIgnoreCase(city));
+		}
+		if (addressLine2 != null) {
+			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
 		}
 		if (state != null) {
 			where.and(qOffices.state.containsIgnoreCase(state));
@@ -159,15 +161,15 @@ public class OfficesServiceImpl implements OfficesService {
 		return where;
 	}
 	
-	
-	
-	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
 		officesRepository.deleteById(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -11,7 +11,6 @@ import java.util.*;
 @Entity
 public class ProductLines {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -36,8 +35,9 @@ public class ProductLines {
 	
 	
 	
-	@NotNull
 	
+	@NotNull
+	@Size(max=50)
 	private String productLine;
 	
 	public String getProductLine() {
@@ -71,7 +71,9 @@ public class ProductLines {
 	
 	
 	
+	
 	@NotNull
+	@Size(max=4000)
 	@Lob
 	private String textDescription;
 	
@@ -81,7 +83,6 @@ public class ProductLines {
 	public void setTextDescription(String textDescription) {
 		this.textDescription = textDescription;
 	}
-	
 	
 	
 	

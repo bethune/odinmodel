@@ -3,6 +3,7 @@
 
 [import com::vladolium::odinmodel::domain::fields::constraints::notNull /]
 [import com::vladolium::odinmodel::domain::fields::constraints::unique /]
+[import com::vladolium::odinmodel::domain::fields::constraints::jpa /]
 
 [template public time(aClass : Class)]
 [for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getInheritedMembers())) separator('\n')]
@@ -12,6 +13,9 @@
 		[/if]
 		[if p.isUnique = true and p.isID = false]
 [unique(p)/]	
+		[/if]
+		[if p.ownedComment._body->isEmpty() = false ]
+[jpa(p)/]
 		[/if]		
 @DateTimeFormat(pattern = "HH:mm") //for database
 @JsonFormat(pattern = "HH:mm") //for frontend

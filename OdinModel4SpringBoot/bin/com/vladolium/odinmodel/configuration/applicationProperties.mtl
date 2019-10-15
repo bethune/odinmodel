@@ -61,6 +61,24 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect
 
 #-----------------------------------------
 
+#--------- PostgreSQL embedded setup ---------
+
+#-- HINT: set database path and schema name
+#spring.datasource.url= jdbc:postgresql://localhost:5432/schema-name?verifyServerCertificate=false&useSSL=true
+
+#-- HINT: add username
+#spring.datasource.username=
+
+#-- HINT: add password
+#spring.datasource.password=
+
+#spring.datasource.driver-class-name=org.postgresql.Driver
+
+#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+
+#-----------------------------------------
+
 #--------- JPA Hibernate setup ---------
 
 #-- HINT: true or false

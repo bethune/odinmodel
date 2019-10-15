@@ -4,6 +4,7 @@ import com.vladolium.odinmodel.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
 import com.vladolium.odinmodel.repository.EmployeesRepository;
@@ -14,6 +15,7 @@ import com.vladolium.odinmodel.domain.Employees.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
+@Transactional
 public class EmployeesServiceImpl implements EmployeesService {
 
 	private EmployeesRepository employeesRepository;
@@ -35,11 +37,11 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
-	
 	@Override
 	public Employees readOneById(Long id) {
 		return employeesRepository.getOne(id);
 	}
+	
 	
 	
 	
@@ -58,11 +60,6 @@ public class EmployeesServiceImpl implements EmployeesService {
 	public Page<Employees> readAllPagination(Pageable page) {
 		return employeesRepository.findAll(page);
 	}
-	
-	
-	
-	
-	
 	
 	@Override
 	public Iterable<Employees> readAllByOfficesId(Long officesId) {
@@ -86,43 +83,48 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Employees> search(
-		
-		
-		
-		
-		
 		Long officesId,
 		
 		
 		
-		Boolean isActive,
-		String extension,
-		String jobTitle,
-		Integer reportsTo,
-		String lastName,
+		
+		
+		
+		
+		
 		String firstName,
-		String email
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
 			officesId,
 			
 			
 			
-			isActive,
-			extension,
-			jobTitle,
-			reportsTo,
-			lastName,
+			
+			
+			
+			
+			
 			firstName,
-			email
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 				
 		);
 		return employeesRepository.findAll(where);
@@ -131,100 +133,100 @@ public class EmployeesServiceImpl implements EmployeesService {
 	@Override
 	public Page<Employees> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
 		Long officesId,
 		
 		
 		
-		Boolean isActive,
-		String extension,
-		String jobTitle,
-		Integer reportsTo,
-		String lastName,
+		
+		
+		
+		
+		
 		String firstName,
-		String email
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
 			officesId,
 			
 			
 			
-			isActive,
-			extension,
-			jobTitle,
-			reportsTo,
-			lastName,
+			
+			
+			
+			
+			
 			firstName,
-			email
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 			
 		);
 		return employeesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
-		
-		
-		
-		
 		Long officesId,
 		
 		
 		
-		Boolean isActive,
-		String extension,
-		String jobTitle,
-		Integer reportsTo,
-		String lastName,
+		
+		
+		
+		
+		
 		String firstName,
-		String email
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	) {
 		QEmployees qEmployees = QEmployees.employees;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
-		
-		
-		
-		
 		if (officesId != null) {
 			where.and(qEmployees.offices.id.eq(officesId));
 		}
 		
 		
 		
-		if (isActive != null) {
-			where.and(qEmployees.isActive.eq(isActive));
-		}
-		if (extension != null) {
-			where.and(qEmployees.extension.containsIgnoreCase(extension));
-		}
-		if (jobTitle != null) {
-			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
-		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
-		}
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
-		}
+		
+		
+		
+		
+		
 		if (firstName != null) {
 			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
 		}
 		if (email != null) {
 			where.and(qEmployees.email.containsIgnoreCase(email));
+		}
+		if (jobTitle != null) {
+			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
+		}
+		if (isActive != null) {
+			where.and(qEmployees.isActive.eq(isActive));
+		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
+		}
+		if (extension != null) {
+			where.and(qEmployees.extension.containsIgnoreCase(extension));
+		}
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
 		}
 		
 	
@@ -238,11 +240,11 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
-	
 	@Override
 	public void deleteOneById(Long id) {
 		employeesRepository.deleteById(id);
 	}
+	
 	
 
 //Code between start and end will not be removed during generation.

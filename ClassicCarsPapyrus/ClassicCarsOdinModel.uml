@@ -3,8 +3,16 @@
   <packagedElement xmi:type="uml:Package" xmi:id="_PQyUAN9rEemJF-HGxlolYw" name="com/vladolium/odinmodel">
     <packagedElement xmi:type="uml:Class" xmi:id="_ZoCbsN9rEemJF-HGxlolYw" name="ProductLines">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_lYI5wN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_BbgAYN-FEemhFrfFZLxexQ" name="productLine" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Gjd_wN-FEemhFrfFZLxexQ" name="textDescription" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BbgAYN-FEemhFrfFZLxexQ" name="productLine" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_XQWfcO69EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Gjd_wN-FEemhFrfFZLxexQ" name="textDescription" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ec8pAO69EemYTtJqt4KN7Q">
+          <body>@Size(max=4000)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_lgWHoN-FEemhFrfFZLxexQ" name="image" type="_LdfVoN94EemhFrfFZLxexQ" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gl4ocOA4Eemwf5LQs8Iftw"/>
       </ownedAttribute>
@@ -12,17 +20,45 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_eWzQ4N9rEemJF-HGxlolYw" name="Offices">
       <generalization xmi:type="uml:Generalization" xmi:id="_Szpq8OElEemxFfBtMY4P2Q" general="_a7sr4N9_EemhFrfFZLxexQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2CVmMN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_dC_doN-BEemhFrfFZLxexQ" name="territory" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dC_doN-BEemhFrfFZLxexQ" name="territory" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9_s6kO68EemYTtJqt4KN7Q">
+          <body>@Size(max=10)</body>
+        </ownedComment>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_f9CO4N9rEemJF-HGxlolYw" name="Products">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2qP6wN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_-a6HwN-FEemhFrfFZLxexQ" name="productCode" type="_LFJuIN94EemhFrfFZLxexQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_B4oy4N-GEemhFrfFZLxexQ" name="productName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_EVvHcN-GEemhFrfFZLxexQ" name="productVendor" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_IFAOgN-GEemhFrfFZLxexQ" name="productScale" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_KkP4IN-GEemhFrfFZLxexQ" name="productDescription" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-a6HwN-FEemhFrfFZLxexQ" name="productCode" type="_LFJuIN94EemhFrfFZLxexQ">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RpEt4O69EemYTtJqt4KN7Q">
+          <body>@Size(max=15)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_B4oy4N-GEemhFrfFZLxexQ" name="productName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_TOZs8O69EemYTtJqt4KN7Q">
+          <body>@Size(max=70)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EVvHcN-GEemhFrfFZLxexQ" name="productVendor" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_oiLMkO69EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IFAOgN-GEemhFrfFZLxexQ" name="productScale" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m5bGEO69EemYTtJqt4KN7Q">
+          <body>@Size(max=10)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KkP4IN-GEemhFrfFZLxexQ" name="productDescription" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qVgycO69EemYTtJqt4KN7Q">
+          <body>@Size(max=4000)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OiYhoN-GEemhFrfFZLxexQ" name="quantityInStock" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_RbYIAN-GEemhFrfFZLxexQ" name="buyPrice" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RbYIAN-GEemhFrfFZLxexQ" name="buyPrice" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JTXxwO6-EemYTtJqt4KN7Q">
+          <body>@DecimalMin(&quot;10.00&quot;)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_TlyKEN-GEemhFrfFZLxexQ" name="msrp" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wd9-wOElEemxFfBtMY4P2Q" type="_ZoCbsN9rEemJF-HGxlolYw" association="_wdp1sOElEemxFfBtMY4P2Q"/>
     </packagedElement>
@@ -34,32 +70,75 @@
           <body>@Size(max=50)</body>
         </ownedComment>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Hjp8UN-DEemhFrfFZLxexQ" name="creditLimit" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Hjp8UN-DEemhFrfFZLxexQ" name="creditLimit" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="__ag2QO69EemYTtJqt4KN7Q">
+          <body>@DecimalMax(&quot;300.00&quot;)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_4f0VUOElEemxFfBtMY4P2Q" type="_pNCaoN9rEemJF-HGxlolYw" association="_4fygIOElEemxFfBtMY4P2Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_DkLaouEmEemxFfBtMY4P2Q" type="_FXPmkN9sEemJF-HGxlolYw" association="_DkKMgOEmEemxFfBtMY4P2Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DkMBsOEmEemxFfBtMY4P2Q"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DkMowOEmEemxFfBtMY4P2Q" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_w-aVgOI6EemqlKIOh2pa2g" name="firstName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_x4szgOI6EemqlKIOh2pa2g" name="lastName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_w-aVgOI6EemqlKIOh2pa2g" name="firstName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RNIOMO68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_x4szgOI6EemqlKIOh2pa2g" name="lastName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_SbW74O68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_pNCaoN9rEemJF-HGxlolYw" name="Employees">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3vK7cN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_OY25kN-DEemhFrfFZLxexQ" name="extension" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_QeAoMN-DEemhFrfFZLxexQ" name="email" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OY25kN-DEemhFrfFZLxexQ" name="extension" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ln0wwO68EemYTtJqt4KN7Q">
+          <body>@Size(max=10)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QeAoMN-DEemhFrfFZLxexQ" name="email" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m32OMO68EemYTtJqt4KN7Q">
+          <body>@Size(max=100)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_SdSYUN-DEemhFrfFZLxexQ" name="reportsTo" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n2Va0OL3EemqlKIOh2pa2g"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Vwl8IN-DEemhFrfFZLxexQ" name="jobTitle" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Vwl8IN-DEemhFrfFZLxexQ" name="jobTitle" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qr7j0O68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5eA2sN_XEemc_OofB7ydVg" name="isActive" type="_JMm4IN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_9VDl8eElEemxFfBtMY4P2Q" type="_eWzQ4N9rEemJF-HGxlolYw" association="_9VBwwOElEemxFfBtMY4P2Q"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_WSfaMN-BEemhFrfFZLxexQ" name="firstName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_YZ06IN-BEemhFrfFZLxexQ" name="lastName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WSfaMN-BEemhFrfFZLxexQ" name="firstName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_KEjB8O68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YZ06IN-BEemhFrfFZLxexQ" name="lastName" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Np4w8O68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_7B-b4N9rEemJF-HGxlolYw" name="OrderDetails">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5mqokN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_7WCMEN-GEemhFrfFZLxexQ" name="quantityOrdered" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_-MhRAN-GEemhFrfFZLxexQ" name="priceEach" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7WCMEN-GEemhFrfFZLxexQ" name="quantityOrdered" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_bcCnUO6-EemYTtJqt4KN7Q">
+          <body>@Min(10)</body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-MhRAN-GEemhFrfFZLxexQ" name="priceEach" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RbuY8O6-EemYTtJqt4KN7Q">
+          <body>@DecimalMin(&quot;20.00&quot;)</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_MdaIAO7CEemYTtJqt4KN7Q">
+          <body>@DecimalMax(&quot;300.00&quot;)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ACGSkN-HEemhFrfFZLxexQ" name="orderLineNumber" type="_wovgwN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_zBMJceElEemxFfBtMY4P2Q" type="_f9CO4N9rEemJF-HGxlolYw" association="_zBKUQOElEemxFfBtMY4P2Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2P-ZoOElEemxFfBtMY4P2Q" type="_9Pe1QN9rEemJF-HGxlolYw" association="_2P8kcOElEemxFfBtMY4P2Q"/>
@@ -71,15 +150,26 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wjsq4N-GEemhFrfFZLxexQ" name="shippedDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k1SqsOMCEemqlKIOh2pa2g"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_0cAZMN-GEemhFrfFZLxexQ" name="status" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0cAZMN-GEemhFrfFZLxexQ" name="status" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HPu7gO69EemYTtJqt4KN7Q">
+          <body>@Size(max=15)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2TgtYN-GEemhFrfFZLxexQ" name="comments" type="_coD-oOLCEemqlKIOh2pa2g" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_KKTPMO69EemYTtJqt4KN7Q">
+          <body>@Size(max=4000)</body>
+        </ownedComment>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bVTiMOMCEemqlKIOh2pa2g"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_0qr20OElEemxFfBtMY4P2Q" type="_noWUwN9rEemJF-HGxlolYw" association="_0qpakOElEemxFfBtMY4P2Q"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_BvMh0N9sEemJF-HGxlolYw" name="Payments">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6T8lUN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_M8lTYN-EEemhFrfFZLxexQ" name="checkNumber" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_M8lTYN-EEemhFrfFZLxexQ" name="checkNumber" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_OCaJMO69EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_UOpLwN-EEemhFrfFZLxexQ" name="paymentDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ahb_gN-EEemhFrfFZLxexQ" name="amount" type="_xvWjgN93EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_BnCYgOEmEemxFfBtMY4P2Q" type="_noWUwN9rEemJF-HGxlolYw" association="_BnAjUOEmEemxFfBtMY4P2Q"/>
@@ -89,7 +179,11 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_FXPmkN9sEemJF-HGxlolYw" name="Reviews">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6hKh8N94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_g7pp4N-EEemhFrfFZLxexQ" name="reviewText" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_g7pp4N-EEemhFrfFZLxexQ" name="reviewText" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9CmuQO6-EemYTtJqt4KN7Q">
+          <body>@Size(max=4000)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_mn2-wN-EEemhFrfFZLxexQ" name="reviewDate" type="_L0lnAN94EemhFrfFZLxexQ" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_xxw8sN_XEemc_OofB7ydVg" name="reviewTime" type="_MTP48N94EemhFrfFZLxexQ" isUnique="false"/>
     </packagedElement>
@@ -106,19 +200,46 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6wtbMOIoEemqlKIOh2pa2g" name="expiresOn" type="_MEiukN94EemhFrfFZLxexQ" isUnique="false"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_a7sr4N9_EemhFrfFZLxexQ" name="ContactDetails" isAbstract="true">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_CzrtkN-AEemhFrfFZLxexQ" name="city" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CzrtkN-AEemhFrfFZLxexQ" name="city" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ZmK8wO68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_KFmcAN-AEemhFrfFZLxexQ" name="phone" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_VJtYgO68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_o5fD4O6-EemYTtJqt4KN7Q">
+          <body>@Pattern(regexp=&quot;(d{3})d{3}-d{4}&quot;)</body>
+        </ownedComment>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4pWPkOL4EemqlKIOh2pa2g"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_QB9swN-AEemhFrfFZLxexQ" name="addressLine1" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QB9swN-AEemhFrfFZLxexQ" name="addressLine1" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_W5BaAO68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_TGB6sN-AEemhFrfFZLxexQ" name="addressLine2" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_X3KdQO68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x-ff0N-EEemhFrfFZLxexQ"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_XJjagN-AEemhFrfFZLxexQ" name="state" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cezWwO68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z9DYoOK8EemqlKIOh2pa2g"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_ZlzagN-AEemhFrfFZLxexQ" name="country" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ZlzagN-AEemhFrfFZLxexQ" name="country" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_eGOAgO68EemYTtJqt4KN7Q">
+          <body>@Size(max=50)</body>
+        </ownedComment>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_co3i4N-AEemhFrfFZLxexQ" name="postalCode" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_a5BrwO68EemYTtJqt4KN7Q">
+          <body>@Size(max=15)</body>
+        </ownedComment>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OJbQYOL6EemqlKIOh2pa2g"/>
       </ownedAttribute>
     </packagedElement>
