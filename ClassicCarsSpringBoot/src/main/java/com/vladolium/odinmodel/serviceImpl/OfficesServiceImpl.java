@@ -13,6 +13,7 @@ import com.vladolium.odinmodel.domain.QOffices;
 import com.vladolium.odinmodel.repository.EmployeesRepository;
 import com.vladolium.odinmodel.repository.OfficesRepository;
 import com.vladolium.odinmodel.service.OfficesService;
+import com.vladolium.odinmodel.wrapperRequest.OfficesEmployees;
 
 @Service
 @Transactional
@@ -39,13 +40,12 @@ public class OfficesServiceImpl implements OfficesService {
     }
 
     @Override
-    public Offices createIric(Offices offices, Employees employees) {
-	System.out.println("ADRESA IZ UPITA ---------------- " + offices.getAddressLine1());
-	System.out.println("TITULA IZ UPITA ---------------- " + employees.getJobTitle());
-	Offices temp = officesRepository.save(offices);
-	employees.setOffices(temp);
-	employeesRepository.save(employees);
-	return temp;
+    public Offices createIric(OfficesEmployees officesEmployees) {
+	Offices currentOffices = officesRepository.save(officesEmployees.getOffices());
+	Employees currentEmployees = officesEmployees.getEmployees();
+	currentEmployees.setOffices(officesRepository.getOne(currentOffices.getId()));
+	employeesRepository.save(currentEmployees);
+	return currentOffices;
     }
 
     @Override

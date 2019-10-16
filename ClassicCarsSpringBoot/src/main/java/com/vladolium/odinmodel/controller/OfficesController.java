@@ -19,6 +19,7 @@ import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Offices;
 import com.vladolium.odinmodel.service.EmployeesService;
 import com.vladolium.odinmodel.service.OfficesService;
+import com.vladolium.odinmodel.wrapperRequest.OfficesEmployees;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -37,9 +38,9 @@ public class OfficesController {
 	return officesService.createUpdate(offices);
     }
 
-    @PostMapping("/iric")
-    public Offices createOneIric(@RequestBody Offices offices, @RequestBody Employees employees) {
-	return officesService.createIric(offices, employees);
+    @PostMapping("/employees")
+    public Offices createOneIric(@RequestBody OfficesEmployees officesEmployees) {
+	return officesService.createIric(officesEmployees);
     }
 
     @PutMapping("/{id}")

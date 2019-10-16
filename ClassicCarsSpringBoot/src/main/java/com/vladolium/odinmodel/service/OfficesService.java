@@ -3,15 +3,15 @@ package com.vladolium.odinmodel.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Offices;
+import com.vladolium.odinmodel.wrapperRequest.OfficesEmployees;
 
 public interface OfficesService {
 
     // covers create & update
     Offices createUpdate(Offices offices);
 
-    Offices createIric(Offices offices, Employees employees);
+    Offices createIric(OfficesEmployees officesEmployees);
 
     Offices readOneById(Long id);
 
