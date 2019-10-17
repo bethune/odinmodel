@@ -8,6 +8,7 @@
 [import com::vladolium::odinmodel::repository::repository /]
 [import com::vladolium::odinmodel::configuration::applicationProperties /]
 [import com::vladolium::odinmodel::configuration::swagger2 /]
+[import com::vladolium::odinmodel::wrapperRequests::manyToOne /]
 
 [template public main(aClass : Class)]
 [comment @main/]
@@ -16,6 +17,7 @@
 [aClass.service()/]
 [aClass.serviceImpl()/]
 [aClass.repository()/]
+[aClass.manyToOne()/]
 [aClass.applicationProperties()/]
 [aClass.swagger2()/]
 [/template]

@@ -25,7 +25,7 @@ public Page<[entity/]> readAllPagination(
 	[for (m : Class | pack.member -> filter(Class))]
 		[if m.name.toLower() <> aClass.name.toLower()]
 			[for (p : Property | m.getAssociations().memberEnd)]
-				[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = m.name.toUpperFirst() and p.opposite.type.name.toUpperFirst() = entity and 
+				[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = m.name.toUpperFirst() and p.opposite.type.name.toUpperFirst() = entity and 
 					p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 private [p.type.name.toUpperFirst()/]Service [p.type.name.toLowerFirst()/]Service;
 

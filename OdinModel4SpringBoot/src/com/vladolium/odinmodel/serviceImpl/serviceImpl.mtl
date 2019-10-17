@@ -26,9 +26,10 @@ import java.time.*;
 import java.util.*;
 import [serviceImplPath/].repository.[entity/]Repository;
 import [serviceImplPath/].service.[entity/]Service;
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.*;
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/];
-import [aClass._package.name.replaceAll('/', '.').toLowerCase()/].domain.[aClass.name.toUpperFirst()/].*;
+import [serviceImplPath/].domain.*;
+import [serviceImplPath/].domain.[aClass.name.toUpperFirst()/];
+import [serviceImplPath/].domain.[aClass.name.toUpperFirst()/].*;
+import [serviceImplPath/].wrapperRequest.
 import com.querydsl.core.BooleanBuilder;
 
 @Service

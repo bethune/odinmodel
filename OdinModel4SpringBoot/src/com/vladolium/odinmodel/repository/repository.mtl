@@ -36,7 +36,7 @@ public interface [entity/]Repository extends JpaRepository<[entity/], [p.type.na
 
 		[comment: Read all by parent id in many to one relationship /]
 		[for (p : Property | aClass.getAssociations().memberEnd)]
-			[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+			[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
 				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 				[for (pack : Package | aClass._package)]
 					[for (m : Class | pack.member -> filter(Class))]
@@ -58,7 +58,7 @@ Page <[p.type.name.toUpperFirst()/]> findBy[p.opposite.type.name.toUpperFirst()/
 
 		[comment: Read all by parent unique field in many to one relationship /]
 		[for (p : Property | aClass.getAssociations().memberEnd)]
-			[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+			[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
 				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 				[for (pack : Package | aClass._package)]
 					[for (m : Class | pack.member -> filter(Class))]

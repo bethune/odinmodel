@@ -43,7 +43,7 @@ subtemplates
 	property	: String = aClass.name.toLowerFirst();}]
 [for (p : Property | aClass.getAssociations().memberEnd)]
 	[comment : ManyToOne/]
-	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
+	[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
 		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
 	[/if]

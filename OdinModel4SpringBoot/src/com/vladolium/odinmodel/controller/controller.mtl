@@ -29,6 +29,7 @@ import [controllerPath/].domain.[entity/];
 import [controllerPath/].domain.[entity/].*;
 import [controllerPath/].service.[entity/]Service;
 import [controllerPath/].service.*;
+import [controllerPath/].wrapperRequest.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
