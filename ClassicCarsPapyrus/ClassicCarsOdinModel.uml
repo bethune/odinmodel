@@ -288,7 +288,9 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2P9LgOElEemxFfBtMY4P2Q" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2P9ykOElEemxFfBtMY4P2Q" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_2QAO0OElEemxFfBtMY4P2Q" type="_7B-b4N9rEemJF-HGxlolYw" association="_2P8kcOElEemxFfBtMY4P2Q"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2QAO0OElEemxFfBtMY4P2Q" type="_7B-b4N9rEemJF-HGxlolYw" association="_2P8kcOElEemxFfBtMY4P2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PMrWwPGYEemrmrEH2WTMiA"/>
+    </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_4fygIOElEemxFfBtMY4P2Q" memberEnd="_4f0VUOElEemxFfBtMY4P2Q _4f1jcOElEemxFfBtMY4P2Q">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4fzuQOElEemxFfBtMY4P2Q" source="org.eclipse.papyrus">

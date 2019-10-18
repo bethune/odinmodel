@@ -11,6 +11,7 @@ import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
 import com.vladolium.odinmodel.service.OrderDetailsService;
 import com.vladolium.odinmodel.service.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -35,8 +36,8 @@ public class OrderDetailsController {
 	@PutMapping("/{id}")
 	public OrderDetails updateOneById(@PathVariable Long id, @RequestBody OrderDetails orderDetails) {
 		OrderDetails current = orderDetailsService.readOneById(id);
-		current.setOrders(orderDetails.getOrders());
 		current.setProducts(orderDetails.getProducts());
+		current.setOrders(orderDetails.getOrders());
 		
 		current.setQuantityOrdered(orderDetails.getQuantityOrdered());
 		
@@ -85,16 +86,16 @@ public class OrderDetailsController {
 	@GetMapping("/search")
 	public Iterable<OrderDetails> search(
 		
-		@RequestParam(value = "ordersId", required = false) Long ordersId,
-		
-		
-		
-		
-		
 		@RequestParam(value = "productsId", required = false) Long productsId,
 		
 		
 		
+		
+		
+		
+		
+		
+		@RequestParam(value = "ordersId", required = false) Long ordersId,
 		
 		
 		
@@ -106,16 +107,16 @@ public class OrderDetailsController {
 	) {
 		return orderDetailsService.search(
 			
-			ordersId,
-			
-			
-			
-			
-			
 			productsId,
 			
 			
 			
+			
+			
+			
+			
+			
+			ordersId,
 			
 			
 			
@@ -132,16 +133,16 @@ public class OrderDetailsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		
-		@RequestParam(value = "ordersId", required = false) Long ordersId,
-		
-		
-		
-		
-		
 		@RequestParam(value = "productsId", required = false) Long productsId,
 		
 		
 		
+		
+		
+		
+		
+		
+		@RequestParam(value = "ordersId", required = false) Long ordersId,
 		
 		
 		
@@ -156,16 +157,16 @@ public class OrderDetailsController {
 		return orderDetailsService.searchPagination(
 			page,
 			
-			ordersId,
-			
-			
-			
-			
-			
 			productsId,
 			
 			
 			
+			
+			
+			
+			
+			
+			ordersId,
 			
 			
 			

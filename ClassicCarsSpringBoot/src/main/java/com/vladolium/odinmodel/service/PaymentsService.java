@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.Payments.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 
 public interface PaymentsService {
 

@@ -12,6 +12,7 @@ import com.vladolium.odinmodel.service.OrderDetailsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -93,16 +94,16 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	@Override
 	public Iterable<OrderDetails> search(
 		
-		Long ordersId,
-		
-		
-		
-		
-		
 		Long productsId,
 		
 		
 		
+		
+		
+		
+		
+		
+		Long ordersId,
 		
 		
 		
@@ -114,16 +115,16 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	) {
 		BooleanBuilder where = dynamicWhere(
 			
-			ordersId,
-			
-			
-			
-			
-			
 			productsId,
 			
 			
 			
+			
+			
+			
+			
+			
+			ordersId,
 			
 			
 			
@@ -140,16 +141,16 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public Page<OrderDetails> searchPagination(
 		Pageable page,
 		
-		Long ordersId,
-		
-		
-		
-		
-		
 		Long productsId,
 		
 		
 		
+		
+		
+		
+		
+		
+		Long ordersId,
 		
 		
 		
@@ -161,16 +162,16 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	) {
 		BooleanBuilder where = dynamicWhere(
 			
-			ordersId,
-			
-			
-			
-			
-			
 			productsId,
 			
 			
 			
+			
+			
+			
+			
+			
+			ordersId,
 			
 			
 			
@@ -185,16 +186,16 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	
 	public BooleanBuilder dynamicWhere(
 		
-		Long ordersId,
-		
-		
-		
-		
-		
 		Long productsId,
 		
 		
 		
+		
+		
+		
+		
+		
+		Long ordersId,
 		
 		
 		
@@ -209,20 +210,20 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		BooleanBuilder where = new BooleanBuilder();
 	
 		
-		if (ordersId != null) {
-			where.and(qOrderDetails.orders.id.eq(ordersId));
-		}
-		
-		
-		
-		
-		
 		if (productsId != null) {
 			where.and(qOrderDetails.products.id.eq(productsId));
 		}
 		
 		
 		
+		
+		
+		
+		
+		
+		if (ordersId != null) {
+			where.and(qOrderDetails.orders.id.eq(ordersId));
+		}
 		
 		
 		

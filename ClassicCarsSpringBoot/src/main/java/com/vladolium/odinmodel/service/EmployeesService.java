@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 
 public interface EmployeesService {
 

@@ -1,7 +1,6 @@
 package com.vladolium.odinmodel.wrapperRequest;
 
-import com.vladolium.odinmodel.domain.Employees;
-import com.vladolium.odinmodel.domain.Offices;
+import com.vladolium.odinmodel.domain.*;
 
 public class OfficesEmployees {
 
@@ -26,3 +25,4 @@ public class OfficesEmployees {
     }
 
 }
+

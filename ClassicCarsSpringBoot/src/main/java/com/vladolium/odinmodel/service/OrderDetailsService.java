@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 
 public interface OrderDetailsService {
 
@@ -53,16 +54,16 @@ public interface OrderDetailsService {
 	
 	Iterable<OrderDetails> search(
 		
-		Long ordersId,
-		
-		
-		
-		
-		
 		Long productsId,
 		
 		
 		
+		
+		
+		
+		
+		
+		Long ordersId,
 		
 		
 		
@@ -76,16 +77,16 @@ public interface OrderDetailsService {
 	Page<OrderDetails> searchPagination(
 		Pageable page,
 		
-		Long ordersId,
-		
-		
-		
-		
-		
 		Long productsId,
 		
 		
 		
+		
+		
+		
+		
+		
+		Long ordersId,
 		
 		
 		

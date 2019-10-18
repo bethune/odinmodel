@@ -12,6 +12,7 @@ import com.vladolium.odinmodel.service.ProductsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Products;
 import com.vladolium.odinmodel.domain.Products.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service

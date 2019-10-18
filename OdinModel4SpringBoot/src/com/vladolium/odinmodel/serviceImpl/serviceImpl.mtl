@@ -29,7 +29,7 @@ import [serviceImplPath/].service.[entity/]Service;
 import [serviceImplPath/].domain.*;
 import [serviceImplPath/].domain.[aClass.name.toUpperFirst()/];
 import [serviceImplPath/].domain.[aClass.name.toUpperFirst()/].*;
-import [serviceImplPath/].wrapperRequest.
+import [serviceImplPath/].wrapperRequest.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service

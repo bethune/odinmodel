@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.ProductLines;
 import com.vladolium.odinmodel.domain.ProductLines.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 
 public interface ProductLinesService {
 

@@ -11,6 +11,7 @@ import com.vladolium.odinmodel.domain.Products;
 import com.vladolium.odinmodel.domain.Products.*;
 import com.vladolium.odinmodel.service.ProductsService;
 import com.vladolium.odinmodel.service.*;
+import com.vladolium.odinmodel.wrapperRequest.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController

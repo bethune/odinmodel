@@ -23,7 +23,7 @@ import org.springframework.data.domain.*;
 import [servicePath/].domain.*;
 import [servicePath/].domain.[aClass.name.toUpperFirst()/];
 import [servicePath/].domain.[aClass.name.toUpperFirst()/].*;
-import [servicePath/].wrapperRequest.
+import [servicePath/].wrapperRequest.*;
 
 public interface [entity/]Service {
 
