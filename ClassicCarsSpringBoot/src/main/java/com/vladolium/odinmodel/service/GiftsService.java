@@ -18,15 +18,15 @@ public interface GiftsService {
 	
 	
 	
-	
-	
 	Gifts readOneById(Long id);
 	
 	
 	
 	
 	
+	
 	Gifts readOneByGiftName(String giftName);
+	
 	
 	
 	
@@ -37,53 +37,53 @@ public interface GiftsService {
 	
 	
 	Iterable<Gifts> search(
-		
-		
-		
-		
-		
-		
-		
-		
 		Set<Long> customersSet,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDateTime beginsOn,
 		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn
+		LocalDateTime expiresOn,
+		Boolean isExpired
 		
 	);
 	
 	Page<Gifts> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
-		
-		
-		
 		Set<Long> customersSet,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		LocalDateTime beginsOn,
 		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn
+		LocalDateTime expiresOn,
+		Boolean isExpired
 		
 	);
 	
 	
 	
-	
-	
 	void deleteOneById(Long id);
+	
+	
 	
 	
 

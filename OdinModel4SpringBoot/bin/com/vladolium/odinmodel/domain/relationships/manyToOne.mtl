@@ -1,9 +1,10 @@
 [comment encoding = UTF-8 /]
 [module manyToOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public manyToOne(aClass : Class)]
+[template public manyToOne(aClass : Class){
+	entity 	: String = aClass.name.toUpperFirst();}]
 [for (p : Property | aClass.getAssociations().memberEnd)]
-	[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+	[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
 		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 @ManyToOne
 @JoinColumn(name="[p.opposite.type.name.toLowerFirst()/]_id")

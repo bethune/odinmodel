@@ -35,16 +35,19 @@ public class ProductLinesController {
 		return productLinesService.createOneIric(productLinesProducts);
 	}
 	
+	
+	
+	
 	@PutMapping("/{id}")
 	public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
 		ProductLines current = productLinesService.readOneById(id);
 		
+		current.setImage(productLines.getImage());
 		
 		current.setTextDescription(productLines.getTextDescription());
 		
-		current.setImage(productLines.getImage());
-		
 		current.setProductLine(productLines.getProductLine());
+		
 					
 		return productLinesService.createUpdate(current);
 	}
@@ -60,9 +63,6 @@ public class ProductLinesController {
 	public ProductLines readOneById(@PathVariable Long id) {
 		return productLinesService.readOneById(id);
 	}
-	
-	
-	
 	
 	
 	
@@ -88,6 +88,9 @@ public class ProductLinesController {
 	public void setProductsService(ProductsService productsService) {
 		this.productsService = productsService;
 	}
+	
+	
+	
 	@GetMapping("/{productLinesId}/products")
 	public Iterable<Products> readAllProductsByProductLinesId(@PathVariable Long productLinesId) {
 		return productsService.readAllByProductLinesId(productLinesId);
@@ -107,19 +110,16 @@ public class ProductLinesController {
 	
 	
 	
-	
-	
-	
 	@GetMapping("/search")
 	public Iterable<ProductLines> search(
-		@RequestParam(value = "textDescription", required = false) String textDescription,
 		@RequestParam(value = "image", required = false) byte[] image,
+		@RequestParam(value = "textDescription", required = false) String textDescription,
 		@RequestParam(value = "productLine", required = false) String productLine
 		
 	) {
 		return productLinesService.search(
-			textDescription,
 			image,
+			textDescription,
 			productLine
 			
 		);
@@ -129,8 +129,8 @@ public class ProductLinesController {
 	public Page<ProductLines> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		@RequestParam(value = "textDescription", required = false) String textDescription,
 		@RequestParam(value = "image", required = false) byte[] image,
+		@RequestParam(value = "textDescription", required = false) String textDescription,
 		@RequestParam(value = "productLine", required = false) String productLine
 		
 	) {
@@ -138,19 +138,19 @@ public class ProductLinesController {
 	
 		return productLinesService.searchPagination(
 			page,
-			textDescription,
 			image,
+			textDescription,
 			productLine
 			
 		);
 	}
+	
+	
+	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		productLinesService.deleteOneById(id);
 	}
-	
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

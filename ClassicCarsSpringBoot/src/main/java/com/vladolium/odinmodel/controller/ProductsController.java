@@ -32,36 +32,36 @@ public class ProductsController {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	@PutMapping("/{id}")
 	public Products updateOneById(@PathVariable Long id, @RequestBody Products products) {
 		Products current = productsService.readOneById(id);
 		current.setProductLines(products.getProductLines());
 		
-		current.setQuantityInStock(products.getQuantityInStock());
-		
-		
-		current.setProductName(products.getProductName());
+		current.setProductVendor(products.getProductVendor());
 		
 		current.setMsrp(products.getMsrp());
 		
-		current.setBuyPrice(products.getBuyPrice());
-		
-		current.setProductDescription(products.getProductDescription());
+		current.setProductName(products.getProductName());
 		
 		current.setProductScale(products.getProductScale());
 		
+		current.setProductDescription(products.getProductDescription());
+		
+		current.setQuantityInStock(products.getQuantityInStock());
+		
+		
 		current.setProductCode(products.getProductCode());
 		
-		current.setProductVendor(products.getProductVendor());
+		current.setBuyPrice(products.getBuyPrice());
 					
 		return productsService.createUpdate(current);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -77,25 +77,31 @@ public class ProductsController {
 		Products current = productsService.readOneByProductCode(productCode);
 		current.setProductLines(products.getProductLines());
 				
-		current.setQuantityInStock(products.getQuantityInStock());
-		
-		
-		current.setProductName(products.getProductName());
+		current.setProductVendor(products.getProductVendor());
 		
 		current.setMsrp(products.getMsrp());
 		
-		current.setBuyPrice(products.getBuyPrice());
-		
-		current.setProductDescription(products.getProductDescription());
+		current.setProductName(products.getProductName());
 		
 		current.setProductScale(products.getProductScale());
 		
+		current.setProductDescription(products.getProductDescription());
+		
+		current.setQuantityInStock(products.getQuantityInStock());
+		
+		
 		current.setProductCode(products.getProductCode());
 		
-		current.setProductVendor(products.getProductVendor());
+		current.setBuyPrice(products.getBuyPrice());
 		
 		return productsService.createUpdate(current);
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -103,12 +109,6 @@ public class ProductsController {
 	public Products readOneById(@PathVariable Long id) {
 		return productsService.readOneById(id);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -146,6 +146,12 @@ public class ProductsController {
 		this.orderDetailsService = orderDetailsService;
 	}
 	
+	
+	
+	
+	
+	
+	
 	@GetMapping("/{productsId}/orderDetails")
 	public Iterable<OrderDetails> readAllOrderDetailsByProductsId(@PathVariable Long productsId) {
 		return orderDetailsService.readAllByProductsId(productsId);
@@ -160,12 +166,6 @@ public class ProductsController {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return orderDetailsService.readAllByProductsId(productsId, page);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -194,33 +194,33 @@ public class ProductsController {
 	
 	@GetMapping("/search")
 	public Iterable<Products> search(
+		
+		
+		
 		@RequestParam(value = "productLinesId", required = false) Long productLinesId,
-		
-		
-		
-		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock,
-		@RequestParam(value = "productName", required = false) String productName,
+		@RequestParam(value = "productVendor", required = false) String productVendor,
 		@RequestParam(value = "msrp", required = false) Double msrp,
-		@RequestParam(value = "buyPrice", required = false) Double buyPrice,
-		@RequestParam(value = "productDescription", required = false) String productDescription,
+		@RequestParam(value = "productName", required = false) String productName,
 		@RequestParam(value = "productScale", required = false) String productScale,
+		@RequestParam(value = "productDescription", required = false) String productDescription,
+		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock,
 		@RequestParam(value = "productCode", required = false) String productCode,
-		@RequestParam(value = "productVendor", required = false) String productVendor
+		@RequestParam(value = "buyPrice", required = false) Double buyPrice
 		
 	) {
 		return productsService.search(
+			
+			
+			
 			productLinesId,
-			
-			
-			
-			quantityInStock,
-			productName,
+			productVendor,
 			msrp,
-			buyPrice,
-			productDescription,
+			productName,
 			productScale,
+			productDescription,
+			quantityInStock,
 			productCode,
-			productVendor
+			buyPrice
 			
 		);
 	}
@@ -229,50 +229,50 @@ public class ProductsController {
 	public Page<Products> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
+		
+		
+		
 		@RequestParam(value = "productLinesId", required = false) Long productLinesId,
-		
-		
-		
-		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock,
-		@RequestParam(value = "productName", required = false) String productName,
+		@RequestParam(value = "productVendor", required = false) String productVendor,
 		@RequestParam(value = "msrp", required = false) Double msrp,
-		@RequestParam(value = "buyPrice", required = false) Double buyPrice,
-		@RequestParam(value = "productDescription", required = false) String productDescription,
+		@RequestParam(value = "productName", required = false) String productName,
 		@RequestParam(value = "productScale", required = false) String productScale,
+		@RequestParam(value = "productDescription", required = false) String productDescription,
+		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock,
 		@RequestParam(value = "productCode", required = false) String productCode,
-		@RequestParam(value = "productVendor", required = false) String productVendor
+		@RequestParam(value = "buyPrice", required = false) Double buyPrice
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return productsService.searchPagination(
 			page,
+			
+			
+			
 			productLinesId,
-			
-			
-			
-			quantityInStock,
-			productName,
+			productVendor,
 			msrp,
-			buyPrice,
-			productDescription,
+			productName,
 			productScale,
+			productDescription,
+			quantityInStock,
 			productCode,
-			productVendor
+			buyPrice
 			
 		);
 	}
+	
+	
+	
+	
+	
+	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		productsService.deleteOneById(id);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	

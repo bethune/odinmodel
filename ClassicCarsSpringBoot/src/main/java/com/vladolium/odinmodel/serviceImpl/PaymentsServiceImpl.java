@@ -34,14 +34,14 @@ public class PaymentsServiceImpl implements PaymentsService {
 	}
 	
 	
+	
+	
+	
+	
 	@Override
 	public Payments readOneById(Long id) {
 		return paymentsRepository.getOne(id);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -59,14 +59,6 @@ public class PaymentsServiceImpl implements PaymentsService {
 		return paymentsRepository.findAll(page);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Payments> readAllByCustomersId(Long customersId) {
 		return paymentsRepository.findByCustomersIdEquals(customersId);
@@ -76,6 +68,21 @@ public class PaymentsServiceImpl implements PaymentsService {
 	public Page<Payments> readAllByCustomersId(Long customersId, Pageable page) {
 		return paymentsRepository.findByCustomersIdEquals(customersId, page);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -94,50 +101,43 @@ public class PaymentsServiceImpl implements PaymentsService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Payments> search(
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
-		Double amount
+		Double amount,
+		Instant paymentTimestamp
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
-			
-			
-			
 			customersId,
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			
 			checkNumber,
 			paymentDate,
-			paymentTimestamp,
-			amount
+			amount,
+			paymentTimestamp
 				
 		);
 		return paymentsRepository.findAll(where);
@@ -146,80 +146,80 @@ public class PaymentsServiceImpl implements PaymentsService {
 	@Override
 	public Page<Payments> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
-		Double amount
+		Double amount,
+		Instant paymentTimestamp
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
-			
-			
-			
 			customersId,
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			
 			checkNumber,
 			paymentDate,
-			paymentTimestamp,
-			amount
+			amount,
+			paymentTimestamp
 			
 		);
 		return paymentsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
-		Double amount
+		Double amount,
+		Instant paymentTimestamp
 		
 	) {
 		QPayments qPayments = QPayments.payments;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
-		
-		
-		
-		
-		
-		
-		
 		if (customersId != null) {
 			where.and(qPayments.customers.id.eq(customersId));
 		}
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -229,25 +229,32 @@ public class PaymentsServiceImpl implements PaymentsService {
 		if (paymentDate != null) {
 			where.and(qPayments.paymentDate.eq(paymentDate));
 		}
-		if (paymentTimestamp != null) {
-			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
-		}
 		if (amount != null) {
 			where.and(qPayments.amount.eq(amount));
+		}
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
 		}
 		
 	
 		return where;
 	}
 	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
-		paymentsRepository.deleteById(id);
+		Payments currentPayments = paymentsRepository.getOne(id);
+		Iterable<Payments> listOfPayments = paymentsRepository.findByCustomersIdEquals(currentPayments.getCustomers().getId());
+		Long size = listOfPayments.spliterator().getExactSizeIfKnown();
+		if (size == 1) {
+		    return;
+		} else {
+		    paymentsRepository.deleteById(id);
+		}
 	}
-	
-	
-	
-	
 	
 	
 

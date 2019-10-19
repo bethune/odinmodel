@@ -31,14 +31,14 @@ public interface OrderDetailsService {
 	Page<OrderDetails> readAllPagination(Pageable page);
 	
 	
+	
+	
+	
+	
+	
 	Iterable <OrderDetails> readAllByProductsId(Long productsId);
 	
 	Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page);
-	
-	
-	
-	
-	
 	
 	
 	
@@ -56,34 +56,34 @@ public interface OrderDetailsService {
 	
 	Iterable<OrderDetails> search(
 		
+		
+		
+		
+		
+		
 		Long productsId,
 		
 		
-		
-		
-		
-		
-		
-		Integer quantityOrdered,
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer orderLineNumber
+		Integer quantityOrdered
 		
 	);
 	
 	Page<OrderDetails> searchPagination(
 		Pageable page,
 		
+		
+		
+		
+		
+		
 		Long productsId,
 		
 		
-		
-		
-		
-		
-		
-		Integer quantityOrdered,
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer orderLineNumber
+		Integer quantityOrdered
 		
 	);
 	

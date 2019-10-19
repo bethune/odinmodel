@@ -47,6 +47,7 @@ public class Orders {
 	
 	
 	
+	
 	@NotNull
 	@Size(max=15)
 	private String status;
@@ -57,8 +58,6 @@ public class Orders {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
 	
 	
 	
@@ -80,6 +79,7 @@ public class Orders {
 	
 	
 	
+	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -92,7 +92,6 @@ public class Orders {
 		this.orderDate = orderDate;
 	}
 	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -104,6 +103,7 @@ public class Orders {
 	public void setRequiredDate(LocalDate requiredDate) {
 		this.requiredDate = requiredDate;
 	}
+	
 	
 	
 	

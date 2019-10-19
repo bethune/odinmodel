@@ -25,14 +25,6 @@ Orders findByIdEquals(Long id);
 
 
 
-
-
-
-
-
-
-
-
 Iterable <Orders> findByCustomersIdEquals(Long customersId);
 
 Page <Orders> findByCustomersIdEquals(Long customersId, Pageable page);
@@ -42,16 +34,24 @@ Page <Orders> findByCustomersIdEquals(Long customersId, Pageable page);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Iterable <Orders> findByCustomersCustomerNameEquals(String customersCustomerName);
 
 Page <Orders> findByCustomersCustomerNameEquals(String customersCustomerName, Pageable page);
-
-
-
-
-
-
-
 
 
 

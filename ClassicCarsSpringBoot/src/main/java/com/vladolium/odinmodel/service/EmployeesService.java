@@ -18,11 +18,11 @@ public interface EmployeesService {
 	
 	
 	
-	
-	
-	
-	
 	Employees readOneById(Long id);
+	
+	
+	
+	
 	
 	
 	
@@ -68,13 +68,13 @@ public interface EmployeesService {
 		
 		
 		
-		String firstName,
-		String email,
-		String jobTitle,
-		Boolean isActive,
 		Integer reportsTo,
+		Boolean isActive,
 		String extension,
-		String lastName
+		String firstName,
+		String lastName,
+		String jobTitle,
+		String email
 		
 	);
 	
@@ -89,23 +89,23 @@ public interface EmployeesService {
 		
 		
 		
-		String firstName,
-		String email,
-		String jobTitle,
-		Boolean isActive,
 		Integer reportsTo,
+		Boolean isActive,
 		String extension,
-		String lastName
+		String firstName,
+		String lastName,
+		String jobTitle,
+		String email
 		
 	);
 	
 	
 	
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
 	
 	
 

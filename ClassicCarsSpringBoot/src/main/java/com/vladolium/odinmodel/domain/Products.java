@@ -12,6 +12,12 @@ import java.util.*;
 public class Products {
 
 	
+	
+	
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,7 +28,6 @@ public class Products {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	
 	
 	
@@ -46,13 +51,6 @@ public class Products {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	@NotNull
 	private Double msrp;
 	
@@ -63,6 +61,13 @@ public class Products {
 		this.msrp = msrp;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	@NotNull
 	@DecimalMin("10.00")
 	private Double buyPrice;
@@ -72,50 +77,6 @@ public class Products {
 	}
 	public void setBuyPrice(Double buyPrice) {
 		this.buyPrice = buyPrice;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	@NotNull
-	@Size(max=70)
-	private String productName;
-	
-	public String getProductName() {
-		return productName;
-	}
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-	
-	
-	
-	
-	@NotNull
-	@Size(max=10)
-	private String productScale;
-	
-	public String getProductScale() {
-		return productScale;
-	}
-	public void setProductScale(String productScale) {
-		this.productScale = productScale;
-	}
-	
-	@NotNull
-	@Column(unique=true)
-	@Size(max=15)
-	private String productCode;
-	
-	public String getProductCode() {
-		return productCode;
-	}
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
 	}
 	
 	@NotNull
@@ -129,6 +90,44 @@ public class Products {
 		this.productVendor = productVendor;
 	}
 	
+	
+	@NotNull
+	@Size(max=70)
+	private String productName;
+	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	
+	@NotNull
+	@Size(max=10)
+	private String productScale;
+	
+	public String getProductScale() {
+		return productScale;
+	}
+	public void setProductScale(String productScale) {
+		this.productScale = productScale;
+	}
+	
+	
+	
+	
+	
+	@NotNull
+	@Column(unique=true)
+	@Size(max=15)
+	private String productCode;
+	
+	public String getProductCode() {
+		return productCode;
+	}
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
 	
 	
 	
@@ -206,6 +205,7 @@ public class Products {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
+	
 	
 	
 	

@@ -42,27 +42,27 @@ public interface OfficesService {
 	
 	
 	Iterable<Offices> search(
-		String postalCode,
-		String addressLine1,
-		String country,
 		String territory,
 		String phone,
-		String city,
 		String addressLine2,
-		String state
+		String addressLine1,
+		String state,
+		String postalCode,
+		String city,
+		String country
 		
 	);
 	
 	Page<Offices> searchPagination(
 		Pageable page,
-		String postalCode,
-		String addressLine1,
-		String country,
 		String territory,
 		String phone,
-		String city,
 		String addressLine2,
-		String state
+		String addressLine1,
+		String state,
+		String postalCode,
+		String city,
+		String country
 		
 	);
 	void deleteOneById(Long id);

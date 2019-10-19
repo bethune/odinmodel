@@ -13,9 +13,8 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
-
-
 public interface GiftsRepository extends JpaRepository<Gifts, Long>, QuerydslPredicateExecutor<Gifts> {
+
 
 
 
@@ -24,6 +23,7 @@ public interface GiftsRepository extends JpaRepository<Gifts, Long>, QuerydslPre
 Gifts findByGiftNameEquals(String giftName);
 
 Gifts findByIdEquals(Long id);
+
 
 
 

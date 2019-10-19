@@ -14,8 +14,6 @@ public class Gifts {
 	
 	
 	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -59,6 +57,9 @@ public class Gifts {
 	
 	
 	
+	
+	
+	
 	public enum GiftType {
 		FREE,
 		PLATINUM,
@@ -87,6 +88,18 @@ public class Gifts {
 	
 	
 	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+	private LocalDateTime beginsOn;
+	
+	public LocalDateTime getBeginsOn() {
+		return beginsOn;
+	}
+	public void setBeginsOn(LocalDateTime beginsOn) {
+		this.beginsOn = beginsOn;
+	}
+	
 	
 	
 	
@@ -105,17 +118,8 @@ public class Gifts {
 	
 	
 	
-	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
-	private LocalDateTime beginsOn;
 	
-	public LocalDateTime getBeginsOn() {
-		return beginsOn;
-	}
-	public void setBeginsOn(LocalDateTime beginsOn) {
-		this.beginsOn = beginsOn;
-	}
+	
 	
 	
 	
@@ -142,10 +146,6 @@ public class Gifts {
 	public void setIsExpired(Boolean isExpired) {
 		this.isExpired = isExpired;
 	}
-	
-	
-	
-	
 	
 	
 	

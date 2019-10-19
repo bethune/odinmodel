@@ -1,255 +1,140 @@
 package com.vladolium.odinmodel.serviceImpl;
 
-import com.vladolium.odinmodel.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
-import java.time.*;
-import java.util.*;
-import com.vladolium.odinmodel.repository.*;
+
+import com.querydsl.core.BooleanBuilder;
+import com.vladolium.odinmodel.domain.Employees;
+import com.vladolium.odinmodel.domain.QEmployees;
 import com.vladolium.odinmodel.repository.EmployeesRepository;
 import com.vladolium.odinmodel.service.EmployeesService;
-import com.vladolium.odinmodel.domain.*;
-import com.vladolium.odinmodel.domain.Employees;
-import com.vladolium.odinmodel.domain.Employees.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
-import com.querydsl.core.BooleanBuilder;
 
 @Service
 @Transactional
 public class EmployeesServiceImpl implements EmployeesService {
 
-	private EmployeesRepository employeesRepository;
+    private EmployeesRepository employeesRepository;
 
-	@Autowired
-	public void setEmployeesRepository(EmployeesRepository employeesRepository) {
-		this.employeesRepository = employeesRepository;
+    @Autowired
+    public void setEmployeesRepository(EmployeesRepository employeesRepository) {
+	this.employeesRepository = employeesRepository;
+    }
+
+    // covers create & update
+    @Override
+    public Employees createUpdate(Employees employees) {
+	return employeesRepository.save(employees);
+    }
+
+    @Override
+    public Employees readOneById(Long id) {
+	return employeesRepository.getOne(id);
+    }
+
+    @Override
+    public Iterable<Employees> readAll() {
+	return employeesRepository.findAll();
+    }
+
+    @Override
+    public Page<Employees> readAllPagination(Pageable page) {
+	return employeesRepository.findAll(page);
+    }
+
+    @Override
+    public Iterable<Employees> readAllByOfficesId(Long officesId) {
+	return employeesRepository.findByOfficesIdEquals(officesId);
+    }
+
+    @Override
+    public Page<Employees> readAllByOfficesId(Long officesId, Pageable page) {
+	return employeesRepository.findByOfficesIdEquals(officesId, page);
+    }
+
+    @Override
+    public Iterable<Employees> search(Long officesId,
+
+	    Integer reportsTo, Boolean isActive, String extension, String firstName, String lastName, String jobTitle,
+	    String email
+
+    ) {
+	BooleanBuilder where = dynamicWhere(officesId,
+
+		reportsTo, isActive, extension, firstName, lastName, jobTitle, email
+
+	);
+	return employeesRepository.findAll(where);
+    }
+
+    @Override
+    public Page<Employees> searchPagination(Pageable page, Long officesId,
+
+	    Integer reportsTo, Boolean isActive, String extension, String firstName, String lastName, String jobTitle,
+	    String email
+
+    ) {
+	BooleanBuilder where = dynamicWhere(officesId,
+
+		reportsTo, isActive, extension, firstName, lastName, jobTitle, email
+
+	);
+	return employeesRepository.findAll(where, page);
+    }
+
+    public BooleanBuilder dynamicWhere(Long officesId,
+
+	    Integer reportsTo, Boolean isActive, String extension, String firstName, String lastName, String jobTitle,
+	    String email
+
+    ) {
+	QEmployees qEmployees = QEmployees.employees;
+
+	BooleanBuilder where = new BooleanBuilder();
+
+	if (officesId != null) {
+	    where.and(qEmployees.offices.id.eq(officesId));
 	}
 
-	// covers create & update
-	@Override
-	public Employees createUpdate(Employees employees) {
-		return employeesRepository.save(employees);
+	if (reportsTo != null) {
+	    where.and(qEmployees.reportsTo.eq(reportsTo));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Employees readOneById(Long id) {
-		return employeesRepository.getOne(id);
+	if (isActive != null) {
+	    where.and(qEmployees.isActive.eq(isActive));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<Employees> readAll() {
-		return employeesRepository.findAll();
+	if (extension != null) {
+	    where.and(qEmployees.extension.containsIgnoreCase(extension));
 	}
-	
-	@Override
-	public Page<Employees> readAllPagination(Pageable page) {
-		return employeesRepository.findAll(page);
+	if (firstName != null) {
+	    where.and(qEmployees.firstName.containsIgnoreCase(firstName));
 	}
-	
-	@Override
-	public Iterable<Employees> readAllByOfficesId(Long officesId) {
-		return employeesRepository.findByOfficesIdEquals(officesId);
+	if (lastName != null) {
+	    where.and(qEmployees.lastName.containsIgnoreCase(lastName));
 	}
-	
-	@Override
-	public Page<Employees> readAllByOfficesId(Long officesId, Pageable page) {
-		return employeesRepository.findByOfficesIdEquals(officesId, page);
+	if (jobTitle != null) {
+	    where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<Employees> search(
-		Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		String jobTitle,
-		Boolean isActive,
-		Integer reportsTo,
-		String extension,
-		String lastName
-		
-	) {
-		BooleanBuilder where = dynamicWhere(
-			officesId,
-			
-			
-			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			jobTitle,
-			isActive,
-			reportsTo,
-			extension,
-			lastName
-				
-		);
-		return employeesRepository.findAll(where);
+	if (email != null) {
+	    where.and(qEmployees.email.containsIgnoreCase(email));
 	}
-	
-	@Override
-	public Page<Employees> searchPagination(
-		Pageable page,
-		Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		String jobTitle,
-		Boolean isActive,
-		Integer reportsTo,
-		String extension,
-		String lastName
-		
-	) {
-		BooleanBuilder where = dynamicWhere(
-			officesId,
-			
-			
-			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			jobTitle,
-			isActive,
-			reportsTo,
-			extension,
-			lastName
-			
-		);
-		return employeesRepository.findAll(where, page);
+
+	return where;
+    }
+
+    @Override
+    public void deleteOneById(Long id) {
+	Employees currentEmployees = employeesRepository.getOne(id);
+	Iterable<Employees> listOfEmployees = employeesRepository
+		.findByOfficesIdEquals(currentEmployees.getOffices().getId());
+	Long size = listOfEmployees.spliterator().getExactSizeIfKnown();
+	if (size == 1) {
+	    return;
+	} else {
+	    employeesRepository.deleteById(id);
 	}
-	
-	public BooleanBuilder dynamicWhere(
-		Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		String jobTitle,
-		Boolean isActive,
-		Integer reportsTo,
-		String extension,
-		String lastName
-		
-	) {
-		QEmployees qEmployees = QEmployees.employees;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (officesId != null) {
-			where.and(qEmployees.offices.id.eq(officesId));
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		if (firstName != null) {
-			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
-		}
-		if (email != null) {
-			where.and(qEmployees.email.containsIgnoreCase(email));
-		}
-		if (jobTitle != null) {
-			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
-		}
-		if (isActive != null) {
-			where.and(qEmployees.isActive.eq(isActive));
-		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
-		}
-		if (extension != null) {
-			where.and(qEmployees.extension.containsIgnoreCase(extension));
-		}
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
-		}
-		
-	
-		return where;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public void deleteOneById(Long id) {
-		employeesRepository.deleteById(id);
-	}
-	
-	
+    }
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

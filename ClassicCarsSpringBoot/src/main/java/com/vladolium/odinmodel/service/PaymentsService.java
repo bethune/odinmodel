@@ -15,11 +15,11 @@ public interface PaymentsService {
 	Payments createUpdate(Payments payments);
 	
 	
+	
+	
+	
+	
 	Payments readOneById(Long id);
-	
-	
-	
-	
 	
 	
 	
@@ -31,17 +31,24 @@ public interface PaymentsService {
 	
 	Page<Payments> readAllPagination(Pageable page);
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	Iterable <Payments> readAllByCustomersId(Long customersId);
 	
 	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -54,58 +61,51 @@ public interface PaymentsService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	Iterable<Payments> search(
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
-		Double amount
+		Double amount,
+		Instant paymentTimestamp
 		
 	);
 	
 	Page<Payments> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
-		Double amount
+		Double amount,
+		Instant paymentTimestamp
 		
 	);
+	
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
-	
 	
 	
 

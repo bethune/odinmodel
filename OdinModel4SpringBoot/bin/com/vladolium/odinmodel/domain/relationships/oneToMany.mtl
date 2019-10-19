@@ -1,9 +1,10 @@
 [comment encoding = UTF-8 /]
 [module oneToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public oneToMany(aClass : Class)]
+[template public oneToMany(aClass : Class){
+	entity 	: String = aClass.name.toUpperFirst();}]
 [for (p : Property | aClass.getAssociations().memberEnd)]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = aClass.name.toUpperFirst() and 
+	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
 		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
 @OneToMany
 @JoinColumn(name="[p.type.name.toLowerFirst()/]_id")

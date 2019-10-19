@@ -34,29 +34,25 @@ public class EmployeesController {
 	
 	
 	
-	
-	
-	
-	
 	@PutMapping("/{id}")
 	public Employees updateOneById(@PathVariable Long id, @RequestBody Employees employees) {
 		Employees current = employeesService.readOneById(id);
 		current.setOffices(employees.getOffices());
 		
-		current.setFirstName(employees.getFirstName());
-		
-		current.setEmail(employees.getEmail());
-		
-		current.setJobTitle(employees.getJobTitle());
+		current.setReportsTo(employees.getReportsTo());
 		
 		current.setIsActive(employees.getIsActive());
 		
-		current.setReportsTo(employees.getReportsTo());
 		
 		current.setExtension(employees.getExtension());
 		
+		current.setFirstName(employees.getFirstName());
 		
 		current.setLastName(employees.getLastName());
+		
+		current.setJobTitle(employees.getJobTitle());
+		
+		current.setEmail(employees.getEmail());
 					
 		return employeesService.createUpdate(current);
 	}
@@ -91,6 +87,10 @@ public class EmployeesController {
 	
 	
 	
+	
+	
+	
+	
 	@GetMapping("")
 	public Iterable<Employees> readAll() {
 		return employeesService.readAll();
@@ -111,10 +111,6 @@ public class EmployeesController {
 	public void setCustomersService(CustomersService customersService) {
 		this.customersService = customersService;
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -142,6 +138,10 @@ public class EmployeesController {
 	
 	
 	
+	
+	
+	
+	
 	@GetMapping("/search")
 	public Iterable<Employees> search(
 		@RequestParam(value = "officesId", required = false) Long officesId,
@@ -153,13 +153,13 @@ public class EmployeesController {
 		
 		
 		
-		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "email", required = false) String email,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle,
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
 		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
+		@RequestParam(value = "isActive", required = false) Boolean isActive,
 		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "lastName", required = false) String lastName
+		@RequestParam(value = "firstName", required = false) String firstName,
+		@RequestParam(value = "lastName", required = false) String lastName,
+		@RequestParam(value = "jobTitle", required = false) String jobTitle,
+		@RequestParam(value = "email", required = false) String email
 		
 	) {
 		return employeesService.search(
@@ -172,13 +172,13 @@ public class EmployeesController {
 			
 			
 			
-			firstName,
-			email,
-			jobTitle,
-			isActive,
 			reportsTo,
+			isActive,
 			extension,
-			lastName
+			firstName,
+			lastName,
+			jobTitle,
+			email
 			
 		);
 	}
@@ -196,13 +196,13 @@ public class EmployeesController {
 		
 		
 		
-		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "email", required = false) String email,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle,
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
 		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
+		@RequestParam(value = "isActive", required = false) Boolean isActive,
 		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "lastName", required = false) String lastName
+		@RequestParam(value = "firstName", required = false) String firstName,
+		@RequestParam(value = "lastName", required = false) String lastName,
+		@RequestParam(value = "jobTitle", required = false) String jobTitle,
+		@RequestParam(value = "email", required = false) String email
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -218,20 +218,16 @@ public class EmployeesController {
 			
 			
 			
-			firstName,
-			email,
-			jobTitle,
-			isActive,
 			reportsTo,
+			isActive,
 			extension,
-			lastName
+			firstName,
+			lastName,
+			jobTitle,
+			email
 			
 		);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -239,6 +235,10 @@ public class EmployeesController {
 	public void deleteOneById(@PathVariable Long id) {
 		employeesService.deleteOneById(id);
 	}
+	
+	
+	
+	
 	
 	
 
