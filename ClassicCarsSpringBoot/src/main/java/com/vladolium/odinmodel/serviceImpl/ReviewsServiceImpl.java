@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.ReviewsRepository;
 import com.vladolium.odinmodel.service.ReviewsService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,8 @@ public class ReviewsServiceImpl implements ReviewsService {
 	public Reviews createUpdate(Reviews reviews) {
 		return reviewsRepository.save(reviews);
 	}
+	
+	
 	
 	@Override
 	public Reviews readOneById(Long id) {

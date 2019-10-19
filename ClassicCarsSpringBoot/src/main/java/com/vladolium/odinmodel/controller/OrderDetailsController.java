@@ -33,11 +33,12 @@ public class OrderDetailsController {
 	
 	
 	
+	
+	
 	@PutMapping("/{id}")
 	public OrderDetails updateOneById(@PathVariable Long id, @RequestBody OrderDetails orderDetails) {
 		OrderDetails current = orderDetailsService.readOneById(id);
 		current.setProducts(orderDetails.getProducts());
-		current.setOrders(orderDetails.getOrders());
 		
 		current.setQuantityOrdered(orderDetails.getQuantityOrdered());
 		
@@ -94,12 +95,6 @@ public class OrderDetailsController {
 		
 		
 		
-		
-		@RequestParam(value = "ordersId", required = false) Long ordersId,
-		
-		
-		
-		
 		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered,
 		@RequestParam(value = "priceEach", required = false) Double priceEach,
 		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber
@@ -111,12 +106,6 @@ public class OrderDetailsController {
 			
 			
 			
-			
-			
-			
-			
-			
-			ordersId,
 			
 			
 			
@@ -141,12 +130,6 @@ public class OrderDetailsController {
 		
 		
 		
-		
-		@RequestParam(value = "ordersId", required = false) Long ordersId,
-		
-		
-		
-		
 		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered,
 		@RequestParam(value = "priceEach", required = false) Double priceEach,
 		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber
@@ -161,12 +144,6 @@ public class OrderDetailsController {
 			
 			
 			
-			
-			
-			
-			
-			
-			ordersId,
 			
 			
 			

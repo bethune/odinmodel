@@ -29,6 +29,8 @@ public class PaymentsController {
 	public Payments createOne(@RequestBody Payments payments) {
 		return paymentsService.createUpdate(payments);
 	}
+	
+	
 	@PutMapping("/{id}")
 	public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payments) {
 		Payments current = paymentsService.readOneById(id);

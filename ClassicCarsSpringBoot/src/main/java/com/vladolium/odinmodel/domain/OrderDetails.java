@@ -133,16 +133,6 @@ public class OrderDetails {
 		this.products = products;
 	}
 	
-	@OneToOne
-	@JoinColumn(name="orders_id")
-	private Orders orders;
-	
-	public Orders getOrders() {
-		return orders;
-	}
-	public void setOrders(Orders orders) {
-		this.orders = orders;
-	}
 	
 	
 	

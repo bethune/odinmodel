@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.ProductLinesRepository;
 import com.vladolium.odinmodel.service.ProductLinesService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,17 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	public ProductLines createUpdate(ProductLines productLines) {
 		return productLinesRepository.save(productLines);
 	}
+	
+	private ProductsRepository productsRepository;
+	
+	public ProductLines createOneIric(ProductLinesProducts productLinesProducts) {
+		ProductLines currentProductLines = productLinesRepository.save(productLinesProducts.getProductLines());
+		Products currentProducts = productLinesProducts.getProducts();
+		currentProducts.setProductLines(productLinesRepository.getOne(currentProductLines.getId()));
+		productsRepository.save(currentProducts);
+		return currentProductLines;
+	}
+	
 	@Override
 	public ProductLines readOneById(Long id) {
 		return productLinesRepository.getOne(id);

@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.OfficesRepository;
 import com.vladolium.odinmodel.service.OfficesService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,17 @@ public class OfficesServiceImpl implements OfficesService {
 	public Offices createUpdate(Offices offices) {
 		return officesRepository.save(offices);
 	}
+	
+	private EmployeesRepository employeesRepository;
+	
+	public Offices createOneIric(OfficesEmployees officesEmployees) {
+		Offices currentOffices = officesRepository.save(officesEmployees.getOffices());
+		Employees currentEmployees = officesEmployees.getEmployees();
+		currentEmployees.setOffices(officesRepository.getOne(currentOffices.getId()));
+		employeesRepository.save(currentEmployees);
+		return currentOffices;
+	}
+	
 	@Override
 	public Offices readOneById(Long id) {
 		return officesRepository.getOne(id);

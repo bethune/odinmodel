@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.OrderDetailsRepository;
 import com.vladolium.odinmodel.service.OrderDetailsService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,8 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public OrderDetails createUpdate(OrderDetails orderDetails) {
 		return orderDetailsRepository.save(orderDetails);
 	}
+	
+	
 	
 	
 	
@@ -102,12 +105,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
-		
-		Long ordersId,
-		
-		
-		
-		
 		Integer quantityOrdered,
 		Double priceEach,
 		Integer orderLineNumber
@@ -119,12 +116,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 			
 			
 			
-			
-			
-			
-			
-			
-			ordersId,
 			
 			
 			
@@ -149,12 +140,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
-		
-		Long ordersId,
-		
-		
-		
-		
 		Integer quantityOrdered,
 		Double priceEach,
 		Integer orderLineNumber
@@ -166,12 +151,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 			
 			
 			
-			
-			
-			
-			
-			
-			ordersId,
 			
 			
 			
@@ -194,12 +173,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
-		
-		Long ordersId,
-		
-		
-		
-		
 		Integer quantityOrdered,
 		Double priceEach,
 		Integer orderLineNumber
@@ -216,14 +189,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
-		
-		
-		
-		
-		
-		if (ordersId != null) {
-			where.and(qOrderDetails.orders.id.eq(ordersId));
-		}
 		
 		
 		

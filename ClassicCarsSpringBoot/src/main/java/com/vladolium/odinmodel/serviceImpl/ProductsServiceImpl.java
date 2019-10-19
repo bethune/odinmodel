@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.ProductsRepository;
 import com.vladolium.odinmodel.service.ProductsService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,8 @@ public class ProductsServiceImpl implements ProductsService {
 	public Products createUpdate(Products products) {
 		return productsRepository.save(products);
 	}
+	
+	
 	
 	@Override
 	public Products readOneById(Long id) {

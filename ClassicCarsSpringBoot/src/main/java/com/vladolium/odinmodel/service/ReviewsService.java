@@ -14,6 +14,8 @@ public interface ReviewsService {
 	// covers create & update
 	Reviews createUpdate(Reviews reviews);
 	
+	
+	
 	Reviews readOneById(Long id);
 	
 	

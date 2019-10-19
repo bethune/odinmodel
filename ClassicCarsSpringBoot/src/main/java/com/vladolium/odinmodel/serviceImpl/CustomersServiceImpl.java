@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.CustomersRepository;
 import com.vladolium.odinmodel.service.CustomersService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,8 @@ public class CustomersServiceImpl implements CustomersService {
 	public Customers createUpdate(Customers customers) {
 		return customersRepository.save(customers);
 	}
+	
+	
 	
 	
 	

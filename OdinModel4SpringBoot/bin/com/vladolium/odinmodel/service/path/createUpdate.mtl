@@ -6,4 +6,12 @@
 	property	: String = aClass.name.toLowerFirst();}]
 // covers create & update
 [entity/] createUpdate([entity/] [property/]);
+
+[for (p : Property | aClass.getAssociations().memberEnd)]
+	[comment: IRIC for manyToOne /]
+	[if p.lower = 1 and p.upper = -1 and p.opposite.type.name.toUpperFirst() = entity and 
+		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+[entity/] createOneIric([entity/][p.type.name.toUpperFirst()/] [property/][p.type.name.toUpperFirst()/]);
+	[/if]
+[/for]
 [/template]

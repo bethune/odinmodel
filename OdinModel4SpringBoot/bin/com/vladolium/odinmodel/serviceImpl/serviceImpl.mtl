@@ -24,6 +24,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import [serviceImplPath/].repository.*;
 import [serviceImplPath/].repository.[entity/]Repository;
 import [serviceImplPath/].service.[entity/]Service;
 import [serviceImplPath/].domain.*;

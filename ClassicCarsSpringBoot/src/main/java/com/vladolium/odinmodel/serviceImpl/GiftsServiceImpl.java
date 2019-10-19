@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.GiftsRepository;
 import com.vladolium.odinmodel.service.GiftsService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,8 @@ public class GiftsServiceImpl implements GiftsService {
 	public Gifts createUpdate(Gifts gifts) {
 		return giftsRepository.save(gifts);
 	}
+	
+	
 	
 	
 	

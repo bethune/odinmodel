@@ -29,6 +29,12 @@ public class OfficesController {
 	public Offices createOne(@RequestBody Offices offices) {
 		return officesService.createUpdate(offices);
 	}
+	
+	@PostMapping("/employees")
+	public Offices createOneIric(@RequestBody OfficesEmployees officesEmployees) {
+		return officesService.createOneIric(officesEmployees);
+	}
+	
 	@PutMapping("/{id}")
 	public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices) {
 		Offices current = officesService.readOneById(id);

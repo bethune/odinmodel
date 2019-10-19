@@ -29,6 +29,12 @@ public class ProductLinesController {
 	public ProductLines createOne(@RequestBody ProductLines productLines) {
 		return productLinesService.createUpdate(productLines);
 	}
+	
+	@PostMapping("/products")
+	public ProductLines createOneIric(@RequestBody ProductLinesProducts productLinesProducts) {
+		return productLinesService.createOneIric(productLinesProducts);
+	}
+	
 	@PutMapping("/{id}")
 	public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
 		ProductLines current = productLinesService.readOneById(id);

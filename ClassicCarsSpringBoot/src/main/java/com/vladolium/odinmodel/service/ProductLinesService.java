@@ -13,6 +13,9 @@ public interface ProductLinesService {
 
 	// covers create & update
 	ProductLines createUpdate(ProductLines productLines);
+	
+	ProductLines createOneIric(ProductLinesProducts productLinesProducts);
+	
 	ProductLines readOneById(Long id);
 	
 	

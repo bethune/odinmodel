@@ -13,6 +13,9 @@ public interface OfficesService {
 
 	// covers create & update
 	Offices createUpdate(Offices offices);
+	
+	Offices createOneIric(OfficesEmployees officesEmployees);
+	
 	Offices readOneById(Long id);
 	
 	

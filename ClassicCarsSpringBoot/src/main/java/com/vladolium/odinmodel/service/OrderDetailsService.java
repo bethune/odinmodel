@@ -17,6 +17,8 @@ public interface OrderDetailsService {
 	
 	
 	
+	
+	
 	OrderDetails readOneById(Long id);
 	
 	
@@ -62,12 +64,6 @@ public interface OrderDetailsService {
 		
 		
 		
-		
-		Long ordersId,
-		
-		
-		
-		
 		Integer quantityOrdered,
 		Double priceEach,
 		Integer orderLineNumber
@@ -81,12 +77,6 @@ public interface OrderDetailsService {
 		
 		
 		
-		
-		
-		
-		
-		
-		Long ordersId,
 		
 		
 		

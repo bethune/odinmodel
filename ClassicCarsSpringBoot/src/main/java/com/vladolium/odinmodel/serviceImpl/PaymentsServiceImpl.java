@@ -7,6 +7,7 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
+import com.vladolium.odinmodel.repository.*;
 import com.vladolium.odinmodel.repository.PaymentsRepository;
 import com.vladolium.odinmodel.service.PaymentsService;
 import com.vladolium.odinmodel.domain.*;
@@ -31,6 +32,8 @@ public class PaymentsServiceImpl implements PaymentsService {
 	public Payments createUpdate(Payments payments) {
 		return paymentsRepository.save(payments);
 	}
+	
+	
 	@Override
 	public Payments readOneById(Long id) {
 		return paymentsRepository.getOne(id);
