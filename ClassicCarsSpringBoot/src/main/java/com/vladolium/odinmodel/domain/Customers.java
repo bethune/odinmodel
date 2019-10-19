@@ -12,6 +12,11 @@ import java.util.*;
 @Entity
 public class Customers extends ContactDetails {
 
+	
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,13 +27,6 @@ public class Customers extends ContactDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -57,17 +55,6 @@ public class Customers extends ContactDetails {
 	
 	@NotNull
 	@Size(max=50)
-	private String firstName;
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	@NotNull
-	@Size(max=50)
 	private String lastName;
 	
 	public String getLastName() {
@@ -75,6 +62,17 @@ public class Customers extends ContactDetails {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String firstName;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	
 	@NotNull
@@ -88,6 +86,8 @@ public class Customers extends ContactDetails {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+	
+	
 	
 	
 	

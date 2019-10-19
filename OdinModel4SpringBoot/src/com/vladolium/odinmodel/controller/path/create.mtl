@@ -3,7 +3,8 @@
 
 [template public create(aClass : Class){
 	entity 		: String = aClass.name.toUpperFirst();
-	property	: String = aClass.name.toLowerFirst();}]
+	property	: String = aClass.name.toLowerFirst();
+	isIric		: Boolean = false;}]
 @PostMapping("")
 public [entity/] createOne(@RequestBody [entity/] [property/]) {
 	return [property/]Service.createUpdate([property/]);

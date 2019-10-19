@@ -2,6 +2,7 @@
 [module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public delete(aClass : Class){
+	entity 		: String = aClass.name.toUpperFirst();
 	property	: String = aClass.name.toLowerFirst();}]
 [comment: Delete one by id /]
 [for (p: Property | aClass.getAllAttributes()) separator('\n')]
@@ -10,6 +11,29 @@
 public void deleteOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/]) {
 	[property/]Service.deleteOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
 }
+	[/if]
+[/for]
+
+[for (p1: Property | aClass.getAllAttributes()) separator('\n')]
+	[if p1.isID = true]
+		[for (p : Property | aClass.getAssociations().memberEnd)]
+			[comment: IRIC for manyToOne /]
+			[if p.lower = 1 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
+				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+@DeleteMapping("/{[p1.name.toLowerFirst()/]}/[p.opposite.type.name.toLowerFirst()/]")
+public void deleteOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type.name.toUpperFirst()/] [p1.name.toLowerFirst()/]) {
+	[entity/] current = [property/]Service.readOneBy[p1.name.toUpperFirst()/]([p1.name.toLowerFirst()/]);
+	Iterable<[entity/]> listOf[entity/] = [property/]Service
+		.readAllBy[p.opposite.type.name.toUpperFirst()/]Id(current.get[p.opposite.type.name.toUpperFirst()/]().getId());
+	Long size = listOf[entity/].spliterator().getExactSizeIfKnown();
+	if (size == 1) {
+	    return;
+	} else {
+	    [property/]Service.deleteOneBy[p1.name.toUpperFirst()/]([p1.name.toLowerFirst()/]);
+	}
+}
+			[/if]
+		[/for]
 	[/if]
 [/for]
 [/template]

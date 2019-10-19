@@ -11,9 +11,6 @@ import java.util.*;
 @Entity
 public class ProductLines {
 
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -24,6 +21,10 @@ public class ProductLines {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -71,7 +72,6 @@ public class ProductLines {
 	
 	
 	
-	
 	@NotNull
 	@Size(max=4000)
 	@Lob
@@ -86,6 +86,8 @@ public class ProductLines {
 	
 	
 	
+	
+	
 	@Lob
 	private byte[] image;
 	
@@ -95,8 +97,6 @@ public class ProductLines {
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	
-	
 	
 	
 	

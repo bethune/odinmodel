@@ -10,15 +10,15 @@ import com.vladolium.odinmodel.domain.ProductLines.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-
-
-
 public interface ProductLinesRepository extends JpaRepository<ProductLines, Long>, QuerydslPredicateExecutor<ProductLines> {
 
 
 
 
 ProductLines findByIdEquals(Long id);
+
+
+
 
 
 

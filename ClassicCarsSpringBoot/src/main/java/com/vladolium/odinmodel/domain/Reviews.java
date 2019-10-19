@@ -12,7 +12,6 @@ import java.util.*;
 public class Reviews {
 
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -34,8 +33,6 @@ public class Reviews {
 	
 	
 	
-	
-	
 	@NotNull
 	@Size(max=4000)
 	private String reviewText;
@@ -46,6 +43,11 @@ public class Reviews {
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
 	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -81,8 +83,6 @@ public class Reviews {
 	public void setReviewTime(LocalTime reviewTime) {
 		this.reviewTime = reviewTime;
 	}
-	
-	
 	
 	
 	

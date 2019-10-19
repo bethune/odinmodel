@@ -79,25 +79,25 @@ public class OfficesServiceImpl implements OfficesService {
 	
 	@Override
 	public Iterable<Offices> search(
+		String postalCode,
+		String addressLine1,
+		String country,
 		String territory,
 		String phone,
-		String addressLine2,
-		String addressLine1,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String addressLine2,
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			postalCode,
+			addressLine1,
+			country,
 			territory,
 			phone,
-			addressLine2,
-			addressLine1,
-			state,
-			postalCode,
 			city,
-			country
+			addressLine2,
+			state
 				
 		);
 		return officesRepository.findAll(where);
@@ -106,68 +106,68 @@ public class OfficesServiceImpl implements OfficesService {
 	@Override
 	public Page<Offices> searchPagination(
 		Pageable page,
+		String postalCode,
+		String addressLine1,
+		String country,
 		String territory,
 		String phone,
-		String addressLine2,
-		String addressLine1,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String addressLine2,
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			postalCode,
+			addressLine1,
+			country,
 			territory,
 			phone,
-			addressLine2,
-			addressLine1,
-			state,
-			postalCode,
 			city,
-			country
+			addressLine2,
+			state
 			
 		);
 		return officesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		String postalCode,
+		String addressLine1,
+		String country,
 		String territory,
 		String phone,
-		String addressLine2,
-		String addressLine1,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String addressLine2,
+		String state
 		
 	) {
 		QOffices qOffices = QOffices.offices;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		if (postalCode != null) {
+			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
+		}
+		if (addressLine1 != null) {
+			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (country != null) {
+			where.and(qOffices.country.containsIgnoreCase(country));
+		}
 		if (territory != null) {
 			where.and(qOffices.territory.containsIgnoreCase(territory));
 		}
 		if (phone != null) {
 			where.and(qOffices.phone.containsIgnoreCase(phone));
 		}
-		if (addressLine2 != null) {
-			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
-		}
-		if (addressLine1 != null) {
-			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (state != null) {
-			where.and(qOffices.state.containsIgnoreCase(state));
-		}
-		if (postalCode != null) {
-			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
-		}
 		if (city != null) {
 			where.and(qOffices.city.containsIgnoreCase(city));
 		}
-		if (country != null) {
-			where.and(qOffices.country.containsIgnoreCase(country));
+		if (addressLine2 != null) {
+			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (state != null) {
+			where.and(qOffices.state.containsIgnoreCase(state));
 		}
 		
 	
@@ -176,6 +176,7 @@ public class OfficesServiceImpl implements OfficesService {
 	
 	@Override
 	public void deleteOneById(Long id) {
+	    officesRepository.deleteById(id);
 	}
 	
 	

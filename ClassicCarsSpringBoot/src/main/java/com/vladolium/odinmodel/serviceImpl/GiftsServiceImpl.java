@@ -37,6 +37,8 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
+	
+	
 	@Override
 	public Gifts readOneById(Long id) {
 		return giftsRepository.getOne(id);
@@ -46,12 +48,10 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
-	
 	@Override
 	public Gifts readOneByGiftName(String giftName) {
 		return giftsRepository.findByGiftNameEquals(giftName);
 	}
-	
 	
 	
 	
@@ -69,32 +69,32 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	@Override
 	public Iterable<Gifts> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		LocalDateTime beginsOn,
 		GiftType giftType,
-		String giftName,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
-		Boolean isExpired
+		String giftName,
+		LocalDateTime beginsOn
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
-			beginsOn,
 			giftType,
-			giftName,
+			isExpired,
 			expiresOn,
-			isExpired
+			giftName,
+			beginsOn
 				
 		);
 		return giftsRepository.findAll(where);
@@ -103,89 +103,89 @@ public class GiftsServiceImpl implements GiftsService {
 	@Override
 	public Page<Gifts> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		LocalDateTime beginsOn,
 		GiftType giftType,
-		String giftName,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
-		Boolean isExpired
+		String giftName,
+		LocalDateTime beginsOn
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
-			beginsOn,
 			giftType,
-			giftName,
+			isExpired,
 			expiresOn,
-			isExpired
+			giftName,
+			beginsOn
 			
 		);
 		return giftsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
+		
+		
+		
+		
+		
+		
+		
 		Set<Long> customersSet,
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		LocalDateTime beginsOn,
 		GiftType giftType,
-		String giftName,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
-		Boolean isExpired
+		String giftName,
+		LocalDateTime beginsOn
 		
 	) {
 		QGifts qGifts = QGifts.gifts;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
+		
+		
+		
+		
+		
+		
+		
 		if (customersSet != null) {
 			where.and(qGifts.customersSet.any().id.in(customersSet));
 		}
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		if (beginsOn != null) {
-			where.and(qGifts.beginsOn.eq(beginsOn));
-		}
 		if (giftType != null) {
 			where.and(qGifts.giftType.eq(giftType));
 		}
-		if (giftName != null) {
-			where.and(qGifts.giftName.containsIgnoreCase(giftName));
+		if (isExpired != null) {
+			where.and(qGifts.isExpired.eq(isExpired));
 		}
 		if (expiresOn != null) {
 			where.and(qGifts.expiresOn.eq(expiresOn));
 		}
-		if (isExpired != null) {
-			where.and(qGifts.isExpired.eq(isExpired));
+		if (giftName != null) {
+			where.and(qGifts.giftName.containsIgnoreCase(giftName));
+		}
+		if (beginsOn != null) {
+			where.and(qGifts.beginsOn.eq(beginsOn));
 		}
 		
 	
@@ -195,11 +195,12 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
+	    giftsRepository.deleteById(id);
 	}
-	
-	
 	
 	
 

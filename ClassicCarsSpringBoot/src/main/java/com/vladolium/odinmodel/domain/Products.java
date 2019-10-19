@@ -12,12 +12,6 @@ import java.util.*;
 public class Products {
 
 	
-	
-	
-	
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -28,6 +22,7 @@ public class Products {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	
 	
 	
@@ -51,6 +46,13 @@ public class Products {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	@NotNull
 	private Double msrp;
 	
@@ -60,13 +62,6 @@ public class Products {
 	public void setMsrp(Double msrp) {
 		this.msrp = msrp;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	@NotNull
 	@DecimalMin("10.00")
@@ -79,16 +74,11 @@ public class Products {
 		this.buyPrice = buyPrice;
 	}
 	
-	@NotNull
-	@Size(max=50)
-	private String productVendor;
 	
-	public String getProductVendor() {
-		return productVendor;
-	}
-	public void setProductVendor(String productVendor) {
-		this.productVendor = productVendor;
-	}
+	
+	
+	
+	
 	
 	
 	@NotNull
@@ -102,6 +92,9 @@ public class Products {
 		this.productName = productName;
 	}
 	
+	
+	
+	
 	@NotNull
 	@Size(max=10)
 	private String productScale;
@@ -112,10 +105,6 @@ public class Products {
 	public void setProductScale(String productScale) {
 		this.productScale = productScale;
 	}
-	
-	
-	
-	
 	
 	@NotNull
 	@Column(unique=true)
@@ -128,6 +117,18 @@ public class Products {
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
+	
+	@NotNull
+	@Size(max=50)
+	private String productVendor;
+	
+	public String getProductVendor() {
+		return productVendor;
+	}
+	public void setProductVendor(String productVendor) {
+		this.productVendor = productVendor;
+	}
+	
 	
 	
 	
@@ -205,7 +206,6 @@ public class Products {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
-	
 	
 	
 	

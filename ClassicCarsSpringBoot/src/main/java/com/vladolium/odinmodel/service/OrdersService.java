@@ -33,24 +33,17 @@ public interface OrdersService {
 	
 	Page<Orders> readAllPagination(Pageable page);
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	Iterable <Orders> readAllByCustomersId(Long customersId);
 	
 	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -63,46 +56,53 @@ public interface OrdersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	Iterable<Orders> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
 		LocalDate shippedDate,
 		String comments,
 		LocalDate orderDate,
-		LocalDate requiredDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	);
 	
 	Page<Orders> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
 		LocalDate shippedDate,
 		String comments,
 		LocalDate orderDate,
-		LocalDate requiredDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	);
 	

@@ -34,26 +34,19 @@ public class CustomersServiceImpl implements CustomersService {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Customers readOneById(Long id) {
 		return customersRepository.getOne(id);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -68,6 +61,13 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Customers> readAll() {
 		return customersRepository.findAll();
@@ -77,6 +77,10 @@ public class CustomersServiceImpl implements CustomersService {
 	public Page<Customers> readAllPagination(Pageable page) {
 		return customersRepository.findAll(page);
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -99,55 +103,51 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
-	
-	
-	
-	
 	@Override
 	public Iterable<Customers> search(
 		
 		
+		
+		
+		
+		
 		Long employeesId,
 		
-		
-		
-		
-		
 		List<Reviews> reviewsList,
+		String postalCode,
+		String addressLine1,
 		String lastName,
+		Double creditLimit,
+		String firstName,
+		String country,
 		String customerName,
 		String phone,
 		String addressLine2,
-		Double creditLimit,
-		String addressLine1,
-		String firstName,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			
 			
+			
+			
+			
+			
 			employeesId,
 			
-			
-			
-			
-			
 			reviewsList,
+			postalCode,
+			addressLine1,
 			lastName,
+			creditLimit,
+			firstName,
+			country,
 			customerName,
 			phone,
 			addressLine2,
-			creditLimit,
-			addressLine1,
-			firstName,
-			state,
-			postalCode,
 			city,
-			country
+			state
 				
 		);
 		return customersRepository.findAll(where);
@@ -158,47 +158,47 @@ public class CustomersServiceImpl implements CustomersService {
 		Pageable page,
 		
 		
+		
+		
+		
+		
 		Long employeesId,
 		
-		
-		
-		
-		
 		List<Reviews> reviewsList,
+		String postalCode,
+		String addressLine1,
 		String lastName,
+		Double creditLimit,
+		String firstName,
+		String country,
 		String customerName,
 		String phone,
 		String addressLine2,
-		Double creditLimit,
-		String addressLine1,
-		String firstName,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			
 			
+			
+			
+			
+			
 			employeesId,
 			
-			
-			
-			
-			
 			reviewsList,
+			postalCode,
+			addressLine1,
 			lastName,
+			creditLimit,
+			firstName,
+			country,
 			customerName,
 			phone,
 			addressLine2,
-			creditLimit,
-			addressLine1,
-			firstName,
-			state,
-			postalCode,
 			city,
-			country
+			state
 			
 		);
 		return customersRepository.findAll(where, page);
@@ -207,24 +207,24 @@ public class CustomersServiceImpl implements CustomersService {
 	public BooleanBuilder dynamicWhere(
 		
 		
+		
+		
+		
+		
 		Long employeesId,
 		
-		
-		
-		
-		
 		List<Reviews> reviewsList,
+		String postalCode,
+		String addressLine1,
 		String lastName,
+		Double creditLimit,
+		String firstName,
+		String country,
 		String customerName,
 		String phone,
 		String addressLine2,
-		Double creditLimit,
-		String addressLine1,
-		String firstName,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String state
 		
 	) {
 		QCustomers qCustomers = QCustomers.customers;
@@ -233,19 +233,34 @@ public class CustomersServiceImpl implements CustomersService {
 	
 		
 		
+		
+		
+		
+		
 		if (employeesId != null) {
 			where.and(qCustomers.employees.id.eq(employeesId));
 		}
 		
-		
-		
-		
-		
 		if (reviewsList != null) {
 			where.and(qCustomers.reviewsList.any().in(reviewsList));
 		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
 		if (lastName != null) {
 			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
 		}
 		if (customerName != null) {
 			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
@@ -256,52 +271,30 @@ public class CustomersServiceImpl implements CustomersService {
 		if (addressLine2 != null) {
 			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
 		}
-		if (creditLimit != null) {
-			where.and(qCustomers.creditLimit.eq(creditLimit));
-		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (firstName != null) {
-			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
-		}
-		if (state != null) {
-			where.and(qCustomers.state.containsIgnoreCase(state));
-		}
-		if (postalCode != null) {
-			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
-		}
 		if (city != null) {
 			where.and(qCustomers.city.containsIgnoreCase(city));
 		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
 		}
 		
 	
 		return where;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
-		Customers currentCustomers = customersRepository.getOne(id);
-		Iterable<Customers> listOfCustomers = customersRepository.findByEmployeesIdEquals(currentCustomers.getEmployees().getId());
-		Long size = listOfCustomers.spliterator().getExactSizeIfKnown();
-		if (size == 1) {
-		    return;
-		} else {
-		    customersRepository.deleteById(id);
-		}
+	    customersRepository.deleteById(id);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

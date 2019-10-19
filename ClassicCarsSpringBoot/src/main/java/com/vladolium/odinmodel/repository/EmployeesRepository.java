@@ -13,6 +13,10 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
+
+
+
+
 public interface EmployeesRepository extends JpaRepository<Employees, Long>, QuerydslPredicateExecutor<Employees> {
 
 
@@ -23,10 +27,6 @@ public interface EmployeesRepository extends JpaRepository<Employees, Long>, Que
 
 
 Employees findByIdEquals(Long id);
-
-
-
-
 
 
 Iterable <Employees> findByOfficesIdEquals(Long officesId);

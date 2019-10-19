@@ -61,6 +61,14 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersRepository.findAll(page);
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Orders> readAllByCustomersId(Long customersId) {
 		return ordersRepository.findByCustomersIdEquals(customersId);
@@ -70,21 +78,6 @@ public class OrdersServiceImpl implements OrdersService {
 	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
 		return ordersRepository.findByCustomersIdEquals(customersId, page);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -103,45 +96,52 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Orders> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
 		LocalDate shippedDate,
 		String comments,
 		LocalDate orderDate,
-		LocalDate requiredDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
 			shippedDate,
 			comments,
 			orderDate,
-			requiredDate,
-			status
+			status,
+			requiredDate
 				
 		);
 		return ordersRepository.findAll(where);
@@ -150,83 +150,83 @@ public class OrdersServiceImpl implements OrdersService {
 	@Override
 	public Page<Orders> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
 		LocalDate shippedDate,
 		String comments,
 		LocalDate orderDate,
-		LocalDate requiredDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
 			shippedDate,
 			comments,
 			orderDate,
-			requiredDate,
-			status
+			status,
+			requiredDate
 			
 		);
 		return ordersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
+		
+		
+		
+		
+		
+		
+		
 		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
 		LocalDate shippedDate,
 		String comments,
 		LocalDate orderDate,
-		LocalDate requiredDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		QOrders qOrders = QOrders.orders;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
+		
+		
+		
+		
+		
+		
+		
 		if (customersId != null) {
 			where.and(qOrders.customers.id.eq(customersId));
 		}
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -239,11 +239,11 @@ public class OrdersServiceImpl implements OrdersService {
 		if (orderDate != null) {
 			where.and(qOrders.orderDate.eq(orderDate));
 		}
-		if (requiredDate != null) {
-			where.and(qOrders.requiredDate.eq(requiredDate));
-		}
 		if (status != null) {
 			where.and(qOrders.status.containsIgnoreCase(status));
+		}
+		if (requiredDate != null) {
+			where.and(qOrders.requiredDate.eq(requiredDate));
 		}
 		
 	
@@ -254,14 +254,7 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	@Override
 	public void deleteOneById(Long id) {
-		Orders currentOrders = ordersRepository.getOne(id);
-		Iterable<Orders> listOfOrders = ordersRepository.findByCustomersIdEquals(currentOrders.getCustomers().getId());
-		Long size = listOfOrders.spliterator().getExactSizeIfKnown();
-		if (size == 1) {
-		    return;
-		} else {
-		    ordersRepository.deleteById(id);
-		}
+	    ordersRepository.deleteById(id);
 	}
 	
 	

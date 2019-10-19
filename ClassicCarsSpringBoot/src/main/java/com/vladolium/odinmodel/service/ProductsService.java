@@ -16,13 +16,13 @@ public interface ProductsService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	Products readOneById(Long id);
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -40,9 +40,6 @@ public interface ProductsService {
 	
 	Page<Products> readAllPagination(Pageable page);
 	
-	
-	
-	
 	Iterable <Products> readAllByProductLinesId(Long productLinesId);
 	
 	Page<Products> readAllByProductLinesId(Long productLinesId, Pageable page);
@@ -51,46 +48,49 @@ public interface ProductsService {
 	
 	
 	
+	
+	
+	
 	Iterable<Products> search(
-		
-		
-		
 		Long productLinesId,
-		String productVendor,
-		Double msrp,
-		String productName,
-		String productScale,
-		String productDescription,
+		
+		
+		
 		Integer quantityInStock,
+		String productName,
+		Double msrp,
+		Double buyPrice,
+		String productDescription,
+		String productScale,
 		String productCode,
-		Double buyPrice
+		String productVendor
 		
 	);
 	
 	Page<Products> searchPagination(
 		Pageable page,
-		
-		
-		
 		Long productLinesId,
-		String productVendor,
-		Double msrp,
-		String productName,
-		String productScale,
-		String productDescription,
+		
+		
+		
 		Integer quantityInStock,
+		String productName,
+		Double msrp,
+		Double buyPrice,
+		String productDescription,
+		String productScale,
 		String productCode,
-		Double buyPrice
+		String productVendor
 		
 	);
 	
-	
-	
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
+	
+	
 	
 	
 	

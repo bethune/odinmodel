@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/constraints/notNull.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/constraints/unique.emtl#/0"/>
+    <imports href="../constraints/notNull.emtl#/0"/>
+    <imports href="../constraints/unique.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="enum" visibility="Public">
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:ForBlock">
@@ -47,7 +47,7 @@
             <body xsi:type="mtl:IfBlock">
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/constraints/notNull.emtl#/0/notNull"/>
+                <definition href="../constraints/notNull.emtl#/0/notNull"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/enum/%/%/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </argument>
@@ -89,7 +89,7 @@
             <body xsi:type="mtl:IfBlock">
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/constraints/unique.emtl#/0/unique"/>
+                <definition href="../constraints/unique.emtl#/0/unique"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/enum/%/%/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </argument>
@@ -341,7 +341,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/constraints/notNull.emtl#/0/notNull"/>
+          <references href="../constraints/notNull.emtl#/0/notNull"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="p">
@@ -353,7 +353,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/fields/constraints/unique.emtl#/0/unique"/>
+          <references href="../constraints/unique.emtl#/0/unique"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="p">

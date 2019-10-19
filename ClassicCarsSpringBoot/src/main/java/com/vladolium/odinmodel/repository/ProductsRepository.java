@@ -11,13 +11,8 @@ import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
-
-
-
-
-
-
 public interface ProductsRepository extends JpaRepository<Products, Long>, QuerydslPredicateExecutor<Products> {
+
 
 
 
@@ -29,15 +24,20 @@ public interface ProductsRepository extends JpaRepository<Products, Long>, Query
 
 Products findByIdEquals(Long id);
 
+
+
+
+
+
 Products findByProductCodeEquals(String productCode);
-
-
-
 
 
 Iterable <Products> findByProductLinesIdEquals(Long productLinesId);
 
 Page <Products> findByProductLinesIdEquals(Long productLinesId, Pageable page);
+
+
+
 
 
 

@@ -15,23 +15,16 @@ public interface CustomersService {
 	Customers createUpdate(Customers customers);
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	Customers readOneById(Long id);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -43,9 +36,20 @@ public interface CustomersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	Iterable<Customers> readAll();
 	
 	Page<Customers> readAllPagination(Pageable page);
+	
+	
+	
+	
 	
 	
 	
@@ -62,31 +66,27 @@ public interface CustomersService {
 	
 	
 	
-	
-	
-	
-	
 	Iterable<Customers> search(
+		
+		
+		
+		
 		
 		
 		Long employeesId,
 		
-		
-		
-		
-		
 		List<Reviews> reviewsList,
+		String postalCode,
+		String addressLine1,
 		String lastName,
+		Double creditLimit,
+		String firstName,
+		String country,
 		String customerName,
 		String phone,
 		String addressLine2,
-		Double creditLimit,
-		String addressLine1,
-		String firstName,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String state
 		
 	);
 	
@@ -94,36 +94,36 @@ public interface CustomersService {
 		Pageable page,
 		
 		
+		
+		
+		
+		
 		Long employeesId,
 		
-		
-		
-		
-		
 		List<Reviews> reviewsList,
+		String postalCode,
+		String addressLine1,
 		String lastName,
+		Double creditLimit,
+		String firstName,
+		String country,
 		String customerName,
 		String phone,
 		String addressLine2,
-		Double creditLimit,
-		String addressLine1,
-		String firstName,
-		String state,
-		String postalCode,
 		String city,
-		String country
+		String state
 		
 	);
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

@@ -45,12 +45,25 @@ public class OrdersController {
 		
 		current.setOrderDate(orders.getOrderDate());
 		
-		current.setRequiredDate(orders.getRequiredDate());
-		
 		current.setStatus(orders.getStatus());
+		
+		current.setRequiredDate(orders.getRequiredDate());
 					
 		return ordersService.createUpdate(current);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -96,43 +109,43 @@ public class OrdersController {
 	
 	@GetMapping("/search")
 	public Iterable<Orders> search(
+		
+		
+		
+		
+		
+		
+		
+		
 		@RequestParam(value = "customersId", required = false) Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
 		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
 		@RequestParam(value = "comments", required = false) String comments,
 		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
-		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
-		@RequestParam(value = "status", required = false) String status
+		@RequestParam(value = "status", required = false) String status,
+		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate
 		
 	) {
 		return ordersService.search(
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
 			shippedDate,
 			comments,
 			orderDate,
-			requiredDate,
-			status
+			status,
+			requiredDate
 			
 		);
 	}
@@ -141,46 +154,46 @@ public class OrdersController {
 	public Page<Orders> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
+		
+		
+		
+		
+		
+		
+		
+		
 		@RequestParam(value = "customersId", required = false) Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
 		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
 		@RequestParam(value = "comments", required = false) String comments,
 		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
-		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
-		@RequestParam(value = "status", required = false) String status
+		@RequestParam(value = "status", required = false) String status,
+		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return ordersService.searchPagination(
 			page,
+			
+			
+			
+			
+			
+			
+			
+			
 			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
 			shippedDate,
 			comments,
 			orderDate,
-			requiredDate,
-			status
+			status,
+			requiredDate
 			
 		);
 	}
@@ -190,6 +203,13 @@ public class OrdersController {
 	public void deleteOneById(@PathVariable Long id) {
 		ordersService.deleteOneById(id);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

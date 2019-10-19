@@ -43,13 +43,13 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		return currentProductLines;
 	}
 	
-	
-	
-	
 	@Override
 	public ProductLines readOneById(Long id) {
 		return productLinesRepository.getOne(id);
 	}
+	
+	
+	
 	
 	
 	
@@ -69,14 +69,14 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	
 	@Override
 	public Iterable<ProductLines> search(
-		byte[] image,
 		String textDescription,
+		byte[] image,
 		String productLine
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			image,
 			textDescription,
+			image,
 			productLine
 				
 		);
@@ -86,14 +86,14 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	@Override
 	public Page<ProductLines> searchPagination(
 		Pageable page,
-		byte[] image,
 		String textDescription,
+		byte[] image,
 		String productLine
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			image,
 			textDescription,
+			image,
 			productLine
 			
 		);
@@ -101,8 +101,8 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		byte[] image,
 		String textDescription,
+		byte[] image,
 		String productLine
 		
 	) {
@@ -110,11 +110,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (image != null) {
-			where.and(qProductLines.image.eq(image));
-		}
 		if (textDescription != null) {
 			where.and(qProductLines.textDescription.eq(textDescription));
+		}
+		if (image != null) {
+			where.and(qProductLines.image.eq(image));
 		}
 		if (productLine != null) {
 			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
@@ -124,12 +124,13 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		return where;
 	}
 	
-	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
+	    productLinesRepository.deleteById(id);
 	}
+	
+	
+	
 	
 
 //Code between start and end will not be removed during generation.

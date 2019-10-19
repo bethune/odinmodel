@@ -11,10 +11,6 @@ import java.util.*;
 @Entity
 public class Payments {
 
-	
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -35,6 +31,13 @@ public class Payments {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	@NotNull
 	private Double amount;
 	
@@ -44,8 +47,6 @@ public class Payments {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
-	
-	
 	
 	
 	@NotNull
@@ -110,7 +111,6 @@ public class Payments {
 	public void setPaymentTimestamp(Instant paymentTimestamp) {
 	    this.paymentTimestamp = paymentTimestamp;
 	}
-	
 	
 	
 	

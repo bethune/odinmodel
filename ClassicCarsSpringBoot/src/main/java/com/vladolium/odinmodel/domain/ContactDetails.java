@@ -34,24 +34,14 @@ public abstract class ContactDetails {
 	
 	
 	
-	@Size(max=50)@Pattern(regexp="(\\(\\d{3}\\)\\d{3}-\\d{4}") // \(\d{3}\)\d{3}-?\d{4}
-	private String phone;
+	@Size(max=15)
+	private String postalCode;
 	
-	public String getPhone() {
-		return phone;
+	public String getPostalCode() {
+		return postalCode;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	
-	@Size(max=50)
-	private String addressLine2;
-	
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 	
 	@NotNull
@@ -65,24 +55,25 @@ public abstract class ContactDetails {
 		this.addressLine1 = addressLine1;
 	}
 	
+	@NotNull
 	@Size(max=50)
-	private String state;
+	private String country;
 	
-	public String getState() {
-		return state;
+	public String getCountry() {
+		return country;
 	}
-	public void setState(String state) {
-		this.state = state;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
-	@Size(max=15)
-	private String postalCode;
+	@Size(max=50)@Pattern(regexp="(\\(\\d{3}\\)\\d{3}-\\d{4}") // \(\d{3}\)\d{3}-?\d{4}
+	private String phone;
 	
-	public String getPostalCode() {
-		return postalCode;
+	public String getPhone() {
+		return phone;
 	}
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	@NotNull
@@ -96,15 +87,24 @@ public abstract class ContactDetails {
 		this.city = city;
 	}
 	
-	@NotNull
 	@Size(max=50)
-	private String country;
+	private String addressLine2;
 	
-	public String getCountry() {
-		return country;
+	public String getAddressLine2() {
+		return addressLine2;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+	
+	@Size(max=50)
+	private String state;
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	
