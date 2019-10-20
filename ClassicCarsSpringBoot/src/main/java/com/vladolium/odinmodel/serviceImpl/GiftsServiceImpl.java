@@ -35,6 +35,10 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public Gifts readOneById(Long id) {
 		return giftsRepository.getOne(id);
@@ -44,14 +48,10 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
-	
-	
-	
 	@Override
 	public Gifts readOneByGiftName(String giftName) {
 		return giftsRepository.findByGiftNameEquals(giftName);
 	}
-	
 	
 	
 	
@@ -77,23 +77,23 @@ public class GiftsServiceImpl implements GiftsService {
 		
 		
 		
-		
-		
-		
 		Set<Long> customersSet,
+		
+		
+		
 		GiftType giftType,
-		String giftName,
 		Boolean isExpired,
 		LocalDateTime expiresOn,
+		String giftName,
 		LocalDateTime beginsOn
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
 			giftType,
-			giftName,
 			isExpired,
 			expiresOn,
+			giftName,
 			beginsOn
 				
 		);
@@ -111,23 +111,23 @@ public class GiftsServiceImpl implements GiftsService {
 		
 		
 		
-		
-		
-		
 		Set<Long> customersSet,
+		
+		
+		
 		GiftType giftType,
-		String giftName,
 		Boolean isExpired,
 		LocalDateTime expiresOn,
+		String giftName,
 		LocalDateTime beginsOn
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
 			giftType,
-			giftName,
 			isExpired,
 			expiresOn,
+			giftName,
 			beginsOn
 			
 		);
@@ -143,14 +143,14 @@ public class GiftsServiceImpl implements GiftsService {
 		
 		
 		
-		
-		
-		
 		Set<Long> customersSet,
+		
+		
+		
 		GiftType giftType,
-		String giftName,
 		Boolean isExpired,
 		LocalDateTime expiresOn,
+		String giftName,
 		LocalDateTime beginsOn
 		
 	) {
@@ -166,23 +166,23 @@ public class GiftsServiceImpl implements GiftsService {
 		
 		
 		
-		
-		
-		
 		if (customersSet != null) {
 			where.and(qGifts.customersSet.any().id.in(customersSet));
 		}
+		
+		
+		
 		if (giftType != null) {
 			where.and(qGifts.giftType.eq(giftType));
-		}
-		if (giftName != null) {
-			where.and(qGifts.giftName.containsIgnoreCase(giftName));
 		}
 		if (isExpired != null) {
 			where.and(qGifts.isExpired.eq(isExpired));
 		}
 		if (expiresOn != null) {
 			where.and(qGifts.expiresOn.eq(expiresOn));
+		}
+		if (giftName != null) {
+			where.and(qGifts.giftName.containsIgnoreCase(giftName));
 		}
 		if (beginsOn != null) {
 			where.and(qGifts.beginsOn.eq(beginsOn));
@@ -193,14 +193,14 @@ public class GiftsServiceImpl implements GiftsService {
 	}
 	
 	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    giftsRepository.deleteById(id);
 	}
-	
-	
-	
-	
 	
 	
 

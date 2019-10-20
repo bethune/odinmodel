@@ -19,13 +19,7 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
-
-
-
-
 public interface CustomersRepository extends JpaRepository<Customers, Long>, QuerydslPredicateExecutor<Customers> {
-
-
 
 
 
@@ -37,7 +31,16 @@ Customers findByCustomerNameEquals(String customerName);
 
 
 
+
+
+
 Customers findByIdEquals(Long id);
+
+
+
+
+
+
 
 
 
@@ -45,9 +48,6 @@ Customers findByIdEquals(Long id);
 Iterable <Customers> findByEmployeesIdEquals(Long employeesId);
 
 Page <Customers> findByEmployeesIdEquals(Long employeesId, Pageable page);
-
-
-
 
 
 

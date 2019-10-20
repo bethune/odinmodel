@@ -44,27 +44,6 @@ public abstract class ContactDetails {
 		this.postalCode = postalCode;
 	}
 	
-	@Size(max=50)
-	private String state;
-	
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	
-	@NotNull
-	@Size(max=50)
-	private String city;
-	
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	
 	@NotNull
 	@Size(max=50)
 	private String addressLine1;
@@ -74,16 +53,6 @@ public abstract class ContactDetails {
 	}
 	public void setAddressLine1(String addressLine1) {
 		this.addressLine1 = addressLine1;
-	}
-	
-	@Size(max=50)
-	private String addressLine2;
-	
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
 	}
 	
 	@NotNull
@@ -105,6 +74,37 @@ public abstract class ContactDetails {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String city;
+	
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
+	@Size(max=50)
+	private String addressLine2;
+	
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+	
+	@Size(max=50)
+	private String state;
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	

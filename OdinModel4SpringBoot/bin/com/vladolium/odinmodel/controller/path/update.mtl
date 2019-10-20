@@ -24,15 +24,20 @@ public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.
 			[comment: IRIC for manyToOne /]
 			[if p.lower = 1 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
 				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+				[for (pack : Package | aClass._package)]
+					[for (m : Class | pack.member -> filter(Class))]
+						[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+							[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+								[if a.isID = true]
 @PutMapping("/{[p1.name.toLowerFirst()/]}/[p.opposite.type.name.toLowerFirst()/]")
 public [entity/] updateOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type.name.toUpperFirst()/] [p1.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
 	[entity/] current = [property/]Service.readOneBy[p1.name.toUpperFirst()/]([p1.name.toLowerFirst()/]);
-	if (current.get[p.opposite.type.name.toUpperFirst()/]().getId() == [property/].get[p.opposite.type.name.toUpperFirst()/]().getId()) {
+	if (current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]() == [property/].get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]()) {
 		[foreignKeys(aClass)/]
 		[fields(aClass)/]			
 		return [property/]Service.createUpdate(current);
 	} else {
-	    Iterable<[entity/]> listOf[entity/] = [property/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/]Id(current.get[p.opposite.type.name.toUpperFirst()/]().getId());
+	    Iterable<[entity/]> listOf[entity/] = [property/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/](current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]());
 	    Long size = listOf[entity/].spliterator().getExactSizeIfKnown();
 	    if (size == 1) {
 			return current;
@@ -43,6 +48,11 @@ public [entity/] updateOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type
 	    }
 	}
 }
+								[/if]
+							[/for]
+						[/if]
+					[/for]
+				[/for]
 			[/if]
 		[/for]
 	[/if]
@@ -67,15 +77,20 @@ public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.
 			[comment: IRIC for manyToOne /]
 			[if p.lower = 1 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
 				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+				[for (pack : Package | aClass._package)]
+					[for (m : Class | pack.member -> filter(Class))]
+						[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
+							[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
+								[if a.isID = true]
 @PutMapping("/[p1.name.toLowerFirst()/]={[p1.name.toLowerFirst()/]}/[p.opposite.type.name.toLowerFirst()/]")
 public [entity/] updateOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type.name.toUpperFirst()/] [p1.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
 	[entity/] current = [property/]Service.readOneBy[p1.name.toUpperFirst()/]([p1.name.toLowerFirst()/]);
-	if (current.get[p.opposite.type.name.toUpperFirst()/]().getId() == [property/].get[p.opposite.type.name.toUpperFirst()/]().getId()) {
+	if (current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]() == [property/].get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]()) {
 		[foreignKeys(aClass)/]
 		[fields(aClass)/]			
 		return [property/]Service.createUpdate(current);
 	} else {
-	    Iterable<[entity/]> listOf[entity/] = [property/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/]Id(current.get[p.opposite.type.name.toUpperFirst()/]().getId());
+	    Iterable<[entity/]> listOf[entity/] = [property/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/](current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]());
 	    Long size = listOf[entity/].spliterator().getExactSizeIfKnown();
 	    if (size == 1) {
 			return current;
@@ -86,6 +101,11 @@ public [entity/] updateOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type
 	    }
 	}
 }
+								[/if]
+							[/for]
+						[/if]
+					[/for]
+				[/for]
 			[/if]
 		[/for]
 	[/if]

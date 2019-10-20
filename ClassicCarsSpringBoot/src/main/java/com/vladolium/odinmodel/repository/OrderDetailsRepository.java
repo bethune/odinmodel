@@ -10,19 +10,17 @@ import com.vladolium.odinmodel.domain.OrderDetails.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
+
+
+
+
 public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long>, QuerydslPredicateExecutor<OrderDetails> {
 
 
 
 
 
-
 OrderDetails findByIdEquals(Long id);
-
-
-
-
-
 
 
 Iterable <OrderDetails> findByProductsIdEquals(Long productsId);
@@ -38,12 +36,14 @@ Page <OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
 
 
 
+
+
+
+
+
 Iterable <OrderDetails> findByProductsProductCodeEquals(String productsProductCode);
 
 Page <OrderDetails> findByProductsProductCodeEquals(String productsProductCode, Pageable page);
-
-
-
 
 
 

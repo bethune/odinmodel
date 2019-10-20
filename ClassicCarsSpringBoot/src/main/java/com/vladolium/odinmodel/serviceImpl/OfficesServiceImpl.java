@@ -43,11 +43,11 @@ public class OfficesServiceImpl implements OfficesService {
 		return currentOffices;
 	}
 	
-	
 	@Override
 	public Offices readOneById(Long id) {
 		return officesRepository.getOne(id);
 	}
+	
 	
 	
 	
@@ -80,24 +80,24 @@ public class OfficesServiceImpl implements OfficesService {
 	@Override
 	public Iterable<Offices> search(
 		String postalCode,
-		String state,
-		String territory,
-		String city,
 		String addressLine1,
-		String addressLine2,
 		String country,
-		String phone
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			postalCode,
-			state,
-			territory,
-			city,
 			addressLine1,
-			addressLine2,
 			country,
-			phone
+			territory,
+			phone,
+			city,
+			addressLine2,
+			state
 				
 		);
 		return officesRepository.findAll(where);
@@ -107,24 +107,24 @@ public class OfficesServiceImpl implements OfficesService {
 	public Page<Offices> searchPagination(
 		Pageable page,
 		String postalCode,
-		String state,
-		String territory,
-		String city,
 		String addressLine1,
-		String addressLine2,
 		String country,
-		String phone
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
+		String state
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			postalCode,
-			state,
-			territory,
-			city,
 			addressLine1,
-			addressLine2,
 			country,
-			phone
+			territory,
+			phone,
+			city,
+			addressLine2,
+			state
 			
 		);
 		return officesRepository.findAll(where, page);
@@ -132,13 +132,13 @@ public class OfficesServiceImpl implements OfficesService {
 	
 	public BooleanBuilder dynamicWhere(
 		String postalCode,
-		String state,
-		String territory,
-		String city,
 		String addressLine1,
-		String addressLine2,
 		String country,
-		String phone
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
+		String state
 		
 	) {
 		QOffices qOffices = QOffices.offices;
@@ -148,37 +148,37 @@ public class OfficesServiceImpl implements OfficesService {
 		if (postalCode != null) {
 			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
 		}
-		if (state != null) {
-			where.and(qOffices.state.containsIgnoreCase(state));
-		}
-		if (territory != null) {
-			where.and(qOffices.territory.containsIgnoreCase(territory));
-		}
-		if (city != null) {
-			where.and(qOffices.city.containsIgnoreCase(city));
-		}
 		if (addressLine1 != null) {
 			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (addressLine2 != null) {
-			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
 		}
 		if (country != null) {
 			where.and(qOffices.country.containsIgnoreCase(country));
 		}
+		if (territory != null) {
+			where.and(qOffices.territory.containsIgnoreCase(territory));
+		}
 		if (phone != null) {
 			where.and(qOffices.phone.containsIgnoreCase(phone));
+		}
+		if (city != null) {
+			where.and(qOffices.city.containsIgnoreCase(city));
+		}
+		if (addressLine2 != null) {
+			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (state != null) {
+			where.and(qOffices.state.containsIgnoreCase(state));
 		}
 		
 	
 		return where;
 	}
 	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    officesRepository.deleteById(id);
 	}
+	
 	
 	
 	

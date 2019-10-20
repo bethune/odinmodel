@@ -35,12 +35,15 @@ public class ProductsServiceImpl implements ProductsService {
 	
 	
 	
-	
-	
 	@Override
 	public Products readOneById(Long id) {
 		return productsRepository.getOne(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -58,9 +61,6 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 	
 	
-	
-	
-	
 	@Override
 	public Iterable<Products> readAll() {
 		return productsRepository.findAll();
@@ -70,7 +70,6 @@ public class ProductsServiceImpl implements ProductsService {
 	public Page<Products> readAllPagination(Pageable page) {
 		return productsRepository.findAll(page);
 	}
-	
 	
 	@Override
 	public Iterable<Products> readAllByProductLinesId(Long productLinesId) {
@@ -88,35 +87,36 @@ public class ProductsServiceImpl implements ProductsService {
 	
 	
 	
+	
 	@Override
 	public Iterable<Products> search(
-		
 		Long productLinesId,
 		
 		
-		String productDescription,
+		
+		Integer quantityInStock,
 		String productName,
+		Double msrp,
+		Double buyPrice,
+		String productDescription,
 		String productScale,
 		String productCode,
-		Integer quantityInStock,
-		String productVendor,
-		Double msrp,
-		Double buyPrice
+		String productVendor
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
 			productLinesId,
 			
 			
-			productDescription,
+			
+			quantityInStock,
 			productName,
+			msrp,
+			buyPrice,
+			productDescription,
 			productScale,
 			productCode,
-			quantityInStock,
-			productVendor,
-			msrp,
-			buyPrice
+			productVendor
 				
 		);
 		return productsRepository.findAll(where);
@@ -125,80 +125,68 @@ public class ProductsServiceImpl implements ProductsService {
 	@Override
 	public Page<Products> searchPagination(
 		Pageable page,
-		
 		Long productLinesId,
 		
 		
-		String productDescription,
+		
+		Integer quantityInStock,
 		String productName,
+		Double msrp,
+		Double buyPrice,
+		String productDescription,
 		String productScale,
 		String productCode,
-		Integer quantityInStock,
-		String productVendor,
-		Double msrp,
-		Double buyPrice
+		String productVendor
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
 			productLinesId,
 			
 			
-			productDescription,
+			
+			quantityInStock,
 			productName,
+			msrp,
+			buyPrice,
+			productDescription,
 			productScale,
 			productCode,
-			quantityInStock,
-			productVendor,
-			msrp,
-			buyPrice
+			productVendor
 			
 		);
 		return productsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
 		Long productLinesId,
 		
 		
-		String productDescription,
+		
+		Integer quantityInStock,
 		String productName,
+		Double msrp,
+		Double buyPrice,
+		String productDescription,
 		String productScale,
 		String productCode,
-		Integer quantityInStock,
-		String productVendor,
-		Double msrp,
-		Double buyPrice
+		String productVendor
 		
 	) {
 		QProducts qProducts = QProducts.products;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
 		if (productLinesId != null) {
 			where.and(qProducts.productLines.id.eq(productLinesId));
 		}
 		
 		
-		if (productDescription != null) {
-			where.and(qProducts.productDescription.eq(productDescription));
-		}
-		if (productName != null) {
-			where.and(qProducts.productName.containsIgnoreCase(productName));
-		}
-		if (productScale != null) {
-			where.and(qProducts.productScale.containsIgnoreCase(productScale));
-		}
-		if (productCode != null) {
-			where.and(qProducts.productCode.containsIgnoreCase(productCode));
-		}
+		
 		if (quantityInStock != null) {
 			where.and(qProducts.quantityInStock.eq(quantityInStock));
 		}
-		if (productVendor != null) {
-			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		if (productName != null) {
+			where.and(qProducts.productName.containsIgnoreCase(productName));
 		}
 		if (msrp != null) {
 			where.and(qProducts.msrp.eq(msrp));
@@ -206,18 +194,30 @@ public class ProductsServiceImpl implements ProductsService {
 		if (buyPrice != null) {
 			where.and(qProducts.buyPrice.eq(buyPrice));
 		}
+		if (productDescription != null) {
+			where.and(qProducts.productDescription.eq(productDescription));
+		}
+		if (productScale != null) {
+			where.and(qProducts.productScale.containsIgnoreCase(productScale));
+		}
+		if (productCode != null) {
+			where.and(qProducts.productCode.containsIgnoreCase(productCode));
+		}
+		if (productVendor != null) {
+			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
 		
 	
 		return where;
 	}
 	
 	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    productsRepository.deleteById(id);
 	}
+	
+	
 	
 	
 	

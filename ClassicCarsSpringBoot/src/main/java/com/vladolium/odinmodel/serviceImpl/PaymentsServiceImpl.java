@@ -34,15 +34,15 @@ public class PaymentsServiceImpl implements PaymentsService {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@Override
 	public Payments readOneById(Long id) {
 		return paymentsRepository.getOne(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -67,9 +67,6 @@ public class PaymentsServiceImpl implements PaymentsService {
 	
 	
 	
-	
-	
-	
 	@Override
 	public Iterable<Payments> readAllByCustomersId(Long customersId) {
 		return paymentsRepository.findByCustomersIdEquals(customersId);
@@ -79,9 +76,6 @@ public class PaymentsServiceImpl implements PaymentsService {
 	public Page<Payments> readAllByCustomersId(Long customersId, Pageable page) {
 		return paymentsRepository.findByCustomersIdEquals(customersId, page);
 	}
-	
-	
-	
 	
 	
 	
@@ -101,6 +95,12 @@ public class PaymentsServiceImpl implements PaymentsService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Payments> search(
 		
@@ -111,10 +111,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		
-		
-		
 		Long customersId,
+		
+		
+		
 		String checkNumber,
 		LocalDate paymentDate,
 		Instant paymentTimestamp,
@@ -130,10 +130,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 			
 			
 			
-			
-			
-			
 			customersId,
+			
+			
+			
 			checkNumber,
 			paymentDate,
 			paymentTimestamp,
@@ -154,10 +154,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		
-		
-		
 		Long customersId,
+		
+		
+		
 		String checkNumber,
 		LocalDate paymentDate,
 		Instant paymentTimestamp,
@@ -173,10 +173,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 			
 			
 			
-			
-			
-			
 			customersId,
+			
+			
+			
 			checkNumber,
 			paymentDate,
 			paymentTimestamp,
@@ -195,10 +195,10 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		
-		
-		
 		Long customersId,
+		
+		
+		
 		String checkNumber,
 		LocalDate paymentDate,
 		Instant paymentTimestamp,
@@ -217,12 +217,12 @@ public class PaymentsServiceImpl implements PaymentsService {
 		
 		
 		
-		
-		
-		
 		if (customersId != null) {
 			where.and(qPayments.customers.id.eq(customersId));
 		}
+		
+		
+		
 		if (checkNumber != null) {
 			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
 		}
@@ -240,15 +240,15 @@ public class PaymentsServiceImpl implements PaymentsService {
 		return where;
 	}
 	
-	
-	
-	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    paymentsRepository.deleteById(id);
 	}
+	
+	
+	
+	
+	
 	
 
 //Code between start and end will not be removed during generation.

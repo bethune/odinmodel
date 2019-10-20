@@ -11,6 +11,10 @@ import java.util.*;
 @Entity
 public class OrderDetails {
 
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,11 +27,6 @@ public class OrderDetails {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@NotNull
 	@Min(10)
 	private Integer quantityOrdered;
@@ -38,6 +37,8 @@ public class OrderDetails {
 	public void setQuantityOrdered(Integer quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
 	}
+	
+	
 	
 	@NotNull
 	private Integer orderLineNumber;
@@ -52,10 +53,6 @@ public class OrderDetails {
 	
 	
 	
-	
-	
-	
-	
 	@NotNull
 	@DecimalMin("20.00")@DecimalMax("300.00")
 	private Double priceEach;
@@ -66,6 +63,9 @@ public class OrderDetails {
 	public void setPriceEach(Double priceEach) {
 		this.priceEach = priceEach;
 	}
+	
+	
+	
 	
 	
 	

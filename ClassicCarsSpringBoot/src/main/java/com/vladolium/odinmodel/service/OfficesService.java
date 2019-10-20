@@ -16,8 +16,8 @@ public interface OfficesService {
 	
 	Offices createOneIric(OfficesEmployees officesEmployees);
 	
-	
 	Offices readOneById(Long id);
+	
 	
 	
 	
@@ -43,30 +43,30 @@ public interface OfficesService {
 	
 	Iterable<Offices> search(
 		String postalCode,
-		String state,
-		String territory,
-		String city,
 		String addressLine1,
-		String addressLine2,
 		String country,
-		String phone
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
+		String state
 		
 	);
 	
 	Page<Offices> searchPagination(
 		Pageable page,
 		String postalCode,
-		String state,
-		String territory,
-		String city,
 		String addressLine1,
-		String addressLine2,
 		String country,
-		String phone
+		String territory,
+		String phone,
+		String city,
+		String addressLine2,
+		String state
 		
 	);
-	
 	void deleteOneById(Long id);
+	
 	
 	
 	

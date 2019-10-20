@@ -36,11 +36,11 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
-	
 	@Override
 	public Orders readOneById(Long id) {
 		return ordersRepository.getOne(id);
 	}
+	
 	
 	
 	
@@ -69,9 +69,6 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
-	
-	
-	
 	@Override
 	public Iterable<Orders> readAllByCustomersId(Long customersId) {
 		return ordersRepository.findByCustomersIdEquals(customersId);
@@ -81,9 +78,6 @@ public class OrdersServiceImpl implements OrdersService {
 	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
 		return ordersRepository.findByCustomersIdEquals(customersId, page);
 	}
-	
-	
-	
 	
 	
 	
@@ -103,6 +97,12 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Orders> search(
 		
@@ -113,15 +113,15 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		
-		
-		
 		Long customersId,
-		LocalDate requiredDate,
-		String comments,
+		
+		
+		
 		LocalDate shippedDate,
+		String comments,
 		LocalDate orderDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -133,15 +133,15 @@ public class OrdersServiceImpl implements OrdersService {
 			
 			
 			
-			
-			
-			
 			customersId,
-			requiredDate,
-			comments,
+			
+			
+			
 			shippedDate,
+			comments,
 			orderDate,
-			status
+			status,
+			requiredDate
 				
 		);
 		return ordersRepository.findAll(where);
@@ -158,15 +158,15 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		
-		
-		
 		Long customersId,
-		LocalDate requiredDate,
-		String comments,
+		
+		
+		
 		LocalDate shippedDate,
+		String comments,
 		LocalDate orderDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -178,15 +178,15 @@ public class OrdersServiceImpl implements OrdersService {
 			
 			
 			
-			
-			
-			
 			customersId,
-			requiredDate,
-			comments,
+			
+			
+			
 			shippedDate,
+			comments,
 			orderDate,
-			status
+			status,
+			requiredDate
 			
 		);
 		return ordersRepository.findAll(where, page);
@@ -201,15 +201,15 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		
-		
-		
 		Long customersId,
-		LocalDate requiredDate,
-		String comments,
+		
+		
+		
 		LocalDate shippedDate,
+		String comments,
 		LocalDate orderDate,
-		String status
+		String status,
+		LocalDate requiredDate
 		
 	) {
 		QOrders qOrders = QOrders.orders;
@@ -224,26 +224,26 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		
 		
-		
-		
-		
 		if (customersId != null) {
 			where.and(qOrders.customers.id.eq(customersId));
 		}
-		if (requiredDate != null) {
-			where.and(qOrders.requiredDate.eq(requiredDate));
+		
+		
+		
+		if (shippedDate != null) {
+			where.and(qOrders.shippedDate.eq(shippedDate));
 		}
 		if (comments != null) {
 			where.and(qOrders.comments.eq(comments));
-		}
-		if (shippedDate != null) {
-			where.and(qOrders.shippedDate.eq(shippedDate));
 		}
 		if (orderDate != null) {
 			where.and(qOrders.orderDate.eq(orderDate));
 		}
 		if (status != null) {
 			where.and(qOrders.status.containsIgnoreCase(status));
+		}
+		if (requiredDate != null) {
+			where.and(qOrders.requiredDate.eq(requiredDate));
 		}
 		
 	
@@ -252,11 +252,11 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    ordersRepository.deleteById(id);
 	}
+	
 	
 	
 	

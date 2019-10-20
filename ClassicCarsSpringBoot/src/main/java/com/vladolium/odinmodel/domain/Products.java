@@ -12,8 +12,6 @@ import java.util.*;
 public class Products {
 
 	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -24,9 +22,6 @@ public class Products {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
 	
 	
 	
@@ -80,6 +75,12 @@ public class Products {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 	@NotNull
 	@Size(max=70)
 	private String productName;
@@ -90,6 +91,9 @@ public class Products {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+	
+	
+	
 	
 	@NotNull
 	@Size(max=10)
@@ -102,7 +106,6 @@ public class Products {
 		this.productScale = productScale;
 	}
 	
-	
 	@NotNull
 	@Column(unique=true)
 	@Size(max=15)
@@ -114,8 +117,6 @@ public class Products {
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
-	
-	
 	
 	@NotNull
 	@Size(max=50)
@@ -190,6 +191,10 @@ public class Products {
 	
 	
 	
+	
+	
+	
+	
 	@NotNull
 	@Size(max=4000)
 	@Lob
@@ -201,11 +206,6 @@ public class Products {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
-	
-	
-	
-	
-	
 	
 	
 	

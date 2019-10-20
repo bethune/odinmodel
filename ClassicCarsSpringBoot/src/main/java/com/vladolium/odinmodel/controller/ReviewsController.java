@@ -32,18 +32,16 @@ public class ReviewsController {
 	
 	
 	
-	
-	
 	@PutMapping("/{id}")
 	public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews) {
 		Reviews current = reviewsService.readOneById(id);
 		
 		current.setReviewText(reviews.getReviewText());
 		
-		current.setReviewDate(reviews.getReviewDate());
 		
 		current.setReviewTime(reviews.getReviewTime());
 		
+		current.setReviewDate(reviews.getReviewDate());
 					
 		return reviewsService.createUpdate(current);
 	}
@@ -72,6 +70,8 @@ public class ReviewsController {
 	
 	
 	
+	
+	
 	@GetMapping("")
 	public Iterable<Reviews> readAll() {
 		return reviewsService.readAll();
@@ -90,14 +90,14 @@ public class ReviewsController {
 	@GetMapping("/search")
 	public Iterable<Reviews> search(
 		@RequestParam(value = "reviewText", required = false) String reviewText,
-		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate,
-		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime
+		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime,
+		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate
 		
 	) {
 		return reviewsService.search(
 			reviewText,
-			reviewDate,
-			reviewTime
+			reviewTime,
+			reviewDate
 			
 		);
 	}
@@ -107,8 +107,8 @@ public class ReviewsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		@RequestParam(value = "reviewText", required = false) String reviewText,
-		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate,
-		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime
+		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime,
+		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -116,18 +116,18 @@ public class ReviewsController {
 		return reviewsService.searchPagination(
 			page,
 			reviewText,
-			reviewDate,
-			reviewTime
+			reviewTime,
+			reviewDate
 			
 		);
 	}
-	
-	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		reviewsService.deleteOneById(id);
 	}
+	
+	
 	
 	
 	

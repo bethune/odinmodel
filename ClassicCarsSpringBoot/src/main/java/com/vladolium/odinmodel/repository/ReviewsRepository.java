@@ -11,14 +11,14 @@ import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
-
-
 public interface ReviewsRepository extends JpaRepository<Reviews, Long>, QuerydslPredicateExecutor<Reviews> {
 
 
 
 
 Reviews findByIdEquals(Long id);
+
+
 
 
 

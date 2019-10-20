@@ -37,14 +37,14 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public Employees readOneById(Long id) {
 		return employeesRepository.getOne(id);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -64,7 +64,6 @@ public class EmployeesServiceImpl implements EmployeesService {
 	public Page<Employees> readAllPagination(Pageable page) {
 		return employeesRepository.findAll(page);
 	}
-	
 	
 	@Override
 	public Iterable<Employees> readAllByOfficesId(Long officesId) {
@@ -92,9 +91,9 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
+	
 	@Override
 	public Iterable<Employees> search(
-		
 		Long officesId,
 		
 		
@@ -103,17 +102,17 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		String extension,
-		Boolean isActive,
-		String lastName,
-		Integer reportsTo,
-		String email,
+		
 		String firstName,
-		String jobTitle
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
 			officesId,
 			
 			
@@ -122,13 +121,14 @@ public class EmployeesServiceImpl implements EmployeesService {
 			
 			
 			
-			extension,
-			isActive,
-			lastName,
-			reportsTo,
-			email,
+			
 			firstName,
-			jobTitle
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 				
 		);
 		return employeesRepository.findAll(where);
@@ -137,7 +137,6 @@ public class EmployeesServiceImpl implements EmployeesService {
 	@Override
 	public Page<Employees> searchPagination(
 		Pageable page,
-		
 		Long officesId,
 		
 		
@@ -146,17 +145,17 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		String extension,
-		Boolean isActive,
-		String lastName,
-		Integer reportsTo,
-		String email,
+		
 		String firstName,
-		String jobTitle
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
 			officesId,
 			
 			
@@ -165,20 +164,20 @@ public class EmployeesServiceImpl implements EmployeesService {
 			
 			
 			
-			extension,
-			isActive,
-			lastName,
-			reportsTo,
-			email,
+			
 			firstName,
-			jobTitle
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 			
 		);
 		return employeesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
 		Long officesId,
 		
 		
@@ -187,20 +186,20 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		String extension,
-		Boolean isActive,
-		String lastName,
-		Integer reportsTo,
-		String email,
+		
 		String firstName,
-		String jobTitle
+		String email,
+		String jobTitle,
+		Boolean isActive,
+		Integer reportsTo,
+		String extension,
+		String lastName
 		
 	) {
 		QEmployees qEmployees = QEmployees.employees;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
 		if (officesId != null) {
 			where.and(qEmployees.offices.id.eq(officesId));
 		}
@@ -211,26 +210,27 @@ public class EmployeesServiceImpl implements EmployeesService {
 		
 		
 		
-		if (extension != null) {
-			where.and(qEmployees.extension.containsIgnoreCase(extension));
-		}
-		if (isActive != null) {
-			where.and(qEmployees.isActive.eq(isActive));
-		}
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
-		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
+		
+		if (firstName != null) {
+			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
 		}
 		if (email != null) {
 			where.and(qEmployees.email.containsIgnoreCase(email));
 		}
-		if (firstName != null) {
-			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
-		}
 		if (jobTitle != null) {
 			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
+		}
+		if (isActive != null) {
+			where.and(qEmployees.isActive.eq(isActive));
+		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
+		}
+		if (extension != null) {
+			where.and(qEmployees.extension.containsIgnoreCase(extension));
+		}
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
 		}
 		
 	
@@ -240,14 +240,14 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    employeesRepository.deleteById(id);
 	}
-	
-	
-	
-	
 	
 	
 

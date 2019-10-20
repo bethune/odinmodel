@@ -31,15 +31,11 @@ public class PaymentsController {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@PutMapping("/{id}")
 	public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payments) {
 		Payments current = paymentsService.readOneById(id);
 		current.setCustomers(payments.getCustomers());
+		
 		
 		current.setCheckNumber(payments.getCheckNumber());
 		
@@ -48,7 +44,6 @@ public class PaymentsController {
 		current.setPaymentTimestamp(payments.getPaymentTimestamp());
 		
 		current.setAmount(payments.getAmount());
-		
 					
 		return paymentsService.createUpdate(current);
 	}
@@ -84,6 +79,11 @@ public class PaymentsController {
 	
 	
 	
+	
+	
+	
+	
+	
 	@GetMapping("")
 	public Iterable<Payments> readAll() {
 		return paymentsService.readAll();
@@ -109,10 +109,10 @@ public class PaymentsController {
 		
 		
 		
-		
-		
-		
 		@RequestParam(value = "customersId", required = false) Long customersId,
+		
+		
+		
 		@RequestParam(value = "checkNumber", required = false) String checkNumber,
 		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
 		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp,
@@ -128,10 +128,10 @@ public class PaymentsController {
 			
 			
 			
-			
-			
-			
 			customersId,
+			
+			
+			
 			checkNumber,
 			paymentDate,
 			paymentTimestamp,
@@ -152,10 +152,10 @@ public class PaymentsController {
 		
 		
 		
-		
-		
-		
 		@RequestParam(value = "customersId", required = false) Long customersId,
+		
+		
+		
 		@RequestParam(value = "checkNumber", required = false) String checkNumber,
 		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
 		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp,
@@ -174,10 +174,10 @@ public class PaymentsController {
 			
 			
 			
-			
-			
-			
 			customersId,
+			
+			
+			
 			checkNumber,
 			paymentDate,
 			paymentTimestamp,
@@ -185,15 +185,15 @@ public class PaymentsController {
 			
 		);
 	}
-	
-	
-	
-	
-	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		paymentsService.deleteOneById(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 	

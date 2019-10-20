@@ -34,25 +34,29 @@ public class EmployeesController {
 	
 	
 	
+	
+	
+	
+	
 	@PutMapping("/{id}")
 	public Employees updateOneById(@PathVariable Long id, @RequestBody Employees employees) {
 		Employees current = employeesService.readOneById(id);
 		current.setOffices(employees.getOffices());
 		
-		current.setExtension(employees.getExtension());
-		
-		current.setIsActive(employees.getIsActive());
-		
-		current.setLastName(employees.getLastName());
-		
-		
-		current.setReportsTo(employees.getReportsTo());
+		current.setFirstName(employees.getFirstName());
 		
 		current.setEmail(employees.getEmail());
 		
-		current.setFirstName(employees.getFirstName());
-		
 		current.setJobTitle(employees.getJobTitle());
+		
+		current.setIsActive(employees.getIsActive());
+		
+		current.setReportsTo(employees.getReportsTo());
+		
+		current.setExtension(employees.getExtension());
+		
+		
+		current.setLastName(employees.getLastName());
 					
 		return employeesService.createUpdate(current);
 	}
@@ -71,20 +75,20 @@ public class EmployeesController {
 		if (current.getOffices().getId() == employees.getOffices().getId()) {
 			current.setOffices(employees.getOffices());
 			
-			current.setExtension(employees.getExtension());
-			
-			current.setIsActive(employees.getIsActive());
-			
-			current.setLastName(employees.getLastName());
-			
-			
-			current.setReportsTo(employees.getReportsTo());
+			current.setFirstName(employees.getFirstName());
 			
 			current.setEmail(employees.getEmail());
 			
-			current.setFirstName(employees.getFirstName());
-			
 			current.setJobTitle(employees.getJobTitle());
+			
+			current.setIsActive(employees.getIsActive());
+			
+			current.setReportsTo(employees.getReportsTo());
+			
+			current.setExtension(employees.getExtension());
+			
+			
+			current.setLastName(employees.getLastName());
 						
 			return employeesService.createUpdate(current);
 		} else {
@@ -95,25 +99,33 @@ public class EmployeesController {
 		    } else {
 				current.setOffices(employees.getOffices());
 				
-				current.setExtension(employees.getExtension());
-				
-				current.setIsActive(employees.getIsActive());
-				
-				current.setLastName(employees.getLastName());
-				
-				
-				current.setReportsTo(employees.getReportsTo());
+				current.setFirstName(employees.getFirstName());
 				
 				current.setEmail(employees.getEmail());
 				
-				current.setFirstName(employees.getFirstName());
-				
 				current.setJobTitle(employees.getJobTitle());
+				
+				current.setIsActive(employees.getIsActive());
+				
+				current.setReportsTo(employees.getReportsTo());
+				
+				current.setExtension(employees.getExtension());
+				
+				
+				current.setLastName(employees.getLastName());
 							
 				return employeesService.createUpdate(current);
 		    }
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -153,10 +165,6 @@ public class EmployeesController {
 	
 	
 	
-	
-	
-	
-	
 	@GetMapping("")
 	public Iterable<Employees> readAll() {
 		return employeesService.readAll();
@@ -177,6 +185,10 @@ public class EmployeesController {
 	public void setCustomersService(CustomersService customersService) {
 		this.customersService = customersService;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -204,13 +216,8 @@ public class EmployeesController {
 	
 	
 	
-	
-	
-	
-	
 	@GetMapping("/search")
 	public Iterable<Employees> search(
-		
 		@RequestParam(value = "officesId", required = false) Long officesId,
 		
 		
@@ -219,17 +226,17 @@ public class EmployeesController {
 		
 		
 		
-		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
-		@RequestParam(value = "lastName", required = false) String lastName,
-		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
-		@RequestParam(value = "email", required = false) String email,
+		
 		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle
+		@RequestParam(value = "email", required = false) String email,
+		@RequestParam(value = "jobTitle", required = false) String jobTitle,
+		@RequestParam(value = "isActive", required = false) Boolean isActive,
+		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
+		@RequestParam(value = "extension", required = false) String extension,
+		@RequestParam(value = "lastName", required = false) String lastName
 		
 	) {
 		return employeesService.search(
-			
 			officesId,
 			
 			
@@ -238,13 +245,14 @@ public class EmployeesController {
 			
 			
 			
-			extension,
-			isActive,
-			lastName,
-			reportsTo,
-			email,
+			
 			firstName,
-			jobTitle
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 			
 		);
 	}
@@ -253,7 +261,6 @@ public class EmployeesController {
 	public Page<Employees> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		
 		@RequestParam(value = "officesId", required = false) Long officesId,
 		
 		
@@ -262,20 +269,20 @@ public class EmployeesController {
 		
 		
 		
-		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
-		@RequestParam(value = "lastName", required = false) String lastName,
-		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
-		@RequestParam(value = "email", required = false) String email,
+		
 		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle
+		@RequestParam(value = "email", required = false) String email,
+		@RequestParam(value = "jobTitle", required = false) String jobTitle,
+		@RequestParam(value = "isActive", required = false) Boolean isActive,
+		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
+		@RequestParam(value = "extension", required = false) String extension,
+		@RequestParam(value = "lastName", required = false) String lastName
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return employeesService.searchPagination(
 			page,
-			
 			officesId,
 			
 			
@@ -284,16 +291,21 @@ public class EmployeesController {
 			
 			
 			
-			extension,
-			isActive,
-			lastName,
-			reportsTo,
-			email,
+			
 			firstName,
-			jobTitle
+			email,
+			jobTitle,
+			isActive,
+			reportsTo,
+			extension,
+			lastName
 			
 		);
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -322,6 +334,10 @@ public class EmployeesController {
 		    employeesService.deleteOneById(id);
 		}
 	}
+	
+	
+	
+	
 	
 	
 	

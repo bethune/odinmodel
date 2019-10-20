@@ -12,6 +12,10 @@ import java.util.*;
 public class Gifts {
 
 	
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -42,8 +46,6 @@ public class Gifts {
 	
 	
 	
-	
-	
 	@NotNull
 	@Column(unique=true)
 	private String giftName;
@@ -54,8 +56,6 @@ public class Gifts {
 	public void setGiftName(String giftName) {
 		this.giftName = giftName;
 	}
-	
-	
 	
 	
 	
@@ -91,8 +91,6 @@ public class Gifts {
 	
 	
 	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
@@ -104,6 +102,8 @@ public class Gifts {
 	public void setExpiresOn(LocalDateTime expiresOn) {
 		this.expiresOn = expiresOn;
 	}
+	
+	
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
@@ -133,7 +133,6 @@ public class Gifts {
 	
 	
 	
-	
 	@NotNull
 	private Boolean isExpired;
 	
@@ -143,6 +142,7 @@ public class Gifts {
 	public void setIsExpired(Boolean isExpired) {
 		this.isExpired = isExpired;
 	}
+	
 	
 	
 	
