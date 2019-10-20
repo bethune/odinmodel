@@ -16,8 +16,8 @@ public interface ProductLinesService {
 	
 	ProductLines createOneIric(ProductLinesProducts productLinesProducts);
 	
-	ProductLines readOneById(Long id);
 	
+	ProductLines readOneById(Long id);
 	
 	
 	
@@ -32,21 +32,21 @@ public interface ProductLinesService {
 	
 	
 	Iterable<ProductLines> search(
-		String textDescription,
 		byte[] image,
+		String textDescription,
 		String productLine
 		
 	);
 	
 	Page<ProductLines> searchPagination(
 		Pageable page,
-		String textDescription,
 		byte[] image,
+		String textDescription,
 		String productLine
 		
 	);
-	void deleteOneById(Long id);
 	
+	void deleteOneById(Long id);
 	
 	
 	

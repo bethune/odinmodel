@@ -16,17 +16,17 @@ public interface GiftsService {
 	
 	
 	
-	
-	
-	
-	
 	Gifts readOneById(Long id);
 	
 	
 	
 	
 	
+	
+	
+	
 	Gifts readOneByGiftName(String giftName);
+	
 	
 	
 	
@@ -45,14 +45,14 @@ public interface GiftsService {
 		
 		
 		
+		
+		
+		
 		Set<Long> customersSet,
-		
-		
-		
 		GiftType giftType,
+		String giftName,
 		Boolean isExpired,
 		LocalDateTime expiresOn,
-		String giftName,
 		LocalDateTime beginsOn
 		
 	);
@@ -67,23 +67,23 @@ public interface GiftsService {
 		
 		
 		
+		
+		
+		
 		Set<Long> customersSet,
-		
-		
-		
 		GiftType giftType,
+		String giftName,
 		Boolean isExpired,
 		LocalDateTime expiresOn,
-		String giftName,
 		LocalDateTime beginsOn
 		
 	);
 	
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
 	
 	
 

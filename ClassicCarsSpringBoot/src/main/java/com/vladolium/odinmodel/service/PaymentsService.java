@@ -15,12 +15,12 @@ public interface PaymentsService {
 	Payments createUpdate(Payments payments);
 	
 	
+	
+	
+	
+	
+	
 	Payments readOneById(Long id);
-	
-	
-	
-	
-	
 	
 	
 	
@@ -39,9 +39,15 @@ public interface PaymentsService {
 	
 	
 	
+	
+	
+	
 	Iterable <Payments> readAllByCustomersId(Long customersId);
 	
 	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
 	
 	
 	
@@ -55,12 +61,6 @@ public interface PaymentsService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	Iterable<Payments> search(
 		
 		
@@ -70,10 +70,10 @@ public interface PaymentsService {
 		
 		
 		
+		
+		
+		
 		Long customersId,
-		
-		
-		
 		String checkNumber,
 		LocalDate paymentDate,
 		Instant paymentTimestamp,
@@ -91,22 +91,22 @@ public interface PaymentsService {
 		
 		
 		
+		
+		
+		
 		Long customersId,
-		
-		
-		
 		String checkNumber,
 		LocalDate paymentDate,
 		Instant paymentTimestamp,
 		Double amount
 		
 	);
+	
+	
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

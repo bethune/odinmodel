@@ -35,15 +35,12 @@ public class ProductsServiceImpl implements ProductsService {
 	
 	
 	
+	
+	
 	@Override
 	public Products readOneById(Long id) {
 		return productsRepository.getOne(id);
 	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -61,6 +58,9 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 	
 	
+	
+	
+	
 	@Override
 	public Iterable<Products> readAll() {
 		return productsRepository.findAll();
@@ -70,6 +70,7 @@ public class ProductsServiceImpl implements ProductsService {
 	public Page<Products> readAllPagination(Pageable page) {
 		return productsRepository.findAll(page);
 	}
+	
 	
 	@Override
 	public Iterable<Products> readAllByProductLinesId(Long productLinesId) {
@@ -87,36 +88,35 @@ public class ProductsServiceImpl implements ProductsService {
 	
 	
 	
-	
 	@Override
 	public Iterable<Products> search(
+		
 		Long productLinesId,
 		
 		
-		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
+		String productName,
 		String productScale,
 		String productCode,
-		String productVendor
+		Integer quantityInStock,
+		String productVendor,
+		Double msrp,
+		Double buyPrice
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
 			productLinesId,
 			
 			
-			
-			quantityInStock,
-			productName,
-			msrp,
-			buyPrice,
 			productDescription,
+			productName,
 			productScale,
 			productCode,
-			productVendor
+			quantityInStock,
+			productVendor,
+			msrp,
+			buyPrice
 				
 		);
 		return productsRepository.findAll(where);
@@ -125,77 +125,68 @@ public class ProductsServiceImpl implements ProductsService {
 	@Override
 	public Page<Products> searchPagination(
 		Pageable page,
+		
 		Long productLinesId,
 		
 		
-		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
+		String productName,
 		String productScale,
 		String productCode,
-		String productVendor
+		Integer quantityInStock,
+		String productVendor,
+		Double msrp,
+		Double buyPrice
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
 			productLinesId,
 			
 			
-			
-			quantityInStock,
-			productName,
-			msrp,
-			buyPrice,
 			productDescription,
+			productName,
 			productScale,
 			productCode,
-			productVendor
+			quantityInStock,
+			productVendor,
+			msrp,
+			buyPrice
 			
 		);
 		return productsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
 		Long productLinesId,
 		
 		
-		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
+		String productName,
 		String productScale,
 		String productCode,
-		String productVendor
+		Integer quantityInStock,
+		String productVendor,
+		Double msrp,
+		Double buyPrice
 		
 	) {
 		QProducts qProducts = QProducts.products;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
 		if (productLinesId != null) {
 			where.and(qProducts.productLines.id.eq(productLinesId));
 		}
 		
 		
-		
-		if (quantityInStock != null) {
-			where.and(qProducts.quantityInStock.eq(quantityInStock));
+		if (productDescription != null) {
+			where.and(qProducts.productDescription.eq(productDescription));
 		}
 		if (productName != null) {
 			where.and(qProducts.productName.containsIgnoreCase(productName));
-		}
-		if (msrp != null) {
-			where.and(qProducts.msrp.eq(msrp));
-		}
-		if (buyPrice != null) {
-			where.and(qProducts.buyPrice.eq(buyPrice));
-		}
-		if (productDescription != null) {
-			where.and(qProducts.productDescription.eq(productDescription));
 		}
 		if (productScale != null) {
 			where.and(qProducts.productScale.containsIgnoreCase(productScale));
@@ -203,8 +194,17 @@ public class ProductsServiceImpl implements ProductsService {
 		if (productCode != null) {
 			where.and(qProducts.productCode.containsIgnoreCase(productCode));
 		}
+		if (quantityInStock != null) {
+			where.and(qProducts.quantityInStock.eq(quantityInStock));
+		}
 		if (productVendor != null) {
 			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
+		if (msrp != null) {
+			where.and(qProducts.msrp.eq(msrp));
+		}
+		if (buyPrice != null) {
+			where.and(qProducts.buyPrice.eq(buyPrice));
 		}
 		
 	
@@ -212,12 +212,12 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 	
 	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    productsRepository.deleteById(id);
 	}
-	
-	
 	
 	
 	

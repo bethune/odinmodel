@@ -43,10 +43,16 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public Customers readOneById(Long id) {
 		return customersRepository.getOne(id);
 	}
+	
+	
 	
 	
 	
@@ -62,12 +68,6 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Customers> readAll() {
 		return customersRepository.findAll();
@@ -77,9 +77,6 @@ public class CustomersServiceImpl implements CustomersService {
 	public Page<Customers> readAllPagination(Pageable page) {
 		return customersRepository.findAll(page);
 	}
-	
-	
-	
 	
 	
 	
@@ -103,51 +100,54 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
+	
+	
+	
 	@Override
 	public Iterable<Customers> search(
-		
-		
-		
+		List<Reviews> reviewsList,
 		
 		
 		
 		Long employeesId,
 		
-		List<Reviews> reviewsList,
+		
+		
+		
 		String postalCode,
-		String addressLine1,
-		String lastName,
-		Double creditLimit,
-		String firstName,
-		String country,
-		String customerName,
-		String phone,
-		String addressLine2,
+		String state,
 		String city,
-		String state
+		String addressLine1,
+		String customerName,
+		String lastName,
+		String firstName,
+		Double creditLimit,
+		String addressLine2,
+		String country,
+		String phone
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
+			reviewsList,
 			
 			
 			
 			employeesId,
 			
-			reviewsList,
+			
+			
+			
 			postalCode,
-			addressLine1,
-			lastName,
-			creditLimit,
-			firstName,
-			country,
-			customerName,
-			phone,
-			addressLine2,
+			state,
 			city,
-			state
+			addressLine1,
+			customerName,
+			lastName,
+			firstName,
+			creditLimit,
+			addressLine2,
+			country,
+			phone
 				
 		);
 		return customersRepository.findAll(where);
@@ -156,84 +156,84 @@ public class CustomersServiceImpl implements CustomersService {
 	@Override
 	public Page<Customers> searchPagination(
 		Pageable page,
-		
-		
-		
+		List<Reviews> reviewsList,
 		
 		
 		
 		Long employeesId,
 		
-		List<Reviews> reviewsList,
+		
+		
+		
 		String postalCode,
-		String addressLine1,
-		String lastName,
-		Double creditLimit,
-		String firstName,
-		String country,
-		String customerName,
-		String phone,
-		String addressLine2,
+		String state,
 		String city,
-		String state
+		String addressLine1,
+		String customerName,
+		String lastName,
+		String firstName,
+		Double creditLimit,
+		String addressLine2,
+		String country,
+		String phone
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
+			reviewsList,
 			
 			
 			
 			employeesId,
 			
-			reviewsList,
+			
+			
+			
 			postalCode,
-			addressLine1,
-			lastName,
-			creditLimit,
-			firstName,
-			country,
-			customerName,
-			phone,
-			addressLine2,
+			state,
 			city,
-			state
+			addressLine1,
+			customerName,
+			lastName,
+			firstName,
+			creditLimit,
+			addressLine2,
+			country,
+			phone
 			
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
-		
-		
+		List<Reviews> reviewsList,
 		
 		
 		
 		Long employeesId,
 		
-		List<Reviews> reviewsList,
+		
+		
+		
 		String postalCode,
-		String addressLine1,
-		String lastName,
-		Double creditLimit,
-		String firstName,
-		String country,
-		String customerName,
-		String phone,
-		String addressLine2,
+		String state,
 		String city,
-		String state
+		String addressLine1,
+		String customerName,
+		String lastName,
+		String firstName,
+		Double creditLimit,
+		String addressLine2,
+		String country,
+		String phone
 		
 	) {
 		QCustomers qCustomers = QCustomers.customers;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
-		
-		
+		if (reviewsList != null) {
+			where.and(qCustomers.reviewsList.any().in(reviewsList));
+		}
 		
 		
 		
@@ -241,41 +241,41 @@ public class CustomersServiceImpl implements CustomersService {
 			where.and(qCustomers.employees.id.eq(employeesId));
 		}
 		
-		if (reviewsList != null) {
-			where.and(qCustomers.reviewsList.any().in(reviewsList));
-		}
+		
+		
+		
 		if (postalCode != null) {
 			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (lastName != null) {
-			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
-		}
-		if (creditLimit != null) {
-			where.and(qCustomers.creditLimit.eq(creditLimit));
-		}
-		if (firstName != null) {
-			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
-		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
-		}
-		if (customerName != null) {
-			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
-		}
-		if (phone != null) {
-			where.and(qCustomers.phone.containsIgnoreCase(phone));
-		}
-		if (addressLine2 != null) {
-			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
 		}
 		if (city != null) {
 			where.and(qCustomers.city.containsIgnoreCase(city));
 		}
-		if (state != null) {
-			where.and(qCustomers.state.containsIgnoreCase(state));
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
+		}
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
 		}
 		
 	
@@ -291,14 +291,14 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    customersRepository.deleteById(id);
 	}
-	
-	
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

@@ -11,6 +11,11 @@ import java.util.*;
 @Entity
 public class Payments {
 
+	
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -21,12 +26,6 @@ public class Payments {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -72,6 +71,7 @@ public class Payments {
 	
 	
 	
+	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -102,7 +102,6 @@ public class Payments {
 	
 	
 	
-	
 	private Instant paymentTimestamp = Instant.now();
 	
 	public Instant getPaymentTimestamp() {
@@ -111,6 +110,7 @@ public class Payments {
 	public void setPaymentTimestamp(Instant paymentTimestamp) {
 	    this.paymentTimestamp = paymentTimestamp;
 	}
+	
 	
 	
 	

@@ -17,6 +17,7 @@ public class Customers extends ContactDetails {
 	
 	
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -27,9 +28,6 @@ public class Customers extends ContactDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
 	
 	
 	
@@ -53,16 +51,8 @@ public class Customers extends ContactDetails {
 	
 	
 	
-	@NotNull
-	@Size(max=50)
-	private String lastName;
 	
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	
 	
 	@NotNull
 	@Size(max=50)
@@ -74,6 +64,8 @@ public class Customers extends ContactDetails {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
+	
 	
 	@NotNull
 	@Column(unique=true)
@@ -87,8 +79,16 @@ public class Customers extends ContactDetails {
 		this.customerName = customerName;
 	}
 	
+	@NotNull
+	@Size(max=50)
+	private String lastName;
 	
-	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	
 	
 	

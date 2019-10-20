@@ -43,11 +43,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		return currentProductLines;
 	}
 	
+	
 	@Override
 	public ProductLines readOneById(Long id) {
 		return productLinesRepository.getOne(id);
 	}
-	
 	
 	
 	
@@ -69,14 +69,14 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	
 	@Override
 	public Iterable<ProductLines> search(
-		String textDescription,
 		byte[] image,
+		String textDescription,
 		String productLine
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			textDescription,
 			image,
+			textDescription,
 			productLine
 				
 		);
@@ -86,14 +86,14 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	@Override
 	public Page<ProductLines> searchPagination(
 		Pageable page,
-		String textDescription,
 		byte[] image,
+		String textDescription,
 		String productLine
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			textDescription,
 			image,
+			textDescription,
 			productLine
 			
 		);
@@ -101,8 +101,8 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		String textDescription,
 		byte[] image,
+		String textDescription,
 		String productLine
 		
 	) {
@@ -110,11 +110,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (textDescription != null) {
-			where.and(qProductLines.textDescription.eq(textDescription));
-		}
 		if (image != null) {
 			where.and(qProductLines.image.eq(image));
+		}
+		if (textDescription != null) {
+			where.and(qProductLines.textDescription.eq(textDescription));
 		}
 		if (productLine != null) {
 			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
@@ -124,11 +124,11 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		return where;
 	}
 	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    productLinesRepository.deleteById(id);
 	}
-	
 	
 	
 	

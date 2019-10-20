@@ -24,7 +24,13 @@ public interface CustomersService {
 	
 	
 	
+	
+	
+	
+	
 	Customers readOneById(Long id);
+	
+	
 	
 	
 	
@@ -37,18 +43,9 @@ public interface CustomersService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	Iterable<Customers> readAll();
 	
 	Page<Customers> readAllPagination(Pageable page);
-	
-	
-	
 	
 	
 	
@@ -66,54 +63,61 @@ public interface CustomersService {
 	
 	
 	
+	
+	
+	
 	Iterable<Customers> search(
-		
-		
-		
+		List<Reviews> reviewsList,
 		
 		
 		
 		Long employeesId,
 		
-		List<Reviews> reviewsList,
+		
+		
+		
 		String postalCode,
-		String addressLine1,
-		String lastName,
-		Double creditLimit,
-		String firstName,
-		String country,
-		String customerName,
-		String phone,
-		String addressLine2,
+		String state,
 		String city,
-		String state
+		String addressLine1,
+		String customerName,
+		String lastName,
+		String firstName,
+		Double creditLimit,
+		String addressLine2,
+		String country,
+		String phone
 		
 	);
 	
 	Page<Customers> searchPagination(
 		Pageable page,
-		
-		
-		
+		List<Reviews> reviewsList,
 		
 		
 		
 		Long employeesId,
 		
-		List<Reviews> reviewsList,
+		
+		
+		
 		String postalCode,
-		String addressLine1,
-		String lastName,
-		Double creditLimit,
-		String firstName,
-		String country,
-		String customerName,
-		String phone,
-		String addressLine2,
+		String state,
 		String city,
-		String state
+		String addressLine1,
+		String customerName,
+		String lastName,
+		String firstName,
+		Double creditLimit,
+		String addressLine2,
+		String country,
+		String phone
 		
 	);
+	
+	
+	
+	
 	
 	
 	
@@ -124,10 +128,6 @@ public interface CustomersService {
 	
 	
 	void deleteOneById(Long id);
-	
-	
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

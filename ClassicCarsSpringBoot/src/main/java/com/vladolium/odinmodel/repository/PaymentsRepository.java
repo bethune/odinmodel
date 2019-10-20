@@ -10,15 +10,18 @@ import com.vladolium.odinmodel.domain.Payments.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
+
+
+
+
+
 public interface PaymentsRepository extends JpaRepository<Payments, Long>, QuerydslPredicateExecutor<Payments> {
 
 
 
 
 
-
 Payments findByIdEquals(Long id);
-
 
 
 
@@ -40,15 +43,12 @@ Page <Payments> findByCustomersIdEquals(Long customersId, Pageable page);
 
 
 
+
+
+
 Iterable <Payments> findByCustomersCustomerNameEquals(String customersCustomerName);
 
 Page <Payments> findByCustomersCustomerNameEquals(String customersCustomerName, Pageable page);
-
-
-
-
-
-
 
 
 

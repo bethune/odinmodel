@@ -11,10 +11,6 @@ import java.util.*;
 @Entity
 public class OrderDetails {
 
-	
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -25,6 +21,11 @@ public class OrderDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	
+	
+	
 	
 	
 	@NotNull
@@ -38,8 +39,6 @@ public class OrderDetails {
 		this.quantityOrdered = quantityOrdered;
 	}
 	
-	
-	
 	@NotNull
 	private Integer orderLineNumber;
 	
@@ -49,6 +48,10 @@ public class OrderDetails {
 	public void setOrderLineNumber(Integer orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -119,9 +122,6 @@ public class OrderDetails {
 	
 	
 	
-	
-	
-	
 	@ManyToOne
 	@JoinColumn(name="products_id")
 	private Products products;
@@ -133,6 +133,16 @@ public class OrderDetails {
 		this.products = products;
 	}
 	
+	@OneToOne
+	@JoinColumn(name="orders_id")
+	private Orders orders;
+	
+	public Orders getOrders() {
+		return orders;
+	}
+	public void setOrders(Orders orders) {
+		this.orders = orders;
+	}
 	
 	
 	

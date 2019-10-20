@@ -69,7 +69,7 @@ subtemplates
 		[/for]
 	[/if]
 	[comment : OneToOne/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
+	[if (p.lower = 0 or p.lower = 1) and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
 		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 		[for (pack : Package | aClass._package)]
 			[for (m : Class | pack.member -> filter(Class))]
@@ -152,7 +152,7 @@ String [p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.g
 		[/for]
 	[/if]
 	[comment : OneToOne/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
+	[if (p.lower = 0 or p.lower = 1) and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
 		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 		[for (pack : Package | aClass._package)]
 			[for (m : Class | pack.member -> filter(Class))]
@@ -207,7 +207,7 @@ if ([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/] != null) {
 		[/for]
 	[/if]
 	[comment : OneToOne/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
+	[if (p.lower = 0 or p.lower = 1) and p.upper = 1 and p.type.name.toUpperFirst() = entity and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
 		[for (pack : Package | aClass._package)]
 			[for (m : Class | pack.member -> filter(Class))]
 				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]

@@ -12,6 +12,8 @@ import java.util.*;
 public class Reviews {
 
 	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,8 +24,6 @@ public class Reviews {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
 	
 	
 	
@@ -52,8 +52,6 @@ public class Reviews {
 	
 	
 	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -65,6 +63,8 @@ public class Reviews {
 	public void setReviewDate(LocalDate reviewDate) {
 		this.reviewDate = reviewDate;
 	}
+	
+	
 	
 	
 	

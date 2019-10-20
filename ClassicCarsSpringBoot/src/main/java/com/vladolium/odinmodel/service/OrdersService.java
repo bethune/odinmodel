@@ -17,8 +17,8 @@ public interface OrdersService {
 	
 	
 	
-	Orders readOneById(Long id);
 	
+	Orders readOneById(Long id);
 	
 	
 	
@@ -41,9 +41,15 @@ public interface OrdersService {
 	
 	
 	
+	
+	
+	
 	Iterable <Orders> readAllByCustomersId(Long customersId);
 	
 	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
 	
 	
 	
@@ -57,12 +63,6 @@ public interface OrdersService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	Iterable<Orders> search(
 		
 		
@@ -72,15 +72,15 @@ public interface OrdersService {
 		
 		
 		
+		
+		
+		
 		Long customersId,
-		
-		
-		
-		LocalDate shippedDate,
+		LocalDate requiredDate,
 		String comments,
+		LocalDate shippedDate,
 		LocalDate orderDate,
-		String status,
-		LocalDate requiredDate
+		String status
 		
 	);
 	
@@ -94,21 +94,21 @@ public interface OrdersService {
 		
 		
 		
+		
+		
+		
 		Long customersId,
-		
-		
-		
-		LocalDate shippedDate,
+		LocalDate requiredDate,
 		String comments,
+		LocalDate shippedDate,
 		LocalDate orderDate,
-		String status,
-		LocalDate requiredDate
+		String status
 		
 	);
 	
 	
-	void deleteOneById(Long id);
 	
+	void deleteOneById(Long id);
 	
 	
 	

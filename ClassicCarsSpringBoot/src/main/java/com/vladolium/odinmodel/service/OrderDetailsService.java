@@ -15,11 +15,11 @@ public interface OrderDetailsService {
 	OrderDetails createUpdate(OrderDetails orderDetails);
 	
 	
-	
-	
-	
-	
 	OrderDetails readOneById(Long id);
+	
+	
+	
+	
 	
 	
 	
@@ -29,6 +29,8 @@ public interface OrderDetailsService {
 	Iterable<OrderDetails> readAll();
 	
 	Page<OrderDetails> readAllPagination(Pageable page);
+	
+	
 	
 	
 	Iterable <OrderDetails> readAllByProductsId(Long productsId);
@@ -44,17 +46,17 @@ public interface OrderDetailsService {
 	
 	
 	
-	
-	
-	
-	
-	
 	Iterable <OrderDetails> readAllByProductsProductCode(String productsProductCode);
 	
 	Page<OrderDetails> readAllByProductsProductCode(String productsProductCode, Pageable page);
 	
 	
+	
+	
+	
 	Iterable<OrderDetails> search(
+		
+		
 		
 		Long productsId,
 		
@@ -64,15 +66,21 @@ public interface OrderDetailsService {
 		
 		
 		
+		Long ordersId,
+		
+		
+		
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 		
 	);
 	
 	Page<OrderDetails> searchPagination(
 		Pageable page,
 		
+		
+		
 		Long productsId,
 		
 		
@@ -81,16 +89,20 @@ public interface OrderDetailsService {
 		
 		
 		
+		Long ordersId,
+		
+		
+		
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 		
 	);
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
 	
 	
 

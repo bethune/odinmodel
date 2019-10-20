@@ -34,14 +34,14 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	}
 	
 	
-	
-	
-	
-	
 	@Override
 	public OrderDetails readOneById(Long id) {
 		return orderDetailsRepository.getOne(id);
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -57,6 +57,8 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public Page<OrderDetails> readAllPagination(Pageable page) {
 		return orderDetailsRepository.findAll(page);
 	}
+	
+	
 	
 	
 	@Override
@@ -78,11 +80,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	
 	
 	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<OrderDetails> readAllByProductsProductCode(String productsProductCode) {
 		return orderDetailsRepository.findByProductsProductCodeEquals(productsProductCode);
@@ -94,8 +91,13 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	}
 	
 	
+	
+	
+	
 	@Override
 	public Iterable<OrderDetails> search(
+		
+		
 		
 		Long productsId,
 		
@@ -105,12 +107,18 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
+		Long ordersId,
+		
+		
+		
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
 			
 			productsId,
 			
@@ -120,9 +128,13 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 			
 			
 			
+			ordersId,
+			
+			
+			
 			quantityOrdered,
-			priceEach,
-			orderLineNumber
+			orderLineNumber,
+			priceEach
 				
 		);
 		return orderDetailsRepository.findAll(where);
@@ -132,6 +144,8 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	public Page<OrderDetails> searchPagination(
 		Pageable page,
 		
+		
+		
 		Long productsId,
 		
 		
@@ -140,12 +154,18 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
+		Long ordersId,
+		
+		
+		
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
 			
 			productsId,
 			
@@ -155,15 +175,21 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 			
 			
 			
+			ordersId,
+			
+			
+			
 			quantityOrdered,
-			priceEach,
-			orderLineNumber
+			orderLineNumber,
+			priceEach
 			
 		);
 		return orderDetailsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
+		
 		
 		Long productsId,
 		
@@ -173,15 +199,21 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
+		Long ordersId,
+		
+		
+		
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 		
 	) {
 		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
+		
 		
 		if (productsId != null) {
 			where.and(qOrderDetails.products.id.eq(productsId));
@@ -193,28 +225,34 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 		
 		
 		
+		if (ordersId != null) {
+			where.and(qOrderDetails.orders.id.eq(ordersId));
+		}
+		
+		
+		
 		if (quantityOrdered != null) {
 			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
 		}
-		if (priceEach != null) {
-			where.and(qOrderDetails.priceEach.eq(priceEach));
-		}
 		if (orderLineNumber != null) {
 			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
+		}
+		if (priceEach != null) {
+			where.and(qOrderDetails.priceEach.eq(priceEach));
 		}
 		
 	
 		return where;
 	}
 	
-	
-	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    orderDetailsRepository.deleteById(id);
 	}
+	
+	
+	
+	
 	
 	
 

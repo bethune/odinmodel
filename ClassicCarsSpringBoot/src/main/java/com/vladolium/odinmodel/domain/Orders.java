@@ -13,6 +13,7 @@ public class Orders {
 
 	
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -66,6 +67,19 @@ public class Orders {
 	
 	
 	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+	private LocalDate requiredDate;
+	
+	public LocalDate getRequiredDate() {
+		return requiredDate;
+	}
+	public void setRequiredDate(LocalDate requiredDate) {
+		this.requiredDate = requiredDate;
+	}
+	
+	
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -78,8 +92,6 @@ public class Orders {
 		this.shippedDate = shippedDate;
 	}
 	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -90,19 +102,6 @@ public class Orders {
 	}
 	public void setOrderDate(LocalDate orderDate) {
 		this.orderDate = orderDate;
-	}
-	
-	
-	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-	private LocalDate requiredDate;
-	
-	public LocalDate getRequiredDate() {
-		return requiredDate;
-	}
-	public void setRequiredDate(LocalDate requiredDate) {
-		this.requiredDate = requiredDate;
 	}
 	
 	
@@ -146,6 +145,7 @@ public class Orders {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
 	
 	
 	

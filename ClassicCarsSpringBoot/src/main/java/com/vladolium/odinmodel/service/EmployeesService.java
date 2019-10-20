@@ -18,11 +18,11 @@ public interface EmployeesService {
 	
 	
 	
-	
-	
-	
-	
 	Employees readOneById(Long id);
+	
+	
+	
+	
 	
 	
 	
@@ -36,6 +36,7 @@ public interface EmployeesService {
 	Iterable<Employees> readAll();
 	
 	Page<Employees> readAllPagination(Pageable page);
+	
 	
 	Iterable <Employees> readAllByOfficesId(Long officesId);
 	
@@ -57,8 +58,8 @@ public interface EmployeesService {
 	
 	
 	
-	
 	Iterable<Employees> search(
+		
 		Long officesId,
 		
 		
@@ -67,19 +68,19 @@ public interface EmployeesService {
 		
 		
 		
-		
-		String firstName,
-		String email,
-		String jobTitle,
-		Boolean isActive,
-		Integer reportsTo,
 		String extension,
-		String lastName
+		Boolean isActive,
+		String lastName,
+		Integer reportsTo,
+		String email,
+		String firstName,
+		String jobTitle
 		
 	);
 	
 	Page<Employees> searchPagination(
 		Pageable page,
+		
 		Long officesId,
 		
 		
@@ -88,24 +89,23 @@ public interface EmployeesService {
 		
 		
 		
-		
-		String firstName,
-		String email,
-		String jobTitle,
-		Boolean isActive,
-		Integer reportsTo,
 		String extension,
-		String lastName
+		Boolean isActive,
+		String lastName,
+		Integer reportsTo,
+		String email,
+		String firstName,
+		String jobTitle
 		
 	);
 	
 	
 	
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
 	
 	
 

@@ -43,11 +43,11 @@ public class OfficesServiceImpl implements OfficesService {
 		return currentOffices;
 	}
 	
+	
 	@Override
 	public Offices readOneById(Long id) {
 		return officesRepository.getOne(id);
 	}
-	
 	
 	
 	
@@ -80,24 +80,24 @@ public class OfficesServiceImpl implements OfficesService {
 	@Override
 	public Iterable<Offices> search(
 		String postalCode,
-		String addressLine1,
-		String country,
+		String state,
 		String territory,
-		String phone,
 		String city,
+		String addressLine1,
 		String addressLine2,
-		String state
+		String country,
+		String phone
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			postalCode,
-			addressLine1,
-			country,
+			state,
 			territory,
-			phone,
 			city,
+			addressLine1,
 			addressLine2,
-			state
+			country,
+			phone
 				
 		);
 		return officesRepository.findAll(where);
@@ -107,24 +107,24 @@ public class OfficesServiceImpl implements OfficesService {
 	public Page<Offices> searchPagination(
 		Pageable page,
 		String postalCode,
-		String addressLine1,
-		String country,
+		String state,
 		String territory,
-		String phone,
 		String city,
+		String addressLine1,
 		String addressLine2,
-		String state
+		String country,
+		String phone
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			postalCode,
-			addressLine1,
-			country,
+			state,
 			territory,
-			phone,
 			city,
+			addressLine1,
 			addressLine2,
-			state
+			country,
+			phone
 			
 		);
 		return officesRepository.findAll(where, page);
@@ -132,13 +132,13 @@ public class OfficesServiceImpl implements OfficesService {
 	
 	public BooleanBuilder dynamicWhere(
 		String postalCode,
-		String addressLine1,
-		String country,
+		String state,
 		String territory,
-		String phone,
 		String city,
+		String addressLine1,
 		String addressLine2,
-		String state
+		String country,
+		String phone
 		
 	) {
 		QOffices qOffices = QOffices.offices;
@@ -148,37 +148,37 @@ public class OfficesServiceImpl implements OfficesService {
 		if (postalCode != null) {
 			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
 		}
-		if (addressLine1 != null) {
-			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (country != null) {
-			where.and(qOffices.country.containsIgnoreCase(country));
+		if (state != null) {
+			where.and(qOffices.state.containsIgnoreCase(state));
 		}
 		if (territory != null) {
 			where.and(qOffices.territory.containsIgnoreCase(territory));
 		}
-		if (phone != null) {
-			where.and(qOffices.phone.containsIgnoreCase(phone));
-		}
 		if (city != null) {
 			where.and(qOffices.city.containsIgnoreCase(city));
+		}
+		if (addressLine1 != null) {
+			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
 		}
 		if (addressLine2 != null) {
 			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
 		}
-		if (state != null) {
-			where.and(qOffices.state.containsIgnoreCase(state));
+		if (country != null) {
+			where.and(qOffices.country.containsIgnoreCase(country));
+		}
+		if (phone != null) {
+			where.and(qOffices.phone.containsIgnoreCase(phone));
 		}
 		
 	
 		return where;
 	}
 	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    officesRepository.deleteById(id);
 	}
-	
 	
 	
 	

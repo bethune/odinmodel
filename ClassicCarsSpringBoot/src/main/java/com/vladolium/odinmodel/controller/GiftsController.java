@@ -32,10 +32,6 @@ public class GiftsController {
 	
 	
 	
-	
-	
-	
-	
 	@PutMapping("/{id}")
 	public Gifts updateOneById(@PathVariable Long id, @RequestBody Gifts gifts) {
 		Gifts current = giftsService.readOneById(id);
@@ -43,17 +39,20 @@ public class GiftsController {
 		
 		current.setGiftType(gifts.getGiftType());
 		
-		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setGiftName(gifts.getGiftName());
 		
+		current.setIsExpired(gifts.getIsExpired());
+		
+		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setBeginsOn(gifts.getBeginsOn());
 					
 		return giftsService.createUpdate(current);
 	}
+	
+	
+	
 	
 	
 	
@@ -73,20 +72,17 @@ public class GiftsController {
 		
 		current.setGiftType(gifts.getGiftType());
 		
-		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setGiftName(gifts.getGiftName());
 		
+		current.setIsExpired(gifts.getIsExpired());
+		
+		current.setExpiresOn(gifts.getExpiresOn());
 		
 		current.setBeginsOn(gifts.getBeginsOn());
 					
 		return giftsService.createUpdate(current);		
 	}
-	
-	
-	
 	
 	
 	
@@ -107,10 +103,14 @@ public class GiftsController {
 	
 	
 	
+	
+	
+	
 	@GetMapping("/giftName={giftName}")
 	public Gifts readOneByGiftName(@PathVariable String giftName) {
 		return giftsService.readOneByGiftName(giftName);
 	}
+	
 	
 	
 	
@@ -139,23 +139,23 @@ public class GiftsController {
 		
 		
 		
+		
+		
+		
 		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
-		
-		
-		
 		@RequestParam(value = "giftType", required = false) GiftType giftType,
+		@RequestParam(value = "giftName", required = false) String giftName,
 		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
 		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
-		@RequestParam(value = "giftName", required = false) String giftName,
 		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn
 		
 	) {
 		return giftsService.search(
 			customersSet,
 			giftType,
+			giftName,
 			isExpired,
 			expiresOn,
-			giftName,
 			beginsOn
 			
 		);
@@ -173,14 +173,14 @@ public class GiftsController {
 		
 		
 		
+		
+		
+		
 		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
-		
-		
-		
 		@RequestParam(value = "giftType", required = false) GiftType giftType,
+		@RequestParam(value = "giftName", required = false) String giftName,
 		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
 		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
-		@RequestParam(value = "giftName", required = false) String giftName,
 		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn
 		
 	) {
@@ -190,22 +190,22 @@ public class GiftsController {
 			page,
 			customersSet,
 			giftType,
+			giftName,
 			isExpired,
 			expiresOn,
-			giftName,
 			beginsOn
 			
 		);
 	}
 	
-	
-	
-	
-	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		giftsService.deleteOneById(id);
 	}
+	
+	
+	
+	
 	
 	
 	
