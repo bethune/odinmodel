@@ -19,20 +19,8 @@
 
 [/comment]
 [comment encoding = UTF-8 /]
-[module springboot('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module controller('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::springboot::model::model /]
-[import com::vladolium::odinmodel::springboot::controller::controller /]
-[import com::vladolium::odinmodel::springboot::service::service /]
-[import com::vladolium::odinmodel::springboot::implementation::implementation /]
-[import com::vladolium::odinmodel::springboot::repository::repository /]
-[import com::vladolium::odinmodel::springboot::configuration::configuration /]
+[template public controller(aClass : Class)]
 
-[template public springboot(aClass : Class)]
-[aClass.model()/]
-[aClass.controller()/]
-[aClass.service()/]
-[aClass.implementation()/]
-[aClass.repository()/]
-[aClass.configuration()/]
 [/template]
