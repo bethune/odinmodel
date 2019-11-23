@@ -4,15 +4,15 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/springboot.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/primeboot/primeboot.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/javaee.emtl#/0"/>
+    <imports href="../springboot/springboot.emtl#/0"/>
+    <imports href="../primeboot/primeboot.emtl#/0"/>
+    <imports href="../javaee/javaee.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="main" visibility="Public" main="true">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/springboot.emtl#/0/springboot"/>
+        <definition href="../springboot/springboot.emtl#/0/springboot"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/main/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -59,7 +59,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/springboot.emtl#/0/springboot"/>
+          <references href="../springboot/springboot.emtl#/0/springboot"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">

@@ -21,6 +21,12 @@
 [comment encoding = UTF-8 /]
 [module configuration('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public configuration(aClass : Class)]
+[import com::vladolium::odinmodel::springboot::configuration::pom::pom /]
+[import com::vladolium::odinmodel::springboot::configuration::properties::applicationProperties /]
+[import com::vladolium::odinmodel::springboot::configuration::swagger::swagger2 /]
 
+[template public configuration(aClass : Class)]
+[aClass.getModel().pom()/]
+[aClass.applicationProperties()/]
+[aClass.swagger2()/]
 [/template]
