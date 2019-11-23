@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="applicationProperties" nsURI="com::vladolium::odinmodel::springboot::configuration::properties::applicationProperties" startHeaderPosition="865" endHeaderPosition="-1">
+  <mtl:Module name="applicationProperties" nsURI="com::vladolium::odinmodel::springboot::configuration::properties::applicationProperties" startHeaderPosition="865" endHeaderPosition="1094">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="applicationProperties" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;#Code between start and end will not be removed during generation.&#xA;#"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#Code between start and end will not be removed during generation.&#xA;#"/>
         <body xsi:type="mtl:ProtectedAreaBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;#-- HINT: define server port&#xA;server.port=5000&#xA;&#xA;#-- HINT: Log Level may be ERROR, WARN, INFO (for production), DEBUG, or TRACE&#xA;logging.level.org.springframework.web=DEBUG&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- H2 embedded setup -----------&#xA;&#xA;#-- HINT: enable h2 console with true; disable with false&#xA;spring.h2.console.enabled=true&#xA;&#xA;#-- HINT: set console path&#xA;spring.h2.console.path=/h2&#xA;&#xA;#-- HINT: set schema-name and local path for database file&#xA;#-- HINT: when using the URL jdbc:h2:file:./data/sample, the database is stored in the directory data (relative to the current working directory). The directory is created automatically if it does not yet exist.&#xA;#-- HINT: an example for using the fully qualified directory name (and for Windows, drive name) is jdbc:h2:file:c:/h2/schema-name&#xA;spring.datasource.url=jdbc:h2:file:./h2data/classicCars&#xA;&#xA;#-- HINT: add username&#xA;spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;spring.datasource.password=&#xA;&#xA;#-- HINT: h2 driver&#xA;spring.datasource.driver-class-name=org.h2.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- MySQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:mysql://localhost:3306/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=com.mysql.jdbc.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- PostgreSQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:postgresql://localhost:5432/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=org.postgresql.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- JPA Hibernate setup ---------&#xA;&#xA;#-- HINT: true or false&#xA;spring.jpa.show-sql = false&#xA;&#xA;#-- HINT: Hibernate ddl auto (create, create-drop, update, none, validate)&#xA;spring.jpa.hibernate.ddl-auto = update&#xA;&#xA;spring.jackson.serialization.fail-on-empty-beans=false&#xA;&#xA;#----------------------------------------&#xA;&#xA;#"/>
-          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="for application.properties">
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="for this application.properties">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </marker>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="src/main/resources/application.properties">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -110,37 +110,37 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/applicationProperties">
       <details key="start" value="938"/>
-      <details key="end" value="3878"/>
+      <details key="end" value="3915"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/applicationProperties/%">
       <details key="start" value="994"/>
-      <details key="end" value="3866"/>
+      <details key="end" value="3903"/>
       <details key="line" value="25"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/applicationProperties/%/%">
-      <details key="start" value="1063"/>
-      <details key="end" value="1132"/>
-      <details key="line" value="26"/>
+      <details key="start" value="1097"/>
+      <details key="end" value="1165"/>
+      <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/applicationProperties/%/%.1">
-      <details key="start" value="1132"/>
-      <details key="end" value="3857"/>
+      <details key="start" value="1165"/>
+      <details key="end" value="3895"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/applicationProperties/%/%.1/%">
-      <details key="start" value="1174"/>
-      <details key="end" value="3845"/>
+      <details key="start" value="1212"/>
+      <details key="end" value="3883"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/applicationProperties/%/%.1/%.1">
-      <details key="start" value="1144"/>
-      <details key="end" value="1172"/>
+      <details key="start" value="1177"/>
+      <details key="end" value="1210"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/applicationProperties/%/%.2">
-      <details key="start" value="3857"/>
-      <details key="end" value="3859"/>
+      <details key="start" value="3895"/>
+      <details key="end" value="3896"/>
       <details key="line" value="114"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/applicationProperties/%/%.3">

@@ -23,9 +23,9 @@
 
 [template public applicationProperties(aClass : Class)]
 [file ('src/main/resources/application.properties', false, 'UTF-8')]
-
+[comment: code to be generated /]
 #Code between start and end will not be removed during generation.
-#[protected ('for application.properties')]
+#[protected ('for this application.properties')]
 
 #-- HINT: define server port
 server.port=5000
@@ -111,8 +111,5 @@ spring.jackson.serialization.fail-on-empty-beans=false
 #----------------------------------------
 
 #[/protected]
-
 [/file]
 [/template]
-
-

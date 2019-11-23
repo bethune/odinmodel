@@ -21,16 +21,16 @@
 [comment encoding = UTF-8 /]
 [module swagger2('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public swagger2(aClass : Class)
-	{
+[template public swagger2(aClass : Class){
 		packagePathNameVar 	: String = aClass._package.name.toLowerCase();
 		packageNameVar 		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.config');
-		packageApiNameVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.controller');
-	}
-]
+		packageApiNameVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.controller');}]
 [file ('src/main/java/' + packagePathNameVar + '/config/Swagger2Config.java', false, 'UTF-8')]
-
+[comment: code to be generated /]
 package [packageNameVar/];
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this swagger')]
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +46,7 @@ import java.util.Collections;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
-//[protected ('for swagger')]
+
 	@Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -67,8 +67,7 @@ public class Swagger2Config {
         	    "License of API", "API license URL", Collections.emptyList());
         return apiInfo;
     }
-//[/protected]
 }
-
+//[/protected]
 [/file]
 [/template]
