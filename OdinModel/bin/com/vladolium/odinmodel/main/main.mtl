@@ -1,5 +1,7 @@
-[comment]
+[comment encoding = UTF-8 /]
+[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -16,10 +18,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
-
 [/comment]
-[comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::springboot::springboot/]
 [import com::vladolium::odinmodel::primeboot::primeboot/]

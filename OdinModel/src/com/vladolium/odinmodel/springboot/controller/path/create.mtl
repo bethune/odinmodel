@@ -1,5 +1,7 @@
-[comment]
+[comment encoding = UTF-8 /]
+[module create('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -16,16 +18,12 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
-
 [/comment]
-[comment encoding = UTF-8 /]
-[module create('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public create(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();
 	parameter	: String = aClass.name.toLowerFirst();}]
 [comment: Create one /]
-[comment: code to be generated /]
 @PostMapping("")
 public [type/] createOne(@RequestBody [type/] [parameter/]) {
 	return [parameter/]Service.createUpdate([parameter/]);
@@ -36,7 +34,6 @@ public [type/] createOne(@RequestBody [type/] [parameter/]) {
 	[comment: IRIC for manyToOne relationships/]
 	[if relationship.lower = 1 and relationship.upper = -1 and relationship.opposite.type.name.toUpperFirst() = type and 
 		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-[comment: code to be generated /]
 @PostMapping("/[relationship.type.name.toLowerFirst()/]")
 public [type/] createOneIric(@RequestBody [type/][relationship.type.name.toUpperFirst()/] [parameter/][relationship.type.name.toUpperFirst()/]) {
 	return [parameter/]Service.createOneIric([parameter/][relationship.type.name.toUpperFirst()/]);

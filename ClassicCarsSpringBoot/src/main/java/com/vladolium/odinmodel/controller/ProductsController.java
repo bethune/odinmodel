@@ -11,7 +11,7 @@ import com.vladolium.odinmodel.domain.Products;
 import com.vladolium.odinmodel.domain.Products.*;
 import com.vladolium.odinmodel.service.ProductsService;
 import com.vladolium.odinmodel.service.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -32,199 +32,6 @@ public class ProductsController {
 	
 	
 	
-	@PutMapping("/{id}")
-	public Products updateOneById(@PathVariable Long id, @RequestBody Products products) {
-		Products current = productsService.readOneById(id);
-		current.setProductLines(products.getProductLines());
-		
-		current.setQuantityInStock(products.getQuantityInStock());
-		
-		
-		current.setProductName(products.getProductName());
-		
-		current.setMsrp(products.getMsrp());
-		
-		current.setBuyPrice(products.getBuyPrice());
-		
-		current.setProductDescription(products.getProductDescription());
-		
-		current.setProductScale(products.getProductScale());
-		
-		current.setProductCode(products.getProductCode());
-		
-		current.setProductVendor(products.getProductVendor());
-					
-		return productsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/{id}/productLines")
-	public Products updateOneByIdIric(@PathVariable Long id, @RequestBody Products products) {
-		Products current = productsService.readOneById(id);
-		if (current.getProductLines().getId() == products.getProductLines().getId()) {
-			current.setProductLines(products.getProductLines());
-			
-			current.setQuantityInStock(products.getQuantityInStock());
-			
-			
-			current.setProductName(products.getProductName());
-			
-			current.setMsrp(products.getMsrp());
-			
-			current.setBuyPrice(products.getBuyPrice());
-			
-			current.setProductDescription(products.getProductDescription());
-			
-			current.setProductScale(products.getProductScale());
-			
-			current.setProductCode(products.getProductCode());
-			
-			current.setProductVendor(products.getProductVendor());
-						
-			return productsService.createUpdate(current);
-		} else {
-		    Iterable<Products> listOfProducts = productsService.readAllByProductLinesId(current.getProductLines().getId());
-		    Long size = listOfProducts.spliterator().getExactSizeIfKnown();
-		    if (size == 1) {
-				return current;
-		    } else {
-				current.setProductLines(products.getProductLines());
-				
-				current.setQuantityInStock(products.getQuantityInStock());
-				
-				
-				current.setProductName(products.getProductName());
-				
-				current.setMsrp(products.getMsrp());
-				
-				current.setBuyPrice(products.getBuyPrice());
-				
-				current.setProductDescription(products.getProductDescription());
-				
-				current.setProductScale(products.getProductScale());
-				
-				current.setProductCode(products.getProductCode());
-				
-				current.setProductVendor(products.getProductVendor());
-							
-				return productsService.createUpdate(current);
-		    }
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/productCode={productCode}")
-	public Products updateOneByProductCode(@PathVariable String productCode, @RequestBody Products products) {
-		Products current = productsService.readOneByProductCode(productCode);
-		current.setProductLines(products.getProductLines());
-		
-		current.setQuantityInStock(products.getQuantityInStock());
-		
-		
-		current.setProductName(products.getProductName());
-		
-		current.setMsrp(products.getMsrp());
-		
-		current.setBuyPrice(products.getBuyPrice());
-		
-		current.setProductDescription(products.getProductDescription());
-		
-		current.setProductScale(products.getProductScale());
-		
-		current.setProductCode(products.getProductCode());
-		
-		current.setProductVendor(products.getProductVendor());
-					
-		return productsService.createUpdate(current);		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/productCode={productCode}/productLines")
-	public Products updateOneByProductCodeIric(@PathVariable String productCode, @RequestBody Products products) {
-		Products current = productsService.readOneByProductCode(productCode);
-		if (current.getProductLines().getId() == products.getProductLines().getId()) {
-			current.setProductLines(products.getProductLines());
-			
-			current.setQuantityInStock(products.getQuantityInStock());
-			
-			
-			current.setProductName(products.getProductName());
-			
-			current.setMsrp(products.getMsrp());
-			
-			current.setBuyPrice(products.getBuyPrice());
-			
-			current.setProductDescription(products.getProductDescription());
-			
-			current.setProductScale(products.getProductScale());
-			
-			current.setProductCode(products.getProductCode());
-			
-			current.setProductVendor(products.getProductVendor());
-						
-			return productsService.createUpdate(current);
-		} else {
-		    Iterable<Products> listOfProducts = productsService.readAllByProductLinesId(current.getProductLines().getId());
-		    Long size = listOfProducts.spliterator().getExactSizeIfKnown();
-		    if (size == 1) {
-				return current;
-		    } else {
-				current.setProductLines(products.getProductLines());
-				
-				current.setQuantityInStock(products.getQuantityInStock());
-				
-				
-				current.setProductName(products.getProductName());
-				
-				current.setMsrp(products.getMsrp());
-				
-				current.setBuyPrice(products.getBuyPrice());
-				
-				current.setProductDescription(products.getProductDescription());
-				
-				current.setProductScale(products.getProductScale());
-				
-				current.setProductCode(products.getProductCode());
-				
-				current.setProductVendor(products.getProductVendor());
-							
-				return productsService.createUpdate(current);
-		    }
-		}
-	}
-	
 	
 	
 	
@@ -234,11 +41,6 @@ public class ProductsController {
 	public Products readOneById(@PathVariable Long id) {
 		return productsService.readOneById(id);
 	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -277,6 +79,11 @@ public class ProductsController {
 		this.orderDetailsService = orderDetailsService;
 	}
 	
+	
+	
+	
+	
+	
 	@GetMapping("/{productsId}/orderDetails")
 	public Iterable<OrderDetails> readAllOrderDetailsByProductsId(@PathVariable Long productsId) {
 		return orderDetailsService.readAllByProductsId(productsId);
@@ -291,11 +98,6 @@ public class ProductsController {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return orderDetailsService.readAllByProductsId(productsId, page);
 	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -323,76 +125,11 @@ public class ProductsController {
 	}
 	
 	
-	@GetMapping("/search")
-	public Iterable<Products> search(
-		@RequestParam(value = "productLinesId", required = false) Long productLinesId,
-		
-		
-		
-		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock,
-		@RequestParam(value = "productName", required = false) String productName,
-		@RequestParam(value = "msrp", required = false) Double msrp,
-		@RequestParam(value = "buyPrice", required = false) Double buyPrice,
-		@RequestParam(value = "productDescription", required = false) String productDescription,
-		@RequestParam(value = "productScale", required = false) String productScale,
-		@RequestParam(value = "productCode", required = false) String productCode,
-		@RequestParam(value = "productVendor", required = false) String productVendor
-		
-	) {
-		return productsService.search(
-			productLinesId,
-			
-			
-			
-			quantityInStock,
-			productName,
-			msrp,
-			buyPrice,
-			productDescription,
-			productScale,
-			productCode,
-			productVendor
-			
-		);
-	}
 	
-	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Products> searchPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@RequestParam(value = "productLinesId", required = false) Long productLinesId,
-		
-		
-		
-		@RequestParam(value = "quantityInStock", required = false) Integer quantityInStock,
-		@RequestParam(value = "productName", required = false) String productName,
-		@RequestParam(value = "msrp", required = false) Double msrp,
-		@RequestParam(value = "buyPrice", required = false) Double buyPrice,
-		@RequestParam(value = "productDescription", required = false) String productDescription,
-		@RequestParam(value = "productScale", required = false) String productScale,
-		@RequestParam(value = "productCode", required = false) String productCode,
-		@RequestParam(value = "productVendor", required = false) String productVendor
-		
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
-		return productsService.searchPagination(
-			page,
-			productLinesId,
-			
-			
-			
-			quantityInStock,
-			productName,
-			msrp,
-			buyPrice,
-			productDescription,
-			productScale,
-			productCode,
-			productVendor
-			
-		);
-	}
+	
+	
+	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
@@ -420,10 +157,6 @@ public class ProductsController {
 		    productsService.deleteOneById(id);
 		}
 	}
-	
-	
-	
-	
 	
 	
 	

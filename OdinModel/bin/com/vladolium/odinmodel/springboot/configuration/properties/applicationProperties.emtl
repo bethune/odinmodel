@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="applicationProperties" nsURI="com::vladolium::odinmodel::springboot::configuration::properties::applicationProperties" startHeaderPosition="865" endHeaderPosition="1094">
+  <mtl:Module name="applicationProperties" nsURI="com::vladolium::odinmodel::springboot::configuration::properties::applicationProperties" startHeaderPosition="29" endHeaderPosition="-1">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="111" endPosition="925" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
+    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="applicationProperties" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#Code between start and end will not be removed during generation.&#xA;#"/>
@@ -108,55 +111,60 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/applicationProperties">
-      <details key="start" value="938"/>
-      <details key="end" value="3915"/>
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="102"/>
+      <details key="end" value="935"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/applicationProperties">
+      <details key="start" value="937"/>
+      <details key="end" value="3880"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/applicationProperties/%">
+      <details key="start" value="993"/>
+      <details key="end" value="3868"/>
       <details key="line" value="24"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/applicationProperties/%">
-      <details key="start" value="994"/>
-      <details key="end" value="3903"/>
+    <eAnnotations source="positions.3" references="/0/applicationProperties/%/%">
+      <details key="start" value="1062"/>
+      <details key="end" value="1130"/>
       <details key="line" value="25"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/applicationProperties/%/%">
-      <details key="start" value="1097"/>
-      <details key="end" value="1165"/>
+    <eAnnotations source="positions.4" references="/0/applicationProperties/%/%.1">
+      <details key="start" value="1130"/>
+      <details key="end" value="3860"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/applicationProperties/%/%.1/%">
+      <details key="start" value="1177"/>
+      <details key="end" value="3848"/>
       <details key="line" value="27"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/applicationProperties/%/%.1">
-      <details key="start" value="1165"/>
-      <details key="end" value="3895"/>
-      <details key="line" value="28"/>
-    </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/applicationProperties/%/%.1/%">
-      <details key="start" value="1212"/>
-      <details key="end" value="3883"/>
-      <details key="line" value="29"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/applicationProperties/%/%.1/%.1">
-      <details key="start" value="1177"/>
-      <details key="end" value="1210"/>
+    <eAnnotations source="positions.6" references="/0/applicationProperties/%/%.1/%.1">
+      <details key="start" value="1142"/>
+      <details key="end" value="1175"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/applicationProperties/%/%.2">
-      <details key="start" value="3895"/>
-      <details key="end" value="3896"/>
-      <details key="line" value="114"/>
+    <eAnnotations source="positions.7" references="/0/applicationProperties/%/%.2">
+      <details key="start" value="3860"/>
+      <details key="end" value="3861"/>
+      <details key="line" value="112"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/applicationProperties/%/%.3">
-      <details key="start" value="1001"/>
-      <details key="end" value="1044"/>
+    <eAnnotations source="positions.8" references="/0/applicationProperties/%/%.3">
+      <details key="start" value="1000"/>
+      <details key="end" value="1043"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/applicationProperties/%/%.4">
-      <details key="start" value="1053"/>
-      <details key="end" value="1060"/>
+    <eAnnotations source="positions.9" references="/0/applicationProperties/%/%.4">
+      <details key="start" value="1052"/>
+      <details key="end" value="1059"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/applicationProperties/aClass">
-      <details key="start" value="977"/>
-      <details key="end" value="991"/>
-      <details key="line" value="24"/>
+    <eAnnotations source="positions.10" references="/0/applicationProperties/aClass">
+      <details key="start" value="976"/>
+      <details key="end" value="990"/>
+      <details key="line" value="23"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

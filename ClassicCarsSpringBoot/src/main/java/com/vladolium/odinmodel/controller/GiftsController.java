@@ -11,7 +11,7 @@ import com.vladolium.odinmodel.domain.Gifts;
 import com.vladolium.odinmodel.domain.Gifts.*;
 import com.vladolium.odinmodel.service.GiftsService;
 import com.vladolium.odinmodel.service.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -32,72 +32,6 @@ public class GiftsController {
 	
 	
 	
-	
-	
-	
-	
-	@PutMapping("/{id}")
-	public Gifts updateOneById(@PathVariable Long id, @RequestBody Gifts gifts) {
-		Gifts current = giftsService.readOneById(id);
-		current.setCustomersSet(gifts.getCustomersSet());
-		
-		current.setGiftType(gifts.getGiftType());
-		
-		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setExpiresOn(gifts.getExpiresOn());
-		
-		current.setGiftName(gifts.getGiftName());
-		
-		
-		current.setBeginsOn(gifts.getBeginsOn());
-					
-		return giftsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/giftName={giftName}")
-	public Gifts updateOneByGiftName(@PathVariable String giftName, @RequestBody Gifts gifts) {
-		Gifts current = giftsService.readOneByGiftName(giftName);
-		current.setCustomersSet(gifts.getCustomersSet());
-		
-		current.setGiftType(gifts.getGiftType());
-		
-		current.setIsExpired(gifts.getIsExpired());
-		
-		current.setExpiresOn(gifts.getExpiresOn());
-		
-		current.setGiftName(gifts.getGiftName());
-		
-		
-		current.setBeginsOn(gifts.getBeginsOn());
-					
-		return giftsService.createUpdate(current);		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@GetMapping("/{id}")
 	public Gifts readOneById(@PathVariable Long id) {
 		return giftsService.readOneById(id);
@@ -107,12 +41,16 @@ public class GiftsController {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	@GetMapping("/giftName={giftName}")
 	public Gifts readOneByGiftName(@PathVariable String giftName) {
 		return giftsService.readOneByGiftName(giftName);
 	}
-	
-	
 	
 	@GetMapping("")
 	public Iterable<Gifts> readAll() {
@@ -129,83 +67,16 @@ public class GiftsController {
 	}
 	
 	
-	@GetMapping("/search")
-	public Iterable<Gifts> search(
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
-		
-		
-		
-		@RequestParam(value = "giftType", required = false) GiftType giftType,
-		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
-		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
-		@RequestParam(value = "giftName", required = false) String giftName,
-		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn
-		
-	) {
-		return giftsService.search(
-			customersSet,
-			giftType,
-			isExpired,
-			expiresOn,
-			giftName,
-			beginsOn
-			
-		);
-	}
-	
-	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Gifts> searchPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "customersSet[]", required = false) Set<Long> customersSet,
-		
-		
-		
-		@RequestParam(value = "giftType", required = false) GiftType giftType,
-		@RequestParam(value = "isExpired", required = false) Boolean isExpired,
-		@RequestParam(value = "expiresOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime expiresOn,
-		@RequestParam(value = "giftName", required = false) String giftName,
-		@RequestParam(value = "beginsOn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime beginsOn
-		
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	
-		return giftsService.searchPagination(
-			page,
-			customersSet,
-			giftType,
-			isExpired,
-			expiresOn,
-			giftName,
-			beginsOn
-			
-		);
-	}
-	
-	
-	
-	
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		giftsService.deleteOneById(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -1,5 +1,7 @@
-[comment]
+[comment encoding = UTF-8 /]
+[module swagger2('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -16,17 +18,13 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
-
 [/comment]
-[comment encoding = UTF-8 /]
-[module swagger2('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public swagger2(aClass : Class){
 		packagePathNameVar 	: String = aClass._package.name.toLowerCase();
 		packageNameVar 		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.config');
 		packageApiNameVar 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.controller');}]
 [file ('src/main/java/' + packagePathNameVar + '/config/Swagger2Config.java', false, 'UTF-8')]
-[comment: code to be generated /]
 package [packageNameVar/];
 
 //Code between start and end will not be removed during generation.

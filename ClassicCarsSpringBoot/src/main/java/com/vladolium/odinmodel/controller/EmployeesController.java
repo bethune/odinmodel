@@ -11,7 +11,7 @@ import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
 import com.vladolium.odinmodel.service.EmployeesService;
 import com.vladolium.odinmodel.service.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -31,130 +31,17 @@ public class EmployeesController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/{id}")
-	public Employees updateOneById(@PathVariable Long id, @RequestBody Employees employees) {
-		Employees current = employeesService.readOneById(id);
-		current.setOffices(employees.getOffices());
-		
-		current.setFirstName(employees.getFirstName());
-		
-		current.setEmail(employees.getEmail());
-		
-		current.setJobTitle(employees.getJobTitle());
-		
-		current.setIsActive(employees.getIsActive());
-		
-		current.setReportsTo(employees.getReportsTo());
-		
-		current.setExtension(employees.getExtension());
-		
-		
-		current.setLastName(employees.getLastName());
-					
-		return employeesService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@PutMapping("/{id}/offices")
-	public Employees updateOneByIdIric(@PathVariable Long id, @RequestBody Employees employees) {
-		Employees current = employeesService.readOneById(id);
-		if (current.getOffices().getId() == employees.getOffices().getId()) {
-			current.setOffices(employees.getOffices());
-			
-			current.setFirstName(employees.getFirstName());
-			
-			current.setEmail(employees.getEmail());
-			
-			current.setJobTitle(employees.getJobTitle());
-			
-			current.setIsActive(employees.getIsActive());
-			
-			current.setReportsTo(employees.getReportsTo());
-			
-			current.setExtension(employees.getExtension());
-			
-			
-			current.setLastName(employees.getLastName());
-						
-			return employeesService.createUpdate(current);
-		} else {
-		    Iterable<Employees> listOfEmployees = employeesService.readAllByOfficesId(current.getOffices().getId());
-		    Long size = listOfEmployees.spliterator().getExactSizeIfKnown();
-		    if (size == 1) {
-				return current;
-		    } else {
-				current.setOffices(employees.getOffices());
-				
-				current.setFirstName(employees.getFirstName());
-				
-				current.setEmail(employees.getEmail());
-				
-				current.setJobTitle(employees.getJobTitle());
-				
-				current.setIsActive(employees.getIsActive());
-				
-				current.setReportsTo(employees.getReportsTo());
-				
-				current.setExtension(employees.getExtension());
-				
-				
-				current.setLastName(employees.getLastName());
-							
-				return employeesService.createUpdate(current);
-		    }
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@GetMapping("/{id}")
 	public Employees readOneById(@PathVariable Long id) {
 		return employeesService.readOneById(id);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -185,13 +72,6 @@ public class EmployeesController {
 	public void setCustomersService(CustomersService customersService) {
 		this.customersService = customersService;
 	}
-	
-	
-	
-	
-	
-	
-	
 	@GetMapping("/{employeesId}/customers")
 	public Iterable<Customers> readAllCustomersByEmployeesId(@PathVariable Long employeesId) {
 		return customersService.readAllByEmployeesId(employeesId);
@@ -216,92 +96,6 @@ public class EmployeesController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<Employees> search(
-		@RequestParam(value = "officesId", required = false) Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "email", required = false) String email,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle,
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
-		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
-		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "lastName", required = false) String lastName
-		
-	) {
-		return employeesService.search(
-			officesId,
-			
-			
-			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			jobTitle,
-			isActive,
-			reportsTo,
-			extension,
-			lastName
-			
-		);
-	}
-	
-	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Employees> searchPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@RequestParam(value = "officesId", required = false) Long officesId,
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "firstName", required = false) String firstName,
-		@RequestParam(value = "email", required = false) String email,
-		@RequestParam(value = "jobTitle", required = false) String jobTitle,
-		@RequestParam(value = "isActive", required = false) Boolean isActive,
-		@RequestParam(value = "reportsTo", required = false) Integer reportsTo,
-		@RequestParam(value = "extension", required = false) String extension,
-		@RequestParam(value = "lastName", required = false) String lastName
-		
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	
-		return employeesService.searchPagination(
-			page,
-			officesId,
-			
-			
-			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			jobTitle,
-			isActive,
-			reportsTo,
-			extension,
-			lastName
-			
-		);
-	}
 	
 	
 	
@@ -313,6 +107,13 @@ public class EmployeesController {
 	public void deleteOneById(@PathVariable Long id) {
 		employeesService.deleteOneById(id);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -334,6 +135,7 @@ public class EmployeesController {
 		    employeesService.deleteOneById(id);
 		}
 	}
+	
 	
 	
 	

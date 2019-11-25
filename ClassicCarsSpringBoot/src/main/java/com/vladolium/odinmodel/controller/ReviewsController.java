@@ -11,7 +11,7 @@ import com.vladolium.odinmodel.domain.Reviews;
 import com.vladolium.odinmodel.domain.Reviews.*;
 import com.vladolium.odinmodel.service.ReviewsService;
 import com.vladolium.odinmodel.service.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -32,40 +32,11 @@ public class ReviewsController {
 	
 	
 	
-	@PutMapping("/{id}")
-	public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews) {
-		Reviews current = reviewsService.readOneById(id);
-		
-		current.setReviewText(reviews.getReviewText());
-		
-		
-		current.setReviewTime(reviews.getReviewTime());
-		
-		current.setReviewDate(reviews.getReviewDate());
-					
-		return reviewsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	@GetMapping("/{id}")
 	public Reviews readOneById(@PathVariable Long id) {
 		return reviewsService.readOneById(id);
 	}
-	
 	
 	
 	
@@ -87,40 +58,7 @@ public class ReviewsController {
 	}
 	
 	
-	@GetMapping("/search")
-	public Iterable<Reviews> search(
-		@RequestParam(value = "reviewText", required = false) String reviewText,
-		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime,
-		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate
-		
-	) {
-		return reviewsService.search(
-			reviewText,
-			reviewTime,
-			reviewDate
-			
-		);
-	}
 	
-	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Reviews> searchPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@RequestParam(value = "reviewText", required = false) String reviewText,
-		@RequestParam(value = "reviewTime", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime reviewTime,
-		@RequestParam(value = "reviewDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate reviewDate
-		
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	
-		return reviewsService.searchPagination(
-			page,
-			reviewText,
-			reviewTime,
-			reviewDate
-			
-		);
-	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {

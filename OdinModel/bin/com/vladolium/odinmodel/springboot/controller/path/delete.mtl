@@ -1,5 +1,7 @@
-[comment]
+[comment encoding = UTF-8 /]
+[module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -16,10 +18,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
-
 [/comment]
-[comment encoding = UTF-8 /]
-[module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public delete(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();
@@ -27,7 +26,6 @@
 [comment: Delete one by id /]
 [for (field: Property | aClass.getAllAttributes()) separator('\n')]
 	[if field.isID = true]
-[comment: code to be generated /]
 @DeleteMapping("/{[field.name.toLowerFirst()/]}")
 public void deleteOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[parameter/]Service.deleteOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
@@ -47,7 +45,6 @@ public void deleteOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.na
 						[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 								[if oppositeEntityField.isID = true]
-[comment: code to be generated /]
 @DeleteMapping("/{[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
 public void deleteOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);

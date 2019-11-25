@@ -11,7 +11,7 @@ import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
 import com.vladolium.odinmodel.service.OrderDetailsService;
 import com.vladolium.odinmodel.service.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -29,41 +29,6 @@ public class OrderDetailsController {
 	public OrderDetails createOne(@RequestBody OrderDetails orderDetails) {
 		return orderDetailsService.createUpdate(orderDetails);
 	}
-	
-	
-	
-	
-	
-	
-	@PutMapping("/{id}")
-	public OrderDetails updateOneById(@PathVariable Long id, @RequestBody OrderDetails orderDetails) {
-		OrderDetails current = orderDetailsService.readOneById(id);
-		current.setProducts(orderDetails.getProducts());
-		current.setOrders(orderDetails.getOrders());
-		
-		current.setQuantityOrdered(orderDetails.getQuantityOrdered());
-		
-		current.setPriceEach(orderDetails.getPriceEach());
-		
-		current.setOrderLineNumber(orderDetails.getOrderLineNumber());
-		
-					
-		return orderDetailsService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -95,100 +60,6 @@ public class OrderDetailsController {
 	}
 	
 	
-	@GetMapping("/search")
-	public Iterable<OrderDetails> search(
-		
-		@RequestParam(value = "productsId", required = false) Long productsId,
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "ordersId", required = false) Long ordersId,
-		
-		
-		
-		
-		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered,
-		@RequestParam(value = "priceEach", required = false) Double priceEach,
-		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber
-		
-	) {
-		return orderDetailsService.search(
-			
-			productsId,
-			
-			
-			
-			
-			
-			
-			
-			
-			ordersId,
-			
-			
-			
-			
-			quantityOrdered,
-			priceEach,
-			orderLineNumber
-			
-		);
-	}
-	
-	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
-	public Page<OrderDetails> searchPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		
-		@RequestParam(value = "productsId", required = false) Long productsId,
-		
-		
-		
-		
-		
-		
-		
-		
-		@RequestParam(value = "ordersId", required = false) Long ordersId,
-		
-		
-		
-		
-		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered,
-		@RequestParam(value = "priceEach", required = false) Double priceEach,
-		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber
-		
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	
-		return orderDetailsService.searchPagination(
-			page,
-			
-			productsId,
-			
-			
-			
-			
-			
-			
-			
-			
-			ordersId,
-			
-			
-			
-			
-			quantityOrdered,
-			priceEach,
-			orderLineNumber
-			
-		);
-	}
 	
 	
 	
@@ -197,6 +68,7 @@ public class OrderDetailsController {
 	public void deleteOneById(@PathVariable Long id) {
 		orderDetailsService.deleteOneById(id);
 	}
+	
 	
 	
 	

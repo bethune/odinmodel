@@ -11,7 +11,7 @@ import com.vladolium.odinmodel.domain.ProductLines;
 import com.vladolium.odinmodel.domain.ProductLines.*;
 import com.vladolium.odinmodel.service.ProductLinesService;
 import com.vladolium.odinmodel.service.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -34,35 +34,6 @@ public class ProductLinesController {
 	public ProductLines createOneIric(@RequestBody ProductLinesProducts productLinesProducts) {
 		return productLinesService.createOneIric(productLinesProducts);
 	}
-	
-	@PutMapping("/{id}")
-	public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
-		ProductLines current = productLinesService.readOneById(id);
-		
-		
-		current.setTextDescription(productLines.getTextDescription());
-		
-		current.setImage(productLines.getImage());
-		
-		current.setProductLine(productLines.getProductLine());
-					
-		return productLinesService.createUpdate(current);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	@GetMapping("/{id}")
 	public ProductLines readOneById(@PathVariable Long id) {
@@ -118,44 +89,11 @@ public class ProductLinesController {
 	
 	
 	
-	@GetMapping("/search")
-	public Iterable<ProductLines> search(
-		@RequestParam(value = "textDescription", required = false) String textDescription,
-		@RequestParam(value = "image", required = false) byte[] image,
-		@RequestParam(value = "productLine", required = false) String productLine
-		
-	) {
-		return productLinesService.search(
-			textDescription,
-			image,
-			productLine
-			
-		);
-	}
-	
-	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
-	public Page<ProductLines> searchPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@RequestParam(value = "textDescription", required = false) String textDescription,
-		@RequestParam(value = "image", required = false) byte[] image,
-		@RequestParam(value = "productLine", required = false) String productLine
-		
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	
-		return productLinesService.searchPagination(
-			page,
-			textDescription,
-			image,
-			productLine
-			
-		);
-	}
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		productLinesService.deleteOneById(id);
 	}
+	
 	
 	
 	

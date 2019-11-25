@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.wrapperRequest;
+package com.vladolium.odinmodel.wrapper;
 
 import com.vladolium.odinmodel.domain.*;
 
@@ -25,4 +25,3 @@ public class ProductLinesProducts {
     }
 
 }
-

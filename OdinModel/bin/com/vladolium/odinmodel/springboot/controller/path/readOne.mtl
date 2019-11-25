@@ -1,5 +1,7 @@
-[comment]
+[comment encoding = UTF-8 /]
+[module readOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -16,10 +18,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
-
 [/comment]
-[comment encoding = UTF-8 /]
-[module readOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public readOne(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();
@@ -27,7 +26,6 @@
 [comment: Read one by id /]
 [for (field: Property | aClass.getAllAttributes()) separator('\n')]
 	[if field.isID = true]
-[comment: code to be generated /]
 @GetMapping("/{[field.name.toLowerFirst()/]}")
 public [type/] readOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	return [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
@@ -38,7 +36,6 @@ public [type/] readOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.n
 [comment: Read one by field with unique values /]
 [for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
 	[if field.isUnique = true and field.isID = false]
-[comment: code to be generated /]
 @GetMapping("/[field.name.toLowerFirst()/]={[field.name.toLowerFirst()/]}")
 public [type/] readOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	return [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);

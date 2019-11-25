@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="pom" nsURI="com::vladolium::odinmodel::springboot::configuration::pom::pom" startHeaderPosition="865" endHeaderPosition="1023">
+  <mtl:Module name="pom" nsURI="com::vladolium::odinmodel::springboot::configuration::pom::pom" startHeaderPosition="29" endHeaderPosition="1875">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="93" endPosition="907" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
+    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="pom" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; &#xA;&#x9;xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#xA;&#x9;xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;>&#xA;&#x9;&lt;modelVersion>4.0.0&lt;/modelVersion>&#xA;&#xA;&lt;!--Code between start and end will not be removed during generation.-->&#xA;//"/>
@@ -168,135 +171,140 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/pom">
-      <details key="start" value="920"/>
-      <details key="end" value="5064"/>
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="84"/>
+      <details key="end" value="917"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/pom">
+      <details key="start" value="919"/>
+      <details key="end" value="5029"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/pom/%">
+      <details key="start" value="956"/>
+      <details key="end" value="5017"/>
       <details key="line" value="24"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/pom/%">
-      <details key="start" value="957"/>
-      <details key="end" value="5052"/>
+    <eAnnotations source="positions.3" references="/0/pom/%/%">
+      <details key="start" value="991"/>
+      <details key="end" value="1350"/>
       <details key="line" value="25"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/pom/%/%">
-      <details key="start" value="1026"/>
-      <details key="end" value="1385"/>
-      <details key="line" value="27"/>
+    <eAnnotations source="positions.4" references="/0/pom/%/%.1">
+      <details key="start" value="1350"/>
+      <details key="end" value="5009"/>
+      <details key="line" value="32"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/pom/%/%.1">
-      <details key="start" value="1385"/>
-      <details key="end" value="5044"/>
-      <details key="line" value="34"/>
+    <eAnnotations source="positions.5" references="/0/pom/%/%.1/%">
+      <details key="start" value="1382"/>
+      <details key="end" value="1851"/>
+      <details key="line" value="33"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/pom/%/%.1/%">
-      <details key="start" value="1417"/>
-      <details key="end" value="1886"/>
-      <details key="line" value="35"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/pom/%/%.1/%.1">
-      <details key="start" value="1887"/>
-      <details key="end" value="1910"/>
+    <eAnnotations source="positions.6" references="/0/pom/%/%.1/%.1">
+      <details key="start" value="1852"/>
+      <details key="end" value="1875"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/pom/%/%.1/%.1/%">
-      <details key="start" value="1887"/>
-      <details key="end" value="1896"/>
+    <eAnnotations source="positions.7" references="/0/pom/%/%.1/%.1/%">
+      <details key="start" value="1852"/>
+      <details key="end" value="1861"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/pom/%/%.1/%.1/%/model">
-      <details key="start" value="1887"/>
-      <details key="end" value="1892"/>
+    <eAnnotations source="positions.8" references="/0/pom/%/%.1/%.1/%/model">
+      <details key="start" value="1852"/>
+      <details key="end" value="1857"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/pom/%/%.1/%.2">
-      <details key="start" value="1912"/>
-      <details key="end" value="1936"/>
-      <details key="line" value="51"/>
+    <eAnnotations source="positions.9" references="/0/pom/%/%.1/%.2">
+      <details key="start" value="1877"/>
+      <details key="end" value="1901"/>
+      <details key="line" value="49"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/pom/%/%.1/%.3">
-      <details key="start" value="1937"/>
-      <details key="end" value="1961"/>
+    <eAnnotations source="positions.10" references="/0/pom/%/%.1/%.3">
+      <details key="start" value="1902"/>
+      <details key="end" value="1926"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/pom/%/%.1/%.3/%">
-      <details key="start" value="1937"/>
-      <details key="end" value="1947"/>
+    <eAnnotations source="positions.11" references="/0/pom/%/%.1/%.3/%">
+      <details key="start" value="1902"/>
+      <details key="end" value="1912"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/pom/%/%.1/%.3/%/model">
-      <details key="start" value="1937"/>
-      <details key="end" value="1942"/>
+    <eAnnotations source="positions.12" references="/0/pom/%/%.1/%.3/%/model">
+      <details key="start" value="1902"/>
+      <details key="end" value="1907"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/pom/%/%.1/%.4">
-      <details key="start" value="1963"/>
-      <details key="end" value="2019"/>
+    <eAnnotations source="positions.13" references="/0/pom/%/%.1/%.4">
+      <details key="start" value="1928"/>
+      <details key="end" value="1984"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/pom/%/%.1/%.5">
+      <details key="start" value="1985"/>
+      <details key="end" value="2009"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/pom/%/%.1/%.5/%">
+      <details key="start" value="1985"/>
+      <details key="end" value="1995"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/pom/%/%.1/%.5/%/model">
+      <details key="start" value="1985"/>
+      <details key="end" value="1990"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/pom/%/%.1/%.6">
+      <details key="start" value="2011"/>
+      <details key="end" value="2033"/>
       <details key="line" value="52"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/pom/%/%.1/%.5">
-      <details key="start" value="2020"/>
+    <eAnnotations source="positions.18" references="/0/pom/%/%.1/%.7">
+      <details key="start" value="2034"/>
+      <details key="end" value="2058"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/pom/%/%.1/%.7/%">
+      <details key="start" value="2034"/>
       <details key="end" value="2044"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/pom/%/%.1/%.5/%">
-      <details key="start" value="2020"/>
-      <details key="end" value="2030"/>
+    <eAnnotations source="positions.20" references="/0/pom/%/%.1/%.7/%/model">
+      <details key="start" value="2034"/>
+      <details key="end" value="2039"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/pom/%/%.1/%.5/%/model">
-      <details key="start" value="2020"/>
-      <details key="end" value="2025"/>
+    <eAnnotations source="positions.21" references="/0/pom/%/%.1/%.8">
+      <details key="start" value="2060"/>
+      <details key="end" value="4997"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/pom/%/%.1/%.9">
+      <details key="start" value="1362"/>
+      <details key="end" value="1380"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/pom/%/%.1/%.6">
-      <details key="start" value="2046"/>
-      <details key="end" value="2068"/>
-      <details key="line" value="54"/>
+    <eAnnotations source="positions.23" references="/0/pom/%/%.2">
+      <details key="start" value="5009"/>
+      <details key="end" value="5010"/>
+      <details key="line" value="153"/>
     </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/pom/%/%.1/%.7">
-      <details key="start" value="2069"/>
-      <details key="end" value="2093"/>
+    <eAnnotations source="positions.24" references="/0/pom/%/%.3">
+      <details key="start" value="963"/>
+      <details key="end" value="972"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/pom/%/%.1/%.7/%">
-      <details key="start" value="2069"/>
-      <details key="end" value="2079"/>
+    <eAnnotations source="positions.25" references="/0/pom/%/%.4">
+      <details key="start" value="981"/>
+      <details key="end" value="988"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/pom/%/%.1/%.7/%/model">
-      <details key="start" value="2069"/>
-      <details key="end" value="2074"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/pom/%/%.1/%.8">
-      <details key="start" value="2095"/>
-      <details key="end" value="5032"/>
-      <details key="line" value="55"/>
-    </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/pom/%/%.1/%.9">
-      <details key="start" value="1397"/>
-      <details key="end" value="1415"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/pom/%/%.2">
-      <details key="start" value="5044"/>
-      <details key="end" value="5045"/>
-      <details key="line" value="155"/>
-    </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/pom/%/%.3">
-      <details key="start" value="964"/>
-      <details key="end" value="973"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/pom/%/%.4">
-      <details key="start" value="982"/>
-      <details key="end" value="989"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/pom/model">
-      <details key="start" value="941"/>
-      <details key="end" value="954"/>
-      <details key="line" value="24"/>
+    <eAnnotations source="positions.26" references="/0/pom/model">
+      <details key="start" value="940"/>
+      <details key="end" value="953"/>
+      <details key="line" value="23"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>
