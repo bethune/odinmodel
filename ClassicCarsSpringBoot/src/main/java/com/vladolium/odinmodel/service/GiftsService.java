@@ -7,11 +7,11 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Gifts;
 import com.vladolium.odinmodel.domain.Gifts.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface GiftsService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Gifts createUpdate(Gifts gifts);
 	
 	
@@ -25,8 +25,8 @@ public interface GiftsService {
 	
 	
 	
-	
 	Gifts readOneByGiftName(String giftName);
+	
 	
 	
 	
@@ -41,19 +41,19 @@ public interface GiftsService {
 		
 		
 		
-		
-		
-		
-		
 		Set<Long> customersSet,
 		
 		
 		
-		GiftType giftType,
+		
+		
+		
+		
 		Boolean isExpired,
-		LocalDateTime expiresOn,
+		GiftType giftType,
 		String giftName,
-		LocalDateTime beginsOn
+		LocalDateTime beginsOn,
+		LocalDateTime expiresOn
 		
 	);
 	
@@ -63,19 +63,19 @@ public interface GiftsService {
 		
 		
 		
-		
-		
-		
-		
 		Set<Long> customersSet,
 		
 		
 		
-		GiftType giftType,
+		
+		
+		
+		
 		Boolean isExpired,
-		LocalDateTime expiresOn,
+		GiftType giftType,
 		String giftName,
-		LocalDateTime beginsOn
+		LocalDateTime beginsOn,
+		LocalDateTime expiresOn
 		
 	);
 	

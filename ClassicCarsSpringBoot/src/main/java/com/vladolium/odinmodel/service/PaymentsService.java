@@ -7,11 +7,11 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.Payments.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface PaymentsService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Payments createUpdate(Payments payments);
 	
 	
@@ -35,13 +35,13 @@ public interface PaymentsService {
 	
 	
 	
-	
-	
-	
-	
 	Iterable <Payments> readAllByCustomersId(Long customersId);
 	
 	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
+	
 	
 	
 	
@@ -66,18 +66,18 @@ public interface PaymentsService {
 		
 		
 		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
-		String checkNumber,
+		
+		
+		
+		
+		Double amount,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
-		Double amount
+		String checkNumber,
+		Instant paymentTimestamp
 		
 	);
 	
@@ -87,18 +87,18 @@ public interface PaymentsService {
 		
 		
 		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
-		String checkNumber,
+		
+		
+		
+		
+		Double amount,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
-		Double amount
+		String checkNumber,
+		Instant paymentTimestamp
 		
 	);
 	void deleteOneById(Long id);

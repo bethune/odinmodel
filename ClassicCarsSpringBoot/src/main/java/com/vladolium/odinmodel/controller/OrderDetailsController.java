@@ -34,11 +34,46 @@ public class OrderDetailsController {
 	
 	
 	
+	@PutMapping("/{id}")
+	public OrderDetails updateOneById(@PathVariable Long id, @RequestBody OrderDetails orderDetails) {
+		OrderDetails current = orderDetailsService.readOneById(id);
+		current.setProducts(orderDetails.getProducts());
+		current.setOrders(orderDetails.getOrders());
+		
+		current.setOrderLineNumber(orderDetails.getOrderLineNumber());
+		
+		current.setPriceEach(orderDetails.getPriceEach());
+		
+		
+		current.setQuantityOrdered(orderDetails.getQuantityOrdered());
+					
+		return orderDetailsService.createUpdate(current);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/{id}")
 	public OrderDetails readOneById(@PathVariable Long id) {
 		return orderDetailsService.readOneById(id);
 	}
+	
 	
 	
 	
@@ -60,7 +95,100 @@ public class OrderDetailsController {
 	}
 	
 	
+	@GetMapping("/search")
+	public Iterable<OrderDetails> search(
+		
+		
+		
+		
+		
+		
+		@RequestParam(value = "productsId", required = false) Long productsId,
+		
+		
+		@RequestParam(value = "ordersId", required = false) Long ordersId,
+		
+		
+		
+		
+		
+		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber,
+		@RequestParam(value = "priceEach", required = false) Double priceEach,
+		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered
+		
+	) {
+		return orderDetailsService.search(
+			
+			
+			
+			
+			
+			
+			productsId,
+			
+			
+			ordersId,
+			
+			
+			
+			
+			
+			orderLineNumber,
+			priceEach,
+			quantityOrdered
+			
+		);
+	}
 	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<OrderDetails> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		
+		
+		
+		
+		
+		
+		@RequestParam(value = "productsId", required = false) Long productsId,
+		
+		
+		@RequestParam(value = "ordersId", required = false) Long ordersId,
+		
+		
+		
+		
+		
+		@RequestParam(value = "orderLineNumber", required = false) Integer orderLineNumber,
+		@RequestParam(value = "priceEach", required = false) Double priceEach,
+		@RequestParam(value = "quantityOrdered", required = false) Integer quantityOrdered
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return orderDetailsService.searchPagination(
+			page,
+			
+			
+			
+			
+			
+			
+			productsId,
+			
+			
+			ordersId,
+			
+			
+			
+			
+			
+			orderLineNumber,
+			priceEach,
+			quantityOrdered
+			
+		);
+	}
 	
 	
 	
@@ -68,6 +196,7 @@ public class OrderDetailsController {
 	public void deleteOneById(@PathVariable Long id) {
 		orderDetailsService.deleteOneById(id);
 	}
+	
 	
 	
 	

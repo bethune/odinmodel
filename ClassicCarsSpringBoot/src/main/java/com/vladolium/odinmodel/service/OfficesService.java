@@ -7,20 +7,20 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Offices;
 import com.vladolium.odinmodel.domain.Offices.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface OfficesService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Offices createUpdate(Offices offices);
 	
 	Offices createOneIric(OfficesEmployees officesEmployees);
 	
+	
+	
+	
+	
 	Offices readOneById(Long id);
-	
-	
-	
-	
 	
 	
 	
@@ -42,34 +42,34 @@ public interface OfficesService {
 	
 	
 	Iterable<Offices> search(
-		String postalCode,
 		String addressLine1,
+		String addressLine2,
 		String country,
-		String territory,
 		String phone,
 		String city,
-		String addressLine2,
+		String postalCode,
+		String territory,
 		String state
 		
 	);
 	
 	Page<Offices> searchPagination(
 		Pageable page,
-		String postalCode,
 		String addressLine1,
+		String addressLine2,
 		String country,
-		String territory,
 		String phone,
 		String city,
-		String addressLine2,
+		String postalCode,
+		String territory,
 		String state
 		
 	);
+	
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
-	
 	
 	
 	

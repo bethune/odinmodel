@@ -7,13 +7,12 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.OrderDetails;
 import com.vladolium.odinmodel.domain.OrderDetails.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface OrderDetailsService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	OrderDetails createUpdate(OrderDetails orderDetails);
-	
 	
 	
 	
@@ -26,9 +25,15 @@ public interface OrderDetailsService {
 	
 	
 	
+	
 	Iterable<OrderDetails> readAll();
 	
 	Page<OrderDetails> readAllPagination(Pageable page);
+	
+	
+	
+	
+	
 	
 	
 	Iterable <OrderDetails> readAllByProductsId(Long productsId);
@@ -38,31 +43,25 @@ public interface OrderDetailsService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	Iterable <OrderDetails> readAllByProductsProductCode(String productsProductCode);
 	
 	Page<OrderDetails> readAllByProductsProductCode(String productsProductCode, Pageable page);
 	
 	
+	
+	
+	
+	
+	
+	
 	Iterable<OrderDetails> search(
 		
+		
+		
+		
+		
+		
 		Long productsId,
-		
-		
-		
-		
-		
-		
 		
 		
 		Long ordersId,
@@ -70,22 +69,22 @@ public interface OrderDetailsService {
 		
 		
 		
-		Integer quantityOrdered,
+		
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer orderLineNumber
+		Integer quantityOrdered
 		
 	);
 	
 	Page<OrderDetails> searchPagination(
 		Pageable page,
 		
+		
+		
+		
+		
+		
 		Long productsId,
-		
-		
-		
-		
-		
-		
 		
 		
 		Long ordersId,
@@ -93,16 +92,17 @@ public interface OrderDetailsService {
 		
 		
 		
-		Integer quantityOrdered,
+		
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer orderLineNumber
+		Integer quantityOrdered
 		
 	);
 	
 	
 	
-	
 	void deleteOneById(Long id);
+	
 	
 	
 

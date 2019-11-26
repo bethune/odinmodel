@@ -64,10 +64,10 @@ public class [type/]Controller {
 	}
 
 	[aClass.create()/]
-[comment]	[aClass.update()/][/comment]
+	[aClass.update()/]
 	[aClass.readOne()/]
 	[aClass.readAll()/]
-[comment]	[aClass.search()/][/comment]
+	[aClass.search()/]
 	[aClass.delete()/]
 	[aClass.manyToOneWrapper()/]
 

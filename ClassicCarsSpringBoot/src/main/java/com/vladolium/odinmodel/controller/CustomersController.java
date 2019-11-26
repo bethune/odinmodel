@@ -35,6 +35,113 @@ public class CustomersController {
 	
 	
 	
+	@PutMapping("/{id}")
+	public Customers updateOneById(@PathVariable Long id, @RequestBody Customers customers) {
+		Customers current = customersService.readOneById(id);
+		current.setReviewsList(customers.getReviewsList());
+		current.setEmployees(customers.getEmployees());
+		
+		current.setLastName(customers.getLastName());
+		
+		current.setCreditLimit(customers.getCreditLimit());
+		
+		current.setCustomerName(customers.getCustomerName());
+		
+		current.setCity(customers.getCity());
+		
+		
+		current.setAddressLine1(customers.getAddressLine1());
+		
+		current.setAddressLine2(customers.getAddressLine2());
+		
+		current.setCountry(customers.getCountry());
+		
+		current.setPhone(customers.getPhone());
+		
+		current.setFirstName(customers.getFirstName());
+		
+		current.setPostalCode(customers.getPostalCode());
+		
+		current.setState(customers.getState());
+					
+		return customersService.createUpdate(current);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@PutMapping("/customerName={customerName}")
+	public Customers updateOneByCustomerName(@PathVariable String customerName, @RequestBody Customers customers) {
+		Customers current = customersService.readOneByCustomerName(customerName);
+		current.setReviewsList(customers.getReviewsList());
+		current.setEmployees(customers.getEmployees());
+		
+		current.setLastName(customers.getLastName());
+		
+		current.setCreditLimit(customers.getCreditLimit());
+		
+		current.setCustomerName(customers.getCustomerName());
+		
+		current.setCity(customers.getCity());
+		
+		
+		current.setAddressLine1(customers.getAddressLine1());
+		
+		current.setAddressLine2(customers.getAddressLine2());
+		
+		current.setCountry(customers.getCountry());
+		
+		current.setPhone(customers.getPhone());
+		
+		current.setFirstName(customers.getFirstName());
+		
+		current.setPostalCode(customers.getPostalCode());
+		
+		current.setState(customers.getState());
+					
+		return customersService.createUpdate(current);		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -65,6 +172,13 @@ public class CustomersController {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping("")
 	public Iterable<Customers> readAll() {
 		return customersService.readAll();
@@ -79,78 +193,12 @@ public class CustomersController {
 		return customersService.readAllPagination(page);
 	}
 	
-	private OrdersService ordersService;
-	
-	@Autowired
-	public void setOrdersService(OrdersService ordersService) {
-		this.ordersService = ordersService;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@GetMapping("/{customersId}/orders")
-	public Iterable<Orders> readAllOrdersByCustomersId(@PathVariable Long customersId) {
-		return ordersService.readAllByCustomersId(customersId);
-	}
-	
-	@GetMapping("/{customersId}/orders/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Orders> readAllOrdersByCustomersIdPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable Long customersId
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return ordersService.readAllByCustomersId(customersId, page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@GetMapping("/customerName={customersCustomerName}/orders")
-	public Iterable<Orders> readAllOrdersByCustomersCustomerName(@PathVariable String customersCustomerName) {
-		return ordersService.readAllByCustomersCustomerName(customersCustomerName);
-	}
-	
-	@GetMapping("/customerName={customersCustomerName}/orders/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Orders> readAllOrdersByCustomersCustomerNamePagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable String customersCustomerName
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return ordersService.readAllByCustomersCustomerName(customersCustomerName, page);
-	}
-	
-	
 	private PaymentsService paymentsService;
 	
 	@Autowired
 	public void setPaymentsService(PaymentsService paymentsService) {
 		this.paymentsService = paymentsService;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -204,7 +252,168 @@ public class CustomersController {
 	
 	
 	
+	private OrdersService ordersService;
 	
+	@Autowired
+	public void setOrdersService(OrdersService ordersService) {
+		this.ordersService = ordersService;
+	}
+	
+	
+	
+	
+	@GetMapping("/{customersId}/orders")
+	public Iterable<Orders> readAllOrdersByCustomersId(@PathVariable Long customersId) {
+		return ordersService.readAllByCustomersId(customersId);
+	}
+	
+	@GetMapping("/{customersId}/orders/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> readAllOrdersByCustomersIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long customersId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return ordersService.readAllByCustomersId(customersId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/customerName={customersCustomerName}/orders")
+	public Iterable<Orders> readAllOrdersByCustomersCustomerName(@PathVariable String customersCustomerName) {
+		return ordersService.readAllByCustomersCustomerName(customersCustomerName);
+	}
+	
+	@GetMapping("/customerName={customersCustomerName}/orders/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> readAllOrdersByCustomersCustomerNamePagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable String customersCustomerName
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return ordersService.readAllByCustomersCustomerName(customersCustomerName, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/search")
+	public Iterable<Customers> search(
+		@RequestParam(value = "reviewsList", required = false) List<Reviews> reviewsList,
+		
+		
+		@RequestParam(value = "employeesId", required = false) Long employeesId,
+		
+		
+		
+		
+		
+		@RequestParam(value = "addressLine1", required = false) String addressLine1,
+		@RequestParam(value = "addressLine2", required = false) String addressLine2,
+		@RequestParam(value = "country", required = false) String country,
+		@RequestParam(value = "lastName", required = false) String lastName,
+		@RequestParam(value = "creditLimit", required = false) Double creditLimit,
+		@RequestParam(value = "phone", required = false) String phone,
+		@RequestParam(value = "customerName", required = false) String customerName,
+		@RequestParam(value = "city", required = false) String city,
+		@RequestParam(value = "firstName", required = false) String firstName,
+		@RequestParam(value = "postalCode", required = false) String postalCode,
+		@RequestParam(value = "state", required = false) String state
+		
+	) {
+		return customersService.search(
+			reviewsList,
+			
+			
+			employeesId,
+			
+			
+			
+			
+			
+			addressLine1,
+			addressLine2,
+			country,
+			lastName,
+			creditLimit,
+			phone,
+			customerName,
+			city,
+			firstName,
+			postalCode,
+			state
+			
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Customers> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@RequestParam(value = "reviewsList", required = false) List<Reviews> reviewsList,
+		
+		
+		@RequestParam(value = "employeesId", required = false) Long employeesId,
+		
+		
+		
+		
+		
+		@RequestParam(value = "addressLine1", required = false) String addressLine1,
+		@RequestParam(value = "addressLine2", required = false) String addressLine2,
+		@RequestParam(value = "country", required = false) String country,
+		@RequestParam(value = "lastName", required = false) String lastName,
+		@RequestParam(value = "creditLimit", required = false) Double creditLimit,
+		@RequestParam(value = "phone", required = false) String phone,
+		@RequestParam(value = "customerName", required = false) String customerName,
+		@RequestParam(value = "city", required = false) String city,
+		@RequestParam(value = "firstName", required = false) String firstName,
+		@RequestParam(value = "postalCode", required = false) String postalCode,
+		@RequestParam(value = "state", required = false) String state
+		
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return customersService.searchPagination(
+			page,
+			reviewsList,
+			
+			
+			employeesId,
+			
+			
+			
+			
+			
+			addressLine1,
+			addressLine2,
+			country,
+			lastName,
+			creditLimit,
+			phone,
+			customerName,
+			city,
+			firstName,
+			postalCode,
+			state
+			
+		);
+	}
 	
 	
 	
@@ -213,6 +422,13 @@ public class CustomersController {
 	public void deleteOneById(@PathVariable Long id) {
 		customersService.deleteOneById(id);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

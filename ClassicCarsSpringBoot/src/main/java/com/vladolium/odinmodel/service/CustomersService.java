@@ -7,11 +7,11 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Customers;
 import com.vladolium.odinmodel.domain.Customers.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface CustomersService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Customers createUpdate(Customers customers);
 	
 	
@@ -19,12 +19,12 @@ public interface CustomersService {
 	
 	
 	
-	
-	
-	
-	
-	
 	Customers readOneById(Long id);
+	
+	
+	
+	
+	
 	
 	
 	
@@ -49,10 +49,6 @@ public interface CustomersService {
 	
 	
 	
-	
-	
-	
-	
 	Iterable <Customers> readAllByEmployeesId(Long employeesId);
 	
 	Page<Customers> readAllByEmployeesId(Long employeesId, Pageable page);
@@ -66,51 +62,55 @@ public interface CustomersService {
 	
 	
 	
+	
+	
+	
+	
 	Iterable<Customers> search(
-		
-		
-		
-		
+		List<Reviews> reviewsList,
 		
 		
 		Long employeesId,
 		
-		List<Reviews> reviewsList,
-		String postalCode,
+		
+		
+		
+		
 		String addressLine1,
+		String addressLine2,
+		String country,
 		String lastName,
 		Double creditLimit,
-		String firstName,
-		String country,
-		String customerName,
 		String phone,
-		String addressLine2,
+		String customerName,
 		String city,
+		String firstName,
+		String postalCode,
 		String state
 		
 	);
 	
 	Page<Customers> searchPagination(
 		Pageable page,
-		
-		
-		
-		
+		List<Reviews> reviewsList,
 		
 		
 		Long employeesId,
 		
-		List<Reviews> reviewsList,
-		String postalCode,
+		
+		
+		
+		
 		String addressLine1,
+		String addressLine2,
+		String country,
 		String lastName,
 		Double creditLimit,
-		String firstName,
-		String country,
-		String customerName,
 		String phone,
-		String addressLine2,
+		String customerName,
 		String city,
+		String firstName,
+		String postalCode,
 		String state
 		
 	);
@@ -118,12 +118,12 @@ public interface CustomersService {
 	
 	
 	
-	
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
+	
 	
 	
 	

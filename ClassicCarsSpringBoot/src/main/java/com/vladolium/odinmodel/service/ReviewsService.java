@@ -7,16 +7,16 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Reviews;
 import com.vladolium.odinmodel.domain.Reviews.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface ReviewsService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Reviews createUpdate(Reviews reviews);
 	
 	
-	
 	Reviews readOneById(Long id);
+	
 	
 	
 	
@@ -31,21 +31,21 @@ public interface ReviewsService {
 	
 	
 	Iterable<Reviews> search(
-		String reviewText,
 		LocalTime reviewTime,
+		String reviewText,
 		LocalDate reviewDate
 		
 	);
 	
 	Page<Reviews> searchPagination(
 		Pageable page,
-		String reviewText,
 		LocalTime reviewTime,
+		String reviewText,
 		LocalDate reviewDate
 		
 	);
-	
 	void deleteOneById(Long id);
+	
 	
 	
 	

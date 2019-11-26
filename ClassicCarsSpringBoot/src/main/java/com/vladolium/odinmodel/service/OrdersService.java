@@ -7,17 +7,17 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Orders;
 import com.vladolium.odinmodel.domain.Orders.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface OrdersService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Orders createUpdate(Orders orders);
 	
 	
-	
-	
 	Orders readOneById(Long id);
+	
+	
 	
 	
 	
@@ -37,13 +37,13 @@ public interface OrdersService {
 	
 	
 	
-	
-	
-	
-	
 	Iterable <Orders> readAllByCustomersId(Long customersId);
 	
 	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
+	
 	
 	
 	
@@ -68,19 +68,19 @@ public interface OrdersService {
 		
 		
 		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
+		
+		
+		
+		
 		LocalDate orderDate,
+		LocalDate requiredDate,
+		LocalDate shippedDate,
 		String status,
-		LocalDate requiredDate
+		String comments
 		
 	);
 	
@@ -90,24 +90,24 @@ public interface OrdersService {
 		
 		
 		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
+		
+		
+		
+		
 		LocalDate orderDate,
+		LocalDate requiredDate,
+		LocalDate shippedDate,
 		String status,
-		LocalDate requiredDate
+		String comments
 		
 	);
-	
-	
 	void deleteOneById(Long id);
+	
+	
 	
 	
 	

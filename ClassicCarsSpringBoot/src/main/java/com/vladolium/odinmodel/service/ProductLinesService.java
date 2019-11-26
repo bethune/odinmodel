@@ -7,19 +7,19 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.ProductLines;
 import com.vladolium.odinmodel.domain.ProductLines.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface ProductLinesService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	ProductLines createUpdate(ProductLines productLines);
 	
 	ProductLines createOneIric(ProductLinesProducts productLinesProducts);
 	
+	
+	
+	
 	ProductLines readOneById(Long id);
-	
-	
-	
 	
 	
 	
@@ -32,23 +32,23 @@ public interface ProductLinesService {
 	
 	
 	Iterable<ProductLines> search(
-		String textDescription,
 		byte[] image,
+		String textDescription,
 		String productLine
 		
 	);
 	
 	Page<ProductLines> searchPagination(
 		Pageable page,
-		String textDescription,
 		byte[] image,
+		String textDescription,
 		String productLine
 		
 	);
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

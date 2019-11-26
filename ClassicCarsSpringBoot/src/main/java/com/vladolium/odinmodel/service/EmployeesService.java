@@ -7,17 +7,12 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface EmployeesService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Employees createUpdate(Employees employees);
-	
-	
-	
-	
-	
 	
 	
 	
@@ -33,9 +28,18 @@ public interface EmployeesService {
 	
 	
 	
+	
+	
+	
+	
+	
 	Iterable<Employees> readAll();
 	
 	Page<Employees> readAllPagination(Pageable page);
+	
+	
+	
+	
 	
 	Iterable <Employees> readAllByOfficesId(Long officesId);
 	
@@ -54,58 +58,54 @@ public interface EmployeesService {
 	
 	
 	
-	
-	
-	
-	
 	Iterable<Employees> search(
+		
+		
+		
+		
 		Long officesId,
 		
 		
 		
 		
-		
-		
-		
-		
+		String extension,
 		String firstName,
-		String email,
+		Integer reportsTo,
 		String jobTitle,
 		Boolean isActive,
-		Integer reportsTo,
-		String extension,
-		String lastName
+		String lastName,
+		String email
 		
 	);
 	
 	Page<Employees> searchPagination(
 		Pageable page,
+		
+		
+		
+		
 		Long officesId,
 		
 		
 		
 		
-		
-		
-		
-		
+		String extension,
 		String firstName,
-		String email,
+		Integer reportsTo,
 		String jobTitle,
 		Boolean isActive,
-		Integer reportsTo,
-		String extension,
-		String lastName
+		String lastName,
+		String email
 		
 	);
 	
 	
-	
-	
-	
-	
-	
 	void deleteOneById(Long id);
+	
+	
+	
+	
+	
 	
 	
 

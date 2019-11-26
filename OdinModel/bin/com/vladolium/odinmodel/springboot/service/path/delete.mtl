@@ -1,7 +1,8 @@
 [comment encoding = UTF-8 /]
-[module springboot('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment]
+
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -18,20 +19,14 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
+
 [/comment]
 
-[import com::vladolium::odinmodel::springboot::model::model /]
-[import com::vladolium::odinmodel::springboot::controller::controller /]
-[import com::vladolium::odinmodel::springboot::service::service /]
-[import com::vladolium::odinmodel::springboot::implementation::implementation /]
-[import com::vladolium::odinmodel::springboot::repository::repository /]
-[import com::vladolium::odinmodel::springboot::configuration::configuration /]
-
-[template public springboot(aClass : Class)]
-[comment][aClass.model()/][/comment]
-[aClass.controller()/]
-[aClass.service()/]
-[comment][aClass.implementation()/][/comment]
-[comment][aClass.repository()/][/comment]
-[comment][aClass.configuration()/][/comment]
+[template public delete(aClass : Class)]
+[comment: Delete one by id /]
+[for (field: Property | aClass.getAllAttributes()) separator('\n')]
+	[if field.isID = true]
+void deleteOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
+	[/if]
+[/for]
 [/template]

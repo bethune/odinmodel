@@ -25,45 +25,46 @@
 	type 		: String = aClass.name.toUpperFirst();
 	parameter	: String = aClass.name.toLowerFirst();}]
 [comment: Update one by id /]
-[for (p: Property | aClass.getAllAttributes()) separator('\n')]
-	[if p.isID = true]
-@PutMapping("/{[p.name.toLowerFirst()/]}")
-public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
-	[entity/] current = [property/]Service.readOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
+[for (field: Property | aClass.getAllAttributes()) separator('\n')]
+	[if field.isID = true]
+@PutMapping("/{[field.name.toLowerFirst()/]}")
+public [type/] updateOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	[foreignKeys(aClass)/]
 	[fields(aClass)/]			
-	return [property/]Service.createUpdate(current);
+	return [parameter/]Service.createUpdate(current);
 }
 	[/if]
 [/for]
 
-[for (p1: Property | aClass.getAllAttributes()) separator('\n')]
-	[if p1.isID = true]
-		[for (p : Property | aClass.getAssociations().memberEnd)]
+[comment: Update one by id with IRIC /]
+[for (field: Property | aClass.getAllAttributes()) separator('\n')]
+	[if field.isID = true]
+		[for (relationship : Property | aClass.getAssociations().memberEnd)]
 			[comment: IRIC for manyToOne /]
-			[if p.lower = 1 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-				[for (pack : Package | aClass._package)]
-					[for (m : Class | pack.member -> filter(Class))]
-						[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-							[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-								[if a.isID = true]
-@PutMapping("/{[p1.name.toLowerFirst()/]}/[p.opposite.type.name.toLowerFirst()/]")
-public [entity/] updateOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type.name.toUpperFirst()/] [p1.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
-	[entity/] current = [property/]Service.readOneBy[p1.name.toUpperFirst()/]([p1.name.toLowerFirst()/]);
-	if (current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]() == [property/].get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]()) {
+			[if relationship.lower = 1 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+				relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+				[for (p : Package | aClass._package)]
+					[for (oppositeEntity : Class | p.member -> filter(Class))]
+						[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+								[if oppositeEntityField.isID = true]
+@PutMapping("/{[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
+public [type/] updateOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+	if (current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]() == [parameter/].get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]()) {
 		[foreignKeys(aClass)/]
 		[fields(aClass)/]			
-		return [property/]Service.createUpdate(current);
+		return [parameter/]Service.createUpdate(current);
 	} else {
-	    Iterable<[entity/]> listOf[entity/] = [property/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/](current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]());
-	    Long size = listOf[entity/].spliterator().getExactSizeIfKnown();
+	    Iterable<[type/]> listOf[type/] = [parameter/]Service.readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/](current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]());
+	    Long size = listOf[type/].spliterator().getExactSizeIfKnown();
 	    if (size == 1) {
 			return current;
 	    } else {
 			[foreignKeys(aClass)/]
 			[fields(aClass)/]			
-			return [property/]Service.createUpdate(current);
+			return [parameter/]Service.createUpdate(current);
 	    }
 	}
 }
@@ -78,45 +79,46 @@ public [entity/] updateOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type
 [/for]
 
 [comment: Update one by field with unique values /]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-	[if p.isUnique = true and p.isID = false]
-@PutMapping("/[p.name.toLowerFirst()/]={[p.name.toLowerFirst()/]}")
-public [entity/] updateOneBy[p.name.toUpperFirst()/](@PathVariable [p.type.name.toUpperFirst()/] [p.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
-	[entity/] current = [property/]Service.readOneBy[p.name.toUpperFirst()/]([p.name.toLowerFirst()/]);
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+	[if field.isUnique = true and field.isID = false]
+@PutMapping("/[field.name.toLowerFirst()/]={[field.name.toLowerFirst()/]}")
+public [type/] updateOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	[foreignKeys(aClass)/]
 	[fields(aClass)/]			
-	return [property/]Service.createUpdate(current);		
+	return [parameter/]Service.createUpdate(current);		
 }
 	[/if]
 [/for]
 
-[for (p1: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-	[if p1.isUnique = true and p1.isID = false]
-		[for (p : Property | aClass.getAssociations().memberEnd)]
+[comment: Update one by field with unique values with IRIC /]
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+	[if field.isUnique = true and field.isID = false]
+		[for (relationship : Property | aClass.getAssociations().memberEnd)]
 			[comment: IRIC for manyToOne /]
-			[if p.lower = 1 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-				p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-				[for (pack : Package | aClass._package)]
-					[for (m : Class | pack.member -> filter(Class))]
-						[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-							[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-								[if a.isID = true]
-@PutMapping("/[p1.name.toLowerFirst()/]={[p1.name.toLowerFirst()/]}/[p.opposite.type.name.toLowerFirst()/]")
-public [entity/] updateOneBy[p1.name.toUpperFirst()/]Iric(@PathVariable [p1.type.name.toUpperFirst()/] [p1.name.toLowerFirst()/], @RequestBody [entity/] [property/]) {
-	[entity/] current = [property/]Service.readOneBy[p1.name.toUpperFirst()/]([p1.name.toLowerFirst()/]);
-	if (current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]() == [property/].get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]()) {
+			[if relationship.lower = 1 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+				relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+				[for (p : Package | aClass._package)]
+					[for (oppositeEntity : Class | p.member -> filter(Class))]
+						[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+								[if oppositeEntityField.isID = true]
+@PutMapping("/[field.name.toLowerFirst()/]={[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
+public [type/] updateOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+	if (current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]() == [parameter/].get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]()) {
 		[foreignKeys(aClass)/]
 		[fields(aClass)/]			
-		return [property/]Service.createUpdate(current);
+		return [parameter/]Service.createUpdate(current);
 	} else {
-	    Iterable<[entity/]> listOf[entity/] = [property/]Service.readAllBy[p.opposite.type.name.toUpperFirst()/][a.name.toUpperFirst()/](current.get[p.opposite.type.name.toUpperFirst()/]().get[a.name.toUpperFirst()/]());
-	    Long size = listOf[entity/].spliterator().getExactSizeIfKnown();
+	    Iterable<[type/]> listOf[type/] = [parameter/]Service.readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/](current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]());
+	    Long size = listOf[type/].spliterator().getExactSizeIfKnown();
 	    if (size == 1) {
 			return current;
 	    } else {
 			[foreignKeys(aClass)/]
 			[fields(aClass)/]			
-			return [property/]Service.createUpdate(current);
+			return [parameter/]Service.createUpdate(current);
 	    }
 	}
 }
@@ -138,28 +140,28 @@ subtemplates
 /]
 
 [template public foreignKeys(aClass : Class){
-	entity 		: String = aClass.name.toUpperFirst();
-	property	: String = aClass.name.toLowerFirst();}]
-[for (p : Property | aClass.getAssociations().memberEnd)]
+	type 		: String = aClass.name.toUpperFirst();
+	parameter	: String = aClass.name.toLowerFirst();}]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
 	[comment : ManyToOne/]
-	[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+current.set[relationship.opposite.type.name.toUpperFirst()/]([parameter/].get[relationship.opposite.type.name.toUpperFirst()/]());
 	[/if]
 	[comment : OneToOne/]
-	[if (p.lower = 0 or p.lower = 1) and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-current.set[p.opposite.type.name.toUpperFirst()/]([property/].get[p.opposite.type.name.toUpperFirst()/]());
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+current.set[relationship.opposite.type.name.toUpperFirst()/]([parameter/].get[relationship.opposite.type.name.toUpperFirst()/]());
 	[/if]
 	[comment : ManyToMany/]
-	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-current.set[p.opposite.type.name.toUpperFirst()/]Set([property/].get[p.opposite.type.name.toUpperFirst()/]Set());
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+current.set[relationship.opposite.type.name.toUpperFirst()/]Set([parameter/].get[relationship.opposite.type.name.toUpperFirst()/]Set());
 	[/if]
 	[comment : OneToMany/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-current.set[p.opposite.type.name.toUpperFirst()/]List([property/].get[p.opposite.type.name.toUpperFirst()/]List());
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+current.set[relationship.opposite.type.name.toUpperFirst()/]List([parameter/].get[relationship.opposite.type.name.toUpperFirst()/]List());
 	[/if]
 [/for]
 [/template]
@@ -167,10 +169,10 @@ current.set[p.opposite.type.name.toUpperFirst()/]List([property/].get[p.opposite
 [comment:----------------------------------------------------------------------------------------------------/]
 
 [template public fields(aClass : Class){
-	property	: String = aClass.name.toLowerFirst();}]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
-	[if p.isID = false]	
-current.set[p.name.toUpperFirst()/]([property/].get[p.name.toUpperFirst()/]());
+	parameter	: String = aClass.name.toLowerFirst();}]
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
+	[if field.isID = false]	
+current.set[field.name.toUpperFirst()/]([parameter/].get[field.name.toUpperFirst()/]());
 	[/if]
 [/for]
 [/template]

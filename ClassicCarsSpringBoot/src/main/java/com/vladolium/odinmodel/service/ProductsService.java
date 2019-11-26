@@ -7,12 +7,18 @@ import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Products;
 import com.vladolium.odinmodel.domain.Products.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 
 public interface ProductsService {
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	Products createUpdate(Products products);
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -21,24 +27,21 @@ public interface ProductsService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	Products readOneByProductCode(String productCode);
+	
+	
+	
+	
+	
+	
 	
 	
 	Iterable<Products> readAll();
 	
 	Page<Products> readAllPagination(Pageable page);
+	
+	
+	
 	
 	Iterable <Products> readAllByProductLinesId(Long productLinesId);
 	
@@ -48,49 +51,46 @@ public interface ProductsService {
 	
 	
 	
-	
-	
-	
 	Iterable<Products> search(
+		
+		
+		
 		Long productLinesId,
-		
-		
-		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
-		String productScale,
 		String productCode,
+		Double msrp,
+		Integer quantityInStock,
+		Double buyPrice,
+		String productName,
+		String productScale,
 		String productVendor
 		
 	);
 	
 	Page<Products> searchPagination(
 		Pageable page,
+		
+		
+		
 		Long productLinesId,
-		
-		
-		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
-		String productScale,
 		String productCode,
+		Double msrp,
+		Integer quantityInStock,
+		Double buyPrice,
+		String productName,
+		String productScale,
 		String productVendor
 		
 	);
 	
+	
+	
+	
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
-	
-	
-	
 	
 	
 	
