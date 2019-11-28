@@ -1,0 +1,95 @@
+[comment encoding = UTF-8 /]
+[module readAll('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+
+[/comment]
+
+[template public readAll(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();
+	parameter	: String = aClass.name.toLowerFirst();}]
+[comment: Read all /]
+@Override
+public Iterable<[type/]> readAll() {
+	return [parameter/]Repository.findAll();
+}
+
+[comment: Read all with pagination /]
+@Override
+public Page<[type/]> readAllPagination(Pageable page) {
+	return [parameter/]Repository.findAll(page);
+}
+
+[comment: Read all by parent id in many to one relationship /]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[comment: Read all by parent id /]
+@Override
+public Iterable<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+}
+
+[comment: Read all by parent id with pagination /]
+@Override
+public Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], page);
+}
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+[/for]
+
+[comment: Read all by parent unique field in many to one relationship /]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isUnique = true and oppositeEntityField.isID = false]
+[comment: Read all by parent unique field /]
+@Override
+public Iterable<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+}
+
+[comment: Read all by parent unique field with pagination /]
+@Override
+public Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], page);
+}
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+[/for]
+[/template]

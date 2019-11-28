@@ -4,19 +4,19 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="model/model.emtl#/0"/>
-    <imports href="controller/controller.emtl#/0"/>
-    <imports href="service/service.emtl#/0"/>
-    <imports href="implementation/implementation.emtl#/0"/>
-    <imports href="repository/repository.emtl#/0"/>
-    <imports href="configuration/configuration.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/model/model.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/controller.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/service/service.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/implementation.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/repository/repository.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/configuration/configuration.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="100" endPosition="914" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="springboot" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="controller/controller.emtl#/0/controller"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/controller.emtl#/0/controller"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/springboot/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -24,7 +24,15 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="service/service.emtl#/0/service"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/service/service.emtl#/0/service"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/springboot/aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/implementation.emtl#/0/implementation"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/springboot/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -70,7 +78,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="controller/controller.emtl#/0/controller"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/controller.emtl#/0/controller"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -82,7 +90,19 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="service/service.emtl#/0/service"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/service/service.emtl#/0/service"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="implementation">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/implementation.emtl#/0/implementation"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -135,6 +155,9 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
@@ -145,7 +168,7 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/springboot">
       <details key="start" value="1363"/>
-      <details key="end" value="1632"/>
+      <details key="end" value="1613"/>
       <details key="line" value="30"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/springboot/%">
@@ -178,7 +201,22 @@
       <details key="end" value="1488"/>
       <details key="line" value="34"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/springboot/aClass">
+    <eAnnotations source="positions.8" references="/0/springboot/%.4">
+      <details key="start" value="1489"/>
+      <details key="end" value="1512"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/springboot/%.4/aClass">
+      <details key="start" value="1489"/>
+      <details key="end" value="1495"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/springboot/%.5">
+      <details key="start" value="1514"/>
+      <details key="end" value="1515"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/springboot/aClass">
       <details key="start" value="1391"/>
       <details key="end" value="1405"/>
       <details key="line" value="30"/>

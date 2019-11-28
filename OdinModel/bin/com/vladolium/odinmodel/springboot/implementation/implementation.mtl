@@ -1,3 +1,6 @@
+[comment encoding = UTF-8 /]
+[module implementation('http://www.eclipse.org/uml2/5.0.0/UML')]
+
 [comment]
 
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
@@ -18,9 +21,60 @@
     along with this program.  If not, see https://www.gnu.org/licenses/.
 
 [/comment]
-[comment encoding = UTF-8 /]
-[module implementation('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public implementation(aClass : Class)]
+[import com::vladolium::odinmodel::springboot::implementation::path::createUpdate /]
+[import com::vladolium::odinmodel::springboot::implementation::path::readOne /]
+[import com::vladolium::odinmodel::springboot::implementation::path::readAll /]
+[import com::vladolium::odinmodel::springboot::implementation::path::searchQueryDSL /]
+[import com::vladolium::odinmodel::springboot::implementation::path::delete /]
 
+[template public implementation(aClass : Class){
+	isEntity 		: Boolean = aClass.isAbstract = false;
+	packagePath 	: String = aClass._package.name.toLowerCase();
+	serviceImplPath : String = aClass._package.name.replaceAll('/', '.').toLowerCase();
+	type 			: String = aClass.name.toUpperFirst();
+	parameter		: String = aClass.name.toLowerFirst();}]
+[if isEntity]
+	[file ('src/main/java/' + packagePath + '/serviceImpl/' + type + 'ServiceImpl.java', false, 'UTF-8')]
+package [serviceImplPath/].serviceImpl;
+
+import [serviceImplPath/].domain.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.data.domain.*;
+import org.springframework.transaction.annotation.Transactional;
+import java.time.*;
+import java.util.*;
+import [serviceImplPath/].repository.*;
+import [serviceImplPath/].repository.[type/]Repository;
+import [serviceImplPath/].service.[type/]Service;
+import [serviceImplPath/].domain.*;
+import [serviceImplPath/].domain.[type/];
+import [serviceImplPath/].domain.[type/].*;
+import [serviceImplPath/].wrapperRequest.*;
+import com.querydsl.core.BooleanBuilder;
+
+@Service
+@Transactional
+public class [type/]ServiceImpl implements [type/]Service {
+
+	private [type/]Repository [parameter/]Repository;
+
+	@Autowired
+	public void set[type/]Repository([type/]Repository [parameter/]Repository) {
+		this.[parameter/]Repository = [parameter/]Repository;
+	}
+
+	[aClass.createUpdate()/]
+	[aClass.readOne()/]
+	[aClass.readAll()/]
+	[aClass.searchQueryDSL()/]
+	[aClass.delete()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this serviceImpl')]
+//[/protected]
+}
+	[/file]
+[/if]
 [/template]

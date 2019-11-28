@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[module createUpdate('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+[/comment]
+
+[template public createUpdate(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();
+	parameter	: String = aClass.name.toLowerFirst();}]
+[comment: Create, update, and update one with IRIC /]
+// covers create, update and update with IRIC
+@Override
+public [type/] createUpdate([type/] [parameter/]) {
+	return [parameter/]Repository.save([parameter/]);
+}
+
+[comment: Create one with IRIC /]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
+	[comment: IRIC for manyToOne /]
+	[if relationship.lower = 1 and relationship.upper = -1 and relationship.opposite.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1] 
+private [relationship.type.name.toUpperFirst()/]Repository [relationship.type.name.toLowerFirst()/]Repository;
+
+public [type/] createOneIric([type/][relationship.type.name.toUpperFirst()/] [parameter/][relationship.type.name.toUpperFirst()/]) {
+	[type/] current[type/] = [parameter/]Repository.save([parameter/][relationship.type.name.toUpperFirst()/].get[type/]());
+	[relationship.type.name.toUpperFirst()/] current[relationship.type.name.toUpperFirst()/] = [parameter/][relationship.type.name.toUpperFirst()/].get[relationship.type.name.toUpperFirst()/]();
+	current[relationship.type.name.toUpperFirst()/].set[type/]([parameter/]Repository.getOne(current[type/].getId()));
+	[relationship.type.name.toLowerFirst()/]Repository.save(current[relationship.type.name.toUpperFirst()/]);
+	return current[type/];
+}
+	[/if]
+[/for]
+[/template]

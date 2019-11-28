@@ -31,7 +31,7 @@
 [comment][aClass.model()/][/comment]
 [aClass.controller()/]
 [aClass.service()/]
-[comment][aClass.implementation()/][/comment]
+[aClass.implementation()/]
 [comment][aClass.repository()/][/comment]
 [comment][aClass.configuration()/][/comment]
 [/template]
