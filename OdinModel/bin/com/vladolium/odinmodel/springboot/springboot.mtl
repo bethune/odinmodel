@@ -20,7 +20,7 @@
     along with this program.  If not, see https://www.gnu.org/licenses/.
 [/comment]
 
-[import com::vladolium::odinmodel::springboot::model::model /]
+[import com::vladolium::odinmodel::springboot::model::entity /]
 [import com::vladolium::odinmodel::springboot::controller::controller /]
 [import com::vladolium::odinmodel::springboot::service::service /]
 [import com::vladolium::odinmodel::springboot::implementation::implementation /]
@@ -32,6 +32,6 @@
 [aClass.controller()/]
 [aClass.service()/]
 [aClass.implementation()/]
-[comment][aClass.repository()/][/comment]
-[comment][aClass.configuration()/][/comment]
+[aClass.repository()/]
+[aClass.configuration()/]
 [/template]

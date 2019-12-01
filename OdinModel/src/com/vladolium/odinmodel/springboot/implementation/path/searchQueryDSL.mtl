@@ -156,16 +156,16 @@ String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aCla
 [template public queryParameters(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();}]
 [comment: foreign keys/]
-[for (p : Property | aClass.getAssociations().memberEnd)]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
 	[comment : ManyToOne/]
-	[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-		[for (pack : Package | aClass._package)]
-			[for (m : Class | pack.member -> filter(Class))]
-				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-					[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-						[if a.isID = true]
-[p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
 						[/if]
 					[/for]
 				[/if]
@@ -173,14 +173,14 @@ String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aCla
 		[/for]
 	[/if]
 	[comment : OneToOne/]
-	[if (p.lower = 0 or p.lower = 1) and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-		[for (pack : Package | aClass._package)]
-			[for (m : Class | pack.member -> filter(Class))]
-				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-					[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-						[if a.isID = true]
-[p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/],
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
 						[/if]
 					[/for]
 				[/if]
@@ -188,19 +188,19 @@ String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aCla
 		[/for]
 	[/if]
 	[comment : ManyToMany/]
-	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-[p.opposite.type.name.toLowerFirst()/]Set,
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+[relationship.opposite.type.name.toLowerFirst()/]Set,
 	[/if]
 	[comment : OneToMany/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-[p.opposite.type.name.toLowerFirst()/]List,
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+[relationship.opposite.type.name.toLowerFirst()/]List,
 	[/if]
 [/for]
 [comment: fields/]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(p | p.isID = false)) ]
-[p.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+[field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 [/for]
 [/template]
 
@@ -209,17 +209,17 @@ String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aCla
 [template public queryBuilderParameters(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();}]
 [comment: foreign keys/]
-[for (p : Property | aClass.getAssociations().memberEnd)]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
 	[comment : ManyToOne/]
-	[if (p.lower = 0 or p.lower = 1) and p.upper = -1 and p.type.name.toUpperFirst() = entity and 
-		p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-		[for (pack : Package | aClass._package)]
-			[for (m : Class | pack.member -> filter(Class))]
-				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-					[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-						[if a.isID = true]
-if ([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/] != null) {
-	where.and(q[entity/].[p.opposite.type.name.toLowerFirst()/].[a.name.toLowerFirst()/].eq([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/]));
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+if ([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/] != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/].[oppositeEntityField.name.toLowerFirst()/].eq([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]));
 }
 						[/if]
 					[/for]
@@ -228,14 +228,14 @@ if ([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/] != null) {
 		[/for]
 	[/if]
 	[comment : OneToOne/]
-	[if (p.lower = 0 or p.lower = 1) and p.upper = 1 and p.type.name.toUpperFirst() = entity and p.namespace = association and p.opposite.lower = 1 and p.opposite.upper = 1]
-		[for (pack : Package | aClass._package)]
-			[for (m : Class | pack.member -> filter(Class))]
-				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-					[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-						[if a.isID = true]
-if ([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/] != null) {
-	where.and(q[entity/].[p.opposite.type.name.toLowerFirst()/].[a.name.toLowerFirst()/].eq([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/]));
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+if ([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/] != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/].[oppositeEntityField.name.toLowerFirst()/].eq([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]));
 }
 						[/if]
 					[/for]
@@ -244,14 +244,14 @@ if ([p.opposite.type.name.toLowerFirst()/][a.name.toUpperFirst()/] != null) {
 		[/for]
 	[/if]
 	[comment : ManyToMany/]
-	[if p.lower = 0 and p.upper = -1 and p.type.name.toUpperFirst() = entity and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-		[for (pack : Package | aClass._package)]
-			[for (m : Class | pack.member -> filter(Class))]
-				[if (m.name.toLower() <> aClass.name.toLower()) and (m.name.toLower() = p.opposite.type.name.toLower())]
-					[for (a: Property | m.getAllAttributes()->removeAll(m.getAssociations().memberEnd)) separator('\n')]
-						[if a.isID = true]
-if ([p.opposite.type.name.toLowerFirst()/]Set != null) {
-	where.and(q[entity/].[p.opposite.type.name.toLowerFirst()/]Set.any().[a.name.toLowerFirst()/].in([p.opposite.type.name.toLowerFirst()/]Set));
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+if ([relationship.opposite.type.name.toLowerFirst()/]Set != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/]Set.any().[oppositeEntityField.name.toLowerFirst()/].in([relationship.opposite.type.name.toLowerFirst()/]Set));
 }
 						[/if]
 					[/for]
@@ -260,21 +260,21 @@ if ([p.opposite.type.name.toLowerFirst()/]Set != null) {
 		[/for]
 	[/if]
 	[comment : OneToMany/]
-	[if p.lower = 1 and p.upper = 1 and p.type.name.toUpperFirst() = entity and p.namespace = association and p.opposite.lower = 0 and p.opposite.upper = -1]
-if ([p.opposite.type.name.toLowerFirst()/]List != null) {
-	where.and(q[entity/].[p.opposite.type.name.toLowerFirst()/]List.any().in([p.opposite.type.name.toLowerFirst()/]List));
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+if ([relationship.opposite.type.name.toLowerFirst()/]List != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/]List.any().in([relationship.opposite.type.name.toLowerFirst()/]List));
 }
 	[/if]
 [/for]
 [comment: fields/]
-[for (p: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(p | p.isID = false)) ]
-	[if p.type.name = 'String']
-if ([p.name.toLowerFirst()/] != null) {
-	where.and(q[entity/].[p.name.toLowerFirst()/].containsIgnoreCase([p.name.toLowerFirst()/]));
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+	[if field.type.name = 'String']
+if ([field.name.toLowerFirst()/] != null) {
+	where.and(q[type/].[field.name.toLowerFirst()/].containsIgnoreCase([field.name.toLowerFirst()/]));
 }
 	[else]
-if ([p.name.toLowerFirst()/] != null) {
-	where.and(q[entity/].[p.name.toLowerFirst()/].eq([p.name.toLowerFirst()/]));
+if ([field.name.toLowerFirst()/] != null) {
+	where.and(q[type/].[field.name.toLowerFirst()/].eq([field.name.toLowerFirst()/]));
 }
 	[/if]
 [/for]
