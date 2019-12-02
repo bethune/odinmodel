@@ -51,7 +51,7 @@ import [serviceImplPath/].service.[type/]Service;
 import [serviceImplPath/].domain.*;
 import [serviceImplPath/].domain.[type/];
 import [serviceImplPath/].domain.[type/].*;
-import [serviceImplPath/].wrapperRequest.*;
+import [serviceImplPath/].wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service

@@ -13,7 +13,7 @@ import com.vladolium.odinmodel.service.ProductLinesService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.ProductLines;
 import com.vladolium.odinmodel.domain.ProductLines.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -27,7 +27,7 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 		this.productLinesRepository = productLinesRepository;
 	}
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	@Override
 	public ProductLines createUpdate(ProductLines productLines) {
 		return productLinesRepository.save(productLines);
@@ -69,15 +69,15 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	
 	@Override
 	public Iterable<ProductLines> search(
-		String textDescription,
 		byte[] image,
-		String productLine
+		String productLine,
+		String textDescription
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			textDescription,
 			image,
-			productLine
+			productLine,
+			textDescription
 				
 		);
 		return productLinesRepository.findAll(where);
@@ -86,38 +86,38 @@ public class ProductLinesServiceImpl implements ProductLinesService {
 	@Override
 	public Page<ProductLines> searchPagination(
 		Pageable page,
-		String textDescription,
 		byte[] image,
-		String productLine
+		String productLine,
+		String textDescription
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			textDescription,
 			image,
-			productLine
+			productLine,
+			textDescription
 			
 		);
 		return productLinesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		String textDescription,
 		byte[] image,
-		String productLine
+		String productLine,
+		String textDescription
 		
 	) {
 		QProductLines qProductLines = QProductLines.productLines;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (textDescription != null) {
-			where.and(qProductLines.textDescription.eq(textDescription));
-		}
 		if (image != null) {
 			where.and(qProductLines.image.eq(image));
 		}
 		if (productLine != null) {
 			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
+		}
+		if (textDescription != null) {
+			where.and(qProductLines.textDescription.eq(textDescription));
 		}
 		
 	

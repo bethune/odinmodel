@@ -1,5 +1,3 @@
-
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -12,6 +10,7 @@ import java.util.*;
 @Entity
 public class Offices extends ContactDetails {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,8 +21,6 @@ public class Offices extends ContactDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
 	
 	
 	
@@ -60,10 +57,9 @@ public class Offices extends ContactDetails {
 	
 	
 	
+	
 		
 //Code between start and end will not be removed during generation.
 //Start of user code for this inheriting entity
 //End of user code
 }
-
-	

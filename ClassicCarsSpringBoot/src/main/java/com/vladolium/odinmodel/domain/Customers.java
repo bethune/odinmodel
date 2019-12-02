@@ -1,5 +1,3 @@
-
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -12,11 +10,6 @@ import java.util.*;
 @Entity
 public class Customers extends ContactDetails {
 
-	
-	
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -27,6 +20,12 @@ public class Customers extends ContactDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -53,16 +52,6 @@ public class Customers extends ContactDetails {
 	
 	
 	
-	@NotNull
-	@Size(max=50)
-	private String lastName;
-	
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 	
 	@NotNull
 	@Size(max=50)
@@ -75,6 +64,19 @@ public class Customers extends ContactDetails {
 		this.firstName = firstName;
 	}
 	
+	
+	@NotNull
+	@Size(max=50)
+	private String lastName;
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	
 	@NotNull
 	@Column(unique=true)
 	@Size(max=50)
@@ -86,10 +88,6 @@ public class Customers extends ContactDetails {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -176,5 +174,3 @@ public class Customers extends ContactDetails {
 //Start of user code for this inheriting entity
 //End of user code
 }
-
-	

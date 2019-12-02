@@ -31,21 +31,27 @@ public class OrdersController {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 	@PutMapping("/{id}")
 	public Orders updateOneById(@PathVariable Long id, @RequestBody Orders orders) {
 		Orders current = ordersService.readOneById(id);
 		current.setCustomers(orders.getCustomers());
 		
-		
 		current.setOrderDate(orders.getOrderDate());
-		
-		current.setRequiredDate(orders.getRequiredDate());
-		
-		current.setShippedDate(orders.getShippedDate());
 		
 		current.setStatus(orders.getStatus());
 		
+		current.setRequiredDate(orders.getRequiredDate());
+		
 		current.setComments(orders.getComments());
+		
+		current.setShippedDate(orders.getShippedDate());
+		
 					
 		return ordersService.createUpdate(current);
 	}
@@ -86,12 +92,6 @@ public class OrdersController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	@GetMapping("")
 	public Iterable<Orders> readAll() {
 		return ordersService.readAll();
@@ -109,10 +109,6 @@ public class OrdersController {
 	
 	@GetMapping("/search")
 	public Iterable<Orders> search(
-		
-		
-		
-		
 		@RequestParam(value = "customersId", required = false) Long customersId,
 		
 		
@@ -121,18 +117,18 @@ public class OrdersController {
 		
 		
 		
+		
+		
+		
+		
 		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
-		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
-		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
 		@RequestParam(value = "status", required = false) String status,
-		@RequestParam(value = "comments", required = false) String comments
+		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
+		@RequestParam(value = "comments", required = false) String comments,
+		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate
 		
 	) {
 		return ordersService.search(
-			
-			
-			
-			
 			customersId,
 			
 			
@@ -141,11 +137,15 @@ public class OrdersController {
 			
 			
 			
+			
+			
+			
+			
 			orderDate,
-			requiredDate,
-			shippedDate,
 			status,
-			comments
+			requiredDate,
+			comments,
+			shippedDate
 			
 		);
 	}
@@ -154,10 +154,6 @@ public class OrdersController {
 	public Page<Orders> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		
-		
-		
-		
 		@RequestParam(value = "customersId", required = false) Long customersId,
 		
 		
@@ -166,21 +162,21 @@ public class OrdersController {
 		
 		
 		
+		
+		
+		
+		
 		@RequestParam(value = "orderDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate orderDate,
-		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
-		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate,
 		@RequestParam(value = "status", required = false) String status,
-		@RequestParam(value = "comments", required = false) String comments
+		@RequestParam(value = "requiredDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate requiredDate,
+		@RequestParam(value = "comments", required = false) String comments,
+		@RequestParam(value = "shippedDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate shippedDate
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return ordersService.searchPagination(
 			page,
-			
-			
-			
-			
 			customersId,
 			
 			
@@ -189,24 +185,28 @@ public class OrdersController {
 			
 			
 			
+			
+			
+			
+			
 			orderDate,
-			requiredDate,
-			shippedDate,
 			status,
-			comments
+			requiredDate,
+			comments,
+			shippedDate
 			
 		);
 	}
+	
+	
+	
+	
+	
+	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		ordersService.deleteOneById(id);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	

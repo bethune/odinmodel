@@ -1,4 +1,3 @@
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -33,6 +32,8 @@ public class Reviews {
 	
 	
 	
+	
+	
 	@NotNull
 	@Size(max=4000)
 	private String reviewText;
@@ -43,11 +44,6 @@ public class Reviews {
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
 	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -65,6 +61,10 @@ public class Reviews {
 	public void setReviewDate(LocalDate reviewDate) {
 		this.reviewDate = reviewDate;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -104,12 +104,8 @@ public class Reviews {
 	
 	
 	
-	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this entity
 //End of user code
 }
-
-
-	

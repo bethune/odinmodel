@@ -13,7 +13,7 @@ import com.vladolium.odinmodel.service.ProductsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Products;
 import com.vladolium.odinmodel.domain.Products.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -27,12 +27,11 @@ public class ProductsServiceImpl implements ProductsService {
 		this.productsRepository = productsRepository;
 	}
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	@Override
 	public Products createUpdate(Products products) {
 		return productsRepository.save(products);
 	}
-	
 	
 	
 	@Override
@@ -51,14 +50,15 @@ public class ProductsServiceImpl implements ProductsService {
 	
 	
 	
-	
-	
-	
-	
 	@Override
 	public Products readOneByProductCode(String productCode) {
 		return productsRepository.findByProductCodeEquals(productCode);
 	}
+	
+	
+	
+	
+	
 	
 	
 	@Override
@@ -94,14 +94,14 @@ public class ProductsServiceImpl implements ProductsService {
 		
 		
 		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
-		String productScale,
 		String productCode,
-		String productVendor
+		Double buyPrice,
+		Integer quantityInStock,
+		Double msrp,
+		String productScale,
+		String productVendor,
+		String productName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -109,14 +109,14 @@ public class ProductsServiceImpl implements ProductsService {
 			
 			
 			
-			quantityInStock,
-			productName,
-			msrp,
-			buyPrice,
 			productDescription,
-			productScale,
 			productCode,
-			productVendor
+			buyPrice,
+			quantityInStock,
+			msrp,
+			productScale,
+			productVendor,
+			productName
 				
 		);
 		return productsRepository.findAll(where);
@@ -129,14 +129,14 @@ public class ProductsServiceImpl implements ProductsService {
 		
 		
 		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
-		String productScale,
 		String productCode,
-		String productVendor
+		Double buyPrice,
+		Integer quantityInStock,
+		Double msrp,
+		String productScale,
+		String productVendor,
+		String productName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
@@ -144,14 +144,14 @@ public class ProductsServiceImpl implements ProductsService {
 			
 			
 			
-			quantityInStock,
-			productName,
-			msrp,
-			buyPrice,
 			productDescription,
-			productScale,
 			productCode,
-			productVendor
+			buyPrice,
+			quantityInStock,
+			msrp,
+			productScale,
+			productVendor,
+			productName
 			
 		);
 		return productsRepository.findAll(where, page);
@@ -162,14 +162,14 @@ public class ProductsServiceImpl implements ProductsService {
 		
 		
 		
-		Integer quantityInStock,
-		String productName,
-		Double msrp,
-		Double buyPrice,
 		String productDescription,
-		String productScale,
 		String productCode,
-		String productVendor
+		Double buyPrice,
+		Integer quantityInStock,
+		Double msrp,
+		String productScale,
+		String productVendor,
+		String productName
 		
 	) {
 		QProducts qProducts = QProducts.products;
@@ -182,40 +182,40 @@ public class ProductsServiceImpl implements ProductsService {
 		
 		
 		
-		if (quantityInStock != null) {
-			where.and(qProducts.quantityInStock.eq(quantityInStock));
-		}
-		if (productName != null) {
-			where.and(qProducts.productName.containsIgnoreCase(productName));
-		}
-		if (msrp != null) {
-			where.and(qProducts.msrp.eq(msrp));
-		}
-		if (buyPrice != null) {
-			where.and(qProducts.buyPrice.eq(buyPrice));
-		}
 		if (productDescription != null) {
 			where.and(qProducts.productDescription.eq(productDescription));
-		}
-		if (productScale != null) {
-			where.and(qProducts.productScale.containsIgnoreCase(productScale));
 		}
 		if (productCode != null) {
 			where.and(qProducts.productCode.containsIgnoreCase(productCode));
 		}
+		if (buyPrice != null) {
+			where.and(qProducts.buyPrice.eq(buyPrice));
+		}
+		if (quantityInStock != null) {
+			where.and(qProducts.quantityInStock.eq(quantityInStock));
+		}
+		if (msrp != null) {
+			where.and(qProducts.msrp.eq(msrp));
+		}
+		if (productScale != null) {
+			where.and(qProducts.productScale.containsIgnoreCase(productScale));
+		}
 		if (productVendor != null) {
 			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
+		if (productName != null) {
+			where.and(qProducts.productName.containsIgnoreCase(productName));
 		}
 		
 	
 		return where;
 	}
 	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    productsRepository.deleteById(id);
 	}
+	
 	
 	
 	

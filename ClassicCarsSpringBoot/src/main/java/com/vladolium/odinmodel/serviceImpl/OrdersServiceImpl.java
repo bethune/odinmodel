@@ -13,7 +13,7 @@ import com.vladolium.odinmodel.service.OrdersService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Orders;
 import com.vladolium.odinmodel.domain.Orders.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -27,7 +27,7 @@ public class OrdersServiceImpl implements OrdersService {
 		this.ordersRepository = ordersRepository;
 	}
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	@Override
 	public Orders createUpdate(Orders orders) {
 		return ordersRepository.save(orders);
@@ -36,14 +36,14 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public Orders readOneById(Long id) {
 		return ordersRepository.getOne(id);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -61,14 +61,6 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersRepository.findAll(page);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Orders> readAllByCustomersId(Long customersId) {
 		return ordersRepository.findByCustomersIdEquals(customersId);
@@ -78,6 +70,22 @@ public class OrdersServiceImpl implements OrdersService {
 	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
 		return ordersRepository.findByCustomersIdEquals(customersId, page);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -95,53 +103,45 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Orders> search(
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
+		
+		
+		
+		
+		
+		
+		
+		
 		LocalDate orderDate,
 		String status,
-		LocalDate requiredDate
+		LocalDate requiredDate,
+		String comments,
+		LocalDate shippedDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
-			
-			
-			
 			customersId,
 			
 			
 			
-			shippedDate,
-			comments,
+			
+			
+			
+			
+			
+			
+			
+			
 			orderDate,
 			status,
-			requiredDate
+			requiredDate,
+			comments,
+			shippedDate
 				
 		);
 		return ordersRepository.findAll(where);
@@ -150,92 +150,86 @@ public class OrdersServiceImpl implements OrdersService {
 	@Override
 	public Page<Orders> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
+		
+		
+		
+		
+		
+		
+		
+		
 		LocalDate orderDate,
 		String status,
-		LocalDate requiredDate
+		LocalDate requiredDate,
+		String comments,
+		LocalDate shippedDate
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
-			
-			
-			
 			customersId,
 			
 			
 			
-			shippedDate,
-			comments,
+			
+			
+			
+			
+			
+			
+			
+			
 			orderDate,
 			status,
-			requiredDate
+			requiredDate,
+			comments,
+			shippedDate
 			
 		);
 		return ordersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
-		LocalDate shippedDate,
-		String comments,
+		
+		
+		
+		
+		
+		
+		
+		
 		LocalDate orderDate,
 		String status,
-		LocalDate requiredDate
+		LocalDate requiredDate,
+		String comments,
+		LocalDate shippedDate
 		
 	) {
 		QOrders qOrders = QOrders.orders;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
-		
-		
-		
-		
-		
-		
-		
 		if (customersId != null) {
 			where.and(qOrders.customers.id.eq(customersId));
 		}
 		
 		
 		
-		if (shippedDate != null) {
-			where.and(qOrders.shippedDate.eq(shippedDate));
-		}
-		if (comments != null) {
-			where.and(qOrders.comments.eq(comments));
-		}
+		
+		
+		
+		
+		
+		
+		
+		
 		if (orderDate != null) {
 			where.and(qOrders.orderDate.eq(orderDate));
 		}
@@ -245,6 +239,12 @@ public class OrdersServiceImpl implements OrdersService {
 		if (requiredDate != null) {
 			where.and(qOrders.requiredDate.eq(requiredDate));
 		}
+		if (comments != null) {
+			where.and(qOrders.comments.eq(comments));
+		}
+		if (shippedDate != null) {
+			where.and(qOrders.shippedDate.eq(shippedDate));
+		}
 		
 	
 		return where;
@@ -252,14 +252,14 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    ordersRepository.deleteById(id);
 	}
-	
-	
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

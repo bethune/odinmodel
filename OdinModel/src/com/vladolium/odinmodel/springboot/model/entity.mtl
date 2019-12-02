@@ -48,25 +48,67 @@ subtemplates
 ----------------------------------------------------------------------------------------------------
 /]
 
-[import com::vladolium::odinmodel::model::entities::javaImports /]
-[import com::vladolium::odinmodel::model::fields::field /]
-[import com::vladolium::odinmodel::model::relationships::relationship /]
+[import com::vladolium::odinmodel::springboot::model::imports /]
+[import com::vladolium::odinmodel::springboot::model::field::field /]
+[import com::vladolium::odinmodel::springboot::model::relationship::relationship /]
 
 [template public commonEntity(aClass : Class){
 	packageName		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
 	type	 		: String = aClass.name.toUpperFirst();}]
 package [packageName/];
 
-[aClass.javaImports()/]
+[aClass.imports()/]
 
 @Entity
 public class [type/] {
 
-	[aClass.fieldImports()/]
-	[aClass.relationshipImports()/]
+	[aClass.field()/]
+	[aClass.relationship()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this entity')]
+//[/protected]
+}
+[/template]
+
+[comment:----------------------------------------------------------------------------------------------------/]
+
+[template public inheritingEntity(aClass : Class){
+	packageName		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
+	type	 		: String = aClass.name.toUpperFirst();
+	abstract	 	: Collection(T) = aClass.general.name.toUpperFirst();}]
+package [packageName/];
+
+[aClass.imports()/]
+
+@Entity
+public class [type/] extends [abstract/] {
+
+	[aClass.field()/]
+	[aClass.relationship()/]
+		
+//Code between start and end will not be removed during generation.
+//[protected ('for this inheriting entity')]
+//[/protected]
+}
+[/template]
+
+[comment:----------------------------------------------------------------------------------------------------/]
+
+[template public abstractClass(aClass : Class){
+	packageName		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
+	type	 		: String = aClass.name.toUpperFirst();}]
+package [packageName/];
+
+[aClass.imports()/]
+
+@MappedSuperclass
+public abstract class [type/] {
+
+	[aClass.field()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this abstract class')]
 //[/protected]
 }
 [/template]

@@ -15,8 +15,8 @@ public interface ReviewsService {
 	Reviews createUpdate(Reviews reviews);
 	
 	
-	Reviews readOneById(Long id);
 	
+	Reviews readOneById(Long id);
 	
 	
 	
@@ -31,21 +31,21 @@ public interface ReviewsService {
 	
 	
 	Iterable<Reviews> search(
-		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText,
-		LocalDate reviewDate
+		LocalTime reviewTime
 		
 	);
 	
 	Page<Reviews> searchPagination(
 		Pageable page,
-		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText,
-		LocalDate reviewDate
+		LocalTime reviewTime
 		
 	);
-	void deleteOneById(Long id);
 	
+	void deleteOneById(Long id);
 	
 	
 	

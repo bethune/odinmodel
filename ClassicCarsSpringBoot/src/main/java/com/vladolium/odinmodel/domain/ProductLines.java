@@ -1,4 +1,3 @@
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -21,7 +20,6 @@ public class ProductLines {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	
 	
 	
@@ -72,6 +70,9 @@ public class ProductLines {
 	
 	
 	
+	
+	
+	
 	@NotNull
 	@Size(max=4000)
 	@Lob
@@ -83,9 +84,6 @@ public class ProductLines {
 	public void setTextDescription(String textDescription) {
 		this.textDescription = textDescription;
 	}
-	
-	
-	
 	
 	
 	@Lob
@@ -103,11 +101,9 @@ public class ProductLines {
 	
 	
 	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this entity
 //End of user code
 }
-
-
-	

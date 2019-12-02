@@ -28,9 +28,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-<!--Code between start and end will not be removed during generation.-->
-//[protected ('for this pom.xml')]
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -46,7 +43,7 @@
 	<description>Spring Boot Demo project for OdinModel</description>
 	-->
 
-	<groupId>[model.URI.toLowerCase()/]</groupId>
+	<groupId>[model.name.toLowerCase()/]</groupId>
 	<artifactId>[model.name.toLowerCase()/]</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>[model.name.toLowerCase()/]</name>
@@ -149,6 +146,5 @@
 	</build>
 
 </project>
-//[/protected]
 [/file]
 [/template]

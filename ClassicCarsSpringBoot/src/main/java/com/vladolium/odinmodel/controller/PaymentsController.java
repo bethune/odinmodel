@@ -31,19 +31,23 @@ public class PaymentsController {
 	}
 	
 	
+	
+	
+	
+	
 	@PutMapping("/{id}")
 	public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payments) {
 		Payments current = paymentsService.readOneById(id);
 		current.setCustomers(payments.getCustomers());
 		
-		
-		current.setAmount(payments.getAmount());
-		
-		current.setPaymentDate(payments.getPaymentDate());
+		current.setPaymentTimestamp(payments.getPaymentTimestamp());
 		
 		current.setCheckNumber(payments.getCheckNumber());
 		
-		current.setPaymentTimestamp(payments.getPaymentTimestamp());
+		current.setPaymentDate(payments.getPaymentDate());
+		
+		current.setAmount(payments.getAmount());
+		
 					
 		return paymentsService.createUpdate(current);
 	}
@@ -80,10 +84,6 @@ public class PaymentsController {
 	
 	
 	
-	
-	
-	
-	
 	@GetMapping("")
 	public Iterable<Payments> readAll() {
 		return paymentsService.readAll();
@@ -101,10 +101,6 @@ public class PaymentsController {
 	
 	@GetMapping("/search")
 	public Iterable<Payments> search(
-		
-		
-		
-		
 		@RequestParam(value = "customersId", required = false) Long customersId,
 		
 		
@@ -113,17 +109,17 @@ public class PaymentsController {
 		
 		
 		
-		@RequestParam(value = "amount", required = false) Double amount,
-		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
+		
+		
+		
+		
+		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp,
 		@RequestParam(value = "checkNumber", required = false) String checkNumber,
-		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp
+		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
+		@RequestParam(value = "amount", required = false) Double amount
 		
 	) {
 		return paymentsService.search(
-			
-			
-			
-			
 			customersId,
 			
 			
@@ -132,10 +128,14 @@ public class PaymentsController {
 			
 			
 			
-			amount,
-			paymentDate,
+			
+			
+			
+			
+			paymentTimestamp,
 			checkNumber,
-			paymentTimestamp
+			paymentDate,
+			amount
 			
 		);
 	}
@@ -144,10 +144,6 @@ public class PaymentsController {
 	public Page<Payments> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		
-		
-		
-		
 		@RequestParam(value = "customersId", required = false) Long customersId,
 		
 		
@@ -156,20 +152,20 @@ public class PaymentsController {
 		
 		
 		
-		@RequestParam(value = "amount", required = false) Double amount,
-		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
+		
+		
+		
+		
+		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp,
 		@RequestParam(value = "checkNumber", required = false) String checkNumber,
-		@RequestParam(value = "paymentTimestamp", required = false) Instant paymentTimestamp
+		@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate paymentDate,
+		@RequestParam(value = "amount", required = false) Double amount
 		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return paymentsService.searchPagination(
 			page,
-			
-			
-			
-			
 			customersId,
 			
 			
@@ -178,21 +174,25 @@ public class PaymentsController {
 			
 			
 			
-			amount,
-			paymentDate,
+			
+			
+			
+			
+			paymentTimestamp,
 			checkNumber,
-			paymentTimestamp
+			paymentDate,
+			amount
 			
 		);
 	}
+	
+	
+	
+	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		paymentsService.deleteOneById(id);
 	}
-	
-	
-	
-	
 	
 	
 	

@@ -1,4 +1,3 @@
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -14,7 +13,6 @@ public class OrderDetails {
 	
 	
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -25,6 +23,9 @@ public class OrderDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	
 	
 	
 	@NotNull
@@ -39,7 +40,6 @@ public class OrderDetails {
 	}
 	
 	
-	
 	@NotNull
 	private Integer orderLineNumber;
 	
@@ -49,8 +49,6 @@ public class OrderDetails {
 	public void setOrderLineNumber(Integer orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
 	}
-	
-	
 	
 	
 	@NotNull
@@ -63,6 +61,7 @@ public class OrderDetails {
 	public void setPriceEach(Double priceEach) {
 		this.priceEach = priceEach;
 	}
+	
 	
 	
 	
@@ -151,6 +150,3 @@ public class OrderDetails {
 //Start of user code for this entity
 //End of user code
 }
-
-
-	

@@ -28,7 +28,7 @@
 [import com::vladolium::odinmodel::springboot::configuration::configuration /]
 
 [template public springboot(aClass : Class)]
-[comment][aClass.model()/][/comment]
+[aClass.entity()/]
 [aClass.controller()/]
 [aClass.service()/]
 [aClass.implementation()/]

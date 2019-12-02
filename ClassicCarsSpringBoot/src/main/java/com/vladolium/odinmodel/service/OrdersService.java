@@ -15,13 +15,13 @@ public interface OrdersService {
 	Orders createUpdate(Orders orders);
 	
 	
+	
+	
+	
+	
+	
+	
 	Orders readOneById(Long id);
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -33,13 +33,21 @@ public interface OrdersService {
 	
 	Page<Orders> readAllPagination(Pageable page);
 	
-	
-	
-	
-	
 	Iterable <Orders> readAllByCustomersId(Long customersId);
 	
 	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -55,19 +63,7 @@ public interface OrdersService {
 	Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	Iterable<Orders> search(
-		
-		
-		
-		
 		Long customersId,
 		
 		
@@ -76,20 +72,20 @@ public interface OrdersService {
 		
 		
 		
+		
+		
+		
+		
 		LocalDate orderDate,
-		LocalDate requiredDate,
-		LocalDate shippedDate,
 		String status,
-		String comments
+		LocalDate requiredDate,
+		String comments,
+		LocalDate shippedDate
 		
 	);
 	
 	Page<Orders> searchPagination(
 		Pageable page,
-		
-		
-		
-		
 		Long customersId,
 		
 		
@@ -98,20 +94,24 @@ public interface OrdersService {
 		
 		
 		
+		
+		
+		
+		
 		LocalDate orderDate,
-		LocalDate requiredDate,
-		LocalDate shippedDate,
 		String status,
-		String comments
+		LocalDate requiredDate,
+		String comments,
+		LocalDate shippedDate
 		
 	);
+	
+	
+	
+	
+	
+	
 	void deleteOneById(Long id);
-	
-	
-	
-	
-	
-	
 	
 
 //Code between start and end will not be removed during generation.

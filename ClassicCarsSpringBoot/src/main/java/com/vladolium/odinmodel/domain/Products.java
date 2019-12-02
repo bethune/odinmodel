@@ -1,4 +1,3 @@
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -11,7 +10,6 @@ import java.util.*;
 @Entity
 public class Products {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,6 +20,11 @@ public class Products {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -49,20 +52,6 @@ public class Products {
 	
 	
 	
-	
-	
-	
-	
-	@NotNull
-	private Double msrp;
-	
-	public Double getMsrp() {
-		return msrp;
-	}
-	public void setMsrp(Double msrp) {
-		this.msrp = msrp;
-	}
-	
 	@NotNull
 	@DecimalMin("10.00")
 	private Double buyPrice;
@@ -75,6 +64,16 @@ public class Products {
 	}
 	
 	
+	@NotNull
+	private Double msrp;
+	
+	public Double getMsrp() {
+		return msrp;
+	}
+	public void setMsrp(Double msrp) {
+		this.msrp = msrp;
+	}
+	
 	
 	
 	
@@ -82,14 +81,15 @@ public class Products {
 	
 	
 	@NotNull
-	@Size(max=70)
-	private String productName;
+	@Column(unique=true)
+	@Size(max=15)
+	private String productCode;
 	
-	public String getProductName() {
-		return productName;
+	public String getProductCode() {
+		return productCode;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 	
 	
@@ -106,17 +106,6 @@ public class Products {
 		this.productScale = productScale;
 	}
 	
-	@NotNull
-	@Column(unique=true)
-	@Size(max=15)
-	private String productCode;
-	
-	public String getProductCode() {
-		return productCode;
-	}
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
-	}
 	
 	@NotNull
 	@Size(max=50)
@@ -129,10 +118,16 @@ public class Products {
 		this.productVendor = productVendor;
 	}
 	
+	@NotNull
+	@Size(max=70)
+	private String productName;
 	
-	
-	
-	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 	
 	
 	
@@ -221,6 +216,10 @@ public class Products {
 	
 	
 	
+	
+	
+	
+	
 	@ManyToOne
 	@JoinColumn(name="productLines_id")
 	private ProductLines productLines;
@@ -240,6 +239,3 @@ public class Products {
 //Start of user code for this entity
 //End of user code
 }
-
-
-	

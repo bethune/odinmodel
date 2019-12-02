@@ -13,7 +13,7 @@ import com.vladolium.odinmodel.service.PaymentsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Payments;
 import com.vladolium.odinmodel.domain.Payments.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -27,21 +27,21 @@ public class PaymentsServiceImpl implements PaymentsService {
 		this.paymentsRepository = paymentsRepository;
 	}
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	@Override
 	public Payments createUpdate(Payments payments) {
 		return paymentsRepository.save(payments);
 	}
 	
 	
+	
+	
+	
+	
 	@Override
 	public Payments readOneById(Long id) {
 		return paymentsRepository.getOne(id);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -59,14 +59,6 @@ public class PaymentsServiceImpl implements PaymentsService {
 		return paymentsRepository.findAll(page);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Payments> readAllByCustomersId(Long customersId) {
 		return paymentsRepository.findByCustomersIdEquals(customersId);
@@ -76,6 +68,22 @@ public class PaymentsServiceImpl implements PaymentsService {
 	public Page<Payments> readAllByCustomersId(Long customersId, Pageable page) {
 		return paymentsRepository.findByCustomersIdEquals(customersId, page);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -93,50 +101,42 @@ public class PaymentsServiceImpl implements PaymentsService {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Payments> search(
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		Instant paymentTimestamp,
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
 		Double amount
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
-			
-			
-			
 			customersId,
 			
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			paymentTimestamp,
 			checkNumber,
 			paymentDate,
-			paymentTimestamp,
 			amount
 				
 		);
@@ -146,40 +146,40 @@ public class PaymentsServiceImpl implements PaymentsService {
 	@Override
 	public Page<Payments> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		Instant paymentTimestamp,
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
 		Double amount
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
-			
-			
-			
-			
-			
-			
-			
-			
 			customersId,
 			
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			paymentTimestamp,
 			checkNumber,
 			paymentDate,
-			paymentTimestamp,
 			amount
 			
 		);
@@ -187,21 +187,21 @@ public class PaymentsServiceImpl implements PaymentsService {
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
-		
-		
-		
-		
-		
-		
-		
 		Long customersId,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		Instant paymentTimestamp,
 		String checkNumber,
 		LocalDate paymentDate,
-		Instant paymentTimestamp,
 		Double amount
 		
 	) {
@@ -209,28 +209,28 @@ public class PaymentsServiceImpl implements PaymentsService {
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
-		
-		
-		
-		
-		
-		
-		
 		if (customersId != null) {
 			where.and(qPayments.customers.id.eq(customersId));
 		}
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		}
 		if (checkNumber != null) {
 			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
 		}
 		if (paymentDate != null) {
 			where.and(qPayments.paymentDate.eq(paymentDate));
-		}
-		if (paymentTimestamp != null) {
-			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
 		}
 		if (amount != null) {
 			where.and(qPayments.amount.eq(amount));
@@ -240,14 +240,14 @@ public class PaymentsServiceImpl implements PaymentsService {
 		return where;
 	}
 	
+	
+	
+	
+	
 	@Override
 	public void deleteOneById(Long id) {
 	    paymentsRepository.deleteById(id);
 	}
-	
-	
-	
-	
 	
 	
 

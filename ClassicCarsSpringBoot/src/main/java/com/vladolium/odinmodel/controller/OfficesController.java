@@ -39,24 +39,25 @@ public class OfficesController {
 	
 	
 	
+	
 	@PutMapping("/{id}")
 	public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices) {
 		Offices current = officesService.readOneById(id);
 		
-		current.setAddressLine1(offices.getAddressLine1());
-		
-		current.setAddressLine2(offices.getAddressLine2());
-		
 		current.setCountry(offices.getCountry());
 		
+		current.setPostalCode(offices.getPostalCode());
+		
 		current.setPhone(offices.getPhone());
+		
+		current.setTerritory(offices.getTerritory());
+		
+		current.setAddressLine2(offices.getAddressLine2());
 		
 		
 		current.setCity(offices.getCity());
 		
-		current.setPostalCode(offices.getPostalCode());
-		
-		current.setTerritory(offices.getTerritory());
+		current.setAddressLine1(offices.getAddressLine1());
 		
 		current.setState(offices.getState());
 					
@@ -115,7 +116,6 @@ public class OfficesController {
 	
 	
 	
-	
 	@GetMapping("")
 	public Iterable<Offices> readAll() {
 		return officesService.readAll();
@@ -136,6 +136,7 @@ public class OfficesController {
 	public void setEmployeesService(EmployeesService employeesService) {
 		this.employeesService = employeesService;
 	}
+	
 	
 	
 	
@@ -167,27 +168,26 @@ public class OfficesController {
 	
 	
 	
-	
 	@GetMapping("/search")
 	public Iterable<Offices> search(
-		@RequestParam(value = "addressLine1", required = false) String addressLine1,
-		@RequestParam(value = "addressLine2", required = false) String addressLine2,
 		@RequestParam(value = "country", required = false) String country,
-		@RequestParam(value = "phone", required = false) String phone,
-		@RequestParam(value = "city", required = false) String city,
 		@RequestParam(value = "postalCode", required = false) String postalCode,
+		@RequestParam(value = "phone", required = false) String phone,
 		@RequestParam(value = "territory", required = false) String territory,
+		@RequestParam(value = "addressLine2", required = false) String addressLine2,
+		@RequestParam(value = "city", required = false) String city,
+		@RequestParam(value = "addressLine1", required = false) String addressLine1,
 		@RequestParam(value = "state", required = false) String state
 		
 	) {
 		return officesService.search(
-			addressLine1,
-			addressLine2,
 			country,
-			phone,
-			city,
 			postalCode,
+			phone,
 			territory,
+			addressLine2,
+			city,
+			addressLine1,
 			state
 			
 		);
@@ -197,13 +197,13 @@ public class OfficesController {
 	public Page<Offices> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		@RequestParam(value = "addressLine1", required = false) String addressLine1,
-		@RequestParam(value = "addressLine2", required = false) String addressLine2,
 		@RequestParam(value = "country", required = false) String country,
-		@RequestParam(value = "phone", required = false) String phone,
-		@RequestParam(value = "city", required = false) String city,
 		@RequestParam(value = "postalCode", required = false) String postalCode,
+		@RequestParam(value = "phone", required = false) String phone,
 		@RequestParam(value = "territory", required = false) String territory,
+		@RequestParam(value = "addressLine2", required = false) String addressLine2,
+		@RequestParam(value = "city", required = false) String city,
+		@RequestParam(value = "addressLine1", required = false) String addressLine1,
 		@RequestParam(value = "state", required = false) String state
 		
 	) {
@@ -211,13 +211,13 @@ public class OfficesController {
 	
 		return officesService.searchPagination(
 			page,
-			addressLine1,
-			addressLine2,
 			country,
-			phone,
-			city,
 			postalCode,
+			phone,
 			territory,
+			addressLine2,
+			city,
+			addressLine1,
 			state
 			
 		);
@@ -226,11 +226,11 @@ public class OfficesController {
 	
 	
 	
+	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable Long id) {
 		officesService.deleteOneById(id);
 	}
-	
 	
 	
 	

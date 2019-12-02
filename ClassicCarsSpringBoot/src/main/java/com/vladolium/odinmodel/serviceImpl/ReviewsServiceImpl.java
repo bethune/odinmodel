@@ -13,7 +13,7 @@ import com.vladolium.odinmodel.service.ReviewsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Reviews;
 import com.vladolium.odinmodel.domain.Reviews.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -27,7 +27,7 @@ public class ReviewsServiceImpl implements ReviewsService {
 		this.reviewsRepository = reviewsRepository;
 	}
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	@Override
 	public Reviews createUpdate(Reviews reviews) {
 		return reviewsRepository.save(reviews);
@@ -60,15 +60,15 @@ public class ReviewsServiceImpl implements ReviewsService {
 	
 	@Override
 	public Iterable<Reviews> search(
+		LocalDate reviewDate,
 		String reviewText,
-		LocalTime reviewTime,
-		LocalDate reviewDate
+		LocalTime reviewTime
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			reviewDate,
 			reviewText,
-			reviewTime,
-			reviewDate
+			reviewTime
 				
 		);
 		return reviewsRepository.findAll(where);
@@ -77,38 +77,38 @@ public class ReviewsServiceImpl implements ReviewsService {
 	@Override
 	public Page<Reviews> searchPagination(
 		Pageable page,
+		LocalDate reviewDate,
 		String reviewText,
-		LocalTime reviewTime,
-		LocalDate reviewDate
+		LocalTime reviewTime
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			reviewDate,
 			reviewText,
-			reviewTime,
-			reviewDate
+			reviewTime
 			
 		);
 		return reviewsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		LocalDate reviewDate,
 		String reviewText,
-		LocalTime reviewTime,
-		LocalDate reviewDate
+		LocalTime reviewTime
 		
 	) {
 		QReviews qReviews = QReviews.reviews;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		if (reviewDate != null) {
+			where.and(qReviews.reviewDate.eq(reviewDate));
+		}
 		if (reviewText != null) {
 			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
 		}
 		if (reviewTime != null) {
 			where.and(qReviews.reviewTime.eq(reviewTime));
-		}
-		if (reviewDate != null) {
-			where.and(qReviews.reviewDate.eq(reviewDate));
 		}
 		
 	

@@ -4,11 +4,11 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/createUpdate.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/readOne.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/readAll.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/searchQueryDSL.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/delete.emtl#/0"/>
+    <imports href="path/createUpdate.emtl#/0"/>
+    <imports href="path/readOne.emtl#/0"/>
+    <imports href="path/readAll.emtl#/0"/>
+    <imports href="path/searchQueryDSL.emtl#/0"/>
+    <imports href="path/delete.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="104" endPosition="920" value="&#xA;&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;&#xA;"/>
     </ownedModuleElement>
@@ -157,7 +157,7 @@
           <body xsi:type="ocl.ecore:VariableExp" name="serviceImplPath" referredVariable="/0/implementation/@init/@variable.2">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".wrapperRequest.*;&#xA;import com.querydsl.core.BooleanBuilder;&#xA;&#xA;@Service&#xA;@Transactional&#xA;public class "/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".wrapper.*;&#xA;import com.querydsl.core.BooleanBuilder;&#xA;&#xA;@Service&#xA;@Transactional&#xA;public class "/>
           <body xsi:type="ocl.ecore:VariableExp" name="type" referredVariable="/0/implementation/@init/@variable.3">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
@@ -196,7 +196,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Repository;&#xA;&#x9;}&#xA;&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/createUpdate.emtl#/0/createUpdate"/>
+            <definition href="path/createUpdate.emtl#/0/createUpdate"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/implementation/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -204,7 +204,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/readOne.emtl#/0/readOne"/>
+            <definition href="path/readOne.emtl#/0/readOne"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/implementation/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -212,7 +212,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/readAll.emtl#/0/readAll"/>
+            <definition href="path/readAll.emtl#/0/readAll"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/implementation/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -220,7 +220,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/searchQueryDSL.emtl#/0/searchQueryDSL"/>
+            <definition href="path/searchQueryDSL.emtl#/0/searchQueryDSL"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/implementation/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -228,7 +228,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/delete.emtl#/0/delete"/>
+            <definition href="path/delete.emtl#/0/delete"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/implementation/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -341,7 +341,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/createUpdate.emtl#/0/createUpdate"/>
+          <references href="path/createUpdate.emtl#/0/createUpdate"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -353,7 +353,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/readOne.emtl#/0/readOne"/>
+          <references href="path/readOne.emtl#/0/readOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -365,7 +365,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/readAll.emtl#/0/readAll"/>
+          <references href="path/readAll.emtl#/0/readAll"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -377,7 +377,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/searchQueryDSL.emtl#/0/searchQueryDSL"/>
+          <references href="path/searchQueryDSL.emtl#/0/searchQueryDSL"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -389,7 +389,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/implementation/path/delete.emtl#/0/delete"/>
+          <references href="path/delete.emtl#/0/delete"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -554,7 +554,7 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/implementation">
       <details key="start" value="1344"/>
-      <details key="end" value="3050"/>
+      <details key="end" value="3043"/>
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/implementation/@init">
@@ -694,12 +694,12 @@
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/implementation/%">
       <details key="start" value="1691"/>
-      <details key="end" value="3038"/>
+      <details key="end" value="3031"/>
       <details key="line" value="37"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/implementation/%/%">
       <details key="start" value="1706"/>
-      <details key="end" value="3032"/>
+      <details key="end" value="3025"/>
       <details key="line" value="38"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/implementation/%/%/%">
@@ -834,192 +834,192 @@
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/implementation/%/%/%.13">
       <details key="start" value="2435"/>
-      <details key="end" value="2533"/>
+      <details key="end" value="2526"/>
       <details key="line" value="54"/>
     </eAnnotations>
     <eAnnotations source="positions.58" references="/0/implementation/%/%/type.4">
-      <details key="start" value="2534"/>
-      <details key="end" value="2538"/>
+      <details key="start" value="2527"/>
+      <details key="end" value="2531"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/implementation/%/%/%.14">
-      <details key="start" value="2540"/>
-      <details key="end" value="2563"/>
+      <details key="start" value="2533"/>
+      <details key="end" value="2556"/>
       <details key="line" value="59"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/implementation/%/%/type.5">
-      <details key="start" value="2564"/>
-      <details key="end" value="2568"/>
+      <details key="start" value="2557"/>
+      <details key="end" value="2561"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/implementation/%/%/%.15">
-      <details key="start" value="2570"/>
-      <details key="end" value="2590"/>
+      <details key="start" value="2563"/>
+      <details key="end" value="2583"/>
       <details key="line" value="59"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/implementation/%/%/type.6">
-      <details key="start" value="2591"/>
-      <details key="end" value="2595"/>
+      <details key="start" value="2584"/>
+      <details key="end" value="2588"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/implementation/%/%/%.16">
-      <details key="start" value="2597"/>
-      <details key="end" value="2608"/>
+      <details key="start" value="2590"/>
+      <details key="end" value="2601"/>
       <details key="line" value="61"/>
     </eAnnotations>
     <eAnnotations source="positions.64" references="/0/implementation/%/%/parameter">
-      <details key="start" value="2609"/>
-      <details key="end" value="2618"/>
+      <details key="start" value="2602"/>
+      <details key="end" value="2611"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.65" references="/0/implementation/%/%/%.17">
-      <details key="start" value="2620"/>
-      <details key="end" value="2661"/>
+      <details key="start" value="2613"/>
+      <details key="end" value="2654"/>
       <details key="line" value="61"/>
     </eAnnotations>
     <eAnnotations source="positions.66" references="/0/implementation/%/%/type.7">
-      <details key="start" value="2662"/>
-      <details key="end" value="2666"/>
+      <details key="start" value="2655"/>
+      <details key="end" value="2659"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.67" references="/0/implementation/%/%/%.18">
-      <details key="start" value="2668"/>
-      <details key="end" value="2679"/>
+      <details key="start" value="2661"/>
+      <details key="end" value="2672"/>
       <details key="line" value="64"/>
     </eAnnotations>
     <eAnnotations source="positions.68" references="/0/implementation/%/%/type.8">
-      <details key="start" value="2680"/>
-      <details key="end" value="2684"/>
+      <details key="start" value="2673"/>
+      <details key="end" value="2677"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.69" references="/0/implementation/%/%/%.19">
-      <details key="start" value="2686"/>
-      <details key="end" value="2697"/>
+      <details key="start" value="2679"/>
+      <details key="end" value="2690"/>
       <details key="line" value="64"/>
     </eAnnotations>
     <eAnnotations source="positions.70" references="/0/implementation/%/%/parameter.1">
-      <details key="start" value="2698"/>
-      <details key="end" value="2707"/>
+      <details key="start" value="2691"/>
+      <details key="end" value="2700"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/implementation/%/%/%.20">
-      <details key="start" value="2709"/>
-      <details key="end" value="2730"/>
+      <details key="start" value="2702"/>
+      <details key="end" value="2723"/>
       <details key="line" value="64"/>
     </eAnnotations>
     <eAnnotations source="positions.72" references="/0/implementation/%/%/parameter.2">
-      <details key="start" value="2731"/>
-      <details key="end" value="2740"/>
+      <details key="start" value="2724"/>
+      <details key="end" value="2733"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.73" references="/0/implementation/%/%/%.21">
-      <details key="start" value="2742"/>
-      <details key="end" value="2755"/>
+      <details key="start" value="2735"/>
+      <details key="end" value="2748"/>
       <details key="line" value="65"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/implementation/%/%/parameter.3">
-      <details key="start" value="2756"/>
-      <details key="end" value="2765"/>
+      <details key="start" value="2749"/>
+      <details key="end" value="2758"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/implementation/%/%/%.22">
-      <details key="start" value="2767"/>
-      <details key="end" value="2784"/>
+      <details key="start" value="2760"/>
+      <details key="end" value="2777"/>
       <details key="line" value="65"/>
     </eAnnotations>
     <eAnnotations source="positions.76" references="/0/implementation/%/%/%.23">
-      <details key="start" value="2785"/>
-      <details key="end" value="2806"/>
+      <details key="start" value="2778"/>
+      <details key="end" value="2799"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.77" references="/0/implementation/%/%/%.23/aClass">
-      <details key="start" value="2785"/>
-      <details key="end" value="2791"/>
+      <details key="start" value="2778"/>
+      <details key="end" value="2784"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.78" references="/0/implementation/%/%/%.24">
-      <details key="start" value="2808"/>
-      <details key="end" value="2810"/>
+      <details key="start" value="2801"/>
+      <details key="end" value="2803"/>
       <details key="line" value="69"/>
     </eAnnotations>
     <eAnnotations source="positions.79" references="/0/implementation/%/%/%.25">
-      <details key="start" value="2811"/>
-      <details key="end" value="2827"/>
+      <details key="start" value="2804"/>
+      <details key="end" value="2820"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.80" references="/0/implementation/%/%/%.25/aClass">
-      <details key="start" value="2811"/>
-      <details key="end" value="2817"/>
+      <details key="start" value="2804"/>
+      <details key="end" value="2810"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.81" references="/0/implementation/%/%/%.26">
-      <details key="start" value="2829"/>
-      <details key="end" value="2831"/>
+      <details key="start" value="2822"/>
+      <details key="end" value="2824"/>
       <details key="line" value="70"/>
     </eAnnotations>
     <eAnnotations source="positions.82" references="/0/implementation/%/%/%.27">
-      <details key="start" value="2832"/>
-      <details key="end" value="2848"/>
+      <details key="start" value="2825"/>
+      <details key="end" value="2841"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.83" references="/0/implementation/%/%/%.27/aClass">
-      <details key="start" value="2832"/>
-      <details key="end" value="2838"/>
+      <details key="start" value="2825"/>
+      <details key="end" value="2831"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.84" references="/0/implementation/%/%/%.28">
-      <details key="start" value="2850"/>
-      <details key="end" value="2852"/>
+      <details key="start" value="2843"/>
+      <details key="end" value="2845"/>
       <details key="line" value="71"/>
     </eAnnotations>
     <eAnnotations source="positions.85" references="/0/implementation/%/%/%.29">
-      <details key="start" value="2853"/>
-      <details key="end" value="2876"/>
+      <details key="start" value="2846"/>
+      <details key="end" value="2869"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.86" references="/0/implementation/%/%/%.29/aClass">
-      <details key="start" value="2853"/>
-      <details key="end" value="2859"/>
+      <details key="start" value="2846"/>
+      <details key="end" value="2852"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.87" references="/0/implementation/%/%/%.30">
-      <details key="start" value="2878"/>
-      <details key="end" value="2880"/>
+      <details key="start" value="2871"/>
+      <details key="end" value="2873"/>
       <details key="line" value="72"/>
     </eAnnotations>
     <eAnnotations source="positions.88" references="/0/implementation/%/%/%.31">
-      <details key="start" value="2881"/>
-      <details key="end" value="2896"/>
+      <details key="start" value="2874"/>
+      <details key="end" value="2889"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.89" references="/0/implementation/%/%/%.31/aClass">
-      <details key="start" value="2881"/>
-      <details key="end" value="2887"/>
+      <details key="start" value="2874"/>
+      <details key="end" value="2880"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.90" references="/0/implementation/%/%/%.32">
-      <details key="start" value="2898"/>
-      <details key="end" value="2970"/>
+      <details key="start" value="2891"/>
+      <details key="end" value="2963"/>
       <details key="line" value="73"/>
     </eAnnotations>
     <eAnnotations source="positions.91" references="/0/implementation/%/%/%.33">
-      <details key="start" value="2970"/>
-      <details key="end" value="3021"/>
+      <details key="start" value="2963"/>
+      <details key="end" value="3014"/>
       <details key="line" value="75"/>
     </eAnnotations>
     <eAnnotations source="positions.92" references="/0/implementation/%/%/%.33/%">
-      <details key="start" value="3006"/>
-      <details key="end" value="3009"/>
+      <details key="start" value="2999"/>
+      <details key="end" value="3002"/>
       <details key="line" value="76"/>
     </eAnnotations>
     <eAnnotations source="positions.93" references="/0/implementation/%/%/%.33/%.1">
-      <details key="start" value="2982"/>
-      <details key="end" value="3004"/>
+      <details key="start" value="2975"/>
+      <details key="end" value="2997"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.94" references="/0/implementation/%/%/%.34">
-      <details key="start" value="3021"/>
-      <details key="end" value="3024"/>
+      <details key="start" value="3014"/>
+      <details key="end" value="3017"/>
       <details key="line" value="77"/>
     </eAnnotations>
     <eAnnotations source="positions.95" references="/0/implementation/%/%/%.35">

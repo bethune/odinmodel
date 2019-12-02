@@ -20,8 +20,8 @@ public interface OfficesService {
 	
 	
 	
-	Offices readOneById(Long id);
 	
+	Offices readOneById(Long id);
 	
 	
 	
@@ -42,26 +42,26 @@ public interface OfficesService {
 	
 	
 	Iterable<Offices> search(
-		String addressLine1,
-		String addressLine2,
 		String country,
-		String phone,
-		String city,
 		String postalCode,
+		String phone,
 		String territory,
+		String addressLine2,
+		String city,
+		String addressLine1,
 		String state
 		
 	);
 	
 	Page<Offices> searchPagination(
 		Pageable page,
-		String addressLine1,
-		String addressLine2,
 		String country,
-		String phone,
-		String city,
 		String postalCode,
+		String phone,
 		String territory,
+		String addressLine2,
+		String city,
+		String addressLine1,
 		String state
 		
 	);
@@ -69,8 +69,8 @@ public interface OfficesService {
 	
 	
 	
-	void deleteOneById(Long id);
 	
+	void deleteOneById(Long id);
 	
 	
 	

@@ -13,7 +13,7 @@ import com.vladolium.odinmodel.service.EmployeesService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Employees;
 import com.vladolium.odinmodel.domain.Employees.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -27,24 +27,24 @@ public class EmployeesServiceImpl implements EmployeesService {
 		this.employeesRepository = employeesRepository;
 	}
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	@Override
 	public Employees createUpdate(Employees employees) {
 		return employeesRepository.save(employees);
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public Employees readOneById(Long id) {
 		return employeesRepository.getOne(id);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -64,6 +64,11 @@ public class EmployeesServiceImpl implements EmployeesService {
 	public Page<Employees> readAllPagination(Pageable page) {
 		return employeesRepository.findAll(page);
 	}
+	
+	
+	
+	
+	
 	
 	@Override
 	public Iterable<Employees> readAllByOfficesId(Long officesId) {
@@ -87,48 +92,43 @@ public class EmployeesServiceImpl implements EmployeesService {
 	
 	
 	
-	
-	
-	
-	
-	
 	@Override
 	public Iterable<Employees> search(
+		
+		
+		
+		
+		
 		Long officesId,
 		
 		
 		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		String jobTitle,
 		Boolean isActive,
-		Integer reportsTo,
 		String extension,
-		String lastName
+		Integer reportsTo,
+		String jobTitle,
+		String lastName,
+		String email,
+		String firstName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
 			officesId,
 			
 			
 			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			jobTitle,
 			isActive,
-			reportsTo,
 			extension,
-			lastName
+			reportsTo,
+			jobTitle,
+			lastName,
+			email,
+			firstName
 				
 		);
 		return employeesRepository.findAll(where);
@@ -137,117 +137,117 @@ public class EmployeesServiceImpl implements EmployeesService {
 	@Override
 	public Page<Employees> searchPagination(
 		Pageable page,
+		
+		
+		
+		
+		
 		Long officesId,
 		
 		
 		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		String jobTitle,
 		Boolean isActive,
-		Integer reportsTo,
 		String extension,
-		String lastName
+		Integer reportsTo,
+		String jobTitle,
+		String lastName,
+		String email,
+		String firstName
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
+			
+			
+			
+			
+			
 			officesId,
 			
 			
 			
-			
-			
-			
-			
-			
-			firstName,
-			email,
-			jobTitle,
 			isActive,
-			reportsTo,
 			extension,
-			lastName
+			reportsTo,
+			jobTitle,
+			lastName,
+			email,
+			firstName
 			
 		);
 		return employeesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
+		
+		
+		
+		
+		
 		Long officesId,
 		
 		
 		
-		
-		
-		
-		
-		
-		String firstName,
-		String email,
-		String jobTitle,
 		Boolean isActive,
-		Integer reportsTo,
 		String extension,
-		String lastName
+		Integer reportsTo,
+		String jobTitle,
+		String lastName,
+		String email,
+		String firstName
 		
 	) {
 		QEmployees qEmployees = QEmployees.employees;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
+		
+		
+		
+		
+		
 		if (officesId != null) {
 			where.and(qEmployees.offices.id.eq(officesId));
 		}
 		
 		
 		
-		
-		
-		
-		
-		
-		if (firstName != null) {
-			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
-		}
-		if (email != null) {
-			where.and(qEmployees.email.containsIgnoreCase(email));
-		}
-		if (jobTitle != null) {
-			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
-		}
 		if (isActive != null) {
 			where.and(qEmployees.isActive.eq(isActive));
-		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
 		}
 		if (extension != null) {
 			where.and(qEmployees.extension.containsIgnoreCase(extension));
 		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
+		}
+		if (jobTitle != null) {
+			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
+		}
 		if (lastName != null) {
 			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
+		}
+		if (email != null) {
+			where.and(qEmployees.email.containsIgnoreCase(email));
+		}
+		if (firstName != null) {
+			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
 		}
 		
 	
 		return where;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    employeesRepository.deleteById(id);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

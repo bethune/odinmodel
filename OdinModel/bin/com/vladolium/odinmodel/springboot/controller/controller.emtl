@@ -4,13 +4,13 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/create.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/update.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/readOne.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/readAll.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/search.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/delete.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/wrapper/manyToOneWrapper.emtl#/0"/>
+    <imports href="path/create.emtl#/0"/>
+    <imports href="path/update.emtl#/0"/>
+    <imports href="path/readOne.emtl#/0"/>
+    <imports href="path/readAll.emtl#/0"/>
+    <imports href="path/search.emtl#/0"/>
+    <imports href="path/delete.emtl#/0"/>
+    <imports href="wrapper/manyToOneWrapper.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="100" endPosition="914" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
     </ownedModuleElement>
@@ -186,7 +186,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Service;&#xA;&#x9;}&#xA;&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/create.emtl#/0/create"/>
+            <definition href="path/create.emtl#/0/create"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -194,7 +194,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/update.emtl#/0/update"/>
+            <definition href="path/update.emtl#/0/update"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -202,7 +202,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/readOne.emtl#/0/readOne"/>
+            <definition href="path/readOne.emtl#/0/readOne"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -210,7 +210,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/readAll.emtl#/0/readAll"/>
+            <definition href="path/readAll.emtl#/0/readAll"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -218,7 +218,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/search.emtl#/0/search"/>
+            <definition href="path/search.emtl#/0/search"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -226,7 +226,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/delete.emtl#/0/delete"/>
+            <definition href="path/delete.emtl#/0/delete"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -234,7 +234,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/wrapper/manyToOneWrapper.emtl#/0/manyToOneWrapper"/>
+            <definition href="wrapper/manyToOneWrapper.emtl#/0/manyToOneWrapper"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/controller/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -347,7 +347,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/create.emtl#/0/create"/>
+          <references href="path/create.emtl#/0/create"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -359,7 +359,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/update.emtl#/0/update"/>
+          <references href="path/update.emtl#/0/update"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -371,7 +371,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/readOne.emtl#/0/readOne"/>
+          <references href="path/readOne.emtl#/0/readOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -383,7 +383,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/readAll.emtl#/0/readAll"/>
+          <references href="path/readAll.emtl#/0/readAll"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -395,7 +395,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/search.emtl#/0/search"/>
+          <references href="path/search.emtl#/0/search"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -407,7 +407,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/path/delete.emtl#/0/delete"/>
+          <references href="path/delete.emtl#/0/delete"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -419,7 +419,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/controller/wrapper/manyToOneWrapper.emtl#/0/manyToOneWrapper"/>
+          <references href="wrapper/manyToOneWrapper.emtl#/0/manyToOneWrapper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">

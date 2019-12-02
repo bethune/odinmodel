@@ -1,4 +1,3 @@
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -11,11 +10,6 @@ import java.util.*;
 @Entity
 public class Gifts {
 
-	
-	
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -46,6 +40,10 @@ public class Gifts {
 	
 	
 	
+	
+	
+	
+	
 	@NotNull
 	@Column(unique=true)
 	private String giftName;
@@ -56,6 +54,9 @@ public class Gifts {
 	public void setGiftName(String giftName) {
 		this.giftName = giftName;
 	}
+	
+	
+	
 	
 	
 	
@@ -90,6 +91,17 @@ public class Gifts {
 	
 	
 	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+	private LocalDateTime beginsOn;
+	
+	public LocalDateTime getBeginsOn() {
+		return beginsOn;
+	}
+	public void setBeginsOn(LocalDateTime beginsOn) {
+		this.beginsOn = beginsOn;
+	}
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
@@ -105,17 +117,8 @@ public class Gifts {
 	
 	
 	
-	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
-	private LocalDateTime beginsOn;
 	
-	public LocalDateTime getBeginsOn() {
-		return beginsOn;
-	}
-	public void setBeginsOn(LocalDateTime beginsOn) {
-		this.beginsOn = beginsOn;
-	}
+	
 	
 	
 	
@@ -159,10 +162,6 @@ public class Gifts {
 	
 	
 	
-	
-	
-	
-	
 	@ManyToMany
 	@JoinTable(name="gifts_customers", 
 		joinColumns = @JoinColumn(name = "gifts_id"), 
@@ -182,6 +181,3 @@ public class Gifts {
 //Start of user code for this entity
 //End of user code
 }
-
-
-	

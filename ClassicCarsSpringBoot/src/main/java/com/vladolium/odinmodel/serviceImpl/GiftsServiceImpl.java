@@ -13,7 +13,7 @@ import com.vladolium.odinmodel.service.GiftsService;
 import com.vladolium.odinmodel.domain.*;
 import com.vladolium.odinmodel.domain.Gifts;
 import com.vladolium.odinmodel.domain.Gifts.*;
-import com.vladolium.odinmodel.wrapperRequest.*;
+import com.vladolium.odinmodel.wrapper.*;
 import com.querydsl.core.BooleanBuilder;
 
 @Service
@@ -27,16 +27,11 @@ public class GiftsServiceImpl implements GiftsService {
 		this.giftsRepository = giftsRepository;
 	}
 
-	// covers create & update
+	// covers create, update and update with IRIC
 	@Override
 	public Gifts createUpdate(Gifts gifts) {
 		return giftsRepository.save(gifts);
 	}
-	
-	
-	
-	
-	
 	
 	
 	@Override
@@ -48,10 +43,15 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	
 	
+	
+	
+	
+	
 	@Override
 	public Gifts readOneByGiftName(String giftName) {
 		return giftsRepository.findByGiftNameEquals(giftName);
 	}
+	
 	
 	
 	
@@ -69,32 +69,32 @@ public class GiftsServiceImpl implements GiftsService {
 	
 	@Override
 	public Iterable<Gifts> search(
-		
-		
-		
-		
-		
-		
-		
-		
 		Set<Long> customersSet,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn
+		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
+		Boolean isExpired
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
 			giftType,
-			isExpired,
-			expiresOn,
 			giftName,
-			beginsOn
+			beginsOn,
+			expiresOn,
+			isExpired
 				
 		);
 		return giftsRepository.findAll(where);
@@ -103,83 +103,77 @@ public class GiftsServiceImpl implements GiftsService {
 	@Override
 	public Page<Gifts> searchPagination(
 		Pageable page,
-		
-		
-		
-		
-		
-		
-		
-		
 		Set<Long> customersSet,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn
+		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
+		Boolean isExpired
 		
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
 			giftType,
-			isExpired,
-			expiresOn,
 			giftName,
-			beginsOn
+			beginsOn,
+			expiresOn,
+			isExpired
 			
 		);
 		return giftsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		
-		
-		
-		
-		
-		
-		
-		
 		Set<Long> customersSet,
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		GiftType giftType,
-		Boolean isExpired,
-		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn
+		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
+		Boolean isExpired
 		
 	) {
 		QGifts qGifts = QGifts.gifts;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		
-		
-		
-		
-		
-		
-		
-		
 		if (customersSet != null) {
 			where.and(qGifts.customersSet.any().id.in(customersSet));
 		}
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		if (giftType != null) {
 			where.and(qGifts.giftType.eq(giftType));
-		}
-		if (isExpired != null) {
-			where.and(qGifts.isExpired.eq(isExpired));
-		}
-		if (expiresOn != null) {
-			where.and(qGifts.expiresOn.eq(expiresOn));
 		}
 		if (giftName != null) {
 			where.and(qGifts.giftName.containsIgnoreCase(giftName));
@@ -187,20 +181,26 @@ public class GiftsServiceImpl implements GiftsService {
 		if (beginsOn != null) {
 			where.and(qGifts.beginsOn.eq(beginsOn));
 		}
+		if (expiresOn != null) {
+			where.and(qGifts.expiresOn.eq(expiresOn));
+		}
+		if (isExpired != null) {
+			where.and(qGifts.isExpired.eq(isExpired));
+		}
 		
 	
 		return where;
 	}
 	
-	
-	
-	
-	
-	
 	@Override
 	public void deleteOneById(Long id) {
 	    giftsRepository.deleteById(id);
 	}
+	
+	
+	
+	
+	
 	
 	
 

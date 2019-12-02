@@ -1,4 +1,3 @@
-
 package com.vladolium.odinmodel.domain;
 
 import javax.persistence.*;
@@ -11,6 +10,10 @@ import java.util.*;
 @Entity
 public class Payments {
 
+	
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -32,12 +35,6 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	@NotNull
 	private Double amount;
 	
@@ -47,6 +44,8 @@ public class Payments {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
+	
+	
 	
 	
 	@NotNull
@@ -99,10 +98,6 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
 	private Instant paymentTimestamp = Instant.now();
 	
 	public Instant getPaymentTimestamp() {
@@ -111,6 +106,10 @@ public class Payments {
 	public void setPaymentTimestamp(Instant paymentTimestamp) {
 	    this.paymentTimestamp = paymentTimestamp;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -150,6 +149,3 @@ public class Payments {
 //Start of user code for this entity
 //End of user code
 }
-
-
-	

@@ -15,9 +15,9 @@ public interface EmployeesService {
 	Employees createUpdate(Employees employees);
 	
 	
-	
-	
 	Employees readOneById(Long id);
+	
+	
 	
 	
 	
@@ -41,10 +41,10 @@ public interface EmployeesService {
 	
 	
 	
+	
 	Iterable <Employees> readAllByOfficesId(Long officesId);
 	
 	Page<Employees> readAllByOfficesId(Long officesId, Pageable page);
-	
 	
 	
 	
@@ -63,18 +63,18 @@ public interface EmployeesService {
 		
 		
 		
+		
 		Long officesId,
 		
 		
 		
-		
+		Boolean isActive,
 		String extension,
-		String firstName,
 		Integer reportsTo,
 		String jobTitle,
-		Boolean isActive,
 		String lastName,
-		String email
+		String email,
+		String firstName
 		
 	);
 	
@@ -84,23 +84,23 @@ public interface EmployeesService {
 		
 		
 		
+		
 		Long officesId,
 		
 		
 		
-		
+		Boolean isActive,
 		String extension,
-		String firstName,
 		Integer reportsTo,
 		String jobTitle,
-		Boolean isActive,
 		String lastName,
-		String email
+		String email,
+		String firstName
 		
 	);
-	
-	
 	void deleteOneById(Long id);
+	
+	
 	
 	
 	

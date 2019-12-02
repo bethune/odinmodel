@@ -1,5 +1,7 @@
-
 package com.vladolium.odinmodel.config;
+
+//Code between start and end will not be removed during generation.
+//Start of user code for this swagger
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +17,7 @@ import java.util.Collections;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
-//Start of user code for swagger
+
 	@Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -36,6 +38,5 @@ public class Swagger2Config {
         	    "License of API", "API license URL", Collections.emptyList());
         return apiInfo;
     }
-//End of user code
 }
-
+//End of user code
