@@ -15,7 +15,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="../springboot/springboot.emtl#/0/springboot"/>
+        <definition href="../primeboot/primeboot.emtl#/0/primeboot"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/main/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -57,12 +57,12 @@
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
-      <eOperations name="springboot">
+      <eOperations name="primeboot">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../springboot/springboot.emtl#/0/springboot"/>
+          <references href="../primeboot/primeboot.emtl#/0/primeboot"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -136,19 +136,19 @@
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/main/%.2">
-      <details key="start" value="1222"/>
-      <details key="end" value="1241"/>
+      <details key="start" value="1264"/>
+      <details key="end" value="1282"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/main/%.2/aClass">
-      <details key="start" value="1222"/>
-      <details key="end" value="1228"/>
+      <details key="start" value="1264"/>
+      <details key="end" value="1270"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/main/%.3">
-      <details key="start" value="1243"/>
-      <details key="end" value="1244"/>
-      <details key="line" value="33"/>
+      <details key="start" value="1284"/>
+      <details key="end" value="1285"/>
+      <details key="line" value="34"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/main/%.4">
       <details key="start" value="1323"/>

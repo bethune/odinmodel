@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="primeboot" nsURI="com::vladolium::odinmodel::primeboot::primeboot" startHeaderPosition="29" endHeaderPosition="-1">
+  <mtl:Module name="primeboot" nsURI="com::vladolium::odinmodel::primeboot::primeboot" startHeaderPosition="29" endHeaderPosition="985">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
+    <imports href="model/entity.emtl#/0"/>
+    <imports href="configuration/configuration.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="99" endPosition="913" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="997" endPosition="1056" value="[import com::vladolium::odinmodel::primeboot::view::view /]"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="1076" endPosition="1141" value="[import com::vladolium::odinmodel::primeboot::service::service /]"/>
+    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="primeboot" visibility="Public">
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="model/entity.emtl#/0/entity"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/primeboot/aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </argument>
+      </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="configuration/configuration.emtl#/0/configuration"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/primeboot/aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </argument>
+      </body>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
@@ -36,6 +61,30 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/primeboot"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="entity">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="model/entity.emtl#/0/entity"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="configuration">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="configuration/configuration.emtl#/0/configuration"/>
+        </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -81,23 +130,64 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/primeboot">
-      <details key="start" value="91"/>
-      <details key="end" value="147"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="90"/>
+      <details key="end" value="923"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/primeboot/%">
-      <details key="start" value="135"/>
-      <details key="end" value="136"/>
-      <details key="line" value="6"/>
+    <eAnnotations source="positions.1" references="/0/%.1">
+      <details key="start" value="988"/>
+      <details key="end" value="1066"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/primeboot/aClass">
-      <details key="start" value="118"/>
-      <details key="end" value="132"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.2" references="/0/%.2">
+      <details key="start" value="1067"/>
+      <details key="end" value="1151"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/primeboot">
+      <details key="start" value="1231"/>
+      <details key="end" value="1406"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/primeboot/%">
+      <details key="start" value="1276"/>
+      <details key="end" value="1291"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/primeboot/%/aClass">
+      <details key="start" value="1276"/>
+      <details key="end" value="1282"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/primeboot/%.1">
+      <details key="start" value="1293"/>
+      <details key="end" value="1294"/>
+      <details key="line" value="30"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/primeboot/%.2">
+      <details key="start" value="1370"/>
+      <details key="end" value="1392"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/primeboot/%.2/aClass">
+      <details key="start" value="1370"/>
+      <details key="end" value="1376"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/primeboot/aClass">
+      <details key="start" value="1258"/>
+      <details key="end" value="1272"/>
+      <details key="line" value="28"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

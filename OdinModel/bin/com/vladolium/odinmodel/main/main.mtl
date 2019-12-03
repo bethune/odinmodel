@@ -29,8 +29,8 @@
 
 [comment: Only one of the following templates should be uncommented! /]
 
-[aClass.springboot()/]
-[comment][aClass.primeboot()/][/comment]
+[comment][aClass.springboot()/][/comment]
+[aClass.primeboot()/]
 [comment][aClass.javaee()/][/comment]
 
 [/template]

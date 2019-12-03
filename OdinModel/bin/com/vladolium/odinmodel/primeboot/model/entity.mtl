@@ -1,0 +1,114 @@
+[comment encoding = UTF-8 /]
+[module entity('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+
+[/comment]
+
+[comment: base template /]
+[template public entity(aClass : Class){
+	packagePath 	: String = aClass._package.name.toLowerCase();
+	type	 		: String = aClass.name.toUpperFirst();
+	isAbstract 		: Boolean = aClass.isAbstract;
+	doesNotInherit 	: Boolean = aClass.general->isEmpty();}]
+
+[file ('src/main/java/' + packagePath + '/domain/' + type + '.java', false, 'UTF-8')]
+	[if isAbstract = false and doesNotInherit]
+[commonEntity(aClass)/]
+	[/if]
+	[if isAbstract = false and doesNotInherit = false]
+[inheritingEntity(aClass)/]
+	[/if]
+	[if isAbstract]
+[abstractClass(aClass)/]
+	[/if]
+[/file]
+[/template]
+
+[comment:
+----------------------------------------------------------------------------------------------------
+subtemplates
+----------------------------------------------------------------------------------------------------
+/]
+
+[import com::vladolium::odinmodel::springboot::model::imports /]
+[import com::vladolium::odinmodel::springboot::model::field::field /]
+[import com::vladolium::odinmodel::springboot::model::relationship::relationship /]
+
+[template public commonEntity(aClass : Class){
+	packageName		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
+	type	 		: String = aClass.name.toUpperFirst();}]
+package [packageName/];
+
+[aClass.imports()/]
+
+@Entity
+public class [type/] {
+
+	[aClass.field()/]
+	[aClass.relationship()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this entity')]
+//[/protected]
+}
+[/template]
+
+[comment:----------------------------------------------------------------------------------------------------/]
+
+[template public inheritingEntity(aClass : Class){
+	packageName		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
+	type	 		: String = aClass.name.toUpperFirst();
+	abstract	 	: Collection(T) = aClass.general.name.toUpperFirst();}]
+package [packageName/];
+
+[aClass.imports()/]
+
+@Entity
+public class [type/] extends [abstract/] {
+
+	[aClass.field()/]
+	[aClass.relationship()/]
+		
+//Code between start and end will not be removed during generation.
+//[protected ('for this inheriting entity')]
+//[/protected]
+}
+[/template]
+
+[comment:----------------------------------------------------------------------------------------------------/]
+
+[template public abstractClass(aClass : Class){
+	packageName		: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.domain');
+	type	 		: String = aClass.name.toUpperFirst();}]
+package [packageName/];
+
+[aClass.imports()/]
+
+@MappedSuperclass
+public abstract class [type/] {
+
+	[aClass.field()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this abstract class')]
+//[/protected]
+}
+[/template]
