@@ -21,7 +21,6 @@
 [/comment]
 
 [import com::vladolium::odinmodel::springboot::springboot/]
-[import com::vladolium::odinmodel::primeboot::primeboot/]
 [import com::vladolium::odinmodel::javaee::javaee/]
 
 [template public main(aClass : Class)]
@@ -30,7 +29,6 @@
 [comment: Only one of the following templates should be uncommented! /]
 
 [comment][aClass.springboot()/][/comment]
-[aClass.primeboot()/]
-[comment][aClass.javaee()/][/comment]
+[aClass.javaee()/]
 
 [/template]
