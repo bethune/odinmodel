@@ -4,9 +4,9 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/entities/javaImports.emtl#/0"/>
+    <imports href="javaImports.emtl#/0"/>
     <imports href="../fields/field.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/relationship.emtl#/0"/>
+    <imports href="../relationships/relationship.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="95" endPosition="111" value=": base template "/>
     </ownedModuleElement>
@@ -240,7 +240,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/entities/javaImports.emtl#/0/javaImports"/>
+        <definition href="javaImports.emtl#/0/javaImports"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/commonEntity/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -260,7 +260,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/relationship.emtl#/0/relationshipImports"/>
+        <definition href="../relationships/relationship.emtl#/0/relationshipImports"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/commonEntity/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -369,7 +369,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/entities/javaImports.emtl#/0/javaImports"/>
+        <definition href="javaImports.emtl#/0/javaImports"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/inheritingEntity/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -393,7 +393,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/relationship.emtl#/0/relationshipImports"/>
+        <definition href="../relationships/relationship.emtl#/0/relationshipImports"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/inheritingEntity/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -470,7 +470,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/entities/javaImports.emtl#/0/javaImports"/>
+        <definition href="javaImports.emtl#/0/javaImports"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/abstractClass/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -586,7 +586,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/entities/javaImports.emtl#/0/javaImports"/>
+          <references href="javaImports.emtl#/0/javaImports"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -610,7 +610,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel4SpringBoot/bin/com/vladolium/odinmodel/domain/relationships/relationship.emtl#/0/relationshipImports"/>
+          <references href="../relationships/relationship.emtl#/0/relationshipImports"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
