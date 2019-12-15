@@ -21,7 +21,9 @@
 [/comment]
 
 [import com::vladolium::odinmodel::javaee::model::entity /]
+[import com::vladolium::odinmodel::javaee::service::service /]
 
 [template public javaee(aClass : Class)]
 [aClass.entity()/]
+[aClass.service()/]
 [/template]

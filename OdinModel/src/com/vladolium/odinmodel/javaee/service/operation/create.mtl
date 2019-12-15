@@ -1,7 +1,8 @@
 [comment encoding = UTF-8 /]
-[module javaee('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module create('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment]
+
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -18,12 +19,22 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
+
 [/comment]
 
-[import com::vladolium::odinmodel::javaee::model::entity /]
-[import com::vladolium::odinmodel::javaee::service::service /]
+[template public createUpdate(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();
+	parameter	: String = aClass.name.toLowerFirst();}]
+[comment: Create, update, and update one with IRIC /]
+// covers create, update and update with IRIC
+[type/] createUpdate([type/] [parameter/]);
 
-[template public javaee(aClass : Class)]
-[aClass.entity()/]
-[aClass.service()/]
+[comment: Create one with IRIC /]
+[for (relationship: Property | aClass.getAssociations().memberEnd)]
+	[comment: IRIC for manyToOne /]
+	[if relationship.lower = 1 and relationship.upper = -1 and relationship.opposite.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+[type/] createOneIric([type/][relationship.type.name.toUpperFirst()/] [parameter/][relationship.type.name.toUpperFirst()/]);
+	[/if]
+[/for]
 [/template]

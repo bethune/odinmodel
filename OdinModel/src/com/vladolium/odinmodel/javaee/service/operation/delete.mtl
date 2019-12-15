@@ -1,7 +1,8 @@
 [comment encoding = UTF-8 /]
-[module javaee('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment]
+
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -18,12 +19,14 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
+
 [/comment]
 
-[import com::vladolium::odinmodel::javaee::model::entity /]
-[import com::vladolium::odinmodel::javaee::service::service /]
-
-[template public javaee(aClass : Class)]
-[aClass.entity()/]
-[aClass.service()/]
+[template public delete(aClass : Class)]
+[comment: Delete one by id /]
+[for (field: Property | aClass.getAllAttributes()) separator('\n')]
+	[if field.isID = true]
+void deleteOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
+	[/if]
+[/for]
 [/template]

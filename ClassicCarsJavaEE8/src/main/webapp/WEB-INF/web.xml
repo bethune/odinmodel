@@ -13,4 +13,9 @@
     <servlet-name>facesServlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  <data-source>
+    <name>java:global/ClassicCarsH2DataSource</name>
+    <class-name>org.h2.jdbcx.JdbcDataSource</class-name>
+    <url>jdbc:h2:file:E:\OdinModel\git\odinmodel\ClassicCarsJavaEE8\h2data\classicCars;DB_CLOSE_DELAY=-1</url>
+</data-source>
 </web-app>
