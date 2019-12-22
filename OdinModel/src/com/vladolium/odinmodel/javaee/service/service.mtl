@@ -23,7 +23,7 @@
 [/comment]
 
 [comment][import com::vladolium::odinmodel::javaee::service::path::createUpdate /][/comment]
-[comment][import com::vladolium::odinmodel::javaee::service::path::readOne /][/comment]
+[import com::vladolium::odinmodel::javaee::service::operation::readOne /]
 [comment][import com::vladolium::odinmodel::javaee::service::path::readAll /][/comment]
 [comment][import com::vladolium::odinmodel::javaee::service::path::search /][/comment]
 [comment][import com::vladolium::odinmodel::javaee::service::path::delete /][/comment]
@@ -32,6 +32,7 @@
 	isEntity 		: Boolean = aClass.isAbstract = false;
 	packagePath 	: String = aClass._package.name.toLowerCase();
 	type 			: String = aClass.name.toUpperFirst();
+	parameter		: String = aClass.name.toLowerFirst();
 	servicePath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();}]
 [if isEntity]
 	[file ('src/main/java/' + packagePath + '/service/' + type + 'Service.java', false, 'UTF-8')]
@@ -40,13 +41,24 @@ package [servicePath/].service;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-//import [servicePath/].domain.*;
-//import java.time.*;
-//import java.util.*;
-//import org.springframework.data.domain.*;
-//import [servicePath/].domain.*;
-//import [servicePath/].domain.[type/];
-//import [servicePath/].domain.[type/].*;
+import javax.inject.Inject;
+import javax.annotation.PostConstruct;
+import [servicePath/].model.*;
+import java.time.*;
+import java.util.*;
+import org.springframework.data.domain.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
+import org.springframework.data.repository.core.support.RepositoryFactorySupport;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import [servicePath/].model.*;
+import [servicePath/].model.[type/];
+import [servicePath/].model.[type/].*;
+import [servicePath/].repository.*;
+import [servicePath/].repository.[type/]Repository;
 //import [servicePath/].wrapper.*;
 
 @Stateless
@@ -55,8 +67,16 @@ public class [type/]Service {
  	@PersistenceContext
     private EntityManager em;
 
+	private [type/]Repository [parameter/]Repository;
+	
+	@PostConstruct
+	private void init() {
+		RepositoryFactorySupport factory = new JpaRepositoryFactory(em);
+		this.[parameter/]Repository = factory.getRepository([type/]Repository.class);
+	}
+
 [comment]	[aClass.createUpdate()/][/comment]
-[comment]	[aClass.readOne()/][/comment]
+	[aClass.readOne()/]
 [comment]	[aClass.readAll()/][/comment]
 [comment]	[aClass.search()/][/comment]
 [comment]	[aClass.delete()/][/comment]

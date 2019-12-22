@@ -1,0 +1,82 @@
+[comment encoding = UTF-8 /]
+[module view('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+[/comment]
+
+[comment][import com::vladolium::odinmodel::springboot::controller::path::create /][/comment]
+[comment][import com::vladolium::odinmodel::springboot::controller::path::update /][/comment]
+[import com::vladolium::odinmodel::javaee::view::operation::readOne /]
+[comment][import com::vladolium::odinmodel::springboot::controller::path::readAll /][/comment]
+[comment][import com::vladolium::odinmodel::springboot::controller::path::search /][/comment]
+[comment][import com::vladolium::odinmodel::springboot::controller::path::delete /][/comment]
+[comment][import com::vladolium::odinmodel::springboot::controller::wrapper::manyToOneWrapper /][/comment]
+
+[template public view(aClass : Class){
+	isEntity 		: Boolean = aClass.isAbstract = false;
+	packagePath 	: String = aClass._package.name.toLowerCase();
+	type 			: String = aClass.name.toUpperFirst();
+	parameter		: String = aClass.name.toLowerFirst();
+	viewPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();}]
+[if isEntity]
+	[file ('src/main/java/' + packagePath + '/view/' + type + 'View.java', false, 'UTF-8')]
+package [viewPath/].view;
+
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.*;
+//import org.springframework.data.domain.*;
+//import org.springframework.format.annotation.*;
+import java.time.*;
+import java.util.*;
+import java.io.Serializable;
+import [viewPath/].model.*;
+import [viewPath/].model.[type/];
+import [viewPath/].model.[type/].*;
+import [viewPath/].service.[type/]Service;
+import [viewPath/].service.*;
+[comment]import [viewPath/].wrapper.*;[/comment]
+
+@Named
+@ViewScoped
+public class [type/]View implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private [type/]Service [parameter/]Service;
+
+[comment]	[aClass.create()/][/comment]
+[comment]	[aClass.update()/][/comment]
+	[aClass.readOne()/]
+[comment]	[aClass.readAll()/][/comment]
+[comment]	[aClass.search()/][/comment]
+[comment]	[aClass.delete()/][/comment]
+[comment]	[aClass.manyToOneWrapper()/][/comment]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this controller')]
+//[/protected]
+}
+	[/file]
+[/if]
+[/template]

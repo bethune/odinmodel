@@ -1,0 +1,69 @@
+[comment encoding = UTF-8 /]
+[module delete('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+[/comment]
+
+[template public delete(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();
+	parameter	: String = aClass.name.toLowerFirst();}]
+[comment: Delete one by id /]
+[for (field: Property | aClass.getAllAttributes()) separator('\n')]
+	[if field.isID = true]
+@DeleteMapping("/{[field.name.toLowerFirst()/]}")
+public void deleteOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+	[parameter/]Service.deleteOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+}
+	[/if]
+[/for]
+
+[comment: Delete one by id with IRIC /]
+[for (field: Property | aClass.getAllAttributes()) separator('\n')]
+	[if field.isID = true]
+		[for (relationship : Property | aClass.getAssociations().memberEnd)]
+			[comment: IRIC for manyToOne relationships/]
+			[if relationship.lower = 1 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+				relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+				[for (p : Package | aClass._package)]
+					[for (oppositeEntity : Class | p.member -> filter(Class))]
+						[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+								[if oppositeEntityField.isID = true]
+@DeleteMapping("/{[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
+public void deleteOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+	Iterable<[type/]> listOf[type/] = [parameter/]Service
+		.readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/](current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]());
+	Long size = listOf[type/].spliterator().getExactSizeIfKnown();
+	if (size == 1) {
+	    return;
+	} else {
+	    [parameter/]Service.deleteOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+	}
+}
+								[/if]
+							[/for]
+						[/if]
+					[/for]
+				[/for]
+			[/if]
+		[/for]
+	[/if]
+[/for]
+[/template]

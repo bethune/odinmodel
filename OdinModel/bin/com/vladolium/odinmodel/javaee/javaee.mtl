@@ -21,9 +21,13 @@
 [/comment]
 
 [import com::vladolium::odinmodel::javaee::model::entity /]
+[import com::vladolium::odinmodel::javaee::view::view /]
 [import com::vladolium::odinmodel::javaee::service::service /]
+[import com::vladolium::odinmodel::javaee::repository::repository /]
 
 [template public javaee(aClass : Class)]
 [aClass.entity()/]
+[aClass.view()/]
 [aClass.service()/]
+[aClass.repository()/]
 [/template]
