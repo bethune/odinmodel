@@ -17,9 +17,12 @@
 	<data-source>
 		<name>java:global/ClassicCarsH2DataSource</name>
 		<class-name>org.h2.jdbcx.JdbcDataSource</class-name>
-		<url>jdbc:h2:file:c:/h2test/classicCars;DB_CLOSE_DELAY=-1;</url>
+		<url>jdbc:h2:tcp://localhost/c:/h2data/classicCars;DB_CLOSE_DELAY=-1;</url>
 	</data-source>
 	<welcome-file-list>
 		<welcome-file>hello.xhtml</welcome-file>
 	</welcome-file-list>
+	<listener>
+		<listener-class>org.h2.server.web.DbStarter</listener-class>
+	</listener>
 </web-app>
