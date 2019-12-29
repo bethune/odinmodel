@@ -20,98 +20,224 @@ import com.vladolium.odinmodel.wrapper.*;
 
 @Named
 @ViewScoped
-public class OfficesView implements Serializable {
+public class OfficesView implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private OfficesService officesService;
 
+	
 	private Offices offices;
-
+	
 	public Offices createOne() {
 		return officesService.createUpdate(offices);
 	}
-
+	
 	private OfficesEmployees officesEmployees;
-
+	
 	public Offices createOneIric() {
 		return officesService.createOneIric(officesEmployees);
 	}
-
+	
+	
+	
+	
+	
 	public Offices updateOneById(Long id) {
 		Offices current = officesService.readOneById(id);
-
+		
 		current.setAddressLine1(offices.getAddressLine1());
-
+		
 		current.setAddressLine2(offices.getAddressLine2());
-
+		
 		current.setCountry(offices.getCountry());
-
+		
 		current.setPhone(offices.getPhone());
-
+		
+		
 		current.setCity(offices.getCity());
-
+		
 		current.setPostalCode(offices.getPostalCode());
-
+		
 		current.setTerritory(offices.getTerritory());
-
+		
 		current.setState(offices.getState());
-
+					
 		return officesService.createUpdate(current);
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Offices readOneById(Long id) {
 		return officesService.readOneById(id);
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Iterable<Offices> readAll() {
 		return officesService.readAll();
 	}
-
-	public Page<Offices> readAllPagination(Integer pageNumber, Integer perPageNumber) {
+	
+	public Page<Offices> readAllPagination(
+		Integer pageNumber,
+		Integer perPageNumber
+	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return officesService.readAllPagination(page);
 	}
-
+	
 	@Inject
 	private EmployeesService employeesService;
-
+	
+	
+	
+	
+	
 	public Iterable<Employees> readAllEmployeesByOfficesId(Long officesId) {
 		return employeesService.readAllByOfficesId(officesId);
 	}
-
-	public Page<Employees> readAllEmployeesByOfficesIdPagination(Integer pageNumber, Integer perPageNumber,
-			Long officesId) {
+	
+	public Page<Employees> readAllEmployeesByOfficesIdPagination(
+		Integer pageNumber,
+		Integer perPageNumber,
+		Long officesId
+	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return employeesService.readAllByOfficesId(officesId, page);
 	}
-
-	public Iterable<Offices> search(String addressLine1, String addressLine2, String country, String phone, String city,
-			String postalCode, String territory, String state
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public Iterable<Offices> search(
+		String addressLine1,
+		String addressLine2,
+		String country,
+		String phone,
+		String city,
+		String postalCode,
+		String territory,
+		String state
+		
 	) {
-		return officesService.search(addressLine1, addressLine2, country, phone, city, postalCode, territory, state
-
+		return officesService.search(
+			addressLine1,
+			addressLine2,
+			country,
+			phone,
+			city,
+			postalCode,
+			territory,
+			state
+			
 		);
 	}
-
-	public Page<Offices> searchPagination(Integer pageNumber, Integer perPageNumber, String addressLine1,
-			String addressLine2, String country, String phone, String city, String postalCode, String territory,
-			String state
-
+	
+	public Page<Offices> searchPagination(
+		Integer pageNumber,
+		Integer perPageNumber,
+		String addressLine1,
+		String addressLine2,
+		String country,
+		String phone,
+		String city,
+		String postalCode,
+		String territory,
+		String state
+		
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-
-		return officesService.searchPagination(page, addressLine1, addressLine2, country, phone, city, postalCode,
-				territory, state
-
+	
+		return officesService.searchPagination(
+			page,
+			addressLine1,
+			addressLine2,
+			country,
+			phone,
+			city,
+			postalCode,
+			territory,
+			state
+			
 		);
 	}
-
+	
+	
+	
+	
 	public void deleteOneById(Long id) {
 		officesService.deleteOneById(id);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this view

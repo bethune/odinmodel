@@ -1,7 +1,8 @@
 [comment encoding = UTF-8 /]
-[module javaee('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module layout('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment]
+
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -18,18 +19,32 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
+
 [/comment]
 
-[import com::vladolium::odinmodel::javaee::model::entity /]
-[import com::vladolium::odinmodel::javaee::view::view /]
-[import com::vladolium::odinmodel::javaee::service::service /]
-[import com::vladolium::odinmodel::javaee::repository::repository /]
-[import com::vladolium::odinmodel::javaee::ui::ui /]
-
-[template public javaee(aClass : Class)]
-[aClass.entity()/]
-[aClass.view()/]
-[aClass.service()/]
-[aClass.repository()/]
-[aClass.ui()/]
+[template public layout(aClass : Class)]
+[file ('src/main/webapp/WEB-INF/templates/layout.xhtml', false, 'UTF-8')]
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{title}</title>
+    </h:head>
+    <h:body>
+        <header>
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+        </header>
+        <main>
+            <ui:insert name="content" />
+        </main>
+ 		<footer>
+            <ui:include src="/WEB-INF/templates/footer.xhtml" />
+        </footer>
+    </h:body>
+</html>
+[/file]
 [/template]
