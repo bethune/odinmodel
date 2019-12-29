@@ -20,13 +20,13 @@
     along with this program.  If not, see https://www.gnu.org/licenses/.
 [/comment]
 
-[comment][import com::vladolium::odinmodel::springboot::controller::path::create /][/comment]
-[comment][import com::vladolium::odinmodel::springboot::controller::path::update /][/comment]
+[import com::vladolium::odinmodel::javaee::view::operation::create /]
+[import com::vladolium::odinmodel::javaee::view::operation::update /]
 [import com::vladolium::odinmodel::javaee::view::operation::readOne /]
-[comment][import com::vladolium::odinmodel::springboot::controller::path::readAll /][/comment]
-[comment][import com::vladolium::odinmodel::springboot::controller::path::search /][/comment]
-[comment][import com::vladolium::odinmodel::springboot::controller::path::delete /][/comment]
-[comment][import com::vladolium::odinmodel::springboot::controller::wrapper::manyToOneWrapper /][/comment]
+[import com::vladolium::odinmodel::javaee::view::operation::readAll /]
+[import com::vladolium::odinmodel::javaee::view::operation::search /]
+[import com::vladolium::odinmodel::javaee::view::operation::delete /]
+[import com::vladolium::odinmodel::javaee::view::wrapper::manyToOneWrapper /]
 
 [template public view(aClass : Class){
 	isEntity 		: Boolean = aClass.isAbstract = false;
@@ -44,7 +44,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.web.bind.annotation.*;
-//import org.springframework.data.domain.*;
+import org.springframework.data.domain.*;
 //import org.springframework.format.annotation.*;
 import java.time.*;
 import java.util.*;
@@ -54,7 +54,7 @@ import [viewPath/].model.[type/];
 import [viewPath/].model.[type/].*;
 import [viewPath/].service.[type/]Service;
 import [viewPath/].service.*;
-[comment]import [viewPath/].wrapper.*;[/comment]
+import [viewPath/].wrapper.*;
 
 @Named
 @ViewScoped
@@ -65,16 +65,16 @@ public class [type/]View implements Serializable{
 	@Inject
 	private [type/]Service [parameter/]Service;
 
-[comment]	[aClass.create()/][/comment]
-[comment]	[aClass.update()/][/comment]
+	[aClass.create()/]
+	[aClass.update()/]
 	[aClass.readOne()/]
-[comment]	[aClass.readAll()/][/comment]
-[comment]	[aClass.search()/][/comment]
-[comment]	[aClass.delete()/][/comment]
-[comment]	[aClass.manyToOneWrapper()/][/comment]
+	[aClass.readAll()/]
+	[aClass.search()/]
+	[aClass.delete()/]
+	[aClass.manyToOneWrapper()/]
 
 //Code between start and end will not be removed during generation.
-//[protected ('for this controller')]
+//[protected ('for this view')]
 //[/protected]
 }
 	[/file]

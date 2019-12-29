@@ -22,11 +22,14 @@
 
 [/comment]
 
-[template public delete(aClass : Class)]
+[template public delete(aClass : Class){
+	parameter	: String = aClass.name.toLowerFirst();}]
 [comment: Delete one by id /]
 [for (field: Property | aClass.getAllAttributes()) separator('\n')]
 	[if field.isID = true]
-void deleteOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
+public void deleteOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+    [parameter/]Repository.deleteById([field.name.toLowerFirst()/]);
+}
 	[/if]
 [/for]
 [/template]

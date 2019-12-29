@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module create('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module createUpdate('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment]
 
@@ -27,14 +27,24 @@
 	parameter	: String = aClass.name.toLowerFirst();}]
 [comment: Create, update, and update one with IRIC /]
 // covers create, update and update with IRIC
-[type/] createUpdate([type/] [parameter/]);
+public [type/] createUpdate([type/] [parameter/]) {
+	return [parameter/]Repository.save([parameter/]);
+}
 
 [comment: Create one with IRIC /]
-[for (relationship: Property | aClass.getAssociations().memberEnd)]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
 	[comment: IRIC for manyToOne /]
 	[if relationship.lower = 1 and relationship.upper = -1 and relationship.opposite.type.name.toUpperFirst() = type and 
-		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-[type/] createOneIric([type/][relationship.type.name.toUpperFirst()/] [parameter/][relationship.type.name.toUpperFirst()/]);
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1] 
+private [relationship.type.name.toUpperFirst()/]Repository [relationship.type.name.toLowerFirst()/]Repository;
+
+public [type/] createOneIric([type/][relationship.type.name.toUpperFirst()/] [parameter/][relationship.type.name.toUpperFirst()/]) {
+	[type/] current[type/] = [parameter/]Repository.save([parameter/][relationship.type.name.toUpperFirst()/].get[type/]());
+	[relationship.type.name.toUpperFirst()/] current[relationship.type.name.toUpperFirst()/] = [parameter/][relationship.type.name.toUpperFirst()/].get[relationship.type.name.toUpperFirst()/]();
+	current[relationship.type.name.toUpperFirst()/].set[type/]([parameter/]Repository.getOne(current[type/].getId()));
+	[relationship.type.name.toLowerFirst()/]Repository.save(current[relationship.type.name.toUpperFirst()/]);
+	return current[type/];
+}
 	[/if]
 [/for]
 [/template]

@@ -24,16 +24,14 @@
 	type 		: String = aClass.name.toUpperFirst();
 	parameter	: String = aClass.name.toLowerFirst();}]
 [comment: Read all /]
-@GetMapping("")
 public Iterable<[type/]> readAll() {
 	return [parameter/]Service.readAll();
 }
 
 [comment: Read all with pagination /]
-@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
 public Page<[type/]> readAllPagination(
-	@PathVariable Integer pageNumber,
-	@PathVariable Integer perPageNumber
+	Integer pageNumber,
+	Integer perPageNumber
 ) {
 	Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	return [parameter/]Service.readAllPagination(page);
@@ -46,27 +44,22 @@ public Page<[type/]> readAllPagination(
 			[for (oppositeEntityRelationship : Property | oppositeEntity.getAssociations().memberEnd)]
 				[if (oppositeEntityRelationship.lower = 0 or oppositeEntityRelationship.lower = 1) and oppositeEntityRelationship.upper = -1 and oppositeEntityRelationship.type.name.toUpperFirst() = oppositeEntity.name.toUpperFirst() and oppositeEntityRelationship.opposite.type.name.toUpperFirst() = type and 
 					oppositeEntityRelationship.namespace = association and oppositeEntityRelationship.opposite.lower = 1 and oppositeEntityRelationship.opposite.upper = 1]
+@Inject
 private [oppositeEntityRelationship.type.name.toUpperFirst()/]Service [oppositeEntityRelationship.type.name.toLowerFirst()/]Service;
 
-@Autowired
-public void set[oppositeEntityRelationship.type.name.toUpperFirst()/]Service([oppositeEntityRelationship.type.name.toUpperFirst()/]Service [oppositeEntityRelationship.type.name.toLowerFirst()/]Service) {
-	this.[oppositeEntityRelationship.type.name.toLowerFirst()/]Service = [oppositeEntityRelationship.type.name.toLowerFirst()/]Service;
-}
 					[comment: By parent id /]
 					[for (field: Property | aClass.getAllAttributes()) separator('\n')]
 						[if field.isID = true]
 [comment: Read all by parent id /]
-@GetMapping("/{[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]")
-public Iterable<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]) {
+public Iterable<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]) {
 	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]);
 }
 
 [comment: Read all by parent id with pagination /]
-@GetMapping("/{[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]/page={pageNumber}/perPage={perPageNumber}")
 public Page<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/]Pagination(
-	@PathVariable Integer pageNumber,
-	@PathVariable Integer perPageNumber,
-	@PathVariable [field.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]
+	Integer pageNumber,
+	Integer perPageNumber,
+	[field.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]
 ) {
 	Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/], page);
@@ -78,17 +71,15 @@ public Page<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppo
 					[for (oppositeEntityField: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isUnique = true and oppositeEntityField.isID = false]
 [comment: Read all by parent unique field /]
-@GetMapping("/[oppositeEntityField.name.toLowerFirst()/]={[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]")
-public Iterable<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/](@PathVariable [oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]) {
+public Iterable<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]) {
 	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
 }
 
 [comment: Read all by parent unique field with pagination /]
-@GetMapping("/[oppositeEntityField.name.toLowerFirst()/]={[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]/page={pageNumber}/perPage={perPageNumber}")
 public Page<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Pagination(
-	@PathVariable Integer pageNumber,
-	@PathVariable Integer perPageNumber,
-	@PathVariable [oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]
+	Integer pageNumber,
+	Integer perPageNumber,
+	[oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]
 ) {
 	Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], page);

@@ -22,11 +22,11 @@
 
 [/comment]
 
-[comment][import com::vladolium::odinmodel::javaee::service::path::createUpdate /][/comment]
+[import com::vladolium::odinmodel::javaee::service::operation::createUpdate /]
 [import com::vladolium::odinmodel::javaee::service::operation::readOne /]
-[comment][import com::vladolium::odinmodel::javaee::service::path::readAll /][/comment]
-[comment][import com::vladolium::odinmodel::javaee::service::path::search /][/comment]
-[comment][import com::vladolium::odinmodel::javaee::service::path::delete /][/comment]
+[import com::vladolium::odinmodel::javaee::service::operation::readAll /]
+[import com::vladolium::odinmodel::javaee::service::operation::searchQueryDSL /]
+[import com::vladolium::odinmodel::javaee::service::operation::delete /]
 
 [template public service(aClass : Class) {
 	isEntity 		: Boolean = aClass.isAbstract = false;
@@ -54,12 +54,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import com.querydsl.core.BooleanBuilder;
 import [servicePath/].model.*;
 import [servicePath/].model.[type/];
 import [servicePath/].model.[type/].*;
 import [servicePath/].repository.*;
 import [servicePath/].repository.[type/]Repository;
-//import [servicePath/].wrapper.*;
+import [servicePath/].wrapper.*;
 
 @Stateless
 public class [type/]Service {
@@ -75,11 +76,11 @@ public class [type/]Service {
 		this.[parameter/]Repository = factory.getRepository([type/]Repository.class);
 	}
 
-[comment]	[aClass.createUpdate()/][/comment]
+	[aClass.createUpdate()/]
 	[aClass.readOne()/]
-[comment]	[aClass.readAll()/][/comment]
-[comment]	[aClass.search()/][/comment]
-[comment]	[aClass.delete()/][/comment]
+	[aClass.readAll()/]
+	[aClass.searchQueryDSL()/]
+	[aClass.delete()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this service')]

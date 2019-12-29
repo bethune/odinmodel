@@ -30,7 +30,7 @@
 		[file ('src/main/java/' + packagePath + '/wrapper/' + relationship.opposite.type.name.toUpperFirst() + type + '.java', false, 'UTF-8')]
 package [wrapperRequestPath/].wrapper;
 
-import [wrapperRequestPath/].domain.*;
+import [wrapperRequestPath/].model.*;
 
 public class [relationship.opposite.type.name.toUpperFirst()/][type/] {
 

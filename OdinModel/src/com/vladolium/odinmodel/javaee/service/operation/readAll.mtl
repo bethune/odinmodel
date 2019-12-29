@@ -23,27 +23,36 @@
 [/comment]
 
 [template public readAll(aClass : Class){
-	type 		: String = aClass.name.toUpperFirst();}]
+	type 		: String = aClass.name.toUpperFirst();
+	parameter	: String = aClass.name.toLowerFirst();}]
 [comment: Read all /]
-Iterable<[type/]> readAll();
+public Iterable<[type/]> readAll() {
+	return [parameter/]Repository.findAll();
+}
 
 [comment: Read all with pagination /]
-Page<[type/]> readAllPagination(Pageable page);
+public Page<[type/]> readAllPagination(Pageable page) {
+	return [parameter/]Repository.findAll(page);
+}
 
 [comment: Read all by parent id in many to one relationship /]
 [for (relationship : Property | aClass.getAssociations().memberEnd)]
 	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
 		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-		[for (p: Package | aClass._package)]
-			[for (oppositeEntity: Class | p.member -> filter(Class))]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
 [comment: Read all by parent id /]
-Iterable <[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+public Iterable<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+}
 
 [comment: Read all by parent id with pagination /]
-Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page);
+public Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], page);
+}
 						[/if]
 					[/for]
 				[/if]
@@ -56,16 +65,20 @@ Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.t
 [for (relationship : Property | aClass.getAssociations().memberEnd)]
 	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
 		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-		[for (p: Package | aClass._package)]
-			[for (oppositeEntity: Class | p.member -> filter(Class))]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isUnique = true and oppositeEntityField.isID = false]
 [comment: Read all by parent unique field /]
-Iterable <[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+public Iterable<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+}
 
 [comment: Read all by parent unique field with pagination /]
-Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page);
+public Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page) {
+	return [relationship.type.name.toLowerFirst()/]Repository.findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], page);
+}
 						[/if]
 					[/for]
 				[/if]

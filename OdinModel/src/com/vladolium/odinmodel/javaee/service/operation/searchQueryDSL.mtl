@@ -1,7 +1,8 @@
 [comment encoding = UTF-8 /]
-[module create('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module searchQueryDSL('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment]
+
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
     Copyright (C) 2019  Vladolium
@@ -18,32 +19,47 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
+
 [/comment]
 
-[template public create(aClass : Class){
+[comment: base template /]
+[template public searchQueryDSL(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();
 	parameter	: String = aClass.name.toLowerFirst();}]
-[comment][createRequests(aClass)/][/comment]
-
-private [type/] [parameter/];
-
-[comment: Create one /]
-public [type/] createOne() {
-	return [parameter/]Service.createUpdate([parameter/]);
+[comment : search all/]
+public Iterable<[type/]> search(
+	[searchParameters(aClass)/]
+) {
+	BooleanBuilder where = dynamicWhere(
+		[queryParameters(aClass)/]	
+	);
+	return [parameter/]Repository.findAll(where);
 }
 
-[comment: Create one with IRIC /]
-[for (relationship : Property | aClass.getAssociations().memberEnd)]
-	[comment: IRIC for manyToOne relationships/]
-	[if relationship.lower = 1 and relationship.upper = -1 and relationship.opposite.type.name.toUpperFirst() = type and 
-		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-private [type/][relationship.type.name.toUpperFirst()/] [parameter/][relationship.type.name.toUpperFirst()/];
-
-public [type/] createOneIric() {
-	return [parameter/]Service.createOneIric([parameter/][relationship.type.name.toUpperFirst()/]);
+[comment : search all with pagination /]
+public Page<[type/]> searchPagination(
+	Pageable page,
+	[searchParameters(aClass)/]
+) {
+	BooleanBuilder where = dynamicWhere(
+		[queryParameters(aClass)/]
+	);
+	return [parameter/]Repository.findAll(where, page);
 }
-	[/if]
-[/for]
+
+[comment : building dynamic query/]
+public BooleanBuilder dynamicWhere(
+	[searchParameters(aClass)/]
+) {
+	Q[type/] q[type/] = Q[type/].[parameter/];
+
+	BooleanBuilder where = new BooleanBuilder();
+
+	[queryBuilderParameters(aClass)/]
+
+	return where;
+}
+
 [/template]
 
 [comment:
@@ -52,7 +68,7 @@ subtemplates
 ----------------------------------------------------------------------------------------------------
 /]
 
-[template public createRequests(aClass : Class){
+[template public searchParameters(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();}]
 [comment: foreign keys/]
 [for (relationship : Property | aClass.getAssociations().memberEnd)]
@@ -64,7 +80,7 @@ subtemplates
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-private [oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/];
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
 						[/if]
 					[/for]
 				[/if]
@@ -79,7 +95,7 @@ private [oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.t
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-private [oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/];
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
 						[/if]
 					[/for]
 				[/if]
@@ -94,7 +110,7 @@ private [oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.t
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-private Set<[oppositeEntityField.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set;
+Set<[oppositeEntityField.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set,
 						[/if]
 					[/for]
 				[/if]
@@ -104,41 +120,41 @@ private Set<[oppositeEntityField.type.name.toUpperFirst()/]> [relationship.oppos
 	[comment : OneToMany/]
 	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
 		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
-private List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List;
+List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List,
 	[/if]
 [/for]
 [comment: fields/]
 [for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
 	[if field.type.name = 'Date']
-private LocalDate [field.name.toLowerFirst()/];
+LocalDate [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Time']
-private LocalTime [field.name.toLowerFirst()/];
+LocalTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'DateTime']
-private LocalDateTime [field.name.toLowerFirst()/];
+LocalDateTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Timestamp']
-private Instant [field.name.toLowerFirst()/];
+Instant [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Blob']
-private byte['['/][']'/] [field.name.toLowerFirst()/];
+byte['['/][']'/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Clob']
-private String [field.name.toLowerFirst()/];
+String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name <> 'Date' and field.type.name <> 'Time' and field.type.name <> 'DateTime' and field.type.name <> 'Timestamp' and field.type.name <> 'Blob' and field.type.name <> 'Clob']
-private [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/];
+[field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 [/for]
 [/template]
 
 [comment:----------------------------------------------------------------------------------------------------/]
 
-[template public createParameters(aClass : Class){
+[template public queryParameters(aClass : Class){
 	type 		: String = aClass.name.toUpperFirst();}]
 [comment: foreign keys/]
-[for (relationship: Property | aClass.getAssociations().memberEnd)]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
 	[comment : ManyToOne/]
 	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
 		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
@@ -183,5 +199,81 @@ private [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/];
 [comment: fields/]
 [for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
 [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+[/for]
+[/template]
+
+[comment:----------------------------------------------------------------------------------------------------/]
+
+[template public queryBuilderParameters(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();}]
+[comment: foreign keys/]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
+	[comment : ManyToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+if ([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/] != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/].[oppositeEntityField.name.toLowerFirst()/].eq([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]));
+}
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : OneToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+if ([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/] != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/].[oppositeEntityField.name.toLowerFirst()/].eq([relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]));
+}
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : ManyToMany/]
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+if ([relationship.opposite.type.name.toLowerFirst()/]Set != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/]Set.any().[oppositeEntityField.name.toLowerFirst()/].in([relationship.opposite.type.name.toLowerFirst()/]Set));
+}
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : OneToMany/]
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+if ([relationship.opposite.type.name.toLowerFirst()/]List != null) {
+	where.and(q[type/].[relationship.opposite.type.name.toLowerFirst()/]List.any().in([relationship.opposite.type.name.toLowerFirst()/]List));
+}
+	[/if]
+[/for]
+[comment: fields/]
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+	[if field.type.name = 'String']
+if ([field.name.toLowerFirst()/] != null) {
+	where.and(q[type/].[field.name.toLowerFirst()/].containsIgnoreCase([field.name.toLowerFirst()/]));
+}
+	[else]
+if ([field.name.toLowerFirst()/] != null) {
+	where.and(q[type/].[field.name.toLowerFirst()/].eq([field.name.toLowerFirst()/]));
+}
+	[/if]
 [/for]
 [/template]

@@ -6,11 +6,12 @@
 	version="2.2">
 	<persistence-unit name="ClassicCarsJavaEE8"
 		transaction-type="JTA">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>java:global/ClassicCarsH2DataSource</jta-data-source>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.H2Dialect" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<!-- <property name="javax.persistence.jdbc.user"
 				value="admin" />
@@ -20,4 +21,4 @@
 				value="META-INF/data.sql" /> -->
 		</properties>
 	</persistence-unit>
-</persistence>
+</persistence> 

@@ -25,7 +25,6 @@
 	type 		: String = aClass.name.toUpperFirst();
 	parameter	: String = aClass.name.toLowerFirst();}]
 [comment : search all/]
-@GetMapping("/search")
 public Iterable<[type/]> search(
 	[searchRequests(aClass)/]
 ) {
@@ -35,10 +34,9 @@ public Iterable<[type/]> search(
 }
 
 [comment : search all with pagination /]
-@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
 public Page<[type/]> searchPagination(
-	@PathVariable Integer pageNumber,
-	@PathVariable Integer perPageNumber,
+	Integer pageNumber,
+	Integer perPageNumber,
 	[searchRequests(aClass)/]
 ) {
 	Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -68,7 +66,7 @@ subtemplates
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-@RequestParam(value = "[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]", required = false) [oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
 						[/if]
 					[/for]
 				[/if]
@@ -83,7 +81,7 @@ subtemplates
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-@RequestParam(value = "[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]", required = false) [oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
 						[/if]
 					[/for]
 				[/if]
@@ -98,7 +96,7 @@ subtemplates
 				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-@RequestParam(value = "[relationship.opposite.type.name.toLowerFirst()/]Set['['/][']'/]", required = false) Set<[oppositeEntityField.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set,
+Set<[oppositeEntityField.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set,
 						[/if]
 					[/for]
 				[/if]
@@ -108,31 +106,31 @@ subtemplates
 	[comment : OneToMany/]
 	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
 		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
-@RequestParam(value = "[relationship.opposite.type.name.toLowerFirst()/]List", required = false) List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List,
+List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List,
 	[/if]
 [/for]
 [comment: fields/]
 [for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
 	[if field.type.name = 'Date']
-@RequestParam(value = "[field.name.toLowerFirst()/]", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+LocalDate [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Time']
-@RequestParam(value = "[field.name.toLowerFirst()/]", required = false) @DateTimeFormat(pattern = "HH:mm") LocalTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+LocalTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'DateTime']
-@RequestParam(value = "[field.name.toLowerFirst()/]", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") LocalDateTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+LocalDateTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Timestamp']
-@RequestParam(value = "[field.name.toLowerFirst()/]", required = false) Instant [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+Instant [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Blob']
-@RequestParam(value = "[field.name.toLowerFirst()/]", required = false) byte['['/][']'/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+byte['['/][']'/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name = 'Clob']
-@RequestParam(value = "[field.name.toLowerFirst()/]", required = false) String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 	[if field.type.name <> 'Date' and field.type.name <> 'Time' and field.type.name <> 'DateTime' and field.type.name <> 'Timestamp' and field.type.name <> 'Blob' and field.type.name <> 'Clob']
-@RequestParam(value = "[field.name.toLowerFirst()/]", required = false) [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+[field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 	[/if]
 [/for]
 [/template]

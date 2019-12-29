@@ -26,8 +26,7 @@
 [comment: Delete one by id /]
 [for (field: Property | aClass.getAllAttributes()) separator('\n')]
 	[if field.isID = true]
-@DeleteMapping("/{[field.name.toLowerFirst()/]}")
-public void deleteOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+public void deleteOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[parameter/]Service.deleteOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 }
 	[/if]
@@ -45,8 +44,7 @@ public void deleteOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.na
 						[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 								[if oppositeEntityField.isID = true]
-@DeleteMapping("/{[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
-public void deleteOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+public void deleteOneBy[field.name.toUpperFirst()/]Iric([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	Iterable<[type/]> listOf[type/] = [parameter/]Service
 		.readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/](current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]());

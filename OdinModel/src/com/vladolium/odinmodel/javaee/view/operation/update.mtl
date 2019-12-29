@@ -27,8 +27,7 @@
 [comment: Update one by id /]
 [for (field: Property | aClass.getAllAttributes()) separator('\n')]
 	[if field.isID = true]
-@PutMapping("/{[field.name.toLowerFirst()/]}")
-public [type/] updateOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+public [type/] updateOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	[foreignKeys(aClass)/]
 	[fields(aClass)/]			
@@ -49,8 +48,7 @@ public [type/] updateOneBy[field.name.toUpperFirst()/](@PathVariable [field.type
 						[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 								[if oppositeEntityField.isID = true]
-@PutMapping("/{[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
-public [type/] updateOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+public [type/] updateOneBy[field.name.toUpperFirst()/]Iric([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	if (current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]() == [parameter/].get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]()) {
 		[foreignKeys(aClass)/]
@@ -81,8 +79,7 @@ public [type/] updateOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.
 [comment: Update one by field with unique values /]
 [for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)) separator('\n')]
 	[if field.isUnique = true and field.isID = false]
-@PutMapping("/[field.name.toLowerFirst()/]={[field.name.toLowerFirst()/]}")
-public [type/] updateOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+public [type/] updateOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	[foreignKeys(aClass)/]
 	[fields(aClass)/]			
@@ -103,8 +100,7 @@ public [type/] updateOneBy[field.name.toUpperFirst()/](@PathVariable [field.type
 						[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 								[if oppositeEntityField.isID = true]
-@PutMapping("/[field.name.toLowerFirst()/]={[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
-public [type/] updateOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [type/] [parameter/]) {
+public [type/] updateOneBy[field.name.toUpperFirst()/]Iric([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	if (current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]() == [parameter/].get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]()) {
 		[foreignKeys(aClass)/]
