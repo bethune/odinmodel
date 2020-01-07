@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module home('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module search('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment]
 

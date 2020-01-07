@@ -30,21 +30,20 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	<div class="ui-g">
-		<div class="ui-g-12">
-	        Bar
-			<a href="#{request.contextPath}/">
-		        <h:graphicImage name="images/layout/logo.svg" />
-		    </a>
-		 	<nav>
-		        <ul>
-		            <li><h:link outcome="/about" value="About" /></li>
-		            <li><h:link outcome="/help" value="Help" /></li>
-		            <li><h:link outcome="/contact" value="Contact" /></li>
-		        </ul>
-		    </nav>
-	    </div>
-	</div>
+	<h:form>
+		<div class="ui-g">
+			<div class="ui-g-12">	
+				<p:menubar> 
+		   			<p:menuitem action="#{pageNavigation.goToHome}" value="Home" />
+					[for (temp: PackageableElement | aClass._package.packagedElement) separator('\n')]
+						[if temp.oclAsType(Class).isAbstract = false]
+					<p:menuitem action="#{pageNavigation.goTo[temp.name.toUpperFirst()/]}" value="[temp.name.toUpperFirst()/]" />
+						[/if]	
+					[/for]
+				</p:menubar>	
+			</div>
+		</div>
+	</h:form>
 </ui:composition>
 [/file]
 [/template]

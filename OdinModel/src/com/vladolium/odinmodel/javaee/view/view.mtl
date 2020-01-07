@@ -33,7 +33,7 @@
 	packagePath 	: String = aClass._package.name.toLowerCase();
 	type 			: String = aClass.name.toUpperFirst();
 	parameter		: String = aClass.name.toLowerFirst();
-	viewPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();}]
+	viewPath 		: String = aClass._package.name.replaceAll('/', '.').toLowerCase();}]
 [if isEntity]
 	[file ('src/main/java/' + packagePath + '/view/' + type + 'View.java', false, 'UTF-8')]
 package [viewPath/].view;
