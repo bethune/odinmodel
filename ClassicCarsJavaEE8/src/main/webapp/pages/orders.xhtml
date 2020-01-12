@@ -1,9 +1,51 @@
 <ui:composition template="/WEB-INF/templates/layout.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
     <ui:param name="title" value="Orders management" />
     <ui:define name="content">
         <h1>Orders</h1>
+		<h:form id="ordersCrudForm">
+			<div class="ui-g">
+				<div class="ui-g-12">
+					<p:dataTable 
+						id="ordersCrudTable" 
+						value="#{ordersView.readAll()}" 
+						var="orders" 
+						emptyMessage="No data found"
+						rowKey="#{orders.id}"
+
+
+
+
+
+
+						selectionMode="single"
+						rows="10"
+                 		paginator="true"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 		rowsPerPageTemplate="5,10,15"
+					>
+						<p:column headerText="OrderDate" sortBy="#{orders.orderDate}">
+							<h:outputText value="#{orders.orderDate}" />
+						</p:column>	
+						<p:column headerText="RequiredDate" sortBy="#{orders.requiredDate}">
+							<h:outputText value="#{orders.requiredDate}" />
+						</p:column>	
+						<p:column headerText="ShippedDate" sortBy="#{orders.shippedDate}">
+							<h:outputText value="#{orders.shippedDate}" />
+						</p:column>	
+						<p:column headerText="Status" sortBy="#{orders.status}">
+							<h:outputText value="#{orders.status}" />
+						</p:column>	
+						<p:column headerText="Comments" sortBy="#{orders.comments}">
+							<h:outputText value="#{orders.comments}" />
+						</p:column>	
+					</p:dataTable>
+				</div>
+			</div>
+		</h:form>
     </ui:define>
 </ui:composition>

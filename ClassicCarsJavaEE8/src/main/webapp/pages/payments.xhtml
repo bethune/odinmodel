@@ -1,9 +1,47 @@
 <ui:composition template="/WEB-INF/templates/layout.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
     <ui:param name="title" value="Payments management" />
     <ui:define name="content">
         <h1>Payments</h1>
+		<h:form id="paymentsCrudForm">
+			<div class="ui-g">
+				<div class="ui-g-12">
+					<p:dataTable 
+						id="paymentsCrudTable" 
+						value="#{paymentsView.readAll()}" 
+						var="payments" 
+						emptyMessage="No data found"
+						rowKey="#{payments.id}"
+
+
+
+
+
+						selectionMode="single"
+						rows="10"
+                 		paginator="true"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 		rowsPerPageTemplate="5,10,15"
+					>
+						<p:column headerText="Amount" sortBy="#{payments.amount}">
+							<h:outputText value="#{payments.amount}" />
+						</p:column>	
+						<p:column headerText="PaymentDate" sortBy="#{payments.paymentDate}">
+							<h:outputText value="#{payments.paymentDate}" />
+						</p:column>	
+						<p:column headerText="CheckNumber" sortBy="#{payments.checkNumber}">
+							<h:outputText value="#{payments.checkNumber}" />
+						</p:column>	
+						<p:column headerText="PaymentTimestamp" sortBy="#{payments.paymentTimestamp}">
+							<h:outputText value="#{payments.paymentTimestamp}" />
+						</p:column>	
+					</p:dataTable>
+				</div>
+			</div>
+		</h:form>
     </ui:define>
 </ui:composition>

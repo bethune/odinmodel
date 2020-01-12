@@ -1,9 +1,51 @@
 <ui:composition template="/WEB-INF/templates/layout.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
     <ui:param name="title" value="Gifts management" />
     <ui:define name="content">
         <h1>Gifts</h1>
+		<h:form id="giftsCrudForm">
+			<div class="ui-g">
+				<div class="ui-g-12">
+					<p:dataTable 
+						id="giftsCrudTable" 
+						value="#{giftsView.readAll()}" 
+						var="gifts" 
+						emptyMessage="No data found"
+
+
+
+
+
+						rowKey="#{gifts.id}"
+
+						selectionMode="single"
+						rows="10"
+                 		paginator="true"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 		rowsPerPageTemplate="5,10,15"
+					>
+						<p:column headerText="IsExpired" sortBy="#{gifts.isExpired}">
+							<h:outputText value="#{gifts.isExpired}" />
+						</p:column>	
+						<p:column headerText="GiftType" sortBy="#{gifts.giftType}">
+							<h:outputText value="#{gifts.giftType}" />
+						</p:column>	
+						<p:column headerText="GiftName" sortBy="#{gifts.giftName}">
+							<h:outputText value="#{gifts.giftName}" />
+						</p:column>	
+						<p:column headerText="BeginsOn" sortBy="#{gifts.beginsOn}">
+							<h:outputText value="#{gifts.beginsOn}" />
+						</p:column>	
+						<p:column headerText="ExpiresOn" sortBy="#{gifts.expiresOn}">
+							<h:outputText value="#{gifts.expiresOn}" />
+						</p:column>	
+					</p:dataTable>
+				</div>
+			</div>
+		</h:form>
     </ui:define>
 </ui:composition>

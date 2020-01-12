@@ -1,9 +1,59 @@
 <ui:composition template="/WEB-INF/templates/layout.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
     <ui:param name="title" value="Employees management" />
     <ui:define name="content">
         <h1>Employees</h1>
+		<h:form id="employeesCrudForm">
+			<div class="ui-g">
+				<div class="ui-g-12">
+					<p:dataTable 
+						id="employeesCrudTable" 
+						value="#{employeesView.readAllPagination(0, 20)}" 
+						var="employees" 
+						emptyMessage="No data found"
+
+
+						rowKey="#{employees.id}"
+
+
+
+
+
+
+						selectionMode="single"
+						rows="10"
+                 		paginator="true"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 		rowsPerPageTemplate="5,10,15"
+					>
+						<p:column headerText="Extension" sortBy="#{employees.extension}">
+							<h:outputText value="#{employees.extension}" />
+						</p:column>	
+						<p:column headerText="FirstName" sortBy="#{employees.firstName}">
+							<h:outputText value="#{employees.firstName}" />
+						</p:column>	
+						<p:column headerText="ReportsTo" sortBy="#{employees.reportsTo}">
+							<h:outputText value="#{employees.reportsTo}" />
+						</p:column>	
+						<p:column headerText="JobTitle" sortBy="#{employees.jobTitle}">
+							<h:outputText value="#{employees.jobTitle}" />
+						</p:column>	
+						<p:column headerText="IsActive" sortBy="#{employees.isActive}">
+							<h:outputText value="#{employees.isActive}" />
+						</p:column>	
+						<p:column headerText="LastName" sortBy="#{employees.lastName}">
+							<h:outputText value="#{employees.lastName}" />
+						</p:column>	
+						<p:column headerText="Email" sortBy="#{employees.email}">
+							<h:outputText value="#{employees.email}" />
+						</p:column>	
+					</p:dataTable>
+				</div>
+			</div>
+		</h:form>
     </ui:define>
 </ui:composition>
