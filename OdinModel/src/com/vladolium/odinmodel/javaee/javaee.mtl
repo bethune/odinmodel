@@ -1,6 +1,3 @@
-[comment encoding = UTF-8 /]
-[module javaee('http://www.eclipse.org/uml2/5.0.0/UML')]
-
 [comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
@@ -19,6 +16,9 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/.
 [/comment]
+
+[comment encoding = UTF-8 /]
+[module javaee('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::javaee::model::entity /]
 [import com::vladolium::odinmodel::javaee::view::view /]

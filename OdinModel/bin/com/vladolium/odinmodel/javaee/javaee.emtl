@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="javaee" nsURI="com::vladolium::odinmodel::javaee::javaee" startHeaderPosition="29" endHeaderPosition="979">
+  <mtl:Module name="javaee" nsURI="com::vladolium::odinmodel::javaee::javaee" startHeaderPosition="864" endHeaderPosition="979">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="model/entity.emtl#/0"/>
-    <imports href="view/view.emtl#/0"/>
-    <imports href="service/service.emtl#/0"/>
-    <imports href="repository/repository.emtl#/0"/>
-    <imports href="ui/ui.emtl#/0"/>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="96" endPosition="910" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
-    </ownedModuleElement>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/model/entity.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/view/view.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/service/service.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/repository/repository.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/ui/ui.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="javaee" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="model/entity.emtl#/0/entity"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/model/entity.emtl#/0/entity"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -23,7 +20,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="view/view.emtl#/0/view"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/view/view.emtl#/0/view"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -31,7 +28,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="service/service.emtl#/0/service"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/service/service.emtl#/0/service"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -39,7 +36,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="repository/repository.emtl#/0/repository"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/repository/repository.emtl#/0/repository"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -47,7 +44,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="ui/ui.emtl#/0/ui"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/ui/ui.emtl#/0/ui"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -92,7 +89,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="model/entity.emtl#/0/entity"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/model/entity.emtl#/0/entity"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -104,7 +101,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="view/view.emtl#/0/view"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/view/view.emtl#/0/view"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -116,7 +113,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="service/service.emtl#/0/service"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/service/service.emtl#/0/service"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -128,7 +125,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="repository/repository.emtl#/0/repository"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/repository/repository.emtl#/0/repository"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -140,7 +137,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="ui/ui.emtl#/0/ui"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/ui/ui.emtl#/0/ui"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -205,87 +202,82 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="87"/>
-      <details key="end" value="920"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/javaee">
+    <eAnnotations source="positions.0" references="/0/javaee">
       <details key="start" value="1225"/>
       <details key="end" value="1371"/>
       <details key="line" value="29"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/javaee/%">
+    <eAnnotations source="positions.1" references="/0/javaee/%">
       <details key="start" value="1267"/>
       <details key="end" value="1282"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/javaee/%/aClass">
+    <eAnnotations source="positions.2" references="/0/javaee/%/aClass">
       <details key="start" value="1267"/>
       <details key="end" value="1273"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/javaee/%.1">
+    <eAnnotations source="positions.3" references="/0/javaee/%.1">
       <details key="start" value="1284"/>
       <details key="end" value="1285"/>
       <details key="line" value="31"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/javaee/%.2">
+    <eAnnotations source="positions.4" references="/0/javaee/%.2">
       <details key="start" value="1286"/>
       <details key="end" value="1299"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/javaee/%.2/aClass">
+    <eAnnotations source="positions.5" references="/0/javaee/%.2/aClass">
       <details key="start" value="1286"/>
       <details key="end" value="1292"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/javaee/%.3">
+    <eAnnotations source="positions.6" references="/0/javaee/%.3">
       <details key="start" value="1301"/>
       <details key="end" value="1302"/>
       <details key="line" value="32"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/javaee/%.4">
+    <eAnnotations source="positions.7" references="/0/javaee/%.4">
       <details key="start" value="1303"/>
       <details key="end" value="1319"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/javaee/%.4/aClass">
+    <eAnnotations source="positions.8" references="/0/javaee/%.4/aClass">
       <details key="start" value="1303"/>
       <details key="end" value="1309"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/javaee/%.5">
+    <eAnnotations source="positions.9" references="/0/javaee/%.5">
       <details key="start" value="1321"/>
       <details key="end" value="1322"/>
       <details key="line" value="33"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/javaee/%.6">
+    <eAnnotations source="positions.10" references="/0/javaee/%.6">
       <details key="start" value="1323"/>
       <details key="end" value="1342"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/javaee/%.6/aClass">
+    <eAnnotations source="positions.11" references="/0/javaee/%.6/aClass">
       <details key="start" value="1323"/>
       <details key="end" value="1329"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/javaee/%.7">
+    <eAnnotations source="positions.12" references="/0/javaee/%.7">
       <details key="start" value="1344"/>
       <details key="end" value="1345"/>
       <details key="line" value="34"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/javaee/%.8">
+    <eAnnotations source="positions.13" references="/0/javaee/%.8">
       <details key="start" value="1346"/>
       <details key="end" value="1357"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/javaee/%.8/aClass">
+    <eAnnotations source="positions.14" references="/0/javaee/%.8/aClass">
       <details key="start" value="1346"/>
       <details key="end" value="1352"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/javaee/aClass">
+    <eAnnotations source="positions.15" references="/0/javaee/aClass">
       <details key="start" value="1249"/>
       <details key="end" value="1263"/>
       <details key="line" value="29"/>

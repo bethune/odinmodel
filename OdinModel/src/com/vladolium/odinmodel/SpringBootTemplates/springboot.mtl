@@ -1,3 +1,6 @@
+[comment encoding = UTF-8 /]
+[module springboot('http://www.eclipse.org/uml2/5.0.0/UML')]
+
 [comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
@@ -17,19 +20,18 @@
     along with this program.  If not, see https://www.gnu.org/licenses/.
 [/comment]
 
-[comment encoding = UTF-8 /]
-[module javaee('http://www.eclipse.org/uml2/5.0.0/UML')]
+[import com::vladolium::odinmodel::springboot::model::entity /]
+[import com::vladolium::odinmodel::springboot::controller::controller /]
+[import com::vladolium::odinmodel::springboot::service::service /]
+[import com::vladolium::odinmodel::springboot::implementation::implementation /]
+[import com::vladolium::odinmodel::springboot::repository::repository /]
+[import com::vladolium::odinmodel::springboot::configuration::configuration /]
 
-[import com::vladolium::odinmodel::javaee::model::entity /]
-[import com::vladolium::odinmodel::javaee::view::view /]
-[import com::vladolium::odinmodel::javaee::service::service /]
-[import com::vladolium::odinmodel::javaee::repository::repository /]
-[import com::vladolium::odinmodel::javaee::ui::ui /]
-
-[template public javaee(aClass : Class)]
+[template public springboot(aClass : Class)]
 [aClass.entity()/]
-[aClass.view()/]
+[aClass.controller()/]
 [aClass.service()/]
+[aClass.implementation()/]
 [aClass.repository()/]
-[aClass.ui()/]
+[aClass.configuration()/]
 [/template]

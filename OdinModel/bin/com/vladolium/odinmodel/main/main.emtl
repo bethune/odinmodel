@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="main" nsURI="com::vladolium::odinmodel::main::main" startHeaderPosition="29" endHeaderPosition="977">
+  <mtl:Module name="main" nsURI="com::vladolium::odinmodel::main::main" startHeaderPosition="1281" endHeaderPosition="1394">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../springboot/springboot.emtl#/0"/>
-    <imports href="../javaee/javaee.emtl#/0"/>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="94" endPosition="908" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
-    </ownedModuleElement>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/springboot.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/javaee.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="main" visibility="Public" main="true">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-      <body xsi:type="mtl:TemplateInvocation">
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="../javaee/javaee.emtl#/0/javaee"/>
-        <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/main/aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </argument>
-      </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <parameter name="aClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -50,18 +40,6 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/main"/>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="javaee">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="../javaee/javaee.emtl#/0/javaee"/>
-        </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -107,51 +85,33 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="85"/>
-      <details key="end" value="918"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.0" references="/0/main">
+      <details key="start" value="1450"/>
+      <details key="end" value="1671"/>
+      <details key="line" value="27"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/main">
-      <details key="start" value="1033"/>
-      <details key="end" value="1236"/>
-      <details key="line" value="26"/>
+    <eAnnotations source="positions.1" references="/0/main/%">
+      <details key="start" value="1506"/>
+      <details key="end" value="1507"/>
+      <details key="line" value="29"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/main/%">
-      <details key="start" value="1089"/>
-      <details key="end" value="1090"/>
-      <details key="line" value="28"/>
+    <eAnnotations source="positions.2" references="/0/main/%.1">
+      <details key="start" value="1578"/>
+      <details key="end" value="1579"/>
+      <details key="line" value="31"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/main/%.1">
-      <details key="start" value="1162"/>
-      <details key="end" value="1163"/>
-      <details key="line" value="30"/>
+    <eAnnotations source="positions.3" references="/0/main/%.2">
+      <details key="start" value="1659"/>
+      <details key="end" value="1660"/>
+      <details key="line" value="34"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/main/%.2">
-      <details key="start" value="1206"/>
-      <details key="end" value="1221"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/main/%.2/aClass">
-      <details key="start" value="1206"/>
-      <details key="end" value="1212"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/main/%.3">
-      <details key="start" value="1223"/>
-      <details key="end" value="1224"/>
-      <details key="line" value="33"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/main/aClass">
-      <details key="start" value="1055"/>
-      <details key="end" value="1069"/>
-      <details key="line" value="26"/>
+    <eAnnotations source="positions.4" references="/0/main/aClass">
+      <details key="start" value="1472"/>
+      <details key="end" value="1486"/>
+      <details key="line" value="27"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

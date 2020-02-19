@@ -21,7 +21,7 @@ public class Activator extends Plugin {
     /**
      * The plug-in ID.
      */
-    public static final String PLUGIN_ID = "OdinModel4SpringBoot";
+    public static final String PLUGIN_ID = "OdinModel";
 
     /**
      * The shared instance.
