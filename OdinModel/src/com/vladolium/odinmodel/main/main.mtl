@@ -2,7 +2,7 @@
 	OdinModel is a free and open-source framework for transforming a custom web application development 
 	into a model-driven rapid prototyping approach.
 
-    Copyright (C) 2019  Vladolium
+    Copyright (C) 2020  Vladolium
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
 	associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -21,15 +21,15 @@
 [comment encoding = UTF-8 /]
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::springboot::springboot/]
-[import com::vladolium::odinmodel::javaee::javaee/]
+[import com::vladolium::odinmodel::templates::springboot::springBootProject/]
+[comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
 
 [template public main(aClass : Class)]
 [comment @main/]
 
 [comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]
 
-[comment][aClass.springboot()/][/comment]
+[springBootProject()/]
 [comment][aClass.javaee()/][/comment]
 
 [/template]

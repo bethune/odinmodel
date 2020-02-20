@@ -4,15 +4,15 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/model/entity.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/view/view.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/service/service.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/repository/repository.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/ui/ui.emtl#/0"/>
+    <imports href="model/entity.emtl#/0"/>
+    <imports href="view/view.emtl#/0"/>
+    <imports href="service/service.emtl#/0"/>
+    <imports href="repository/repository.emtl#/0"/>
+    <imports href="ui/ui.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="javaee" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/model/entity.emtl#/0/entity"/>
+        <definition href="model/entity.emtl#/0/entity"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -20,7 +20,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/view/view.emtl#/0/view"/>
+        <definition href="view/view.emtl#/0/view"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -28,7 +28,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/service/service.emtl#/0/service"/>
+        <definition href="service/service.emtl#/0/service"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -36,7 +36,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/repository/repository.emtl#/0/repository"/>
+        <definition href="repository/repository.emtl#/0/repository"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -44,7 +44,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/ui/ui.emtl#/0/ui"/>
+        <definition href="ui/ui.emtl#/0/ui"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/javaee/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -89,7 +89,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/model/entity.emtl#/0/entity"/>
+          <references href="model/entity.emtl#/0/entity"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -101,7 +101,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/view/view.emtl#/0/view"/>
+          <references href="view/view.emtl#/0/view"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -113,7 +113,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/service/service.emtl#/0/service"/>
+          <references href="service/service.emtl#/0/service"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -125,7 +125,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/repository/repository.emtl#/0/repository"/>
+          <references href="repository/repository.emtl#/0/repository"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -137,7 +137,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/ui/ui.emtl#/0/ui"/>
+          <references href="ui/ui.emtl#/0/ui"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">

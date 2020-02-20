@@ -1,3 +1,6 @@
+[comment encoding = UTF-8 /]
+[module relationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+
 [comment]
 	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
 
@@ -17,19 +20,14 @@
     along with this program.  If not, see https://www.gnu.org/licenses/.
 [/comment]
 
-[comment encoding = UTF-8 /]
-[module javaee('http://www.eclipse.org/uml2/5.0.0/UML')]
+[import com::vladolium::odinmodel::springboot::model::relationship::manyToOne /]
+[import com::vladolium::odinmodel::springboot::model::relationship::oneToOne /]
+[import com::vladolium::odinmodel::springboot::model::relationship::manyToMany /]
+[import com::vladolium::odinmodel::springboot::model::relationship::oneToMany /]
 
-[import com::vladolium::odinmodel::javaee::model::entity /]
-[import com::vladolium::odinmodel::javaee::view::view /]
-[import com::vladolium::odinmodel::javaee::service::service /]
-[import com::vladolium::odinmodel::javaee::repository::repository /]
-[import com::vladolium::odinmodel::javaee::ui::ui /]
-
-[template public javaee(aClass : Class)]
-[aClass.entity()/]
-[aClass.view()/]
-[aClass.service()/]
-[aClass.repository()/]
-[aClass.ui()/]
+[template public relationship(aClass : Class)]
+[aClass.manyToOne()/]
+[aClass.oneToOne()/]
+[aClass.manyToMany()/]
+[aClass.oneToMany()/]
 [/template]

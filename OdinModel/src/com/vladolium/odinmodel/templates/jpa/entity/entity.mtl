@@ -19,17 +19,33 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module entity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::springboot::springBootProject/]
-[comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::javaImportsForEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::commonEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::inheritingEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::abstractClass /]
 
-[template public main(aClass : Class)]
-[comment @main/]
+[template public entity(aClass : Class){
+	packagePath 			: String = aClass._package.name.toLowerCase();
+	packageName				: String = aClass._package.name.replaceAll('/', '.').toLowerCase().concat('.model');
+	entityNameUpperFirst	: String = aClass.name.toUpperFirst();
+	isAbstract 				: Boolean = aClass.isAbstract;
+	doesNotInherit 			: Boolean = aClass.general->isEmpty();}]
 
-[comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/];
 
-[springBootProject()/]
-[comment][aClass.javaee()/][/comment]
+[javaImportsForEntity()/]
 
+	[if isAbstract = false and doesNotInherit]
+[commonEntity()/]
+	[/if]
+	[if isAbstract = false and doesNotInherit = false]
+[inheritingEntity()/]
+	[/if]
+	[if isAbstract]
+[abstractClass()/]
+	[/if] 
+[/file]
 [/template]

@@ -19,17 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module commonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::springboot::springBootProject/]
-[comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
+[import com::vladolium::odinmodel::templates::jpa::field::field /]
+[import com::vladolium::odinmodel::templates::jpa::relationship::relationship /]
 
-[template public main(aClass : Class)]
-[comment @main/]
+[template public commonEntity(aClass : Class){
+	entityNameUpperFirst	: String = aClass.name.toUpperFirst();}]
+@Entity
+public class [entityNameUpperFirst/] {
 
-[comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]
+	[field()/]
+	[relationship()/]
 
-[springBootProject()/]
-[comment][aClass.javaee()/][/comment]
-
+//Code between start and end will not be removed during generation.
+//[protected ('for this entity')]
+//[/protected]
+}
 [/template]

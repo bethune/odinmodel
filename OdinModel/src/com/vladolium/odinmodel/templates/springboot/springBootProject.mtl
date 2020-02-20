@@ -19,17 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module springBootProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::springboot::springBootProject/]
-[comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
+[import com::vladolium::odinmodel::templates::jpa::entity::entity /]
+[comment][import com::vladolium::odinmodel::SpringBootTemplates::controller::controller /][/comment]
+[comment][import com::vladolium::odinmodel::SpringBootTemplates::service::service /][/comment]
+[comment][import com::vladolium::odinmodel::SpringBootTemplates::implementation::implementation /][/comment]
+[comment][import com::vladolium::odinmodel::SpringBootTemplates::repository::repository /][/comment]
+[comment][import com::vladolium::odinmodel::SpringBootTemplates::configuration::configuration /][/comment]
 
-[template public main(aClass : Class)]
-[comment @main/]
-
-[comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]
-
-[springBootProject()/]
-[comment][aClass.javaee()/][/comment]
-
+[template public springBootProject(aClass : Class)]
+[entity()/]
+[comment][aClass.controller()/][/comment]
+[comment][aClass.service()/][/comment] 
+[comment][aClass.implementation()/][/comment]
+[comment][aClass.repository()/][/comment]
+[comment][aClass.configuration()/][/comment]
 [/template]

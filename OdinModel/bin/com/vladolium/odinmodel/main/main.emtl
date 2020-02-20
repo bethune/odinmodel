@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="main" nsURI="com::vladolium::odinmodel::main::main" startHeaderPosition="1281" endHeaderPosition="1394">
+  <mtl:Module name="main" nsURI="com::vladolium::odinmodel::main::main" startHeaderPosition="1281" endHeaderPosition="1412">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/springboot/springboot.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/javaee/javaee.emtl#/0"/>
+    <imports href="../templates/springboot/springBootProject.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="1424" endPosition="1501" value="[import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/]"/>
+    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="main" visibility="Public" main="true">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="../templates/springboot/springBootProject.emtl#/0/springBootProject"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/6">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </argument>
+      </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <parameter name="aClass">
@@ -40,6 +50,18 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/main"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="springBootProject">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../templates/springboot/springBootProject.emtl#/0/springBootProject"/>
+        </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -85,32 +107,55 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/main">
-      <details key="start" value="1450"/>
-      <details key="end" value="1671"/>
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="1415"/>
+      <details key="end" value="1511"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/main">
+      <details key="start" value="1513"/>
+      <details key="end" value="1715"/>
       <details key="line" value="27"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/main/%">
-      <details key="start" value="1506"/>
-      <details key="end" value="1507"/>
+    <eAnnotations source="positions.2" references="/0/main/%">
+      <details key="start" value="1569"/>
+      <details key="end" value="1570"/>
       <details key="line" value="29"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/main/%.1">
-      <details key="start" value="1578"/>
-      <details key="end" value="1579"/>
+    <eAnnotations source="positions.3" references="/0/main/%.1">
+      <details key="start" value="1641"/>
+      <details key="end" value="1642"/>
       <details key="line" value="31"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/main/%.2">
-      <details key="start" value="1659"/>
-      <details key="end" value="1660"/>
+    <eAnnotations source="positions.4" references="/0/main/%.2">
+      <details key="start" value="1643"/>
+      <details key="end" value="1662"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/main/%.2/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/main/%.3">
+      <details key="start" value="1664"/>
+      <details key="end" value="1665"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/main/%.4">
+      <details key="start" value="1703"/>
+      <details key="end" value="1704"/>
       <details key="line" value="34"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/main/aClass">
-      <details key="start" value="1472"/>
-      <details key="end" value="1486"/>
+    <eAnnotations source="positions.8" references="/0/main/aClass">
+      <details key="start" value="1535"/>
+      <details key="end" value="1549"/>
       <details key="line" value="27"/>
     </eAnnotations>
   </ecore:EAnnotation>

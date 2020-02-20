@@ -19,17 +19,13 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module javaImportsForEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::springboot::springBootProject/]
-[comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
-
-[template public main(aClass : Class)]
-[comment @main/]
-
-[comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]
-
-[springBootProject()/]
-[comment][aClass.javaee()/][/comment]
-
+[template public javaImportsForEntity(aClass : Class)]
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.time.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.*;
 [/template]

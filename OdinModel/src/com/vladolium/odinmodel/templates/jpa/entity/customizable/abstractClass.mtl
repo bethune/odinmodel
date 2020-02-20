@@ -19,17 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module abstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::springboot::springBootProject/]
-[comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
+[import com::vladolium::odinmodel::templates::jpa::field::field /]
 
-[template public main(aClass : Class)]
-[comment @main/]
+[template public abstractClass(aClass : Class){
+	entityNameUpperFirst	: String = aClass.name.toUpperFirst();}]
+@MappedSuperclass
+public abstract class [entityNameUpperFirst/] {
 
-[comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]
+	[aClass.field()/]
 
-[springBootProject()/]
-[comment][aClass.javaee()/][/comment]
-
+//Code between start and end will not be removed during generation.
+//[protected ('for this abstract class')]
+//[/protected]
+}
 [/template]
