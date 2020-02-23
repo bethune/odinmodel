@@ -20,7 +20,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-      <parameter name="aClass">
+      <parameter name="umlClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
     </ownedModuleElement>
@@ -51,7 +51,7 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/main"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
+        <eParameters name="umlClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
@@ -63,7 +63,7 @@
           <references href="../templates/springboot/springBootProject.emtl#/0/springBootProject"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
+        <eParameters name="umlClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
@@ -120,22 +120,22 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/main">
       <details key="start" value="1513"/>
-      <details key="end" value="1715"/>
+      <details key="end" value="1717"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/main/%">
-      <details key="start" value="1569"/>
-      <details key="end" value="1570"/>
+      <details key="start" value="1571"/>
+      <details key="end" value="1572"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/main/%.1">
-      <details key="start" value="1641"/>
-      <details key="end" value="1642"/>
+      <details key="start" value="1643"/>
+      <details key="end" value="1644"/>
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/main/%.2">
-      <details key="start" value="1643"/>
-      <details key="end" value="1662"/>
+      <details key="start" value="1645"/>
+      <details key="end" value="1664"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/main/%.2/self">
@@ -144,18 +144,18 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/main/%.3">
-      <details key="start" value="1664"/>
-      <details key="end" value="1665"/>
+      <details key="start" value="1666"/>
+      <details key="end" value="1667"/>
       <details key="line" value="33"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/main/%.4">
-      <details key="start" value="1703"/>
-      <details key="end" value="1704"/>
+      <details key="start" value="1705"/>
+      <details key="end" value="1706"/>
       <details key="line" value="34"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/main/aClass">
+    <eAnnotations source="positions.8" references="/0/main/umlClass">
       <details key="start" value="1535"/>
-      <details key="end" value="1549"/>
+      <details key="end" value="1551"/>
       <details key="line" value="27"/>
     </eAnnotations>
   </ecore:EAnnotation>

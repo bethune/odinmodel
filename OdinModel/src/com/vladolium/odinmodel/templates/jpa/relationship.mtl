@@ -20,14 +20,14 @@
     along with this program.  If not, see https://www.gnu.org/licenses/.
 [/comment]
 
-[import com::vladolium::odinmodel::springboot::model::relationship::manyToOne /]
+[comment][import com::vladolium::odinmodel::springboot::model::relationship::manyToOne /]
 [import com::vladolium::odinmodel::springboot::model::relationship::oneToOne /]
 [import com::vladolium::odinmodel::springboot::model::relationship::manyToMany /]
-[import com::vladolium::odinmodel::springboot::model::relationship::oneToMany /]
+[import com::vladolium::odinmodel::springboot::model::relationship::oneToMany /][/comment]
 
 [template public relationship(aClass : Class)]
-[aClass.manyToOne()/]
+[comment][aClass.manyToOne()/]
 [aClass.oneToOne()/]
 [aClass.manyToMany()/]
-[aClass.oneToMany()/]
+[aClass.oneToMany()/][/comment]
 [/template]

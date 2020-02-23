@@ -19,22 +19,36 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module enum('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::field /]
-[import com::vladolium::odinmodel::templates::jpa::relationship /]
+[import com::vladolium::odinmodel::templates::jpa::field::constraint::customizable::notNull /]
+[import com::vladolium::odinmodel::templates::jpa::field::constraint::customizable::unique /]
 
-[template public inheritingEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClass	 		: Collection(T) = umlClass.general.name.toUpperFirst();}]
-@Entity
-public class [entityNameUpperFirst/] extends [abstractClass/] {
-
-	[field()/]
-	[relationship()/]
-		
-//Code between start and end will not be removed during generation.
-//[protected ('for this inheriting entity')]
-//[/protected]
+[template public enum(umlClass : Class)]
+[for (e: Enumeration | umlClass.getModel().eContents(Enumeration)) separator('\n')]
+	[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
+		[if field.type.name = e.name]
+public enum [field.type.name/] {
+			[for (el: EnumerationLiteral | e.ownedLiteral)]
+	[el.name/],
+			[/for]
 }
+			[if field.lower = 1 and field.isID = false]
+[notNull(field)/]
+			[/if]
+			[if field.isUnique = true and field.isID = false]
+[unique(field)/]
+			[/if]			
+@Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
+private [field.type.name/] [field.name/];
+
+public [field.type.name/] get[field.name.toUpperFirst()/]() {
+	return [field.name/];
+}
+public void set[field.name.toUpperFirst()/]([field.type.name/] [field.name/]) {
+	this.[field.name/] = [field.name/];
+}
+		[/if]
+	[/for]
+[/for]
 [/template]

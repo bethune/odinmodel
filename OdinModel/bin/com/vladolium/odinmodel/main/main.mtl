@@ -24,7 +24,7 @@
 [import com::vladolium::odinmodel::templates::springboot::springBootProject/]
 [comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
 
-[template public main(aClass : Class)]
+[template public main(umlClass : Class)]
 [comment @main/]
 
 [comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]

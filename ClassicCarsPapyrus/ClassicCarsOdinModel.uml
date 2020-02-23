@@ -333,7 +333,7 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_DkMoweEmEemxFfBtMY4P2Q" type="_noWUwN9rEemJF-HGxlolYw" association="_DkKMgOEmEemxFfBtMY4P2Q"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:DataType" xmi:id="_6xwZgOInEemqlKIOh2pa2g" name="Timestamp"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_6xwZgOInEemqlKIOh2pa2g" name="Instant"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_coD-oOLCEemqlKIOh2pa2g" name="Clob">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_QhFBEOL2EemqlKIOh2pa2g" name="Operation1"/>
   </packagedElement>

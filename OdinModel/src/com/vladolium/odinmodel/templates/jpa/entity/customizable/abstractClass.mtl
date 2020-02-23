@@ -21,14 +21,14 @@
 [comment encoding = UTF-8 /]
 [module abstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::field::field /]
+[import com::vladolium::odinmodel::templates::jpa::field /]
 
-[template public abstractClass(aClass : Class){
-	entityNameUpperFirst	: String = aClass.name.toUpperFirst();}]
+[template public abstractClass(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 @MappedSuperclass
 public abstract class [entityNameUpperFirst/] {
 
-	[aClass.field()/]
+	[field()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this abstract class')]

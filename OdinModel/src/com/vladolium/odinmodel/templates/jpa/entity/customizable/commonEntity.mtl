@@ -21,11 +21,11 @@
 [comment encoding = UTF-8 /]
 [module commonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::field::field /]
-[import com::vladolium::odinmodel::templates::jpa::relationship::relationship /]
+[import com::vladolium::odinmodel::templates::jpa::field /]
+[import com::vladolium::odinmodel::templates::jpa::relationship /]
 
-[template public commonEntity(aClass : Class){
-	entityNameUpperFirst	: String = aClass.name.toUpperFirst();}]
+[template public commonEntity(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 @Entity
 public class [entityNameUpperFirst/] {
 

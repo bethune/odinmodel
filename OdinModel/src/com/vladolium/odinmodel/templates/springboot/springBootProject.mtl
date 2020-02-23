@@ -21,14 +21,14 @@
 [comment encoding = UTF-8 /]
 [module springBootProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::entity::entity /]
+[import com::vladolium::odinmodel::templates::jpa::entity /]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::controller::controller /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::service::service /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::implementation::implementation /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::repository::repository /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::configuration::configuration /][/comment]
 
-[template public springBootProject(aClass : Class)]
+[template public springBootProject(umlClass : Class)]
 [entity()/]
 [comment][aClass.controller()/][/comment]
 [comment][aClass.service()/][/comment] 

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="primaryKey" nsURI="com::vladolium::odinmodel::springboot::model::field::constraint::primaryKey" startHeaderPosition="29" endHeaderPosition="-1">
+  <mtl:Module name="primaryKey" nsURI="com::vladolium::odinmodel::springboot::model::field::constraint::primaryKey" startHeaderPosition="1281" endHeaderPosition="-1">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="100" endPosition="914" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
-    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="primaryKey" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@Id&#xA;@GeneratedValue(strategy = GenerationType.AUTO)"/>
       <parameter name="p">
@@ -87,25 +84,20 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="91"/>
-      <details key="end" value="924"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/primaryKey">
-      <details key="start" value="926"/>
-      <details key="end" value="1032"/>
-      <details key="line" value="23"/>
-    </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/primaryKey/%">
-      <details key="start" value="969"/>
-      <details key="end" value="1020"/>
+    <eAnnotations source="positions.0" references="/0/primaryKey">
+      <details key="start" value="1343"/>
+      <details key="end" value="1449"/>
       <details key="line" value="24"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/primaryKey/p">
-      <details key="start" value="954"/>
-      <details key="end" value="966"/>
-      <details key="line" value="23"/>
+    <eAnnotations source="positions.1" references="/0/primaryKey/%">
+      <details key="start" value="1386"/>
+      <details key="end" value="1437"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/primaryKey/p">
+      <details key="start" value="1371"/>
+      <details key="end" value="1383"/>
+      <details key="line" value="24"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

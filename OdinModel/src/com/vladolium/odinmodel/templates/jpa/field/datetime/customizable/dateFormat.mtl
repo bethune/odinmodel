@@ -19,22 +19,9 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module dateFormat('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::field /]
-[import com::vladolium::odinmodel::templates::jpa::relationship /]
-
-[template public inheritingEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClass	 		: Collection(T) = umlClass.general.name.toUpperFirst();}]
-@Entity
-public class [entityNameUpperFirst/] extends [abstractClass/] {
-
-	[field()/]
-	[relationship()/]
-		
-//Code between start and end will not be removed during generation.
-//[protected ('for this inheriting entity')]
-//[/protected]
-}
+[template public dateFormat(umlClassAttribute : Property)]
+@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 [/template]

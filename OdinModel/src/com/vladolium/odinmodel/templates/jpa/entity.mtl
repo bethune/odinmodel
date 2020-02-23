@@ -19,22 +19,33 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module entity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::field /]
-[import com::vladolium::odinmodel::templates::jpa::relationship /]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::javaImportsForEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::commonEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::inheritingEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::customizable::abstractClass /]
 
-[template public inheritingEntity(umlClass : Class){
+[template public entity(umlClass : Class){
+	packagePath 			: String = umlClass._package.name.toLowerCase();
+	packageName				: String = umlClass._package.name.replaceAll('/', '.').toLowerCase().concat('.model');
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClass	 		: Collection(T) = umlClass.general.name.toUpperFirst();}]
-@Entity
-public class [entityNameUpperFirst/] extends [abstractClass/] {
+	isAbstract 				: Boolean = umlClass.isAbstract;
+	doesNotInherit 			: Boolean = umlClass.general->isEmpty();}]
 
-	[field()/]
-	[relationship()/]
-		
-//Code between start and end will not be removed during generation.
-//[protected ('for this inheriting entity')]
-//[/protected]
-}
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/];
+
+[javaImportsForEntity()/]
+
+	[if isAbstract = false and doesNotInherit]
+[commonEntity()/]
+	[/if]
+	[if isAbstract = false and doesNotInherit = false]
+[inheritingEntity()/]
+	[/if]
+	[if isAbstract]
+[abstractClass()/]
+	[/if] 
+[/file]
 [/template]
