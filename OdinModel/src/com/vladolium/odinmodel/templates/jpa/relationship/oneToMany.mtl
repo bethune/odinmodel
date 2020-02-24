@@ -19,16 +19,23 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module relationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module oneToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::relationship::manyToOne /]
-[import com::vladolium::odinmodel::templates::jpa::relationship::oneToOne /]
-[import com::vladolium::odinmodel::templates::jpa::relationship::manyToMany /]
-[import com::vladolium::odinmodel::templates::jpa::relationship::oneToMany /]
+[template public oneToMany(umlClass : Class){
+	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
+[for (relationship : Property | umlClass.getAssociations().memberEnd)]
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+@OneToMany
+@JoinColumn(name="[relationship.type.name.toLowerFirst()/]_id")
+private List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List;
 
-[template public relationship(umlClass : Class)]
-[manyToOne()/]
-[oneToOne()/]
-[manyToMany()/]
-[oneToMany()/]
+public List<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.opposite.type.name.toUpperFirst()/]List() {
+	return [relationship.opposite.type.name.toLowerFirst()/]List;
+}
+public void set[relationship.opposite.type.name.toUpperFirst()/]List(List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List) {
+	this.[relationship.opposite.type.name.toLowerFirst()/]List = [relationship.opposite.type.name.toLowerFirst()/]List;
+}
+	[/if]
+[/for]
 [/template]
