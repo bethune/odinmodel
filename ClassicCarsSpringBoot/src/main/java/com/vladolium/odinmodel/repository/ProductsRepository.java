@@ -12,36 +12,13 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 public interface ProductsRepository extends JpaRepository<Products, Long>, QuerydslPredicateExecutor<Products> {
 
+	Products findByProductCodeEquals(String productCode);
 
+	Products findByIdEquals(Long id);
 
+	Iterable<Products> findByProductLinesIdEquals(Long productLinesId);
 
-
-
-
-
-
-
-Products findByIdEquals(Long id);
-
-
-Products findByProductCodeEquals(String productCode);
-
-
-
-
-
-
-
-Iterable <Products> findByProductLinesIdEquals(Long productLinesId);
-
-Page <Products> findByProductLinesIdEquals(Long productLinesId, Pageable page);
-
-
-
-
-
-
-
+	Page<Products> findByProductLinesIdEquals(Long productLinesId, Pageable page);
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this repository

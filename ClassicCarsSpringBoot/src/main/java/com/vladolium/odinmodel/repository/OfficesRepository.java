@@ -10,27 +10,9 @@ import com.vladolium.odinmodel.domain.Offices.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-
-
-
-
-
 public interface OfficesRepository extends JpaRepository<Offices, Long>, QuerydslPredicateExecutor<Offices> {
 
-
-
-
-
-
-
-
-
-Offices findByIdEquals(Long id);
-
-
-
-
-
+	Offices findByIdEquals(Long id);
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this repository

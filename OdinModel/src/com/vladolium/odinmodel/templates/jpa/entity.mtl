@@ -21,10 +21,10 @@
 [comment encoding = UTF-8 /]
 [module entity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::entity::customizable::javaImportsForEntity /]
-[import com::vladolium::odinmodel::templates::jpa::entity::customizable::commonEntity /]
-[import com::vladolium::odinmodel::templates::jpa::entity::customizable::inheritingEntity /]
-[import com::vladolium::odinmodel::templates::jpa::entity::customizable::abstractClass /]
+[import com::vladolium::odinmodel::templates::jpa::entity::javaImportsForEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::commonEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::inheritingEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::abstractClass /]
 
 [template public entity(umlClass : Class){
 	packagePath 			: String = umlClass._package.name.toLowerCase();

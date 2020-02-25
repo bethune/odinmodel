@@ -21,15 +21,14 @@
 [comment encoding = UTF-8 /]
 [module manyToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::templates::jpa::relationship::customizable::manyToManyAnnotation /]
+
 [template public manyToMany(umlClass : Class){
 	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
 [for (relationship : Property | umlClass.getAssociations().memberEnd)]
 	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and
 		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
-@ManyToMany
-@JoinTable(name="[relationship.type.name.toLowerFirst()/]_[relationship.opposite.type.name.toLowerFirst()/]", 
-	joinColumns = @JoinColumn(name = "[relationship.type.name.toLowerFirst()/]_id"), 
-	inverseJoinColumns = @JoinColumn(name = "[relationship.opposite.type.name.toLowerFirst()/]_id"))
+[manyToManyAnnotation()/]
 private Set<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set = new HashSet<>();
 
 public Set<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.opposite.type.name.toUpperFirst()/]Set() {

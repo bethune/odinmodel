@@ -26,9 +26,9 @@
 
 [template public inheritingEntity(umlClass : Class){
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClass	 		: Collection(T) = umlClass.general.name.toUpperFirst();}]
+	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
 @Entity
-public class [entityNameUpperFirst/] extends [abstractClass/] {
+public class [entityNameUpperFirst/] extends [abstractClassName/] {
 
 	[field()/]
 	[relationship()/]

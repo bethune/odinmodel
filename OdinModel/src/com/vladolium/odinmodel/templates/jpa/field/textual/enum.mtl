@@ -34,10 +34,10 @@ public enum [field.type.name/] {
 			[/for]
 }
 			[if field.lower = 1 and field.isID = false]
-[notNull(field)/]
+[notNull()/]
 			[/if]
 			[if field.isUnique = true and field.isID = false]
-[unique(field)/]
+[unique()/]
 			[/if]			
 @Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
 private [field.type.name/] [field.name/];

@@ -29,13 +29,13 @@
 [for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
 	[if field.type.name = 'Instant']
 		[if field.lower = 1 and field.isID = false]
-[notNull(field)/]	
+[notNull()/]	
 		[/if]	
 		[if field.isUnique = true and field.isID = false]
-[unique(field)/]		
+[unique()/]		
 		[/if]	
 		[if field.ownedComment._body->isEmpty() = false ]
-[jpaAnnotation(field)/]
+[jpaAnnotation()/]
 		[/if]	
 private Instant [field.name/] = Instant.now();
 

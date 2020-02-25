@@ -22,6 +22,13 @@ public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long
 OrderDetails findByIdEquals(Long id);
 
 
+
+
+
+
+
+
+
 Iterable <OrderDetails> findByProductsIdEquals(Long productsId);
 
 Page <OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
@@ -29,16 +36,10 @@ Page <OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
 
 
 
-
-
-
-
-
-
-
 Iterable <OrderDetails> findByProductsProductCodeEquals(String productsProductCode);
 
 Page <OrderDetails> findByProductsProductCodeEquals(String productsProductCode, Pageable page);
+
 
 
 

@@ -21,6 +21,8 @@
 [comment encoding = UTF-8 /]
 [module jpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::templates::springdatajpa::jparepositoryquerydsl::readOneByFieldWithUniqueConstraint /]
+
 [template public jpaRepositoryQuerydsl(umlClass : Class){
 	isEntity 				: Boolean = umlClass.isAbstract = false;
 	packagePath				: String = umlClass._package.name.toLowerCase();
@@ -43,20 +45,22 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 		[for (field: Property | umlClass.getAllAttributes()) separator('\n')]
 			[if field.isID = true]
-public interface [type/]Repository extends JpaRepository<[type/], [field.type.name.toUpperFirst()/]>, QuerydslPredicateExecutor<[type/]> {
+public interface [entityNameUpperFirst/]Repository extends JpaRepository<[entityNameUpperFirst/], [field.type.name.toUpperFirst()/]>, QuerydslPredicateExecutor<[entityNameUpperFirst/]> {
 			[/if]
 		[/for]
 
 		[comment: read one by field with unique values /]
-		[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
+	[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
 			[if field.isUnique = true]
-[type/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
+[entityNameUpperFirst/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
 			[/if]
 		[/for]
 
+[comment]		[readOneByFieldWithUniqueConstraint()/][/comment]
+
 		[comment: Read all by parent id in many to one relationship /]
 		[for (relationship : Property | umlClass.getAssociations().memberEnd)]
-			[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+			[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
 				relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
 				[for (p : Package | umlClass._package)]
 					[for (oppositeEntity : Class | p.member -> filter(Class))]
@@ -78,7 +82,7 @@ Page <[relationship.type.name.toUpperFirst()/]> findBy[relationship.opposite.typ
 
 		[comment: Read all by parent unique field in many to one relationship /]
 		[for (relationship : Property | umlClass.getAssociations().memberEnd)]
-			[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+			[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
 				relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
 				[for (p : Package | umlClass._package)]
 					[for (oppositeEntity : Class | p.member -> filter(Class))]

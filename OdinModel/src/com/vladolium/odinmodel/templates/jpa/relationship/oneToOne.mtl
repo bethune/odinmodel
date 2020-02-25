@@ -21,13 +21,14 @@
 [comment encoding = UTF-8 /]
 [module oneToOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::templates::jpa::relationship::customizable::oneToOneAnnotation /]
+
 [template public oneToOne(umlClass : Class){
 	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
 [for (relationship : Property | umlClass.getAssociations().memberEnd)]
 	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
 		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-@OneToOne
-@JoinColumn(name="[relationship.opposite.type.name.toLowerFirst()/]_id")
+[oneToOneAnnotation()/]
 private [relationship.opposite.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/];
 
 public [relationship.opposite.type.name.toUpperFirst()/] get[relationship.opposite.type.name.toUpperFirst()/]() {
