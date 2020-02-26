@@ -21,15 +21,17 @@
 [comment encoding = UTF-8 /]
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::springboot::springBootProject/]
-[comment][import com::vladolium::odinmodel::PrimeFacesSpringDataJpaTemplates::javaee/][/comment]
+[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
+[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
 
 [template public main(umlClass : Class)]
 [comment @main/]
 
-[comment: ONLY ONE OF THE FOLLOWING TEMPLATES SHOULD BE UNCOMMENTED /]
+[comment: ODINMODEL CUSTOMIZATION
+	- Customize which project OdinModel prototypes.
+	- Only one of the following project templates should always stay uncommented. /]
 
 [springBootProject()/]
-[comment][aClass.javaee()/][/comment]
+[comment][jsfProject()/][/comment]
 
 [/template]

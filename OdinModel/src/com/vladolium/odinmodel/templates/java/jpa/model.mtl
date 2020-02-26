@@ -19,19 +19,33 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module model('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
-[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
+[import com::vladolium::odinmodel::templates::jpa::entity::javaImportsForEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::commonEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::inheritingEntity /]
+[import com::vladolium::odinmodel::templates::jpa::entity::abstractClass /]
 
-[template public main(umlClass : Class)]
-[comment @main/]
+[template public entity(umlClass : Class){
+	packagePath 			: String = umlClass._package.name.toLowerCase();
+	packageName				: String = umlClass._package.name.replaceAll('/', '.').toLowerCase().concat('.model');
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
+	isAbstract 				: Boolean = umlClass.isAbstract;
+	doesNotInherit 			: Boolean = umlClass.general->isEmpty();}]
 
-[comment: ODINMODEL CUSTOMIZATION
-	- Customize which project OdinModel prototypes.
-	- Only one of the following project templates should always stay uncommented. /]
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/];
 
-[springBootProject()/]
-[comment][jsfProject()/][/comment]
+[javaImportsForEntity()/]
 
+	[if isAbstract = false and doesNotInherit]
+[commonEntity()/]
+	[/if]
+	[if isAbstract = false and doesNotInherit = false]
+[inheritingEntity()/]
+	[/if]
+	[if isAbstract]
+[abstractClass()/]
+	[/if] 
+[/file]
 [/template]

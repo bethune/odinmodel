@@ -19,19 +19,14 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module readOneByFieldWithUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
-[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
-
-[template public main(umlClass : Class)]
-[comment @main/]
-
-[comment: ODINMODEL CUSTOMIZATION
-	- Customize which project OdinModel prototypes.
-	- Only one of the following project templates should always stay uncommented. /]
-
-[springBootProject()/]
-[comment][jsfProject()/][/comment]
-
+[template public readOneByFieldWithUniqueConstraint(umlClass : Class){
+	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
+[comment: read one by field with unique values /]
+		[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
+			[if field.isUnique = true]
+[entityNameUpperFirst/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
+			[/if]
+		[/for]
 [/template]
