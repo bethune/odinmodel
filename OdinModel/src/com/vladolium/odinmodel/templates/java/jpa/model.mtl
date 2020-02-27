@@ -21,31 +21,28 @@
 [comment encoding = UTF-8 /]
 [module model('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::entity::javaImportsForEntity /]
-[import com::vladolium::odinmodel::templates::jpa::entity::commonEntity /]
-[import com::vladolium::odinmodel::templates::jpa::entity::inheritingEntity /]
-[import com::vladolium::odinmodel::templates::jpa::entity::abstractClass /]
+[import com::vladolium::odinmodel::templates::java::jpa::entities::entity /]
+[import com::vladolium::odinmodel::templates::java::jpa::entities::imports::javaImportsForEntity /]
+[import com::vladolium::odinmodel::templates::java::jpa::entities::imports::javaImportsForSpringBootEntity /]
 
-[template public entity(umlClass : Class){
+[template public model(umlClass : Class){
 	packagePath 			: String = umlClass._package.name.toLowerCase();
 	packageName				: String = umlClass._package.name.replaceAll('/', '.').toLowerCase().concat('.model');
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	isAbstract 				: Boolean = umlClass.isAbstract;
-	doesNotInherit 			: Boolean = umlClass.general->isEmpty();}]
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 
-[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
-package [packageName/];
+[comment: ODINMODEL CUSTOMIZATION
+	- May set the entity project path by changing line with POC_1 comment (must use / between levels).
+	- May set the package path within entity class by changing line with POC_2 comment (must use . between levels).
+	- POC stands for Point Of Customization. /]
+
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')] [comment: POC_1 /]
+package [packageName/]; [comment: POC_2 /]
 
 [javaImportsForEntity()/]
+[javaImportsForSpringBootEntity()/]
 
-	[if isAbstract = false and doesNotInherit]
-[commonEntity()/]
-	[/if]
-	[if isAbstract = false and doesNotInherit = false]
-[inheritingEntity()/]
-	[/if]
-	[if isAbstract]
-[abstractClass()/]
-	[/if] 
+[entity()/]
+ 
 [/file]
+
 [/template]

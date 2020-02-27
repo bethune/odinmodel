@@ -19,19 +19,24 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module abstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
-[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::field /]
 
-[template public main(umlClass : Class)]
-[comment @main/]
+[template public abstractClass(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 
 [comment: ODINMODEL CUSTOMIZATION
-	- May set which project OdinModel prototypes.
-	- Only one of the project templates should stay uncommented. /]
+	- May add the abstract class specifics (except fields which are by default included). /]
 
-[springBootProject()/]
-[comment][jsfProject()/][/comment]
+@MappedSuperclass
+public abstract class [entityNameUpperFirst/] {
+
+	[field()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this abstract class')]
+//[/protected]
+}
 
 [/template]

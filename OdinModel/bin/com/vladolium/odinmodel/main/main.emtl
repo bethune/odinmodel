@@ -113,7 +113,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/main">
       <details key="start" value="1492"/>
-      <details key="end" value="1787"/>
+      <details key="end" value="1768"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/main/%">
@@ -122,13 +122,13 @@
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/main/%.1">
-      <details key="start" value="1716"/>
-      <details key="end" value="1717"/>
+      <details key="start" value="1697"/>
+      <details key="end" value="1698"/>
       <details key="line" value="33"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/main/%.2">
-      <details key="start" value="1718"/>
-      <details key="end" value="1737"/>
+      <details key="start" value="1699"/>
+      <details key="end" value="1718"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/main/%.2/self">
@@ -137,13 +137,13 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/main/%.3">
-      <details key="start" value="1739"/>
-      <details key="end" value="1740"/>
+      <details key="start" value="1720"/>
+      <details key="end" value="1721"/>
       <details key="line" value="35"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/main/%.4">
-      <details key="start" value="1775"/>
-      <details key="end" value="1776"/>
+      <details key="start" value="1756"/>
+      <details key="end" value="1757"/>
       <details key="line" value="36"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/main/umlClass">

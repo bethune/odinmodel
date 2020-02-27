@@ -28,8 +28,8 @@
 [comment @main/]
 
 [comment: ODINMODEL CUSTOMIZATION
-	- Customize which project OdinModel prototypes.
-	- Only one of the following project templates should always stay uncommented. /]
+	- May set which project OdinModel prototypes.
+	- Only one of the project templates should stay uncommented. /]
 
 [springBootProject()/]
 [comment][jsfProject()/][/comment]

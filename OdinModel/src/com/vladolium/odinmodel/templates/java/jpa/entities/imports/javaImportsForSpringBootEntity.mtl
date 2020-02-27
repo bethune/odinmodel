@@ -19,19 +19,14 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module javaImportsForSpringBootEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
-[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
-
-[template public main(umlClass : Class)]
-[comment @main/]
+[template public javaImportsForSpringBootEntity(umlClass : Class)]
 
 [comment: ODINMODEL CUSTOMIZATION
-	- May set which project OdinModel prototypes.
-	- Only one of the project templates should stay uncommented. /]
+	- May set Spring Boot specific Java imports for all entities in a single place. /]
 
-[springBootProject()/]
-[comment][jsfProject()/][/comment]
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 [/template]

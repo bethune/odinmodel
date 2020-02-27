@@ -19,19 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
-[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::field /]
+[import com::vladolium::odinmodel::templates::java::jpa::relationships::relationship /]
 
-[template public main(umlClass : Class)]
-[comment @main/]
+[template public inheritingEntity(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
+	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
 
 [comment: ODINMODEL CUSTOMIZATION
-	- May set which project OdinModel prototypes.
-	- Only one of the project templates should stay uncommented. /]
+	- May add the inheriting entity specifics (except fields and relationships which are by default included). /]
 
-[springBootProject()/]
-[comment][jsfProject()/][/comment]
+@Entity
+public class [entityNameUpperFirst/] extends [abstractClassName/] {
+
+	[field()/]
+	[relationship()/]
+		
+//Code between start and end will not be removed during generation.
+//[protected ('for this inheriting entity')]
+//[/protected]
+}
 
 [/template]
