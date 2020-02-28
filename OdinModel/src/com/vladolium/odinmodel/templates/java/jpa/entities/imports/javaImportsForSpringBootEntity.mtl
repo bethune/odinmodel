@@ -22,11 +22,10 @@
 [module javaImportsForSpringBootEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public javaImportsForSpringBootEntity(umlClass : Class)]
-
-[comment: ODINMODEL CUSTOMIZATION
-	- May set Spring Boot specific Java imports for all entities in a single place. /]
-
+[comment] 
+	ODINMODEL CUSTOMIZATION
+	- May set Spring Boot specific Java imports for all Spring Boot project entities in a single place.
+[/comment]
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 [/template]

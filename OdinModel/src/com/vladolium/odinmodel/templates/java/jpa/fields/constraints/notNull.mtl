@@ -19,26 +19,12 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module notNull('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::jpa::fields::field /]
-[import com::vladolium::odinmodel::templates::java::jpa::relationships::relationship /]
-
-[template public inheritingEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
-[comment] 
-	ODINMODEL CUSTOMIZATION
-	- May add the inheriting entity specifics (except fields and relationships which are by default included).
+[template public notNull(umlClassAttribute : Property)]
+[comment]
+	 ODINMODEL CUSTOMIZATION
+	- May set the null constraint for entity fields across all Java projects in a single place.
 [/comment]
-@Entity
-public class [entityNameUpperFirst/] extends [abstractClassName/] {
-
-	[field()/]
-	[relationship()/]
-		
-//Code between start and end will not be removed during generation.
-//[protected ('for this inheriting entity')]
-//[/protected]
-}
+@NotNull
 [/template]

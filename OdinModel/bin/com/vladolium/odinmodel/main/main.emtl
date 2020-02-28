@@ -7,8 +7,6 @@
     <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/templates/java/springboot/springBootProject.emtl#/0"/>
     <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/templates/java/jsf/jsfProject.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="main" visibility="Public" main="true">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/templates/java/springboot/springBootProject.emtl#/0/springBootProject"/>
@@ -16,7 +14,6 @@
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <parameter name="umlClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -113,40 +110,25 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/main">
       <details key="start" value="1492"/>
-      <details key="end" value="1768"/>
+      <details key="end" value="1774"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/main/%">
-      <details key="start" value="1550"/>
-      <details key="end" value="1551"/>
-      <details key="line" value="29"/>
-    </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/main/%.1">
-      <details key="start" value="1697"/>
-      <details key="end" value="1698"/>
-      <details key="line" value="33"/>
-    </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/main/%.2">
-      <details key="start" value="1699"/>
-      <details key="end" value="1718"/>
+      <details key="start" value="1706"/>
+      <details key="end" value="1725"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/main/%.2/self">
+    <eAnnotations source="positions.2" references="/0/main/%/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/main/%.3">
-      <details key="start" value="1720"/>
-      <details key="end" value="1721"/>
+    <eAnnotations source="positions.3" references="/0/main/%.1">
+      <details key="start" value="1727"/>
+      <details key="end" value="1728"/>
       <details key="line" value="35"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/main/%.4">
-      <details key="start" value="1756"/>
-      <details key="end" value="1757"/>
-      <details key="line" value="36"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/main/umlClass">
+    <eAnnotations source="positions.4" references="/0/main/umlClass">
       <details key="start" value="1514"/>
       <details key="end" value="1530"/>
       <details key="line" value="27"/>

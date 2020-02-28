@@ -29,14 +29,14 @@
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::configuration::configuration /][/comment]
 
 [template public springBootProject(umlClass : Class)]
-
-[comment: ODINMODEL CUSTOMIZATION
+[comment]
+	 ODINMODEL CUSTOMIZATION
 	- May set the project structure.
 	- For a project without interfaces, set the controllerWithoutInterface template from package controllers
 	and the serviceWithoutInterface template from package services.
 	- For a project with interfaces, set the controllerWithInterface template from package controllers
-	and the serviceWithInterface template from package services. /]
-
+	and the serviceWithInterface template from package services.
+[/comment]
 [model()/]
 [comment][jpaRepositoryQuerydsl()/][/comment]
 [comment][aClass.controller()/][/comment]
@@ -44,5 +44,4 @@
 [comment][aClass.implementation()/][/comment]
 [comment][aClass.repository()/][/comment]
 [comment][aClass.configuration()/][/comment]
-
 [/template]

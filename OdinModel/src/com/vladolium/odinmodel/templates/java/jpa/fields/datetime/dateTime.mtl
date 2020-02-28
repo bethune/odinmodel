@@ -19,30 +19,39 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module model('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module dateTime('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::jpa::entities::entity /]
-[import com::vladolium::odinmodel::templates::java::jpa::entities::imports::javaImportsForEntity /]
-[import com::vladolium::odinmodel::templates::java::jpa::entities::imports::javaImportsForSpringBootEntity /]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::notNull /]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::unique /]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::jpaAnnotation /]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::datetime::formats::dateTimeFormat /]
 
-[template public model(umlClass : Class){
-	packagePath 			: String = umlClass._package.name.toLowerCase();
-	packageName				: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
+[template public dateTime(umlClass : Class)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
-	- May set the entity project path on line with POC_1 comment (must use / between levels).
-	- May set the package path within entity class on line with POC_2 comment (must use . between levels).
-	- May remove Java imports specific for Spring Boot project on line with POC_3 comment (for example in case of JSF project prototyping).
+	- May remove dateTimeFormat import specific for Spring Boot project on line with POC_1 comment (for example in case of JSF project prototyping).
 	- POC stands for Point Of Customization.
 [/comment]
-[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')] [comment: POC_1 /]
-package [packageName/].model; [comment: POC_2 /]
+[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
+	[if field.type.name = 'DateTime']
+		[if field.lower = 1 and field.isID = false]
+[notNull()/]
+		[/if]
+		[if field.isUnique = true and field.isID = false]
+[unique()/]
+		[/if]	
+		[if field.ownedComment._body->isEmpty() = false ]
+[jpaAnnotation()/]
+		[/if]		
+[dateTimeFormat()/] [comment: POC_1 /]
+private LocalDateTime [field.name/];
 
-[javaImportsForEntity()/]
-[javaImportsForSpringBootEntity()/] [comment: POC_3 /]
-
-[entity()/]
- 
-[/file]
+public LocalDateTime get[field.name.toUpperFirst()/]() {
+	return [field.name/];
+}
+public void set[field.name.toUpperFirst()/](LocalDateTime [field.name/]) {
+	this.[field.name/] = [field.name/];
+}
+	[/if]
+[/for]
 [/template]

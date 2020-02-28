@@ -29,7 +29,6 @@
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
 	isAbstract 				: Boolean = umlClass.isAbstract;
 	doesNotInherit 			: Boolean = umlClass.general->isEmpty();}]
-
 	[if isAbstract = false and doesNotInherit]
 [commonEntity()/]
 	[/if]
@@ -39,5 +38,4 @@
 	[if isAbstract]
 [abstractClass()/]
 	[/if] 
-
 [/template]

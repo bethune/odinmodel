@@ -26,12 +26,11 @@
 
 [template public main(umlClass : Class)]
 [comment @main/]
-
-[comment: ODINMODEL CUSTOMIZATION
+[comment]
+	ODINMODEL CUSTOMIZATION
 	- May set which project OdinModel prototypes.
-	- Only one of the project templates should stay uncommented. /]
-
+	- Only one of the project templates should stay uncommented.
+[/comment]
 [springBootProject()/]
 [comment][jsfProject()/][/comment]
-
 [/template]

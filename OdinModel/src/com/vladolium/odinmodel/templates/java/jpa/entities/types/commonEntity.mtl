@@ -26,10 +26,10 @@
 
 [template public commonEntity(umlClass : Class){
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
-
-[comment: ODINMODEL CUSTOMIZATION
-	- May add the common entity specifics (except fields and relationships which are by default included). /]
-
+[comment] 
+	ODINMODEL CUSTOMIZATION
+	- May add the common entity specifics (except fields and relationships which are by default included).
+[/comment]
 @Entity
 public class [entityNameUpperFirst/] {
 
@@ -40,5 +40,4 @@ public class [entityNameUpperFirst/] {
 //[protected ('for this entity')]
 //[/protected]
 }
-
 [/template]

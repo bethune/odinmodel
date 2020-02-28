@@ -25,10 +25,10 @@
 
 [template public abstractClass(umlClass : Class){
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
-
-[comment: ODINMODEL CUSTOMIZATION
-	- May add the abstract class specifics (except fields which are by default included). /]
-
+[comment] 
+	ODINMODEL CUSTOMIZATION
+	- May add the abstract class specifics (except fields which are by default included).
+[/comment]
 @MappedSuperclass
 public abstract class [entityNameUpperFirst/] {
 
@@ -38,5 +38,4 @@ public abstract class [entityNameUpperFirst/] {
 //[protected ('for this abstract class')]
 //[/protected]
 }
-
 [/template]

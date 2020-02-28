@@ -19,26 +19,32 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module instant('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::jpa::fields::field /]
-[import com::vladolium::odinmodel::templates::java::jpa::relationships::relationship /]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::notNull /]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::unique /]
+[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::jpaAnnotation /]
 
-[template public inheritingEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
-[comment] 
-	ODINMODEL CUSTOMIZATION
-	- May add the inheriting entity specifics (except fields and relationships which are by default included).
-[/comment]
-@Entity
-public class [entityNameUpperFirst/] extends [abstractClassName/] {
+[template public instant(umlClass : Class)]
+[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
+	[if field.type.name = 'Instant']
+		[if field.lower = 1 and field.isID = false]
+[notNull()/]	
+		[/if]	
+		[if field.isUnique = true and field.isID = false]
+[unique()/]		
+		[/if]	
+		[if field.ownedComment._body->isEmpty() = false ]
+[jpaAnnotation()/]
+		[/if]	
+private Instant [field.name/] = Instant.now();
 
-	[field()/]
-	[relationship()/]
-		
-//Code between start and end will not be removed during generation.
-//[protected ('for this inheriting entity')]
-//[/protected]
+public Instant get[field.name.toUpperFirst()/]() {
+    return [field.name/];
 }
+public void set[field.name.toUpperFirst()/](Instant [field.name/]) {
+    this.[field.name/] = [field.name/];
+}
+	[/if]
+[/for]
 [/template]
