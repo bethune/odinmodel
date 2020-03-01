@@ -19,9 +19,24 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module primaryKey('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module manyToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public primaryKey(umlClassAttribute : Property)]
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+[import com::vladolium::odinmodel::templates::java::jpa::relationships::annotations::manyToManyAnnotation /]
+
+[template public manyToMany(umlClass : Class){
+	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
+[for (relationship : Property | umlClass.getAssociations().memberEnd)]
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+[manyToManyAnnotation()/]
+private Set<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set = new HashSet<>();
+
+public Set<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.opposite.type.name.toUpperFirst()/]Set() {
+	return [relationship.opposite.type.name.toLowerFirst()/]Set;
+}
+public void set[relationship.opposite.type.name.toUpperFirst()/]Set(Set<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set) {
+	this.[relationship.opposite.type.name.toLowerFirst()/]Set = [relationship.opposite.type.name.toLowerFirst()/]Set;
+}
+	[/if]
+[/for]
 [/template]

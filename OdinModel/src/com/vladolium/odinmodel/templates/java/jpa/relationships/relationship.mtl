@@ -21,16 +21,14 @@
 [comment encoding = UTF-8 /]
 [module relationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment][import com::vladolium::odinmodel::templates::jpa::relationship::manyToOne /]
-[import com::vladolium::odinmodel::templates::jpa::relationship::oneToOne /]
-[import com::vladolium::odinmodel::templates::jpa::relationship::manyToMany /]
-[import com::vladolium::odinmodel::templates::jpa::relationship::oneToMany /][/comment]
+[import com::vladolium::odinmodel::templates::java::jpa::relationships::types::manyToOne /]
+[import com::vladolium::odinmodel::templates::java::jpa::relationships::types::oneToOne /]
+[import com::vladolium::odinmodel::templates::java::jpa::relationships::types::manyToMany /]
+[import com::vladolium::odinmodel::templates::java::jpa::relationships::types::oneToMany /]
 
 [template public relationship(umlClass : Class)]
-
-[comment][manyToOne()/]
+[manyToOne()/]
 [oneToOne()/]
 [manyToMany()/]
-[oneToMany()/][/comment]
-
+[oneToMany()/]
 [/template]

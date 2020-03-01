@@ -19,22 +19,15 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module manyToManyAnnotation('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::field /]
-[import com::vladolium::odinmodel::templates::jpa::relationship /]
-
-[template public inheritingEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
-@Entity
-public class [entityNameUpperFirst/] extends [abstractClassName/] {
-
-	[field()/]
-	[relationship()/]
-		
-//Code between start and end will not be removed during generation.
-//[protected ('for this inheriting entity')]
-//[/protected]
-}
+[template public manyToManyAnnotation(umlClassAssociation : Property)]
+[comment]
+	 ODINMODEL CUSTOMIZATION
+	- May set the annotation for all many-to-many relationships across all Java projects in a single place.
+[/comment]
+@ManyToMany
+@JoinTable(name="[umlClassAssociation.type.name.toLowerFirst()/]_[umlClassAssociation.opposite.type.name.toLowerFirst()/]", 
+	joinColumns = @JoinColumn(name = "[umlClassAssociation.type.name.toLowerFirst()/]_id"), 
+	inverseJoinColumns = @JoinColumn(name = "[umlClassAssociation.opposite.type.name.toLowerFirst()/]_id"))
 [/template]

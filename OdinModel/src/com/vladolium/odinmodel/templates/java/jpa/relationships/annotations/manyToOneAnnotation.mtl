@@ -19,34 +19,13 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module dateTime('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module manyToOneAnnotation('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::jpa::field::constraint::customizable::notNull /]
-[import com::vladolium::odinmodel::templates::jpa::field::constraint::customizable::unique /]
-[import com::vladolium::odinmodel::templates::jpa::field::constraint::jpaAnnotation /]
-[import com::vladolium::odinmodel::templates::jpa::field::datetime::customizable::dateTimeFormat /]
-
-[template public dateTime(umlClass : Class)]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
-	[if field.type.name = 'DateTime']
-		[if field.lower = 1 and field.isID = false]
-[notNull()/]
-		[/if]
-		[if field.isUnique = true and field.isID = false]
-[unique()/]
-		[/if]	
-		[if field.ownedComment._body->isEmpty() = false ]
-[jpaAnnotation()/]
-		[/if]		
-[dateTimeFormat()/]
-private LocalDateTime [field.name/];
-
-public LocalDateTime get[field.name.toUpperFirst()/]() {
-	return [field.name/];
-}
-public void set[field.name.toUpperFirst()/](LocalDateTime [field.name/]) {
-	this.[field.name/] = [field.name/];
-}
-	[/if]
-[/for]
+[template public manyToOneAnnotation(umlClassAssociation : Property)]
+[comment]
+	 ODINMODEL CUSTOMIZATION
+	- May set the annotation for all many-to-one relationships across all Java projects in a single place.
+[/comment]
+@ManyToOne
+@JoinColumn(name="[umlClassAssociation.opposite.type.name.toLowerFirst()/]_id")
 [/template]

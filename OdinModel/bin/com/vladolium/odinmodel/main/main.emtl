@@ -4,12 +4,12 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/templates/java/springboot/springBootProject.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/templates/java/jsf/jsfProject.emtl#/0"/>
+    <imports href="../templates/java/springboot/springBootProject.emtl#/0"/>
+    <imports href="../templates/java/jsf/jsfProject.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="main" visibility="Public" main="true">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/templates/java/springboot/springBootProject.emtl#/0/springBootProject"/>
+        <definition href="../templates/java/springboot/springBootProject.emtl#/0/springBootProject"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/6">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -55,7 +55,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/templates/java/springboot/springBootProject.emtl#/0/springBootProject"/>
+          <references href="../templates/java/springboot/springBootProject.emtl#/0/springBootProject"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="umlClass">
