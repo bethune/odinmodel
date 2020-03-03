@@ -22,7 +22,7 @@
 [module springBootProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::templates::java::jpa::model /]
-[comment][import com::vladolium::odinmodel::templates::java::springboot::repositories::jpaRepositoryQuerydsl /][/comment]
+[import com::vladolium::odinmodel::templates::java::springboot::repositories::jpaRepositoryQuerydsl /]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::controller::controller /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::service::service /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::implementation::implementation /][/comment]
@@ -38,7 +38,7 @@
 	and the serviceWithInterface template from package services.
 [/comment]
 [model()/]
-[comment][jpaRepositoryQuerydsl()/][/comment]
+[jpaRepositoryQuerydsl()/]
 [comment][aClass.controller()/][/comment]
 [comment][aClass.service()/][/comment] 
 [comment][aClass.implementation()/][/comment]

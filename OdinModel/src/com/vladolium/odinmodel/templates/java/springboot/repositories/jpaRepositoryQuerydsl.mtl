@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module jpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::springdatajpa::jparepositoryquerydsl::readOneByFieldWithUniqueConstraint /]
+[import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readOneByFieldWithUniqueConstraint /]
 
 [template public jpaRepositoryQuerydsl(umlClass : Class){
 	isEntity 				: Boolean = umlClass.isAbstract = false;
