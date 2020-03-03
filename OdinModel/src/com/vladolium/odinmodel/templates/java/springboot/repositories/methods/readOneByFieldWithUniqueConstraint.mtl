@@ -24,9 +24,9 @@
 [template public readOneByFieldWithUniqueConstraint(umlClass : Class){
 	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
 [comment: read one by field with unique values /]
-		[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
-			[if field.isUnique = true]
+[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
+	[if field.isUnique = true]
 [entityNameUpperFirst/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
-			[/if]
-		[/for]
+	[/if]
+[/for]
 [/template]

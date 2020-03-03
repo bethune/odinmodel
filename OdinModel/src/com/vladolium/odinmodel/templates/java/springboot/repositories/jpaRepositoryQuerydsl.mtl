@@ -22,16 +22,23 @@
 [module jpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readOneByFieldWithUniqueConstraint /]
+[import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentIdInManyToOneRelationship /]
 
 [template public jpaRepositoryQuerydsl(umlClass : Class){
 	isEntity 				: Boolean = umlClass.isAbstract = false;
 	packagePath				: String = umlClass._package.name.toLowerCase();
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
 	repositoryPath 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
 	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
+[comment]
+	 ODINMODEL CUSTOMIZATION
+	- May set the repository project path on line with POC_1 comment (must use / between levels).
+	- May set the package path within repository class on line with POC_2 comment (must use . between levels).
+	- POC stands for Point Of Customization.
+[/comment]
 [if isEntity]
-	[file ('src/main/java/' + packagePath + '/repository/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')]
-package [repositoryPath/].repository;
+	[file ('src/main/java/' + packagePath + '/repository/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')] [comment: POC_1 /]
+package [repositoryPath/].repository; [comment: POC_2 /]
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -49,14 +56,9 @@ public interface [entityNameUpperFirst/]Repository extends JpaRepository<[entity
 			[/if]
 		[/for]
 
-		[comment: read one by field with unique values /]
-	[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
-			[if field.isUnique = true]
-[entityNameUpperFirst/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
-			[/if]
-		[/for]
+	[readOneByFieldWithUniqueConstraint()/]
 
-[comment]		[readOneByFieldWithUniqueConstraint()/][/comment]
+	[readAllByParentIdInManyToOneRelationship()/]
 
 		[comment: Read all by parent id in many to one relationship /]
 		[for (relationship : Property | umlClass.getAssociations().memberEnd)]
