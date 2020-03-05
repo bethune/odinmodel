@@ -21,34 +21,28 @@
 [comment encoding = UTF-8 /]
 [module jpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::templates::java::springboot::repositories::imports::javaImportsForSpringRepository /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readOneByFieldWithUniqueConstraint /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentIdInManyToOneRelationship /]
+[import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship /]
 
 [template public jpaRepositoryQuerydsl(umlClass : Class){
 	isEntity 				: Boolean = umlClass.isAbstract = false;
 	packagePath				: String = umlClass._package.name.toLowerCase();
-	repositoryPath 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
+	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
 	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
 [comment]
 	 ODINMODEL CUSTOMIZATION
-	- May set the repository project path on line with POC_1 comment (must use / between levels).
-	- May set the package path within repository class on line with POC_2 comment (must use . between levels).
+	- May set the repository package path on line with POC_1 comment (must use / between levels).
+	- May set the package name within repository class on line with POC_2 comment (must use . between levels).
 	- POC stands for Point Of Customization.
 [/comment]
 [if isEntity]
 	[file ('src/main/java/' + packagePath + '/repository/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')] [comment: POC_1 /]
-package [repositoryPath/].repository; [comment: POC_2 /]
+package [packageName/].repository; [comment: POC_2 /]
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.data.domain.*;
-import [repositoryPath/].domain.*;
-import [repositoryPath/].domain.[entityNameUpperFirst/];
-import [repositoryPath/].domain.[entityNameUpperFirst/].*;
-import org.springframework.data.querydsl.*;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+[javaImportsForSpringRepository()/]
 
 		[for (field: Property | umlClass.getAllAttributes()) separator('\n')]
 			[if field.isID = true]
@@ -60,49 +54,7 @@ public interface [entityNameUpperFirst/]Repository extends JpaRepository<[entity
 
 	[readAllByParentIdInManyToOneRelationship()/]
 
-		[comment: Read all by parent id in many to one relationship /]
-		[for (relationship : Property | umlClass.getAssociations().memberEnd)]
-			[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
-				relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-				[for (p : Package | umlClass._package)]
-					[for (oppositeEntity : Class | p.member -> filter(Class))]
-						[if (oppositeEntity.name.toLower() <> umlClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-								[if oppositeEntityField.isID = true]
-[comment: Read all by parent id /]
-Iterable <[relationship.type.name.toUpperFirst()/]> findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
-
-[comment: Read all by parent id with pagination /]
-Page <[relationship.type.name.toUpperFirst()/]> findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page);
-								[/if]
-							[/for]
-						[/if]
-					[/for]
-				[/for]
-			[/if]
-		[/for]
-
-		[comment: Read all by parent unique field in many to one relationship /]
-		[for (relationship : Property | umlClass.getAssociations().memberEnd)]
-			[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
-				relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-				[for (p : Package | umlClass._package)]
-					[for (oppositeEntity : Class | p.member -> filter(Class))]
-						[if (oppositeEntity.name.toLower() <> umlClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-							[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-								[if oppositeEntityField.isUnique = true and oppositeEntityField.isID = false]
-[comment: Read all by parent unique field /]
-Iterable <[relationship.type.name.toUpperFirst()/]> findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
-
-[comment: Read all by parent unique field with pagination /]
-Page <[relationship.type.name.toUpperFirst()/]> findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page);
-								[/if]
-							[/for]
-						[/if]
-					[/for]
-				[/for]
-			[/if]
-		[/for]
+	[readAllByParentFieldWithUniqueConstraintInManyToOneRelationship()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this repository')]

@@ -25,7 +25,6 @@
 	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
 [for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
 	[if field.isUnique = true]
-[comment: read one by field with unique values /]
 [entityNameUpperFirst/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
 	[/if]
 [/for]
