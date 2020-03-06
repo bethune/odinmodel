@@ -39,7 +39,7 @@
 
 [template public springBootProject(umlClass : Class)]
 [model()/]
-[comment][jpaRepositoryQuerydsl()/][/comment]
+[jpaRepositoryQuerydsl()/]
 [comment][aClass.controller()/][/comment]
 [comment][aClass.service()/][/comment] 
 [comment][aClass.implementation()/][/comment]

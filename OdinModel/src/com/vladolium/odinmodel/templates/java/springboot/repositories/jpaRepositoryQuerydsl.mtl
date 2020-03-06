@@ -21,10 +21,17 @@
 [comment encoding = UTF-8 /]
 [module jpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::repositories::imports::javaImportsForSpringRepository /]
+[import com::vladolium::odinmodel::templates::java::springboot::repositories::imports::javaImportsForRepository /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readOneByFieldWithUniqueConstraint /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentIdInManyToOneRelationship /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship /]
+
+[comment]
+	 ODINMODEL CUSTOMIZATION
+	- May set the repository package path on line with POC_1 comment (must use / between levels).
+	- May set the package name within repository class on line with POC_2 comment (must use . between levels).
+	- POC stands for Point Of Customization.
+[/comment]
 
 [template public jpaRepositoryQuerydsl(umlClass : Class){
 	isEntity 				: Boolean = umlClass.isAbstract = false;
@@ -32,17 +39,11 @@
 	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
 	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
-[comment]
-	 ODINMODEL CUSTOMIZATION
-	- May set the repository package path on line with POC_1 comment (must use / between levels).
-	- May set the package name within repository class on line with POC_2 comment (must use . between levels).
-	- POC stands for Point Of Customization.
-[/comment]
 [if isEntity]
 	[file ('src/main/java/' + packagePath + '/repository/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')] [comment: POC_1 /]
 package [packageName/].repository; [comment: POC_2 /]
 
-[javaImportsForSpringRepository()/]
+[comment][javaImportsForSpringRepository()/][/comment]
 
 		[for (field: Property | umlClass.getAllAttributes()) separator('\n')]
 			[if field.isID = true]
@@ -50,11 +51,11 @@ public interface [entityNameUpperFirst/]Repository extends JpaRepository<[entity
 			[/if]
 		[/for]
 
-	[readOneByFieldWithUniqueConstraint()/]
+[comment]	[readOneByFieldWithUniqueConstraint()/][/comment]
 
-	[readAllByParentIdInManyToOneRelationship()/]
+[comment]	[readAllByParentIdInManyToOneRelationship()/][/comment]
 
-	[readAllByParentFieldWithUniqueConstraintInManyToOneRelationship()/]
+[comment]	[readAllByParentFieldWithUniqueConstraintInManyToOneRelationship()/][/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this repository')]

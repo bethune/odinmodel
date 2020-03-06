@@ -19,7 +19,7 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module javaImportsForSpringRepository('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module javaImportsForRepository('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [template public javaImportsForSpringRepository(umlClass : Class){
 	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
