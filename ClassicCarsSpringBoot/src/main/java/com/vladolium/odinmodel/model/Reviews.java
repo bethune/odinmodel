@@ -1,16 +1,15 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class Reviews {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -56,8 +55,6 @@ public class Reviews {
 	
 	
 	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -69,6 +66,10 @@ public class Reviews {
 	public void setReviewDate(LocalDate reviewDate) {
 		this.reviewDate = reviewDate;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -103,10 +104,10 @@ public class Reviews {
 	
 	
 	
-	
-	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this entity
 //End of user code
 }
+
+ 

@@ -1,18 +1,15 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class Employees {
 
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -60,7 +57,6 @@ public class Employees {
 	
 	
 	
-	
 	@NotNull
 	private Boolean isActive;
 	
@@ -72,6 +68,35 @@ public class Employees {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	@NotNull
+	@Size(max=50)
+	private String lastName;
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	@NotNull
+	@Size(max=100)
+	private String email;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
 	@NotNull
@@ -96,8 +121,6 @@ public class Employees {
 		this.firstName = firstName;
 	}
 	
-	
-	
 	@NotNull
 	@Size(max=50)
 	private String jobTitle;
@@ -107,30 +130,6 @@ public class Employees {
 	}
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
-	}
-	
-	
-	@NotNull
-	@Size(max=50)
-	private String lastName;
-	
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	
-	@NotNull
-	@Size(max=100)
-	private String email;
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	
 	
@@ -215,3 +214,5 @@ public class Employees {
 //Start of user code for this entity
 //End of user code
 }
+
+ 

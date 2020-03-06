@@ -25,10 +25,6 @@
 [import com::vladolium::odinmodel::templates::java::jpa::entities::imports::javaImportsForEntity /]
 [import com::vladolium::odinmodel::templates::java::jpa::entities::imports::javaImportsForSpringBootEntity /]
 
-[template public model(umlClass : Class){
-	packagePath 			: String = umlClass._package.name.toLowerCase();
-	packageName				: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May set the entity package path on line with POC_1 comment (must use / between levels).
@@ -36,6 +32,11 @@
 	- May remove Java imports specific for Spring Boot project on line with POC_3 comment (for example in case of JSF project prototyping).
 	- POC stands for Point Of Customization.
 [/comment]
+
+[template public model(umlClass : Class){
+	packagePath 			: String = umlClass._package.name.toLowerCase();
+	packageName				: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 [file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')] [comment: POC_1 /]
 package [packageName/].model; [comment: POC_2 /]
 

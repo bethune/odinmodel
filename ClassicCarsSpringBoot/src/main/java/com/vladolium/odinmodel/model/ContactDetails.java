@@ -1,11 +1,11 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @MappedSuperclass
 public abstract class ContactDetails {
@@ -38,39 +38,6 @@ public abstract class ContactDetails {
 	
 	
 	
-	
-	@NotNull
-	@Size(max=50)
-	private String addressLine1;
-	
-	public String getAddressLine1() {
-		return addressLine1;
-	}
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
-	}
-	
-	@Size(max=50)
-	private String addressLine2;
-	
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
-	}
-	
-	@NotNull
-	@Size(max=50)
-	private String country;
-	
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
 	@Size(max=50)@Pattern(regexp="(\\(\\d{3}\\)\\d{3}-\\d{4}") // \(\d{3}\)\d{3}-?\d{4}
 	private String phone;
 	
@@ -92,6 +59,16 @@ public abstract class ContactDetails {
 		this.city = city;
 	}
 	
+	@Size(max=50)
+	private String state;
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
 	@Size(max=15)
 	private String postalCode;
 	
@@ -103,13 +80,35 @@ public abstract class ContactDetails {
 	}
 	
 	@Size(max=50)
-	private String state;
+	private String addressLine2;
 	
-	public String getState() {
-		return state;
+	public String getAddressLine2() {
+		return addressLine2;
 	}
-	public void setState(String state) {
-		this.state = state;
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String addressLine1;
+	
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String country;
+	
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 	
@@ -166,3 +165,5 @@ public abstract class ContactDetails {
 //Start of user code for this abstract class
 //End of user code
 }
+
+ 

@@ -26,12 +26,13 @@
 [import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::jpaAnnotation /]
 [import com::vladolium::odinmodel::templates::java::jpa::fields::datetime::formats::dateFormat /]
 
-[template public date(umlClass : Class)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May remove dateFormat import specific for Spring Boot project on line with POC_1 comment (for example in case of JSF project prototyping).
 	- POC stands for Point Of Customization.
 [/comment]
+
+[template public date(umlClass : Class)]
 [for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
 	[if field.type.name = 'Date']
 		[if field.lower = 1 and field.isID = false]

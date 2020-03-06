@@ -21,11 +21,12 @@
 [comment encoding = UTF-8 /]
 [module manyToOneAnnotation('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public manyToOneAnnotation(umlClassAssociation : Property)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May set the annotation for all many-to-one relationships across all Java projects in a single place.
 [/comment]
+
+[template public manyToOneAnnotation(umlClassAssociation : Property)]
 @ManyToOne
 @JoinColumn(name="[umlClassAssociation.opposite.type.name.toLowerFirst()/]_id")
 [/template]

@@ -1,15 +1,19 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class Orders {
 
+	
+	
+	
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,10 +25,6 @@ public class Orders {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -72,8 +72,6 @@ public class Orders {
 	
 	
 	
-	
-	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -86,6 +84,16 @@ public class Orders {
 		this.orderDate = orderDate;
 	}
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+	private LocalDate shippedDate;
+	
+	public LocalDate getShippedDate() {
+		return shippedDate;
+	}
+	public void setShippedDate(LocalDate shippedDate) {
+		this.shippedDate = shippedDate;
+	}
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
@@ -97,17 +105,6 @@ public class Orders {
 	}
 	public void setRequiredDate(LocalDate requiredDate) {
 		this.requiredDate = requiredDate;
-	}
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-	private LocalDate shippedDate;
-	
-	public LocalDate getShippedDate() {
-		return shippedDate;
-	}
-	public void setShippedDate(LocalDate shippedDate) {
-		this.shippedDate = shippedDate;
 	}
 	
 	
@@ -157,6 +154,8 @@ public class Orders {
 	
 	
 	
+	
+	
 	@ManyToOne
 	@JoinColumn(name="customers_id")
 	private Customers customers;
@@ -176,3 +175,5 @@ public class Orders {
 //Start of user code for this entity
 //End of user code
 }
+
+ 

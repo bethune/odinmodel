@@ -21,11 +21,12 @@
 [comment encoding = UTF-8 /]
 [module javaImportsForEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public javaImportsForEntity(umlClass : Class)]
 [comment] 
 	ODINMODEL CUSTOMIZATION
 	- May set Java imports for all entities across all Java projects in a single place.
 [/comment]
+
+[template public javaImportsForEntity(umlClass : Class)]
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;

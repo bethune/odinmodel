@@ -24,13 +24,14 @@
 [import com::vladolium::odinmodel::templates::java::jpa::fields::field /]
 [import com::vladolium::odinmodel::templates::java::jpa::relationships::relationship /]
 
-[template public inheritingEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
 [comment] 
 	ODINMODEL CUSTOMIZATION
 	- May add the inheriting entity specifics (except fields and relationships which are by default included).
 [/comment]
+
+[template public inheritingEntity(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
+	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
 @Entity
 public class [entityNameUpperFirst/] extends [abstractClassName/] {
 

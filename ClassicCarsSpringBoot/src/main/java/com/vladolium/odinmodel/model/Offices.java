@@ -1,16 +1,15 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class Offices extends ContactDetails {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -64,3 +63,5 @@ public class Offices extends ContactDetails {
 //Start of user code for this inheriting entity
 //End of user code
 }
+
+ 

@@ -1,15 +1,16 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class Customers extends ContactDetails {
 
+	
 	
 	
 	
@@ -24,9 +25,6 @@ public class Customers extends ContactDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
 	
 	
 	
@@ -59,6 +57,8 @@ public class Customers extends ContactDetails {
 	
 	
 	
+	
+	
 	@NotNull
 	@Size(max=50)
 	private String lastName;
@@ -72,20 +72,6 @@ public class Customers extends ContactDetails {
 	
 	
 	@NotNull
-	@Column(unique=true)
-	@Size(max=50)
-	private String customerName;
-	
-	public String getCustomerName() {
-		return customerName;
-	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-	
-	
-	
-	@NotNull
 	@Size(max=50)
 	private String firstName;
 	
@@ -96,6 +82,19 @@ public class Customers extends ContactDetails {
 		this.firstName = firstName;
 	}
 	
+	
+	
+	@NotNull
+	@Column(unique=true)
+	@Size(max=50)
+	private String customerName;
+	
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 	
 	
 	
@@ -175,3 +174,5 @@ public class Customers extends ContactDetails {
 //Start of user code for this inheriting entity
 //End of user code
 }
+
+ 

@@ -21,11 +21,12 @@
 [comment encoding = UTF-8 /]
 [module primaryKey('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public primaryKey(umlClassAttribute : Property)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May set the primary key constraint for Long and Integer entity fields across all Java projects in a single place.
 [/comment]
+
+[template public primaryKey(umlClassAttribute : Property)]
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 [/template]

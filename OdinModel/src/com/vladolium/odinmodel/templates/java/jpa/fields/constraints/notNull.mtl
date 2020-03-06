@@ -21,10 +21,11 @@
 [comment encoding = UTF-8 /]
 [module notNull('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public notNull(umlClassAttribute : Property)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May set the null constraint for entity fields across all Java projects in a single place.
 [/comment]
+
+[template public notNull(umlClassAttribute : Property)]
 @NotNull
 [/template]

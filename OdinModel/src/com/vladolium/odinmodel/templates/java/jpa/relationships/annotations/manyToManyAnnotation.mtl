@@ -21,11 +21,12 @@
 [comment encoding = UTF-8 /]
 [module manyToManyAnnotation('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public manyToManyAnnotation(umlClassAssociation : Property)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May set the annotation for all many-to-many relationships across all Java projects in a single place.
 [/comment]
+
+[template public manyToManyAnnotation(umlClassAssociation : Property)]
 @ManyToMany
 @JoinTable(name="[umlClassAssociation.type.name.toLowerFirst()/]_[umlClassAssociation.opposite.type.name.toLowerFirst()/]", 
 	joinColumns = @JoinColumn(name = "[umlClassAssociation.type.name.toLowerFirst()/]_id"), 

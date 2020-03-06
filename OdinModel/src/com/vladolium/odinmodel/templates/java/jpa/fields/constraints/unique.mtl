@@ -21,10 +21,11 @@
 [comment encoding = UTF-8 /]
 [module unique('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public unique(umlClassAttribute : Property)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May set the unique constraint for entity fields across all Java projects in a single place.
 [/comment]
+
+[template public unique(umlClassAttribute : Property)]
 @Column(unique=true)
 [/template]

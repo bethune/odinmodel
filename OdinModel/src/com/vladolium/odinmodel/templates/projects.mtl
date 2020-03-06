@@ -19,14 +19,18 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module dateFormat('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module projects('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
+[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
 
 [comment]
-	 ODINMODEL CUSTOMIZATION
-	- May set the date format for LocalDate entity fields across all Java projects in a single place.
+	ODINMODEL CUSTOMIZATION
+	- May set which project OdinModel prototypes.
+	- Only one of the project templates should stay uncommented.
 [/comment]
 
-[template public dateFormat(umlClassAttribute : Property)]
-@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+[template public projects(umlClass : Class)]
+[springBootProject()/]
+[comment][jsfProject()/][/comment]
 [/template]

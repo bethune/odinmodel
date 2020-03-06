@@ -1,18 +1,15 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class OrderDetails {
 
-	
-	
-	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,18 +20,6 @@ public class OrderDetails {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	
-	
-	@NotNull
-	private Integer orderLineNumber;
-	
-	public Integer getOrderLineNumber() {
-		return orderLineNumber;
-	}
-	public void setOrderLineNumber(Integer orderLineNumber) {
-		this.orderLineNumber = orderLineNumber;
 	}
 	
 	
@@ -53,6 +38,24 @@ public class OrderDetails {
 	}
 	
 	
+	
+	
+	@NotNull
+	private Integer orderLineNumber;
+	
+	public Integer getOrderLineNumber() {
+		return orderLineNumber;
+	}
+	public void setOrderLineNumber(Integer orderLineNumber) {
+		this.orderLineNumber = orderLineNumber;
+	}
+	
+	
+	
+	
+	
+	
+	
 	@NotNull
 	@DecimalMin("20.00")@DecimalMax("300.00")
 	private Double priceEach;
@@ -63,10 +66,6 @@ public class OrderDetails {
 	public void setPriceEach(Double priceEach) {
 		this.priceEach = priceEach;
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -151,3 +150,5 @@ public class OrderDetails {
 //Start of user code for this entity
 //End of user code
 }
+
+ 

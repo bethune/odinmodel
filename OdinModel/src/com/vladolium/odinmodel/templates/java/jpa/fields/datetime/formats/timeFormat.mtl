@@ -21,11 +21,12 @@
 [comment encoding = UTF-8 /]
 [module timeFormat('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public timeFormat(umlClassAttribute : Property)]
 [comment]
 	 ODINMODEL CUSTOMIZATION
 	- May set the time format for LocalTime entity fields across all Java projects in a single place.
 [/comment]
+
+[template public timeFormat(umlClassAttribute : Property)]
 @DateTimeFormat(pattern = "HH:mm") //for database
 @JsonFormat(pattern = "HH:mm") //for frontend
 [/template]

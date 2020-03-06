@@ -23,12 +23,13 @@
 
 [import com::vladolium::odinmodel::templates::java::jpa::fields::field /]
 
-[template public abstractClass(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 [comment] 
 	ODINMODEL CUSTOMIZATION
 	- May add the abstract class specifics (except fields which are by default included).
 [/comment]
+
+[template public abstractClass(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 @MappedSuperclass
 public abstract class [entityNameUpperFirst/] {
 

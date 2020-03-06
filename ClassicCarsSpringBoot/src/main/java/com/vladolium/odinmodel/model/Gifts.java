@@ -1,19 +1,15 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class Gifts {
 
-	
-	
-	
-	
 	
 	
 	@Id
@@ -43,6 +39,13 @@ public class Gifts {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	@NotNull
 	private Boolean isExpired;
 	
@@ -52,13 +55,6 @@ public class Gifts {
 	public void setIsExpired(Boolean isExpired) {
 		this.isExpired = isExpired;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	@NotNull
@@ -71,6 +67,11 @@ public class Gifts {
 	public void setGiftName(String giftName) {
 		this.giftName = giftName;
 	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -103,6 +104,17 @@ public class Gifts {
 	
 	
 	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+	private LocalDateTime expiresOn;
+	
+	public LocalDateTime getExpiresOn() {
+		return expiresOn;
+	}
+	public void setExpiresOn(LocalDateTime expiresOn) {
+		this.expiresOn = expiresOn;
+	}
 	
 	
 	
@@ -118,19 +130,6 @@ public class Gifts {
 	}
 	public void setBeginsOn(LocalDateTime beginsOn) {
 		this.beginsOn = beginsOn;
-	}
-	
-	
-	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
-	private LocalDateTime expiresOn;
-	
-	public LocalDateTime getExpiresOn() {
-		return expiresOn;
-	}
-	public void setExpiresOn(LocalDateTime expiresOn) {
-		this.expiresOn = expiresOn;
 	}
 	
 	
@@ -182,3 +181,5 @@ public class Gifts {
 //Start of user code for this entity
 //End of user code
 }
+
+ 

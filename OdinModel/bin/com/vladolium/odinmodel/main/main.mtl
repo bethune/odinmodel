@@ -21,16 +21,9 @@
 [comment encoding = UTF-8 /]
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::springBootProject/]
-[import com::vladolium::odinmodel::templates::java::jsf::jsfProject/]
+[import com::vladolium::odinmodel::templates::projects/]
 
 [template public main(umlClass : Class)]
 [comment @main/]
-[comment]
-	ODINMODEL CUSTOMIZATION
-	- May set which project OdinModel prototypes.
-	- Only one of the project templates should stay uncommented.
-[/comment]
-[springBootProject()/]
-[comment][jsfProject()/][/comment]
+[projects()/]
 [/template]

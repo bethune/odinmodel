@@ -1,16 +1,15 @@
-package com.vladolium.odinmodel.model;
+package com.vladolium.odinmodel.model; 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
+import java.util.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.*;
 
 @Entity
 public class Payments {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -57,6 +56,7 @@ public class Payments {
 	
 	
 	
+	
 	@NotNull
 	@Size(max=50)
 	private String checkNumber;
@@ -67,6 +67,8 @@ public class Payments {
 	public void setCheckNumber(String checkNumber) {
 		this.checkNumber = checkNumber;
 	}
+	
+	
 	
 	
 	
@@ -105,10 +107,6 @@ public class Payments {
 	
 	
 	
-	
-	
-	
-	
 	private Instant paymentTimestamp = Instant.now();
 	
 	public Instant getPaymentTimestamp() {
@@ -117,6 +115,7 @@ public class Payments {
 	public void setPaymentTimestamp(Instant paymentTimestamp) {
 	    this.paymentTimestamp = paymentTimestamp;
 	}
+	
 	
 	
 	
@@ -150,3 +149,5 @@ public class Payments {
 //Start of user code for this entity
 //End of user code
 }
+
+ 

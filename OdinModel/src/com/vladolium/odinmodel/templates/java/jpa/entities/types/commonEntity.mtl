@@ -24,12 +24,13 @@
 [import com::vladolium::odinmodel::templates::java::jpa::fields::field /]
 [import com::vladolium::odinmodel::templates::java::jpa::relationships::relationship /]
 
-[template public commonEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 [comment] 
 	ODINMODEL CUSTOMIZATION
 	- May add the common entity specifics (except fields and relationships which are by default included).
 [/comment]
+
+[template public commonEntity(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 @Entity
 public class [entityNameUpperFirst/] {
 
