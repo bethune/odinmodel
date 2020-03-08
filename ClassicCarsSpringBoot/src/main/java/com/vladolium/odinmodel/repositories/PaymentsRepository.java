@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.repository; 
+package com.vladolium.odinmodel.repositories; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Payments;

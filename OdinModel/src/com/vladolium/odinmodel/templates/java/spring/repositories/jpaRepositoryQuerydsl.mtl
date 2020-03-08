@@ -40,8 +40,8 @@
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
 	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
 [if isEntity]
-	[file ('src/main/java/' + packagePath + '/repository/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')] [comment: POC_1 /]
-package [packageName/].repository; [comment: POC_2 /]
+	[file ('src/main/java/' + packagePath + '/repositories/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')] [comment: POC_1 /]
+package [packageName/].repositories; [comment: POC_2 /]
 
 [javaImportsForJpaRepositoryQuerydsl()/]
 

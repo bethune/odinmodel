@@ -1,8 +1,8 @@
-package com.vladolium.odinmodel.repository; 
+package com.vladolium.odinmodel.repositories; 
 
 import com.vladolium.odinmodel.model.*;
-import com.vladolium.odinmodel.model.Gifts;
-import com.vladolium.odinmodel.model.Gifts.*;
+import com.vladolium.odinmodel.model.ProductLines;
+import com.vladolium.odinmodel.model.ProductLines.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,19 +14,13 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 
-public interface GiftsRepository extends JpaRepository<Gifts, Long>, QuerydslPredicateExecutor<Gifts> {
 
+public interface ProductLinesRepository extends JpaRepository<ProductLines, Long>, QuerydslPredicateExecutor<ProductLines> {
 
-
-
-
-	Gifts findByGiftNameEquals(String giftName);
-	
-	
-	Gifts findByIdEquals(Long id);
 	
 	
 	
+	ProductLines findByIdEquals(Long id);
 	
 
 	

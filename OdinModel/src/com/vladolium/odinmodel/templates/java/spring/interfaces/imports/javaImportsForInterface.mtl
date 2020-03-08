@@ -19,25 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module javaImportsForJpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module javaImportsForInterface('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment] 
 	ODINMODEL CUSTOMIZATION
-	- May set Java imports for all Spring repositories across all Java Spring Boot projects in a single place.
+	- May set Java imports for all Spring interfaces in a single place.
 [/comment]
 
-[template public javaImportsForJpaRepositoryQuerydsl(umlClass : Class){
+[template public javaImportsForInterface(umlClass : Class){
 	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 import [packageName/].model.*;
 import [packageName/].model.[entityNameUpperFirst/];
 import [packageName/].model.[entityNameUpperFirst/].*;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.time.*;
+import java.util.*;
 import org.springframework.data.domain.*;
-
-import org.springframework.data.querydsl.*;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import [packageName/].wrapper.*;
 [/template]

@@ -23,6 +23,8 @@
 
 [import com::vladolium::odinmodel::templates::java::jpa::model /]
 [import com::vladolium::odinmodel::templates::java::spring::repositories::jpaRepositoryQuerydsl /]
+[import com::vladolium::odinmodel::templates::java::spring::services::serviceWithInterface /]
+[import com::vladolium::odinmodel::templates::java::spring::interfaces::interface /]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::controller::controller /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::service::service /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::implementation::implementation /][/comment]
@@ -40,6 +42,8 @@
 [template public springBootProject(umlClass : Class)]
 [model()/]
 [jpaRepositoryQuerydsl()/]
+[serviceWithInterface()/]
+[interface()/]
 [comment][aClass.controller()/][/comment]
 [comment][aClass.service()/][/comment] 
 [comment][aClass.implementation()/][/comment]

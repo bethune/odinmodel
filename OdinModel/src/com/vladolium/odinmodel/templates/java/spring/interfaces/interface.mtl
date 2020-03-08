@@ -19,25 +19,39 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module javaImportsForJpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module interface('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment] 
-	ODINMODEL CUSTOMIZATION
-	- May set Java imports for all Spring repositories across all Java Spring Boot projects in a single place.
-[/comment]
+[import com::vladolium::odinmodel::templates::java::spring::interfaces::imports::javaImportsForInterface /]
 
-[template public javaImportsForJpaRepositoryQuerydsl(umlClass : Class){
+[comment][import com::vladolium::odinmodel::springboot::service::path::createUpdate /]
+[import com::vladolium::odinmodel::springboot::service::path::readOne /]
+[import com::vladolium::odinmodel::springboot::service::path::readAll /]
+[import com::vladolium::odinmodel::springboot::service::path::search /]
+[import com::vladolium::odinmodel::springboot::service::path::delete /][/comment]
+
+[template public interface(umlClass : Class) {
+	isEntity 				: Boolean = umlClass.isAbstract = false;
+	packagePath 			: String = umlClass._package.name.toLowerCase();
 	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
-import [packageName/].model.*;
-import [packageName/].model.[entityNameUpperFirst/];
-import [packageName/].model.[entityNameUpperFirst/].*;
+[if isEntity]
+	[file ('src/main/java/' + packagePath + '/interfaces/' + entityNameUpperFirst + 'Interface.java', false, 'UTF-8')]
+package [packageName/].interfaces;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.data.domain.*;
+[javaImportsForInterface()/]
 
-import org.springframework.data.querydsl.*;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+public interface [entityNameUpperFirst/]Interface {
+
+[comment]	[aClass.createUpdate()/]
+	[aClass.readOne()/]
+	[aClass.readAll()/]
+	[aClass.search()/]
+	[aClass.delete()/][/comment]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this interface')]
+//[/protected]
+}
+	[/file]
+[/if]
 [/template]

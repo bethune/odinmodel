@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.repository;
+package com.vladolium.odinmodel.repositories; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.OrderDetails;
@@ -12,18 +12,44 @@ import org.springframework.data.domain.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface OrderDetailsRepository
-		extends JpaRepository<OrderDetails, Long>, QuerydslPredicateExecutor<OrderDetails> {
 
+public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long>, QuerydslPredicateExecutor<OrderDetails> {
+
+
+
+
+
+	
 	OrderDetails findByIdEquals(Long id);
+	
+	
+	
 
-	Iterable<OrderDetails> findByProductsIdEquals(Long productsId);
+	
+	
+	Iterable <OrderDetails> findByProductsIdEquals(Long productsId);
+	
+	Page <OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
 
-	Page<OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
-
-	Iterable<OrderDetails> findByProductsProductCodeEquals(String productsProductCode);
-
-	Page<OrderDetails> findByProductsProductCodeEquals(String productsProductCode, Pageable page);
+	
+	
+	
+	
+	
+	
+	Iterable <OrderDetails> findByProductsProductCodeEquals(String productsProductCode);
+	
+	Page <OrderDetails> findByProductsProductCodeEquals(String productsProductCode, Pageable page);
+	
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this repository

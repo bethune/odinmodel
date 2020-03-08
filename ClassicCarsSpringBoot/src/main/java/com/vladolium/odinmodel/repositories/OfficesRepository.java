@@ -1,8 +1,8 @@
-package com.vladolium.odinmodel.repository; 
+package com.vladolium.odinmodel.repositories; 
 
 import com.vladolium.odinmodel.model.*;
-import com.vladolium.odinmodel.model.Reviews;
-import com.vladolium.odinmodel.model.Reviews.*;
+import com.vladolium.odinmodel.model.Offices;
+import com.vladolium.odinmodel.model.Offices.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,12 +12,22 @@ import org.springframework.data.domain.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface ReviewsRepository extends JpaRepository<Reviews, Long>, QuerydslPredicateExecutor<Reviews> {
+
+
+public interface OfficesRepository extends JpaRepository<Offices, Long>, QuerydslPredicateExecutor<Offices> {
 
 
 
 
-	Reviews findByIdEquals(Long id);
+
+
+
+	
+	
+	Offices findByIdEquals(Long id);
+	
+	
+	
 	
 	
 	

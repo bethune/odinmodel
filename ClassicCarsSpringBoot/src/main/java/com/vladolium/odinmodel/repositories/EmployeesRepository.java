@@ -1,8 +1,8 @@
-package com.vladolium.odinmodel.repository;
+package com.vladolium.odinmodel.repositories; 
 
 import com.vladolium.odinmodel.model.*;
-import com.vladolium.odinmodel.model.Customers;
-import com.vladolium.odinmodel.model.Customers.*;
+import com.vladolium.odinmodel.model.Employees;
+import com.vladolium.odinmodel.model.Employees.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,15 +12,48 @@ import org.springframework.data.domain.*;
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface CustomersRepository extends JpaRepository<Customers, Long>, QuerydslPredicateExecutor<Customers> {
+public interface EmployeesRepository extends JpaRepository<Employees, Long>, QuerydslPredicateExecutor<Employees> {
 
-	Customers findByIdEquals(Long id);
 
-	Customers findByCustomerNameEquals(String customerName);
 
-	Iterable<Customers> findByEmployeesIdEquals(Long employeesId);
 
-	Page<Customers> findByEmployeesIdEquals(Long employeesId, Pageable page);
+
+
+
+
+
+	Employees findByIdEquals(Long id);
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	Iterable <Employees> findByOfficesIdEquals(Long officesId);
+	
+	Page <Employees> findByOfficesIdEquals(Long officesId, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this repository
