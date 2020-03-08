@@ -22,7 +22,7 @@
 [module springBootProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::templates::java::jpa::model /]
-[import com::vladolium::odinmodel::templates::java::springboot::repositories::jpaRepositoryQuerydsl /]
+[import com::vladolium::odinmodel::templates::java::spring::repositories::jpaRepositoryQuerydsl /]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::controller::controller /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::service::service /][/comment]
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::implementation::implementation /][/comment]

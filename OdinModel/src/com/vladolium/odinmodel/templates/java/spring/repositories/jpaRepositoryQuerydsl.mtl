@@ -21,10 +21,10 @@
 [comment encoding = UTF-8 /]
 [module jpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::repositories::imports::javaImportsForJpaRepositoryQuerydsl /]
-[import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readOneByFieldWithUniqueConstraint /]
-[import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentIdInManyToOneRelationship /]
-[import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship /]
+[import com::vladolium::odinmodel::templates::java::spring::repositories::imports::javaImportsForJpaRepositoryQuerydsl /]
+[import com::vladolium::odinmodel::templates::java::spring::repositories::methods::readOneByFieldWithUniqueConstraint /]
+[import com::vladolium::odinmodel::templates::java::spring::repositories::methods::readAllByParentIdInManyToOneRelationship /]
+[import com::vladolium::odinmodel::templates::java::spring::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship /]
 
 [comment]
 	 ODINMODEL CUSTOMIZATION
