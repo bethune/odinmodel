@@ -1,12 +1,14 @@
 package com.vladolium.odinmodel.repository;
 
+import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Employees;
+import com.vladolium.odinmodel.model.Employees.*;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.*;
-import com.vladolium.odinmodel.domain.*;
-import com.vladolium.odinmodel.domain.Employees;
-import com.vladolium.odinmodel.domain.Employees.*;
+
 import org.springframework.data.querydsl.*;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 

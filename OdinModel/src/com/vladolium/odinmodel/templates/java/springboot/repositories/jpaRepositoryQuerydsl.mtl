@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module jpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::java::springboot::repositories::imports::javaImportsForRepository /]
+[import com::vladolium::odinmodel::templates::java::springboot::repositories::imports::javaImportsForJpaRepositoryQuerydsl /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readOneByFieldWithUniqueConstraint /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentIdInManyToOneRelationship /]
 [import com::vladolium::odinmodel::templates::java::springboot::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship /]
@@ -43,7 +43,7 @@
 	[file ('src/main/java/' + packagePath + '/repository/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')] [comment: POC_1 /]
 package [packageName/].repository; [comment: POC_2 /]
 
-[comment][javaImportsForSpringRepository()/][/comment]
+[javaImportsForJpaRepositoryQuerydsl()/]
 
 		[for (field: Property | umlClass.getAllAttributes()) separator('\n')]
 			[if field.isID = true]
@@ -51,11 +51,11 @@ public interface [entityNameUpperFirst/]Repository extends JpaRepository<[entity
 			[/if]
 		[/for]
 
-[comment]	[readOneByFieldWithUniqueConstraint()/][/comment]
+	[readOneByFieldWithUniqueConstraint()/]
 
-[comment]	[readAllByParentIdInManyToOneRelationship()/][/comment]
+	[readAllByParentIdInManyToOneRelationship()/]
 
-[comment]	[readAllByParentFieldWithUniqueConstraintInManyToOneRelationship()/][/comment]
+	[readAllByParentFieldWithUniqueConstraintInManyToOneRelationship()/]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this repository')]
