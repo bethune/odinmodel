@@ -6,7 +6,7 @@ import com.vladolium.odinmodel.model.Gifts.*;
 import java.time.*;
 import java.util.*;
 import org.springframework.data.domain.*;
-import com.vladolium.odinmodel.wrapper.*;
+import com.vladolium.odinmodel.wrappers.*;
 
 public interface GiftsInterface {
 

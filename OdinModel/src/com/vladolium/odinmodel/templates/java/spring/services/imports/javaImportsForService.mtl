@@ -32,8 +32,8 @@
 import [packageName/].model.*;
 import [packageName/].model.[entityNameUpperFirst/];
 import [packageName/].model.[entityNameUpperFirst/].*;
-import [packageName/].repository.*;
-import [packageName/].repository.[entityNameUpperFirst/]Repository;
+import [packageName/].repositories.*;
+import [packageName/].repositories.[entityNameUpperFirst/]Repository;
 import [packageName/].interfaces.[entityNameUpperFirst/]Interface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +41,6 @@ import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.*;
 import java.util.*;
-
-import [packageName/].wrapper.*;
+import [packageName/].wrappers.*;
 import com.querydsl.core.BooleanBuilder;
 [/template]

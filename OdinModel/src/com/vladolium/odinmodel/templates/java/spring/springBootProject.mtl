@@ -22,6 +22,7 @@
 [module springBootProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::templates::java::jpa::model /]
+[import com::vladolium::odinmodel::templates::java::spring::wrappers::manyToOneWrapper /]
 [import com::vladolium::odinmodel::templates::java::spring::repositories::jpaRepositoryQuerydsl /]
 [import com::vladolium::odinmodel::templates::java::spring::services::serviceWithInterface /]
 [import com::vladolium::odinmodel::templates::java::spring::interfaces::interface /]
@@ -41,6 +42,7 @@
 
 [template public springBootProject(umlClass : Class)]
 [model()/]
+[manyToOneWrapper()/]
 [jpaRepositoryQuerydsl()/]
 [serviceWithInterface()/]
 [interface()/]

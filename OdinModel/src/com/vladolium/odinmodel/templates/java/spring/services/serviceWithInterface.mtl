@@ -37,7 +37,7 @@
 	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
 [if isEntity]
 	[file ('src/main/java/' + packagePath + '/services/' + entityNameUpperFirst + 'Service.java', false, 'UTF-8')]
-package [packageName/].service;
+package [packageName/].services;
 
 [javaImportsForService()/]
 
