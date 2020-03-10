@@ -23,7 +23,7 @@
 
 [comment]
 	 ODINMODEL CUSTOMIZATION
-	- May set the annotation for all many-to-many relationships across all Java projects in a single place.
+	- May set the annotation for all many-to-many relationships in a single place.
 [/comment]
 
 [template public manyToManyAnnotation(umlClassAssociation : Property)]

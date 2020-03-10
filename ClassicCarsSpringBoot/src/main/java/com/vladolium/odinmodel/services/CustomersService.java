@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Customers;
@@ -25,6 +25,14 @@ public class CustomersService implements CustomersInterface {
 	public void setCustomersRepository(CustomersRepository customersRepository) {
 		this.customersRepository = customersRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public Customers saveOne(Customers customers) {
+		return customersRepository.save(customers);
+	}
+	
+	
 
 
 //Code between start and end will not be removed during generation.

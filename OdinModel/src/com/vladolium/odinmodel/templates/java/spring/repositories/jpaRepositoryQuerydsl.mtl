@@ -37,8 +37,7 @@
 	isEntity 				: Boolean = umlClass.isAbstract = false;
 	packagePath				: String = umlClass._package.name.toLowerCase();
 	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 [if isEntity]
 	[file ('src/main/java/' + packagePath + '/repositories/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')] [comment: POC_1 /]
 package [packageName/].repositories; [comment: POC_2 /]

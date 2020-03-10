@@ -35,9 +35,11 @@
 	 ODINMODEL CUSTOMIZATION
 	- May set the project structure.
 	- For a project without interfaces, set the controller template from package controllers
-	and the service template from package services.
+	and the service template from package services. Also remove the interface template from
+	package interfaces.
 	- For a project with interfaces, set the controllerWithInterface template from package controllers
-	and the serviceWithInterface template from package services.
+	and the serviceWithInterface template from package services. Also include the interface template from
+	package interfaces.
 [/comment]
 
 [template public springBootProject(umlClass : Class)]
@@ -45,10 +47,9 @@
 [manyToOneWrapper()/]
 [jpaRepositoryQuerydsl()/]
 [serviceWithInterface()/]
+[comment][service()/][/comment]
 [interface()/]
 [comment][aClass.controller()/][/comment]
-[comment][aClass.service()/][/comment] 
-[comment][aClass.implementation()/][/comment]
 [comment][aClass.repository()/][/comment]
 [comment][aClass.configuration()/][/comment]
 [/template]

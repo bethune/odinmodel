@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Employees;
@@ -25,6 +25,14 @@ public class EmployeesService implements EmployeesInterface {
 	public void setEmployeesRepository(EmployeesRepository employeesRepository) {
 		this.employeesRepository = employeesRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public Employees saveOne(Employees employees) {
+		return employeesRepository.save(employees);
+	}
+	
+	
 
 
 //Code between start and end will not be removed during generation.

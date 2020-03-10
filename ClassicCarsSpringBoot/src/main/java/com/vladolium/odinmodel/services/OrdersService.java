@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Orders;
@@ -25,6 +25,14 @@ public class OrdersService implements OrdersInterface {
 	public void setOrdersRepository(OrdersRepository ordersRepository) {
 		this.ordersRepository = ordersRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public Orders saveOne(Orders orders) {
+		return ordersRepository.save(orders);
+	}
+	
+	
 
 
 //Code between start and end will not be removed during generation.

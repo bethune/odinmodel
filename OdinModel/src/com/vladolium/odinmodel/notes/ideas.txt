@@ -23,3 +23,10 @@ Basic – menja se generisani kod aplikacije
 Medium – menja se sve unutar customizable paketa
 Advanced – menjaju se ostali templejti
 Pro – kreiraju se sopstveni templejti
+
+
+main - gotov
+projects - gotov
+springBootProject -
+model - gotov (uključujući entitete, polja i veze)
+repository - gotov (komplet)

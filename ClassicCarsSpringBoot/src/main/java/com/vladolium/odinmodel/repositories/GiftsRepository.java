@@ -1,16 +1,13 @@
 package com.vladolium.odinmodel.repositories; 
 
 import com.vladolium.odinmodel.model.*;
-import com.vladolium.odinmodel.model.Gifts;
-import com.vladolium.odinmodel.model.Gifts.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.domain.*;
+import org.springframework.data.querydsl.*;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.data.domain.*;
-
-import org.springframework.data.querydsl.*;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 
 

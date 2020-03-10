@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Offices;
@@ -25,6 +25,29 @@ public class OfficesService implements OfficesInterface {
 	public void setOfficesRepository(OfficesRepository officesRepository) {
 		this.officesRepository = officesRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public Offices saveOne(Offices offices) {
+		return officesRepository.save(offices);
+	}
+	
+	private EmployeesRepository employeesRepository;
+	
+	// covers create with IRIC
+	public Offices saveOneWithIric(OfficesEmployees officesEmployees) {
+	
+		Offices currentOffices = officesRepository.save(officesEmployees.getOffices());
+	
+		Employees currentEmployees = officesEmployees.getEmployees();
+	
+		currentEmployees.setOffices(officesRepository.getOne(currentOffices.getId()));
+	
+		employeesRepository.save(currentEmployees);
+	
+		return currentOffices;
+	}
+	
 
 
 //Code between start and end will not be removed during generation.

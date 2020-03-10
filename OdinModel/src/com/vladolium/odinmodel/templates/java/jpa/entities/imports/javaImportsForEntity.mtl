@@ -23,7 +23,7 @@
 
 [comment] 
 	ODINMODEL CUSTOMIZATION
-	- May set Java imports for all entities across all Java projects in a single place.
+	- May set Java imports for all entities in a single place.
 [/comment]
 
 [template public javaImportsForEntity(umlClass : Class)]

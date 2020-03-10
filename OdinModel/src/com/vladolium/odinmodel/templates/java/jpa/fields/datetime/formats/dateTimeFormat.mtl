@@ -23,7 +23,7 @@
 
 [comment]
 	 ODINMODEL CUSTOMIZATION
-	- May set the date and time format for LocalDateTime entity fields across all Java projects in a single place.
+	- May set the date and time format for LocalDateTime entity fields in a single place.
 [/comment]
 
 [template public dateTimeFormat(umlClassAttribute : Property)]

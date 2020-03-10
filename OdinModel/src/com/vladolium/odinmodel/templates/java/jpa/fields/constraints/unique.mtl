@@ -23,7 +23,7 @@
 
 [comment]
 	 ODINMODEL CUSTOMIZATION
-	- May set the unique constraint for entity fields across all Java projects in a single place.
+	- May set the unique constraint defintion for entity fields in a single place.
 [/comment]
 
 [template public unique(umlClassAttribute : Property)]

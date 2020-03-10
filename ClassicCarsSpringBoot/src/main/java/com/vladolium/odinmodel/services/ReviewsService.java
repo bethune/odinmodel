@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Reviews;
@@ -25,6 +25,14 @@ public class ReviewsService implements ReviewsInterface {
 	public void setReviewsRepository(ReviewsRepository reviewsRepository) {
 		this.reviewsRepository = reviewsRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public Reviews saveOne(Reviews reviews) {
+		return reviewsRepository.save(reviews);
+	}
+	
+	
 
 
 //Code between start and end will not be removed during generation.

@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.ProductLines;
@@ -25,6 +25,29 @@ public class ProductLinesService implements ProductLinesInterface {
 	public void setProductLinesRepository(ProductLinesRepository productLinesRepository) {
 		this.productLinesRepository = productLinesRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public ProductLines saveOne(ProductLines productLines) {
+		return productLinesRepository.save(productLines);
+	}
+	
+	private ProductsRepository productsRepository;
+	
+	// covers create with IRIC
+	public ProductLines saveOneWithIric(ProductLinesProducts productLinesProducts) {
+	
+		ProductLines currentProductLines = productLinesRepository.save(productLinesProducts.getProductLines());
+	
+		Products currentProducts = productLinesProducts.getProducts();
+	
+		currentProducts.setProductLines(productLinesRepository.getOne(currentProductLines.getId()));
+	
+		productsRepository.save(currentProducts);
+	
+		return currentProductLines;
+	}
+	
 
 
 //Code between start and end will not be removed during generation.

@@ -22,12 +22,20 @@
 [module serviceWithInterface('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::templates::java::spring::services::imports::javaImportsForService /]
+[import com::vladolium::odinmodel::templates::java::spring::services::methods::save /]
 
 [comment][import com::vladolium::odinmodel::springboot::service::path::createUpdate /]
 [import com::vladolium::odinmodel::springboot::service::path::readOne /]
 [import com::vladolium::odinmodel::springboot::service::path::readAll /]
 [import com::vladolium::odinmodel::springboot::service::path::search /]
 [import com::vladolium::odinmodel::springboot::service::path::delete /][/comment]
+
+[comment]
+	 ODINMODEL CUSTOMIZATION
+	- May set the service package path on line with POC_1 comment (must use / between levels).
+	- May set the package name within service class on line with POC_2 comment (must use . between levels).
+	- POC stands for Point Of Customization.
+[/comment]
 
 [template public serviceWithInterface(umlClass : Class) {
 	isEntity 				: Boolean = umlClass.isAbstract = false;
@@ -36,8 +44,8 @@
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
 	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
 [if isEntity]
-	[file ('src/main/java/' + packagePath + '/services/' + entityNameUpperFirst + 'Service.java', false, 'UTF-8')]
-package [packageName/].services;
+	[file ('src/main/java/' + packagePath + '/services/' + entityNameUpperFirst + 'Service.java', false, 'UTF-8')] [comment: POC_1 /]
+package [packageName/].services; [comment: POC_2 /]
 
 [javaImportsForService()/]
 
@@ -51,6 +59,8 @@ public class [entityNameUpperFirst/]Service implements [entityNameUpperFirst/]In
 	public void set[entityNameUpperFirst/]Repository([entityNameUpperFirst/]Repository [entityNameLowerFirst/]Repository) {
 		this.[entityNameLowerFirst/]Repository = [entityNameLowerFirst/]Repository;
 	}
+
+	[save()/]
 
 [comment]	[aClass.createUpdate()/]
 	[aClass.readOne()/]

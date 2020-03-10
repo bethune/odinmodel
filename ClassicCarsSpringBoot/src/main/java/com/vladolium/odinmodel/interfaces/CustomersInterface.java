@@ -1,14 +1,19 @@
-package com.vladolium.odinmodel.interfaces;
+package com.vladolium.odinmodel.interfaces; 
 
 import com.vladolium.odinmodel.model.*;
-import com.vladolium.odinmodel.model.Customers;
-import com.vladolium.odinmodel.model.Customers.*;
-import java.time.*;
-import java.util.*;
-import org.springframework.data.domain.*;
 import com.vladolium.odinmodel.wrappers.*;
 
+import java.time.*;
+import java.util.*;
+
+import org.springframework.data.domain.*;
+
 public interface CustomersInterface {
+
+	// covers create, update and update with IRIC
+	Customers saveOne(Customers customers);
+	
+	
 
 
 //Code between start and end will not be removed during generation.

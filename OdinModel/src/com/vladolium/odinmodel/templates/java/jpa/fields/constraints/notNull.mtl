@@ -23,7 +23,7 @@
 
 [comment]
 	 ODINMODEL CUSTOMIZATION
-	- May set the null constraint for entity fields across all Java projects in a single place.
+	- May set the null constraint definition for entity fields in a single place.
 [/comment]
 
 [template public notNull(umlClassAttribute : Property)]

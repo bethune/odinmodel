@@ -22,12 +22,20 @@
 [module interface('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::templates::java::spring::interfaces::imports::javaImportsForInterface /]
+[import com::vladolium::odinmodel::templates::java::spring::interfaces::methods::save /]
 
-[comment][import com::vladolium::odinmodel::springboot::service::path::createUpdate /]
+[comment]
 [import com::vladolium::odinmodel::springboot::service::path::readOne /]
 [import com::vladolium::odinmodel::springboot::service::path::readAll /]
 [import com::vladolium::odinmodel::springboot::service::path::search /]
 [import com::vladolium::odinmodel::springboot::service::path::delete /][/comment]
+
+[comment]
+	 ODINMODEL CUSTOMIZATION
+	- May set the interface package path on line with POC_1 comment (must use / between levels).
+	- May set the package name within interface class on line with POC_2 comment (must use . between levels).
+	- POC stands for Point Of Customization.
+[/comment]
 
 [template public interface(umlClass : Class) {
 	isEntity 				: Boolean = umlClass.isAbstract = false;
@@ -35,14 +43,16 @@
 	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
 	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
 [if isEntity]
-	[file ('src/main/java/' + packagePath + '/interfaces/' + entityNameUpperFirst + 'Interface.java', false, 'UTF-8')]
-package [packageName/].interfaces;
+	[file ('src/main/java/' + packagePath + '/interfaces/' + entityNameUpperFirst + 'Interface.java', false, 'UTF-8')] [comment: POC_1 /]
+package [packageName/].interfaces; [comment: POC_2 /]
 
 [javaImportsForInterface()/]
 
 public interface [entityNameUpperFirst/]Interface {
 
-[comment]	[aClass.createUpdate()/]
+	[save()/]
+
+[comment]	
 	[aClass.readOne()/]
 	[aClass.readAll()/]
 	[aClass.search()/]

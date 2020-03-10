@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Gifts;
@@ -25,6 +25,14 @@ public class GiftsService implements GiftsInterface {
 	public void setGiftsRepository(GiftsRepository giftsRepository) {
 		this.giftsRepository = giftsRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public Gifts saveOne(Gifts gifts) {
+		return giftsRepository.save(gifts);
+	}
+	
+	
 
 
 //Code between start and end will not be removed during generation.

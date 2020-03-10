@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.services;
+package com.vladolium.odinmodel.services; 
 
 import com.vladolium.odinmodel.model.*;
 import com.vladolium.odinmodel.model.Payments;
@@ -25,6 +25,14 @@ public class PaymentsService implements PaymentsInterface {
 	public void setPaymentsRepository(PaymentsRepository paymentsRepository) {
 		this.paymentsRepository = paymentsRepository;
 	}
+
+	// covers create, update and update with IRIC
+	@Override
+	public Payments saveOne(Payments payments) {
+		return paymentsRepository.save(payments);
+	}
+	
+	
 
 
 //Code between start and end will not be removed during generation.

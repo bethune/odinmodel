@@ -19,21 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module javaImportsForInterface('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module save('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment] 
-	ODINMODEL CUSTOMIZATION
-	- May set Java imports for all Spring interfaces in a single place.
-[/comment]
+[template public save(umlClass : Class){
+	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
+	entityNameLowerFirst	: String = umlClass.name.toLowerFirst();}]
+// covers create, update and update with IRIC
+[entityNameUpperFirst/] saveOne([entityNameUpperFirst/] [entityNameLowerFirst/]);
 
-[template public javaImportsForInterface(umlClass : Class){
-	packageName 			: String = umlClass._package.name.replaceAll('/', '.').toLowerCase();
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
-import [packageName/].model.*;
-import [packageName/].wrappers.*;
-
-import java.time.*;
-import java.util.*;
-
-import org.springframework.data.domain.*;
+[for (relationship: Property | umlClass.getAssociations().memberEnd)]
+	[comment: IRIC for manyToOne /]
+	[if relationship.lower = 1 and relationship.upper = -1 and relationship.opposite.type.name.toUpperFirst() = entityNameUpperFirst and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+// covers create with IRIC
+[entityNameUpperFirst/] saveOneWithIric([entityNameUpperFirst/][relationship.type.name.toUpperFirst()/] [entityNameLowerFirst/][relationship.type.name.toUpperFirst()/]);
+	[/if]
+[/for]
 [/template]
