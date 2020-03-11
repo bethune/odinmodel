@@ -1,11 +1,12 @@
-package com.vladolium.odinmodel.model; 
+package com.vladolium.odinmodel.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;
 import java.util.*;
+
 import org.springframework.format.annotation.DateTimeFormat;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;	
 
 @Entity
 public class Payments {
@@ -130,6 +131,7 @@ public class Payments {
 	
 	
 	
+
 	@ManyToOne
 	@JoinColumn(name="customers_id")
 	private Customers customers;
@@ -150,4 +152,5 @@ public class Payments {
 //End of user code
 }
 
- 
+
+

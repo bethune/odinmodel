@@ -1,4 +1,4 @@
-package com.vladolium.odinmodel.repositories; 
+package com.vladolium.odinmodel.repositories;
 
 import com.vladolium.odinmodel.model.*;
 

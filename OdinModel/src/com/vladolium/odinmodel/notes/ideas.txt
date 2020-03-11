@@ -24,9 +24,5 @@ Medium – menja se sve unutar customizable paketa
 Advanced – menjaju se ostali templejti
 Pro – kreiraju se sopstveni templejti
 
+Acceleo reusable templejti
 
-main - gotov
-projects - gotov
-springBootProject -
-model - gotov (uključujući entitete, polja i veze)
-repository - gotov (komplet)
