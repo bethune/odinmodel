@@ -10,17 +10,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-
 public interface GiftsRepository extends JpaRepository<Gifts, Long>, QuerydslPredicateExecutor<Gifts> {
 
 
 
 
 
-	Gifts findByGiftNameEquals(String giftName);
-	
+
 	
 	Gifts findByIdEquals(Long id);
+	
+	Gifts findByGiftNameEquals(String giftName);
 	
 	
 	

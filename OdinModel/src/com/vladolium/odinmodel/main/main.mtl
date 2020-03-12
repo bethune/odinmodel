@@ -23,7 +23,12 @@
 
 [import com::vladolium::odinmodel::projects::project/]
 
+[**
+ * Represents a single entry point for project generation.
+ * 
+ * @param umlClass represents classes from the UML domain model.
+*/]
 [template public main(umlClass : Class)]
 [comment @main/]
-[project()/]
+[umlClass.project()/]
 [/template]

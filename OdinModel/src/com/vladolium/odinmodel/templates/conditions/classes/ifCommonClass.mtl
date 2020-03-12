@@ -19,11 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module ifCommonClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public ifEntity(umlClass : Class){
-	isEntity	: Boolean = umlClass.isAbstract = false;}]
-[if isEntity]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::types::commonEntity /]
 
+[**
+ * Checks for a UML class that is not an abstract one and does not inherit from an abstract class.
+ *    
+ * @param umlClass represents classes from the UML domain model
+*/]
+[template public ifCommonClass(umlClass : Class){
+	isAbstract 		: Boolean = umlClass.isAbstract;
+	doesNotInherit 	: Boolean = umlClass.general->isEmpty();}]
+[if isAbstract = false and doesNotInherit]
+	[umlClass.commonEntity()/]
 [/if]	
 [/template]

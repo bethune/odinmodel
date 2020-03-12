@@ -9,10 +9,16 @@
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <definition href="../projects/project.emtl#/0/project"/>
-        <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/6">
+        <argument xsi:type="ocl.ecore:VariableExp" name="umlClass" referredVariable="/0/main/umlClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
       </body>
+      <documentation xsi:type="mtl:ModuleElementDocumentation">
+        <body startPosition="1396" endPosition="1526" value="&#xD;&#xA;Represents a single entry point for project generation.&#xD;&#xA;&#xD;&#xA;@param umlClass represents classes from the UML domain model.&#xD;&#xA;&#xD;&#xA;"/>
+        <parametersDocumentation name="umlClass">
+          <body value=" represents classes from the UML domain model."/>
+        </parametersDocumentation>
+      </documentation>
       <parameter name="umlClass">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
@@ -107,24 +113,34 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/main">
-      <details key="start" value="1393"/>
-      <details key="end" value="1475"/>
-      <details key="line" value="26"/>
+      <details key="start" value="1529"/>
+      <details key="end" value="1620"/>
+      <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/main/%">
-      <details key="start" value="1452"/>
-      <details key="end" value="1461"/>
+      <details key="start" value="1588"/>
+      <details key="end" value="1606"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/main/%/self">
+    <eAnnotations source="positions.2" references="/0/main/%/umlClass">
+      <details key="start" value="1588"/>
+      <details key="end" value="1596"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/main/%.1">
+      <details key="start" value="1393"/>
+      <details key="end" value="1528"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/main/%.1/umlClass">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/main/umlClass">
-      <details key="start" value="1415"/>
-      <details key="end" value="1431"/>
-      <details key="line" value="26"/>
+    <eAnnotations source="positions.5" references="/0/main/umlClass">
+      <details key="start" value="1551"/>
+      <details key="end" value="1567"/>
+      <details key="line" value="31"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

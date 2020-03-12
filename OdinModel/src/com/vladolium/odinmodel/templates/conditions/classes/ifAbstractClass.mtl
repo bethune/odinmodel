@@ -21,10 +21,6 @@
 [comment encoding = UTF-8 /]
 [module ifAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment][import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::notNull /]
-[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::unique /]
-[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::jpaAnnotation /][/comment]
-
 [template public ifAbstractClass(umlClass : Class){
 	isAbstract	: Boolean = umlClass.isAbstract;}]
 [if isAbstract]

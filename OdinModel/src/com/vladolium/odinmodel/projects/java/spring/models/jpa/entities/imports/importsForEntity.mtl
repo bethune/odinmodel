@@ -21,11 +21,13 @@
 [comment encoding = UTF-8 /]
 [module importsForEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment] 
-	ODINMODEL CUSTOMIZATION
-	- May set Java imports for entities in a single place.
-[/comment]
-
+[**
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may set Java imports for all project entities in a single place.
+ *   
+ * @param umlClass represents classes from the UML domain model
+*/]
 [template public importsForEntity(umlClass : Class)]
 import javax.persistence.*;
 import javax.validation.constraints.*;

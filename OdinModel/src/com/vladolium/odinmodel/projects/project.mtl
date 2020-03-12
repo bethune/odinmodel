@@ -24,12 +24,16 @@
 [import com::vladolium::odinmodel::projects::java::spring::springBootRestProject/]
 [import com::vladolium::odinmodel::projects::java::jsf::jsfProject/]
 
-[comment]
-	ODINMODEL CUSTOMIZATION
-	- May set which project OdinModel prototypes.
-	- Only one of the project templates should stay uncommented.
-[/comment]
-
+[**
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may set which project OdinModel prototypes 
+ * by leaving desired project's template uncommented.
+ * 
+ * NOTE: Only one project template should stay uncommented!
+ * 
+ * @param umlClass represents classes from the UML domain model
+*/]
 [template public project(umlClass : Class)]
 [springBootRestProject()/]
 [comment][jsfProject()/][/comment]

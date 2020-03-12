@@ -21,7 +21,9 @@
 [comment encoding = UTF-8 /]
 [module field('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::long /]
+[import com::vladolium::odinmodel::templates::loops::fields::forAllClassFieldsExcludingInheritedOnes /]
+
+[comment][import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::long /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::integer /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::double /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::logical::boolean /]
@@ -32,10 +34,12 @@
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::time /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::instant /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::binary::clob /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::binary::blob /]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::binary::blob /][/comment]
 
-[template public field(umlClass : Class)]
-[long()/]
+[template public field(entity : Class)]
+
+[entity.forAllClassFieldsExcludingInheritedOnes(entity)/]
+[comment][long()/]
 [integer()/]
 [double()/]
 [boolean()/]
@@ -46,5 +50,5 @@
 [time()/]
 [instant()/]
 [clob()/]
-[blob()/]
+[blob()/][/comment]
 [/template]

@@ -24,6 +24,12 @@
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::entity /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::wrappers::manyToOneWrapper /]
 
+[**
+ * Imported template manyToOneWrapper is necessary for the 
+ * Inverse Referential Integrity Constraint (IRIC) implementation.
+ *   
+ * @param umlClass represents classes from the UML domain model
+*/]
 [template public jpaModel(umlClass : Class)]
 [entity()/]
 [manyToOneWrapper()/]

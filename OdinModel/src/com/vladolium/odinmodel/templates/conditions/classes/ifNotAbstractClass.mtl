@@ -19,12 +19,11 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifCommonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module ifNotAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public ifCommonEntity(umlClass : Class){
-	isAbstract 				: Boolean = umlClass.isAbstract;
-	doesNotInherit 			: Boolean = umlClass.general->isEmpty();}]
-[if isAbstract = false and doesNotInherit]
+[template public ifNotAbstractClass(umlClass : Class){
+	isEntity	: Boolean = umlClass.isAbstract = false;}]
+[if isEntity]
 
 [/if]	
 [/template]

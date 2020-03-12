@@ -19,9 +19,9 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifInheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module ifInheritingClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public ifInheritingEntity(umlClass : Class){
+[template public ifInheritingClass(umlClass : Class){
 	isAbstract 				: Boolean = umlClass.isAbstract;
 	doesNotInherit 			: Boolean = umlClass.general->isEmpty();}]
 [if isAbstract = false and doesNotInherit = false]

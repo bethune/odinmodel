@@ -19,10 +19,12 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module forAllEntityFieldsExcludingAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module forAllClassFieldsExcludingInheritedOnes('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public forAllEntityFieldsExcludingAbstractClass(umlClass : Class)]
+[import com::vladolium::odinmodel::templates::conditions::fields::ifFieldType /]
+
+[template public forAllClassFieldsExcludingInheritedOnes(umlClass : Class)]
 [for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
-	
+	[field.ifFieldType(field)/]
 [/for]
 [/template]

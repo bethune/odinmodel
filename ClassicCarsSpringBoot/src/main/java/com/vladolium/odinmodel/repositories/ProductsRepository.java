@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 public interface ProductsRepository extends JpaRepository<Products, Long>, QuerydslPredicateExecutor<Products> {
 
 
@@ -19,11 +20,10 @@ public interface ProductsRepository extends JpaRepository<Products, Long>, Query
 
 
 
-
+	
 	
 	
 	Products findByIdEquals(Long id);
-	
 	
 	
 	
@@ -32,12 +32,12 @@ public interface ProductsRepository extends JpaRepository<Products, Long>, Query
 	
 	
 
-	
-	
-	
 	Iterable <Products> findByProductLinesIdEquals(Long productLinesId);
 	
 	Page <Products> findByProductLinesIdEquals(Long productLinesId, Pageable page);
+	
+	
+	
 	
 
 	

@@ -9,6 +9,9 @@ import org.springframework.data.querydsl.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+
+
+
 public interface EmployeesRepository extends JpaRepository<Employees, Long>, QuerydslPredicateExecutor<Employees> {
 
 
@@ -16,25 +19,22 @@ public interface EmployeesRepository extends JpaRepository<Employees, Long>, Que
 
 
 
-
-
-
+	
+	
+	
 	Employees findByIdEquals(Long id);
 	
 	
 	
 	
 	
-	
-	
-	
 
+	
 	
 	
 	Iterable <Employees> findByOfficesIdEquals(Long officesId);
 	
 	Page <Employees> findByOfficesIdEquals(Long officesId, Pageable page);
-	
 	
 	
 	

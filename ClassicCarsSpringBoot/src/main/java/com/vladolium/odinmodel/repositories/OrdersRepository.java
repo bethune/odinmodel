@@ -10,26 +10,21 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-
-
-
-
 public interface OrdersRepository extends JpaRepository<Orders, Long>, QuerydslPredicateExecutor<Orders> {
 
 
-	
-	
-	
+
+
+
+
 	
 	Orders findByIdEquals(Long id);
 	
 	
+	
+	
+	
 
-	
-	
-	
-	
-	
 	
 	
 	
@@ -40,10 +35,12 @@ public interface OrdersRepository extends JpaRepository<Orders, Long>, QuerydslP
 	
 	
 	
+	
+	
+	
+	
+	
 
-	
-	
-	
 	
 	
 	
@@ -54,6 +51,9 @@ public interface OrdersRepository extends JpaRepository<Orders, Long>, QuerydslP
 	Iterable <Orders> findByCustomersCustomerNameEquals(String customersCustomerName);
 	
 	Page <Orders> findByCustomersCustomerNameEquals(String customersCustomerName, Pageable page);
+	
+	
+	
 	
 	
 

@@ -21,8 +21,14 @@
 [comment encoding = UTF-8 /]
 [module ifFieldType('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public ifFieldType(field: Property)]
-[if field.type.name = 'Enter some field type']
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::long /]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::textual::string /]
 
+[template public ifFieldType(field: Property){
+	fieldTypeNameUpperFirst	: String = field.name.toUpperFirst();
+}]
+[if field.type.name = fieldTypeNameUpperFirst]
+	[field.long()/]
+	[field.string()/]
 [/if]
 [/template]

@@ -10,24 +10,24 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
+
+
+
 public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long>, QuerydslPredicateExecutor<OrderDetails> {
 
 
-
-
-
+	
 	
 	OrderDetails findByIdEquals(Long id);
 	
 	
-	
 
+	
 	
 	
 	Iterable <OrderDetails> findByProductsIdEquals(Long productsId);
 	
 	Page <OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
-	
 	
 	
 	

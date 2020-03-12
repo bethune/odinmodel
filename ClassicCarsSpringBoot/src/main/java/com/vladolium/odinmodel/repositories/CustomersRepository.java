@@ -13,38 +13,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
-
-
-
-
-
-
 public interface CustomersRepository extends JpaRepository<Customers, Long>, QuerydslPredicateExecutor<Customers> {
 
 
 
 
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	
 	
 	
 	Customers findByIdEquals(Long id);
 	
 	
+	
+	
 	Customers findByCustomerNameEquals(String customerName);
 	
 	
+	
+	
+	
 
+	
+	
+	
 	Iterable <Customers> findByEmployeesIdEquals(Long employeesId);
 	
 	Page <Customers> findByEmployeesIdEquals(Long employeesId, Pageable page);
-	
-	
-	
 	
 	
 	

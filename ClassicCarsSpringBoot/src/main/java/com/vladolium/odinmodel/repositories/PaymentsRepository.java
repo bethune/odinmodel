@@ -26,14 +26,14 @@ public interface PaymentsRepository extends JpaRepository<Payments, Long>, Query
 	
 	
 	
-	
-	
-	
-	
-	
 	Iterable <Payments> findByCustomersIdEquals(Long customersId);
 	
 	Page <Payments> findByCustomersIdEquals(Long customersId, Pageable page);
+	
+	
+	
+	
+	
 	
 	
 	
@@ -46,12 +46,12 @@ public interface PaymentsRepository extends JpaRepository<Payments, Long>, Query
 	
 	
 	
-	
-	
-	
 	Iterable <Payments> findByCustomersCustomerNameEquals(String customersCustomerName);
 	
 	Page <Payments> findByCustomersCustomerNameEquals(String customersCustomerName, Pageable page);
+	
+	
+	
 	
 	
 

@@ -24,14 +24,23 @@
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::field /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::relationship /]
 
-[template public commonEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
+[**
+ * Generates code for a common entity in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may add entity specifics like toString, hashCode, equals, etc.
+ *    
+ * @param entity represents classes from the UML domain model
+*/]
+[template public commonEntity(entity : Class){
+	entityNameUpperFirst	: String = entity.name.toUpperFirst();}]
 @Entity
 public class [entityNameUpperFirst/] {
 
 	[field()/]
 
-	[relationship()/]
+[comment]	[relationship()/][/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this entity')]

@@ -26,8 +26,8 @@
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::jpaConstraint /]
 
-[template public long(umlClass : Class)]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
+[template public long(field: Property)]
+[comment][for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
 	[if field.type.name = 'Long']
 		[if field.isID = true]
 [primaryKey()/]
@@ -40,7 +40,7 @@
 		[/if]
 		[if field.ownedComment._body->isEmpty() = false ]
 [jpaConstraint()/]
-		[/if]	
+		[/if]	[/comment]
 private [field.type.name/] [field.name/];
 
 public [field.type.name/] get[field.name.toUpperFirst()/]() {
@@ -49,6 +49,6 @@ public [field.type.name/] get[field.name.toUpperFirst()/]() {
 public void set[field.name.toUpperFirst()/]([field.type.name/] [field.name/]) {
 	this.[field.name/] = [field.name/];
 }
-	[/if]
-[/for]
+[comment]	[/if]
+[/for][/comment]
 [/template]
