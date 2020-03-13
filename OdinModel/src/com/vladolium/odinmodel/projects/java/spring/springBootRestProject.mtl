@@ -37,7 +37,7 @@
 [**
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may set the project structure.
+ * User may set the target project structure.
  *  
  * For a project without interfaces, set the following:
  * 		- add the controller template from the package controllers,
@@ -49,11 +49,11 @@
  * 		- add the serviceWithInterface template from the package services, and
  * 		- add the interface template from the package interfaces.
  *  
- * @param umlClass represents classes from the UML domain model
+ * @param umlClass represents classes from the UML class diagram i.e. the domain model.
 */]
 [template public springBootRestProject(umlClass : Class)]
 [jpaModel()/]
-[jpaRepositoryWithQuerydsl()/]
+[comment][jpaRepositoryWithQuerydsl()/][/comment]
 [comment]
 
 [serviceWithInterface()/][/comment]

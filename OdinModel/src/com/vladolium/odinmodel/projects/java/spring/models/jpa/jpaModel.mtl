@@ -22,15 +22,19 @@
 [module jpaModel('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::entity /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::wrappers::manyToOneWrapper /]
+[import com::vladolium::odinmodel::templates::loops::relationships::forAllManyToOneRelationships /]
 
 [**
- * Imported template manyToOneWrapper is necessary for the 
- * Inverse Referential Integrity Constraint (IRIC) implementation.
+ * Template entity covers entities - basic components of a JPA model.
+ * 
+ * Template forAllManyToOneRelationships covers many-to-one relationships
+ * for the current entity in order to create wrappers - a helper class 
+ * necessary for the Inverse Referential Integrity Constraint (IRIC) implementation 
+ * on a relationship between two entities.
  *   
- * @param umlClass represents classes from the UML domain model
+ * @param entity represents classes from the UML class diagram i.e. the domain model.
 */]
-[template public jpaModel(umlClass : Class)]
+[template public jpaModel(entity : Class)]
 [entity()/]
-[manyToOneWrapper()/]
+[forAllManyToOneRelationships()/]
 [/template]

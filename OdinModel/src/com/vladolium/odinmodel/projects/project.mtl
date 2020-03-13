@@ -30,9 +30,9 @@
  * User may set which project OdinModel prototypes 
  * by leaving desired project's template uncommented.
  * 
- * NOTE: Only one project template should stay uncommented!
+ * NOTE: Only one project template should stay uncommented.
  * 
- * @param umlClass represents classes from the UML domain model
+ * @param umlClass represents classes from the UML class diagram i.e. the domain model.
 */]
 [template public project(umlClass : Class)]
 [springBootRestProject()/]

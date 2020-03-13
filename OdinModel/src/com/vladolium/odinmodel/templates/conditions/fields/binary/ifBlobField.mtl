@@ -19,16 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module ifBlobField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::project/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::binary::blob /]
 
 [**
- * Represents a single entry point for the project prototyping.
- * 
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * Checks for a field of type Blob.
+ *    
+ * @param field represents fields from the current UML class.
 */]
-[template public main(umlClass : Class)]
-[comment @main/]
-[project()/]
+[template public ifBlobField(field: Property)]
+[if field.type.name = 'Blob']
+	[blob()/]
+[/if]
 [/template]

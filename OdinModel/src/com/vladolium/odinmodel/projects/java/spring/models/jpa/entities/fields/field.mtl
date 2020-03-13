@@ -21,34 +21,15 @@
 [comment encoding = UTF-8 /]
 [module field('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::loops::fields::forAllClassFieldsExcludingInheritedOnes /]
+[import com::vladolium::odinmodel::templates::loops::fields::forAllFieldsExcludingInheritedOnes /]
 
-[comment][import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::long /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::integer /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::double /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::logical::boolean /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::textual::string /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::textual::enum /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::date /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::dateTime /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::time /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::instant /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::binary::clob /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::binary::blob /][/comment]
-
+[**
+ * Covers all entity fields which persist in a database.
+ * 
+ * NOTE: Fileds that entity inherits from an abstract class are not covered.
+ *   
+ * @param entity represents classes from the UML class diagram i.e. the domain model.
+*/]
 [template public field(entity : Class)]
-
-[entity.forAllClassFieldsExcludingInheritedOnes(entity)/]
-[comment][long()/]
-[integer()/]
-[double()/]
-[boolean()/]
-[string()/]
-[enum()/]
-[date()/]
-[dateTime()/]
-[time()/]
-[instant()/]
-[clob()/]
-[blob()/][/comment]
+[forAllClassFieldsExcludingInheritedOnes()/]
 [/template]

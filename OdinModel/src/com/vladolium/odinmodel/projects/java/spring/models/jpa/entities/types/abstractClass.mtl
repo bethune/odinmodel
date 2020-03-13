@@ -21,10 +21,28 @@
 [comment encoding = UTF-8 /]
 [module abstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::imports::importsForEntity /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::field /]
 
-[template public abstractClass(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
+[**
+ * Generates an abstract class in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may add class specifics like toString, hashCode, equals, etc.
+ * User may further customize package path and/or name, as well as file name.
+ *    
+ * @param entity represents classes from the UML class diagram i.e. the domain model.
+*/]
+[template public abstractClass(entity : Class){
+	packagePath 			: String = entity._package.name.toLowerCase();
+	packageName				: String = entity._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst	: String = entity.name.toUpperFirst();}]
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/].model;
+
+[importsForEntity()/]
+
 @MappedSuperclass
 public abstract class [entityNameUpperFirst/] {
 
@@ -34,4 +52,5 @@ public abstract class [entityNameUpperFirst/] {
 //[protected ('for this abstract class')]
 //[/protected]
 }
+[/file]
 [/template]

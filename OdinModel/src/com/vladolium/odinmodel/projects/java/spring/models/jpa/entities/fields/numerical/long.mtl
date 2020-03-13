@@ -26,6 +26,8 @@
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::jpaConstraint /]
 
+[import com::vladolium::odinmodel::templates::definitions::fields::fieldWithGetSetMethods /]
+
 [template public long(field: Property)]
 [comment][for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
 	[if field.type.name = 'Long']
@@ -41,14 +43,7 @@
 		[if field.ownedComment._body->isEmpty() = false ]
 [jpaConstraint()/]
 		[/if]	[/comment]
-private [field.type.name/] [field.name/];
-
-public [field.type.name/] get[field.name.toUpperFirst()/]() {
-	return [field.name/];
-}
-public void set[field.name.toUpperFirst()/]([field.type.name/] [field.name/]) {
-	this.[field.name/] = [field.name/];
-}
+[fieldWithGetSetMethods() /]
 [comment]	[/if]
 [/for][/comment]
 [/template]

@@ -26,9 +26,9 @@
  * 
  * User may set Java imports for all project entities in a single place.
  *   
- * @param umlClass represents classes from the UML domain model
+ * @param entity represents classes from the UML class diagram i.e. the domain model.
 */]
-[template public importsForEntity(umlClass : Class)]
+[template public importsForEntity(entity : Class)]
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.*;

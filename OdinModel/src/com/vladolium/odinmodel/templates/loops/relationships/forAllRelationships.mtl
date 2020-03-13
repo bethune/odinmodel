@@ -19,16 +19,15 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::project/]
+[module forAllRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Represents a single entry point for the project prototyping.
- * 
+ * Covers all relationships for a current UML class.
+ *    
  * @param umlClass represents classes from the UML class diagram i.e. the domain model.
 */]
-[template public main(umlClass : Class)]
-[comment @main/]
-[project()/]
+[template public forAllRelationships(umlClass : Class)]
+[for (relationship : Property | umlClass.getAssociations().memberEnd)]
+	
+[/for]
 [/template]

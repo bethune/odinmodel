@@ -21,21 +21,40 @@
 [comment encoding = UTF-8 /]
 [module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::imports::importsForEntity /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::field /]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::relationship /]
 
-[template public inheritingEntity(umlClass : Class){
-	entityNameUpperFirst	: String = umlClass.name.toUpperFirst();
-	abstractClassName	 	: Collection(T) = umlClass.general.name.toUpperFirst();}]
+[**
+ * Generates an inheriting entity class in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may add class specifics like toString, hashCode, equals, etc.
+ * User may further customize package path and/or name, as well as file name.
+ *    
+ * @param entity represents classes from the UML class diagram i.e. the domain model.
+*/]
+[template public inheritingEntity(entity : Class){
+	packagePath 			: String = entity._package.name.toLowerCase();
+	packageName				: String = entity._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst	: String = entity.name.toUpperFirst();
+	abstractClassName	 	: Collection(T) = entity.general.name.toUpperFirst();}]
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/].model;
+
+[importsForEntity()/]
+
 @Entity
 public class [entityNameUpperFirst/] extends [abstractClassName/] {
 
 	[field()/]
 
-	[relationship()/]
+[comment]	[relationship()/][/comment]
 		
 //Code between start and end will not be removed during generation.
 //[protected ('for this inheriting entity')]
 //[/protected]
 }
+[/file]
 [/template]

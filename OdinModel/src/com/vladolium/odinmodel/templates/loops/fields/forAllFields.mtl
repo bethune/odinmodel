@@ -19,16 +19,10 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module forAllFields('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::project/]
-
-[**
- * Represents a single entry point for the project prototyping.
- * 
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
-*/]
-[template public main(umlClass : Class)]
-[comment @main/]
-[project()/]
+[template public forAllEntityFields(umlClass : Class)]
+[for (field: Property | umlClass.getAllAttributes()) separator('\n')]
+	
+[/for]
 [/template]

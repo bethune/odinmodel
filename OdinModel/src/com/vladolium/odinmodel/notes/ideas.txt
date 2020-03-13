@@ -24,5 +24,14 @@ Medium – menja se sve unutar customizable paketa
 Advanced – menjaju se ostali templejti
 Pro – kreiraju se sopstveni templejti
 
-Acceleo reusable templejti
+Poenta je da imam reusable kod, ali ne mogu da ga koristim kako planiram...
+
+Hm, ako bih razdelio kod na reusable i customizable...
+
+Šta mi je problem?
+
+Ako koristim samo jedan templejt za for, on će praviti sve, a meni će se to praviti svukuda
+
+
+
 

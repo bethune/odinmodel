@@ -21,9 +21,16 @@
 [comment encoding = UTF-8 /]
 [module ifAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::types::abstractClass /]
+
+[**
+ * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
+ *    
+ * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+*/]
 [template public ifAbstractClass(umlClass : Class){
 	isAbstract	: Boolean = umlClass.isAbstract;}]
 [if isAbstract]
-
+	[abstractClass()/]
 [/if]	
 [/template]
