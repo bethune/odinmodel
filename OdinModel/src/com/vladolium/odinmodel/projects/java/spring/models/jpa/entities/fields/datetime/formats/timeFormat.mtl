@@ -21,12 +21,14 @@
 [comment encoding = UTF-8 /]
 [module timeFormat('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment]
-	 ODINMODEL CUSTOMIZATION
-	- May set the time format for LocalTime entity fields in a single place.
-[/comment]
-
-[template public timeFormat(umlClassAttribute : Property)]
+[**
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may set the time format for LocalTime entity fields.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public timeFormat(field : Property)]
 @DateTimeFormat(pattern = "HH:mm") //for database
 @JsonFormat(pattern = "HH:mm") //for frontend
 [/template]

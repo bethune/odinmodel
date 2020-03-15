@@ -21,22 +21,19 @@
 [comment encoding = UTF-8 /]
 [module blob('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::notNull /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::jpaConstraint /]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifNotNullConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifUniqueConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifJpaConstraint/]
 
+[**
+ * Covers fields of type Blob with possible constraints if present.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
 [template public blob(field : Property)]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
-	[if field.type.name = 'Blob']
-		[if field.lower = 1 and field.isID = false]
-[notNull()/]
-		[/if]
-		[if field.isUnique = true and field.isID = false]
-[unique()/]
-		[/if]	
-		[if field.ownedComment._body->isEmpty() = false ]
-[jpaConstraint()/]
-		[/if]			
+[ifNotNullConstraint()/]
+[ifUniqueConstraint()/]
+[ifJpaConstraint()/]			
 @Lob
 private byte['['/][']'/] [field.name/];
 
@@ -46,6 +43,4 @@ public byte['['/][']'/] get[field.name.toUpperFirst()/]() {
 public void set[field.name.toUpperFirst()/](byte['['/][']'/] [field.name/]) {
 	this.[field.name/] = [field.name/];
 }
-	[/if]
-[/for]
 [/template]

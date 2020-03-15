@@ -21,6 +21,11 @@
 [comment encoding = UTF-8 /]
 [module jpaConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public jpaConstraint(umlClassAttribute : Property)]
-[umlClassAttribute.ownedComment._body/]
+[**
+ * Generates the JPA constraint in a target project.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public jpaConstraint(field : Property)]
+[field.ownedComment._body/]
 [/template]

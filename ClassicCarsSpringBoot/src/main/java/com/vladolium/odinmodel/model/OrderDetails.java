@@ -11,50 +11,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class OrderDetails {
 
-	
-		
-			
-		
-	
-	
-		
-			
-		
-	
-	
-		
-			
-		
-	
-	
-		
-			
-		
-	
-	
-			private Long id;
-			
-			public Long getId() {
-				return id;
-			}
-			public void setId(Long id) {
-				this.id = id;
-			}
-			
-		
-			
-		
-	
-	
-		
-			
-		
-	
-	
-	
 
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this entity
-	//End of user code
+//End of user code
 }

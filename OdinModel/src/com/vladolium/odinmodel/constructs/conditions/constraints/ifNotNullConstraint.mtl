@@ -19,15 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module fieldWithGetSetMethods('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module ifNotNullConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public fieldWithGetSetMethods(field: Property)]
-private [field.type.name/] [field.name/];
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::notNull /]
 
-public [field.type.name/] get[field.name.toUpperFirst()/]() {
-	return [field.name/];
-}
-public void set[field.name.toUpperFirst()/]([field.type.name/] [field.name/]) {
-	this.[field.name/] = [field.name/];
-}
+[**
+ * Checks for the not null constraint over a field.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public ifNotNullConstraint(field: Property)]
+[if field.lower = 1 and field.isID = false]
+	[notNull() /]
+[/if]
 [/template]

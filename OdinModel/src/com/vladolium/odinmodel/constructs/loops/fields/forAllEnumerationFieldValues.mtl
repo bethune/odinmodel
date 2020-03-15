@@ -19,12 +19,15 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module forAllEnumerationFields('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module forAllEnumerationFieldValues('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::conditions::fields::textual::ifEnumField /]
-
-[template public forAllEnumerationFields(umlClass : Class, field : Property)]
-[for (enum: Enumeration | umlClass.getModel().eContents(Enumeration)) separator('\n')]
-	[ifEnumField(field, enum)/]
+[**
+ * Covers all values of the current enumeration field.
+ *    
+ * @param enum represents enumerations from the current UML class.
+*/]
+[template public forAllEnumerationFieldValues(enum : Enumeration)]
+[for (el: EnumerationLiteral | enum.ownedLiteral)]
+	[el.name/],
 [/for]
 [/template]

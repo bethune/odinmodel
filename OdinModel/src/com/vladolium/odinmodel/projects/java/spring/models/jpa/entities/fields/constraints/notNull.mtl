@@ -26,6 +26,15 @@
 	- May set the null constraint definition for entity fields in a single place.
 [/comment]
 
-[template public notNull(umlClassAttribute : Property)]
+[**
+ * Generates the not null constraint in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the constraint code.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public notNull(field : Property)]
 @NotNull
 [/template]

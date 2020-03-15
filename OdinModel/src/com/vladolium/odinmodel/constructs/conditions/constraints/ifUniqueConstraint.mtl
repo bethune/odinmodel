@@ -19,10 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifNotNullConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module ifUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public ifNotNullConstraint(field: Property)]
-[if field.lower = 1 and field.isID = false]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
 
-[/if]
+[**
+ * Checks for the unique constraint over a field.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public ifUniqueConstraint(field: Property)]
+[if field.isUnique = true and field.isID = false]
+	[unique() /]
+[/if]	
 [/template]

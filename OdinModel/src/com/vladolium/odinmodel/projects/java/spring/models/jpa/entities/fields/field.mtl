@@ -31,5 +31,5 @@
  * @param entity represents classes from the UML class diagram i.e. the domain model.
 */]
 [template public field(entity : Class)]
-[forAllClassFieldsExcludingInheritedOnes()/]
+[forAllFieldsExcludingInheritedOnes()/]
 [/template]

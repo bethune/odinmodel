@@ -21,11 +21,15 @@
 [comment encoding = UTF-8 /]
 [module unique('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment]
-	 ODINMODEL CUSTOMIZATION
-	- May set the unique constraint defintion for entity fields in a single place.
-[/comment]
-
-[template public unique(umlClassAttribute : Property)]
+[**
+ * Generates the unique constraint in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the constraint code.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public unique(field : Property)]
 @Column(unique=true)
 [/template]

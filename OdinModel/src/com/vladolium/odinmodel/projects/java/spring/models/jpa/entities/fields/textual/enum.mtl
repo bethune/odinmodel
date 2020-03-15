@@ -21,29 +21,25 @@
 [comment encoding = UTF-8 /]
 [module enum('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::notNull /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
-
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifNotNullConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifUniqueConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifJpaConstraint/]
+[import com::vladolium::odinmodel::templates::loops::fields::forAllEnumerationFieldValues/]
 [import com::vladolium::odinmodel::templates::definitions::fields::fieldWithGetSetMethods /]
 
+[**
+ * Covers fields of type String with possible constraints if present.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
 [template public enum(field: Property, enum : Enumeration)]
-[comment][for (e: Enumeration | umlClass.getModel().eContents(Enumeration)) separator('\n')][/comment]
-[comment]	[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')][/comment]
-[comment]		[if field.type.name = e.name][/comment]
 public enum [field.type.name/] {
-			[for (el: EnumerationLiteral | enum.ownedLiteral)]
-	[el.name/],
-			[/for]
+	[forAllEnumerationFieldValues(enum)/]
 }
-[comment]			[if field.lower = 1 and field.isID = false]
-[notNull()/]
-			[/if]
-			[if field.isUnique = true and field.isID = false]
-[unique()/]
-			[/if]			[/comment]
+
+[ifNotNullConstraint()/]
+[ifUniqueConstraint()/]
+[ifJpaConstraint()/]
 @Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
 [fieldWithGetSetMethods()/]
-[comment]		[/if][/comment]
-[comment]	[/for]
-[/for][/comment]
 [/template]

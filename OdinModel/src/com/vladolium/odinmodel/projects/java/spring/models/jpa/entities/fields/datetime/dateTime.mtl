@@ -21,23 +21,15 @@
 [comment encoding = UTF-8 /]
 [module dateTime('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::notNull /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::jpaConstraint /]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifNotNullConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifUniqueConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifJpaConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::formats::dateTimeFormat /]
 
-[template public dateTime(umlClass : Class)]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
-	[if field.type.name = 'DateTime']
-		[if field.lower = 1 and field.isID = false]
-[notNull()/]
-		[/if]
-		[if field.isUnique = true and field.isID = false]
-[unique()/]
-		[/if]	
-		[if field.ownedComment._body->isEmpty() = false ]
-[jpaConstraint()/]
-		[/if]		
+[template public dateTime(field: Property)]
+[ifNotNullConstraint()/]
+[ifUniqueConstraint()/]
+[ifJpaConstraint()/]		
 [dateTimeFormat()/]
 private LocalDateTime [field.name/];
 
@@ -47,6 +39,4 @@ public LocalDateTime get[field.name.toUpperFirst()/]() {
 public void set[field.name.toUpperFirst()/](LocalDateTime [field.name/]) {
 	this.[field.name/] = [field.name/];
 }
-	[/if]
-[/for]
 [/template]

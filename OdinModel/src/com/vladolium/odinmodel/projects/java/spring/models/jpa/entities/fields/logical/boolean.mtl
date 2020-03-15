@@ -21,30 +21,19 @@
 [comment encoding = UTF-8 /]
 [module boolean('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::notNull /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::jpaConstraint /]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifNotNullConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifUniqueConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifJpaConstraint/]
+[import com::vladolium::odinmodel::templates::definitions::fields::fieldWithGetSetMethods/]
 
-[template public boolean(umlClass : Class)]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
-	[if field.type.name = 'Boolean']
-		[if field.lower = 1 and field.isID = false]
-[notNull()/]
-		[/if]
-		[if field.isUnique = true and field.isID = false]
-[unique()/]	
-		[/if]		
-		[if field.ownedComment._body->isEmpty() = false ]
-[jpaConstraint()/]
-		[/if]
-private [field.type.name/] [field.name/];
-
-public [field.type.name/] get[field.name.toUpperFirst()/]() {
-	return [field.name/];
-}
-public void set[field.name.toUpperFirst()/]([field.type.name/] [field.name/]) {
-	this.[field.name/] = [field.name/];
-}
-	[/if]
-[/for]
+[**
+ * Covers fields of type Boolean with possible constraints if present.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public boolean(field: Property)]
+[ifNotNullConstraint()/]
+[ifUniqueConstraint()/]
+[ifJpaConstraint()/]
+[fieldWithGetSetMethods()/]
 [/template]

@@ -19,14 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module forAllManyToOneRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment][import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::notNull /]
-[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::unique /]
-[import com::vladolium::odinmodel::templates::java::jpa::fields::constraints::jpaAnnotation /][/comment]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::wrappers::manyToOneEntitiesWrapper/]
 
-[template public ifUniqueConstraint(field: Property)]
-[if field.isUnique = true and field.isID = false]
-
-[/if]	
+[**
+ * Covers all many-to-one relationships for a current UML class.
+ *    
+ * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+*/]
+[template public forAllManyToOneRelationships(umlClass : Class, target : String){
+	classNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
+[for (relationship : Property | umlClass.getAssociations().memberEnd)]
+	[if relationship.lower = 1 and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+		[if target = 'wrappers']
+[manyToOneEntitiesWrapper(umlClass, relationship)/]	
+		[/if]	
+	[/if]
+[/for]
 [/template]

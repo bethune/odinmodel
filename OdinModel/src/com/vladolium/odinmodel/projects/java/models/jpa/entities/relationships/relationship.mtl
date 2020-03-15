@@ -19,18 +19,16 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module primaryKey('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module relationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[**
- * Generates the primary key constraint in a target project.
- * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may further customize the constraint code.
- *    
- * @param field represents fields from the current UML class.
-*/]
-[template public primaryKey(field : Property)]
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::manyToOne /]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::oneToOne /]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::manyToMany /]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::oneToMany /]
+
+[template public relationship(umlClass : Class)]
+[manyToOne()/]
+[oneToOne()/]
+[manyToMany()/]
+[oneToMany()/]
 [/template]

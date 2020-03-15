@@ -19,11 +19,12 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module entity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module jpaModel('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::conditions::classes::ifCommonClass /]
-[import com::vladolium::odinmodel::templates::conditions::classes::ifInheritingClass /]
-[import com::vladolium::odinmodel::templates::conditions::classes::ifAbstractClass /]
+[import com::vladolium::odinmodel::constructs::conditions::classes::ifCommonClass/]
+[import com::vladolium::odinmodel::constructs::conditions::classes::ifInheritingClass/]
+[import com::vladolium::odinmodel::constructs::conditions::classes::ifAbstractClass/]
+[import com::vladolium::odinmodel::constructs::loops::relationships::forAllManyToOneRelationships/]
 
 [**
  * Separates UML classes into three types:
@@ -37,11 +38,16 @@
  * 			- it does inherit from an abstract class, and
  * 		- abstract class: 
  * 			- it does not represent a table in a database schema.
+ * 
+ * Wrappers are helper classes necessary for the Inverse Referential Integrity Constraint (IRIC) 
+ * implementation on a relationship between two entities.
  *   
  * @param entity represents classes from the UML class diagram i.e. the domain model.
 */]
-[template public entity(entity : Class)]
+[template public jpaModel(entity : Class){
+	wrappers	: String = 'wrappers';}]
 [ifCommonClass()/]
 [ifInheritingClass()/]
 [ifAbstractClass()/]
+[forAllManyToOneRelationships(entity, wrappers)/]
 [/template]

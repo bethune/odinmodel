@@ -23,5 +23,4 @@ public class OfficesEmployees {
     public void setEmployees(Employees employees) {
 	this.employees = employees;
     }
-
 }

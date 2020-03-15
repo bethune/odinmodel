@@ -21,25 +21,31 @@
 [comment encoding = UTF-8 /]
 [module forAllFieldsExcludingInheritedOnes('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::templates::conditions::fields::numerical::ifLongField /]
-[import com::vladolium::odinmodel::templates::conditions::fields::numerical::ifIntegerField /]
-[import com::vladolium::odinmodel::templates::conditions::fields::numerical::ifDoubleField /]
+[import com::vladolium::odinmodel::constructs::conditions::fields::numerical::ifLongField/]
+[import com::vladolium::odinmodel::constructs::conditions::fields::numerical::ifIntegerField/]
+[import com::vladolium::odinmodel::constructs::conditions::fields::numerical::ifDoubleField/]
 
-[import com::vladolium::odinmodel::templates::conditions::fields::logical::ifBooleanField /]
+[import com::vladolium::odinmodel::constructs::conditions::fields::logical::ifBooleanField/]
 
-[import com::vladolium::odinmodel::templates::conditions::fields::textual::ifStringField /]
-[import com::vladolium::odinmodel::templates::loops::fields::forAllEnumerationFields /]
+[import com::vladolium::odinmodel::constructs::conditions::fields::textual::ifStringField/]
+[import com::vladolium::odinmodel::constructs::loops::fields::forAllEnumerationFields/]
 
-[import com::vladolium::odinmodel::templates::conditions::fields::datetime::ifDateField /]
-[import com::vladolium::odinmodel::templates::conditions::fields::datetime::ifDateTimeField /]
-[import com::vladolium::odinmodel::templates::conditions::fields::datetime::ifTimeField /]
-[import com::vladolium::odinmodel::templates::conditions::fields::datetime::ifInstantField /]
+[import com::vladolium::odinmodel::constructs::conditions::fields::datetime::ifDateField/]
+[import com::vladolium::odinmodel::constructs::conditions::fields::datetime::ifDateTimeField/]
+[import com::vladolium::odinmodel::constructs::conditions::fields::datetime::ifTimeField/]
+[import com::vladolium::odinmodel::constructs::conditions::fields::datetime::ifInstantField/]
 
-[import com::vladolium::odinmodel::templates::conditions::fields::binary::ifClobField /]
-[import com::vladolium::odinmodel::templates::conditions::fields::binary::ifBlobField /]
+[import com::vladolium::odinmodel::constructs::conditions::fields::binary::ifClobField/]
+[import com::vladolium::odinmodel::constructs::conditions::fields::binary::ifBlobField/]
 
-[template public forAllFieldsExcludingInheritedOnes(umlClass : Class)]
+[**
+ * Covers all fields for a current UML class except inherited ones.
+ *    
+ * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+*/]
+[template public forAllFieldsExcludingInheritedOnes(umlClass : Class, target : String)]
 [for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
+	[if target = 'fields']
 	[ifLongField()/]
 	[ifIntegerField()/]
 	[ifDoubleField()/]
@@ -56,5 +62,6 @@
 
 	[ifClobField()/]
 	[ifBlobField()/]
+	[/if]
 [/for]
 [/template]

@@ -19,10 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifJpaConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module ifPrimaryKeyConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public ifJpaConstraint(field: Property)]
-[if field.ownedComment._body->isEmpty() = false ]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::primaryKey /]
 
+[**
+ * Checks for the primary key constraint over a field.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public ifPrimaryKeyConstraint(field: Property)]
+[if field.isID = true]
+	[primaryKey() /]
 [/if]
 [/template]

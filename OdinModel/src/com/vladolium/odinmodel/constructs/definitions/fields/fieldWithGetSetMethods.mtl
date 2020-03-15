@@ -19,27 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module forAllManyToOneRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::wrappers::manyToOneEntitiesWrapper /]
+[module fieldWithGetSetMethods('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Covers all many-to-one relationships for a current UML class.
+ * Generates the field definition (name and type) with get and set methods in a target project.
  *    
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * @param field represents fields from the current UML class.
 */]
-[template public forAllManyToOneRelationships(umlClass : Class){
-	classNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
-[for (relationship : Property | umlClass.getAssociations().memberEnd)]
-	[if relationship.lower = 1 and 
-		relationship.upper = -1 and 
-		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
-		relationship.namespace = association and 
-		relationship.opposite.lower = 1 and 
-		relationship.opposite.upper = 1]
+[template public fieldWithGetSetMethods(field: Property)]
+private [field.type.name/] [field.name/];
 
-[manyToOneEntitiesWrapper(umlClass, relationship)/]		
-
-	[/if]
-[/for]
+public [field.type.name/] get[field.name.toUpperFirst()/]() {
+	return [field.name/];
+}
+public void set[field.name.toUpperFirst()/]([field.type.name/] [field.name/]) {
+	this.[field.name/] = [field.name/];
+}
 [/template]

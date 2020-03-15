@@ -32,6 +32,36 @@ Hm, ako bih razdelio kod na reusable i customizable...
 
 Ako koristim samo jedan templejt za for, on će praviti sve, a meni će se to praviti svukuda
 
+ne mogu for staviti napolju, kada imama fajl u okviru koga imam polja (for za polja), veze (for za veze)
+
+jedino da ih izbacim napolje kao customizable, a ovo da budu building blokovi
+
+
+
+
+projects
+	java
+		spring
+			models
+				jdbc
+				jpa
+					entities
+						fields
+							constraints
+						relationships
+				jooq
+			controllers
+			interfaces
+			services
+				service
+				serviceWithInterface
+			repositories
+				jpaRepositoryWithQuerydsl
+		jsf
+			views
+			primefaces
+	python
+	csharp
 
 
 

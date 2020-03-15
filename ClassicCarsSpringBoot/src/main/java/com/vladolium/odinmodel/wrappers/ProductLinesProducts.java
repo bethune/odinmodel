@@ -23,5 +23,4 @@ public class ProductLinesProducts {
     public void setProducts(Products products) {
 	this.products = products;
     }
-
 }

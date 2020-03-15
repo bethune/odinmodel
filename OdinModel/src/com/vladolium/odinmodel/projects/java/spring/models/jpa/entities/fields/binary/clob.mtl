@@ -21,22 +21,19 @@
 [comment encoding = UTF-8 /]
 [module clob('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::notNull /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::unique /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::constraints::jpaConstraint /]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifNotNullConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifUniqueConstraint/]
+[import com::vladolium::odinmodel::templates::conditions::constraints::ifJpaConstraint/]
 
-[template public clob(umlClass : Class)]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
-	[if field.type.name = 'Clob']
-		[if field.lower = 1 and field.isID = false]
-[notNull()/]
-		[/if]
-		[if field.isUnique = true and field.isID = false]
-[unique()/]		
-		[/if]	
-		[if field.ownedComment._body->isEmpty() = false ]
-[jpaConstraint()/]
-		[/if]			
+[**
+ * Covers fields of type Clob with possible constraints if present.
+ *    
+ * @param field represents fields from the current UML class.
+*/]
+[template public clob(field : Property)]
+[ifNotNullConstraint()/]
+[ifUniqueConstraint()/]
+[ifJpaConstraint()/]			
 @Lob
 private String [field.name/];
 
@@ -46,6 +43,4 @@ public String get[field.name.toUpperFirst()/]() {
 public void set[field.name.toUpperFirst()/](String [field.name/]) {
 	this.[field.name/] = [field.name/];
 }
-	[/if]
-[/for]
 [/template]
