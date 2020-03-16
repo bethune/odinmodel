@@ -49,7 +49,7 @@
  * 		- add the serviceWithInterface template from the package services, and
  * 		- add the interface template from the package interfaces.
  *  
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public springBootRestProject(umlClass : Class)]
 [jpaModel()/]

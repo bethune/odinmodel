@@ -33,7 +33,7 @@
  * User may add class specifics like toString, hashCode, equals, etc.
  * User may further customize package path and/or name, as well as file name.
  *    
- * @param entity represents classes from the UML class diagram i.e. the domain model.
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public inheritingEntity(entity : Class){
 	packagePath 			: String = entity._package.name.toLowerCase();

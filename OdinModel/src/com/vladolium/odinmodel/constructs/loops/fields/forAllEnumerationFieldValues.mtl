@@ -24,7 +24,7 @@
 [**
  * Covers all values of the current enumeration field.
  *    
- * @param enum represents enumerations from the current UML class.
+ * @param enum represents the current enumeration from the current UML class.
 */]
 [template public forAllEnumerationFieldValues(enum : Enumeration)]
 [for (el: EnumerationLiteral | enum.ownedLiteral)]

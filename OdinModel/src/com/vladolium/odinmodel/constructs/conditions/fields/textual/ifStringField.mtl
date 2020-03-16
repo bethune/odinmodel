@@ -21,12 +21,12 @@
 [comment encoding = UTF-8 /]
 [module ifStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::textual::string /]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::textual::string/]
 
 [**
  * Checks for a field of type String.
  *    
- * @param field represents fields from the current UML class.
+ * @param field represents the current field from the current UML class.
 */]
 [template public ifStringField(field: Property)]
 [if field.type.name = 'String']

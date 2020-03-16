@@ -26,7 +26,7 @@
 [**
  * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
  *    
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public ifAbstractClass(umlClass : Class){
 	isAbstract	: Boolean = umlClass.isAbstract;}]

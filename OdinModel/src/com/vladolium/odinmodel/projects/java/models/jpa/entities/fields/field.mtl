@@ -28,7 +28,7 @@
  * 
  * NOTE: Fileds that entity inherits from an abstract class are not covered.
  *   
- * @param entity represents classes from the UML class diagram i.e. the domain model.
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public field(entity : Class){
 	fields : String = 'fields';}]

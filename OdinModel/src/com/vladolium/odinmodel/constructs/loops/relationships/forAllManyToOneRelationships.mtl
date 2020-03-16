@@ -22,14 +22,16 @@
 [module forAllManyToOneRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::models::jpa::entities::wrappers::manyToOneEntitiesWrapper/]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::relationships::manyToOne/]
 
 [**
  * Covers all many-to-one relationships for a current UML class.
  *    
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
+ * @param target represents the application components for which template generates code.
 */]
-[template public forAllManyToOneRelationships(umlClass : Class, target : String){
-	classNameUpperFirst	: String = umlClass.name.toUpperFirst();}]
+[template public forAllManyToOneRelationships(umlClass : Class, target : String) {
+	classNameUpperFirst	: String = umlClass.name.toUpperFirst();}] 
 [for (relationship : Property | umlClass.getAssociations().memberEnd)]
 	[if relationship.lower = 1 and 
 		relationship.upper = -1 and 
@@ -40,6 +42,9 @@
 		[if target = 'wrappers']
 [manyToOneEntitiesWrapper(umlClass, relationship)/]	
 		[/if]	
+		[if target = 'relationships']
+[manyToOne(umlClass, relationship)/]	
+		[/if]
 	[/if]
 [/for]
 [/template]

@@ -24,44 +24,17 @@ Medium – menja se sve unutar customizable paketa
 Advanced – menjaju se ostali templejti
 Pro – kreiraju se sopstveni templejti
 
-Poenta je da imam reusable kod, ali ne mogu da ga koristim kako planiram...
+reusable komentari
 
-Hm, ako bih razdelio kod na reusable i customizable...
+@param umlClass represents the current class from the UML class diagram i.e. the domain model.
 
-Šta mi je problem?
+@param target represents the application components for which template generates code.
 
-Ako koristim samo jedan templejt za for, on će praviti sve, a meni će se to praviti svukuda
+@param field represents the current field from the current UML class.
 
-ne mogu for staviti napolju, kada imama fajl u okviru koga imam polja (for za polja), veze (for za veze)
+@param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
 
-jedino da ih izbacim napolje kao customizable, a ovo da budu building blokovi
+OMPOC (OdinModel Point Of Customization)
 
-
-
-
-projects
-	java
-		spring
-			models
-				jdbc
-				jpa
-					entities
-						fields
-							constraints
-						relationships
-				jooq
-			controllers
-			interfaces
-			services
-				service
-				serviceWithInterface
-			repositories
-				jpaRepositoryWithQuerydsl
-		jsf
-			views
-			primefaces
-	python
-	csharp
-
-
-
+separator('\n')
+post(trim())

@@ -14,9 +14,9 @@
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1396" endPosition="1554" value="&#xD;&#xA;Represents a single entry point for the project prototyping.&#xD;&#xA;&#xD;&#xA;@param umlClass represents classes from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
+        <body startPosition="1396" endPosition="1564" value="&#xD;&#xA;Represents a single entry point for the project prototyping.&#xD;&#xA;&#xD;&#xA;@param umlClass represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="umlClass">
-          <body value=" represents classes from the UML class diagram i.e. the domain model."/>
+          <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
       </documentation>
       <parameter name="umlClass">
@@ -113,13 +113,13 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/main">
-      <details key="start" value="1557"/>
-      <details key="end" value="1639"/>
+      <details key="start" value="1567"/>
+      <details key="end" value="1649"/>
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/main/%">
-      <details key="start" value="1616"/>
-      <details key="end" value="1625"/>
+      <details key="start" value="1626"/>
+      <details key="end" value="1635"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/main/%/self">
@@ -129,7 +129,7 @@
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/main/%.1">
       <details key="start" value="1393"/>
-      <details key="end" value="1556"/>
+      <details key="end" value="1566"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/main/%.1/umlClass">
@@ -138,8 +138,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/main/umlClass">
-      <details key="start" value="1579"/>
-      <details key="end" value="1595"/>
+      <details key="start" value="1589"/>
+      <details key="end" value="1605"/>
       <details key="line" value="31"/>
     </eAnnotations>
   </ecore:EAnnotation>

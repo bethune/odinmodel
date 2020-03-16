@@ -24,7 +24,7 @@
 [**
  * Generates the field definition (name and type) with get and set methods in a target project.
  *    
- * @param field represents fields from the current UML class.
+ * @param field represents the current field from the current UML class.
 */]
 [template public fieldWithGetSetMethods(field: Property)]
 private [field.type.name/] [field.name/];

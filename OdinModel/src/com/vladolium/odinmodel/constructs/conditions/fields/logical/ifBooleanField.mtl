@@ -21,15 +21,15 @@
 [comment encoding = UTF-8 /]
 [module ifBooleanField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::logical::boolean /]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::logical::boolean/]
 
 [**
  * Checks for a field of type Boolean.
  *    
- * @param field represents fields from the current UML class.
+ * @param field represents the current field from the current UML class.
 */]
 [template public ifBooleanField(field: Property)]
 [if field.type.name = 'Boolean']
-	[boolean() /]
+	[boolean()/]
 [/if]
 [/template]

@@ -21,12 +21,12 @@
 [comment encoding = UTF-8 /]
 [module ifIntegerField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::numerical::integer /]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::numerical::integer/]
 
 [**
  * Checks for a field of type Integer.
  *    
- * @param field represents fields from the current UML class.
+ * @param field represents the current field from the current UML class.
 */]
 [template public ifIntegerField(field: Property)]
 [if field.type.name = 'Integer']

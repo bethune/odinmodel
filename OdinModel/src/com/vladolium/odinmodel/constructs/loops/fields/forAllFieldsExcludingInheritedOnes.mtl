@@ -41,25 +41,22 @@
 [**
  * Covers all fields for a current UML class except inherited ones.
  *    
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
+ * @param target represents the application components for which template generates code.
 */]
 [template public forAllFieldsExcludingInheritedOnes(umlClass : Class, target : String)]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers())) separator('\n')]
+[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getInheritedMembers()))]
 	[if target = 'fields']
 	[ifLongField()/]
 	[ifIntegerField()/]
 	[ifDoubleField()/]
-
 	[ifBooleanField()/]
-
 	[ifStringField()/]
 	[forAllEnumerationFields(umlClass, field)/]
-
 	[ifDateField()/]
 	[ifDateTimeField()/]
 	[ifTimeField()/]
 	[ifInstantField()/]
-
 	[ifClobField()/]
 	[ifBlobField()/]
 	[/if]

@@ -26,7 +26,7 @@
 [**
  * Represents a single entry point for the project prototyping.
  * 
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public main(umlClass : Class)]
 [comment @main/]

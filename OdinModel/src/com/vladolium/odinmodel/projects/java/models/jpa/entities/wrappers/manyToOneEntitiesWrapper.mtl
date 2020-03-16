@@ -31,8 +31,8 @@
  * 
  * User may further customize package path and/or name, as well as file name, and Java imports.
  *   
- * @param entity represents classes from the UML class diagram i.e. the domain model.
- * @param relationship represents current class relationships from the UML class diagram i.e. the domain model.
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
+ * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
 */]
 [template public manyToOneEntitiesWrapper(entity : Class, relationship : Property){
 	packagePath 			: String = entity._package.name.toLowerCase();

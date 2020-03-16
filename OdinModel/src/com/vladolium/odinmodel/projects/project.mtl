@@ -32,7 +32,7 @@
  * 
  * NOTE: Only one project template should stay uncommented.
  * 
- * @param umlClass represents classes from the UML class diagram i.e. the domain model.
+ * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public project(umlClass : Class)]
 [springBootRestProject()/]

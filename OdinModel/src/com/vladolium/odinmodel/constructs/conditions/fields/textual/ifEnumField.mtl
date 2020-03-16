@@ -21,16 +21,16 @@
 [comment encoding = UTF-8 /]
 [module ifEnumField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::textual::enum /]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::textual::enum/]
 
 [**
  * Checks for a field of type Enum, i.e. enumeration.
  *    
- * @param field represents fields from the current UML class.
- * @param enum represents enumerations from the current UML class.
+ * @param field represents the current field from the current UML class.
+ * @param enum represents the current enumeration from the current UML class.
 */]
 [template public ifEnumField(field: Property, enum : Enumeration)]
 [if field.type.name = enum.name]
-	[enum(field, enum) /]
+	[enum(field, enum)/]
 [/if]
 [/template]

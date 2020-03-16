@@ -42,7 +42,7 @@
  * Wrappers are helper classes necessary for the Inverse Referential Integrity Constraint (IRIC) 
  * implementation on a relationship between two entities.
  *   
- * @param entity represents classes from the UML class diagram i.e. the domain model.
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public jpaModel(entity : Class){
 	wrappers	: String = 'wrappers';}]

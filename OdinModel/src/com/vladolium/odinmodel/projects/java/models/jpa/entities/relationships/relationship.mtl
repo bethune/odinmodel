@@ -21,14 +21,20 @@
 [comment encoding = UTF-8 /]
 [module relationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::manyToOne /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::oneToOne /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::manyToMany /]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::types::oneToMany /]
+[import com::vladolium::odinmodel::constructs::loops::relationships::forAllManyToOneRelationships/]
+[import com::vladolium::odinmodel::constructs::loops::relationships::forAllManyToManyRelationships/]
+[import com::vladolium::odinmodel::constructs::loops::relationships::forAllOneToManyRelationships/]
+[import com::vladolium::odinmodel::constructs::loops::relationships::forAllOneToOneRelationships/]
 
-[template public relationship(umlClass : Class)]
-[manyToOne()/]
-[oneToOne()/]
-[manyToMany()/]
-[oneToMany()/]
+[**
+ * Covers all entity relationships.
+ *   
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public relationship(entity : Class){
+	relationships : String = 'relationships';}]
+[forAllManyToOneRelationships(entity, relationships)/]
+[forAllManyToManyRelationships(entity, relationships)/]
+[forAllOneToManyRelationships(entity, relationships)/]
+[forAllOneToOneRelationships(entity, relationships)/]
 [/template]

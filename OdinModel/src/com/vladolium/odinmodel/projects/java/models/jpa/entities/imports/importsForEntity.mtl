@@ -26,7 +26,7 @@
  * 
  * User may set Java imports for all project entities in a single place.
  *   
- * @param entity represents classes from the UML class diagram i.e. the domain model.
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public importsForEntity(entity : Class)]
 import javax.persistence.*;

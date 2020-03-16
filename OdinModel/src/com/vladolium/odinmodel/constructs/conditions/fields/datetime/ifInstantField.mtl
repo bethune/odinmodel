@@ -21,15 +21,15 @@
 [comment encoding = UTF-8 /]
 [module ifInstantField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::instant /]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::datetime::instant/]
 
 [**
  * Checks for a field of type Instant.
  *    
- * @param field represents fields from the current UML class.
+ * @param field represents the current field from the current UML class.
 */]
 [template public ifInstantField(field: Property)]
 [if field.type.name = 'Instant']
-	[instant() /]
+	[instant()/]
 [/if]
 [/template]

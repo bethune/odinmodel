@@ -21,15 +21,15 @@
 [comment encoding = UTF-8 /]
 [module ifTimeField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::fields::datetime::time /]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::datetime::time/]
 
 [**
  * Checks for a field of type Time.
  *    
- * @param field represents fields from the current UML class.
+ * @param field represents the current field from the current UML class.
 */]
 [template public ifTimeField(field: Property)]
 [if field.type.name = 'Time']
-	[time() /]
+	[time()/]
 [/if]
 [/template]
