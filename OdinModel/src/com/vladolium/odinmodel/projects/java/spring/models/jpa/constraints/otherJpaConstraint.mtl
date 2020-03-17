@@ -19,18 +19,13 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module integer('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::constructs::conditions::constraints::checkConstraints/]
-[import com::vladolium::odinmodel::constructs::definitions::fields::fieldWithGetSetMethods/]
+[module otherJpaConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Covers fields of type Integer with possible constraints if present.
+ * Generates the JPA constraint in a target project.
  *    
  * @param field represents the current field from the current UML class.
 */]
-[template public integer(field: Property){
-	jpa : String = 'jpa';}]
-[checkConstraints(field, jpa)/]
-[fieldWithGetSetMethods()/]
+[template public otherJpaConstraint(field : Property)]
+[field.ownedComment._body/]
 [/template]

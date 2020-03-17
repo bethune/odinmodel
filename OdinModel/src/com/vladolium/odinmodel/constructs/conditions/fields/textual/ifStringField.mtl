@@ -28,8 +28,8 @@
  *    
  * @param field represents the current field from the current UML class.
 */]
-[template public ifStringField(field: Property)]
+[template public ifStringField(field: Property) post(trim())]
 [if field.type.name = 'String']
-	[string()/]
+[string()/]
 [/if]
 [/template]

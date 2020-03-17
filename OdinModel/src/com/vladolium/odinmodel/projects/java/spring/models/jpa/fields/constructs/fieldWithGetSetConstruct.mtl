@@ -19,18 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::abstractClass/]
+[module fieldWithGetSetConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
+ * Generates the field definition (name and type) with get and set methods in a target project.
  *    
- * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
+ * @param field represents the current field from the current UML class.
 */]
-[template public ifAbstractClass(umlClass : Class){
-	isAbstract	: Boolean = umlClass.isAbstract;}]
-[if isAbstract]
-	[abstractClass()/]
-[/if]	
+[template public fieldWithGetSetConstruct(field: Property)]
+private [field.type.name/] [field.name/];
+
+public [field.type.name/] get[field.name.toUpperFirst()/]() {
+	return [field.name/];
+}
+public void set[field.name.toUpperFirst()/]([field.type.name/] [field.name/]) {
+	this.[field.name/] = [field.name/];
+}
 [/template]

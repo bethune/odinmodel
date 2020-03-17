@@ -19,18 +19,18 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module field('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::constructs::loops::fields::forAllFieldsExcludingInheritedOnes/]
+[module primaryKey('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Covers all entity fields which persist in a database.
+ * Generates the primary key constraint in a target project.
  * 
- * NOTE: Fileds that entity inherits from an abstract class are not covered.
- *   
- * @param entity represents the current class from the UML class diagram i.e. the domain model.
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the constraint code.
+ *    
+ * @param field represents the current field from the current UML class.
 */]
-[template public field(entity : Class){
-	fields : String = 'fields';}]
-[forAllFieldsExcludingInheritedOnes(entity, fields)/]
+[template public primaryKey(field : Property)]
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
 [/template]

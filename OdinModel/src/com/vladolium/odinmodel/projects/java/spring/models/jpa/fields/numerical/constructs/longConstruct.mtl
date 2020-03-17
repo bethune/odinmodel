@@ -19,16 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module longConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::project/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::long/]
 
 [**
- * Represents a single entry point for the project prototyping.
- * 
+ * Checks for a field of type Long among all fields except inherited ones of a current UML class.
+ *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public main(class : Class)]
-[comment @main/]
-[project()/]
+[template public longConstruct(class : Class) post(trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Long']
+[long(field)/]
+
+	[/if]
+[/for]
 [/template]

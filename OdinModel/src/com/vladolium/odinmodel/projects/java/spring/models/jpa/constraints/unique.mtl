@@ -19,11 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module manyToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module unique('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public manyToMany(umlClassAssociation : Property)]
-@ManyToMany
-@JoinTable(name="[umlClassAssociation.type.name.toLowerFirst()/]_[umlClassAssociation.opposite.type.name.toLowerFirst()/]", 
-	joinColumns = @JoinColumn(name = "[umlClassAssociation.type.name.toLowerFirst()/]_id"), 
-	inverseJoinColumns = @JoinColumn(name = "[umlClassAssociation.opposite.type.name.toLowerFirst()/]_id"))
+[**
+ * Generates the unique constraint in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the constraint code.
+ *    
+ * @param field represents the current field from the current UML class.
+*/]
+[template public unique(field : Property)]
+@Column(unique=true)
 [/template]

@@ -19,19 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifCommonClass('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module long('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::commonEntity/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::constructs::constraintConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::constructs::fieldWithGetSetConstruct/]
 
 [**
- * Checks for a UML class that is not an abstract one and does not inherit from an abstract class.
+ * Covers fields of type Long with possible constraints if present.
  *    
- * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
+ * @param field represents the current field from the current UML class.
 */]
-[template public ifCommonClass(umlClass : Class){
-	isAbstract 		: Boolean = umlClass.isAbstract;
-	doesNotInherit 	: Boolean = umlClass.general->isEmpty();}]
-[if isAbstract = false and doesNotInherit]
-	[commonEntity()/]
-[/if]	
+[template public long(field: Property)]
+[constraintConstruct()/]
+[fieldWithGetSetConstruct()/]
 [/template]

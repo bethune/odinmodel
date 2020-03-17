@@ -26,7 +26,9 @@ Pro – kreiraju se sopstveni templejti
 
 reusable komentari
 
-@param umlClass represents the current class from the UML class diagram i.e. the domain model.
+@param class represents the current class from the UML class diagram i.e. the domain model.
+
+---
 
 @param target represents the application components for which template generates code.
 

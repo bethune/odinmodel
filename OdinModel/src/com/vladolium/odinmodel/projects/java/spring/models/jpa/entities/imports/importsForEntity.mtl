@@ -19,9 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module oneToOne('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module importsForEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public oneToOne(umlClassAssociation : Property)]
-@OneToOne
-@JoinColumn(name="[umlClassAssociation.opposite.type.name.toLowerFirst()/]_id")
+[**
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may set Java imports for all project entities in a single place.
+ *   
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public importsForEntity(class : Class)]
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.time.*;
+import java.util.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 [/template]

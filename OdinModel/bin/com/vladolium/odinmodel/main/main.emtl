@@ -14,12 +14,12 @@
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1396" endPosition="1564" value="&#xD;&#xA;Represents a single entry point for the project prototyping.&#xD;&#xA;&#xD;&#xA;@param umlClass represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
-        <parametersDocumentation name="umlClass">
+        <body startPosition="1396" endPosition="1561" value="&#xD;&#xA;Represents a single entry point for the project prototyping.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
+        <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
       </documentation>
-      <parameter name="umlClass">
+      <parameter name="class">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
       </parameter>
     </ownedModuleElement>
@@ -50,7 +50,7 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/main"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="umlClass">
+        <eParameters name="class">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
@@ -62,7 +62,7 @@
           <references href="../projects/project.emtl#/0/project"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="umlClass">
+        <eParameters name="class">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
@@ -113,13 +113,13 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/main">
-      <details key="start" value="1567"/>
-      <details key="end" value="1649"/>
+      <details key="start" value="1564"/>
+      <details key="end" value="1643"/>
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/main/%">
-      <details key="start" value="1626"/>
-      <details key="end" value="1635"/>
+      <details key="start" value="1620"/>
+      <details key="end" value="1629"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/main/%/self">
@@ -129,17 +129,17 @@
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/main/%.1">
       <details key="start" value="1393"/>
-      <details key="end" value="1566"/>
+      <details key="end" value="1563"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/main/%.1/umlClass">
+    <eAnnotations source="positions.4" references="/0/main/%.1/class">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/main/umlClass">
-      <details key="start" value="1589"/>
-      <details key="end" value="1605"/>
+    <eAnnotations source="positions.5" references="/0/main/class">
+      <details key="start" value="1586"/>
+      <details key="end" value="1599"/>
       <details key="line" value="31"/>
     </eAnnotations>
   </ecore:EAnnotation>

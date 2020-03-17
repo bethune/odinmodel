@@ -19,19 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifInheritingClass('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module inheritingEntityConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::inheritingEntity/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::inheritingEntity/]
 
 [**
  * Checks for a UML class that is not an abstract one and does inherit from an abstract class.
  *    
- * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public ifInheritingClass(umlClass : Class){
-	isAbstract 				: Boolean = umlClass.isAbstract;
-	doesNotInherit 			: Boolean = umlClass.general->isEmpty();}]
+[template public inheritingEntityConstruct(class : Class){
+	isAbstract : Boolean = class.isAbstract;
+	doesNotInherit : Boolean = class.general->isEmpty();}]
 [if isAbstract = false and doesNotInherit = false]
-	[inheritingEntity()/]
+[inheritingEntity()/]
 [/if]	
 [/template]

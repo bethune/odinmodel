@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module springBootRestProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::jpaModel/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpaModel/]
 [import com::vladolium::odinmodel::projects::java::spring::repositories::jpaRepositoryWithQuerydsl/]
 
 [comment]
@@ -49,9 +49,9 @@
  * 		- add the serviceWithInterface template from the package services, and
  * 		- add the interface template from the package interfaces.
  *  
- * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public springBootRestProject(umlClass : Class)]
+[template public springBootRestProject(class : Class)]
 [jpaModel()/]
 [comment][jpaRepositoryWithQuerydsl()/][/comment]
 [comment]

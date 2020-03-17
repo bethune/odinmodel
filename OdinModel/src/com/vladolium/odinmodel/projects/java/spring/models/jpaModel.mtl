@@ -21,10 +21,10 @@
 [comment encoding = UTF-8 /]
 [module jpaModel('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::constructs::conditions::classes::ifCommonClass/]
-[import com::vladolium::odinmodel::constructs::conditions::classes::ifInheritingClass/]
-[import com::vladolium::odinmodel::constructs::conditions::classes::ifAbstractClass/]
-[import com::vladolium::odinmodel::constructs::loops::relationships::forAllManyToOneRelationships/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::constructs::commonEntityConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::constructs::inheritingEntityConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::constructs::abstractClassConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::wrappers::constructs::manyToOneWrapperConstruct/]
 
 [**
  * Separates UML classes into three types:
@@ -42,12 +42,11 @@
  * Wrappers are helper classes necessary for the Inverse Referential Integrity Constraint (IRIC) 
  * implementation on a relationship between two entities.
  *   
- * @param entity represents the current class from the UML class diagram i.e. the domain model.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public jpaModel(entity : Class){
-	wrappers	: String = 'wrappers';}]
-[ifCommonClass()/]
-[ifInheritingClass()/]
-[ifAbstractClass()/]
-[forAllManyToOneRelationships(entity, wrappers)/]
+[template public jpaModel(class : Class)]
+[commonEntityConstruct()/]
+[inheritingEntityConstruct()/]
+[abstractClassConstruct()/]
+[manyToOneWrapperConstruct()/]
 [/template]

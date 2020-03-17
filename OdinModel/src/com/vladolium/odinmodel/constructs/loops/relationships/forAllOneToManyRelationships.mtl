@@ -19,27 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module forAllManyToOneRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module forAllOneToManyRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::wrappers::manyToOneEntitiesWrapper/]
+[import com::vladolium::odinmodel::projects::java::models::jpa::entities::relationships::oneToMany/]
 
 [**
- * Covers all many-to-one relationships for a current UML class.
+ * Covers all one-to-many relationships for a current UML class.
  *    
  * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
  * @param target represents the application components for which template generates code.
 */]
-[template public forAllManyToOneRelationships(umlClass : Class, target : String) {
+[template public forAllOneToManyRelationships(umlClass : Class, target : String) {
 	classNameUpperFirst	: String = umlClass.name.toUpperFirst();}] 
 [for (relationship : Property | umlClass.getAssociations().memberEnd)]
 	[if relationship.lower = 1 and 
-		relationship.upper = -1 and 
+		relationship.upper = 1 and 
 		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
 		relationship.namespace = association and 
-		relationship.opposite.lower = 1 and 
-		relationship.opposite.upper = 1]
-		[if target = 'wrappers']
-[manyToOneEntitiesWrapper(umlClass, relationship)/]	
+		relationship.opposite.lower = 0 and 
+		relationship.opposite.upper = -1]
+		[if target = 'relationships']
+[oneToMany(umlClass, relationship)/]	
 		[/if]	
 	[/if]
 [/for]

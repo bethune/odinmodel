@@ -19,16 +19,25 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module manyToOneWrapperConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::project/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::wrappers::manyToOneWrapper/]
 
 [**
- * Represents a single entry point for the project prototyping.
- * 
+ * Covers all many-to-one relationships for a current UML class.
+ *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public main(class : Class)]
-[comment @main/]
-[project()/]
+[template public manyToOneWrapperConstruct(class : Class) {
+	classNameUpperFirst	: String = class.name.toUpperFirst();}] 
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[if relationship.lower = 1 and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+[manyToOneWrapper(class, relationship)/]	
+	[/if]
+[/for]
 [/template]

@@ -21,18 +21,22 @@
 [comment encoding = UTF-8 /]
 [module manyToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::definitions::manyToMany /]
-
-[template public manyToMany(umlClass : Class){
-	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
-[for (relationship : Property | umlClass.getAssociations().memberEnd)]
-	[if relationship.lower = 0 and 
-		relationship.upper = -1 and 
-		relationship.type.name.toUpperFirst() = entityNameUpperFirst and
-		relationship.namespace = association and 
-		relationship.opposite.lower = 0 and 
-		relationship.opposite.upper = -1]
-[manyToMany()/]
+[**
+ * Generates code for many-to-many relationships.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize relationship definition.
+ *   
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
+ * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public manyToMany(entity : Class, relationship : Property){
+	entityNameUpperFirst 	: String = entity.name.toUpperFirst();}]
+@ManyToMany
+@JoinTable(name="[relationship.type.name.toLowerFirst()/]_[relationship.opposite.type.name.toLowerFirst()/]", 
+	joinColumns = @JoinColumn(name = "[relationship.type.name.toLowerFirst()/]_id"), 
+	inverseJoinColumns = @JoinColumn(name = "[relationship.opposite.type.name.toLowerFirst()/]_id"))
 private Set<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set = new HashSet<>();
 
 public Set<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.opposite.type.name.toUpperFirst()/]Set() {
@@ -41,6 +45,4 @@ public Set<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.o
 public void set[relationship.opposite.type.name.toUpperFirst()/]Set(Set<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set) {
 	this.[relationship.opposite.type.name.toLowerFirst()/]Set = [relationship.opposite.type.name.toLowerFirst()/]Set;
 }
-	[/if]
-[/for]
 [/template]

@@ -19,17 +19,33 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifLongField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module constraintConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::numerical::long/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::primaryKey/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::notNull/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::unique/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::otherJpaConstraint/]
 
 [**
- * Checks for a field of type Long.
+ * Checks for constraints over a field.
  *    
  * @param field represents the current field from the current UML class.
 */]
-[template public ifLongField(field: Property)]
-[if field.type.name = 'Long']
-	[long()/]
+[template public constraintConstruct(field: Property) post(trim())]
+[comment: Primary key /]
+[if field.isID = true]
+[primaryKey()/]
+[/if]
+[comment: Not null /]
+[if field.lower = 1 and field.isID = false]
+[notNull()/]
+[/if]
+[comment: Unique /]
+[if field.isUnique = true and field.isID = false]
+[unique()/]
+[/if]	
+[comment: Other free entry constraints /]
+[if field.ownedComment._body->isEmpty() = false ]
+[otherJpaConstraint()/]
 [/if]
 [/template]

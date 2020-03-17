@@ -21,18 +21,20 @@
 [comment encoding = UTF-8 /]
 [module oneToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::relationships::definitions::oneToMany /]
-
-[template public oneToMany(umlClass : Class){
-	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
-[for (relationship : Property | umlClass.getAssociations().memberEnd)]
-	[if relationship.lower = 1 and 
-		relationship.upper = 1 and 
-		relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
-		relationship.namespace = association and 
-		relationship.opposite.lower = 0 and 
-		relationship.opposite.upper = -1]
-[oneToMany()/]
+[**
+ * Generates code for one-to-many relationships.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize relationship definition.
+ *   
+ * @param entity represents the current class from the UML class diagram i.e. the domain model.
+ * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public oneToMany(entity : Class, relationship : Property){
+	entityNameUpperFirst 	: String = entity.name.toUpperFirst();}]
+@OneToMany
+@JoinColumn(name="[relationship.type.name.toLowerFirst()/]_id")
 private List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List;
 
 public List<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.opposite.type.name.toUpperFirst()/]List() {
@@ -41,6 +43,4 @@ public List<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.
 public void set[relationship.opposite.type.name.toUpperFirst()/]List(List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List) {
 	this.[relationship.opposite.type.name.toLowerFirst()/]List = [relationship.opposite.type.name.toLowerFirst()/]List;
 }
-	[/if]
-[/for]
 [/template]

@@ -19,16 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module commonEntityConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::project/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::commonEntity/]
 
 [**
- * Represents a single entry point for the project prototyping.
- * 
+ * Checks for a UML class that is not an abstract one and does not inherit from an abstract class.
+ *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public main(class : Class)]
-[comment @main/]
-[project()/]
+[template public commonEntityConstruct(class : Class){
+	isAbstract : Boolean = class.isAbstract;
+	doesNotInherit : Boolean = class.general->isEmpty();}]
+[if isAbstract = false and doesNotInherit]
+[commonEntity()/]
+[/if]	
 [/template]
