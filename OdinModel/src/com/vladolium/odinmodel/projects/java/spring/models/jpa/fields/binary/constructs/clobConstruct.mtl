@@ -19,18 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module forAllEnumerationFields('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module clobConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::constructs::conditions::fields::textual::ifEnumField/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::binary::clob/]
 
 [**
- * Covers all enumeration fields for a current UML class.
+ * Checks for a field of type Clob among all fields except inherited ones of a current UML class.
  *    
- * @param umlClass represents the current class from the UML class diagram i.e. the domain model.
- * @param field represents the current field from the current UML class.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public forAllEnumerationFields(umlClass : Class, field : Property)]
-[for (enum: Enumeration | umlClass.getModel().eContents(Enumeration))]
-	[ifEnumField(field, enum)/]
+[template public clobConstruct(class : Class) post(trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Clob']
+[clob(field)/]
+
+	[/if]
 [/for]
 [/template]

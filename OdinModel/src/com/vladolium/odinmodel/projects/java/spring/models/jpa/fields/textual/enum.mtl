@@ -21,22 +21,22 @@
 [comment encoding = UTF-8 /]
 [module enum('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::constructs::loops::fields::forAllEnumerationFieldValues/]
-[import com::vladolium::odinmodel::constructs::conditions::constraints::checkConstraints/]
-[import com::vladolium::odinmodel::constructs::definitions::fields::fieldWithGetSetMethods/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::textual::constructs::enumValueConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::constructs::constraintConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::constructs::fieldWithGetSetConstruct/]
 
 [**
- * Covers fields of type String with possible constraints if present.
+ * Covers fields of type Enum with possible constraints if present.
  *    
  * @param field represents the current field from the current UML class.
+ * @param enum represents the current enumeration from the current UML class.
 */]
-[template public enum(field: Property, enum : Enumeration){
-	jpa : String = 'jpa';}]
+[template public enum(field: Property, enum : Enumeration)]
 public enum [field.type.name/] {
-	[forAllEnumerationFieldValues(enum)/]
+	[enumValueConstruct(enum)/]
 }
 
-[checkConstraints(field, jpa)/]
+[constraintConstruct()/]
 @Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
-[fieldWithGetSetMethods()/]
+[fieldWithGetSetConstruct()/]
 [/template]

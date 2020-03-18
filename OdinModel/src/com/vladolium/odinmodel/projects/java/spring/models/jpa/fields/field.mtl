@@ -23,6 +23,12 @@
 
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::constructs::longConstruct/]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::constructs::integerConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::constructs::doubleConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::textual::constructs::stringConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::textual::constructs::enumConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::logical::constructs::booleanConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::binary::constructs::clobConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::binary::constructs::blobConstruct/]
 
 [**
  * Covers all fields which persist in a database.
@@ -35,7 +41,16 @@
 [longConstruct()/]
 
 [integerConstruct()/]
-[comment]
+
+[stringConstruct()/]
+
+[booleanConstruct()/]
+
 [doubleConstruct()/]
-[doubleConstruct()/][/comment]
+
+[enumConstruct()/]
+
+[clobConstruct()/]
+
+[blobConstruct()/]
 [/template]

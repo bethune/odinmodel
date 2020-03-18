@@ -22,7 +22,29 @@ public class Orders {
 		this.id = id;
 	}
 	
+	@NotNull
+	@Size(max=15)
+	private String status;
 	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
+	
+	@Size(max=4000)
+	@Lob
+	private String comments;
+	
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
 	
 
 /*Code between start and end will not be removed during generation.*/

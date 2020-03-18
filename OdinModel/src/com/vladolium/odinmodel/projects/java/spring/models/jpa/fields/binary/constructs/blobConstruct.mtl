@@ -19,17 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifIntegerField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module blobConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::numerical::integer/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::binary::blob/]
 
 [**
- * Checks for a field of type Integer.
+ * Checks for a field of type String among all fields except inherited ones of a current UML class.
  *    
- * @param field represents the current field from the current UML class.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public ifIntegerField(field: Property)]
-[if field.type.name = 'Integer']
-	[integer()/]
-[/if]
+[template public blobConstruct(class : Class) post(trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Blob']
+[blob(field)/]
+
+	[/if]
+[/for]
 [/template]

@@ -22,6 +22,19 @@ public class Reviews {
 		this.id = id;
 	}
 	
+	@NotNull
+	@Size(max=4000)
+	private String reviewText;
+	
+	public String getReviewText() {
+		return reviewText;
+	}
+	public void setReviewText(String reviewText) {
+		this.reviewText = reviewText;
+	}
+	
+	
+	
 	
 	
 

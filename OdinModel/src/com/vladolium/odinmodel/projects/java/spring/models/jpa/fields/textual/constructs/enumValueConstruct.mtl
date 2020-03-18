@@ -19,17 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifBooleanField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module enumValueConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::logical::boolean/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::textual::string/]
 
 [**
- * Checks for a field of type Boolean.
+ * Covers all values of the current enumeration field.
  *    
- * @param field represents the current field from the current UML class.
+ *@param enum represents the current enumeration from the current UML class.
 */]
-[template public ifBooleanField(field: Property)]
-[if field.type.name = 'Boolean']
-	[boolean()/]
-[/if]
+[template public enumValueConstruct(enum : Enumeration)]
+[for (el: EnumerationLiteral | enum.ownedLiteral)]
+[el.name/],
+[/for]
 [/template]

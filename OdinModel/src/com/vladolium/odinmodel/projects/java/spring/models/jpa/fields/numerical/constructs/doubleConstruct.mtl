@@ -19,17 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module doubleConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::textual::string/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::double/]
 
 [**
- * Checks for a field of type String.
+ * Checks for a field of type Double among all fields except inherited ones of a current UML class.
  *    
- * @param field represents the current field from the current UML class.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public ifStringField(field: Property) post(trim())]
-[if field.type.name = 'String']
-[string()/]
-[/if]
+[template public doubleConstruct(class : Class) post(trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Double']
+[double(field)/]
+	[/if]
+[/for]
 [/template]

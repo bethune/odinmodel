@@ -19,15 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module forAllEnumerationFieldValues('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module booleanConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::logical::boolean/]
 
 [**
- * Covers all values of the current enumeration field.
+ * Checks for a field of type Boolean among all fields except inherited ones of a current UML class.
  *    
- * @param enum represents the current enumeration from the current UML class.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public forAllEnumerationFieldValues(enum : Enumeration)]
-[for (el: EnumerationLiteral | enum.ownedLiteral)]
-	[el.name/],
+[template public booleanConstruct(class : Class) post(trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Boolean']
+[boolean(field)/]
+
+	[/if]
 [/for]
 [/template]

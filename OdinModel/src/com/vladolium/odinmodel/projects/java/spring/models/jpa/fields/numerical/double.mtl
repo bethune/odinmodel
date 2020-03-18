@@ -21,16 +21,15 @@
 [comment encoding = UTF-8 /]
 [module double('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::constructs::conditions::constraints::checkConstraints/]
-[import com::vladolium::odinmodel::constructs::definitions::fields::fieldWithGetSetMethods/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::constructs::constraintConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::constructs::fieldWithGetSetConstruct/]
 
 [**
  * Covers fields of type Double with possible constraints if present.
  *    
  * @param field represents the current field from the current UML class.
 */]
-[template public double(field: Property){
-	jpa : String = 'jpa';}]
-[checkConstraints(field, jpa)/]
-[fieldWithGetSetMethods()/]
+[template public double(field: Property)]
+[constraintConstruct()/]
+[fieldWithGetSetConstruct()/]
 [/template]

@@ -22,6 +22,43 @@ public class Gifts {
 		this.id = id;
 	}
 	
+	@NotNull
+	@Column(unique=true)
+	private String giftName;
+	
+	public String getGiftName() {
+		return giftName;
+	}
+	public void setGiftName(String giftName) {
+		this.giftName = giftName;
+	}
+	@NotNull
+	private Boolean isExpired;
+	
+	public Boolean getIsExpired() {
+		return isExpired;
+	}
+	public void setIsExpired(Boolean isExpired) {
+		this.isExpired = isExpired;
+	}
+	
+	public enum GiftType {
+		FREE,
+		PLATINUM,
+		LIMITED,
+		
+	}
+	
+	@NotNull
+	@Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
+	private GiftType giftType;
+	
+	public GiftType getGiftType() {
+		return giftType;
+	}
+	public void setGiftType(GiftType giftType) {
+		this.giftType = giftType;
+	}
 	
 	
 

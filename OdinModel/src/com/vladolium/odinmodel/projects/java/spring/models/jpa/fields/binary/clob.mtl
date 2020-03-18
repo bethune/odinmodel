@@ -21,16 +21,15 @@
 [comment encoding = UTF-8 /]
 [module clob('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::constructs::conditions::constraints::checkConstraints/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::constructs::constraintConstruct/]
 
 [**
  * Covers fields of type Clob with possible constraints if present.
  *    
  * @param field represents the current field from the current UML class.
 */]
-[template public clob(field : Property){
-	jpa : String = 'jpa';}]
-[checkConstraints(field, jpa)/]
+[template public clob(field : Property)]
+[constraintConstruct()/]
 @Lob
 private String [field.name/];
 

@@ -22,6 +22,19 @@ public class Offices extends ContactDetails {
 		this.id = id;
 	}
 	
+	@NotNull
+	@Size(max=10)
+	private String territory;
+	
+	public String getTerritory() {
+		return territory;
+	}
+	public void setTerritory(String territory) {
+		this.territory = territory;
+	}
+	
+	
+	
 	
 	
 		

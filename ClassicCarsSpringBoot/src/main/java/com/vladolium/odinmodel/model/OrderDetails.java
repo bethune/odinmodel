@@ -21,7 +21,6 @@ public class OrderDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	@NotNull
 	private Integer orderLineNumber;
 	
@@ -42,6 +41,20 @@ public class OrderDetails {
 	public void setQuantityOrdered(Integer quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
 	}
+	
+	
+	@NotNull
+	@DecimalMin("20.00")@DecimalMax("300.00")
+	private Double priceEach;
+	
+	public Double getPriceEach() {
+		return priceEach;
+	}
+	public void setPriceEach(Double priceEach) {
+		this.priceEach = priceEach;
+	}
+	
+	
 	
 
 /*Code between start and end will not be removed during generation.*/

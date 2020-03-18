@@ -22,6 +22,27 @@ public class Payments {
 		this.id = id;
 	}
 	
+	@NotNull
+	@Size(max=50)
+	private String checkNumber;
+	
+	public String getCheckNumber() {
+		return checkNumber;
+	}
+	public void setCheckNumber(String checkNumber) {
+		this.checkNumber = checkNumber;
+	}
+	
+	@NotNull
+	private Double amount;
+	
+	public Double getAmount() {
+		return amount;
+	}
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+	
 	
 	
 

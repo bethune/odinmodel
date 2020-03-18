@@ -22,6 +22,51 @@ public class Customers extends ContactDetails {
 		this.id = id;
 	}
 	
+	@NotNull
+	@Size(max=50)
+	private String firstName;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	@NotNull
+	@Column(unique=true)
+	@Size(max=50)
+	private String customerName;
+	
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String lastName;
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	@NotNull
+	@DecimalMax("300.00")
+	private Double creditLimit;
+	
+	public Double getCreditLimit() {
+		return creditLimit;
+	}
+	public void setCreditLimit(Double creditLimit) {
+		this.creditLimit = creditLimit;
+	}
+	
 	
 	
 		

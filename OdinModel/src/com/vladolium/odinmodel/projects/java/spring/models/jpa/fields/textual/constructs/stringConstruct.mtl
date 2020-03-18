@@ -19,18 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module ifEnumField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module stringConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::textual::enum/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::textual::string/]
 
 [**
- * Checks for a field of type Enum, i.e. enumeration.
+ * Checks for a field of type String among all fields except inherited ones of a current UML class.
  *    
- * @param field represents the current field from the current UML class.
- * @param enum represents the current enumeration from the current UML class.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public ifEnumField(field: Property, enum : Enumeration)]
-[if field.type.name = enum.name]
-	[enum(field, enum)/]
-[/if]
+[template public stringConstruct(class : Class) post(trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'String']
+[string(field)/]
+
+	[/if]
+[/for]
 [/template]
