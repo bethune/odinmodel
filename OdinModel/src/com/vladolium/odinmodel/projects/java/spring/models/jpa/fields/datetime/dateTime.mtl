@@ -21,18 +21,17 @@
 [comment encoding = UTF-8 /]
 [module dateTime('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::constructs::conditions::constraints::checkConstraints/]
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::datetime::formats::dateTimeFormat /]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::constraints::constructs::constraintConstruct/]
 
 [**
  * Covers fields of type DateTime with possible constraints if present.
  *    
  * @param field represents the current field from the current UML class.
 */]
-[template public dateTime(field: Property){
-	jpa : String = 'jpa';}]
-[checkConstraints(field, jpa)/]
-[dateTimeFormat()/]
+[template public dateTime(field: Property)]
+[constraintConstruct()/]
+@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
 private LocalDateTime [field.name/];
 
 public LocalDateTime get[field.name.toUpperFirst()/]() {

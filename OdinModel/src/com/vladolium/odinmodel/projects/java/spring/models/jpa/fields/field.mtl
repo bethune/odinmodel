@@ -24,9 +24,17 @@
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::constructs::longConstruct/]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::constructs::integerConstruct/]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::numerical::constructs::doubleConstruct/]
+
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::textual::constructs::stringConstruct/]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::textual::constructs::enumConstruct/]
+
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::logical::constructs::booleanConstruct/]
+
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::datetime::constructs::dateConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::datetime::constructs::timeConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::datetime::constructs::dateTimeConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::datetime::constructs::instantConstruct/]
+
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::binary::constructs::clobConstruct/]
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::binary::constructs::blobConstruct/]
 
@@ -37,20 +45,17 @@
  *   
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public field(class : Class)]
+[template public field(class : Class) post (trim())]
 [longConstruct()/]
-
 [integerConstruct()/]
-
-[stringConstruct()/]
-
-[booleanConstruct()/]
-
 [doubleConstruct()/]
-
+[stringConstruct()/]
+[booleanConstruct()/]
+[dateConstruct()/]
+[timeConstruct()/]
+[dateTimeConstruct()/]
+[instantConstruct()/]
 [enumConstruct()/]
-
 [clobConstruct()/]
-
 [blobConstruct()/]
 [/template]

@@ -23,6 +23,16 @@ public class Customers extends ContactDetails {
 	}
 	
 	@NotNull
+	@DecimalMax("300.00")
+	private Double creditLimit;
+	
+	public Double getCreditLimit() {
+		return creditLimit;
+	}
+	public void setCreditLimit(Double creditLimit) {
+		this.creditLimit = creditLimit;
+	}
+	@NotNull
 	@Size(max=50)
 	private String firstName;
 	
@@ -32,7 +42,6 @@ public class Customers extends ContactDetails {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
 	@NotNull
 	@Column(unique=true)
 	@Size(max=50)
@@ -44,7 +53,6 @@ public class Customers extends ContactDetails {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-	
 	@NotNull
 	@Size(max=50)
 	private String lastName;
@@ -55,20 +63,6 @@ public class Customers extends ContactDetails {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	@NotNull
-	@DecimalMax("300.00")
-	private Double creditLimit;
-	
-	public Double getCreditLimit() {
-		return creditLimit;
-	}
-	public void setCreditLimit(Double creditLimit) {
-		this.creditLimit = creditLimit;
-	}
-	
-	
-	
 		
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this inheriting entity

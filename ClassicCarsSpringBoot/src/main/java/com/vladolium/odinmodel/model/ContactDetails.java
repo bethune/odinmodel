@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @MappedSuperclass
 public abstract class ContactDetails {
 
-	
-	
 	@Size(max=50)
 	private String addressLine2;
 	
@@ -22,7 +20,6 @@ public abstract class ContactDetails {
 	public void setAddressLine2(String addressLine2) {
 		this.addressLine2 = addressLine2;
 	}
-	
 	@Size(max=15)
 	private String postalCode;
 	
@@ -32,7 +29,6 @@ public abstract class ContactDetails {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-	
 	@Size(max=50)
 	private String state;
 	
@@ -42,7 +38,6 @@ public abstract class ContactDetails {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
 	@Size(max=50)@Pattern(regexp="(\\(\\d{3}\\)\\d{3}-\\d{4}") // \(\d{3}\)\d{3}-?\d{4}
 	private String phone;
 	
@@ -52,7 +47,6 @@ public abstract class ContactDetails {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
 	@NotNull
 	@Size(max=50)
 	private String addressLine1;
@@ -63,7 +57,6 @@ public abstract class ContactDetails {
 	public void setAddressLine1(String addressLine1) {
 		this.addressLine1 = addressLine1;
 	}
-	
 	@NotNull
 	@Size(max=50)
 	private String country;
@@ -74,7 +67,6 @@ public abstract class ContactDetails {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
 	@NotNull
 	@Size(max=50)
 	private String city;
@@ -85,11 +77,6 @@ public abstract class ContactDetails {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
-	
-	
-	
-	
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this abstract class

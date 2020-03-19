@@ -29,6 +29,7 @@ public class Employees {
 	public void setReportsTo(Integer reportsTo) {
 		this.reportsTo = reportsTo;
 	}
+	
 	@NotNull
 	@Size(max=100)
 	private String email;
@@ -39,7 +40,6 @@ public class Employees {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	@NotNull
 	@Size(max=10)
 	private String extension;
@@ -50,7 +50,6 @@ public class Employees {
 	public void setExtension(String extension) {
 		this.extension = extension;
 	}
-	
 	@NotNull
 	@Size(max=50)
 	private String lastName;
@@ -61,7 +60,6 @@ public class Employees {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
 	@NotNull
 	@Size(max=50)
 	private String jobTitle;
@@ -72,7 +70,6 @@ public class Employees {
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
-	
 	@NotNull
 	@Size(max=50)
 	private String firstName;
@@ -92,10 +89,6 @@ public class Employees {
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
-	
-	
-	
-	
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

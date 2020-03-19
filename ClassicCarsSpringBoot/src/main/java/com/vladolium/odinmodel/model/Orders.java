@@ -22,6 +22,7 @@ public class Orders {
 		this.id = id;
 	}
 	
+	
 	@NotNull
 	@Size(max=15)
 	private String status;
@@ -32,6 +33,41 @@ public class Orders {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+	private LocalDate requiredDate;
+	
+	public LocalDate getRequiredDate() {
+		return requiredDate;
+	}
+	public void setRequiredDate(LocalDate requiredDate) {
+		this.requiredDate = requiredDate;
+	}
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+	private LocalDate shippedDate;
+	
+	public LocalDate getShippedDate() {
+		return shippedDate;
+	}
+	public void setShippedDate(LocalDate shippedDate) {
+		this.shippedDate = shippedDate;
+	}
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+	private LocalDate orderDate;
+	
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+	
 	
 	
 	
@@ -45,7 +81,6 @@ public class Orders {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

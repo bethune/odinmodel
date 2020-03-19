@@ -32,7 +32,6 @@
 [for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
 	[if field.type.name = 'String']
 [string(field)/]
-
 	[/if]
 [/for]
 [/template]

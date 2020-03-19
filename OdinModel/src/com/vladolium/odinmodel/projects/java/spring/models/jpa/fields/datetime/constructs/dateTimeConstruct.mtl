@@ -19,17 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module notNullJpaConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module dateTimeConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::datetime::dateTime/]
 
 [**
- * Generates the not null constraint in a target project.
- * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may further customize the constraint code.
+ * Checks for a field of type DateTime among all fields except inherited ones of a current UML class.
  *    
- * @param field represents the current field from the current UML class.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public notNullJpaConstraint(field : Property)]
-@NotNull
+[template public dateTimeConstruct(class : Class) post(trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'DateTime']
+[dateTime(field)/]
+	[/if]
+[/for]
 [/template]

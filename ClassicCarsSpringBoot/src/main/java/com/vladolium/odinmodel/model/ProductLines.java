@@ -22,6 +22,7 @@ public class ProductLines {
 		this.id = id;
 	}
 	
+	
 	@NotNull
 	@Size(max=50)
 	private String productLine;
@@ -32,6 +33,9 @@ public class ProductLines {
 	public void setProductLine(String productLine) {
 		this.productLine = productLine;
 	}
+	
+	
+	
 	
 	
 	

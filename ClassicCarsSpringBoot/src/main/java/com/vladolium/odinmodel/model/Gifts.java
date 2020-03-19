@@ -22,6 +22,7 @@ public class Gifts {
 		this.id = id;
 	}
 	
+	
 	@NotNull
 	@Column(unique=true)
 	private String giftName;
@@ -42,6 +43,30 @@ public class Gifts {
 		this.isExpired = isExpired;
 	}
 	
+	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+	private LocalDateTime expiresOn;
+	
+	public LocalDateTime getExpiresOn() {
+		return expiresOn;
+	}
+	public void setExpiresOn(LocalDateTime expiresOn) {
+		this.expiresOn = expiresOn;
+	}
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+	private LocalDateTime beginsOn;
+	
+	public LocalDateTime getBeginsOn() {
+		return beginsOn;
+	}
+	public void setBeginsOn(LocalDateTime beginsOn) {
+		this.beginsOn = beginsOn;
+	}
+	
 	public enum GiftType {
 		FREE,
 		PLATINUM,
@@ -59,8 +84,6 @@ public class Gifts {
 	public void setGiftType(GiftType giftType) {
 		this.giftType = giftType;
 	}
-	
-	
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

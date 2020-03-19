@@ -30,7 +30,6 @@ public class OrderDetails {
 	public void setOrderLineNumber(Integer orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
 	}
-	
 	@NotNull
 	@Min(10)
 	private Integer quantityOrdered;
@@ -41,8 +40,6 @@ public class OrderDetails {
 	public void setQuantityOrdered(Integer quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
 	}
-	
-	
 	@NotNull
 	@DecimalMin("20.00")@DecimalMax("300.00")
 	private Double priceEach;
@@ -53,9 +50,6 @@ public class OrderDetails {
 	public void setPriceEach(Double priceEach) {
 		this.priceEach = priceEach;
 	}
-	
-	
-	
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

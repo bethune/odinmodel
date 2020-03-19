@@ -22,6 +22,7 @@ public class Offices extends ContactDetails {
 		this.id = id;
 	}
 	
+	
 	@NotNull
 	@Size(max=10)
 	private String territory;
@@ -32,11 +33,6 @@ public class Offices extends ContactDetails {
 	public void setTerritory(String territory) {
 		this.territory = territory;
 	}
-	
-	
-	
-	
-	
 		
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this inheriting entity

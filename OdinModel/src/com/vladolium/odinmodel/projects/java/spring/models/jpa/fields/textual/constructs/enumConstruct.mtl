@@ -33,7 +33,6 @@
 	[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers())) separator('\n')]
 		[if field.type.name = enum.name]
 [enum(field, enum)/]
-
 		[/if]
 	[/for]
 [/for]
