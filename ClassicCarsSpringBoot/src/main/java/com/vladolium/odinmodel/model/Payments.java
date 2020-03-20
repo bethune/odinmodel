@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Payments {
 
+	//Numerical fields ------------------------------------------------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,6 +24,8 @@ public class Payments {
 		this.id = id;
 	}
 	
+	
+	
 	@NotNull
 	private Double amount;
 	
@@ -31,6 +35,9 @@ public class Payments {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
+	
+	//Textual fields ------------------------------------------------------------
+	
 	@NotNull
 	@Size(max=50)
 	private String checkNumber;
@@ -41,6 +48,14 @@ public class Payments {
 	public void setCheckNumber(String checkNumber) {
 		this.checkNumber = checkNumber;
 	}
+	
+	
+	
+	//Logical fields ------------------------------------------------------------
+	
+	
+	
+	//Date and time fields ------------------------------------------------------------
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
@@ -55,6 +70,9 @@ public class Payments {
 	}
 	
 	
+	
+	
+	
 	private Instant paymentTimestamp = Instant.now();
 	
 	public Instant getPaymentTimestamp() {
@@ -63,6 +81,8 @@ public class Payments {
 	public void setPaymentTimestamp(Instant paymentTimestamp) {
 	    this.paymentTimestamp = paymentTimestamp;
 	}
+	
+	//Binary fields ------------------------------------------------------------
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

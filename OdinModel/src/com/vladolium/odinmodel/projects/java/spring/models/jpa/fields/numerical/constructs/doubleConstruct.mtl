@@ -31,7 +31,7 @@
 [template public doubleConstruct(class : Class) post(trim())]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
 	[if field.type.name = 'Double']
-[double(field)/]
+[double()/]
 	[/if]
 [/for]
 [/template]

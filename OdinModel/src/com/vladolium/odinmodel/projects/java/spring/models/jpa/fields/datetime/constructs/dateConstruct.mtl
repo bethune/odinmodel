@@ -31,7 +31,7 @@
 [template public dateConstruct(class : Class) post(trim())]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
 	[if field.type.name = 'Date']
-[date(field)/]
+[date()/]
 	[/if]
 [/for]
 [/template]

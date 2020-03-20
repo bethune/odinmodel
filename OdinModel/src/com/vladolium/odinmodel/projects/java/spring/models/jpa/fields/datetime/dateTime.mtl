@@ -40,4 +40,5 @@ public LocalDateTime get[field.name.toUpperFirst()/]() {
 public void set[field.name.toUpperFirst()/](LocalDateTime [field.name/]) {
 	this.[field.name/] = [field.name/];
 }
+
 [/template]

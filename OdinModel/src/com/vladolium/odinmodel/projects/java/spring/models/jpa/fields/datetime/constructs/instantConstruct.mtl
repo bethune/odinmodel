@@ -31,7 +31,7 @@
 [template public instantConstruct(class : Class) post(trim())]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
 	[if field.type.name = 'Instant']
-[instant(field)/]
+[instant()/]
 	[/if]
 [/for]
 [/template]

@@ -30,7 +30,7 @@
 */]
 [template public enumConstruct(class : Class) post(trim())]
 [for (enum: Enumeration | class.getModel().eContents(Enumeration))]
-	[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers())) separator('\n')]
+	[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
 		[if field.type.name = enum.name]
 [enum(field, enum)/]
 		[/if]

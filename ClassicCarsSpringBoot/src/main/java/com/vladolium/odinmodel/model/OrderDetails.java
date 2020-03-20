@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class OrderDetails {
 
+	//Numerical fields ------------------------------------------------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -21,6 +23,7 @@ public class OrderDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	@NotNull
 	private Integer orderLineNumber;
 	
@@ -30,6 +33,7 @@ public class OrderDetails {
 	public void setOrderLineNumber(Integer orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
 	}
+	
 	@NotNull
 	@Min(10)
 	private Integer quantityOrdered;
@@ -40,6 +44,7 @@ public class OrderDetails {
 	public void setQuantityOrdered(Integer quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
 	}
+	
 	@NotNull
 	@DecimalMin("20.00")@DecimalMax("300.00")
 	private Double priceEach;
@@ -50,6 +55,28 @@ public class OrderDetails {
 	public void setPriceEach(Double priceEach) {
 		this.priceEach = priceEach;
 	}
+	
+	//Textual fields ------------------------------------------------------------
+	
+	
+	
+	
+	
+	//Logical fields ------------------------------------------------------------
+	
+	
+	
+	//Date and time fields ------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Binary fields ------------------------------------------------------------
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

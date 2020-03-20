@@ -31,7 +31,7 @@
 [template public longConstruct(class : Class) post(trim())]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
 	[if field.type.name = 'Long']
-[long(field)/]
+[long()/]
 	[/if]
 [/for]
 [/template]

@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Orders {
 
+	//Numerical fields ------------------------------------------------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,6 +25,11 @@ public class Orders {
 	}
 	
 	
+	
+	
+	
+	//Textual fields ------------------------------------------------------------
+	
 	@NotNull
 	@Size(max=15)
 	private String status;
@@ -33,6 +40,14 @@ public class Orders {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
+	
+	//Logical fields ------------------------------------------------------------
+	
+	
+	
+	//Date and time fields ------------------------------------------------------------
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
@@ -46,6 +61,7 @@ public class Orders {
 		this.requiredDate = requiredDate;
 	}
 	
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 	private LocalDate shippedDate;
@@ -56,6 +72,7 @@ public class Orders {
 	public void setShippedDate(LocalDate shippedDate) {
 		this.shippedDate = shippedDate;
 	}
+	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
@@ -70,6 +87,11 @@ public class Orders {
 	
 	
 	
+	
+	
+	
+	
+	//Binary fields ------------------------------------------------------------
 	
 	@Size(max=4000)
 	@Lob

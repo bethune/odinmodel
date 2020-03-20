@@ -31,7 +31,7 @@
 [template public blobConstruct(class : Class) post(trim())]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
 	[if field.type.name = 'Blob']
-[blob(field)/]
+[blob()/]
 	[/if]
 [/for]
 [/template]

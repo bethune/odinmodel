@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Gifts {
 
+	//Numerical fields ------------------------------------------------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,6 +25,11 @@ public class Gifts {
 	}
 	
 	
+	
+	
+	
+	//Textual fields ------------------------------------------------------------
+	
 	@NotNull
 	@Column(unique=true)
 	private String giftName;
@@ -33,6 +40,26 @@ public class Gifts {
 	public void setGiftName(String giftName) {
 		this.giftName = giftName;
 	}
+	
+	public enum GiftType {
+		FREE,
+		PLATINUM,
+		LIMITED,
+	}
+	
+	@NotNull
+	@Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
+	private GiftType giftType;
+	
+	public GiftType getGiftType() {
+		return giftType;
+	}
+	public void setGiftType(GiftType giftType) {
+		this.giftType = giftType;
+	}
+	
+	//Logical fields ------------------------------------------------------------
+	
 	@NotNull
 	private Boolean isExpired;
 	
@@ -42,6 +69,11 @@ public class Gifts {
 	public void setIsExpired(Boolean isExpired) {
 		this.isExpired = isExpired;
 	}
+	
+	//Date and time fields ------------------------------------------------------------
+	
+	
+	
 	
 	
 	@NotNull
@@ -55,6 +87,7 @@ public class Gifts {
 	public void setExpiresOn(LocalDateTime expiresOn) {
 		this.expiresOn = expiresOn;
 	}
+	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
@@ -67,23 +100,9 @@ public class Gifts {
 		this.beginsOn = beginsOn;
 	}
 	
-	public enum GiftType {
-		FREE,
-		PLATINUM,
-		LIMITED,
-		
-	}
 	
-	@NotNull
-	@Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
-	private GiftType giftType;
 	
-	public GiftType getGiftType() {
-		return giftType;
-	}
-	public void setGiftType(GiftType giftType) {
-		this.giftType = giftType;
-	}
+	//Binary fields ------------------------------------------------------------
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

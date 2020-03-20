@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Employees {
 
+	//Numerical fields ------------------------------------------------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -21,6 +23,7 @@ public class Employees {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	private Integer reportsTo;
 	
 	public Integer getReportsTo() {
@@ -29,6 +32,10 @@ public class Employees {
 	public void setReportsTo(Integer reportsTo) {
 		this.reportsTo = reportsTo;
 	}
+	
+	
+	
+	//Textual fields ------------------------------------------------------------
 	
 	@NotNull
 	@Size(max=100)
@@ -40,6 +47,7 @@ public class Employees {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	@NotNull
 	@Size(max=10)
 	private String extension;
@@ -50,6 +58,7 @@ public class Employees {
 	public void setExtension(String extension) {
 		this.extension = extension;
 	}
+	
 	@NotNull
 	@Size(max=50)
 	private String lastName;
@@ -60,6 +69,7 @@ public class Employees {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
 	@NotNull
 	@Size(max=50)
 	private String jobTitle;
@@ -70,6 +80,7 @@ public class Employees {
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
+	
 	@NotNull
 	@Size(max=50)
 	private String firstName;
@@ -80,6 +91,11 @@ public class Employees {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
+	
+	
+	//Logical fields ------------------------------------------------------------
+	
 	@NotNull
 	private Boolean isActive;
 	
@@ -89,6 +105,18 @@ public class Employees {
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
+	
+	//Date and time fields ------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Binary fields ------------------------------------------------------------
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

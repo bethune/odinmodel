@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Products {
 
+	//Numerical fields ------------------------------------------------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -21,6 +23,7 @@ public class Products {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	@NotNull
 	private Integer quantityInStock;
 	
@@ -30,6 +33,7 @@ public class Products {
 	public void setQuantityInStock(Integer quantityInStock) {
 		this.quantityInStock = quantityInStock;
 	}
+	
 	@NotNull
 	@DecimalMin("10.00")
 	private Double buyPrice;
@@ -40,6 +44,7 @@ public class Products {
 	public void setBuyPrice(Double buyPrice) {
 		this.buyPrice = buyPrice;
 	}
+	
 	@NotNull
 	private Double msrp;
 	
@@ -49,6 +54,9 @@ public class Products {
 	public void setMsrp(Double msrp) {
 		this.msrp = msrp;
 	}
+	
+	//Textual fields ------------------------------------------------------------
+	
 	@NotNull
 	@Size(max=70)
 	private String productName;
@@ -59,6 +67,7 @@ public class Products {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+	
 	@NotNull
 	@Size(max=50)
 	private String productVendor;
@@ -69,6 +78,7 @@ public class Products {
 	public void setProductVendor(String productVendor) {
 		this.productVendor = productVendor;
 	}
+	
 	@NotNull
 	@Column(unique=true)
 	@Size(max=15)
@@ -80,6 +90,7 @@ public class Products {
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
+	
 	@NotNull
 	@Size(max=10)
 	private String productScale;
@@ -93,8 +104,21 @@ public class Products {
 	
 	
 	
+	//Logical fields ------------------------------------------------------------
 	
 	
+	
+	//Date and time fields ------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Binary fields ------------------------------------------------------------
 	
 	@NotNull
 	@Size(max=4000)

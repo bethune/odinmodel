@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Offices extends ContactDetails {
 
+	//Numerical fields ------------------------------------------------------------
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,6 +25,11 @@ public class Offices extends ContactDetails {
 	}
 	
 	
+	
+	
+	
+	//Textual fields ------------------------------------------------------------
+	
 	@NotNull
 	@Size(max=10)
 	private String territory;
@@ -33,6 +40,24 @@ public class Offices extends ContactDetails {
 	public void setTerritory(String territory) {
 		this.territory = territory;
 	}
+	
+	
+	
+	//Logical fields ------------------------------------------------------------
+	
+	
+	
+	//Date and time fields ------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Binary fields ------------------------------------------------------------
 		
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this inheriting entity

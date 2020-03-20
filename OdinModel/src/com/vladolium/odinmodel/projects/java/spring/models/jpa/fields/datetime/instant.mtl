@@ -38,4 +38,5 @@ public Instant get[field.name.toUpperFirst()/]() {
 public void set[field.name.toUpperFirst()/](Instant [field.name/]) {
     this.[field.name/] = [field.name/];
 }
+
 [/template]

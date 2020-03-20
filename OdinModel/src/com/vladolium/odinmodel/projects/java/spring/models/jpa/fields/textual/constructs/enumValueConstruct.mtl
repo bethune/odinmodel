@@ -28,7 +28,7 @@
  *    
  *@param enum represents the current enumeration from the current UML class.
 */]
-[template public enumValueConstruct(enum : Enumeration)]
+[template public enumValueConstruct(enum : Enumeration) post(trim())]
 [for (el: EnumerationLiteral | enum.ownedLiteral)]
 [el.name/],
 [/for]
