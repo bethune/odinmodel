@@ -25,6 +25,8 @@
 [import com::vladolium::odinmodel::projects::java::jsf::jsfProject/]
 
 [**
+ * Project setting
+ * 
  * OMPOC (OdinModel Point Of Customization)
  * 
  * User may set which project OdinModel prototypes 

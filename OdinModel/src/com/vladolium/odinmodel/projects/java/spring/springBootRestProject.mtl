@@ -35,6 +35,8 @@
 [comment][import com::vladolium::odinmodel::SpringBootTemplates::configuration::configuration /][/comment]
 
 [**
+ * Project structure setting
+ * 
  * OMPOC (OdinModel Point Of Customization)
  * 
  * User may set the target project structure.
