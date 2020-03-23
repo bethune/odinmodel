@@ -22,10 +22,8 @@
 [module commonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::imports::importsForEntity/]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::field/]
-[comment][import com::vladolium::odinmodel::projects::java::models::jpa::entities::imports::importsForEntity/]
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::field/]
-[import com::vladolium::odinmodel::projects::java::models::jpa::entities::relationships::relationship/][/comment]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::constructs::fieldConstruct/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::relationships::constructs::relationshipConstruct/]
 
 [**
  * Generates a common entity class in a target project.
@@ -49,9 +47,9 @@ package [packageName/].model;
 @Entity
 public class [entityNameUpperFirst/] {
 
-	[field()/]
-[comment]	
-	[relationship()/][/comment]
+	[fieldConstruct()/]
+	
+	[relationshipConstruct()/]
 
 /*Code between start and end will not be removed during generation.*/
 //[protected ('for this entity')]

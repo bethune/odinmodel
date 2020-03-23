@@ -11,16 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @MappedSuperclass
 public abstract class ContactDetails {
 
-	//Numerical fields ------------------------------------------------------------
-	
-	
-	
-	
-	
-	
-	
-	//Textual fields ------------------------------------------------------------
-	
 	@Size(max=50)
 	private String addressLine2;
 	
@@ -93,24 +83,6 @@ public abstract class ContactDetails {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
-	
-	
-	//Logical fields ------------------------------------------------------------
-	
-	
-	
-	//Date and time fields ------------------------------------------------------------
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Binary fields ------------------------------------------------------------
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this abstract class

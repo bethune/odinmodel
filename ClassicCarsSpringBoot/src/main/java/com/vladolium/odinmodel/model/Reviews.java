@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Reviews {
 
-	//Numerical fields ------------------------------------------------------------
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -24,12 +22,6 @@ public class Reviews {
 		this.id = id;
 	}
 	
-	
-	
-	
-	
-	//Textual fields ------------------------------------------------------------
-	
 	@NotNull
 	@Size(max=4000)
 	private String reviewText;
@@ -40,14 +32,6 @@ public class Reviews {
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
 	}
-	
-	
-	
-	//Logical fields ------------------------------------------------------------
-	
-	
-	
-	//Date and time fields ------------------------------------------------------------
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
@@ -74,10 +58,6 @@ public class Reviews {
 	}
 	
 	
-	
-	
-	
-	//Binary fields ------------------------------------------------------------
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

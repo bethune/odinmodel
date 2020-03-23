@@ -11,66 +11,53 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class ProductLines {
 
-	// Numerical fields ------------------------------------------------------------
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	// Textual fields ------------------------------------------------------------
-
+	
 	@NotNull
-	@Size(max = 50)
+	@Size(max=50)
 	private String productLine;
-
+	
 	public String getProductLine() {
 		return productLine;
 	}
-
 	public void setProductLine(String productLine) {
 		this.productLine = productLine;
 	}
-
-	// Logical fields ------------------------------------------------------------
-
-	// Date and time fields
-	// ------------------------------------------------------------
-
-	// Binary fields ------------------------------------------------------------
-
+	
 	@NotNull
-	@Size(max = 4000)
+	@Size(max=4000)
 	@Lob
 	private String textDescription;
-
+	
 	public String getTextDescription() {
 		return textDescription;
 	}
-
 	public void setTextDescription(String textDescription) {
 		this.textDescription = textDescription;
 	}
-
+	
 	@Lob
 	private byte[] image;
-
+	
 	public byte[] getImage() {
 		return image;
 	}
-
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
+	
+	
 
-	/* Code between start and end will not be removed during generation. */
+/*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity
 //End of user code
 }

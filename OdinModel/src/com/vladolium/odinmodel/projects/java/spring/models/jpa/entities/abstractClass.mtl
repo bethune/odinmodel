@@ -22,7 +22,7 @@
 [module abstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::models::jpa::entities::imports::importsForEntity/]
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::field/]
+[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::constructs::fieldConstruct/]
 [comment]
 [import com::vladolium::odinmodel::projects::java::models::jpa::entities::fields::field/][/comment]
 
@@ -48,7 +48,7 @@ package [packageName/].model;
 @MappedSuperclass
 public abstract class [entityNameUpperFirst/] {
 
-	[field()/]
+	[fieldConstruct()/]
 
 /*Code between start and end will not be removed during generation.*/
 //[protected ('for this abstract class')]

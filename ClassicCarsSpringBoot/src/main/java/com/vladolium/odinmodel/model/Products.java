@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Products {
 
-	//Numerical fields ------------------------------------------------------------
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -54,8 +52,6 @@ public class Products {
 	public void setMsrp(Double msrp) {
 		this.msrp = msrp;
 	}
-	
-	//Textual fields ------------------------------------------------------------
 	
 	@NotNull
 	@Size(max=70)
@@ -102,24 +98,6 @@ public class Products {
 		this.productScale = productScale;
 	}
 	
-	
-	
-	//Logical fields ------------------------------------------------------------
-	
-	
-	
-	//Date and time fields ------------------------------------------------------------
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Binary fields ------------------------------------------------------------
-	
 	@NotNull
 	@Size(max=4000)
 	@Lob
@@ -130,6 +108,17 @@ public class Products {
 	}
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="productLines_id")
+	private ProductLines productLines;
+	
+	public ProductLines getProductLines() {
+		return productLines;
+	}
+	public void setProductLines(ProductLines productLines) {
+		this.productLines = productLines;
 	}
 
 /*Code between start and end will not be removed during generation.*/

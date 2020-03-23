@@ -25,6 +25,10 @@
 
 [**
  * Covers fields of type Date with possible constraints if present.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may set the date format for LocalDate entity fields.
  *    
  * @param field represents the current field from the current UML class.
 */]

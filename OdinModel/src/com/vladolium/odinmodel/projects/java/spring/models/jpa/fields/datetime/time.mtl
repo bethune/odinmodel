@@ -25,6 +25,10 @@
 
 [**
  * Covers fields of type Time with possible constraints if present.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may set the time format for LocalTime entity fields.
  *    
  * @param field represents the current field from the current UML class.
 */]

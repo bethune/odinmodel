@@ -19,19 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module timeConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::datetime::time/]
+[module oneToOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Checks for a field of type Time among all fields except inherited ones of a current UML class.
- *    
+ * Generates code for one-to-one relationships.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize relationship definition.
+ *   
  * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
 */]
-[template public timeConstruct(class : Class) post(trim())]
-[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
-	[if field.type.name = 'Time']
-[time()/]
-	[/if]
-[/for]
+[template public oneToOne(class : Class, relationship : Property)]
+@OneToOne
+@JoinColumn(name="[relationship.opposite.type.name.toLowerFirst()/]_id")
+private [relationship.opposite.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/];
+
+public [relationship.opposite.type.name.toUpperFirst()/] get[relationship.opposite.type.name.toUpperFirst()/]() {
+	return [relationship.opposite.type.name.toLowerFirst()/];
+}
+public void set[relationship.opposite.type.name.toUpperFirst()/]([relationship.opposite.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/]) {
+	this.[relationship.opposite.type.name.toLowerFirst()/] = [relationship.opposite.type.name.toLowerFirst()/];
+}
 [/template]

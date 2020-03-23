@@ -19,19 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module dateConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::models::jpa::fields::datetime::date/]
+[module oneToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Checks for a field of type Date among all fields except inherited ones of a current UML class.
- *    
+ * Generates code for one-to-many relationships.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize relationship definition.
+ *   
  * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
 */]
-[template public dateConstruct(class : Class) post(trim())]
-[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
-	[if field.type.name = 'Date']
-[date()/]
-	[/if]
-[/for]
+[template public oneToMany(class : Class, relationship : Property)]
+@OneToMany
+@JoinColumn(name="[relationship.type.name.toLowerFirst()/]_id")
+private List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List;
+
+public List<[relationship.opposite.type.name.toUpperFirst()/]> get[relationship.opposite.type.name.toUpperFirst()/]List() {
+	return [relationship.opposite.type.name.toLowerFirst()/]List;
+}
+public void set[relationship.opposite.type.name.toUpperFirst()/]List(List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List) {
+	this.[relationship.opposite.type.name.toLowerFirst()/]List = [relationship.opposite.type.name.toLowerFirst()/]List;
+}
 [/template]

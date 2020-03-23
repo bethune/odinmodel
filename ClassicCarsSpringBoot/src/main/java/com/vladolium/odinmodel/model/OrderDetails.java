@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class OrderDetails {
 
-	//Numerical fields ------------------------------------------------------------
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -56,27 +54,16 @@ public class OrderDetails {
 		this.priceEach = priceEach;
 	}
 	
-	//Textual fields ------------------------------------------------------------
+	@OneToOne
+	@JoinColumn(name="orders_id")
+	private Orders orders;
 	
-	
-	
-	
-	
-	//Logical fields ------------------------------------------------------------
-	
-	
-	
-	//Date and time fields ------------------------------------------------------------
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Binary fields ------------------------------------------------------------
+	public Orders getOrders() {
+		return orders;
+	}
+	public void setOrders(Orders orders) {
+		this.orders = orders;
+	}
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

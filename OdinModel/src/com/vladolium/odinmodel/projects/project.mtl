@@ -30,7 +30,7 @@
  * OMPOC (OdinModel Point Of Customization)
  * 
  * User may set which project OdinModel prototypes 
- * by leaving desired project's template uncommented.
+ * by leaving target project's template uncommented.
  * 
  * NOTE: Only one project template should stay uncommented.
  * 

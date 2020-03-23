@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Orders {
 
-	//Numerical fields ------------------------------------------------------------
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -24,12 +22,6 @@ public class Orders {
 		this.id = id;
 	}
 	
-	
-	
-	
-	
-	//Textual fields ------------------------------------------------------------
-	
 	@NotNull
 	@Size(max=15)
 	private String status;
@@ -40,14 +32,6 @@ public class Orders {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-	
-	//Logical fields ------------------------------------------------------------
-	
-	
-	
-	//Date and time fields ------------------------------------------------------------
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
@@ -85,14 +69,6 @@ public class Orders {
 		this.orderDate = orderDate;
 	}
 	
-	
-	
-	
-	
-	
-	
-	//Binary fields ------------------------------------------------------------
-	
 	@Size(max=4000)
 	@Lob
 	private String comments;
@@ -103,6 +79,8 @@ public class Orders {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
+	
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

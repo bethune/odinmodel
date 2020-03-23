@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Gifts {
 
-	//Numerical fields ------------------------------------------------------------
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,12 +21,6 @@ public class Gifts {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
-	
-	
-	//Textual fields ------------------------------------------------------------
 	
 	@NotNull
 	@Column(unique=true)
@@ -45,6 +37,7 @@ public class Gifts {
 		FREE,
 		PLATINUM,
 		LIMITED,
+		
 	}
 	
 	@NotNull
@@ -58,8 +51,6 @@ public class Gifts {
 		this.giftType = giftType;
 	}
 	
-	//Logical fields ------------------------------------------------------------
-	
 	@NotNull
 	private Boolean isExpired;
 	
@@ -69,12 +60,6 @@ public class Gifts {
 	public void setIsExpired(Boolean isExpired) {
 		this.isExpired = isExpired;
 	}
-	
-	//Date and time fields ------------------------------------------------------------
-	
-	
-	
-	
 	
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
@@ -100,9 +85,18 @@ public class Gifts {
 		this.beginsOn = beginsOn;
 	}
 	
+	@ManyToMany
+	@JoinTable(name="gifts_customers", 
+		joinColumns = @JoinColumn(name = "gifts_id"), 
+		inverseJoinColumns = @JoinColumn(name = "customers_id"))
+	private Set<Customers> customersSet = new HashSet<>();
 	
-	
-	//Binary fields ------------------------------------------------------------
+	public Set<Customers> getCustomersSet() {
+		return customersSet;
+	}
+	public void setCustomersSet(Set<Customers> customersSet) {
+		this.customersSet = customersSet;
+	}
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

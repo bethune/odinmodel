@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Employees {
 
-	//Numerical fields ------------------------------------------------------------
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -24,6 +22,7 @@ public class Employees {
 		this.id = id;
 	}
 	
+	
 	private Integer reportsTo;
 	
 	public Integer getReportsTo() {
@@ -32,10 +31,6 @@ public class Employees {
 	public void setReportsTo(Integer reportsTo) {
 		this.reportsTo = reportsTo;
 	}
-	
-	
-	
-	//Textual fields ------------------------------------------------------------
 	
 	@NotNull
 	@Size(max=100)
@@ -92,10 +87,6 @@ public class Employees {
 		this.firstName = firstName;
 	}
 	
-	
-	
-	//Logical fields ------------------------------------------------------------
-	
 	@NotNull
 	private Boolean isActive;
 	
@@ -106,17 +97,16 @@ public class Employees {
 		this.isActive = isActive;
 	}
 	
-	//Date and time fields ------------------------------------------------------------
+	@ManyToOne
+	@JoinColumn(name="offices_id")
+	private Offices offices;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Binary fields ------------------------------------------------------------
+	public Offices getOffices() {
+		return offices;
+	}
+	public void setOffices(Offices offices) {
+		this.offices = offices;
+	}
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

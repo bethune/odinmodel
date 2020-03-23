@@ -11,8 +11,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Offices extends ContactDetails {
 
-	//Numerical fields ------------------------------------------------------------
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,12 +21,6 @@ public class Offices extends ContactDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
-	
-	
-	//Textual fields ------------------------------------------------------------
 	
 	@NotNull
 	@Size(max=10)
@@ -42,22 +34,6 @@ public class Offices extends ContactDetails {
 	}
 	
 	
-	
-	//Logical fields ------------------------------------------------------------
-	
-	
-	
-	//Date and time fields ------------------------------------------------------------
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Binary fields ------------------------------------------------------------
 		
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this inheriting entity
