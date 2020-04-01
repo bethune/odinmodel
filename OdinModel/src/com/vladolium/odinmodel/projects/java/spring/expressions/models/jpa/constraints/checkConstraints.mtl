@@ -19,24 +19,33 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkConstraints('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::springBootWithSpringDataJpaRestProject/]
-[import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::primaryKey/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::notNull/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::unique/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::otherJpaConstraint/]
 
 [**
- * Project setting
- * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
- * 
- * NOTE: Only one project template should stay uncommented.
- * 
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * Checks for constraints over a field.
+ *    
+ * @param field represents the current field from the current UML class.
 */]
-[template public project(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public checkConstraints(field: Property) post(trim())]
+[comment: Primary key /]
+[if field.isID = true]
+[primaryKey()/]
+[/if]
+[comment: Not null /]
+[if field.lower = 1 and field.isID = false]
+[notNull()/]
+[/if]
+[comment: Unique /]
+[if field.isUnique = true and field.isID = false]
+[unique()/]
+[/if]	
+[comment: Other free entry constraints /]
+[if field.ownedComment._body->isEmpty() = false ]
+[otherJpaConstraint()/]
+[/if]
 [/template]

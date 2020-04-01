@@ -1,0 +1,76 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module checkAllRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::manyToOne/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::manyToMany/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::oneToOne/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::oneToMany/]
+
+[**
+ * Covers all entity relationships.
+ *   
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public checkAllRelationships(class : Class) post (trim()){
+	classNameUpperFirst	: String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[if relationship.lower = 1 and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+[manyToOne(class, relationship)/]
+	[/if]
+[/for]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[if relationship.lower = 0 and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = classNameUpperFirst and
+		relationship.namespace = association and 
+		relationship.opposite.lower = 0 and 
+		relationship.opposite.upper = -1]		
+[manyToMany(class, relationship)/]			
+	[/if]
+[/for]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[if (relationship.lower = 0 or relationship.lower = 1) and 
+		relationship.upper = 1 and 
+		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+[oneToOne(class, relationship)/]		
+	[/if]
+[/for]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[if relationship.lower = 1 and 
+		relationship.upper = 1 and 
+		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 0 and 
+		relationship.opposite.upper = -1]
+[oneToMany(class, relationship)/]	
+	[/if]
+[/for]
+[/template]

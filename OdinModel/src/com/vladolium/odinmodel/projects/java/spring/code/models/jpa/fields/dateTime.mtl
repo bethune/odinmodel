@@ -19,24 +19,30 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module dateTime('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::springBootWithSpringDataJpaRestProject/]
-[import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::constraints::checkConstraints/]
 
 [**
- * Project setting
+ * Covers fields of type DateTime with possible constraints if present.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
- * 
- * NOTE: Only one project template should stay uncommented.
- * 
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * User may set the date and time format for LocalDateTime entity fields.
+ *    
+ * @param field represents the current field from the current UML class.
 */]
-[template public project(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public dateTime(field: Property)]
+[checkConstraints()/]
+@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") //for database
+@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //for frontend
+private LocalDateTime [field.name/];
+
+public LocalDateTime get[field.name.toUpperFirst()/]() {
+	return [field.name/];
+}
+public void set[field.name.toUpperFirst()/](LocalDateTime [field.name/]) {
+	this.[field.name/] = [field.name/];
+}
+
 [/template]

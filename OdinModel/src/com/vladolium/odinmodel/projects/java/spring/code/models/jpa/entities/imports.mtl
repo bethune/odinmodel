@@ -19,24 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::springBootWithSpringDataJpaRestProject/]
-[import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/]
+[module imports('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Project setting
- * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
- * 
- * NOTE: Only one project template should stay uncommented.
- * 
+ * User may set Java imports for all project entities in a single place.
+ *   
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public project(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public imports(class : Class)]
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.time.*;
+import java.util.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 [/template]

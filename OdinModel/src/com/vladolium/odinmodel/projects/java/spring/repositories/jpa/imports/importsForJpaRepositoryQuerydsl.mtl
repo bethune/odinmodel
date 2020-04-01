@@ -19,24 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module importsForJpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::springBootWithSpringDataJpaRestProject/]
-[import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/]
+[comment] 
+	ODINMODEL CUSTOMIZATION
+	- May set Java imports for all Spring repositories in a single place.
+[/comment]
 
-[**
- * Project setting
- * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
- * 
- * NOTE: Only one project template should stay uncommented.
- * 
- * @param class represents the current class from the UML class diagram i.e. the domain model.
-*/]
-[template public project(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public importsForJpaRepositoryQuerydsl(umlClass : Class){
+	packageName : String = umlClass._package.name.replaceAll('/', '.').toLowerCase();}]
+import [packageName/].model.*;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.domain.*;
+import org.springframework.data.querydsl.*;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 [/template]

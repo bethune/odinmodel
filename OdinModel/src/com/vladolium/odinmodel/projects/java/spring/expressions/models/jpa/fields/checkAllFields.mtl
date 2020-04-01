@@ -1,0 +1,107 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module checkAllFields('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::long/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::integer/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::double/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::string/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::enum/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::boolean/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::date/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::time/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::dateTime/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::instant/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::clob/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::fields::blob/]
+
+[**
+ * Covers all fields which persist in a database.
+ * 
+ * NOTE: Fileds that entity inherits from an abstract class are not covered.
+ *   
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public checkAllFields(class : Class) post (trim())]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Long']
+[long()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Integer']
+[integer()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Double']
+[double()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'String']
+[string()/]
+	[/if]
+[/for]
+[for (enum: Enumeration | class.getModel().eContents(Enumeration))]
+	[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+		[if field.type.name = enum.name]
+[enum(field, enum)/]
+		[/if]
+	[/for]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Boolean']
+[boolean()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Date']
+[date()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Time']
+[time()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'DateTime']
+[dateTime()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Instant']
+[instant()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Clob']
+[clob()/]
+	[/if]
+[/for]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getInheritedMembers()))]
+	[if field.type.name = 'Blob']
+[blob()/]
+	[/if]
+[/for]
+[/template]

@@ -19,24 +19,30 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::springBootWithSpringDataJpaRestProject/]
-[import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/]
+[module oneToMany('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Project setting
+ * Generates code for one-to-many relationships.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
- * 
- * NOTE: Only one project template should stay uncommented.
- * 
+ * User may further customize relationship definition.
+ *   
  * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
 */]
-[template public project(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public oneToMany(class : Class, relationship : Property){
+	entityNameLowerFirst : String = relationship.type.name.toLowerFirst();
+	oppositeEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
+	oppositeEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
+@OneToMany
+@JoinColumn(name="[entityNameLowerFirst/]_id")
+private List<[oppositeEntityNameUpperFirst/]> [oppositeEntityNameLowerFirst/]List;
+
+public List<[oppositeEntityNameUpperFirst/]> get[oppositeEntityNameUpperFirst/]List() {
+	return [oppositeEntityNameLowerFirst/]List;
+}
+public void set[oppositeEntityNameUpperFirst/]List(List<[oppositeEntityNameUpperFirst/]> [oppositeEntityNameLowerFirst/]List) {
+	this.[oppositeEntityNameUpperFirst/]List = [oppositeEntityNameLowerFirst/]List;
+}
 [/template]

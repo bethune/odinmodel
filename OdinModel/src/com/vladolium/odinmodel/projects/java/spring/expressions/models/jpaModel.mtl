@@ -19,24 +19,34 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module jpaModel('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::springBootWithSpringDataJpaRestProject/]
-[import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::entities::checkCommonEntity/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::entities::checkInheritingEntity/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::entities::checkAbstractClass/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::wrappers::checkManyToOneWrapper/]
 
 [**
- * Project setting
+ * Separates UML classes into three types:
+ * 		- comon entity: 
+ * 			- represents a table in a database schema, 
+ * 			- it is not an abstract class, and 
+ * 			- it does not inherit from an abstract class,
+ * 		- inheriting entity: 
+ * 			- represents a table in a database schema,
+ * 			- it is not an abstract class, and
+ * 			- it does inherit from an abstract class, and
+ * 		- abstract class: 
+ * 			- it does not represent a table in a database schema.
  * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
- * 
- * NOTE: Only one project template should stay uncommented.
- * 
+ * Wrappers are helper classes necessary for the Inverse Referential Integrity Constraint (IRIC) 
+ * implementation on a relationship between two entities.
+ *   
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public project(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public jpaModel(class : Class)]
+[checkCommonEntity()/]
+[checkInheritingEntity()/]
+[checkAbstractClass()/]
+[checkManyToOneWrapper()/]
 [/template]

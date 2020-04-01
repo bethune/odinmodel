@@ -19,24 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkCommonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::springBootWithSpringDataJpaRestProject/]
-[import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::entities::commonEntity/]
 
 [**
- * Project setting
- * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
- * 
- * NOTE: Only one project template should stay uncommented.
- * 
+ * Checks for a UML class that is not an abstract one and does not inherit from an abstract class.
+ *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public project(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public checkCommonEntity(class : Class){
+	isAbstract : Boolean = class.isAbstract;
+	doesNotInherit : Boolean = class.general->isEmpty();}]
+[if isAbstract = false and doesNotInherit]
+[commonEntity()/]
+[/if]	
 [/template]

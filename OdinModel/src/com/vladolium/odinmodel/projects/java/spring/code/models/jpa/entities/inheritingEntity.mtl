@@ -19,49 +19,42 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module jpaRepositoryWithQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::repositories::imports::importsForJpaRepositoryQuerydsl /]
-[import com::vladolium::odinmodel::projects::java::spring::repositories::methods::readOneByFieldWithUniqueConstraint /]
-[import com::vladolium::odinmodel::projects::java::spring::repositories::methods::readAllByParentIdInManyToOneRelationship /]
-[import com::vladolium::odinmodel::projects::java::spring::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship /]
+[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::entities::imports/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::fields::checkAllFields/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::relationships::checkAllRelationships/]
 
 [**
- * Generates a repository class in a target project.
+ * Generates an inheriting entity class in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
+ * User may add class specifics like toString, hashCode, equals, etc.
  * User may further customize package path and/or name, as well as file name.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public jpaRepositoryWithQuerydsl(class : Class){
-	packagePath	: String = class._package.name.toLowerCase();
+[template public inheritingEntity(class : Class){
+	packagePath : String = class._package.name.toLowerCase();
 	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();
 	entityNameUpperFirst : String = class.name.toUpperFirst();
-	isEntity : Boolean = class.isAbstract = false;}]
-[if isEntity]
-	[file ('src/main/java/' + packagePath + '/repositories/' + entityNameUpperFirst + 'Repository.java', false, 'UTF-8')]
-package [packageName/].repositories;
+	abstractClassName : Collection(T) = class.general.name.toUpperFirst();}]
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/].model;
 
-[importsForJpaRepositoryQuerydsl()/]
+[imports()/]
 
-		[for (field: Property | umlClass.getAllAttributes()) separator('\n')]
-			[if field.isID = true]
-public interface [entityNameUpperFirst/]Repository extends JpaRepository<[entityNameUpperFirst/], [field.type.name.toUpperFirst()/]>, QuerydslPredicateExecutor<[entityNameUpperFirst/]> {
-			[/if]
-		[/for]
+@Entity
+public class [entityNameUpperFirst/] extends [abstractClassName/] {
 
-	[readOneByFieldWithUniqueConstraint()/]
-
-	[readAllByParentIdInManyToOneRelationship()/]
-
-	[readAllByParentFieldWithUniqueConstraintInManyToOneRelationship()/]
-
-//Code between start and end will not be removed during generation.
-//[protected ('for this repository')]
+	[checkAllFields()/]
+	
+	[checkAllRelationships()/]
+		
+/*Code between start and end will not be removed during generation.*/
+//[protected ('for this inheriting entity')]
 //[/protected]
 }
-	[/file]
-[/if]
+[/file]
 [/template]
