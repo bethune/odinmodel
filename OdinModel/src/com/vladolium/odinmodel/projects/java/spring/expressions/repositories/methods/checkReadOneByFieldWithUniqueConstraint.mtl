@@ -19,18 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module jpaRepositoryWithQuerydslConstruct('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkReadOneByFieldWithUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::repositories::jpa::importsForJpaRepositoryQuerydsl /]
+[import com::vladolium::odinmodel::projects::java::spring::code::repositories::methods::readOneByFieldWithUniqueConstraint/]
 
 [**
- * Checks for a UML class that is not an abstract one.
+ * Checks for entity fields with the unique constraint.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public jpaRepositoryWithQuerydslConstruct(class : Class){
-	isEntity : Boolean = class.isAbstract = false;}]
-[if isEntity]
+[template public checkReadOneByFieldWithUniqueConstraint(class : Class) post(trim()) {
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd))]
+	[if field.isUnique = true]
+[readOneByFieldWithUniqueConstraint(entityNameUpperFirst, field)/]
 
-[/if]
+	[/if]
+[/for]
 [/template]

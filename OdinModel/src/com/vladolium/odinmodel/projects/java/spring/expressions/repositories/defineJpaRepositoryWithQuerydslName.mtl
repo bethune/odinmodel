@@ -19,13 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module otherJpaConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module defineJpaRepositoryWithQuerydslName('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::code::repositories::jpaRepositoryWithQuerydslName/]
 
 [**
- * Generates the JPA constraint in a target project.
+ * Checks for the primary key of the currrent class from the UML class diagram i.e. the domain model.
  *    
- * @param field represents the current field from the current UML class.
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public otherJpaConstraint(field : Property)]
-[field.ownedComment._body/]
+[template public defineJpaRepositoryWithQuerydslName(class : Class) post (trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (field: Property | class.getAllAttributes())]
+	[if field.isID = true]
+[jpaRepositoryWithQuerydslName(entityNameUpperFirst, field)/]
+	[/if]
+[/for]
 [/template]

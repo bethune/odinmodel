@@ -19,18 +19,18 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module primaryKey('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module readOneByFieldWithUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the primary key constraint in a target project.
+ * Generates a method for the current repository in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may further customize the constraint code.
+ * User may further customize the method.
  *    
- * @param field represents the current field from the current UML class.
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.
+ * @param field represents the current field with the primary key constraint from the current UML class.
 */]
-[template public primaryKey(field : Property)]
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+[template public readOneByFieldWithUniqueConstraint(entityNameUpperFirst : String, field : Property)]
+[entityNameUpperFirst/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
 [/template]

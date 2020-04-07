@@ -19,15 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module importsForJpaRepositoryQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module imports('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment] 
-	ODINMODEL CUSTOMIZATION
-	- May set Java imports for all Spring repositories in a single place.
-[/comment]
-
-[template public importsForJpaRepositoryQuerydsl(umlClass : Class){
-	packageName : String = umlClass._package.name.replaceAll('/', '.').toLowerCase();}]
+[**
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may set Java imports for all Spring repositories in a single place.
+ *   
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public imports(class : Class){
+	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();}]
 import [packageName/].model.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;

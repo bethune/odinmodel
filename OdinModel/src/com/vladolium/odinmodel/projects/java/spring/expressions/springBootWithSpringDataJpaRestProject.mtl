@@ -19,13 +19,24 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module readOneByFieldWithUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module springBootWithSpringDataJpaRestProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public readOneByFieldWithUniqueConstraint(umlClass : Class){
-	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
-[for (field: Property | umlClass.getAllAttributes()->removeAll(umlClass.getAssociations().memberEnd)) separator('\n')]
-	[if field.isUnique = true]
-[entityNameUpperFirst/] findBy[field.name.toUpperFirst()/]Equals([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
-	[/if]
-[/for]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpaModel/]
+[import com::vladolium::odinmodel::projects::java::spring::projectStructure/]
+[comment][import com::vladolium::odinmodel::SpringBootTemplates::configuration::configuration /][/comment]
+
+[**
+ * Base for project structure.
+ * 
+ * Checks for a UML class that is not an abstract one - important for controller, interface, service, and repository files.
+ *  
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public springBootWithSpringDataJpaRestProject(class : Class){
+	isEntity : Boolean = class.isAbstract = false;}]
+[jpaModel()/]
+[if isEntity]
+[projectStructure()/]
+[/if]
+[comment][aClass.configuration()/][/comment]
 [/template]

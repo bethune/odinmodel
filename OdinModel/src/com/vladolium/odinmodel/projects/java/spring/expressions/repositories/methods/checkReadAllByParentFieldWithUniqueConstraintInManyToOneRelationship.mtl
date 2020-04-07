@@ -19,27 +19,33 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module readAllByParentFieldWithUniqueConstraintInManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkReadAllByParentFieldWithUniqueConstraintInManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[template public readAllByParentFieldWithUniqueConstraintInManyToOneRelationship(umlClass : Class){
-	entityNameUpperFirst 	: String = umlClass.name.toUpperFirst();}]
-[for (relationship : Property | umlClass.getAssociations().memberEnd)]
+[import com::vladolium::odinmodel::projects::java::spring::code::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship/]
+
+[**
+ * Checks for the fields with the unique constraint for the class which is in many-to-one relationship
+ * with the currrent class from the UML class diagram i.e. the domain model.
+ *    
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public checkReadAllByParentFieldWithUniqueConstraintInManyToOneRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
 	[if (relationship.lower = 0 or relationship.lower = 1) and 
 		relationship.upper = -1 and 
 		relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
 		relationship.namespace = association and 
 		relationship.opposite.lower = 1 and 
 		relationship.opposite.upper = 1]
-		[for (p : Package | umlClass._package)]
+		[for (p : Package | class._package)]
 			[for (oppositeEntity : Class | p.member -> filter(Class))]
-				[if (oppositeEntity.name.toLower() <> umlClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
+					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd))]
 						[if oppositeEntityField.isUnique = true and oppositeEntityField.isID = false]
-[comment: Read all by parent field with unique constraint /]
-Iterable <[relationship.type.name.toUpperFirst()/]> findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+[readAllByParentFieldWithUniqueConstraintInManyToOneRelationship(relationship, oppositeEntityField)/]
 
-[comment: Read all by parent field with unique constraint with pagination /]
-Page <[relationship.type.name.toUpperFirst()/]> findBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page);
 						[/if]
 					[/for]
 				[/if]

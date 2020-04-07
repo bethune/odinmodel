@@ -19,29 +19,26 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module manyToOne('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module readAllByParentIdInManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates code for many-to-one relationships.
+ * Generates methods for the current repository in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may further customize relationship definition.
- *   
- * @param class represents the current class from the UML class diagram i.e. the domain model.
- * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
+ * User may further customize the methods.
+ *    
+ * @param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.
+ * @param oppositeEntityField represents the current field with the primary key constraint from the entity which is 
+		  on the opposite end in the current many-to-one relationship from the current UML class.
 */]
-[template public manyToOne(class : Class, relationship : Property){
+[template public readAllByParentIdInManyToOneRelationship(relationship : Property, oppositeEntityField : Property){
+	entityNameUpperFirst : String = relationship.type.name.toUpperFirst();
 	oppositeEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
 	oppositeEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
-@ManyToOne
-@JoinColumn(name="[oppositeEntityNameLowerFirst/]_id")
-private [oppositeEntityNameUpperFirst/] [oppositeEntityNameLowerFirst/];
+[comment: Read all by parent id /]
+Iterable <[entityNameUpperFirst/]> findBy[oppositeEntityNameUpperFirst/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityNameLowerFirst/][oppositeEntityField.name.toUpperFirst()/]);
 
-public [oppositeEntityNameUpperFirst/] get[oppositeEntityNameUpperFirst/]() {
-	return [oppositeEntityNameLowerFirst/];
-}
-public void set[oppositeEntityNameUpperFirst/]([oppositeEntityNameUpperFirst/] [oppositeEntityNameLowerFirst/]) {
-	this.[oppositeEntityNameLowerFirst/] = [oppositeEntityNameLowerFirst/];
-}
+[comment: Read all by parent id with pagination /]
+Page <[entityNameUpperFirst/]> findBy[oppositeEntityNameUpperFirst/][oppositeEntityField.name.toUpperFirst()/]Equals([oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityNameLowerFirst/][oppositeEntityField.name.toUpperFirst()/], Pageable page);						
 [/template]

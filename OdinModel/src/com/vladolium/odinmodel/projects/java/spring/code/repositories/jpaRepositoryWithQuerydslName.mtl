@@ -19,17 +19,18 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module notNull('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module jpaRepositoryWithQuerydslName('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the not null constraint in a target project.
+ * Generates the current repository name in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may further customize the constraint code.
+ * User may further customize the repository name.
  *    
- * @param field represents the current field from the current UML class.
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.
+ * @param field represents the current field with the primary key constraint from the current UML class.
 */]
-[template public notNull(field : Property)]
-@NotNull
+[template public jpaRepositoryWithQuerydslName(entityNameUpperFirst : String, field : Property)]
+public interface [entityNameUpperFirst/]Repository extends JpaRepository<[entityNameUpperFirst/], [field.type.name.toUpperFirst()/]>, QuerydslPredicateExecutor<[entityNameUpperFirst/]> {
 [/template]

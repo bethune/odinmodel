@@ -43,6 +43,6 @@ public List<[oppositeEntityNameUpperFirst/]> get[oppositeEntityNameUpperFirst/]L
 	return [oppositeEntityNameLowerFirst/]List;
 }
 public void set[oppositeEntityNameUpperFirst/]List(List<[oppositeEntityNameUpperFirst/]> [oppositeEntityNameLowerFirst/]List) {
-	this.[oppositeEntityNameUpperFirst/]List = [oppositeEntityNameLowerFirst/]List;
+	this.[oppositeEntityNameLowerFirst/]List = [oppositeEntityNameLowerFirst/]List;
 }
 [/template]

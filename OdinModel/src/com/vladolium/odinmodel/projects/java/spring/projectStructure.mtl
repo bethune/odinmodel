@@ -19,10 +19,9 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module springBootWithSpringDataJpaRestProject('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module projectStructure('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpaModel/]
-[comment][import com::vladolium::odinmodel::projects::java::spring::repositories::jpa::constructs::jpaRepositoryWithQuerydslConstruct/][/comment]
+[import com::vladolium::odinmodel::projects::java::spring::code::repositories::jpaRepositoryWithQuerydsl/]
 
 [comment]
 
@@ -53,9 +52,8 @@
  *  
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public springBootWithSpringDataJpaRestProject(class : Class)]
-[jpaModel()/]
-[comment][jpaRepositoryWithQuerydslConstruct()/][/comment]
+[template public projectStructure(class : Class)]
+[jpaRepositoryWithQuerydsl()/]
 [comment]
 
 [serviceWithInterface()/][/comment]
