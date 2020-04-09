@@ -19,25 +19,30 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module projectStructure('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::jpaRepositoryWithQuerydsl/]
-[import com::vladolium::odinmodel::projects::java::spring::code::services::service/]
-[import com::vladolium::odinmodel::projects::java::spring::code::interfaces::interface/]
-[import com::vladolium::odinmodel::projects::java::spring::code::controllers::controller/]
+[module imports('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Project structure setting
+ * OMPOC (OdinModel Point Of Customization)
  * 
- * OMPOC (OdinModel Point Of Customization) 
- * 
- * User may set the target project structure.
- *  
+ * User may set Java imports for all Spring services in a single place.
+ *   
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public projectStructure(class : Class)]
-[jpaRepositoryWithQuerydsl()/]
-[service()/]
-[interface()/]
-[controller()/]
+[template public imports(class : Class){
+	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();}]
+import [packageName/].model.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.data.domain.*;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.*;
+import java.util.*;
+
+import [packageName/].repositories.*;
+import [packageName/].interfaces.*;
+import [packageName/].wrappers.*;
+
+import com.querydsl.core.BooleanBuilder;
 [/template]

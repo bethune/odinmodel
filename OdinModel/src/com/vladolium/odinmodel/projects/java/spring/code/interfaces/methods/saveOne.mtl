@@ -19,25 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module projectStructure('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::jpaRepositoryWithQuerydsl/]
-[import com::vladolium::odinmodel::projects::java::spring::code::services::service/]
-[import com::vladolium::odinmodel::projects::java::spring::code::interfaces::interface/]
-[import com::vladolium::odinmodel::projects::java::spring::code::controllers::controller/]
+[module saveOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Project structure setting
+ * Generates a save method for the current interface in a target project which covers create, update, and update when IRIC cases.
  * 
- * OMPOC (OdinModel Point Of Customization) 
+ * OMPOC (OdinModel Point Of Customization)
  * 
- * User may set the target project structure.
- *  
+ * User may further customize the method.
+ *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public projectStructure(class : Class)]
-[jpaRepositoryWithQuerydsl()/]
-[service()/]
-[interface()/]
-[controller()/]
+[template public saveOne(class : Class){
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[entityNameUpperFirst/] saveOne([entityNameUpperFirst/] [entityNameLowerFirst/]);
 [/template]

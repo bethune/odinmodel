@@ -19,25 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module projectStructure('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkIfIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::jpaRepositoryWithQuerydsl/]
-[import com::vladolium::odinmodel::projects::java::spring::code::services::service/]
-[import com::vladolium::odinmodel::projects::java::spring::code::interfaces::interface/]
-[import com::vladolium::odinmodel::projects::java::spring::code::controllers::controller/]
+[import com::vladolium::odinmodel::projects::java::spring::code::interfaces::methods::saveOneWhenIricOnManyToOneRelationship/]
 
 [**
- * Project structure setting
- * 
- * OMPOC (OdinModel Point Of Customization) 
- * 
- * User may set the target project structure.
- *  
+ * Checks for the IRIC on many-to-one relationship for the currrent class from the UML class diagram i.e. the domain model.
+ *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public projectStructure(class : Class)]
-[jpaRepositoryWithQuerydsl()/]
-[service()/]
-[interface()/]
-[controller()/]
+[template public checkIfIricOnManyToOneRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[for (relationship: Property | class.getAssociations().memberEnd)]
+	[comment: IRIC on manyToOne relationship /]
+	[if relationship.lower = 1 and 
+		relationship.upper = -1 and 
+		relationship.opposite.type.name.toUpperFirst() = entityNameUpperFirst and
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+[saveOneWhenIricOnManyToOneRelationship(entityNameUpperFirst, entityNameLowerFirst, relationship)/]
+	[/if]
+[/for]
 [/template]
