@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module jpaRepositoryWithQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::imports/]
+[import com::vladolium::odinmodel::projects::java::spring::components::repositories::imports/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::repositories::defineJpaRepositoryWithQuerydslName/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::repositories::methods::checkReadOneByFieldWithUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::repositories::methods::checkReadAllByParentIdInManyToOneRelationship/]

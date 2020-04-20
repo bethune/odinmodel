@@ -19,18 +19,26 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::abstractClass/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::saveOneWhenIricOnManyToOneRelationship/]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
+ * Checks for the IRIC on many-to-one relationship for the currrent class from the UML class diagram i.e. the domain model.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public checkAbstractClass(class : Class){
-	isAbstract : Boolean = class.isAbstract;}]
-[if isAbstract]
-[abstractClass()/]
-[/if]	
+[template public checkIricOnManyToOneRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[for (relationship: Property | class.getAssociations().memberEnd)]
+	[if relationship.lower = 1 and 
+		relationship.upper = -1 and 
+		relationship.opposite.type.name.toUpperFirst() = entityNameUpperFirst and
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+[saveOneWhenIricOnManyToOneRelationship(entityNameUpperFirst, entityNameLowerFirst, relationship)/]
+	[/if]
+[/for]
 [/template]

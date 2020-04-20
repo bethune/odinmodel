@@ -13,6 +13,17 @@ public interface CustomersInterface {
 
 	Customers saveOne(Customers customers);
 	
+	void deleteOneById(Long id);
+	
+	Customers readOneById(Long id);
+
+	Iterable<Customers> readAll();
+	
+	Page<Customers> readAllPagination(Pageable page);
+
+
+	Customers readOneByCustomerName(String customerName);
+
 	
 
 

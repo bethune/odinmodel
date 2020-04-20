@@ -27,6 +27,36 @@ public class ReviewsService implements ReviewsInterface {
 		this.reviewsRepository = reviewsRepository;
 	}
 
+	@Override
+	public Reviews saveOne(Reviews reviews) {
+		return reviewsRepository.save(reviews);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    reviewsRepository.deleteById(id);
+	}
+	
+	@Override
+	public Reviews readOneById(Long id) {
+		return reviewsRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Reviews> readAll() {
+		return reviewsRepository.findAll();
+	}
+	
+	@Override
+	public Page<Reviews> readAllPagination(Pageable page) {
+		return reviewsRepository.findAll(page);
+	}
+
+	
+	
+	
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

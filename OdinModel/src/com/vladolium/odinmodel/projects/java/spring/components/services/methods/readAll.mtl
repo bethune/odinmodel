@@ -19,18 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::abstractClass/]
+[module readAll('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
+ * Generates the read all and read all with pagination methods for the current service in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the methods.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public checkAbstractClass(class : Class){
-	isAbstract : Boolean = class.isAbstract;}]
-[if isAbstract]
-[abstractClass()/]
-[/if]	
+[template public readAll(class : Class){
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+@Override
+public Iterable<[entityNameUpperFirst/]> readAll() {
+	return [entityNameLowerFirst/]Repository.findAll();
+}
+
+@Override
+public Page<[entityNameUpperFirst/]> readAllPagination(Pageable page) {
+	return [entityNameLowerFirst/]Repository.findAll(page);
+}
 [/template]

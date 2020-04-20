@@ -27,6 +27,36 @@ public class EmployeesService implements EmployeesInterface {
 		this.employeesRepository = employeesRepository;
 	}
 
+	@Override
+	public Employees saveOne(Employees employees) {
+		return employeesRepository.save(employees);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    employeesRepository.deleteById(id);
+	}
+	
+	@Override
+	public Employees readOneById(Long id) {
+		return employeesRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Employees> readAll() {
+		return employeesRepository.findAll();
+	}
+	
+	@Override
+	public Page<Employees> readAllPagination(Pageable page) {
+		return employeesRepository.findAll(page);
+	}
+
+	
+	
+	
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

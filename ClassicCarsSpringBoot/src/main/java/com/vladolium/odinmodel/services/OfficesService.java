@@ -27,6 +27,49 @@ public class OfficesService implements OfficesInterface {
 		this.officesRepository = officesRepository;
 	}
 
+	@Override
+	public Offices saveOne(Offices offices) {
+		return officesRepository.save(offices);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    officesRepository.deleteById(id);
+	}
+	
+	@Override
+	public Offices readOneById(Long id) {
+		return officesRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Offices> readAll() {
+		return officesRepository.findAll();
+	}
+	
+	@Override
+	public Page<Offices> readAllPagination(Pageable page) {
+		return officesRepository.findAll(page);
+	}
+
+	
+	
+	private EmployeesRepository employeesRepository;
+	
+	public Offices saveOneWhenIricOnManyToOneRelationship(OfficesEmployees officesEmployees) {
+		
+		Offices currentOffices = officesRepository.save(officesEmployees.getOffices());
+		
+		Employees currentEmployees = officesEmployees.getEmployees();
+		
+		currentEmployees.setOffices(officesRepository.getOne(currentOffices.getId()));
+		
+		employeesRepository.save(currentEmployees);
+		
+		return currentOffices;
+	}
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

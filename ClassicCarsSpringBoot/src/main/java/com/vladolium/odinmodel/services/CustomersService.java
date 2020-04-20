@@ -27,6 +27,39 @@ public class CustomersService implements CustomersInterface {
 		this.customersRepository = customersRepository;
 	}
 
+	@Override
+	public Customers saveOne(Customers customers) {
+		return customersRepository.save(customers);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    customersRepository.deleteById(id);
+	}
+	
+	@Override
+	public Customers readOneById(Long id) {
+		return customersRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Customers> readAll() {
+		return customersRepository.findAll();
+	}
+	
+	@Override
+	public Page<Customers> readAllPagination(Pageable page) {
+		return customersRepository.findAll(page);
+	}
+
+	@Override
+	public Customers readOneByCustomerName(String customerName) {
+		return customersRepository.findByCustomerNameEquals(customerName);
+	}
+	
+	
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

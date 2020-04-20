@@ -21,10 +21,10 @@
 [comment encoding = UTF-8 /]
 [module checkAllRelationships('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::manyToOne/]
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::manyToMany/]
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::oneToOne/]
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::relationships::oneToMany/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::relationships::manyToOne/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::relationships::manyToMany/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::relationships::oneToOne/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::relationships::oneToMany/]
 
 [**
  * Covers all entity relationships.

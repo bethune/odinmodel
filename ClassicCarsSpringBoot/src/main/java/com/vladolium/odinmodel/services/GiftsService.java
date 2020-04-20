@@ -27,6 +27,39 @@ public class GiftsService implements GiftsInterface {
 		this.giftsRepository = giftsRepository;
 	}
 
+	@Override
+	public Gifts saveOne(Gifts gifts) {
+		return giftsRepository.save(gifts);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    giftsRepository.deleteById(id);
+	}
+	
+	@Override
+	public Gifts readOneById(Long id) {
+		return giftsRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Gifts> readAll() {
+		return giftsRepository.findAll();
+	}
+	
+	@Override
+	public Page<Gifts> readAllPagination(Pageable page) {
+		return giftsRepository.findAll(page);
+	}
+
+	@Override
+	public Gifts readOneByGiftName(String giftName) {
+		return giftsRepository.findByGiftNameEquals(giftName);
+	}
+	
+	
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

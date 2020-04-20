@@ -13,6 +13,17 @@ public interface ReviewsInterface {
 
 	Reviews saveOne(Reviews reviews);
 	
+	void deleteOneById(Long id);
+	
+	Reviews readOneById(Long id);
+
+	Iterable<Reviews> readAll();
+	
+	Page<Reviews> readAllPagination(Pageable page);
+
+
+	
+
 	
 
 

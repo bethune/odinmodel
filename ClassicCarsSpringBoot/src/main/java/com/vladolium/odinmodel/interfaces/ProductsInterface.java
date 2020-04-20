@@ -13,6 +13,17 @@ public interface ProductsInterface {
 
 	Products saveOne(Products products);
 	
+	void deleteOneById(Long id);
+	
+	Products readOneById(Long id);
+
+	Iterable<Products> readAll();
+	
+	Page<Products> readAllPagination(Pageable page);
+
+
+	Products readOneByProductCode(String productCode);
+
 	
 
 

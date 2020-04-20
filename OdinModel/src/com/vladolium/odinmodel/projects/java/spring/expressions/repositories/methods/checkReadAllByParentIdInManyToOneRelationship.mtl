@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module checkReadAllByParentIdInManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::methods::readAllByParentIdInManyToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::repositories::methods::readAllByParentIdInManyToOneRelationship/]
 
 [**
  * Checks for the primary key of the class which is in many-to-one relationship

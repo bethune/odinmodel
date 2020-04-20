@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module checkManyToOneWrapper('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::wrappers::manyToOneWrapper/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::wrappers::manyToOneWrapper/]
 
 [**
  * Covers all many-to-one relationships for a current UML class.

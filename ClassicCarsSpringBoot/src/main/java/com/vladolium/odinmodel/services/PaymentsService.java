@@ -27,6 +27,36 @@ public class PaymentsService implements PaymentsInterface {
 		this.paymentsRepository = paymentsRepository;
 	}
 
+	@Override
+	public Payments saveOne(Payments payments) {
+		return paymentsRepository.save(payments);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    paymentsRepository.deleteById(id);
+	}
+	
+	@Override
+	public Payments readOneById(Long id) {
+		return paymentsRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Payments> readAll() {
+		return paymentsRepository.findAll();
+	}
+	
+	@Override
+	public Page<Payments> readAllPagination(Pageable page) {
+		return paymentsRepository.findAll(page);
+	}
+
+	
+	
+	
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

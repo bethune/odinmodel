@@ -19,42 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module inheritingEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::entities::imports/]
-[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::fields::checkAllFields/]
-[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::relationships::checkAllRelationships/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::methods::saveOneWhenIricOnManyToOneRelationship/]
 
 [**
- * Generates an inheriting entity class in a target project.
- * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may add class specifics like toString, hashCode, equals, etc.
- * User may further customize package path and/or name, as well as file name.
+ * Checks for the IRIC on many-to-one relationship for the currrent class from the UML class diagram i.e. the domain model.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public inheritingEntity(class : Class){
-	packagePath : String = class._package.name.toLowerCase();
-	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();
+[template public checkIricOnManyToOneRelationship(class : Class) post(trim()){
 	entityNameUpperFirst : String = class.name.toUpperFirst();
-	abstractClassName : Collection(T) = class.general.name.toUpperFirst();}]
-[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
-package [packageName/].model;
-
-[imports()/]
-
-@Entity
-public class [entityNameUpperFirst/] extends [abstractClassName/] {
-
-	[checkAllFields()/]
-	
-	[checkAllRelationships()/]
-		
-/*Code between start and end will not be removed during generation.*/
-//[protected ('for this inheriting entity')]
-//[/protected]
-}
-[/file]
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[for (relationship: Property | class.getAssociations().memberEnd)]
+	[comment: IRIC on manyToOne relationship /]
+	[if relationship.lower = 1 and 
+		relationship.upper = -1 and 
+		relationship.opposite.type.name.toUpperFirst() = entityNameUpperFirst and
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+[saveOneWhenIricOnManyToOneRelationship(entityNameUpperFirst, entityNameLowerFirst, relationship)/]
+	[/if]
+[/for]
 [/template]

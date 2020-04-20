@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module defineJpaRepositoryWithQuerydslName('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::jpaRepositoryWithQuerydslName/]
+[import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithQuerydslName/]
 
 [**
  * Checks for the primary key of the currrent class from the UML class diagram i.e. the domain model.

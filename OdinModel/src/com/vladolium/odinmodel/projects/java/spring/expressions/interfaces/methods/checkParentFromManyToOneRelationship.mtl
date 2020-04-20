@@ -1,0 +1,42 @@
+[comment encoding = UTF-8 /]
+[module checkParentFromManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[template public checkParentFromManyToOneRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[if (relationship.lower = 0 or relationship.lower = 1) and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+		[for (p: Package | class._package)]
+			[for (oppositeEntity: Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
+					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[comment: Parent id. /]
+						[if oppositeEntityField.isID = true]
+[readAllByParent(relationship, oppositeEntityField)/]
+[comment: Read all by parent id /]
+Iterable <[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+
+[comment: Read all by parent id with pagination /]
+Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page);
+						[/if]
+						[comment: Parent field with unique value. /]
+						[if oppositeEntityField.isUnique = true and oppositeEntityField.isID = false]
+[readAllByParent(relationship, oppositeEntityField)/]
+[comment: Read all by parent unique field /]
+Iterable <[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+
+[comment: Read all by parent unique field with pagination /]
+Page<[relationship.type.name.toUpperFirst()/]> readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], Pageable page);
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+[/for]
+[/template]

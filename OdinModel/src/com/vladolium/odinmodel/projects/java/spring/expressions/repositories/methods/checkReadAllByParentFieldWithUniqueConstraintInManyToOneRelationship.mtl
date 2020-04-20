@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module checkReadAllByParentFieldWithUniqueConstraintInManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::repositories::methods::readAllByParentFieldWithUniqueConstraintInManyToOneRelationship/]
 
 [**
  * Checks for the fields with the unique constraint for the class which is in many-to-one relationship

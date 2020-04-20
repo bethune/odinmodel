@@ -19,27 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkIfIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::interfaces::methods::saveOneWhenIricOnManyToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readOneByUniqueValue/]
 
 [**
- * Checks for the IRIC on many-to-one relationship for the currrent class from the UML class diagram i.e. the domain model.
+ * Checks for the field with the unique constraint for the currrent class from the UML class diagram i.e. the domain model.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public checkIfIricOnManyToOneRelationship(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();
-	entityNameLowerFirst : String = class.name.toLowerFirst();}]
-[for (relationship: Property | class.getAssociations().memberEnd)]
-	[comment: IRIC on manyToOne relationship /]
-	[if relationship.lower = 1 and 
-		relationship.upper = -1 and 
-		relationship.opposite.type.name.toUpperFirst() = entityNameUpperFirst and
-		relationship.namespace = association and 
-		relationship.opposite.lower = 1 and 
-		relationship.opposite.upper = 1]
-[saveOneWhenIricOnManyToOneRelationship(entityNameUpperFirst, entityNameLowerFirst, relationship)/]
+[template public checkUniqueConstraint(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)) separator('\n')]
+	[if field.isUnique = true and field.isID = false]
+[readOneByUniqueValue(entityNameUpperFirst, field)/]
 	[/if]
 [/for]
 [/template]

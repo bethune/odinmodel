@@ -27,6 +27,36 @@ public class OrdersService implements OrdersInterface {
 		this.ordersRepository = ordersRepository;
 	}
 
+	@Override
+	public Orders saveOne(Orders orders) {
+		return ordersRepository.save(orders);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    ordersRepository.deleteById(id);
+	}
+	
+	@Override
+	public Orders readOneById(Long id) {
+		return ordersRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Orders> readAll() {
+		return ordersRepository.findAll();
+	}
+	
+	@Override
+	public Page<Orders> readAllPagination(Pageable page) {
+		return ordersRepository.findAll(page);
+	}
+
+	
+	
+	
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

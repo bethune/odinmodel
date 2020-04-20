@@ -13,6 +13,17 @@ public interface ProductLinesInterface {
 
 	ProductLines saveOne(ProductLines productLines);
 	
+	void deleteOneById(Long id);
+	
+	ProductLines readOneById(Long id);
+
+	Iterable<ProductLines> readAll();
+	
+	Page<ProductLines> readAllPagination(Pageable page);
+
+
+	
+
 	ProductLines saveOneWhenIricOnManyToOneRelationship(ProductLinesProducts productLinesProducts);
 
 

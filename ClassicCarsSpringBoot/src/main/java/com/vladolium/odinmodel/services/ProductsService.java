@@ -27,6 +27,39 @@ public class ProductsService implements ProductsInterface {
 		this.productsRepository = productsRepository;
 	}
 
+	@Override
+	public Products saveOne(Products products) {
+		return productsRepository.save(products);
+	}
+
+	@Override
+	public void deleteOneById(Long id) {
+	    productsRepository.deleteById(id);
+	}
+	
+	@Override
+	public Products readOneById(Long id) {
+		return productsRepository.getOne(id);
+	}
+
+	@Override
+	public Iterable<Products> readAll() {
+		return productsRepository.findAll();
+	}
+	
+	@Override
+	public Page<Products> readAllPagination(Pageable page) {
+		return productsRepository.findAll(page);
+	}
+
+	@Override
+	public Products readOneByProductCode(String productCode) {
+		return productsRepository.findByProductCodeEquals(productCode);
+	}
+	
+	
+
+
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

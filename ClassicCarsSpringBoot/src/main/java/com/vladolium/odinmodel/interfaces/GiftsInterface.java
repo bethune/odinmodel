@@ -13,6 +13,17 @@ public interface GiftsInterface {
 
 	Gifts saveOne(Gifts gifts);
 	
+	void deleteOneById(Long id);
+	
+	Gifts readOneById(Long id);
+
+	Iterable<Gifts> readAll();
+	
+	Page<Gifts> readAllPagination(Pageable page);
+
+
+	Gifts readOneByGiftName(String giftName);
+
 	
 
 

@@ -1,0 +1,87 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module interface('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::imports/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::saveOne/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkPrimaryKeyConstraint/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readAll/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkUniqueConstraint/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkIricOnManyToOneRelationship/]
+[comment][import com::vladolium::odinmodel::springboot::service::path::createUpdate /]
+[import com::vladolium::odinmodel::springboot::service::path::readOne /]
+[import com::vladolium::odinmodel::springboot::service::path::readAll /]
+[import com::vladolium::odinmodel::springboot::service::path::search /]
+[import com::vladolium::odinmodel::springboot::service::path::delete /][/comment]
+
+[**
+ * Generates an interface class in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize package path and/or name, as well as file name.
+ *    
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public interface(class : Class) {
+	packagePath : String = class._package.name.toLowerCase();
+	packageName	: String = class._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[file ('src/main/java/' + packagePath + '/interfaces/' + entityNameUpperFirst + 'Interface.java', false, 'UTF-8')]
+package [packageName/].interfaces;
+
+[imports()/]
+
+public interface [entityNameUpperFirst/]Interface {
+
+	[saveOne()/]
+	
+	[checkPrimaryKeyConstraint()/]
+
+	[readAll()/]
+
+	[checkParentFromManyToOneRelationship()/]
+
+[comment]	[checkParentFromManyToOneRelationship()/]
+	[readAllByParentIdFromManyToOneRelationship()/]
+	Read all by parent id in many to one relationship
+
+	[readAllByParentUniqueValueFromManyToOneRelationship()/]
+	Read all by parent unique field in many to one relationshi
+
+	//search[/comment]
+
+	[checkUniqueConstraint()/]
+
+	[checkIricOnManyToOneRelationship()/]
+
+[comment]	
+	[aClass.readAll()/]
+	[aClass.search()/]
+	[aClass.delete()/][/comment]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this interface')]
+//[/protected]
+}
+[/file]
+[/template]

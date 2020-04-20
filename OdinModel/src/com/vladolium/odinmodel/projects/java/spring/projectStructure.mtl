@@ -21,10 +21,10 @@
 [comment encoding = UTF-8 /]
 [module projectStructure('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::repositories::jpaRepositoryWithQuerydsl/]
-[import com::vladolium::odinmodel::projects::java::spring::code::services::service/]
-[import com::vladolium::odinmodel::projects::java::spring::code::interfaces::interface/]
-[import com::vladolium::odinmodel::projects::java::spring::code::controllers::controller/]
+[import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithQuerydsl/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::service/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::interface/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::controller/]
 
 [**
  * Project structure setting

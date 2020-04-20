@@ -13,6 +13,17 @@ public interface PaymentsInterface {
 
 	Payments saveOne(Payments payments);
 	
+	void deleteOneById(Long id);
+	
+	Payments readOneById(Long id);
+
+	Iterable<Payments> readAll();
+	
+	Page<Payments> readAllPagination(Pageable page);
+
+
+	
+
 	
 
 

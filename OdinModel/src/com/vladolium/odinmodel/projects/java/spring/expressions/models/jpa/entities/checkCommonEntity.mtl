@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module checkCommonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::entities::commonEntity/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::commonEntity/]
 
 [**
  * Checks for a UML class that is not an abstract one and does not inherit from an abstract class.

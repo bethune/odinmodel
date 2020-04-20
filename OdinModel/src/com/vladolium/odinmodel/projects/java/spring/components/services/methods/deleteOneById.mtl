@@ -19,18 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::abstractClass/]
+[module deleteOneById('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
- *    
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * Generates a delete one by id method for the current service in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the method.
+ *      
+ * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model. 
+ * @param field represents the current field with the primary key constraint from the current UML class.
 */]
-[template public checkAbstractClass(class : Class){
-	isAbstract : Boolean = class.isAbstract;}]
-[if isAbstract]
-[abstractClass()/]
-[/if]	
+[template public deleteOneById(entityNameLowerFirst : String, field : Property)]
+@Override
+public void deleteOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+    [entityNameLowerFirst/]Repository.deleteById([field.name.toLowerFirst()/]);
+}
 [/template]

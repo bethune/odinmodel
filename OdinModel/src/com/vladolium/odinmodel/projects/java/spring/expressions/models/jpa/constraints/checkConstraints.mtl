@@ -21,10 +21,10 @@
 [comment encoding = UTF-8 /]
 [module checkConstraints('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::primaryKey/]
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::notNull/]
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::unique/]
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::constraints::otherJpaConstraint/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::constraints::primaryKey/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::constraints::notNull/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::constraints::unique/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::constraints::otherJpaConstraint/]
 
 [**
  * Checks for constraints over a field.

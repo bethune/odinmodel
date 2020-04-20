@@ -19,53 +19,40 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module service('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module commonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::code::services::imports/]
-[comment][import com::vladolium::odinmodel::springboot::implementation::path::createUpdate /]
-[import com::vladolium::odinmodel::springboot::implementation::path::readOne /]
-[import com::vladolium::odinmodel::springboot::implementation::path::readAll /]
-[import com::vladolium::odinmodel::springboot::implementation::path::searchQueryDSL /]
-[import com::vladolium::odinmodel::springboot::implementation::path::delete /][/comment]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::imports/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::fields::checkAllFields/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::relationships::checkAllRelationships/]
 
 [**
- * Generates a service class in a target project.
+ * Generates a common entity class in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
+ * User may add entity specifics like toString, hashCode, equals, etc.
  * User may further customize package path and/or name, as well as file name.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public service(class : Class){
-	packagePath	: String = class._package.name.toLowerCase();
+[template public commonEntity(class : Class){
+	packagePath : String = class._package.name.toLowerCase();
 	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();
-	entityNameUpperFirst : String = class.name.toUpperFirst();
-	entityNameLowerFirst : String = class.name.toLowerFirst();}]
-[file ('src/main/java/' + packagePath + '/services/' + entityNameUpperFirst + 'Service.java', false, 'UTF-8')]
-package [packageName/].services;
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/].model;
 
 [imports()/]
 
-@Service
-@Transactional
-public class [entityNameUpperFirst/]Service implements [entityNameUpperFirst/]Interface {
+@Entity
+public class [entityNameUpperFirst/] {
 
-	private [entityNameUpperFirst/]Repository [entityNameLowerFirst/]Repository;
+	[checkAllFields()/]
+	
+	[checkAllRelationships()/]
 
-	@Autowired
-	public void set[entityNameUpperFirst/]Repository([entityNameUpperFirst/]Repository [entityNameLowerFirst/]Repository) {
-		this.[entityNameLowerFirst/]Repository = [entityNameLowerFirst/]Repository;
-	}
-
-[comment]	[aClass.createUpdate()/]
-	[aClass.readOne()/]
-	[aClass.readAll()/]
-	[aClass.searchQueryDSL()/]
-	[aClass.delete()/][/comment]
-
-//Code between start and end will not be removed during generation.
-//[protected ('for this serviceImpl')]
+/*Code between start and end will not be removed during generation.*/
+//[protected ('for this entity')]
 //[/protected]
 }
 [/file]

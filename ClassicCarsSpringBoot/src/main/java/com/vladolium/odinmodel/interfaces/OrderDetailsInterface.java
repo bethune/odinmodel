@@ -13,6 +13,17 @@ public interface OrderDetailsInterface {
 
 	OrderDetails saveOne(OrderDetails orderDetails);
 	
+	void deleteOneById(Long id);
+	
+	OrderDetails readOneById(Long id);
+
+	Iterable<OrderDetails> readAll();
+	
+	Page<OrderDetails> readAllPagination(Pageable page);
+
+
+	
+
 	
 
 

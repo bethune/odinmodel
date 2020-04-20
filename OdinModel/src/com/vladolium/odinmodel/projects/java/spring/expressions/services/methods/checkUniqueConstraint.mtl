@@ -19,18 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::abstractClass/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::methods::readOneByUniqueValue/]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
+ * Checks for the field with the unique constraint for the currrent class from the UML class diagram i.e. the domain model.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public checkAbstractClass(class : Class){
-	isAbstract : Boolean = class.isAbstract;}]
-[if isAbstract]
-[abstractClass()/]
-[/if]	
+[template public checkUniqueConstraint(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)) separator('\n')]
+	[if field.isUnique = true and field.isID = false]
+[readOneByUniqueValue(entityNameUpperFirst, entityNameLowerFirst, field)/]
+	[/if]
+[/for]
 [/template]

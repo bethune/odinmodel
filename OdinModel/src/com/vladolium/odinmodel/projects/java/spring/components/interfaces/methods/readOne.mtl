@@ -19,41 +19,18 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module commonEntity('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::code::models::jpa::entities::imports/]
-[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::fields::checkAllFields/]
-[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::relationships::checkAllRelationships/]
+[module readOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates a common entity class in a target project.
+ * Generates the read one by id and read one by unique value methods for the current interface in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may add entity specifics like toString, hashCode, equals, etc.
- * User may further customize package path and/or name, as well as file name.
+ * User may further customize the method.
  *    
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.   
+ * @param field represents the current field with the primary key constraint from the current UML class.
 */]
-[template public commonEntity(class : Class){
-	packagePath : String = class._package.name.toLowerCase();
-	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
-[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
-package [packageName/].model;
-
-[imports()/]
-
-@Entity
-public class [entityNameUpperFirst/] {
-
-	[checkAllFields()/]
-	
-	[checkAllRelationships()/]
-
-/*Code between start and end will not be removed during generation.*/
-//[protected ('for this entity')]
-//[/protected]
-}
-[/file]
+[template public readOneById(entityNameUpperFirst : String, field : Property)]
+[entityNameUpperFirst/] readOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
 [/template]

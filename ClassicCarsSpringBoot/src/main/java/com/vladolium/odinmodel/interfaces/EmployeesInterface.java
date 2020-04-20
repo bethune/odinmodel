@@ -13,6 +13,17 @@ public interface EmployeesInterface {
 
 	Employees saveOne(Employees employees);
 	
+	void deleteOneById(Long id);
+	
+	Employees readOneById(Long id);
+
+	Iterable<Employees> readAll();
+	
+	Page<Employees> readAllPagination(Pageable page);
+
+
+	
+
 	
 
 

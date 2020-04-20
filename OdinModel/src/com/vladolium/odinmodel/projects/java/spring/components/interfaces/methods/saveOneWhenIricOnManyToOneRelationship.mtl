@@ -19,18 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::abstractClass/]
+[module saveOneWhenIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
- *    
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * Generates a save method for the current interface in a target project which covers create when IRIC on many-to-one relationship cases.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the method.
+ * 
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model. 
+ * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.  
+ * @param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.
+ * 
 */]
-[template public checkAbstractClass(class : Class){
-	isAbstract : Boolean = class.isAbstract;}]
-[if isAbstract]
-[abstractClass()/]
-[/if]	
+[template public saveOneWhenIricOnManyToOneRelationship(entityNameUpperFirst : String, entityNameLowerFirst : String, relationship : Property){
+	oppositeEntityNameUpperFirst : String = relationship.type.name.toUpperFirst();}]
+[entityNameUpperFirst/] saveOneWhenIricOnManyToOneRelationship([entityNameUpperFirst/][oppositeEntityNameUpperFirst/] [entityNameLowerFirst/][oppositeEntityNameUpperFirst/]);
 [/template]

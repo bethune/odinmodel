@@ -13,6 +13,17 @@ public interface OfficesInterface {
 
 	Offices saveOne(Offices offices);
 	
+	void deleteOneById(Long id);
+	
+	Offices readOneById(Long id);
+
+	Iterable<Offices> readAll();
+	
+	Page<Offices> readAllPagination(Pageable page);
+
+
+	
+
 	Offices saveOneWhenIricOnManyToOneRelationship(OfficesEmployees officesEmployees);
 
 

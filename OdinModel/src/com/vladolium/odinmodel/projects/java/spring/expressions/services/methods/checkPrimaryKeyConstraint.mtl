@@ -19,18 +19,24 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkPrimaryKeyConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::abstractClass/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::methods::deleteOneById/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::methods::readOne/]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
+ * Checks for the field with the primary key constraint for the currrent class from the UML class diagram i.e. the domain model.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public checkAbstractClass(class : Class){
-	isAbstract : Boolean = class.isAbstract;}]
-[if isAbstract]
-[abstractClass()/]
-[/if]	
+[template public checkPrimaryKeyConstraint(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[for (field: Property | class.getAllAttributes())]
+	[if field.isID = true]
+[deleteOneById(entityNameLowerFirst, field)/]
+
+[readOneById(entityNameUpperFirst, entityNameLowerFirst, field)/]
+	[/if]
+[/for]
 [/template]

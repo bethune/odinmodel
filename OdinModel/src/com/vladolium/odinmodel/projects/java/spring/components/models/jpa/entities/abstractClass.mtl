@@ -19,18 +19,38 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkAbstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module abstractClass('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::abstractClass/]
+[import com::vladolium::odinmodel::projects::java::spring::components::models::jpa::entities::imports/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpa::fields::checkAllFields/]
 
 [**
- * Checks for a UML class that is an abstract one (thus do not cover common and inheriting classes).
+ * Generates an abstract class in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may add class specifics like toString, hashCode, equals, etc.
+ * User may further customize package path and/or name, as well as file name.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public checkAbstractClass(class : Class){
-	isAbstract : Boolean = class.isAbstract;}]
-[if isAbstract]
-[abstractClass()/]
-[/if]	
+[template public abstractClass(class : Class){
+	packagePath : String = class._package.name.toLowerCase();
+	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[file ('src/main/java/' + packagePath + '/model/' + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/].model;
+
+[imports()/]
+
+@MappedSuperclass
+public abstract class [entityNameUpperFirst/] {
+
+	[checkAllFields()/]
+
+/*Code between start and end will not be removed during generation.*/
+//[protected ('for this abstract class')]
+//[/protected]
+}
+[/file]
 [/template]
