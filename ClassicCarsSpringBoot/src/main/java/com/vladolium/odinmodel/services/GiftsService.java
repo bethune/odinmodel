@@ -52,6 +52,8 @@ public class GiftsService implements GiftsInterface {
 		return giftsRepository.findAll(page);
 	}
 
+	
+
 	@Override
 	public Gifts readOneByGiftName(String giftName) {
 		return giftsRepository.findByGiftNameEquals(giftName);

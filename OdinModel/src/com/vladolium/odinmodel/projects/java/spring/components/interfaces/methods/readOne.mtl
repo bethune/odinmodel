@@ -29,8 +29,8 @@
  * User may further customize the method.
  *    
  * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.   
- * @param field represents the current field with the primary key constraint from the current UML class.
+ * @param field represents the current field with the primary key or unique constraint from the current UML class.
 */]
-[template public readOneById(entityNameUpperFirst : String, field : Property)]
+[template public readOne(entityNameUpperFirst : String, field : Property)]
 [entityNameUpperFirst/] readOneBy[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]);
 [/template]

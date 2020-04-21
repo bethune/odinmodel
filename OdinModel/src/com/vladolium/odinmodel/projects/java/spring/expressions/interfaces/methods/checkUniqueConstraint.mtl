@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module checkUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readOneByUniqueValue/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readOne/]
 
 [**
  * Checks for the field with the unique constraint for the currrent class from the UML class diagram i.e. the domain model.
@@ -32,7 +32,7 @@
 	entityNameUpperFirst : String = class.name.toUpperFirst();}]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)) separator('\n')]
 	[if field.isUnique = true and field.isID = false]
-[readOneByUniqueValue(entityNameUpperFirst, field)/]
+[readOne(entityNameUpperFirst, field)/]
 	[/if]
 [/for]
 [/template]

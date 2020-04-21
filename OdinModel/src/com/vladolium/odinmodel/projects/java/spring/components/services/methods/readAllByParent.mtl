@@ -34,13 +34,20 @@
 */]
 [template public readAllByParent(relationship : Property, oppositeEntityField : Property){
 	entityNameUpperFirst : String = relationship.type.name.toUpperFirst();
+	entityNameLowerFirst : String = relationship.type.name.toLowerFirst();
 	parentEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();
 	parentFieldName : String = oppositeEntityField.name.toUpperFirst();
 	parentFieldType : String = oppositeEntityField.type.name.toUpperFirst();}]
 [comment: Read all by parent field /]
-Iterable<[entityNameUpperFirst/]> readAllBy[parentEntityNameUpperFirst/][parentFieldName/]([parentFieldType/] [parentEntityNameLowerFirst/][parentFieldName/]);
+@Override
+public Iterable<[entityNameUpperFirst/]> readAllBy[parentEntityNameUpperFirst/][parentFieldName/]([parentFieldType/] [parentEntityNameLowerFirst/][parentFieldName/]) {
+	return [entityNameLowerFirst/]Repository.findBy[parentEntityNameUpperFirst/][parentFieldName/]Equals([parentEntityNameLowerFirst/][parentFieldName/]);
+}
 
 [comment: Read all by parent field with pagination /]
-Page<[entityNameUpperFirst/]> readAllBy[parentEntityNameUpperFirst/][parentFieldName/]([parentFieldType/] [parentEntityNameLowerFirst/][parentFieldName/], Pageable page);
+@Override
+public Page<[entityNameUpperFirst/]> readAllBy[parentEntityNameUpperFirst/][parentFieldName/]([parentFieldType/] [parentEntityNameLowerFirst/][parentFieldName/], Pageable page) {
+	return [entityNameLowerFirst/]Repository.findBy[parentEntityNameUpperFirst/][parentFieldName/]Equals([parentEntityNameLowerFirst/][parentFieldName/], page);
+}
 [/template]

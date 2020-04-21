@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module checkParentFromManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readAllByParent/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::methods::readAllByParent/]
 
 [**
  * Checks for the fields with the primary key or unique constraint from the parent entity 

@@ -25,15 +25,9 @@
 [import com::vladolium::odinmodel::projects::java::spring::components::services::methods::saveOne/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkPrimaryKeyConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::components::services::methods::readAll/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkParentFromManyToOneRelationship/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkIricOnManyToOneRelationship/]
-
-
-[comment]
-[import com::vladolium::odinmodel::springboot::implementation::path::readOne /]
-[import com::vladolium::odinmodel::springboot::implementation::path::readAll /]
-[import com::vladolium::odinmodel::springboot::implementation::path::searchQueryDSL /]
-[import com::vladolium::odinmodel::springboot::implementation::path::delete /][/comment]
 
 [**
  * Generates a service class in a target project.
@@ -71,16 +65,17 @@ public class [entityNameUpperFirst/]Service implements [entityNameUpperFirst/]In
 
 	[readAll()/]
 
+	[checkParentFromManyToOneRelationship()/]
+
 	[checkUniqueConstraint()/]
 	
 	[checkIricOnManyToOneRelationship()/]
 
 
 [comment]	
-	[aClass.readOne()/]
-	[aClass.readAll()/]
+	
 	[aClass.searchQueryDSL()/]
-	[aClass.delete()/][/comment]
+	[/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this serviceImpl')]

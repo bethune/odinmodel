@@ -21,11 +21,21 @@ public interface PaymentsInterface {
 	
 	Page<Payments> readAllPagination(Pageable page);
 
+	Iterable<Payments> readAllByCustomersId(Long customersId);
+	
+	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
+	
+	Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName);
+	
+	Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
+
 
 	
 
 	
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this interface

@@ -21,11 +21,14 @@ public interface ProductsInterface {
 	
 	Page<Products> readAllPagination(Pageable page);
 
+	Iterable<Products> readAllByProductLinesId(Long productLinesId);
+	
+	Page<Products> readAllByProductLinesId(Long productLinesId, Pageable page);
+
 
 	Products readOneByProductCode(String productCode);
 
 	
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this interface

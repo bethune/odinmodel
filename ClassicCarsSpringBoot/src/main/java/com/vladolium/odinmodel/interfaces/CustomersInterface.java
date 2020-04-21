@@ -21,11 +21,14 @@ public interface CustomersInterface {
 	
 	Page<Customers> readAllPagination(Pageable page);
 
+	Iterable<Customers> readAllByEmployeesId(Long employeesId);
+	
+	Page<Customers> readAllByEmployeesId(Long employeesId, Pageable page);
+
 
 	Customers readOneByCustomerName(String customerName);
 
 	
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this interface

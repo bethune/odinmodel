@@ -53,6 +53,16 @@ public class CustomersService implements CustomersInterface {
 	}
 
 	@Override
+	public Iterable<Customers> readAllByEmployeesId(Long employeesId) {
+		return customersRepository.findByEmployeesIdEquals(employeesId);
+	}
+	
+	@Override
+	public Page<Customers> readAllByEmployeesId(Long employeesId, Pageable page) {
+		return customersRepository.findByEmployeesIdEquals(employeesId, page);
+	}
+
+	@Override
 	public Customers readOneByCustomerName(String customerName) {
 		return customersRepository.findByCustomerNameEquals(customerName);
 	}

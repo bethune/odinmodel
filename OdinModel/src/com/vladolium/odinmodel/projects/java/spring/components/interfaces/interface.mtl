@@ -25,13 +25,9 @@
 [import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::saveOne/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkPrimaryKeyConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readAll/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkParentFromManyToOneRelationship/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkIricOnManyToOneRelationship/]
-[comment][import com::vladolium::odinmodel::springboot::service::path::createUpdate /]
-[import com::vladolium::odinmodel::springboot::service::path::readOne /]
-[import com::vladolium::odinmodel::springboot::service::path::readAll /]
-[import com::vladolium::odinmodel::springboot::service::path::search /]
-[import com::vladolium::odinmodel::springboot::service::path::delete /][/comment]
 
 [**
  * Generates an interface class in a target project.
@@ -61,23 +57,13 @@ public interface [entityNameUpperFirst/]Interface {
 
 	[checkParentFromManyToOneRelationship()/]
 
-[comment]	[checkParentFromManyToOneRelationship()/]
-	[readAllByParentIdFromManyToOneRelationship()/]
-	Read all by parent id in many to one relationship
-
-	[readAllByParentUniqueValueFromManyToOneRelationship()/]
-	Read all by parent unique field in many to one relationshi
+[comment]	
 
 	//search[/comment]
 
 	[checkUniqueConstraint()/]
 
 	[checkIricOnManyToOneRelationship()/]
-
-[comment]	
-	[aClass.readAll()/]
-	[aClass.search()/]
-	[aClass.delete()/][/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this interface')]

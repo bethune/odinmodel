@@ -21,11 +21,12 @@ public interface ReviewsInterface {
 	
 	Page<Reviews> readAllPagination(Pageable page);
 
+	
+
 
 	
 
 	
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this interface

@@ -21,11 +21,20 @@ public interface OrderDetailsInterface {
 	
 	Page<OrderDetails> readAllPagination(Pageable page);
 
+	Iterable<OrderDetails> readAllByProductsId(Long productsId);
+	
+	Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page);
+	
+	
+	
+	Iterable<OrderDetails> readAllByProductsProductCode(String productsProductCode);
+	
+	Page<OrderDetails> readAllByProductsProductCode(String productsProductCode, Pageable page);
+
 
 	
 
 	
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this interface

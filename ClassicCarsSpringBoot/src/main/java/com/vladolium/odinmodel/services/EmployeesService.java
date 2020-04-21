@@ -52,6 +52,16 @@ public class EmployeesService implements EmployeesInterface {
 		return employeesRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<Employees> readAllByOfficesId(Long officesId) {
+		return employeesRepository.findByOfficesIdEquals(officesId);
+	}
+	
+	@Override
+	public Page<Employees> readAllByOfficesId(Long officesId, Pageable page) {
+		return employeesRepository.findByOfficesIdEquals(officesId, page);
+	}
+
 	
 	
 	

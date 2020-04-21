@@ -21,11 +21,14 @@ public interface EmployeesInterface {
 	
 	Page<Employees> readAllPagination(Pageable page);
 
+	Iterable<Employees> readAllByOfficesId(Long officesId);
+	
+	Page<Employees> readAllByOfficesId(Long officesId, Pageable page);
+
 
 	
 
 	
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this interface
