@@ -38,9 +38,9 @@
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();
 	parentFieldName : String = oppositeEntityField.name.toUpperFirst();
 	parentFieldType : String = oppositeEntityField.type.name.toUpperFirst();}]
-[comment: Read all by parent field /]
+[comment: Read all by parent field. /]
 Iterable<[entityNameUpperFirst/]> readAllBy[parentEntityNameUpperFirst/][parentFieldName/]([parentFieldType/] [parentEntityNameLowerFirst/][parentFieldName/]);
 
-[comment: Read all by parent field with pagination /]
+[comment: Read all by parent field with pagination. /]
 Page<[entityNameUpperFirst/]> readAllBy[parentEntityNameUpperFirst/][parentFieldName/]([parentFieldType/] [parentEntityNameLowerFirst/][parentFieldName/], Pageable page);
 [/template]

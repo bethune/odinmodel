@@ -1,0 +1,141 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module checkSearchParameters('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readAllByParent/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterDate/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterTime/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterDateTime/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterInstant/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterBlob/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterClob/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterOther/]
+
+[**
+ * Checks for the search parameters among relationships (foreign keys) and fields 
+ * of the currrent class from the UML class diagram i.e. the domain model.
+ * 
+ * This template uses subtemplates for the better overview of the Acceleo expressions.
+ *    
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public checkSearchParameters(class : Class) post(trim())]
+[checkForeignKeys()/]
+[checkFields()/]
+[/template]
+
+[comment: Subtemplates. /]
+
+[template public checkForeignKeys(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+[/for]
+[/template]
+
+[template public checkFields(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+	[if field.type.name = 'Date']
+[searchParameterDate(field)/][checkLastField(class, i)/]
+	[/if]
+	[if field.type.name = 'Time']
+[searchParameterTime(field)/][checkLastField(class, i)/]
+	[/if]
+	[if field.type.name = 'DateTime']
+[searchParameterDateTime(field)/] [field.name.toLowerFirst()/][checkLastField(class, i)/]
+	[/if]
+	[if field.type.name = 'Instant']
+[searchParameterInstant(field)/] [field.name.toLowerFirst()/][checkLastField(class, i)/]
+	[/if]
+	[if field.type.name = 'Blob']
+[searchParameterBlob(field)/]['['/][']'/] [field.name.toLowerFirst()/][checkLastField(class, i)/]
+	[/if]
+	[if field.type.name = 'Clob']
+[searchParameterClob(field)/] [field.name.toLowerFirst()/][checkLastField(class, i)/]
+	[/if]
+	[if field.type.name <> 'Date' and field.type.name <> 'Time' and field.type.name <> 'DateTime' and field.type.name <> 'Timestamp' and field.type.name <> 'Blob' and field.type.name <> 'Clob']
+[searchParameterOther(field)/] [field.name.toLowerFirst()/][checkLastField(class, i)/]
+	[/if]
+[/for]
+[/template]
+
+[template public checkLastField(class : Class, i : Integer) post(trim())]
+[if class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+[/template]
+
+[template public searchParameters(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();}]
+[comment: foreign keys/]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
+	[comment : ManyToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p: Package | aClass._package)]
+			[for (oppositeEntity: Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : OneToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p: Package | aClass._package)]
+			[for (oppositeEntity: Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : ManyToMany/]
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+		[for (p: Package | aClass._package)]
+			[for (oppositeEntity: Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+Set<[oppositeEntityField.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set,
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : OneToMany/]
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List,
+	[/if]
+[/for]
+[/template]

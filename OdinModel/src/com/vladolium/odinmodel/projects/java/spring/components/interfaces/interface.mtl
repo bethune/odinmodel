@@ -26,6 +26,7 @@
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkPrimaryKeyConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readAll/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkParentFromManyToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::dynamicSearch/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkIricOnManyToOneRelationship/]
 
@@ -57,9 +58,7 @@ public interface [entityNameUpperFirst/]Interface {
 
 	[checkParentFromManyToOneRelationship()/]
 
-[comment]	
-
-	//search[/comment]
+	[dynamicSearch()/]
 
 	[checkUniqueConstraint()/]
 
