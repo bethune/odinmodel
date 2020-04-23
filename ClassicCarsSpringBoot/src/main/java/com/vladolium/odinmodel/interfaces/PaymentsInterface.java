@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Payments.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,6 +22,23 @@ public interface PaymentsInterface {
 	
 	Page<Payments> readAllPagination(Pageable page);
 
+	Iterable<Payments> search(
+		Long customersId,
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate,
+		Double amount
+	);
+	
+	Page<Payments> searchPagination(
+		Pageable page,
+		Long customersId,
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate,
+		Double amount
+	);
+
 	Iterable<Payments> readAllByCustomersId(Long customersId);
 	
 	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
@@ -31,7 +49,6 @@ public interface PaymentsInterface {
 	Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName);
 	
 	Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
-
 
 	
 

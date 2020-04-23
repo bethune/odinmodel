@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.OrderDetails.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,6 +22,23 @@ public interface OrderDetailsInterface {
 	
 	Page<OrderDetails> readAllPagination(Pageable page);
 
+	Iterable<OrderDetails> search(
+		Long productsId,
+		Long ordersId,
+		Integer orderLineNumber,
+		Double priceEach,
+		Integer quantityOrdered
+	);
+	
+	Page<OrderDetails> searchPagination(
+		Pageable page,
+		Long productsId,
+		Long ordersId,
+		Integer orderLineNumber,
+		Double priceEach,
+		Integer quantityOrdered
+	);
+
 	Iterable<OrderDetails> readAllByProductsId(Long productsId);
 	
 	Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page);
@@ -30,7 +48,6 @@ public interface OrderDetailsInterface {
 	Iterable<OrderDetails> readAllByProductsProductCode(String productsProductCode);
 	
 	Page<OrderDetails> readAllByProductsProductCode(String productsProductCode, Pageable page);
-
 
 	
 

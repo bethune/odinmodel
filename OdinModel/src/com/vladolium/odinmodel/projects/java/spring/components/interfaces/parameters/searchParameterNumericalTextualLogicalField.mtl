@@ -19,7 +19,7 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module searchParameterDate('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module searchParameterNumericalTextualLogicalField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
  * Generates the search parameter of the dynamic search method for the current interface in a target project.
@@ -30,6 +30,6 @@
  *       
  * @param field represents the current field with the primary key or unique constraint from the current UML class.
 */]
-[template public searchParameterDate(field : Property)]
-LocalDate [field.name.toLowerFirst()/]
+[template public searchParameterNumericalTextualLogicalField(field : Property)]
+[field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]
 [/template]

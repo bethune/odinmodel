@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Offices.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,8 +22,30 @@ public interface OfficesInterface {
 	
 	Page<Offices> readAllPagination(Pageable page);
 
+	Iterable<Offices> search(
+		String addressLine2,
+		String postalCode,
+		String state,
+		String phone,
+		String addressLine1,
+		String country,
+		String city,
+		String territory
+	);
 	
+	Page<Offices> searchPagination(
+		Pageable page,
+		String addressLine2,
+		String postalCode,
+		String state,
+		String phone,
+		String addressLine1,
+		String country,
+		String city,
+		String territory
+	);
 
+	
 
 	
 

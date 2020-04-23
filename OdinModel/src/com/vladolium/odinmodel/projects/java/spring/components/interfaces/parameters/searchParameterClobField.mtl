@@ -19,7 +19,7 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module searchParameterBlob('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module searchParameterClobField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
  * Generates the search parameter of the dynamic search method for the current interface in a target project.
@@ -30,6 +30,6 @@
  *       
  * @param field represents the current field with the primary key or unique constraint from the current UML class.
 */]
-[template public searchParameterBlob(field : Property)]
-byte['['/][']'/] [field.name.toLowerFirst()/]
+[template public searchParameterClobField(field : Property)]
+String [field.name.toLowerFirst()/]
 [/template]

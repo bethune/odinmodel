@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Reviews.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,8 +22,20 @@ public interface ReviewsInterface {
 	
 	Page<Reviews> readAllPagination(Pageable page);
 
+	Iterable<Reviews> search(
+		LocalTime reviewTime,
+		String reviewText,
+		LocalDate reviewDate
+	);
 	
+	Page<Reviews> searchPagination(
+		Pageable page,
+		LocalTime reviewTime,
+		String reviewText,
+		LocalDate reviewDate
+	);
 
+	
 
 	
 

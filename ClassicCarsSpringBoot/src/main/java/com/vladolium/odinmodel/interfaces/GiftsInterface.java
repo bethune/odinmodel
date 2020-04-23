@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Gifts.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,8 +22,26 @@ public interface GiftsInterface {
 	
 	Page<Gifts> readAllPagination(Pageable page);
 
+	Iterable<Gifts> search(
+		Set<Long> customersSet,
+		LocalDateTime expiresOn,
+		String giftName,
+		LocalDateTime beginsOn,
+		Boolean isExpired,
+		GiftType giftType
+	);
 	
+	Page<Gifts> searchPagination(
+		Pageable page,
+		Set<Long> customersSet,
+		LocalDateTime expiresOn,
+		String giftName,
+		LocalDateTime beginsOn,
+		Boolean isExpired,
+		GiftType giftType
+	);
 
+	
 
 	Gifts readOneByGiftName(String giftName);
 

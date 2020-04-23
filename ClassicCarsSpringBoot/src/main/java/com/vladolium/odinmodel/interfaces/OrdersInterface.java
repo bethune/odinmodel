@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Orders.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,6 +22,25 @@ public interface OrdersInterface {
 	
 	Page<Orders> readAllPagination(Pageable page);
 
+	Iterable<Orders> search(
+		Long customersId,
+		LocalDate requiredDate,
+		LocalDate shippedDate,
+		String status,
+		String comments,
+		LocalDate orderDate
+	);
+	
+	Page<Orders> searchPagination(
+		Pageable page,
+		Long customersId,
+		LocalDate requiredDate,
+		LocalDate shippedDate,
+		String status,
+		String comments,
+		LocalDate orderDate
+	);
+
 	Iterable<Orders> readAllByCustomersId(Long customersId);
 	
 	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
@@ -31,7 +51,6 @@ public interface OrdersInterface {
 	Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName);
 	
 	Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
-
 
 	
 

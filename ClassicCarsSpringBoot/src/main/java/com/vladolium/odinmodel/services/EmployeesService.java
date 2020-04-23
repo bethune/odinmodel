@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.services;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Employees.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,7 @@ public class EmployeesService implements EmployeesInterface {
 		return employeesRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<Employees> readAllByOfficesId(Long officesId) {
 		return employeesRepository.findByOfficesIdEquals(officesId);
@@ -65,8 +67,6 @@ public class EmployeesService implements EmployeesInterface {
 	
 	
 	
-
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

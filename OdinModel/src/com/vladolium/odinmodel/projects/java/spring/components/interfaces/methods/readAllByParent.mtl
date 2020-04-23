@@ -29,7 +29,7 @@
  * User may further customize the methods.
  *    
  * @param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.   
- * @param oppositeEntityField the field with the primary key or unique constraint from the parent entity
+ * @param oppositeEntityField represents the field with the primary key or unique constraint from the parent entity
  * which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.
 */]
 [template public readAllByParent(relationship : Property, oppositeEntityField : Property){

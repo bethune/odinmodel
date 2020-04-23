@@ -25,6 +25,7 @@
 [import com::vladolium::odinmodel::projects::java::spring::components::services::methods::saveOne/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkPrimaryKeyConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::components::services::methods::readAll/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::methods::dynamicSearchQuerydsl/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkParentFromManyToOneRelationship/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkIricOnManyToOneRelationship/]
@@ -65,17 +66,13 @@ public class [entityNameUpperFirst/]Service implements [entityNameUpperFirst/]In
 
 	[readAll()/]
 
+	[dynamicSearchQuerydsl()/]
+
 	[checkParentFromManyToOneRelationship()/]
 
 	[checkUniqueConstraint()/]
 	
 	[checkIricOnManyToOneRelationship()/]
-
-
-[comment]	
-	
-	[aClass.searchQueryDSL()/]
-	[/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this serviceImpl')]

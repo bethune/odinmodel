@@ -19,25 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module imports('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module searchParameterDateTimeField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
+ * Generates the search parameter of the dynamic search method for the current interface in a target project.
+ * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may set Java imports for all Spring interfaces in a single place.
- *   
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * User may further customize the parameter.
+ *       
+ * @param field represents the current field with the primary key or unique constraint from the current UML class.
 */]
-[template public imports(class : Class){
-	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
-import [packageName/].model.*;
-import [packageName/].model.[entityNameUpperFirst/].*;
-
-import java.time.*;
-import java.util.*;
-
-import org.springframework.data.domain.*;
-
-import [packageName/].wrappers.*;
+[template public searchParameterDateTimeField(field : Property)]
+LocalDateTime [field.name.toLowerFirst()/]
 [/template]

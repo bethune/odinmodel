@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.services;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.OrderDetails.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,7 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		return orderDetailsRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<OrderDetails> readAllByProductsId(Long productsId) {
 		return orderDetailsRepository.findByProductsIdEquals(productsId);
@@ -77,8 +79,6 @@ public class OrderDetailsService implements OrderDetailsInterface {
 	
 	
 	
-
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

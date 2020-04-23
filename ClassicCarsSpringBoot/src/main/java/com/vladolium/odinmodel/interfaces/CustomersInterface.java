@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Customers.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,10 +22,40 @@ public interface CustomersInterface {
 	
 	Page<Customers> readAllPagination(Pageable page);
 
+	Iterable<Customers> search(
+		Long employeesId,
+		String addressLine2,
+		String postalCode,
+		String customerName,
+		String firstName,
+		String state,
+		Double creditLimit,
+		String phone,
+		String lastName,
+		String addressLine1,
+		String country,
+		String city
+	);
+	
+	Page<Customers> searchPagination(
+		Pageable page,
+		Long employeesId,
+		String addressLine2,
+		String postalCode,
+		String customerName,
+		String firstName,
+		String state,
+		Double creditLimit,
+		String phone,
+		String lastName,
+		String addressLine1,
+		String country,
+		String city
+	);
+
 	Iterable<Customers> readAllByEmployeesId(Long employeesId);
 	
 	Page<Customers> readAllByEmployeesId(Long employeesId, Pageable page);
-
 
 	Customers readOneByCustomerName(String customerName);
 

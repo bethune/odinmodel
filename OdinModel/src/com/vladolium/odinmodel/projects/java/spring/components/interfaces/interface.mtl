@@ -56,9 +56,9 @@ public interface [entityNameUpperFirst/]Interface {
 
 	[readAll()/]
 
-	[checkParentFromManyToOneRelationship()/]
-
 	[dynamicSearch()/]
+
+	[checkParentFromManyToOneRelationship()/]
 
 	[checkUniqueConstraint()/]
 

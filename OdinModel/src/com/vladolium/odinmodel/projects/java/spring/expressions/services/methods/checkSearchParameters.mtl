@@ -21,16 +21,16 @@
 [comment encoding = UTF-8 /]
 [module checkSearchParameters('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterManyOrOneToOneRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterManyToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterOneToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterDateField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterTimeField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterDateTimeField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterInstantField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterBlobField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterClobField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterNumericalTextualLogicalField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterManyOrOneToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterManyToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterOneToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterDateField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterTimeField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterDateTimeField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterInstantField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterBlobField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterClobField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::searchParameterNumericalTextualLogicalField/]
 
 [**
  * Checks for the search parameters among relationships (foreign keys) and fields 

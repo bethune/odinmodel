@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.services;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Gifts.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,7 @@ public class GiftsService implements GiftsInterface {
 		return giftsRepository.findAll(page);
 	}
 
+
 	
 
 	@Override
@@ -60,8 +62,6 @@ public class GiftsService implements GiftsInterface {
 	}
 	
 	
-
-
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl

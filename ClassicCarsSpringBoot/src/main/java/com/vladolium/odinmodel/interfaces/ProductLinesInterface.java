@@ -1,6 +1,7 @@
 package com.vladolium.odinmodel.interfaces;
 
 import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.ProductLines.*;
 
 import java.time.*;
 import java.util.*;
@@ -21,8 +22,20 @@ public interface ProductLinesInterface {
 	
 	Page<ProductLines> readAllPagination(Pageable page);
 
+	Iterable<ProductLines> search(
+		String textDescription,
+		String productLine,
+		byte[] image
+	);
 	
+	Page<ProductLines> searchPagination(
+		Pageable page,
+		String textDescription,
+		String productLine,
+		byte[] image
+	);
 
+	
 
 	
 
