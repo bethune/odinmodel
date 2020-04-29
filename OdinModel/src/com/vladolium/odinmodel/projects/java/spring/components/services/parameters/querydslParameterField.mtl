@@ -19,10 +19,10 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module searchParameterDateField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module querydslParameterField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the search parameter of the dynamic search method for the current service in a target project.
+ * Generates the Querydsl parameter of the dynamic search method for the current service in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
@@ -30,6 +30,6 @@
  *       
  * @param field represents the current field with the primary key or unique constraint from the current UML class.
 */]
-[template public searchParameterDateField(field : Property)]
-LocalDate [field.name.toLowerFirst()/]
+[template public querydslParameterField(field : Property)]
+[field.name.toLowerFirst()/]
 [/template]

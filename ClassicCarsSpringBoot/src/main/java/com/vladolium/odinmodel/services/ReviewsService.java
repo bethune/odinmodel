@@ -53,6 +53,56 @@ public class ReviewsService implements ReviewsInterface {
 		return reviewsRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<Reviews> search(
+		LocalTime reviewTime,
+		String reviewText,
+		LocalDate reviewDate
+	) {
+		BooleanBuilder where = dynamicWhere(
+			reviewTime,
+			reviewText,
+			reviewDate	
+		);
+		return reviewsRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<Reviews> searchPagination(
+		Pageable page,
+		LocalTime reviewTime,
+		String reviewText,
+		LocalDate reviewDate
+	) {
+		BooleanBuilder where = dynamicWhere(
+			reviewTime,
+			reviewText,
+			reviewDate
+		);
+		return reviewsRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		LocalTime reviewTime,
+		String reviewText,
+		LocalDate reviewDate
+	) {
+		QReviews qReviews = QReviews.reviews;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (reviewTime != null) {
+			where.and(qReviews.reviewTime.eq(reviewTime));
+		}
+		if (reviewText != null) {
+			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
+		}
+		if (reviewDate != null) {
+			where.and(qReviews.reviewDate.eq(reviewDate));
+		}
+	
+		return where;
+	}
 
 	
 

@@ -24,6 +24,9 @@ public interface CustomersInterface {
 
 	Iterable<Customers> search(
 		Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
 		String addressLine2,
 		String postalCode,
 		String customerName,
@@ -40,6 +43,9 @@ public interface CustomersInterface {
 	Page<Customers> searchPagination(
 		Pageable page,
 		Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
 		String addressLine2,
 		String postalCode,
 		String customerName,

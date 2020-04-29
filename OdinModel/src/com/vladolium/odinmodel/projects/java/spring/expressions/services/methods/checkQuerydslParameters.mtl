@@ -21,16 +21,10 @@
 [comment encoding = UTF-8 /]
 [module checkQuerydslParameters('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterManyOrOneToOneRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterManyToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterOneToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterDateField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterTimeField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterDateTimeField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterInstantField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterBlobField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterClobField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::parameters::searchParameterNumericalTextualLogicalField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterManyOrOneToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterManyToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterOneToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterField/]
 
 [**
  * Checks for the Querydsl parameters among relationships (foreign keys) and fields 
@@ -71,7 +65,7 @@
 					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-[searchParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
+[querydslParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
 						[/if]
 					[/for]
 				[/if]
@@ -97,7 +91,7 @@
 					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-[searchParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
+[querydslParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
 						[/if]
 					[/for]
 				[/if]
@@ -123,7 +117,7 @@
 					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-[searchParameterManyToManyRelationship(relationship, oppositeEntityField)/]
+[querydslParameterManyToManyRelationship(relationship)/]
 						[/if]
 					[/for]
 				[/if]
@@ -139,113 +133,22 @@
 	[comment : Check on one-to-many relationship. /]
 	[if relationship.lower = 1 and 
 		relationship.upper = 1 and 
-		relationship.type.name.toUpperFirst() = type and
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and
 		relationship.namespace = association and 
 		relationship.opposite.lower = 0 and 
 		relationship.opposite.upper = -1]
-[searchParameterOneToManyRelationship(relationship)/]
+[querydslParameterOneToManyRelationship(relationship)/]
 	[/if]
 [/for]
 [/template]
 
-[template public checkFields(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[template public checkFields(class : Class) post(trim())]
 [comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
-	[if field.type.name = 'Date']
-[searchParameterDateField(field)/][checkLastField(class, i)/]
-	[/if]
-	[if field.type.name = 'Time']
-[searchParameterTimeField(field)/][checkLastField(class, i)/]
-	[/if]
-	[if field.type.name = 'DateTime']
-[searchParameterDateTimeField(field)/][checkLastField(class, i)/]
-	[/if]
-	[if field.type.name = 'Instant']
-[searchParameterInstantField(field)/][checkLastField(class, i)/]
-	[/if]
-	[if field.type.name = 'Blob']
-[searchParameterBlobField(field)/][checkLastField(class, i)/]
-	[/if]
-	[if field.type.name = 'Clob']
-[searchParameterClobField(field)/][checkLastField(class, i)/]
-	[/if]
-	[if field.type.name <> 'Date' and field.type.name <> 'Time' and field.type.name <> 'DateTime' and field.type.name <> 'Instant' and field.type.name <> 'Blob' and field.type.name <> 'Clob']
-[searchParameterNumericalTextualLogicalField(field)/][checkLastField(class, i)/]
-	[/if]
+[querydslParameterField(field)/][checkLastField(class, i)/]
 [/for]
 [/template]
 
 [template public checkLastField(class : Class, i : Integer) post(trim())]
 [if class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->size()-1 > i],[else][/if]
-[/template]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[template public queryParameters(aClass : Class){
-	type 		: String = aClass.name.toUpperFirst();}]
-[comment: foreign keys/]
-[for (relationship : Property | aClass.getAssociations().memberEnd)]
-	[comment : ManyToOne/]
-	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
-		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-		[for (p : Package | aClass._package)]
-			[for (oppositeEntity : Class | p.member -> filter(Class))]
-				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-						[if oppositeEntityField.isID = true]
-[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
-						[/if]
-					[/for]
-				[/if]
-			[/for]
-		[/for]
-	[/if]
-	[comment : OneToOne/]
-	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
-		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
-		[for (p : Package | aClass._package)]
-			[for (oppositeEntity : Class | p.member -> filter(Class))]
-				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-						[if oppositeEntityField.isID = true]
-[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
-						[/if]
-					[/for]
-				[/if]
-			[/for]
-		[/for]
-	[/if]
-	[comment : ManyToMany/]
-	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
-		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
-[relationship.opposite.type.name.toLowerFirst()/]Set,
-	[/if]
-	[comment : OneToMany/]
-	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
-		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
-[relationship.opposite.type.name.toLowerFirst()/]List,
-	[/if]
-[/for]
-[comment: fields/]
-[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
-[field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
-[/for]
 [/template]

@@ -53,6 +53,72 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		return orderDetailsRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<OrderDetails> search(
+		Long productsId,
+		Long ordersId,
+		Integer orderLineNumber,
+		Double priceEach,
+		Integer quantityOrdered
+	) {
+		BooleanBuilder where = dynamicWhere(
+			productsId,
+			ordersId,
+			orderLineNumber,
+			priceEach,
+			quantityOrdered	
+		);
+		return orderDetailsRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<OrderDetails> searchPagination(
+		Pageable page,
+		Long productsId,
+		Long ordersId,
+		Integer orderLineNumber,
+		Double priceEach,
+		Integer quantityOrdered
+	) {
+		BooleanBuilder where = dynamicWhere(
+			productsId,
+			ordersId,
+			orderLineNumber,
+			priceEach,
+			quantityOrdered
+		);
+		return orderDetailsRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		Long productsId,
+		Long ordersId,
+		Integer orderLineNumber,
+		Double priceEach,
+		Integer quantityOrdered
+	) {
+		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (productsId != null) {
+			where.and(qOrderDetails.products.id.eq(productsId));
+		}
+		if (ordersId != null) {
+			where.and(qOrderDetails.orders.id.eq(ordersId));
+		}
+		if (orderLineNumber != null) {
+			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
+		}
+		if (priceEach != null) {
+			where.and(qOrderDetails.priceEach.eq(priceEach));
+		}
+		if (quantityOrdered != null) {
+			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
+		}
+	
+		return where;
+	}
 
 	@Override
 	public Iterable<OrderDetails> readAllByProductsId(Long productsId) {

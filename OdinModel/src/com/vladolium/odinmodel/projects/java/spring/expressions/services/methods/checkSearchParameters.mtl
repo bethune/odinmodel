@@ -139,7 +139,7 @@
 	[comment : Check on one-to-many relationship. /]
 	[if relationship.lower = 1 and 
 		relationship.upper = 1 and 
-		relationship.type.name.toUpperFirst() = type and
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and
 		relationship.namespace = association and 
 		relationship.opposite.lower = 0 and 
 		relationship.opposite.upper = -1]
@@ -148,8 +148,7 @@
 [/for]
 [/template]
 
-[template public checkFields(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[template public checkFields(class : Class) post(trim())]
 [comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
 	[if field.type.name = 'Date']

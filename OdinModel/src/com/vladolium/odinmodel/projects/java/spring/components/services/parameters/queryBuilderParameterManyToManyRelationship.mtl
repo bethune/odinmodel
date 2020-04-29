@@ -19,17 +19,24 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module searchParameterDateField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module queryBuilderParameterManyToManyRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the search parameter of the dynamic search method for the current service in a target project.
+ * Generates the query builder parameter of the dynamic search method for the current service in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
  * User may further customize the parameter.
- *       
- * @param field represents the current field with the primary key or unique constraint from the current UML class.
+ *     
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
+ * @param relationship represents the current many-to-many relationship of the current class from the UML class diagram i.e. the domain model. 
+ * @param oppositeEntityField represents the field with the primary key from the parent entity
+ * which is in many-to-one or one-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.  
 */]
-[template public searchParameterDateField(field : Property)]
-LocalDate [field.name.toLowerFirst()/]
+[template public queryBuilderParameterManyToManyRelationship(entityNameUpperFirst : String, relationship : Property, oppositeEntityField : Property){
+	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();
+	parentFieldNameLowerFirst : String = oppositeEntityField.name.toLowerFirst();}]
+if ([parentEntityNameLowerFirst/]Set != null) {
+	where.and(q[entityNameUpperFirst/].[parentEntityNameLowerFirst/]Set.any().[parentFieldNameLowerFirst/].in([parentEntityNameLowerFirst/]Set));
+}
 [/template]

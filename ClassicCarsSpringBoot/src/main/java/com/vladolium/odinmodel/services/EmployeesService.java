@@ -53,6 +53,96 @@ public class EmployeesService implements EmployeesInterface {
 		return employeesRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<Employees> search(
+		Long officesId,
+		String email,
+		String extension,
+		String lastName,
+		String jobTitle,
+		Boolean isActive,
+		String firstName,
+		Integer reportsTo
+	) {
+		BooleanBuilder where = dynamicWhere(
+			officesId,
+			email,
+			extension,
+			lastName,
+			jobTitle,
+			isActive,
+			firstName,
+			reportsTo	
+		);
+		return employeesRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<Employees> searchPagination(
+		Pageable page,
+		Long officesId,
+		String email,
+		String extension,
+		String lastName,
+		String jobTitle,
+		Boolean isActive,
+		String firstName,
+		Integer reportsTo
+	) {
+		BooleanBuilder where = dynamicWhere(
+			officesId,
+			email,
+			extension,
+			lastName,
+			jobTitle,
+			isActive,
+			firstName,
+			reportsTo
+		);
+		return employeesRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		Long officesId,
+		String email,
+		String extension,
+		String lastName,
+		String jobTitle,
+		Boolean isActive,
+		String firstName,
+		Integer reportsTo
+	) {
+		QEmployees qEmployees = QEmployees.employees;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (officesId != null) {
+			where.and(qEmployees.offices.id.eq(officesId));
+		}
+		if (email != null) {
+			where.and(qEmployees.email.containsIgnoreCase(email));
+		}
+		if (extension != null) {
+			where.and(qEmployees.extension.containsIgnoreCase(extension));
+		}
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
+		}
+		if (jobTitle != null) {
+			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
+		}
+		if (isActive != null) {
+			where.and(qEmployees.isActive.eq(isActive));
+		}
+		if (firstName != null) {
+			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
+		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
+		}
+	
+		return where;
+	}
 
 	@Override
 	public Iterable<Employees> readAllByOfficesId(Long officesId) {

@@ -53,6 +53,80 @@ public class GiftsService implements GiftsInterface {
 		return giftsRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<Gifts> search(
+		Set<Long> customersSet,
+		LocalDateTime expiresOn,
+		String giftName,
+		LocalDateTime beginsOn,
+		Boolean isExpired,
+		GiftType giftType
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersSet,
+			expiresOn,
+			giftName,
+			beginsOn,
+			isExpired,
+			giftType	
+		);
+		return giftsRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<Gifts> searchPagination(
+		Pageable page,
+		Set<Long> customersSet,
+		LocalDateTime expiresOn,
+		String giftName,
+		LocalDateTime beginsOn,
+		Boolean isExpired,
+		GiftType giftType
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersSet,
+			expiresOn,
+			giftName,
+			beginsOn,
+			isExpired,
+			giftType
+		);
+		return giftsRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		Set<Long> customersSet,
+		LocalDateTime expiresOn,
+		String giftName,
+		LocalDateTime beginsOn,
+		Boolean isExpired,
+		GiftType giftType
+	) {
+		QGifts qGifts = QGifts.gifts;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (customersSet != null) {
+			where.and(qGifts.customersSet.any().id.in(customersSet));
+		}
+		if (expiresOn != null) {
+			where.and(qGifts.expiresOn.eq(expiresOn));
+		}
+		if (giftName != null) {
+			where.and(qGifts.giftName.containsIgnoreCase(giftName));
+		}
+		if (beginsOn != null) {
+			where.and(qGifts.beginsOn.eq(beginsOn));
+		}
+		if (isExpired != null) {
+			where.and(qGifts.isExpired.eq(isExpired));
+		}
+		if (giftType != null) {
+			where.and(qGifts.giftType.eq(giftType));
+		}
+	
+		return where;
+	}
 
 	
 

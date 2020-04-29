@@ -53,6 +53,56 @@ public class ProductLinesService implements ProductLinesInterface {
 		return productLinesRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<ProductLines> search(
+		String textDescription,
+		String productLine,
+		byte[] image
+	) {
+		BooleanBuilder where = dynamicWhere(
+			textDescription,
+			productLine,
+			image	
+		);
+		return productLinesRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<ProductLines> searchPagination(
+		Pageable page,
+		String textDescription,
+		String productLine,
+		byte[] image
+	) {
+		BooleanBuilder where = dynamicWhere(
+			textDescription,
+			productLine,
+			image
+		);
+		return productLinesRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		String textDescription,
+		String productLine,
+		byte[] image
+	) {
+		QProductLines qProductLines = QProductLines.productLines;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (textDescription != null) {
+			where.and(qProductLines.textDescription.eq(textDescription));
+		}
+		if (productLine != null) {
+			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
+		}
+		if (image != null) {
+			where.and(qProductLines.image.eq(image));
+		}
+	
+		return where;
+	}
 
 	
 

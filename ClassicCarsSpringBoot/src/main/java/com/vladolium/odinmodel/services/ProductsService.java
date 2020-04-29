@@ -53,6 +53,104 @@ public class ProductsService implements ProductsInterface {
 		return productsRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<Products> search(
+		Long productLinesId,
+		Integer quantityInStock,
+		String productName,
+		Double buyPrice,
+		Double msrp,
+		String productVendor,
+		String productCode,
+		String productDescription,
+		String productScale
+	) {
+		BooleanBuilder where = dynamicWhere(
+			productLinesId,
+			quantityInStock,
+			productName,
+			buyPrice,
+			msrp,
+			productVendor,
+			productCode,
+			productDescription,
+			productScale	
+		);
+		return productsRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<Products> searchPagination(
+		Pageable page,
+		Long productLinesId,
+		Integer quantityInStock,
+		String productName,
+		Double buyPrice,
+		Double msrp,
+		String productVendor,
+		String productCode,
+		String productDescription,
+		String productScale
+	) {
+		BooleanBuilder where = dynamicWhere(
+			productLinesId,
+			quantityInStock,
+			productName,
+			buyPrice,
+			msrp,
+			productVendor,
+			productCode,
+			productDescription,
+			productScale
+		);
+		return productsRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		Long productLinesId,
+		Integer quantityInStock,
+		String productName,
+		Double buyPrice,
+		Double msrp,
+		String productVendor,
+		String productCode,
+		String productDescription,
+		String productScale
+	) {
+		QProducts qProducts = QProducts.products;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (productLinesId != null) {
+			where.and(qProducts.productLines.id.eq(productLinesId));
+		}
+		if (quantityInStock != null) {
+			where.and(qProducts.quantityInStock.eq(quantityInStock));
+		}
+		if (productName != null) {
+			where.and(qProducts.productName.containsIgnoreCase(productName));
+		}
+		if (buyPrice != null) {
+			where.and(qProducts.buyPrice.eq(buyPrice));
+		}
+		if (msrp != null) {
+			where.and(qProducts.msrp.eq(msrp));
+		}
+		if (productVendor != null) {
+			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
+		if (productCode != null) {
+			where.and(qProducts.productCode.containsIgnoreCase(productCode));
+		}
+		if (productDescription != null) {
+			where.and(qProducts.productDescription.eq(productDescription));
+		}
+		if (productScale != null) {
+			where.and(qProducts.productScale.containsIgnoreCase(productScale));
+		}
+	
+		return where;
+	}
 
 	@Override
 	public Iterable<Products> readAllByProductLinesId(Long productLinesId) {

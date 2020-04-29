@@ -53,6 +53,72 @@ public class PaymentsService implements PaymentsInterface {
 		return paymentsRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<Payments> search(
+		Long customersId,
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate,
+		Double amount
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersId,
+			checkNumber,
+			paymentTimestamp,
+			paymentDate,
+			amount	
+		);
+		return paymentsRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<Payments> searchPagination(
+		Pageable page,
+		Long customersId,
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate,
+		Double amount
+	) {
+		BooleanBuilder where = dynamicWhere(
+			customersId,
+			checkNumber,
+			paymentTimestamp,
+			paymentDate,
+			amount
+		);
+		return paymentsRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		Long customersId,
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate,
+		Double amount
+	) {
+		QPayments qPayments = QPayments.payments;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (customersId != null) {
+			where.and(qPayments.customers.id.eq(customersId));
+		}
+		if (checkNumber != null) {
+			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
+		}
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		}
+		if (paymentDate != null) {
+			where.and(qPayments.paymentDate.eq(paymentDate));
+		}
+		if (amount != null) {
+			where.and(qPayments.amount.eq(amount));
+		}
+	
+		return where;
+	}
 
 	@Override
 	public Iterable<Payments> readAllByCustomersId(Long customersId) {

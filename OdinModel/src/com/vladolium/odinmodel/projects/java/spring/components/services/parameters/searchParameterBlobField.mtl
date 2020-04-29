@@ -22,7 +22,7 @@
 [module searchParameterBlobField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the search parameter of the dynamic search method for the current interface in a target project.
+ * Generates the search parameter of the dynamic search method for the current service in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 

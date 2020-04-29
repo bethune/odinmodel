@@ -53,6 +53,148 @@ public class CustomersService implements CustomersInterface {
 		return customersRepository.findAll(page);
 	}
 
+	@Override
+	public Iterable<Customers> search(
+		Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
+		String addressLine2,
+		String postalCode,
+		String customerName,
+		String firstName,
+		String state,
+		Double creditLimit,
+		String phone,
+		String lastName,
+		String addressLine1,
+		String country,
+		String city
+	) {
+		BooleanBuilder where = dynamicWhere(
+			employeesId,
+			
+			
+			reviewsList,
+			addressLine2,
+			postalCode,
+			customerName,
+			firstName,
+			state,
+			creditLimit,
+			phone,
+			lastName,
+			addressLine1,
+			country,
+			city	
+		);
+		return customersRepository.findAll(where);
+	}
+	
+	@Override
+	public Page<Customers> searchPagination(
+		Pageable page,
+		Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
+		String addressLine2,
+		String postalCode,
+		String customerName,
+		String firstName,
+		String state,
+		Double creditLimit,
+		String phone,
+		String lastName,
+		String addressLine1,
+		String country,
+		String city
+	) {
+		BooleanBuilder where = dynamicWhere(
+			employeesId,
+			
+			
+			reviewsList,
+			addressLine2,
+			postalCode,
+			customerName,
+			firstName,
+			state,
+			creditLimit,
+			phone,
+			lastName,
+			addressLine1,
+			country,
+			city
+		);
+		return customersRepository.findAll(where, page);
+	}
+	
+	public BooleanBuilder dynamicWhere(
+		Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
+		String addressLine2,
+		String postalCode,
+		String customerName,
+		String firstName,
+		String state,
+		Double creditLimit,
+		String phone,
+		String lastName,
+		String addressLine1,
+		String country,
+		String city
+	) {
+		QCustomers qCustomers = QCustomers.customers;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (employeesId != null) {
+			where.and(qCustomers.employees.id.eq(employeesId));
+		}
+		
+		
+		if (reviewsList != null) {
+			where.and(qCustomers.reviewsList.any().in(reviewsList));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
+		}
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
+		}
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		}
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (city != null) {
+			where.and(qCustomers.city.containsIgnoreCase(city));
+		}
+	
+		return where;
+	}
 
 	@Override
 	public Iterable<Customers> readAllByEmployeesId(Long employeesId) {
