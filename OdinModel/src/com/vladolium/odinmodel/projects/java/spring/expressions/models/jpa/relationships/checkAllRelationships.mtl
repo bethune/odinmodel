@@ -34,7 +34,7 @@
 [template public checkAllRelationships(class : Class) post (trim()){
 	classNameUpperFirst	: String = class.name.toUpperFirst();}]
 [for (relationship : Property | class.getAssociations().memberEnd)]
-	[if relationship.lower = 1 and 
+	[if (relationship.lower = 0 or relationship.lower = 1) and 
 		relationship.upper = -1 and 
 		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
 		relationship.namespace = association and 

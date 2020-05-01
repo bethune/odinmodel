@@ -54,6 +54,16 @@ public class OrderDetails {
 		this.priceEach = priceEach;
 	}
 	
+	@ManyToOne
+	@JoinColumn(name="products_id")
+	private Products products;
+	
+	public Products getProducts() {
+		return products;
+	}
+	public void setProducts(Products products) {
+		this.products = products;
+	}
 	@OneToOne
 	@JoinColumn(name="orders_id")
 	private Orders orders;

@@ -26,7 +26,7 @@
 [import com::vladolium::odinmodel::springboot::controller::path::readAll /]
 [import com::vladolium::odinmodel::springboot::controller::path::search /]
 [import com::vladolium::odinmodel::springboot::controller::path::delete /]
-[import com::vladolium::odinmodel::springboot::controller::wrapper::manyToOneWrapper /]
+[comment][import com::vladolium::odinmodel::springboot::controller::wrapper::manyToOneWrapper /][/comment]
 
 [template public controller(aClass : Class){
 	isEntity 		: Boolean = aClass.isAbstract = false;
@@ -69,7 +69,7 @@ public class [type/]Controller {
 	[aClass.readAll()/]
 	[aClass.search()/]
 	[aClass.delete()/]
-	[aClass.manyToOneWrapper()/]
+[comment]	[aClass.manyToOneWrapper()/][/comment]
 
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]

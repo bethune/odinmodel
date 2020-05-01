@@ -80,7 +80,16 @@ public class Orders {
 		this.comments = comments;
 	}
 	
+	@ManyToOne
+	@JoinColumn(name="customers_id")
+	private Customers customers;
 	
+	public Customers getCustomers() {
+		return customers;
+	}
+	public void setCustomers(Customers customers) {
+		this.customers = customers;
+	}
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this entity

@@ -67,6 +67,16 @@ public class Customers extends ContactDetails {
 		this.lastName = lastName;
 	}
 	
+	@ManyToOne
+	@JoinColumn(name="employees_id")
+	private Employees employees;
+	
+	public Employees getEmployees() {
+		return employees;
+	}
+	public void setEmployees(Employees employees) {
+		this.employees = employees;
+	}
 	@OneToMany
 	@JoinColumn(name="customers_id")
 	private List<Reviews> reviewsList;
