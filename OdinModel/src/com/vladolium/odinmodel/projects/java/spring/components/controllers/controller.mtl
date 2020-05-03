@@ -1,24 +1,27 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
 [comment encoding = UTF-8 /]
 [module controller('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment]
-	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
-
-    Copyright (C) 2019  Vladolium
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see https://www.gnu.org/licenses/.
-[/comment]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::imports/]
 
 [comment][import com::vladolium::odinmodel::springboot::controller::path::create /]
 [import com::vladolium::odinmodel::springboot::controller::path::update /]
@@ -28,41 +31,41 @@
 [import com::vladolium::odinmodel::springboot::controller::path::delete /]
 [import com::vladolium::odinmodel::springboot::controller::wrapper::manyToOneWrapper /][/comment]
 
-[template public controller(aClass : Class){
-	isEntity 		: Boolean = aClass.isAbstract = false;
-	packagePath 	: String = aClass._package.name.toLowerCase();
-	type 			: String = aClass.name.toUpperFirst();
-	parameter		: String = aClass.name.toLowerFirst();
-	controllerPath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();}]
-[comment][if isEntity]
-	[file ('src/main/java/' + packagePath + '/controller/' + type + 'Controller.java', false, 'UTF-8')]
-package [controllerPath/].controller;
+[**
+ * Generates a controller class in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize package path and/or name, as well as file name.
+ *    
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public controller(class : Class){
+	packagePath : String = class._package.name.toLowerCase();
+	packageName	: String = class._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[file ('src/main/java/' + packagePath + '/controllers/' + entityNameUpperFirst + 'Controller.java', false, 'UTF-8')]
+package [packageName/].controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.data.domain.*;
-import org.springframework.format.annotation.*;
-import java.time.*;
-import java.util.*;
-import [controllerPath/].domain.*;
-import [controllerPath/].domain.[type/];
-import [controllerPath/].domain.[type/].*;
-import [controllerPath/].service.[type/]Service;
-import [controllerPath/].service.*;
-import [controllerPath/].wrapper.*;
+[imports()/]
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/api/[parameter/]")
-public class [type/]Controller {
+@RequestMapping("/api/[entityNameLowerFirst/]")
+public class [entityNameUpperFirst/]Controller {
 
-	private [type/]Service [parameter/]Service;
+	private [entityNameUpperFirst/]Interface [entityNameLowerFirst/]Interface;
 
 	@Autowired
-	public void set[type/]Service([type/]Service [parameter/]Service) {
-		this.[parameter/]Service = [parameter/]Service;
+	public void set[entityNameUpperFirst/]Interface([entityNameUpperFirst/]Interface [entityNameLowerFirst/]Interface) {
+		this.[entityNameLowerFirst/]Interface = [entityNameLowerFirst/]Interface;
 	}
 
+	[saveOne()/]
+
+	[checkIricOnManyToOneRelationship()/]
+[comment]
 	[aClass.create()/]
 	[aClass.update()/]
 	[aClass.readOne()/]
@@ -70,11 +73,10 @@ public class [type/]Controller {
 	[aClass.search()/]
 	[aClass.delete()/]
 	[aClass.manyToOneWrapper()/]
-
+[/comment]
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]
 //[/protected]
 }
-	[/file]
-[/if][/comment]
+[/file]
 [/template]
