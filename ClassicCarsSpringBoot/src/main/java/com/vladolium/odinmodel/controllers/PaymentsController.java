@@ -25,6 +25,12 @@ public class PaymentsController {
 	public void setPaymentsInterface(PaymentsInterface paymentsInterface) {
 		this.paymentsInterface = paymentsInterface;
 	}
+
+	@PostMapping("")
+	public Payments saveOne(@RequestBody Payments payments) {
+		return paymentsInterface.saveOne(payments);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

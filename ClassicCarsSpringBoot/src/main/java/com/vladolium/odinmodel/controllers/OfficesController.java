@@ -25,6 +25,12 @@ public class OfficesController {
 	public void setOfficesInterface(OfficesInterface officesInterface) {
 		this.officesInterface = officesInterface;
 	}
+
+	@PostMapping("")
+	public Offices saveOne(@RequestBody Offices offices) {
+		return officesInterface.saveOne(offices);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

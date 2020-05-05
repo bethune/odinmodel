@@ -25,6 +25,12 @@ public class GiftsController {
 	public void setGiftsInterface(GiftsInterface giftsInterface) {
 		this.giftsInterface = giftsInterface;
 	}
+
+	@PostMapping("")
+	public Gifts saveOne(@RequestBody Gifts gifts) {
+		return giftsInterface.saveOne(gifts);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

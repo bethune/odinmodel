@@ -25,6 +25,12 @@ public class ProductLinesController {
 	public void setProductLinesInterface(ProductLinesInterface productLinesInterface) {
 		this.productLinesInterface = productLinesInterface;
 	}
+
+	@PostMapping("")
+	public ProductLines saveOne(@RequestBody ProductLines productLines) {
+		return productLinesInterface.saveOne(productLines);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

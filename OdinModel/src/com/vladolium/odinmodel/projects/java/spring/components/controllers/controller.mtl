@@ -22,14 +22,14 @@
 [module controller('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::imports/]
-
-[comment][import com::vladolium::odinmodel::springboot::controller::path::create /]
-[import com::vladolium::odinmodel::springboot::controller::path::update /]
-[import com::vladolium::odinmodel::springboot::controller::path::readOne /]
-[import com::vladolium::odinmodel::springboot::controller::path::readAll /]
-[import com::vladolium::odinmodel::springboot::controller::path::search /]
-[import com::vladolium::odinmodel::springboot::controller::path::delete /]
-[import com::vladolium::odinmodel::springboot::controller::wrapper::manyToOneWrapper /][/comment]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::saveOne/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkPrimaryKeyConstraint/]
+[comment][import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readAll/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkParentFromManyToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::dynamicSearch/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkUniqueConstraint/]
+[/comment]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkIricOnManyToOneRelationship/]
 
 [**
  * Generates a controller class in a target project.
@@ -64,7 +64,17 @@ public class [entityNameUpperFirst/]Controller {
 
 	[saveOne()/]
 
-	[checkIricOnManyToOneRelationship()/]
+	[checkPrimaryKeyConstraint()/]
+
+[comment]	[readAll()/]
+
+	[dynamicSearch()/]
+
+	[checkParentFromManyToOneRelationship()/]
+
+	[checkUniqueConstraint()/][/comment]
+
+[comment]	[checkIricOnManyToOneRelationship()/][/comment]
 [comment]
 	[aClass.create()/]
 	[aClass.update()/]
@@ -72,7 +82,6 @@ public class [entityNameUpperFirst/]Controller {
 	[aClass.readAll()/]
 	[aClass.search()/]
 	[aClass.delete()/]
-	[aClass.manyToOneWrapper()/]
 [/comment]
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]

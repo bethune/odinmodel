@@ -25,6 +25,12 @@ public class EmployeesController {
 	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
 		this.employeesInterface = employeesInterface;
 	}
+
+	@PostMapping("")
+	public Employees saveOne(@RequestBody Employees employees) {
+		return employeesInterface.saveOne(employees);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

@@ -25,6 +25,12 @@ public class CustomersController {
 	public void setCustomersInterface(CustomersInterface customersInterface) {
 		this.customersInterface = customersInterface;
 	}
+
+	@PostMapping("")
+	public Customers saveOne(@RequestBody Customers customers) {
+		return customersInterface.saveOne(customers);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

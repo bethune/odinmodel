@@ -25,6 +25,12 @@ public class OrderDetailsController {
 	public void setOrderDetailsInterface(OrderDetailsInterface orderDetailsInterface) {
 		this.orderDetailsInterface = orderDetailsInterface;
 	}
+
+	@PostMapping("")
+	public OrderDetails saveOne(@RequestBody OrderDetails orderDetails) {
+		return orderDetailsInterface.saveOne(orderDetails);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

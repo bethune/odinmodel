@@ -25,6 +25,12 @@ public class ProductsController {
 	public void setProductsInterface(ProductsInterface productsInterface) {
 		this.productsInterface = productsInterface;
 	}
+
+	@PostMapping("")
+	public Products saveOne(@RequestBody Products products) {
+		return productsInterface.saveOne(products);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

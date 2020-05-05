@@ -25,6 +25,12 @@ public class ReviewsController {
 	public void setReviewsInterface(ReviewsInterface reviewsInterface) {
 		this.reviewsInterface = reviewsInterface;
 	}
+
+	@PostMapping("")
+	public Reviews saveOne(@RequestBody Reviews reviews) {
+		return reviewsInterface.saveOne(reviews);
+	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code
