@@ -31,6 +31,33 @@ public class GiftsController {
 		return giftsInterface.saveOne(gifts);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		giftsInterface.deleteOneById(id);
+	}
+	
+	@GetMapping("/{id}")
+	public Gifts readOneById(@PathVariable Long id) {
+		return giftsInterface.readOneById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public Gifts updateOneById(@PathVariable Long id, @RequestBody Gifts gifts) {
+		
+		Gifts current = giftsInterface.readOneById(id);
+			
+		current.setCustomersSet(gifts.getCustomersSet());
+		current.setIsExpired(gifts.getIsExpired());
+		current.setExpiresOn(gifts.getExpiresOn());
+		current.setGiftName(gifts.getGiftName());
+		current.setGiftType(gifts.getGiftType());
+		current.setBeginsOn(gifts.getBeginsOn());
+				
+		return giftsInterface.saveOne(current);
+	}
+
+
+	
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

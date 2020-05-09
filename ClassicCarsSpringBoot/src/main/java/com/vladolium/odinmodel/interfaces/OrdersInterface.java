@@ -24,33 +24,38 @@ public interface OrdersInterface {
 
 	Iterable<Orders> search(
 		Long customersId,
-		LocalDate requiredDate,
-		LocalDate shippedDate,
 		String status,
+		LocalDate orderDate,
 		String comments,
-		LocalDate orderDate
+		LocalDate requiredDate,
+		LocalDate shippedDate
 	);
 	
 	Page<Orders> searchPagination(
 		Pageable page,
 		Long customersId,
-		LocalDate requiredDate,
-		LocalDate shippedDate,
 		String status,
+		LocalDate orderDate,
 		String comments,
-		LocalDate orderDate
+		LocalDate requiredDate,
+		LocalDate shippedDate
 	);
 
-	Iterable<Orders> readAllByCustomersId(Long customersId);
-	
-	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
-	
-	
-	
-	
 	Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName);
 	
 	Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Iterable<Orders> readAllByCustomersId(Long customersId);
+	
+	Page<Orders> readAllByCustomersId(Long customersId, Pageable page);
 
 	
 

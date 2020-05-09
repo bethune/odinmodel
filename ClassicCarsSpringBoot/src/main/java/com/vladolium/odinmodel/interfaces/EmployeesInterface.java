@@ -24,25 +24,25 @@ public interface EmployeesInterface {
 
 	Iterable<Employees> search(
 		Long officesId,
-		String email,
-		String extension,
 		String lastName,
+		Integer reportsTo,
+		String extension,
+		String email,
 		String jobTitle,
-		Boolean isActive,
 		String firstName,
-		Integer reportsTo
+		Boolean isActive
 	);
 	
 	Page<Employees> searchPagination(
 		Pageable page,
 		Long officesId,
-		String email,
-		String extension,
 		String lastName,
+		Integer reportsTo,
+		String extension,
+		String email,
 		String jobTitle,
-		Boolean isActive,
 		String firstName,
-		Integer reportsTo
+		Boolean isActive
 	);
 
 	Iterable<Employees> readAllByOfficesId(Long officesId);

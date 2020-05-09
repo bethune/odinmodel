@@ -56,23 +56,23 @@ public class EmployeesService implements EmployeesInterface {
 	@Override
 	public Iterable<Employees> search(
 		Long officesId,
-		String email,
-		String extension,
 		String lastName,
+		Integer reportsTo,
+		String extension,
+		String email,
 		String jobTitle,
-		Boolean isActive,
 		String firstName,
-		Integer reportsTo
+		Boolean isActive
 	) {
 		BooleanBuilder where = dynamicWhere(
 			officesId,
-			email,
-			extension,
 			lastName,
+			reportsTo,
+			extension,
+			email,
 			jobTitle,
-			isActive,
 			firstName,
-			reportsTo	
+			isActive	
 		);
 		return employeesRepository.findAll(where);
 	}
@@ -81,36 +81,36 @@ public class EmployeesService implements EmployeesInterface {
 	public Page<Employees> searchPagination(
 		Pageable page,
 		Long officesId,
-		String email,
-		String extension,
 		String lastName,
+		Integer reportsTo,
+		String extension,
+		String email,
 		String jobTitle,
-		Boolean isActive,
 		String firstName,
-		Integer reportsTo
+		Boolean isActive
 	) {
 		BooleanBuilder where = dynamicWhere(
 			officesId,
-			email,
-			extension,
 			lastName,
+			reportsTo,
+			extension,
+			email,
 			jobTitle,
-			isActive,
 			firstName,
-			reportsTo
+			isActive
 		);
 		return employeesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long officesId,
-		String email,
-		String extension,
 		String lastName,
+		Integer reportsTo,
+		String extension,
+		String email,
 		String jobTitle,
-		Boolean isActive,
 		String firstName,
-		Integer reportsTo
+		Boolean isActive
 	) {
 		QEmployees qEmployees = QEmployees.employees;
 	
@@ -119,26 +119,26 @@ public class EmployeesService implements EmployeesInterface {
 		if (officesId != null) {
 			where.and(qEmployees.offices.id.eq(officesId));
 		}
-		if (email != null) {
-			where.and(qEmployees.email.containsIgnoreCase(email));
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
+		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
 		}
 		if (extension != null) {
 			where.and(qEmployees.extension.containsIgnoreCase(extension));
 		}
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
+		if (email != null) {
+			where.and(qEmployees.email.containsIgnoreCase(email));
 		}
 		if (jobTitle != null) {
 			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
 		}
-		if (isActive != null) {
-			where.and(qEmployees.isActive.eq(isActive));
-		}
 		if (firstName != null) {
 			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
 		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
+		if (isActive != null) {
+			where.and(qEmployees.isActive.eq(isActive));
 		}
 	
 		return where;

@@ -24,21 +24,21 @@ public interface GiftsInterface {
 
 	Iterable<Gifts> search(
 		Set<Long> customersSet,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn,
-		Boolean isExpired,
-		GiftType giftType
+		GiftType giftType,
+		LocalDateTime beginsOn
 	);
 	
 	Page<Gifts> searchPagination(
 		Pageable page,
 		Set<Long> customersSet,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn,
-		Boolean isExpired,
-		GiftType giftType
+		GiftType giftType,
+		LocalDateTime beginsOn
 	);
 
 	

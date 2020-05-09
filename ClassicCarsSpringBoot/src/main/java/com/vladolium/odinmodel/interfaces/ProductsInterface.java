@@ -24,27 +24,27 @@ public interface ProductsInterface {
 
 	Iterable<Products> search(
 		Long productLinesId,
-		Integer quantityInStock,
 		String productName,
-		Double buyPrice,
-		Double msrp,
+		Integer quantityInStock,
 		String productVendor,
-		String productCode,
 		String productDescription,
-		String productScale
+		Double buyPrice,
+		String productScale,
+		Double msrp,
+		String productCode
 	);
 	
 	Page<Products> searchPagination(
 		Pageable page,
 		Long productLinesId,
-		Integer quantityInStock,
 		String productName,
-		Double buyPrice,
-		Double msrp,
+		Integer quantityInStock,
 		String productVendor,
-		String productCode,
 		String productDescription,
-		String productScale
+		Double buyPrice,
+		String productScale,
+		Double msrp,
+		String productCode
 	);
 
 	Iterable<Products> readAllByProductLinesId(Long productLinesId);

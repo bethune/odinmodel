@@ -25,30 +25,35 @@ public interface PaymentsInterface {
 	Iterable<Payments> search(
 		Long customersId,
 		String checkNumber,
-		Instant paymentTimestamp,
 		LocalDate paymentDate,
-		Double amount
+		Double amount,
+		Instant paymentTimestamp
 	);
 	
 	Page<Payments> searchPagination(
 		Pageable page,
 		Long customersId,
 		String checkNumber,
-		Instant paymentTimestamp,
 		LocalDate paymentDate,
-		Double amount
+		Double amount,
+		Instant paymentTimestamp
 	);
 
-	Iterable<Payments> readAllByCustomersId(Long customersId);
-	
-	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
-	
-	
-	
-	
 	Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName);
 	
 	Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Iterable<Payments> readAllByCustomersId(Long customersId);
+	
+	Page<Payments> readAllByCustomersId(Long customersId, Pageable page);
 
 	
 

@@ -31,6 +31,33 @@ public class OrdersController {
 		return ordersInterface.saveOne(orders);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		ordersInterface.deleteOneById(id);
+	}
+	
+	@GetMapping("/{id}")
+	public Orders readOneById(@PathVariable Long id) {
+		return ordersInterface.readOneById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public Orders updateOneById(@PathVariable Long id, @RequestBody Orders orders) {
+		
+		Orders current = ordersInterface.readOneById(id);
+			
+		current.setCustomers(orders.getCustomers());
+		current.setStatus(orders.getStatus());
+		current.setOrderDate(orders.getOrderDate());
+		current.setComments(orders.getComments());
+		current.setRequiredDate(orders.getRequiredDate());
+		current.setShippedDate(orders.getShippedDate());
+				
+		return ordersInterface.saveOne(current);
+	}
+
+
+	
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

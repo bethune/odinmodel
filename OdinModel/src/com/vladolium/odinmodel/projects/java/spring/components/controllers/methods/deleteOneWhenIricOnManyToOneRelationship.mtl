@@ -19,10 +19,10 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module deleteOneByIdWhenIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module deleteOneWhenIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates a save method for the current interface in a target project which covers create when IRIC on many-to-one relationship cases.
+ * Generates a delete method for the current controller in a target project which covers create when IRIC on many-to-one relationship cases.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
@@ -31,20 +31,27 @@
  * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model. 
  * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.  
  * @param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.
+ * @param field represents the current field with the primary key constraint from the current UML class.
+ * @param oppositeEntityField the field with the primary key or unique constraint from the parent entity.
  * 
 */]
-[template public deleteOneByIdWhenIricOnManyToOneRelationship(entityNameUpperFirst : String, entityNameLowerFirst : String, relationship : Property){
-	oppositeEntityNameUpperFirst : String = relationship.type.name.toUpperFirst();}]
-@DeleteMapping("/{[field.name.toLowerFirst()/]}/[relationship.opposite.type.name.toLowerFirst()/]")
-public void deleteOneBy[field.name.toUpperFirst()/]Iric(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
-	[type/] current = [parameter/]Service.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
-	Iterable<[type/]> listOf[type/] = [parameter/]Service
-		.readAllBy[relationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/](current.get[relationship.opposite.type.name.toUpperFirst()/]().get[oppositeEntityField.name.toUpperFirst()/]());
-	Long size = listOf[type/].spliterator().getExactSizeIfKnown();
+[template public deleteOneWhenIricOnManyToOneRelationship(entityNameUpperFirst : String, entityNameLowerFirst : String, field : Property, oppositeEntityField : Property, relationship : Property){
+	oppositeEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
+	oppositeEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
+@DeleteMapping("/{[field.name.toLowerFirst()/]}/[oppositeEntityNameLowerFirst/]")
+public void deleteOneBy[field.name.toUpperFirst()/]WhenIricOnManyToOneRelationship(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+	
+	[entityNameUpperFirst/] current = [entityNameLowerFirst/]Interface.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+
+	Iterable<[entityNameUpperFirst/]> listOf[entityNameUpperFirst/] = [entityNameLowerFirst/]Interface
+		.readAllBy[oppositeEntityNameUpperFirst/][oppositeEntityField.name.toUpperFirst()/](current.get[oppositeEntityNameUpperFirst/]().get[oppositeEntityField.name.toUpperFirst()/]());
+
+	Long size = listOf[entityNameUpperFirst/].spliterator().getExactSizeIfKnown();
+
 	if (size == 1) {
 	    return;
 	} else {
-	    [parameter/]Service.deleteOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+	    [entityNameLowerFirst/]Interface.deleteOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 	}
 }
 [/template]

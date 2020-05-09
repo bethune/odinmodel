@@ -36,6 +36,18 @@ public class Orders {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
 	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
+	private LocalDate orderDate;
+	
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
+	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
 	private LocalDate requiredDate;
 	
 	public LocalDate getRequiredDate() {
@@ -55,18 +67,6 @@ public class Orders {
 	}
 	public void setShippedDate(LocalDate shippedDate) {
 		this.shippedDate = shippedDate;
-	}
-	
-	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd") //for database
-	@JsonFormat(pattern = "yyyy-MM-dd") //for frontend
-	private LocalDate orderDate;
-	
-	public LocalDate getOrderDate() {
-		return orderDate;
-	}
-	public void setOrderDate(LocalDate orderDate) {
-		this.orderDate = orderDate;
 	}
 	
 	@Size(max=4000)

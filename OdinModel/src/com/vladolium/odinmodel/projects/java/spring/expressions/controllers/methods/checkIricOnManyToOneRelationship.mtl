@@ -21,45 +21,52 @@
 [comment encoding = UTF-8 /]
 [module checkIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::deleteOneByIdWhenIricOnManyToOneRelationship/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::saveOneWhenIricOnManyToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::deleteOneWhenIricOnManyToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::updateOneWhenIricOnManyToOneRelationship/]
 
 [**
  * Checks for the IRIC on many-to-one relationship for the currrent class from the UML class diagram i.e. the domain model.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
- * @param targetMethod represents the type of the method in the current class from the UML class diagram i.e. the domain model.
 */]
 [template public checkIricOnManyToOneRelationship(class : Class) post(trim()){
 	entityNameUpperFirst : String = class.name.toUpperFirst();
 	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [for (relationship: Property | class.getAssociations().memberEnd)]
+	[comment: Check IRIC for create cases. /]
 	[if relationship.lower = 1 and 
 		relationship.upper = -1 and 
 		relationship.opposite.type.name.toUpperFirst() = entityNameUpperFirst and
 		relationship.namespace = association and 
 		relationship.opposite.lower = 1 and 
 		relationship.opposite.upper = 1]
-
-
-
-		[if targetMethod = 'forDelete']
-			[for (p : Package | class._package)]
-				[for (oppositeEntity : Class | p.member -> filter(Class))]
-					[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
-						(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-						[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-							[if oppositeEntityField.isID = true]
-[deleteOneByIdWhenIricOnManyToOneRelationship()/]
-							[/if]
-						[/for]
-					[/if]
-				[/for]
-			[/for]
-		[/if]
-		[if targetMethod = 'forSave']
 [saveOneWhenIricOnManyToOneRelationship(entityNameUpperFirst, entityNameLowerFirst, relationship)/]
-		[/if]
+	[/if]
+	[comment: Check IRIC for update and delete cases. /]
+	[if relationship.lower = 1 and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+		[for (p : Package | class._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+							[for (field: Property | class.getAllAttributes()) separator('\n')]
+								[if field.isID = true]
+[deleteOneWhenIricOnManyToOneRelationship(entityNameUpperFirst, entityNameLowerFirst, field, oppositeEntityField, relationship)/]
+
+[updateOneWhenIricOnManyToOneRelationship(class, entityNameUpperFirst, entityNameLowerFirst, field, oppositeEntityField, relationship)/]
+								[/if]
+							[/for]
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
 	[/if]
 [/for]
 [/template]

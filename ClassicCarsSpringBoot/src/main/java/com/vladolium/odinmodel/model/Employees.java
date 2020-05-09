@@ -33,14 +33,14 @@ public class Employees {
 	}
 	
 	@NotNull
-	@Size(max=100)
-	private String email;
+	@Size(max=50)
+	private String lastName;
 	
-	public String getEmail() {
-		return email;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	@NotNull
@@ -55,14 +55,14 @@ public class Employees {
 	}
 	
 	@NotNull
-	@Size(max=50)
-	private String lastName;
+	@Size(max=100)
+	private String email;
 	
-	public String getLastName() {
-		return lastName;
+	public String getEmail() {
+		return email;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	@NotNull

@@ -31,6 +31,30 @@ public class ReviewsController {
 		return reviewsInterface.saveOne(reviews);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		reviewsInterface.deleteOneById(id);
+	}
+	
+	@GetMapping("/{id}")
+	public Reviews readOneById(@PathVariable Long id) {
+		return reviewsInterface.readOneById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public Reviews updateOneById(@PathVariable Long id, @RequestBody Reviews reviews) {
+		
+		Reviews current = reviewsInterface.readOneById(id);
+			
+		current.setReviewTime(reviews.getReviewTime());
+		current.setReviewDate(reviews.getReviewDate());
+		current.setReviewText(reviews.getReviewText());
+				
+		return reviewsInterface.saveOne(current);
+	}
+
+
+	
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

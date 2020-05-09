@@ -22,6 +22,7 @@
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::project/]
+[comment][import com::vladolium::odinmodel::springboot::springboot/][/comment]
 
 [**
  * Represents a single entry point for the project prototyping.
@@ -31,4 +32,5 @@
 [template public main(class : Class)]
 [comment @main/]
 [project()/]
+[comment][springboot()/][/comment]
 [/template]

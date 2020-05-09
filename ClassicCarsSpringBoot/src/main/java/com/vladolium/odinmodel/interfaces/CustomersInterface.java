@@ -27,17 +27,17 @@ public interface CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String addressLine2,
-		String postalCode,
-		String customerName,
-		String firstName,
-		String state,
-		Double creditLimit,
+		String city,
 		String phone,
-		String lastName,
+		String addressLine2,
+		String firstName,
+		Double creditLimit,
+		String customerName,
 		String addressLine1,
 		String country,
-		String city
+		String lastName,
+		String state,
+		String postalCode
 	);
 	
 	Page<Customers> searchPagination(
@@ -46,17 +46,17 @@ public interface CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String addressLine2,
-		String postalCode,
-		String customerName,
-		String firstName,
-		String state,
-		Double creditLimit,
+		String city,
 		String phone,
-		String lastName,
+		String addressLine2,
+		String firstName,
+		Double creditLimit,
+		String customerName,
 		String addressLine1,
 		String country,
-		String city
+		String lastName,
+		String state,
+		String postalCode
 	);
 
 	Iterable<Customers> readAllByEmployeesId(Long employeesId);

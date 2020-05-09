@@ -31,6 +31,80 @@ public class ProductsController {
 		return productsInterface.saveOne(products);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		productsInterface.deleteOneById(id);
+	}
+	
+	@GetMapping("/{id}")
+	public Products readOneById(@PathVariable Long id) {
+		return productsInterface.readOneById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public Products updateOneById(@PathVariable Long id, @RequestBody Products products) {
+		
+		Products current = productsInterface.readOneById(id);
+			
+		current.setProductLines(products.getProductLines());
+		current.setProductName(products.getProductName());
+		current.setQuantityInStock(products.getQuantityInStock());
+		current.setProductVendor(products.getProductVendor());
+		current.setProductDescription(products.getProductDescription());
+		current.setBuyPrice(products.getBuyPrice());
+		current.setProductScale(products.getProductScale());
+		current.setMsrp(products.getMsrp());
+		current.setProductCode(products.getProductCode());
+				
+		return productsInterface.saveOne(current);
+	}
+
+
+	@DeleteMapping("/{id}/productLines")
+	public void deleteOneByIdWhenIricOnManyToOneRelationship(@PathVariable Long id) {
+		
+		Products current = productsInterface.readOneById(id);
+	
+		Iterable<Products> listOfProducts = productsInterface
+			.readAllByProductLinesId(current.getProductLines().getId());
+	
+		Long size = listOfProducts.spliterator().getExactSizeIfKnown();
+	
+		if (size == 1) {
+		    return;
+		} else {
+		    productsInterface.deleteOneById(id);
+		}
+	}
+	
+	@PutMapping("/{id}/productLines")
+	public Products updateOneByIdWhenIricOnManyToOneRelationship(@PathVariable Long id, @RequestBody Products products) {
+	
+		Products current = productsInterface.readOneById(id);
+	
+		if (current.getProductLines().getId() == products.getProductLines().getId()) {
+	
+						
+	
+			return productsInterface.saveOne(current);
+	
+		} else {
+	
+		    Iterable<Products> listOfProducts = productsInterface.readAllByProductLinesId(current.getProductLines().getId());
+	
+		    Long size = listOfProducts.spliterator().getExactSizeIfKnown();
+	
+		    if (size == 1) {
+				return current;
+		    } else {
+	
+							
+	
+				return productsInterface.saveOne(current);
+	
+		    }
+		}
+	}
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

@@ -55,14 +55,14 @@ public class ProductLinesService implements ProductLinesInterface {
 
 	@Override
 	public Iterable<ProductLines> search(
-		String textDescription,
 		String productLine,
-		byte[] image
+		byte[] image,
+		String textDescription
 	) {
 		BooleanBuilder where = dynamicWhere(
-			textDescription,
 			productLine,
-			image	
+			image,
+			textDescription	
 		);
 		return productLinesRepository.findAll(where);
 	}
@@ -70,35 +70,35 @@ public class ProductLinesService implements ProductLinesInterface {
 	@Override
 	public Page<ProductLines> searchPagination(
 		Pageable page,
-		String textDescription,
 		String productLine,
-		byte[] image
+		byte[] image,
+		String textDescription
 	) {
 		BooleanBuilder where = dynamicWhere(
-			textDescription,
 			productLine,
-			image
+			image,
+			textDescription
 		);
 		return productLinesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		String textDescription,
 		String productLine,
-		byte[] image
+		byte[] image,
+		String textDescription
 	) {
 		QProductLines qProductLines = QProductLines.productLines;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (textDescription != null) {
-			where.and(qProductLines.textDescription.eq(textDescription));
-		}
 		if (productLine != null) {
 			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
 		}
 		if (image != null) {
 			where.and(qProductLines.image.eq(image));
+		}
+		if (textDescription != null) {
+			where.and(qProductLines.textDescription.eq(textDescription));
 		}
 	
 		return where;

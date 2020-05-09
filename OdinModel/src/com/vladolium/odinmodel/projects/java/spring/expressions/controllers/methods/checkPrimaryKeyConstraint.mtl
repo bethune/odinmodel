@@ -39,7 +39,7 @@
 
 [readOne(entityNameUpperFirst, entityNameLowerFirst, field)/]
 
-[updateOne(entityNameUpperFirst, entityNameLowerFirst, field)/]
+[updateOne(class, entityNameUpperFirst, entityNameLowerFirst, field)/]
 	[/if]
 [/for]
 [/template]

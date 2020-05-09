@@ -31,6 +31,33 @@ public class ProductLinesController {
 		return productLinesInterface.saveOne(productLines);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		productLinesInterface.deleteOneById(id);
+	}
+	
+	@GetMapping("/{id}")
+	public ProductLines readOneById(@PathVariable Long id) {
+		return productLinesInterface.readOneById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public ProductLines updateOneById(@PathVariable Long id, @RequestBody ProductLines productLines) {
+		
+		ProductLines current = productLinesInterface.readOneById(id);
+			
+		current.setProductLine(productLines.getProductLine());
+		current.setImage(productLines.getImage());
+		current.setTextDescription(productLines.getTextDescription());
+				
+		return productLinesInterface.saveOne(current);
+	}
+
+
+	@PostMapping("/products")
+	public ProductLines saveOneWhenIricOnManyToOneRelationship(@RequestBody ProductLinesProducts productLinesProducts) {
+		return productLinesInterface.saveOneWhenIricOnManyToOneRelationship(productLinesProducts);
+	}
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

@@ -11,34 +11,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @MappedSuperclass
 public abstract class ContactDetails {
 
+	@NotNull
 	@Size(max=50)
-	private String addressLine2;
+	private String city;
 	
-	public String getAddressLine2() {
-		return addressLine2;
+	public String getCity() {
+		return city;
 	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
-	}
-	
-	@Size(max=15)
-	private String postalCode;
-	
-	public String getPostalCode() {
-		return postalCode;
-	}
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
-	
-	@Size(max=50)
-	private String state;
-	
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
 	@Size(max=50)@Pattern(regexp="(\\(\\d{3}\\)\\d{3}-\\d{4}") // \(\d{3}\)\d{3}-?\d{4}
@@ -49,6 +30,16 @@ public abstract class ContactDetails {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	@Size(max=50)
+	private String addressLine2;
+	
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 	
 	@NotNull
@@ -73,15 +64,24 @@ public abstract class ContactDetails {
 		this.country = country;
 	}
 	
-	@NotNull
 	@Size(max=50)
-	private String city;
+	private String state;
 	
-	public String getCity() {
-		return city;
+	public String getState() {
+		return state;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	@Size(max=15)
+	private String postalCode;
+	
+	public String getPostalCode() {
+		return postalCode;
+	}
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 
 /*Code between start and end will not be removed during generation.*/

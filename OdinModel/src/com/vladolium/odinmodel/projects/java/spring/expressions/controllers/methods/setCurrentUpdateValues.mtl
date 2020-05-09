@@ -19,30 +19,29 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module setCurrentValues('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module setCurrentUpdateValues('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterManyOrOneToOneRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterManyToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterOneToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::querydslParameterField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::values::updateValueManyOrOneToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::values::updateValueManyToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::values::updateValueOneToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::values::updateValueField/]
 
 [**
- * Checks for the Querydsl parameters among relationships (foreign keys) and fields 
+ * Checks for the values among relationships (foreign keys) and fields 
  * of the currrent class from the UML class diagram i.e. the domain model.
  * 
  * This template uses subtemplates for the better overview of the Acceleo expressions.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public setCurrentValues(class : Class) post(trim())]
+[template public setCurrentUpdateValues(class : Class) post(trim())]
 [checkRelationshipForeignKeys()/]
 [checkFields()/]
 [/template]
 
 [comment: Subtemplates. /]
 
-[template public checkRelationshipForeignKeys(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[template public checkRelationshipForeignKeys(class : Class) post(trim())]
 [checkManyToOneRelationship()/]
 [checkOneToOneRelationship()/]
 [checkManyToManyRelationship()/]
@@ -50,7 +49,8 @@
 [/template]
 
 [template public checkManyToOneRelationship(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [for (relationship : Property | class.getAssociations().memberEnd)]
 	[comment : Check on many-to-one relationship. /]
 	[if (relationship.lower = 0 or relationship.lower = 1) and 
@@ -59,24 +59,14 @@
 		relationship.namespace = association and
 		relationship.opposite.lower = 1 and 
 		relationship.opposite.upper = 1]
-		[for (p: Package | class._package)]
-			[for (oppositeEntity: Class | p.member -> filter(Class))]
-				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
-					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-						[if oppositeEntityField.isID = true]
-[querydslParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
-						[/if]
-					[/for]
-				[/if]
-			[/for]
-		[/for]
+[updateValueManyOrOneToOneRelationship(relationship, entityNameLowerFirst)/]				
 	[/if]
 [/for]
 [/template]
 
 [template public checkOneToOneRelationship(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [for (relationship : Property | class.getAssociations().memberEnd)]
 	[comment : Check on one-to-one relationship. /]
 	[if (relationship.lower = 0 or relationship.lower = 1) and 
@@ -85,24 +75,14 @@
 		relationship.namespace = association and 
 		relationship.opposite.lower = 1 and 
 		relationship.opposite.upper = 1]
-		[for (p: Package | class._package)]
-			[for (oppositeEntity: Class | p.member -> filter(Class))]
-				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
-					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-						[if oppositeEntityField.isID = true]
-[querydslParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
-						[/if]
-					[/for]
-				[/if]
-			[/for]
-		[/for]
+[updateValueManyOrOneToOneRelationship(relationship, entityNameLowerFirst)/]						
 	[/if]
 [/for]
 [/template]
 
 [template public checkManyToManyRelationship(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [for (relationship : Property | class.getAssociations().memberEnd)]
 	[comment : Check on many-to-many relationship. /]
 	[if relationship.lower = 0 and 
@@ -110,25 +90,15 @@
 		relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
 		relationship.namespace = association and 
 		relationship.opposite.lower = 0 and 
-		relationship.opposite.upper = -1]
-		[for (p: Package | class._package)]
-			[for (oppositeEntity: Class | p.member -> filter(Class))]
-				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
-					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-						[if oppositeEntityField.isID = true]
-[querydslParameterManyToManyRelationship(relationship)/]
-						[/if]
-					[/for]
-				[/if]
-			[/for]
-		[/for]
+		relationship.opposite.upper = -1]		
+[updateValueManyToManyRelationship(relationship, entityNameLowerFirst)/]						
 	[/if]
 [/for]
 [/template]
 
 [template public checkOneToManyRelationship(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [for (relationship : Property | class.getAssociations().memberEnd)]
 	[comment : Check on one-to-many relationship. /]
 	[if relationship.lower = 1 and 
@@ -137,18 +107,15 @@
 		relationship.namespace = association and 
 		relationship.opposite.lower = 0 and 
 		relationship.opposite.upper = -1]
-[querydslParameterOneToManyRelationship(relationship)/]
+[updateValueOneToManyRelationship(relationship, entityNameLowerFirst)/]
 	[/if]
 [/for]
 [/template]
 
-[template public checkFields(class : Class) post(trim())]
+[template public checkFields(class : Class) post(trim()){
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
-[querydslParameterField(field)/][checkLastField(class, i)/]
+[updateValueField(field, entityNameLowerFirst)/]
 [/for]
-[/template]
-
-[template public checkLastField(class : Class, i : Integer) post(trim())]
-[if class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 [/template]

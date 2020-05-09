@@ -31,6 +31,32 @@ public class PaymentsController {
 		return paymentsInterface.saveOne(payments);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		paymentsInterface.deleteOneById(id);
+	}
+	
+	@GetMapping("/{id}")
+	public Payments readOneById(@PathVariable Long id) {
+		return paymentsInterface.readOneById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public Payments updateOneById(@PathVariable Long id, @RequestBody Payments payments) {
+		
+		Payments current = paymentsInterface.readOneById(id);
+			
+		current.setCustomers(payments.getCustomers());
+		current.setCheckNumber(payments.getCheckNumber());
+		current.setPaymentDate(payments.getPaymentDate());
+		current.setAmount(payments.getAmount());
+		current.setPaymentTimestamp(payments.getPaymentTimestamp());
+				
+		return paymentsInterface.saveOne(current);
+	}
+
+
+	
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

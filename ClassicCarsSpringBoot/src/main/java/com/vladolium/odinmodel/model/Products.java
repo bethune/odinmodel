@@ -76,6 +76,17 @@ public class Products {
 	}
 	
 	@NotNull
+	@Size(max=10)
+	private String productScale;
+	
+	public String getProductScale() {
+		return productScale;
+	}
+	public void setProductScale(String productScale) {
+		this.productScale = productScale;
+	}
+	
+	@NotNull
 	@Column(unique=true)
 	@Size(max=15)
 	private String productCode;
@@ -85,17 +96,6 @@ public class Products {
 	}
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
-	}
-	
-	@NotNull
-	@Size(max=10)
-	private String productScale;
-	
-	public String getProductScale() {
-		return productScale;
-	}
-	public void setProductScale(String productScale) {
-		this.productScale = productScale;
 	}
 	
 	@NotNull

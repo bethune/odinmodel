@@ -74,7 +74,7 @@ public class [entityNameUpperFirst/]Controller {
 
 	[checkUniqueConstraint()/][/comment]
 
-[comment]	[checkIricOnManyToOneRelationship()/][/comment]
+	[checkIricOnManyToOneRelationship()/]
 [comment]
 	[aClass.create()/]
 	[aClass.update()/]

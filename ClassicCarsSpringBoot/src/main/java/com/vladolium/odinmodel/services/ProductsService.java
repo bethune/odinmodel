@@ -56,25 +56,25 @@ public class ProductsService implements ProductsInterface {
 	@Override
 	public Iterable<Products> search(
 		Long productLinesId,
-		Integer quantityInStock,
 		String productName,
-		Double buyPrice,
-		Double msrp,
+		Integer quantityInStock,
 		String productVendor,
-		String productCode,
 		String productDescription,
-		String productScale
+		Double buyPrice,
+		String productScale,
+		Double msrp,
+		String productCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productLinesId,
-			quantityInStock,
 			productName,
-			buyPrice,
-			msrp,
+			quantityInStock,
 			productVendor,
-			productCode,
 			productDescription,
-			productScale	
+			buyPrice,
+			productScale,
+			msrp,
+			productCode	
 		);
 		return productsRepository.findAll(where);
 	}
@@ -83,39 +83,39 @@ public class ProductsService implements ProductsInterface {
 	public Page<Products> searchPagination(
 		Pageable page,
 		Long productLinesId,
-		Integer quantityInStock,
 		String productName,
-		Double buyPrice,
-		Double msrp,
+		Integer quantityInStock,
 		String productVendor,
-		String productCode,
 		String productDescription,
-		String productScale
+		Double buyPrice,
+		String productScale,
+		Double msrp,
+		String productCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productLinesId,
-			quantityInStock,
 			productName,
-			buyPrice,
-			msrp,
+			quantityInStock,
 			productVendor,
-			productCode,
 			productDescription,
-			productScale
+			buyPrice,
+			productScale,
+			msrp,
+			productCode
 		);
 		return productsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long productLinesId,
-		Integer quantityInStock,
 		String productName,
-		Double buyPrice,
-		Double msrp,
+		Integer quantityInStock,
 		String productVendor,
-		String productCode,
 		String productDescription,
-		String productScale
+		Double buyPrice,
+		String productScale,
+		Double msrp,
+		String productCode
 	) {
 		QProducts qProducts = QProducts.products;
 	
@@ -124,29 +124,29 @@ public class ProductsService implements ProductsInterface {
 		if (productLinesId != null) {
 			where.and(qProducts.productLines.id.eq(productLinesId));
 		}
-		if (quantityInStock != null) {
-			where.and(qProducts.quantityInStock.eq(quantityInStock));
-		}
 		if (productName != null) {
 			where.and(qProducts.productName.containsIgnoreCase(productName));
 		}
-		if (buyPrice != null) {
-			where.and(qProducts.buyPrice.eq(buyPrice));
-		}
-		if (msrp != null) {
-			where.and(qProducts.msrp.eq(msrp));
+		if (quantityInStock != null) {
+			where.and(qProducts.quantityInStock.eq(quantityInStock));
 		}
 		if (productVendor != null) {
 			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
 		}
-		if (productCode != null) {
-			where.and(qProducts.productCode.containsIgnoreCase(productCode));
-		}
 		if (productDescription != null) {
 			where.and(qProducts.productDescription.eq(productDescription));
 		}
+		if (buyPrice != null) {
+			where.and(qProducts.buyPrice.eq(buyPrice));
+		}
 		if (productScale != null) {
 			where.and(qProducts.productScale.containsIgnoreCase(productScale));
+		}
+		if (msrp != null) {
+			where.and(qProducts.msrp.eq(msrp));
+		}
+		if (productCode != null) {
+			where.and(qProducts.productCode.containsIgnoreCase(productCode));
 		}
 	
 		return where;

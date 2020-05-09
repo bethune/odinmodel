@@ -22,7 +22,7 @@
 [module saveOneWhenIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates a save method for the current interface in a target project which covers create when IRIC on many-to-one relationship cases.
+ * Generates a save method for the current controller in a target project which covers create when IRIC on many-to-one relationship cases.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
@@ -34,6 +34,10 @@
  * 
 */]
 [template public saveOneWhenIricOnManyToOneRelationship(entityNameUpperFirst : String, entityNameLowerFirst : String, relationship : Property){
-	oppositeEntityNameUpperFirst : String = relationship.type.name.toUpperFirst();}]
-[entityNameUpperFirst/] saveOneWhenIricOnManyToOneRelationship([entityNameUpperFirst/][oppositeEntityNameUpperFirst/] [entityNameLowerFirst/][oppositeEntityNameUpperFirst/]);
+	oppositeEntityNameUpperFirst : String = relationship.type.name.toUpperFirst();
+	oppositeEntityNameLowerFirst : String = relationship.type.name.toLowerFirst();}]
+@PostMapping("/[oppositeEntityNameLowerFirst/]")
+public [entityNameUpperFirst/] saveOneWhenIricOnManyToOneRelationship(@RequestBody [entityNameUpperFirst/][oppositeEntityNameUpperFirst/] [entityNameLowerFirst/][oppositeEntityNameUpperFirst/]) {
+	return [entityNameLowerFirst/]Interface.saveOneWhenIricOnManyToOneRelationship([entityNameLowerFirst/][oppositeEntityNameUpperFirst/]);
+}
 [/template]

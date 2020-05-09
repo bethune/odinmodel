@@ -56,19 +56,19 @@ public class GiftsService implements GiftsInterface {
 	@Override
 	public Iterable<Gifts> search(
 		Set<Long> customersSet,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn,
-		Boolean isExpired,
-		GiftType giftType
+		GiftType giftType,
+		LocalDateTime beginsOn
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
+			isExpired,
 			expiresOn,
 			giftName,
-			beginsOn,
-			isExpired,
-			giftType	
+			giftType,
+			beginsOn	
 		);
 		return giftsRepository.findAll(where);
 	}
@@ -77,30 +77,30 @@ public class GiftsService implements GiftsInterface {
 	public Page<Gifts> searchPagination(
 		Pageable page,
 		Set<Long> customersSet,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn,
-		Boolean isExpired,
-		GiftType giftType
+		GiftType giftType,
+		LocalDateTime beginsOn
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
+			isExpired,
 			expiresOn,
 			giftName,
-			beginsOn,
-			isExpired,
-			giftType
+			giftType,
+			beginsOn
 		);
 		return giftsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Set<Long> customersSet,
+		Boolean isExpired,
 		LocalDateTime expiresOn,
 		String giftName,
-		LocalDateTime beginsOn,
-		Boolean isExpired,
-		GiftType giftType
+		GiftType giftType,
+		LocalDateTime beginsOn
 	) {
 		QGifts qGifts = QGifts.gifts;
 	
@@ -109,20 +109,20 @@ public class GiftsService implements GiftsInterface {
 		if (customersSet != null) {
 			where.and(qGifts.customersSet.any().id.in(customersSet));
 		}
+		if (isExpired != null) {
+			where.and(qGifts.isExpired.eq(isExpired));
+		}
 		if (expiresOn != null) {
 			where.and(qGifts.expiresOn.eq(expiresOn));
 		}
 		if (giftName != null) {
 			where.and(qGifts.giftName.containsIgnoreCase(giftName));
 		}
-		if (beginsOn != null) {
-			where.and(qGifts.beginsOn.eq(beginsOn));
-		}
-		if (isExpired != null) {
-			where.and(qGifts.isExpired.eq(isExpired));
-		}
 		if (giftType != null) {
 			where.and(qGifts.giftType.eq(giftType));
+		}
+		if (beginsOn != null) {
+			where.and(qGifts.beginsOn.eq(beginsOn));
 		}
 	
 		return where;

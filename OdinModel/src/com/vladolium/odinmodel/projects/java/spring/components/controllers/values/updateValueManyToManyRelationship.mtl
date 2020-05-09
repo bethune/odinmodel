@@ -19,17 +19,19 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module querydslParameterField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module updateValueManyToManyRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the Querydsl parameter of the dynamic search method for the current service in a target project.
+ * Generates the value of the update method for the current controller in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may further customize the parameter.
+ * User may further customize the value.
  *       
- * @param field represents the current field without the primary key constraint from the current UML class.
+ * @param relationship represents the current many-to-many relationship of the current class from the UML class diagram i.e. the domain model.   
+ * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.  
 */]
-[template public querydslParameterField(field : Property)]
-[field.name.toLowerFirst()/]
+[template public updateValueManyToManyRelationship(relationship : Property, entityNameLowerFirst : String){
+	parentEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();}]
+current.set[parentEntityNameUpperFirst/]Set([entityNameLowerFirst/].get[parentEntityNameUpperFirst/]Set());
 [/template]

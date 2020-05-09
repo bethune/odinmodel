@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module updateOne('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::setCurrentValues/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::setCurrentUpdateValues/]
 
 [**
  * Generates the update one by id and update one by unique value methods for the current controller in a target project.
@@ -30,18 +30,19 @@
  * 
  * User may further customize the method.
  *       
+ * @param class represents the current class from the UML class diagram i.e. the domain model.       
  * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
  * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
  * @param field represents the current field with the primary key constraint from the current UML class.
 */]
-[template public updateOne(entityNameUpperFirst : String, entityNameLowerFirst : String, field : Property)]
+[template public updateOne(class : Class, entityNameUpperFirst : String, entityNameLowerFirst : String, field : Property)]
 @PutMapping("/{[field.name.toLowerFirst()/]}")
 public [entityNameUpperFirst/] updateOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [entityNameUpperFirst/] [entityNameLowerFirst/]) {
 	
 	[entityNameUpperFirst/] current = [entityNameLowerFirst/]Interface.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 		
-	[setCurrentValues()/]
+	[setCurrentUpdateValues(class)/]
 			
-	return [entityNameLowerFirst/]Interface.createUpdate(current);
+	return [entityNameLowerFirst/]Interface.saveOne(current);
 }
 [/template]

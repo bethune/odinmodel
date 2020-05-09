@@ -31,6 +31,38 @@ public class OfficesController {
 		return officesInterface.saveOne(offices);
 	}
 
+	@DeleteMapping("/{id}")
+	public void deleteOneById(@PathVariable Long id) {
+		officesInterface.deleteOneById(id);
+	}
+	
+	@GetMapping("/{id}")
+	public Offices readOneById(@PathVariable Long id) {
+		return officesInterface.readOneById(id);
+	}
+	
+	@PutMapping("/{id}")
+	public Offices updateOneById(@PathVariable Long id, @RequestBody Offices offices) {
+		
+		Offices current = officesInterface.readOneById(id);
+			
+		current.setCity(offices.getCity());
+		current.setPhone(offices.getPhone());
+		current.setAddressLine2(offices.getAddressLine2());
+		current.setTerritory(offices.getTerritory());
+		current.setAddressLine1(offices.getAddressLine1());
+		current.setCountry(offices.getCountry());
+		current.setState(offices.getState());
+		current.setPostalCode(offices.getPostalCode());
+				
+		return officesInterface.saveOne(current);
+	}
+
+
+	@PostMapping("/employees")
+	public Offices saveOneWhenIricOnManyToOneRelationship(@RequestBody OfficesEmployees officesEmployees) {
+		return officesInterface.saveOneWhenIricOnManyToOneRelationship(officesEmployees);
+	}
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

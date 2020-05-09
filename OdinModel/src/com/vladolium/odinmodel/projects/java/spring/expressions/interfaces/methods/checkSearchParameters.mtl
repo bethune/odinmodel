@@ -47,8 +47,7 @@
 
 [comment: Subtemplates. /]
 
-[template public checkRelationshipForeignKeys(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[template public checkRelationshipForeignKeys(class : Class) post(trim())]
 [checkManyToOneRelationship()/]
 [checkOneToOneRelationship()/]
 [checkManyToManyRelationship()/]
