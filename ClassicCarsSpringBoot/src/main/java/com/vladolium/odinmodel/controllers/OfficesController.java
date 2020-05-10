@@ -58,6 +58,22 @@ public class OfficesController {
 		return officesInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Offices> readAll() {
+		return officesInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Offices> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return officesInterface.readAllPagination(page);
+	}
+
+
+	
 
 	@PostMapping("/employees")
 	public Offices saveOneWhenIricOnManyToOneRelationship(@RequestBody OfficesEmployees officesEmployees) {

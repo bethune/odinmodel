@@ -55,6 +55,22 @@ public class PaymentsController {
 		return paymentsInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Payments> readAll() {
+		return paymentsInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return paymentsInterface.readAllPagination(page);
+	}
+
+
+	
 
 	
 //Code between start and end will not be removed during generation.

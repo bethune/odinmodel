@@ -56,6 +56,22 @@ public class OrdersController {
 		return ordersInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Orders> readAll() {
+		return ordersInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return ordersInterface.readAllPagination(page);
+	}
+
+
+	
 
 	
 //Code between start and end will not be removed during generation.

@@ -53,6 +53,22 @@ public class ProductLinesController {
 		return productLinesInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<ProductLines> readAll() {
+		return productLinesInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<ProductLines> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return productLinesInterface.readAllPagination(page);
+	}
+
+
+	
 
 	@PostMapping("/products")
 	public ProductLines saveOneWhenIricOnManyToOneRelationship(@RequestBody ProductLinesProducts productLinesProducts) {

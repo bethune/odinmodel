@@ -65,6 +65,49 @@ public class CustomersController {
 		return customersInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Customers> readAll() {
+		return customersInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Customers> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return customersInterface.readAllPagination(page);
+	}
+
+
+	@GetMapping("/{customerName}")
+	public Customers readOneByCustomerName(@PathVariable String customerName) {
+		return customersInterface.readOneByCustomerName(customerName);
+	}
+	
+	@PutMapping("/{customerName}")
+	public Customers updateOneByCustomerName(@PathVariable String customerName, @RequestBody Customers customers) {
+		
+		Customers current = customersInterface.readOneByCustomerName(customerName);
+			
+		current.setEmployees(customers.getEmployees());
+		
+		
+		current.setReviewsList(customers.getReviewsList());
+		current.setCity(customers.getCity());
+		current.setPhone(customers.getPhone());
+		current.setAddressLine2(customers.getAddressLine2());
+		current.setFirstName(customers.getFirstName());
+		current.setCreditLimit(customers.getCreditLimit());
+		current.setCustomerName(customers.getCustomerName());
+		current.setAddressLine1(customers.getAddressLine1());
+		current.setCountry(customers.getCountry());
+		current.setLastName(customers.getLastName());
+		current.setState(customers.getState());
+		current.setPostalCode(customers.getPostalCode());
+				
+		return customersInterface.saveOne(current);
+	}
 
 	
 //Code between start and end will not be removed during generation.

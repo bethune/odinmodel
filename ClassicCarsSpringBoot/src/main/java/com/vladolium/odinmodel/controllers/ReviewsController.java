@@ -53,6 +53,22 @@ public class ReviewsController {
 		return reviewsInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Reviews> readAll() {
+		return reviewsInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Reviews> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return reviewsInterface.readAllPagination(page);
+	}
+
+
+	
 
 	
 //Code between start and end will not be removed during generation.

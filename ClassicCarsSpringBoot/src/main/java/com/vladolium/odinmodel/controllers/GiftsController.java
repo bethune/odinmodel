@@ -56,6 +56,40 @@ public class GiftsController {
 		return giftsInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Gifts> readAll() {
+		return giftsInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Gifts> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return giftsInterface.readAllPagination(page);
+	}
+
+
+	@GetMapping("/{giftName}")
+	public Gifts readOneByGiftName(@PathVariable String giftName) {
+		return giftsInterface.readOneByGiftName(giftName);
+	}
+	
+	@PutMapping("/{giftName}")
+	public Gifts updateOneByGiftName(@PathVariable String giftName, @RequestBody Gifts gifts) {
+		
+		Gifts current = giftsInterface.readOneByGiftName(giftName);
+			
+		current.setCustomersSet(gifts.getCustomersSet());
+		current.setIsExpired(gifts.getIsExpired());
+		current.setExpiresOn(gifts.getExpiresOn());
+		current.setGiftName(gifts.getGiftName());
+		current.setGiftType(gifts.getGiftType());
+		current.setBeginsOn(gifts.getBeginsOn());
+				
+		return giftsInterface.saveOne(current);
+	}
 
 	
 //Code between start and end will not be removed during generation.

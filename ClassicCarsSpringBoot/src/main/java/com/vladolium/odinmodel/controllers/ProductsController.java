@@ -59,6 +59,43 @@ public class ProductsController {
 		return productsInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Products> readAll() {
+		return productsInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Products> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return productsInterface.readAllPagination(page);
+	}
+
+
+	@GetMapping("/{productCode}")
+	public Products readOneByProductCode(@PathVariable String productCode) {
+		return productsInterface.readOneByProductCode(productCode);
+	}
+	
+	@PutMapping("/{productCode}")
+	public Products updateOneByProductCode(@PathVariable String productCode, @RequestBody Products products) {
+		
+		Products current = productsInterface.readOneByProductCode(productCode);
+			
+		current.setProductLines(products.getProductLines());
+		current.setProductName(products.getProductName());
+		current.setQuantityInStock(products.getQuantityInStock());
+		current.setProductVendor(products.getProductVendor());
+		current.setProductDescription(products.getProductDescription());
+		current.setBuyPrice(products.getBuyPrice());
+		current.setProductScale(products.getProductScale());
+		current.setMsrp(products.getMsrp());
+		current.setProductCode(products.getProductCode());
+				
+		return productsInterface.saveOne(current);
+	}
 
 	@DeleteMapping("/{id}/productLines")
 	public void deleteOneByIdWhenIricOnManyToOneRelationship(@PathVariable Long id) {
@@ -84,7 +121,15 @@ public class ProductsController {
 	
 		if (current.getProductLines().getId() == products.getProductLines().getId()) {
 	
-						
+			current.setProductLines(products.getProductLines());
+			current.setProductName(products.getProductName());
+			current.setQuantityInStock(products.getQuantityInStock());
+			current.setProductVendor(products.getProductVendor());
+			current.setProductDescription(products.getProductDescription());
+			current.setBuyPrice(products.getBuyPrice());
+			current.setProductScale(products.getProductScale());
+			current.setMsrp(products.getMsrp());
+			current.setProductCode(products.getProductCode());			
 	
 			return productsInterface.saveOne(current);
 	
@@ -98,7 +143,71 @@ public class ProductsController {
 				return current;
 		    } else {
 	
-							
+				current.setProductLines(products.getProductLines());
+				current.setProductName(products.getProductName());
+				current.setQuantityInStock(products.getQuantityInStock());
+				current.setProductVendor(products.getProductVendor());
+				current.setProductDescription(products.getProductDescription());
+				current.setBuyPrice(products.getBuyPrice());
+				current.setProductScale(products.getProductScale());
+				current.setMsrp(products.getMsrp());
+				current.setProductCode(products.getProductCode());			
+	
+				return productsInterface.saveOne(current);
+	
+		    }
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@PutMapping("/{productCode}/productLines")
+	public Products updateOneByProductCodeWhenIricOnManyToOneRelationship(@PathVariable String productCode, @RequestBody Products products) {
+	
+		Products current = productsInterface.readOneByProductCode(productCode);
+	
+		if (current.getProductLines().getId() == products.getProductLines().getId()) {
+	
+			current.setProductLines(products.getProductLines());
+			current.setProductName(products.getProductName());
+			current.setQuantityInStock(products.getQuantityInStock());
+			current.setProductVendor(products.getProductVendor());
+			current.setProductDescription(products.getProductDescription());
+			current.setBuyPrice(products.getBuyPrice());
+			current.setProductScale(products.getProductScale());
+			current.setMsrp(products.getMsrp());
+			current.setProductCode(products.getProductCode());			
+	
+			return productsInterface.saveOne(current);
+	
+		} else {
+	
+		    Iterable<Products> listOfProducts = productsInterface.readAllByProductLinesId(current.getProductLines().getId());
+	
+		    Long size = listOfProducts.spliterator().getExactSizeIfKnown();
+	
+		    if (size == 1) {
+				return current;
+		    } else {
+	
+				current.setProductLines(products.getProductLines());
+				current.setProductName(products.getProductName());
+				current.setQuantityInStock(products.getQuantityInStock());
+				current.setProductVendor(products.getProductVendor());
+				current.setProductDescription(products.getProductDescription());
+				current.setBuyPrice(products.getBuyPrice());
+				current.setProductScale(products.getProductScale());
+				current.setMsrp(products.getMsrp());
+				current.setProductCode(products.getProductCode());			
 	
 				return productsInterface.saveOne(current);
 	

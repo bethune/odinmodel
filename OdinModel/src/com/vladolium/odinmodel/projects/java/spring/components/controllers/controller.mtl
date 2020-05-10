@@ -24,11 +24,13 @@
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::imports/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::saveOne/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkPrimaryKeyConstraint/]
-[comment][import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::readAll/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAll/]
+[comment]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkParentFromManyToOneRelationship/]
 [import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::dynamicSearch/]
-[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkUniqueConstraint/]
+
 [/comment]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkIricOnManyToOneRelationship/]
 
 [**
@@ -66,13 +68,17 @@ public class [entityNameUpperFirst/]Controller {
 
 	[checkPrimaryKeyConstraint()/]
 
-[comment]	[readAll()/]
+	[readAll()/]
+
+[comment]
 
 	[dynamicSearch()/]
 
 	[checkParentFromManyToOneRelationship()/]
 
-	[checkUniqueConstraint()/][/comment]
+	[/comment]
+
+	[checkUniqueConstraint()/]
 
 	[checkIricOnManyToOneRelationship()/]
 [comment]

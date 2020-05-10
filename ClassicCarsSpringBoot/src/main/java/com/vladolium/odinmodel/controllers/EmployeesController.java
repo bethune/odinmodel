@@ -58,6 +58,22 @@ public class EmployeesController {
 		return employeesInterface.saveOne(current);
 	}
 
+	@GetMapping("")
+	public Iterable<Employees> readAll() {
+		return employeesInterface.readAll();
+	}
+	
+	@GetMapping("/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Employees> readAllPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return employeesInterface.readAllPagination(page);
+	}
+
+
+	
 
 	@DeleteMapping("/{id}/offices")
 	public void deleteOneByIdWhenIricOnManyToOneRelationship(@PathVariable Long id) {
@@ -83,7 +99,14 @@ public class EmployeesController {
 	
 		if (current.getOffices().getId() == employees.getOffices().getId()) {
 	
-						
+			current.setOffices(employees.getOffices());
+			current.setLastName(employees.getLastName());
+			current.setReportsTo(employees.getReportsTo());
+			current.setExtension(employees.getExtension());
+			current.setEmail(employees.getEmail());
+			current.setJobTitle(employees.getJobTitle());
+			current.setFirstName(employees.getFirstName());
+			current.setIsActive(employees.getIsActive());			
 	
 			return employeesInterface.saveOne(current);
 	
@@ -97,7 +120,14 @@ public class EmployeesController {
 				return current;
 		    } else {
 	
-							
+				current.setOffices(employees.getOffices());
+				current.setLastName(employees.getLastName());
+				current.setReportsTo(employees.getReportsTo());
+				current.setExtension(employees.getExtension());
+				current.setEmail(employees.getEmail());
+				current.setJobTitle(employees.getJobTitle());
+				current.setFirstName(employees.getFirstName());
+				current.setIsActive(employees.getIsActive());			
 	
 				return employeesInterface.saveOne(current);
 	
