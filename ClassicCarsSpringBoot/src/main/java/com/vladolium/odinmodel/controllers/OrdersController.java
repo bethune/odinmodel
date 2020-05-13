@@ -113,6 +113,36 @@ public class OrdersController {
 		);
 	}
 
+	private CustomersInterface customersInterface;
+	
+	@Autowired
+	public void setCustomersInterface(CustomersInterface customersInterface) {
+		this.customersInterface = customersInterface;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/{customersId}/orders")
+	public Iterable<Orders> readAllOrdersByCustomersId(@PathVariable Long customersId) {
+		return ordersInterface.readAllByCustomersId(customersId);
+	}
+	
+	@GetMapping("/{customersId}/orders/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> readAllOrdersByCustomersIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long customersId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return ordersInterface.readAllByCustomersId(customersId, page);
+	}
 
 	
 

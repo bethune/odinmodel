@@ -108,6 +108,36 @@ public class PaymentsController {
 		);
 	}
 
+	private CustomersInterface customersInterface;
+	
+	@Autowired
+	public void setCustomersInterface(CustomersInterface customersInterface) {
+		this.customersInterface = customersInterface;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/{customersId}/payments")
+	public Iterable<Payments> readAllPaymentsByCustomersId(@PathVariable Long customersId) {
+		return paymentsInterface.readAllByCustomersId(customersId);
+	}
+	
+	@GetMapping("/{customersId}/payments/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> readAllPaymentsByCustomersIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long customersId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return paymentsInterface.readAllByCustomersId(customersId, page);
+	}
 
 	
 

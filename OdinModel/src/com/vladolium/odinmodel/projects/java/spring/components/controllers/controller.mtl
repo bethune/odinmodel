@@ -26,11 +26,7 @@
 [import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkPrimaryKeyConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAll/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::dynamicSearch/]
-
-[comment]
-[import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkParentFromManyToOneRelationship/]
-
-[/comment]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkParentFromManyToOneRelationship/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkIricOnManyToOneRelationship/]
 
@@ -73,13 +69,7 @@ public class [entityNameUpperFirst/]Controller {
 
 	[dynamicSearch()/]
 
-[comment]
-
-	
-
 	[checkParentFromManyToOneRelationship()/]
-
-	[/comment]
 
 	[checkUniqueConstraint()/]
 

@@ -128,6 +128,29 @@ public class ProductsController {
 		);
 	}
 
+	private ProductLinesInterface productLinesInterface;
+	
+	@Autowired
+	public void setProductLinesInterface(ProductLinesInterface productLinesInterface) {
+		this.productLinesInterface = productLinesInterface;
+	}
+	
+	
+	
+	@GetMapping("/{productLinesId}/products")
+	public Iterable<Products> readAllProductsByProductLinesId(@PathVariable Long productLinesId) {
+		return productsInterface.readAllByProductLinesId(productLinesId);
+	}
+	
+	@GetMapping("/{productLinesId}/products/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Products> readAllProductsByProductLinesIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long productLinesId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return productsInterface.readAllByProductLinesId(productLinesId, page);
+	}
 
 	@GetMapping("/{productCode}")
 	public Products readOneByProductCode(@PathVariable String productCode) {
