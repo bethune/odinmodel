@@ -123,7 +123,12 @@ public class OfficesController {
 		);
 	}
 
+	private EmployeesInterface employeesInterface;
 	
+	@Autowired
+	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
+		this.employeesInterface = employeesInterface;
+	}
 
 	
 

@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module checkParentFromManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::defineParentInterface/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::defineChildInterface/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAllByParentPrimaryKey/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAllByParentUniqueField/]
 
@@ -33,31 +33,31 @@
 */]
 [template public checkParentFromManyToOneRelationship(class : Class) post(trim()){
 	entityNameUpperFirst : String = class.name.toUpperFirst();}]
-[for (relationship : Property | class.getAssociations().memberEnd)]
-	[if (relationship.lower = 0 or relationship.lower = 1) and 
-		relationship.upper = -1 and 
-		relationship.type.name.toUpperFirst() = entityNameUpperFirst and
-		relationship.namespace = association and 
-		relationship.opposite.lower = 1 and 
-		relationship.opposite.upper = 1]
-[defineParentInterface(relationship)/]
-		[for (p: Package | class._package)]
-			[for (oppositeEntity: Class | p.member -> filter(Class))]
-				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
-					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
-					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
-						[comment: Parent id. /]
-						[if oppositeEntityField.isID = true]
-[readAllByParentPrimaryKey(relationship, oppositeEntityField)/]
+[for (p : Package | class._package)]
+	[for (parentEntity : Class | p.member -> filter(Class))]
+		[if parentEntity.name.toLower() <> class.name.toLower()]
+			[for (relationship : Property | parentEntity.getAssociations().memberEnd)]
+				[if (relationship.lower = 0 or relationship.lower = 1) and 
+					relationship.upper = -1 and 
+					relationship.type.name.toUpperFirst() = parentEntity.name.toUpperFirst() and 
+					relationship.opposite.type.name.toUpperFirst() = entityNameUpperFirst and 
+					relationship.namespace = association and 
+					relationship.opposite.lower = 1 and 
+					relationship.opposite.upper = 1]
+[defineChildInterface(relationship)/]
+					[for (parentField: Property | class.getAllAttributes()) separator('\n')]
+						[comment: Parent field with the primary key constraint. /]
+						[if parentField.isID = true]
+[readAllByParentPrimaryKey(relationship, parentField)/]
 						[/if]
-						[comment: Parent field with unique value. /]
-						[if oppositeEntityField.isUnique = true and oppositeEntityField.isID = false]
+						[comment: Parent field with the unique constraint. /]
+						[if parentField.isUnique = true and parentField.isID = false]
 [comment][readAllByParentUniqueField(relationship, oppositeEntityField)/][/comment]
 						[/if]
 					[/for]
 				[/if]
 			[/for]
-		[/for]
-	[/if]
+		[/if]
+	[/for]
 [/for]
 [/template]

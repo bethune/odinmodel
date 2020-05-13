@@ -123,28 +123,11 @@ public class EmployeesController {
 		);
 	}
 
-	private OfficesInterface officesInterface;
+	private CustomersInterface customersInterface;
 	
 	@Autowired
-	public void setOfficesInterface(OfficesInterface officesInterface) {
-		this.officesInterface = officesInterface;
-	}
-	
-	
-	
-	@GetMapping("/{officesId}/employees")
-	public Iterable<Employees> readAllEmployeesByOfficesId(@PathVariable Long officesId) {
-		return employeesInterface.readAllByOfficesId(officesId);
-	}
-	
-	@GetMapping("/{officesId}/employees/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Employees> readAllEmployeesByOfficesIdPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable Long officesId
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return employeesInterface.readAllByOfficesId(officesId, page);
+	public void setCustomersInterface(CustomersInterface customersInterface) {
+		this.customersInterface = customersInterface;
 	}
 
 	

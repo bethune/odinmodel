@@ -108,30 +108,7 @@ public class OrderDetailsController {
 		);
 	}
 
-	private ProductsInterface productsInterface;
 	
-	@Autowired
-	public void setProductsInterface(ProductsInterface productsInterface) {
-		this.productsInterface = productsInterface;
-	}
-	
-	
-	
-	
-	@GetMapping("/{productsId}/orderDetails")
-	public Iterable<OrderDetails> readAllOrderDetailsByProductsId(@PathVariable Long productsId) {
-		return orderDetailsInterface.readAllByProductsId(productsId);
-	}
-	
-	@GetMapping("/{productsId}/orderDetails/page={pageNumber}/perPage={perPageNumber}")
-	public Page<OrderDetails> readAllOrderDetailsByProductsIdPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable Long productsId
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return orderDetailsInterface.readAllByProductsId(productsId, page);
-	}
 
 	
 

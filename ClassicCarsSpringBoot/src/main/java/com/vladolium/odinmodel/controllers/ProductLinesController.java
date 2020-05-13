@@ -98,7 +98,12 @@ public class ProductLinesController {
 		);
 	}
 
+	private ProductsInterface productsInterface;
 	
+	@Autowired
+	public void setProductsInterface(ProductsInterface productsInterface) {
+		this.productsInterface = productsInterface;
+	}
 
 	
 

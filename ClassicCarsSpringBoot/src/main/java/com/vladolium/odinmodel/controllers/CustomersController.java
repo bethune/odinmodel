@@ -158,11 +158,11 @@ public class CustomersController {
 		);
 	}
 
-	private EmployeesInterface employeesInterface;
+	private OrdersInterface ordersInterface;
 	
 	@Autowired
-	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
-		this.employeesInterface = employeesInterface;
+	public void setOrdersInterface(OrdersInterface ordersInterface) {
+		this.ordersInterface = ordersInterface;
 	}
 	
 	
@@ -170,19 +170,18 @@ public class CustomersController {
 	
 	
 	
-	@GetMapping("/{employeesId}/customers")
-	public Iterable<Customers> readAllCustomersByEmployeesId(@PathVariable Long employeesId) {
-		return customersInterface.readAllByEmployeesId(employeesId);
-	}
 	
-	@GetMapping("/{employeesId}/customers/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Customers> readAllCustomersByEmployeesIdPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable Long employeesId
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return customersInterface.readAllByEmployeesId(employeesId, page);
+	
+	
+	
+	
+	
+	
+	private PaymentsInterface paymentsInterface;
+	
+	@Autowired
+	public void setPaymentsInterface(PaymentsInterface paymentsInterface) {
+		this.paymentsInterface = paymentsInterface;
 	}
 
 	@GetMapping("/{customerName}")

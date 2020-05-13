@@ -19,10 +19,10 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module defineParentInterface('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module defineChildInterface('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the parent's interface for the current controller in a target project.
+ * Generates the child's interface for the current controller in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
@@ -30,13 +30,13 @@
  *    
  * @param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.
 */]
-[template public defineParentInterface(relationship : Property){
-	parentEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
-	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
-private [parentEntityNameUpperFirst/]Interface [parentEntityNameLowerFirst/]Interface;
+[template public defineChildInterface(relationship : Property){
+	childEntityNameUpperFirst : String = relationship.type.name.toUpperFirst();
+	childEntityNameLowerFirst : String = relationship.type.name.toLowerFirst();}]
+private [childEntityNameUpperFirst/]Interface [childEntityNameLowerFirst/]Interface;
 
 @Autowired
-public void set[parentEntityNameUpperFirst/]Interface([parentEntityNameUpperFirst/]Interface [parentEntityNameLowerFirst/]Interface) {
-	this.[parentEntityNameLowerFirst/]Interface = [parentEntityNameLowerFirst/]Interface;
+public void set[childEntityNameUpperFirst/]Interface([childEntityNameUpperFirst/]Interface [childEntityNameLowerFirst/]Interface) {
+	this.[childEntityNameLowerFirst/]Interface = [childEntityNameLowerFirst/]Interface;
 }
 [/template]
