@@ -25,9 +25,10 @@
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::saveOne/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkPrimaryKeyConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAll/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::dynamicSearch/]
+
 [comment]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::interfaces::methods::checkParentFromManyToOneRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::methods::dynamicSearch/]
 
 [/comment]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::checkUniqueConstraint/]
@@ -70,9 +71,11 @@ public class [entityNameUpperFirst/]Controller {
 
 	[readAll()/]
 
+	[dynamicSearch()/]
+
 [comment]
 
-	[dynamicSearch()/]
+	
 
 	[checkParentFromManyToOneRelationship()/]
 
@@ -81,14 +84,7 @@ public class [entityNameUpperFirst/]Controller {
 	[checkUniqueConstraint()/]
 
 	[checkIricOnManyToOneRelationship()/]
-[comment]
-	[aClass.create()/]
-	[aClass.update()/]
-	[aClass.readOne()/]
-	[aClass.readAll()/]
-	[aClass.search()/]
-	[aClass.delete()/]
-[/comment]
+
 //Code between start and end will not be removed during generation.
 //[protected ('for this controller')]
 //[/protected]

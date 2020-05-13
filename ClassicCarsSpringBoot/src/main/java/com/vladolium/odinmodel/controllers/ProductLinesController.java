@@ -67,6 +67,37 @@ public class ProductLinesController {
 		return productLinesInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<ProductLines> search(
+		String productLine,
+		byte[] image,
+		String textDescription
+	) {
+		return productLinesInterface.search(
+			productLine,
+			image,
+			textDescription
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<ProductLines> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		String productLine,
+		byte[] image,
+		String textDescription
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return productLinesInterface.searchPagination(
+			page,
+			productLine,
+			image,
+			textDescription
+		);
+	}
+
 
 	
 
@@ -74,6 +105,7 @@ public class ProductLinesController {
 	public ProductLines saveOneWhenIricOnManyToOneRelationship(@RequestBody ProductLinesProducts productLinesProducts) {
 		return productLinesInterface.saveOneWhenIricOnManyToOneRelationship(productLinesProducts);
 	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

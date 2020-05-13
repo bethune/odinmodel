@@ -72,6 +72,57 @@ public class EmployeesController {
 		return employeesInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Employees> search(
+		Long officesId,
+		String lastName,
+		Integer reportsTo,
+		String extension,
+		String email,
+		String jobTitle,
+		String firstName,
+		Boolean isActive
+	) {
+		return employeesInterface.search(
+			officesId,
+			lastName,
+			reportsTo,
+			extension,
+			email,
+			jobTitle,
+			firstName,
+			isActive
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Employees> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		Long officesId,
+		String lastName,
+		Integer reportsTo,
+		String extension,
+		String email,
+		String jobTitle,
+		String firstName,
+		Boolean isActive
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return employeesInterface.searchPagination(
+			page,
+			officesId,
+			lastName,
+			reportsTo,
+			extension,
+			email,
+			jobTitle,
+			firstName,
+			isActive
+		);
+	}
+
 
 	
 
@@ -134,6 +185,7 @@ public class EmployeesController {
 		    }
 		}
 	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

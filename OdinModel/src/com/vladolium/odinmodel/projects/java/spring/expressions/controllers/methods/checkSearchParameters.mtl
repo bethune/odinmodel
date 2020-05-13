@@ -1,0 +1,153 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module checkSearchParameters('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::parameters::searchParameterManyOrOneToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::parameters::searchParameterManyToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::parameters::searchParameterOneToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::parameters::searchParameterField/]
+
+[**
+ * Checks for the search parameters among relationships (foreign keys) and fields 
+ * of the currrent class from the UML class diagram i.e. the domain model.
+ * 
+ * This template uses subtemplates for the better overview of the Acceleo expressions.
+ *    
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public checkSearchParameters(class : Class) post(trim())]
+[checkRelationshipForeignKeys()/]
+[checkFields()/]
+[/template]
+
+[comment: Subtemplates. /]
+
+[template public checkRelationshipForeignKeys(class : Class) post(trim())]
+[checkManyToOneRelationship()/]
+[checkOneToOneRelationship()/]
+[checkManyToManyRelationship()/]
+[checkOneToManyRelationship()/]
+[/template]
+
+[template public checkManyToOneRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[comment : Check on many-to-one relationship. /]
+	[if (relationship.lower = 0 or relationship.lower = 1) and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
+		relationship.namespace = association and
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+		[for (p: Package | class._package)]
+			[for (oppositeEntity: Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
+					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[searchParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+[/for]
+[/template]
+
+[template public checkOneToOneRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[comment : Check on one-to-one relationship. /]
+	[if (relationship.lower = 0 or relationship.lower = 1) and 
+		relationship.upper = 1 and 
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 1 and 
+		relationship.opposite.upper = 1]
+		[for (p: Package | class._package)]
+			[for (oppositeEntity: Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
+					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[searchParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+[/for]
+[/template]
+
+[template public checkManyToManyRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[comment : Check on many-to-many relationship. /]
+	[if relationship.lower = 0 and 
+		relationship.upper = -1 and 
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and 
+		relationship.namespace = association and 
+		relationship.opposite.lower = 0 and 
+		relationship.opposite.upper = -1]
+		[for (p: Package | class._package)]
+			[for (oppositeEntity: Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
+					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[searchParameterManyToManyRelationship(relationship)/]
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+[/for]
+[/template]
+
+[template public checkOneToManyRelationship(class : Class) post(trim()){
+	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[for (relationship : Property | class.getAssociations().memberEnd)]
+	[comment : Check on one-to-many relationship. /]
+	[if relationship.lower = 1 and 
+		relationship.upper = 1 and 
+		relationship.type.name.toUpperFirst() = entityNameUpperFirst and
+		relationship.namespace = association and 
+		relationship.opposite.lower = 0 and 
+		relationship.opposite.upper = -1]
+[searchParameterOneToManyRelationship(relationship)/]
+	[/if]
+[/for]
+[/template]
+
+[template public checkFields(class : Class) post(trim())]
+[comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+[searchParameterField(field)/][checkLastField(class, i)/]
+[/for]
+[/template]
+
+[template public checkLastField(class : Class, i : Integer) post(trim())]
+[if class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+[/template]

@@ -73,6 +73,61 @@ public class ProductsController {
 		return productsInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Products> search(
+		Long productLinesId,
+		String productName,
+		Integer quantityInStock,
+		String productVendor,
+		String productDescription,
+		Double buyPrice,
+		String productScale,
+		Double msrp,
+		String productCode
+	) {
+		return productsInterface.search(
+			productLinesId,
+			productName,
+			quantityInStock,
+			productVendor,
+			productDescription,
+			buyPrice,
+			productScale,
+			msrp,
+			productCode
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Products> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		Long productLinesId,
+		String productName,
+		Integer quantityInStock,
+		String productVendor,
+		String productDescription,
+		Double buyPrice,
+		String productScale,
+		Double msrp,
+		String productCode
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return productsInterface.searchPagination(
+			page,
+			productLinesId,
+			productName,
+			quantityInStock,
+			productVendor,
+			productDescription,
+			buyPrice,
+			productScale,
+			msrp,
+			productCode
+		);
+	}
+
 
 	@GetMapping("/{productCode}")
 	public Products readOneByProductCode(@PathVariable String productCode) {
@@ -214,6 +269,7 @@ public class ProductsController {
 		    }
 		}
 	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

@@ -69,10 +69,50 @@ public class OrderDetailsController {
 		return orderDetailsInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<OrderDetails> search(
+		Long productsId,
+		Long ordersId,
+		Integer orderLineNumber,
+		Integer quantityOrdered,
+		Double priceEach
+	) {
+		return orderDetailsInterface.search(
+			productsId,
+			ordersId,
+			orderLineNumber,
+			quantityOrdered,
+			priceEach
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<OrderDetails> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		Long productsId,
+		Long ordersId,
+		Integer orderLineNumber,
+		Integer quantityOrdered,
+		Double priceEach
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return orderDetailsInterface.searchPagination(
+			page,
+			productsId,
+			ordersId,
+			orderLineNumber,
+			quantityOrdered,
+			priceEach
+		);
+	}
+
 
 	
 
 	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

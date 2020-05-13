@@ -72,6 +72,57 @@ public class OfficesController {
 		return officesInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Offices> search(
+		String city,
+		String phone,
+		String addressLine2,
+		String territory,
+		String addressLine1,
+		String country,
+		String state,
+		String postalCode
+	) {
+		return officesInterface.search(
+			city,
+			phone,
+			addressLine2,
+			territory,
+			addressLine1,
+			country,
+			state,
+			postalCode
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Offices> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		String city,
+		String phone,
+		String addressLine2,
+		String territory,
+		String addressLine1,
+		String country,
+		String state,
+		String postalCode
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return officesInterface.searchPagination(
+			page,
+			city,
+			phone,
+			addressLine2,
+			territory,
+			addressLine1,
+			country,
+			state,
+			postalCode
+		);
+	}
+
 
 	
 
@@ -79,6 +130,7 @@ public class OfficesController {
 	public Offices saveOneWhenIricOnManyToOneRelationship(@RequestBody OfficesEmployees officesEmployees) {
 		return officesInterface.saveOneWhenIricOnManyToOneRelationship(officesEmployees);
 	}
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

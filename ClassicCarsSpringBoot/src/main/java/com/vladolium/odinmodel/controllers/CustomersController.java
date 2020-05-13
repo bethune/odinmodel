@@ -79,6 +79,85 @@ public class CustomersController {
 		return customersInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Customers> search(
+		Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
+		String city,
+		String phone,
+		String addressLine2,
+		String firstName,
+		Double creditLimit,
+		String customerName,
+		String addressLine1,
+		String country,
+		String lastName,
+		String state,
+		String postalCode
+	) {
+		return customersInterface.search(
+			employeesId,
+			
+			
+			reviewsList,
+			city,
+			phone,
+			addressLine2,
+			firstName,
+			creditLimit,
+			customerName,
+			addressLine1,
+			country,
+			lastName,
+			state,
+			postalCode
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Customers> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
+		String city,
+		String phone,
+		String addressLine2,
+		String firstName,
+		Double creditLimit,
+		String customerName,
+		String addressLine1,
+		String country,
+		String lastName,
+		String state,
+		String postalCode
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return customersInterface.searchPagination(
+			page,
+			employeesId,
+			
+			
+			reviewsList,
+			city,
+			phone,
+			addressLine2,
+			firstName,
+			creditLimit,
+			customerName,
+			addressLine1,
+			country,
+			lastName,
+			state,
+			postalCode
+		);
+	}
+
 
 	@GetMapping("/{customerName}")
 	public Customers readOneByCustomerName(@PathVariable String customerName) {
@@ -110,6 +189,7 @@ public class CustomersController {
 	}
 
 	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

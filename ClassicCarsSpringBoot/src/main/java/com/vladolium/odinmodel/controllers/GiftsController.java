@@ -70,6 +70,49 @@ public class GiftsController {
 		return giftsInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Gifts> search(
+		Set<Long> customersSet,
+		Boolean isExpired,
+		LocalDateTime expiresOn,
+		String giftName,
+		GiftType giftType,
+		LocalDateTime beginsOn
+	) {
+		return giftsInterface.search(
+			customersSet,
+			isExpired,
+			expiresOn,
+			giftName,
+			giftType,
+			beginsOn
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Gifts> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		Set<Long> customersSet,
+		Boolean isExpired,
+		LocalDateTime expiresOn,
+		String giftName,
+		GiftType giftType,
+		LocalDateTime beginsOn
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return giftsInterface.searchPagination(
+			page,
+			customersSet,
+			isExpired,
+			expiresOn,
+			giftName,
+			giftType,
+			beginsOn
+		);
+	}
+
 
 	@GetMapping("/{giftName}")
 	public Gifts readOneByGiftName(@PathVariable String giftName) {
@@ -92,6 +135,7 @@ public class GiftsController {
 	}
 
 	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

@@ -70,10 +70,54 @@ public class OrdersController {
 		return ordersInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Orders> search(
+		Long customersId,
+		String status,
+		LocalDate orderDate,
+		String comments,
+		LocalDate requiredDate,
+		LocalDate shippedDate
+	) {
+		return ordersInterface.search(
+			customersId,
+			status,
+			orderDate,
+			comments,
+			requiredDate,
+			shippedDate
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Orders> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		Long customersId,
+		String status,
+		LocalDate orderDate,
+		String comments,
+		LocalDate requiredDate,
+		LocalDate shippedDate
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return ordersInterface.searchPagination(
+			page,
+			customersId,
+			status,
+			orderDate,
+			comments,
+			requiredDate,
+			shippedDate
+		);
+	}
+
 
 	
 
 	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

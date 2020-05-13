@@ -69,10 +69,50 @@ public class PaymentsController {
 		return paymentsInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Payments> search(
+		Long customersId,
+		String checkNumber,
+		LocalDate paymentDate,
+		Double amount,
+		Instant paymentTimestamp
+	) {
+		return paymentsInterface.search(
+			customersId,
+			checkNumber,
+			paymentDate,
+			amount,
+			paymentTimestamp
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		Long customersId,
+		String checkNumber,
+		LocalDate paymentDate,
+		Double amount,
+		Instant paymentTimestamp
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return paymentsInterface.searchPagination(
+			page,
+			customersId,
+			checkNumber,
+			paymentDate,
+			amount,
+			paymentTimestamp
+		);
+	}
+
 
 	
 
 	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code

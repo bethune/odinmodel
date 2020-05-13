@@ -67,10 +67,42 @@ public class ReviewsController {
 		return reviewsInterface.readAllPagination(page);
 	}
 
+	@GetMapping("/search")
+	public Iterable<Reviews> search(
+		LocalTime reviewTime,
+		LocalDate reviewDate,
+		String reviewText
+	) {
+		return reviewsInterface.search(
+			reviewTime,
+			reviewDate,
+			reviewText
+		);
+	}
+	
+	@GetMapping("/search/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Reviews> searchPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		LocalTime reviewTime,
+		LocalDate reviewDate,
+		String reviewText
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+	
+		return reviewsInterface.searchPagination(
+			page,
+			reviewTime,
+			reviewDate,
+			reviewText
+		);
+	}
+
 
 	
 
 	
+
 //Code between start and end will not be removed during generation.
 //Start of user code for this controller
 //End of user code
