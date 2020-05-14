@@ -81,6 +81,10 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jooq</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -109,7 +113,7 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-swagger-ui.version}</version>
 			<scope>compile</scope>
-		</dependency>	
+		</dependency>
 
 		<dependency>
 		    <groupId>com.querydsl</groupId>
