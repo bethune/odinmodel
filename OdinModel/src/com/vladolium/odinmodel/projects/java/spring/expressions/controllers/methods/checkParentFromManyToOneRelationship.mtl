@@ -22,7 +22,7 @@
 [module checkParentFromManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::defineChildInterface/]
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAllByParentPrimaryKey/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAllByParentPrimaryKeyField/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAllByParentUniqueField/]
 
 [**
@@ -48,11 +48,13 @@
 					[for (parentField: Property | class.getAllAttributes()) separator('\n')]
 						[comment: Parent field with the primary key constraint. /]
 						[if parentField.isID = true]
-[readAllByParentPrimaryKey(relationship, parentField)/]
+[readAllByParentPrimaryKeyField(relationship, parentField)/]
 						[/if]
+					[/for]
+					[for (parentField: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)) separator('\n')]
 						[comment: Parent field with the unique constraint. /]
 						[if parentField.isUnique = true and parentField.isID = false]
-[comment][readAllByParentUniqueField(relationship, oppositeEntityField)/][/comment]
+[readAllByParentUniqueField(relationship, parentField)/]
 						[/if]
 					[/for]
 				[/if]

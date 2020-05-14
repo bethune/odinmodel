@@ -134,6 +134,51 @@ public class ProductsController {
 	public void setOrderDetailsInterface(OrderDetailsInterface orderDetailsInterface) {
 		this.orderDetailsInterface = orderDetailsInterface;
 	}
+	
+	
+	
+	
+	
+	@GetMapping("/{productsId}/orderDetails")
+	public Iterable<OrderDetails> readAllOrderDetailsByProductsId(@PathVariable Long productsId) {
+		return orderDetailsInterface.readAllByProductsId(productsId);
+	}
+	
+	@GetMapping("/{productsId}/orderDetails/page={pageNumber}/perPage={perPageNumber}")
+	public Page<OrderDetails> readAllOrderDetailsByProductsIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long productsId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return orderDetailsInterface.readAllByProductsId(productsId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/productCode={productsProductCode}/orderDetails")
+	public Iterable<OrderDetails> readAllOrderDetailsByProductsProductCode(@PathVariable String productsProductCode) {
+		return orderDetailsInterface.readAllByProductsProductCode(productsProductCode);
+	}
+	
+	@GetMapping("/productCode={productsProductCode}/orderDetails/page={pageNumber}/perPage={perPageNumber}")
+	public Page<OrderDetails> readAllOrderDetailsByProductsProductCodePagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable String productsProductCode
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return orderDetailsInterface.readAllByProductsProductCode(productsProductCode, page);
+	}
 
 	@GetMapping("/{productCode}")
 	public Products readOneByProductCode(@PathVariable String productCode) {

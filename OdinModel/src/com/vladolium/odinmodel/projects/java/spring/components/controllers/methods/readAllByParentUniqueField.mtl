@@ -29,29 +29,31 @@
  * User may further customize the methods.
  *    
  * @param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.   
- * @param oppositeEntityField represents the field with the primary key or unique constraint from the parent entity
+ * @param parentField represents the field with the primary key from the parent entity
  * which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.
 */]
-[template public readAllByParentUniqueField(relationship : Property, oppositeEntityField : Property){
+[template public readAllByParentUniqueField(relationship : Property, parentField : Property){
 	entityNameUpperFirst : String = relationship.type.name.toUpperFirst();
+	entityNameLowerFirst : String = relationship.type.name.toLowerFirst();
 	parentEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();
-	parentFieldName : String = oppositeEntityField.name.toUpperFirst();
-	parentFieldType : String = oppositeEntityField.type.name.toUpperFirst();}]
-[comment: Read all by parent unique field /]
-@GetMapping("/[oppositeEntityField.name.toLowerFirst()/]={[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]")
-public Iterable<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/](@PathVariable [oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]) {
-	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]);
+	parentFieldNameUpperFirst : String = parentField.name.toUpperFirst();
+	parentFieldNameLowerFirst : String = parentField.name.toLowerFirst();
+	parentFieldType : String = parentField.type.name.toUpperFirst();}]
+[comment: Read all by parent unique field. /]
+@GetMapping("/[parentFieldNameLowerFirst/]={[parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]}/[entityNameLowerFirst/]")
+public Iterable<[entityNameUpperFirst/]> readAll[entityNameUpperFirst/]By[parentEntityNameUpperFirst/][parentFieldNameUpperFirst/](@PathVariable [parentFieldType/] [parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]) {
+	return [entityNameLowerFirst/]Interface.readAllBy[parentEntityNameUpperFirst/][parentFieldNameUpperFirst/]([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]);
 }
 
-[comment: Read all by parent unique field with pagination /]
-@GetMapping("/[oppositeEntityField.name.toLowerFirst()/]={[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]/page={pageNumber}/perPage={perPageNumber}")
-public Page<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]Pagination(
+[comment: Read all by parent unique field with pagination. /]
+@GetMapping("/[parentFieldNameLowerFirst/]={[parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]}/[entityNameLowerFirst/]/page={pageNumber}/perPage={perPageNumber}")
+public Page<[entityNameUpperFirst/]> readAll[entityNameUpperFirst/]By[parentEntityNameUpperFirst/][parentFieldNameUpperFirst/]Pagination(
 	@PathVariable Integer pageNumber,
 	@PathVariable Integer perPageNumber,
-	@PathVariable [oppositeEntityField.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/]
+	@PathVariable [parentFieldType/] [parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]
 ) {
 	Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][oppositeEntityField.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/], page);
+	return [entityNameLowerFirst/]Interface.readAllBy[parentEntityNameUpperFirst/][parentFieldNameUpperFirst/]([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/], page);
 }
 [/template]

@@ -129,6 +129,23 @@ public class OfficesController {
 	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
 		this.employeesInterface = employeesInterface;
 	}
+	
+	
+	
+	@GetMapping("/{officesId}/employees")
+	public Iterable<Employees> readAllEmployeesByOfficesId(@PathVariable Long officesId) {
+		return employeesInterface.readAllByOfficesId(officesId);
+	}
+	
+	@GetMapping("/{officesId}/employees/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Employees> readAllEmployeesByOfficesIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long officesId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return employeesInterface.readAllByOfficesId(officesId, page);
+	}
 
 	
 

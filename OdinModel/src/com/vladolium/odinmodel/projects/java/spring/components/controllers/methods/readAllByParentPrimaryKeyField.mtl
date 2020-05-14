@@ -19,7 +19,7 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module readAllByParentPrimaryKey('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module readAllByParentPrimaryKeyField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
  * Generates the read all by parent field and read all by parent field with pagination methods for the current controller in a target project.
@@ -32,13 +32,13 @@
  * @param parentField represents the field with the primary key from the parent entity
  * which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.
 */]
-[template public readAllByParentPrimaryKey(relationship : Property, oppositeEntityField : Property){
+[template public readAllByParentPrimaryKeyField(relationship : Property, parentField : Property){
 	entityNameUpperFirst : String = relationship.type.name.toUpperFirst();
 	entityNameLowerFirst : String = relationship.type.name.toLowerFirst();
 	parentEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();
-	parentFieldName : String = oppositeEntityField.name.toUpperFirst();
-	parentFieldType : String = oppositeEntityField.type.name.toUpperFirst();}]
+	parentFieldName : String = parentField.name.toUpperFirst();
+	parentFieldType : String = parentField.type.name.toUpperFirst();}]
 [comment: Read all by parent field. /]
 @GetMapping("/{[parentEntityNameLowerFirst/][parentFieldName/]}/[entityNameLowerFirst/]")
 public Iterable<[entityNameUpperFirst/]> readAll[entityNameUpperFirst/]By[parentEntityNameUpperFirst/][parentFieldName/](@PathVariable [parentFieldType/] [parentEntityNameLowerFirst/][parentFieldName/]) {
@@ -57,19 +57,4 @@ public Page<[entityNameUpperFirst/]> readAll[entityNameUpperFirst/]By[parentEnti
 }
 [/template]
 
-[comment: Read all by parent id /]
-@GetMapping("/{[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]")
-public Iterable<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]) {
-	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]);
-}
 
-[comment: Read all by parent id with pagination /]
-@GetMapping("/{[oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]}/[oppositeEntityRelationship.type.name.toLowerFirst()/]/page={pageNumber}/perPage={perPageNumber}")
-public Page<[oppositeEntityRelationship.type.name.toUpperFirst()/]> readAll[oppositeEntityRelationship.type.name.toUpperFirst()/]By[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/]Pagination(
-	@PathVariable Integer pageNumber,
-	@PathVariable Integer perPageNumber,
-	@PathVariable [field.type.name.toUpperFirst()/] [oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/]
-) {
-	Pageable page = PageRequest.of(pageNumber, perPageNumber);
-	return [oppositeEntityRelationship.type.name.toLowerFirst()/]Service.readAllBy[oppositeEntityRelationship.opposite.type.name.toUpperFirst()/][field.name.toUpperFirst()/]([oppositeEntityRelationship.opposite.type.name.toLowerFirst()/][field.name.toUpperFirst()/], page);
-}
