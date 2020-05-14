@@ -19,24 +19,23 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module springBootWithSpringDataJpaRestProject('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module configuration('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpaModel/]
-[import com::vladolium::odinmodel::projects::java::spring::projectStructure/]
-[import com::vladolium::odinmodel::projects::java::spring::configurations::configuration /]
+[import com::vladolium::odinmodel::projects::java::spring::configurations::maven::pom /]
+[import com::vladolium::odinmodel::projects::java::spring::configurations::properties::applicationProperties /]
+[import com::vladolium::odinmodel::projects::java::spring::configurations::swagger::swagger2 /]
 
 [**
- * Base for project structure.
+ * Project structure setting
  * 
- * Checks for a UML class that is not an abstract one - important for controller, interface, service, and repository files.
+ * OMPOC (OdinModel Point Of Customization) 
+ * 
+ * User may further customize parts of the configuration for the target project structure.
  *  
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public springBootWithSpringDataJpaRestProject(class : Class){
-	isEntity : Boolean = class.isAbstract = false;}]
-[jpaModel()/]
-[if isEntity]
-[projectStructure()/]
-[/if]
-[configuration()/]
+[template public configuration(aClass : Class)]
+[getModel().pom()/]
+[applicationProperties()/]
+[swagger2()/]
 [/template]
