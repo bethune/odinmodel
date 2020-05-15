@@ -41,3 +41,6 @@ OMPOC (OdinModel Point Of Customization)
 separator('\n')
 post(trim())
 post (replaceAll('\n\n', '\n').trim())
+
+
+e sad... jooq
