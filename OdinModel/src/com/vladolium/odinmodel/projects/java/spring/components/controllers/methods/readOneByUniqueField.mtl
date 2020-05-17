@@ -19,10 +19,10 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module readOne('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module readOneByUniqueField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the read one by id and read one by unique value methods for the current controller in a target project.
+ * Generates the read one by unique field value method for the current controller in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
@@ -32,8 +32,8 @@
  * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.
  * @param field represents the current field with the primary key or unique constraint from the current UML class.
 */]
-[template public readOne(entityNameUpperFirst : String, entityNameLowerFirst : String, field : Property)]
-@GetMapping("/{[field.name.toLowerFirst()/]}")
+[template public readOneByUniqueField(entityNameUpperFirst : String, entityNameLowerFirst : String, field : Property)]
+@GetMapping("/[field.name.toLowerFirst()/]={[field.name.toLowerFirst()/]}")
 public [entityNameUpperFirst/] readOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	return [entityNameLowerFirst/]Interface.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
 }

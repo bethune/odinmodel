@@ -180,12 +180,12 @@ public class ProductsController {
 		return orderDetailsInterface.readAllByProductsProductCode(productsProductCode, page);
 	}
 
-	@GetMapping("/{productCode}")
+	@GetMapping("/productCode={productCode}")
 	public Products readOneByProductCode(@PathVariable String productCode) {
 		return productsInterface.readOneByProductCode(productCode);
 	}
 	
-	@PutMapping("/{productCode}")
+	@PutMapping("/productCode={productCode}")
 	public Products updateOneByProductCode(@PathVariable String productCode, @RequestBody Products products) {
 		
 		Products current = productsInterface.readOneByProductCode(productCode);

@@ -19,24 +19,22 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkUniqueConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readOneByUniqueField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::updateOneByUniqueField/]
+[module readOneByPrimaryKeyField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Checks for the field with the unique constraint for the currrent class from the UML class diagram i.e. the domain model.
+ * Generates the read one by primary key field value method for the current controller in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the method.
  *    
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.   
+ * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.
+ * @param field represents the current field with the primary key or unique constraint from the current UML class.
 */]
-[template public checkUniqueConstraint(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();
-	entityNameLowerFirst : String = class.name.toLowerFirst();}]
-[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)) separator('\n')]
-	[if field.isUnique = true and field.isID = false]
-[readOneByUniqueField(entityNameUpperFirst, entityNameLowerFirst, field)/]
-
-[updateOneByUniqueField(class, entityNameUpperFirst, entityNameLowerFirst, field)/]
-	[/if]
-[/for]
+[template public readOneByPrimaryKeyField(entityNameUpperFirst : String, entityNameLowerFirst : String, field : Property)]
+@GetMapping("/{[field.name.toLowerFirst()/]}")
+public [entityNameUpperFirst/] readOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+	return [entityNameLowerFirst/]Interface.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+}
 [/template]

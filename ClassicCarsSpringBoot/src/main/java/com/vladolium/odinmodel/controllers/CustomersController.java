@@ -265,12 +265,12 @@ public class CustomersController {
 		return paymentsInterface.readAllByCustomersCustomerName(customersCustomerName, page);
 	}
 
-	@GetMapping("/{customerName}")
+	@GetMapping("/customerName={customerName}")
 	public Customers readOneByCustomerName(@PathVariable String customerName) {
 		return customersInterface.readOneByCustomerName(customerName);
 	}
 	
-	@PutMapping("/{customerName}")
+	@PutMapping("/customerName={customerName}")
 	public Customers updateOneByCustomerName(@PathVariable String customerName, @RequestBody Customers customers) {
 		
 		Customers current = customersInterface.readOneByCustomerName(customerName);

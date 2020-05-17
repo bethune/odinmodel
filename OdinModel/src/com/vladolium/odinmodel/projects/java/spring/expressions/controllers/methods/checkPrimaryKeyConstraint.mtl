@@ -21,9 +21,11 @@
 [comment encoding = UTF-8 /]
 [module checkPrimaryKeyConstraint('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::deleteOneById/]
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readOne/]
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::updateOne/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::deleteOneByPrimaryKeyField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readOneByPrimaryKeyField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readOneByUniqueField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::updateOneByPrimaryKeyField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::updateOneByUniqueField/]
 
 [**
  * Checks for the field with the primary key constraint for the currrent class from the UML class diagram i.e. the domain model.
@@ -35,11 +37,11 @@
 	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [for (field: Property | class.getAllAttributes())]
 	[if field.isID = true]
-[deleteOneById(entityNameLowerFirst, field)/]
+[deleteOneByPrimaryKeyField(entityNameLowerFirst, field)/]
 
-[readOne(entityNameUpperFirst, entityNameLowerFirst, field)/]
+[readOneByPrimaryKeyField(entityNameUpperFirst, entityNameLowerFirst, field)/]
 
-[updateOne(class, entityNameUpperFirst, entityNameLowerFirst, field)/]
+[updateOneByPrimaryKeyField(class, entityNameUpperFirst, entityNameLowerFirst, field)/]
 	[/if]
 [/for]
 [/template]

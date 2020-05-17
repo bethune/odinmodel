@@ -19,10 +19,10 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module deleteOneById('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module deleteOneByPrimaryKeyField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates a delete one by id method for the current controller in a target project.
+ * Generates a delete one by primary key field value method for the current controller in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
@@ -31,7 +31,7 @@
  * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
  * @param field represents the current field with the primary key constraint from the current UML class.
 */]
-[template public deleteOneById(entityNameLowerFirst : String, field : Property)]
+[template public deleteOneByPrimaryKeyField(entityNameLowerFirst : String, field : Property)]
 @DeleteMapping("/{[field.name.toLowerFirst()/]}")
 public void deleteOneBy[field.name.toUpperFirst()/](@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
 	[entityNameLowerFirst/]Interface.deleteOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);

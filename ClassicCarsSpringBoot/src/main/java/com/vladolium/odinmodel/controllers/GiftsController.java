@@ -115,12 +115,12 @@ public class GiftsController {
 
 	
 
-	@GetMapping("/{giftName}")
+	@GetMapping("/giftName={giftName}")
 	public Gifts readOneByGiftName(@PathVariable String giftName) {
 		return giftsInterface.readOneByGiftName(giftName);
 	}
 	
-	@PutMapping("/{giftName}")
+	@PutMapping("/giftName={giftName}")
 	public Gifts updateOneByGiftName(@PathVariable String giftName, @RequestBody Gifts gifts) {
 		
 		Gifts current = giftsInterface.readOneByGiftName(giftName);
