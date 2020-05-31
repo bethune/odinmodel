@@ -1,15 +1,11 @@
 package com.vladolium.odinmodel.repositories;
 
-import com.vladolium.odinmodel.model.*;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.domain.*;
-import org.springframework.data.querydsl.*;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import com.vladolium.odinmodel.model.Offices;
 
-public interface OfficesRepository extends JpaRepository<Offices, Long>, QuerydslPredicateExecutor<Offices> {
+public interface OfficesRepository extends JpaRepository<Offices, Long>, JpaSpecificationExecutor<Offices> {
 
 	Offices findByIdEquals(Long id);
 

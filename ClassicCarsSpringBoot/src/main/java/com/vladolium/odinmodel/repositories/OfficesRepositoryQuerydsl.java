@@ -9,15 +9,11 @@ import org.springframework.data.querydsl.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface CustomersRepositoryQuerydsl extends JpaRepository<Customers, Long>, QuerydslPredicateExecutor<Customers> {
+public interface OfficesRepositoryQuerydsl extends JpaRepository<Offices, Long>, QuerydslPredicateExecutor<Offices> {
 
-	Customers findByCustomerNameEquals(String customerName);
-	
-	Customers findByIdEquals(Long id);
+	Offices findByIdEquals(Long id);
 
-	Iterable <Customers> findByEmployeesIdEquals(Long employeesId);
 	
-	Page <Customers> findByEmployeesIdEquals(Long employeesId, Pageable page);
 
 	
 
