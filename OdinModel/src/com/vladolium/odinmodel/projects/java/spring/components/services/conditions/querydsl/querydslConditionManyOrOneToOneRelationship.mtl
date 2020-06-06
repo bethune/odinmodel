@@ -19,21 +19,25 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module querydslParameterManyOrOneToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module querydslConditionManyOrOneToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the search parameter of the dynamic search method for the current service in a target project.
+ * Generates the query builder parameter of the dynamic search method for the current service in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
  * User may further customize the parameter.
- *       
+ *     
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
  * @param relationship represents the current many-to-one or one-to-one relationship of the current class from the UML class diagram i.e. the domain model.   
  * @param oppositeEntityField represents the field with the primary key from the parent entity
  * which is in many-to-one or one-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.
 */]
-[template public querydslParameterManyOrOneToOneRelationship(relationship : Property, oppositeEntityField : Property){
+[template public querydslConditionManyOrOneToOneRelationship(entityNameUpperFirst : String, relationship : Property, oppositeEntityField : Property){
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();
-	parentFieldName : String = oppositeEntityField.name.toUpperFirst();}]
-[parentEntityNameLowerFirst/][parentFieldName/],
+	parentFieldNameUpperFirst : String = oppositeEntityField.name.toUpperFirst();
+	parentFieldNameLowerFirst : String = oppositeEntityField.name.toLowerFirst();}]
+if ([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/] != null) {
+	where.and(q[entityNameUpperFirst/].[parentEntityNameLowerFirst/].[parentFieldNameLowerFirst/].eq([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]));
+}
 [/template]

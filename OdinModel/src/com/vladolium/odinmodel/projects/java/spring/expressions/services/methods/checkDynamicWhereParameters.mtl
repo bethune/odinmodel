@@ -19,23 +19,22 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module checkQueryBuilderParameters('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkDynamicWhereParameters('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::queryBuilderParameterManyOrOneToOneRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::queryBuilderParameterManyToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::queryBuilderParameterOneToManyRelationship/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::queryBuilderParameterStringField/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::queryBuilderParameterOtherThanStringField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::dynamicwhere::dynamicWhereParameterManyOrOneToOneRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::dynamicwhere::dynamicWhereParameterManyToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::dynamicwhere::dynamicWhereParameterOneToManyRelationship/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::parameters::dynamicwhere::dynamicWhereParameterField/]
 
 [**
- * Checks for the query builder parameters among relationships (foreign keys) and fields 
+ * Checks for the dynamic where parameters among relationships (foreign keys) and fields 
  * of the currrent class from the UML class diagram i.e. the domain model.
  * 
  * This template uses subtemplates for the better overview of the Acceleo expressions.
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public checkQueryBuilderParameters(class : Class) post(trim())]
+[template public checkDynamicWhereParameters(class : Class) post(trim())]
 [checkRelationshipForeignKeys()/]
 [checkFields()/]
 [/template]
@@ -65,7 +64,7 @@
 					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-[queryBuilderParameterManyOrOneToOneRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
+[dynamicWhereParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
 						[/if]
 					[/for]
 				[/if]
@@ -91,7 +90,7 @@
 					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-[queryBuilderParameterManyOrOneToOneRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
+[dynamicWhereParameterManyOrOneToOneRelationship(relationship, oppositeEntityField)/]
 						[/if]
 					[/for]
 				[/if]
@@ -117,7 +116,7 @@
 					(oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
 					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
 						[if oppositeEntityField.isID = true]
-[queryBuilderParameterManyToManyRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
+[dynamicWhereParameterManyToManyRelationship(relationship)/]
 						[/if]
 					[/for]
 				[/if]
@@ -137,19 +136,18 @@
 		relationship.namespace = association and 
 		relationship.opposite.lower = 0 and 
 		relationship.opposite.upper = -1]
-[queryBuilderParameterOneToManyRelationship(entityNameUpperFirst, relationship)/]
+[dynamicWhereParameterOneToManyRelationship(relationship)/]
 	[/if]
 [/for]
 [/template]
 
-[template public checkFields(class : Class) post(trim()){
-	entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[template public checkFields(class : Class) post(trim())]
 [comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
 [for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
-	[if field.type.name = 'String']
-[queryBuilderParameterStringField(entityNameUpperFirst, field)/]
-	[else]
-[queryBuilderParameterOtherThanStringField(entityNameUpperFirst, field)/]
-	[/if]
+[dynamicWhereParameterField(field)/][checkLastField(class, i)/]
 [/for]
+[/template]
+
+[template public checkLastField(class : Class, i : Integer) post(trim())]
+[if class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->size()-1 > i],[else][/if]
 [/template]

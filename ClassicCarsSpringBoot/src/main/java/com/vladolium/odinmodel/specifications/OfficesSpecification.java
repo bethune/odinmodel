@@ -56,6 +56,6 @@ public class OfficesSpecification {
     }
 
 //Code between start and end will not be removed during generation.
-//Start of user code for this serviceImpl
+//Start of user code for this specification
 //End of user code
 }

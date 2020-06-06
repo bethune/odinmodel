@@ -19,7 +19,7 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module queryBuilderParameterStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module querydslConditionStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
  * Generates the query builder parameter of the dynamic search method for the current service in a target project.
@@ -31,7 +31,7 @@
  * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
  * @param field represents the current String field from the current UML class.
 */]
-[template public queryBuilderParameterStringField(entityNameUpperFirst : String, field : Property)]
+[template public querydslConditionStringField(entityNameUpperFirst : String, field : Property)]
 if ([field.name.toLowerFirst()/] != null) {
 	where.and(q[entityNameUpperFirst/].[field.name.toLowerFirst()/].containsIgnoreCase([field.name.toLowerFirst()/]));
 }

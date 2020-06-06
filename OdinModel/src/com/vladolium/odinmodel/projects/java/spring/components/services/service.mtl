@@ -26,6 +26,7 @@
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkPrimaryKeyConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::components::services::methods::readAll/]
 [import com::vladolium::odinmodel::projects::java::spring::components::services::methods::dynamicSearchQuerydsl/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::methods::dynamicSearchSpecification/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkParentFromManyToOneRelationship/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkUniqueConstraint/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkIricOnManyToOneRelationship/]
@@ -66,7 +67,9 @@ public class [entityNameUpperFirst/]Service implements [entityNameUpperFirst/]In
 
 	[readAll()/]
 
-	[dynamicSearchQuerydsl()/]
+[comment]	[dynamicSearchQuerydsl()/][/comment]
+
+	[dynamicSearchSpecification()/]
 
 	[checkParentFromManyToOneRelationship()/]
 

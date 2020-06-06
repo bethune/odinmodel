@@ -74,14 +74,16 @@ public class OfficesService implements OfficesInterface {
 	Specification<Offices> dynamicWhere(String city, String phone, String addressLine2, String territory,
 			String addressLine1, String country, String state, String postalCode) {
 		Specification<Offices> where = Specification
-				.where(city == null ? null : OfficesSpecification.getOfficesByCity(city))
+				.where
+				(city == null ? null : OfficesSpecification.getOfficesByCity(city))
 				.or(phone == null ? null : OfficesSpecification.getOfficesByPhone(phone))
 				.or(addressLine1 == null ? null : OfficesSpecification.getOfficesByAddressLine1(addressLine1))
 				.or(addressLine1 == null ? null : OfficesSpecification.getOfficesByAddressLine1(addressLine1))
 				.or(territory == null ? null : OfficesSpecification.getOfficesByTerritory(territory))
 				.or(country == null ? null : OfficesSpecification.getOfficesByCountry(country))
 				.or(state == null ? null : OfficesSpecification.getOfficesByState(state))
-				.or(postalCode == null ? null : OfficesSpecification.getOfficesByPostalCode(postalCode));
+				.or(postalCode == null ? null : OfficesSpecification.getOfficesByPostalCode(postalCode))
+				;
 		return where;
 	}
 

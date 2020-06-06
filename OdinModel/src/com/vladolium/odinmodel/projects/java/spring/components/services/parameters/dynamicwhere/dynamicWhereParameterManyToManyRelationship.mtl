@@ -19,20 +19,18 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module queryBuilderParameterOtherThanStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module dynamicWhereParameterManyToManyRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the query builder parameter of the dynamic search method for the current service in a target project.
+ * Generates the search parameter of the dynamic search method for the current service in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
  * User may further customize the parameter.
  *       
- * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.
- * @param field represents the current field without the primary key constraint from the current UML class.
+ * @param relationship represents the current many-to-many relationship of the current class from the UML class diagram i.e. the domain model.   
 */]
-[template public queryBuilderParameterOtherThanStringField(entityNameUpperFirst : String, field : Property)]
-if ([field.name.toLowerFirst()/] != null) {
-	where.and(q[entityNameUpperFirst/].[field.name.toLowerFirst()/].eq([field.name.toLowerFirst()/]));
-}
+[template public dynamicWhereParameterManyToManyRelationship(relationship : Property){
+	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
+[parentEntityNameLowerFirst/]Set,
 [/template]

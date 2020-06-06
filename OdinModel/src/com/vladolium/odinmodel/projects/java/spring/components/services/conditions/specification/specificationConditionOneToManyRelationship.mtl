@@ -19,18 +19,21 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module querydslParameterOneToManyRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module specificationConditionOneToManyRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the search parameter of the dynamic search method for the current service in a target project.
+ * Generates the query builder parameter of the dynamic search method for the current service in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
  * User may further customize the parameter.
  *       
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
  * @param relationship represents the current one-to-many relationship of the current class from the UML class diagram i.e. the domain model.   
 */]
-[template public querydslParameterOneToManyRelationship(relationship : Property){
+[template public specificationConditionOneToManyRelationship(entityNameUpperFirst : String, relationship : Property){
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
-[parentEntityNameLowerFirst/]List,
+if ([parentEntityNameLowerFirst/]List != null) {
+	where.and(q[entityNameUpperFirst/].[parentEntityNameLowerFirst/]List.any().in([parentEntityNameLowerFirst/]List));
+}
 [/template]

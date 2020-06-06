@@ -19,14 +19,14 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module dynamicSearchQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module dynamicSearchSpecification('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkSearchParameters/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkDynamicWhereParameters/]
-[import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkQuerydslConditions/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkSpecificationConditions/]
 
 [**
- * Generates the Querydsl search all and search all with pagination methods for the current service in a target project.
+ * Generates the Specification search all and search all with pagination methods for the current service in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
@@ -34,7 +34,7 @@
  *    
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public dynamicSearchQuerydsl(class : Class){
+[template public dynamicSearchSpecification(class : Class){
 	entityNameUpperFirst : String = class.name.toUpperFirst();
 	entityNameLowerFirst : String = class.name.toLowerFirst();}]
 [comment : Search all. /]
@@ -42,7 +42,7 @@
 public Iterable<[entityNameUpperFirst/]> search(
 	[checkSearchParameters()/]
 ) {
-	BooleanBuilder where = dynamicWhere(
+	Specification<[entityNameUpperFirst/]> where = dynamicWhere(
 		[checkDynamicWhereParameters()/]	
 	);
 	return [entityNameLowerFirst/]Repository.findAll(where);
@@ -54,7 +54,7 @@ public Page<[entityNameUpperFirst/]> searchPagination(
 	Pageable page,
 	[checkSearchParameters()/]
 ) {
-	BooleanBuilder where = dynamicWhere(
+	Specification<[entityNameUpperFirst/]> where = dynamicWhere(
 		[checkDynamicWhereParameters()/]
 	);
 	return [entityNameLowerFirst/]Repository.findAll(where, page);
@@ -64,11 +64,9 @@ public Page<[entityNameUpperFirst/]> searchPagination(
 public BooleanBuilder dynamicWhere(
 	[checkSearchParameters()/]
 ) {
-	Q[entityNameUpperFirst/] q[entityNameUpperFirst/] = Q[entityNameUpperFirst/].[entityNameLowerFirst/];
-
-	BooleanBuilder where = new BooleanBuilder();
-
-	[checkQuerydslConditions()/]
+	Specification<[entityNameUpperFirst/]> where = Specification
+		where
+		[checkSpecificationConditions()/];
 
 	return where;
 }

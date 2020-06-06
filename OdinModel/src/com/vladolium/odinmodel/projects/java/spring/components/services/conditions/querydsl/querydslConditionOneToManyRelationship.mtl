@@ -19,7 +19,7 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module queryBuilderParameterOneToManyRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module querydslConditionOneToManyRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
  * Generates the query builder parameter of the dynamic search method for the current service in a target project.
@@ -31,7 +31,7 @@
  * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.       
  * @param relationship represents the current one-to-many relationship of the current class from the UML class diagram i.e. the domain model.   
 */]
-[template public queryBuilderParameterOneToManyRelationship(entityNameUpperFirst : String, relationship : Property){
+[template public querydslConditionOneToManyRelationship(entityNameUpperFirst : String, relationship : Property){
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
 if ([parentEntityNameLowerFirst/]List != null) {
 	where.and(q[entityNameUpperFirst/].[parentEntityNameLowerFirst/]List.any().in([parentEntityNameLowerFirst/]List));
