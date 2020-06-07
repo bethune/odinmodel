@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.Orders.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,6 +55,7 @@ public class OrdersService implements OrdersInterface {
 		return ordersRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<Orders> search(
 		Long customersId,
@@ -62,7 +65,7 @@ public class OrdersService implements OrdersInterface {
 		LocalDate requiredDate,
 		LocalDate shippedDate
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Orders> where = dynamicWhere(
 			customersId,
 			status,
 			orderDate,
@@ -83,7 +86,7 @@ public class OrdersService implements OrdersInterface {
 		LocalDate requiredDate,
 		LocalDate shippedDate
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Orders> where = dynamicWhere(
 			customersId,
 			status,
 			orderDate,
@@ -94,7 +97,7 @@ public class OrdersService implements OrdersInterface {
 		return ordersRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<Orders> dynamicWhere(
 		Long customersId,
 		String status,
 		LocalDate orderDate,
@@ -102,28 +105,13 @@ public class OrdersService implements OrdersInterface {
 		LocalDate requiredDate,
 		LocalDate shippedDate
 	) {
-		QOrders qOrders = QOrders.orders;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (customersId != null) {
-			where.and(qOrders.customers.id.eq(customersId));
-		}
-		if (status != null) {
-			where.and(qOrders.status.containsIgnoreCase(status));
-		}
-		if (orderDate != null) {
-			where.and(qOrders.orderDate.eq(orderDate));
-		}
-		if (comments != null) {
-			where.and(qOrders.comments.eq(comments));
-		}
-		if (requiredDate != null) {
-			where.and(qOrders.requiredDate.eq(requiredDate));
-		}
-		if (shippedDate != null) {
-			where.and(qOrders.shippedDate.eq(shippedDate));
-		}
+		Specification<Orders> where = Specification
+			.where(status == null ? null : OrdersSpecification.getOrdersByStatus(status))
+			.and(orderDate == null ? null : OrdersSpecification.getOrdersByOrderDate(orderDate))
+			.and(comments == null ? null : OrdersSpecification.getOrdersByComments(comments))
+			.and(requiredDate == null ? null : OrdersSpecification.getOrdersByRequiredDate(requiredDate))
+			.and(shippedDate == null ? null : OrdersSpecification.getOrdersByShippedDate(shippedDate))
+			.and(customersId == null ? null : OrdersSpecification.getOrdersByCustomersId(customersId));
 	
 		return where;
 	}

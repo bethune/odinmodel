@@ -32,7 +32,5 @@
  * @param field represents the current String field from the current UML class.
 */]
 [template public specificationConditionStringField(entityNameUpperFirst : String, field : Property)]
-if ([field.name.toLowerFirst()/] != null) {
-	where.and(q[entityNameUpperFirst/].[field.name.toLowerFirst()/].containsIgnoreCase([field.name.toLowerFirst()/]));
-}
+([field.name.toLowerFirst()/] == null ? null : [entityNameUpperFirst/]Specification.get[entityNameUpperFirst/]By[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]))
 [/template]

@@ -36,11 +36,32 @@
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public checkSpecificationConditions(class : Class) post(trim())]
-[checkRelationshipForeignKeys()/]
 [checkFields()/]
+[checkRelationshipForeignKeys()/]
 [/template]
 
 [comment: Subtemplates. /]
+
+[template public checkFields(class : Class) post(trim()){
+  entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+	[if i = 1]
+		[if field.type.name = 'String']
+.where[specificationConditionStringField(entityNameUpperFirst, field)/]
+	  	[else]
+.where[specificationConditionOtherThanStringField(entityNameUpperFirst, field)/]
+	  	[/if]
+	[/if]
+	[if i > 1]
+		[if field.type.name = 'String']
+.and[specificationConditionStringField(entityNameUpperFirst, field)/]
+	  	[else]
+.and[specificationConditionOtherThanStringField(entityNameUpperFirst, field)/]
+	  	[/if]
+	[/if]
+[/for]
+[/template]
 
 [template public checkRelationshipForeignKeys(class : Class) post(trim())]
 [checkManyToOneRelationship()/]
@@ -59,13 +80,13 @@
     relationship.namespace = association and
     relationship.opposite.lower = 1 and 
     relationship.opposite.upper = 1]
-    [for (p: Package | class._package)]
+	[for (p: Package | class._package)]
       [for (oppositeEntity: Class | p.member -> filter(Class))]
         [if (oppositeEntity.name.toLower() <> class.name.toLower()) and 
           (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
           [for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
             [if oppositeEntityField.isID = true]
-[specificationConditionManyOrOneToOneRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
+.and[specificationConditionManyOrOneToOneRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
             [/if]
           [/for]
         [/if]
@@ -91,7 +112,7 @@
           (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
           [for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
             [if oppositeEntityField.isID = true]
-[specificationConditionManyOrOneToOneRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
+.and[specificationConditionManyOrOneToOneRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
             [/if]
           [/for]
         [/if]
@@ -117,7 +138,7 @@
           (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
           [for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
             [if oppositeEntityField.isID = true]
-[specificationConditionManyToManyRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
+.and[specificationConditionManyToManyRelationship(entityNameUpperFirst, relationship, oppositeEntityField)/]
             [/if]
           [/for]
         [/if]
@@ -137,19 +158,7 @@
     relationship.namespace = association and 
     relationship.opposite.lower = 0 and 
     relationship.opposite.upper = -1]
-[specificationConditionOneToManyRelationship(entityNameUpperFirst, relationship)/]
-  [/if]
-[/for]
-[/template]
-
-[template public checkFields(class : Class) post(trim()){
-  entityNameUpperFirst : String = class.name.toUpperFirst();}]
-[comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
-[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
-  [if field.type.name = 'String']
-[specificationConditionStringField(entityNameUpperFirst, field)/]
-  [else]
-[specificationConditionOtherThanStringField(entityNameUpperFirst, field)/]
+.and[specificationConditionOneToManyRelationship(entityNameUpperFirst, relationship)/]
   [/if]
 [/for]
 [/template]

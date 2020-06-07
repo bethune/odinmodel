@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.Payments.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,6 +55,7 @@ public class PaymentsService implements PaymentsInterface {
 		return paymentsRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<Payments> search(
 		Long customersId,
@@ -61,7 +64,7 @@ public class PaymentsService implements PaymentsInterface {
 		Double amount,
 		Instant paymentTimestamp
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Payments> where = dynamicWhere(
 			customersId,
 			checkNumber,
 			paymentDate,
@@ -80,7 +83,7 @@ public class PaymentsService implements PaymentsInterface {
 		Double amount,
 		Instant paymentTimestamp
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Payments> where = dynamicWhere(
 			customersId,
 			checkNumber,
 			paymentDate,
@@ -90,32 +93,19 @@ public class PaymentsService implements PaymentsInterface {
 		return paymentsRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<Payments> dynamicWhere(
 		Long customersId,
 		String checkNumber,
 		LocalDate paymentDate,
 		Double amount,
 		Instant paymentTimestamp
 	) {
-		QPayments qPayments = QPayments.payments;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (customersId != null) {
-			where.and(qPayments.customers.id.eq(customersId));
-		}
-		if (checkNumber != null) {
-			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
-		}
-		if (paymentDate != null) {
-			where.and(qPayments.paymentDate.eq(paymentDate));
-		}
-		if (amount != null) {
-			where.and(qPayments.amount.eq(amount));
-		}
-		if (paymentTimestamp != null) {
-			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
-		}
+		Specification<Payments> where = Specification
+			.where(checkNumber == null ? null : PaymentsSpecification.getPaymentsByCheckNumber(checkNumber))
+			.and(paymentDate == null ? null : PaymentsSpecification.getPaymentsByPaymentDate(paymentDate))
+			.and(amount == null ? null : PaymentsSpecification.getPaymentsByAmount(amount))
+			.and(paymentTimestamp == null ? null : PaymentsSpecification.getPaymentsByPaymentTimestamp(paymentTimestamp))
+			.and(customersId == null ? null : PaymentsSpecification.getPaymentsByCustomersId(customersId));
 	
 		return where;
 	}

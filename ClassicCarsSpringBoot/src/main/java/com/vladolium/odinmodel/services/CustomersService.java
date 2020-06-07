@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.Customers.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,6 +55,7 @@ public class CustomersService implements CustomersInterface {
 		return customersRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<Customers> search(
 		Long employeesId,
@@ -71,7 +74,7 @@ public class CustomersService implements CustomersInterface {
 		String state,
 		String postalCode
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Customers> where = dynamicWhere(
 			employeesId,
 			
 			
@@ -110,7 +113,7 @@ public class CustomersService implements CustomersInterface {
 		String state,
 		String postalCode
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Customers> where = dynamicWhere(
 			employeesId,
 			
 			
@@ -130,7 +133,7 @@ public class CustomersService implements CustomersInterface {
 		return customersRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<Customers> dynamicWhere(
 		Long employeesId,
 		
 		
@@ -147,51 +150,24 @@ public class CustomersService implements CustomersInterface {
 		String state,
 		String postalCode
 	) {
-		QCustomers qCustomers = QCustomers.customers;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (employeesId != null) {
-			where.and(qCustomers.employees.id.eq(employeesId));
-		}
-		
-		
-		if (reviewsList != null) {
-			where.and(qCustomers.reviewsList.any().in(reviewsList));
-		}
-		if (city != null) {
-			where.and(qCustomers.city.containsIgnoreCase(city));
-		}
-		if (phone != null) {
-			where.and(qCustomers.phone.containsIgnoreCase(phone));
-		}
-		if (addressLine2 != null) {
-			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
-		}
-		if (firstName != null) {
-			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
-		}
-		if (creditLimit != null) {
-			where.and(qCustomers.creditLimit.eq(creditLimit));
-		}
-		if (customerName != null) {
-			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
-		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
-		}
-		if (lastName != null) {
-			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
-		}
-		if (state != null) {
-			where.and(qCustomers.state.containsIgnoreCase(state));
-		}
-		if (postalCode != null) {
-			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
-		}
+		Specification<Customers> where = Specification
+			.where(city == null ? null : CustomersSpecification.getCustomersByCity(city))
+			.and(phone == null ? null : CustomersSpecification.getCustomersByPhone(phone))
+			.and(addressLine2 == null ? null : CustomersSpecification.getCustomersByAddressLine2(addressLine2))
+			.and(firstName == null ? null : CustomersSpecification.getCustomersByFirstName(firstName))
+			.and(creditLimit == null ? null : CustomersSpecification.getCustomersByCreditLimit(creditLimit))
+			.and(customerName == null ? null : CustomersSpecification.getCustomersByCustomerName(customerName))
+			.and(addressLine1 == null ? null : CustomersSpecification.getCustomersByAddressLine1(addressLine1))
+			.and(country == null ? null : CustomersSpecification.getCustomersByCountry(country))
+			.and(lastName == null ? null : CustomersSpecification.getCustomersByLastName(lastName))
+			.and(state == null ? null : CustomersSpecification.getCustomersByState(state))
+			.and(postalCode == null ? null : CustomersSpecification.getCustomersByPostalCode(postalCode))
+			.and(employeesId == null ? null : CustomersSpecification.getCustomersByEmployeesId(employeesId))
+			
+			
+			.andif (reviewsList != null) {
+				where.and(qCustomers.reviewsList.any().in(reviewsList));
+			};
 	
 		return where;
 	}

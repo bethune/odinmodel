@@ -23,6 +23,7 @@
 
 [import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithQuerydsl/]
 [import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithSpecification/]
+[import com::vladolium::odinmodel::projects::java::spring::components::specifications::specification/]
 [import com::vladolium::odinmodel::projects::java::spring::components::services::service/]
 [import com::vladolium::odinmodel::projects::java::spring::components::interfaces::interface/]
 [import com::vladolium::odinmodel::projects::java::spring::components::controllers::controller/]
@@ -39,6 +40,7 @@
 [template public projectStructure(class : Class)]
 [comment][jpaRepositoryWithQuerydsl()/][/comment]
 [jpaRepositoryWithSpecification()/]
+[specification()/]
 [service()/]
 [interface()/]
 [controller()/]

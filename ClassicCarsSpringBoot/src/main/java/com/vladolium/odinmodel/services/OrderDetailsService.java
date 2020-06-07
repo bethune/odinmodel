@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.OrderDetails.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,6 +55,7 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		return orderDetailsRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<OrderDetails> search(
 		Long productsId,
@@ -61,7 +64,7 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		Integer quantityOrdered,
 		Double priceEach
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<OrderDetails> where = dynamicWhere(
 			productsId,
 			ordersId,
 			orderLineNumber,
@@ -80,7 +83,7 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		Integer quantityOrdered,
 		Double priceEach
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<OrderDetails> where = dynamicWhere(
 			productsId,
 			ordersId,
 			orderLineNumber,
@@ -90,32 +93,19 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		return orderDetailsRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<OrderDetails> dynamicWhere(
 		Long productsId,
 		Long ordersId,
 		Integer orderLineNumber,
 		Integer quantityOrdered,
 		Double priceEach
 	) {
-		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (productsId != null) {
-			where.and(qOrderDetails.products.id.eq(productsId));
-		}
-		if (ordersId != null) {
-			where.and(qOrderDetails.orders.id.eq(ordersId));
-		}
-		if (orderLineNumber != null) {
-			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
-		}
-		if (quantityOrdered != null) {
-			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
-		}
-		if (priceEach != null) {
-			where.and(qOrderDetails.priceEach.eq(priceEach));
-		}
+		Specification<OrderDetails> where = Specification
+			.where(orderLineNumber == null ? null : OrderDetailsSpecification.getOrderDetailsByOrderLineNumber(orderLineNumber))
+			.and(quantityOrdered == null ? null : OrderDetailsSpecification.getOrderDetailsByQuantityOrdered(quantityOrdered))
+			.and(priceEach == null ? null : OrderDetailsSpecification.getOrderDetailsByPriceEach(priceEach))
+			.and(productsId == null ? null : OrderDetailsSpecification.getOrderDetailsByProductsId(productsId))
+			.and(ordersId == null ? null : OrderDetailsSpecification.getOrderDetailsByOrdersId(ordersId));
 	
 		return where;
 	}

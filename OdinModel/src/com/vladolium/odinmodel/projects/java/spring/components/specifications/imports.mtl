@@ -19,18 +19,17 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module specificationConditionOtherThanStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module imports('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the query builder parameter of the dynamic search method for the current service in a target project.
- * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may further customize the parameter.
- *       
- * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.
- * @param field represents the current field without the primary key constraint from the current UML class.
+ * User may set Java imports for all Spring specifications in a single place.
+ *   
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public specificationConditionOtherThanStringField(entityNameUpperFirst : String, field : Property)]
-([field.name.toLowerFirst()/] == null ? null : [entityNameUpperFirst/]Specification.get[entityNameUpperFirst/]By[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]))
+[template public imports(class : Class){
+	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();}]
+import org.springframework.data.jpa.domain.Specification;
+import [packageName/].model.*;
 [/template]

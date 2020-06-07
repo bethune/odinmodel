@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.ProductLines.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,13 +55,14 @@ public class ProductLinesService implements ProductLinesInterface {
 		return productLinesRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<ProductLines> search(
 		String productLine,
 		byte[] image,
 		String textDescription
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<ProductLines> where = dynamicWhere(
 			productLine,
 			image,
 			textDescription	
@@ -74,7 +77,7 @@ public class ProductLinesService implements ProductLinesInterface {
 		byte[] image,
 		String textDescription
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<ProductLines> where = dynamicWhere(
 			productLine,
 			image,
 			textDescription
@@ -82,24 +85,15 @@ public class ProductLinesService implements ProductLinesInterface {
 		return productLinesRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<ProductLines> dynamicWhere(
 		String productLine,
 		byte[] image,
 		String textDescription
 	) {
-		QProductLines qProductLines = QProductLines.productLines;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (productLine != null) {
-			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
-		}
-		if (image != null) {
-			where.and(qProductLines.image.eq(image));
-		}
-		if (textDescription != null) {
-			where.and(qProductLines.textDescription.eq(textDescription));
-		}
+		Specification<ProductLines> where = Specification
+			.where(productLine == null ? null : ProductLinesSpecification.getProductLinesByProductLine(productLine))
+			.and(image == null ? null : ProductLinesSpecification.getProductLinesByImage(image))
+			.and(textDescription == null ? null : ProductLinesSpecification.getProductLinesByTextDescription(textDescription));
 	
 		return where;
 	}

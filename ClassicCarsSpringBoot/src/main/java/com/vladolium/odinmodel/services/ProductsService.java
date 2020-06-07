@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.Products.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,6 +55,7 @@ public class ProductsService implements ProductsInterface {
 		return productsRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<Products> search(
 		Long productLinesId,
@@ -65,7 +68,7 @@ public class ProductsService implements ProductsInterface {
 		Double msrp,
 		String productCode
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Products> where = dynamicWhere(
 			productLinesId,
 			productName,
 			quantityInStock,
@@ -92,7 +95,7 @@ public class ProductsService implements ProductsInterface {
 		Double msrp,
 		String productCode
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Products> where = dynamicWhere(
 			productLinesId,
 			productName,
 			quantityInStock,
@@ -106,7 +109,7 @@ public class ProductsService implements ProductsInterface {
 		return productsRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<Products> dynamicWhere(
 		Long productLinesId,
 		String productName,
 		Integer quantityInStock,
@@ -117,37 +120,16 @@ public class ProductsService implements ProductsInterface {
 		Double msrp,
 		String productCode
 	) {
-		QProducts qProducts = QProducts.products;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (productLinesId != null) {
-			where.and(qProducts.productLines.id.eq(productLinesId));
-		}
-		if (productName != null) {
-			where.and(qProducts.productName.containsIgnoreCase(productName));
-		}
-		if (quantityInStock != null) {
-			where.and(qProducts.quantityInStock.eq(quantityInStock));
-		}
-		if (productVendor != null) {
-			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
-		}
-		if (productDescription != null) {
-			where.and(qProducts.productDescription.eq(productDescription));
-		}
-		if (buyPrice != null) {
-			where.and(qProducts.buyPrice.eq(buyPrice));
-		}
-		if (productScale != null) {
-			where.and(qProducts.productScale.containsIgnoreCase(productScale));
-		}
-		if (msrp != null) {
-			where.and(qProducts.msrp.eq(msrp));
-		}
-		if (productCode != null) {
-			where.and(qProducts.productCode.containsIgnoreCase(productCode));
-		}
+		Specification<Products> where = Specification
+			.where(productName == null ? null : ProductsSpecification.getProductsByProductName(productName))
+			.and(quantityInStock == null ? null : ProductsSpecification.getProductsByQuantityInStock(quantityInStock))
+			.and(productVendor == null ? null : ProductsSpecification.getProductsByProductVendor(productVendor))
+			.and(productDescription == null ? null : ProductsSpecification.getProductsByProductDescription(productDescription))
+			.and(buyPrice == null ? null : ProductsSpecification.getProductsByBuyPrice(buyPrice))
+			.and(productScale == null ? null : ProductsSpecification.getProductsByProductScale(productScale))
+			.and(msrp == null ? null : ProductsSpecification.getProductsByMsrp(msrp))
+			.and(productCode == null ? null : ProductsSpecification.getProductsByProductCode(productCode))
+			.and(productLinesId == null ? null : ProductsSpecification.getProductsByProductLinesId(productLinesId));
 	
 		return where;
 	}

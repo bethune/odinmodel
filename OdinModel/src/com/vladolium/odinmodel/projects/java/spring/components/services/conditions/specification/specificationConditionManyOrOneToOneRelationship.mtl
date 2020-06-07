@@ -35,9 +35,7 @@
 */]
 [template public specificationConditionManyOrOneToOneRelationship(entityNameUpperFirst : String, relationship : Property, oppositeEntityField : Property){
 	parentEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();
-	parentFieldNameUpperFirst : String = oppositeEntityField.name.toUpperFirst();
-	parentFieldNameLowerFirst : String = oppositeEntityField.name.toLowerFirst();}]
-if ([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/] != null) {
-	where.and(q[entityNameUpperFirst/].[parentEntityNameLowerFirst/].[parentFieldNameLowerFirst/].eq([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]));
-}
+	parentEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
+	parentFieldNameUpperFirst : String = oppositeEntityField.name.toUpperFirst();}]
+([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/] == null ? null : [entityNameUpperFirst/]Specification.get[entityNameUpperFirst/]By[parentEntityNameUpperFirst/][parentFieldNameUpperFirst/]([parentEntityNameLowerFirst/][parentFieldNameUpperFirst/]))
 [/template]

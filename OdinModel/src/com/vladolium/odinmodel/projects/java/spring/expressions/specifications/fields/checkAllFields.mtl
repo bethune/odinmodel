@@ -19,18 +19,24 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module specificationConditionOtherThanStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module checkAllFields('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::components::specifications::methods::specificationGetStringField/]
+[import com::vladolium::odinmodel::projects::java::spring::components::specifications::methods::specificationGetOtherThanStringField/]
 
 [**
- * Generates the query builder parameter of the dynamic search method for the current service in a target project.
- * 
- * OMPOC (OdinModel Point Of Customization)
- * 
- * User may further customize the parameter.
- *       
- * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.
- * @param field represents the current field without the primary key constraint from the current UML class.
+ * Covers all fields of the current entity.
+ *   
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public specificationConditionOtherThanStringField(entityNameUpperFirst : String, field : Property)]
-([field.name.toLowerFirst()/] == null ? null : [entityNameUpperFirst/]Specification.get[entityNameUpperFirst/]By[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]))
+[template public checkAllFields(class : Class) post(trim()){
+  entityNameUpperFirst : String = class.name.toUpperFirst();}]
+[comment: Gets all fields of the current entity except the ones with the primary key constraint. /]
+[for (field: Property | class.getAllAttributes()->removeAll(class.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+	[if field.type.name = 'String']
+[specificationGetStringField(entityNameUpperFirst, field)/]
+	[else]
+[specificationGetOtherThanStringField(entityNameUpperFirst, field)/]
+	[/if]
+[/for]
 [/template]

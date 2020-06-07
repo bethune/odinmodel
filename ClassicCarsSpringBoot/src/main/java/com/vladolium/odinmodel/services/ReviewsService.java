@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.Reviews.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,13 +55,14 @@ public class ReviewsService implements ReviewsInterface {
 		return reviewsRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<Reviews> search(
 		LocalTime reviewTime,
 		LocalDate reviewDate,
 		String reviewText
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Reviews> where = dynamicWhere(
 			reviewTime,
 			reviewDate,
 			reviewText	
@@ -74,7 +77,7 @@ public class ReviewsService implements ReviewsInterface {
 		LocalDate reviewDate,
 		String reviewText
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Reviews> where = dynamicWhere(
 			reviewTime,
 			reviewDate,
 			reviewText
@@ -82,24 +85,15 @@ public class ReviewsService implements ReviewsInterface {
 		return reviewsRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<Reviews> dynamicWhere(
 		LocalTime reviewTime,
 		LocalDate reviewDate,
 		String reviewText
 	) {
-		QReviews qReviews = QReviews.reviews;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (reviewTime != null) {
-			where.and(qReviews.reviewTime.eq(reviewTime));
-		}
-		if (reviewDate != null) {
-			where.and(qReviews.reviewDate.eq(reviewDate));
-		}
-		if (reviewText != null) {
-			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
-		}
+		Specification<Reviews> where = Specification
+			.where(reviewTime == null ? null : ReviewsSpecification.getReviewsByReviewTime(reviewTime))
+			.and(reviewDate == null ? null : ReviewsSpecification.getReviewsByReviewDate(reviewDate))
+			.and(reviewText == null ? null : ReviewsSpecification.getReviewsByReviewText(reviewText));
 	
 		return where;
 	}

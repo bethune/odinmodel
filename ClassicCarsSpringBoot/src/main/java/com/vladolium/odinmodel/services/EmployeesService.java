@@ -6,12 +6,14 @@ import com.vladolium.odinmodel.model.Employees.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
+import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -53,6 +55,7 @@ public class EmployeesService implements EmployeesInterface {
 		return employeesRepository.findAll(page);
 	}
 
+
 	@Override
 	public Iterable<Employees> search(
 		Long officesId,
@@ -64,7 +67,7 @@ public class EmployeesService implements EmployeesInterface {
 		String firstName,
 		Boolean isActive
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Employees> where = dynamicWhere(
 			officesId,
 			lastName,
 			reportsTo,
@@ -89,7 +92,7 @@ public class EmployeesService implements EmployeesInterface {
 		String firstName,
 		Boolean isActive
 	) {
-		BooleanBuilder where = dynamicWhere(
+		Specification<Employees> where = dynamicWhere(
 			officesId,
 			lastName,
 			reportsTo,
@@ -102,7 +105,7 @@ public class EmployeesService implements EmployeesInterface {
 		return employeesRepository.findAll(where, page);
 	}
 	
-	public BooleanBuilder dynamicWhere(
+	public Specification<Employees> dynamicWhere(
 		Long officesId,
 		String lastName,
 		Integer reportsTo,
@@ -112,34 +115,15 @@ public class EmployeesService implements EmployeesInterface {
 		String firstName,
 		Boolean isActive
 	) {
-		QEmployees qEmployees = QEmployees.employees;
-	
-		BooleanBuilder where = new BooleanBuilder();
-	
-		if (officesId != null) {
-			where.and(qEmployees.offices.id.eq(officesId));
-		}
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
-		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
-		}
-		if (extension != null) {
-			where.and(qEmployees.extension.containsIgnoreCase(extension));
-		}
-		if (email != null) {
-			where.and(qEmployees.email.containsIgnoreCase(email));
-		}
-		if (jobTitle != null) {
-			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
-		}
-		if (firstName != null) {
-			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
-		}
-		if (isActive != null) {
-			where.and(qEmployees.isActive.eq(isActive));
-		}
+		Specification<Employees> where = Specification
+			.where(lastName == null ? null : EmployeesSpecification.getEmployeesByLastName(lastName))
+			.and(reportsTo == null ? null : EmployeesSpecification.getEmployeesByReportsTo(reportsTo))
+			.and(extension == null ? null : EmployeesSpecification.getEmployeesByExtension(extension))
+			.and(email == null ? null : EmployeesSpecification.getEmployeesByEmail(email))
+			.and(jobTitle == null ? null : EmployeesSpecification.getEmployeesByJobTitle(jobTitle))
+			.and(firstName == null ? null : EmployeesSpecification.getEmployeesByFirstName(firstName))
+			.and(isActive == null ? null : EmployeesSpecification.getEmployeesByIsActive(isActive))
+			.and(officesId == null ? null : EmployeesSpecification.getEmployeesByOfficesId(officesId));
 	
 		return where;
 	}

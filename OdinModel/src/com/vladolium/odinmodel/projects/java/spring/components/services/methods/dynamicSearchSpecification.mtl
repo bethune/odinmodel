@@ -61,11 +61,10 @@ public Page<[entityNameUpperFirst/]> searchPagination(
 }
 
 [comment : Building a dynamic query/]
-public BooleanBuilder dynamicWhere(
+public Specification<[entityNameUpperFirst/]> dynamicWhere(
 	[checkSearchParameters()/]
 ) {
 	Specification<[entityNameUpperFirst/]> where = Specification
-		where
 		[checkSpecificationConditions()/];
 
 	return where;

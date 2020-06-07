@@ -19,18 +19,22 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module specificationConditionOtherThanStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module specificationGetStringField('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Generates the query builder parameter of the dynamic search method for the current service in a target project.
+ * Generates the get method for the current specification in a target project.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may further customize the parameter.
- *       
- * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.
- * @param field represents the current field without the primary key constraint from the current UML class.
+ * User may further customize the method.
+ *    
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.   
+ * @param field represents the current field from the current UML class.
 */]
-[template public specificationConditionOtherThanStringField(entityNameUpperFirst : String, field : Property)]
-([field.name.toLowerFirst()/] == null ? null : [entityNameUpperFirst/]Specification.get[entityNameUpperFirst/]By[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]))
+[template public specificationGetStringField(entityNameUpperFirst : String, field : Property)]
+public static Specification<[entityNameUpperFirst/]> get[entityNameUpperFirst/]By[field.name.toUpperFirst()/]([field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/]) {
+    return (root, query, criteriaBuilder) -> {
+        return criteriaBuilder.like(criteriaBuilder.lower(root.get("[field.name.toLowerFirst()/]")), "%" + [field.name.toLowerFirst()/].toLowerCase() + "%");
+    };
+}
 [/template]
