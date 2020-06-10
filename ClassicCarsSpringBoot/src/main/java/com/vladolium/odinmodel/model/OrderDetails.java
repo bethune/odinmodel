@@ -23,16 +23,6 @@ public class OrderDetails {
 	}
 	
 	@NotNull
-	private Integer orderLineNumber;
-	
-	public Integer getOrderLineNumber() {
-		return orderLineNumber;
-	}
-	public void setOrderLineNumber(Integer orderLineNumber) {
-		this.orderLineNumber = orderLineNumber;
-	}
-	
-	@NotNull
 	@Min(10)
 	private Integer quantityOrdered;
 	
@@ -41,6 +31,16 @@ public class OrderDetails {
 	}
 	public void setQuantityOrdered(Integer quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
+	}
+	
+	@NotNull
+	private Integer orderLineNumber;
+	
+	public Integer getOrderLineNumber() {
+		return orderLineNumber;
+	}
+	public void setOrderLineNumber(Integer orderLineNumber) {
+		this.orderLineNumber = orderLineNumber;
 	}
 	
 	@NotNull

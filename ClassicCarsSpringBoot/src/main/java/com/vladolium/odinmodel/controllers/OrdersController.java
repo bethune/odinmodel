@@ -48,10 +48,10 @@ public class OrdersController {
 			
 		current.setCustomers(orders.getCustomers());
 		current.setStatus(orders.getStatus());
+		current.setShippedDate(orders.getShippedDate());
 		current.setOrderDate(orders.getOrderDate());
 		current.setComments(orders.getComments());
 		current.setRequiredDate(orders.getRequiredDate());
-		current.setShippedDate(orders.getShippedDate());
 				
 		return ordersInterface.saveOne(current);
 	}
@@ -74,18 +74,18 @@ public class OrdersController {
 	public Iterable<Orders> search(
 		Long customersId,
 		String status,
+		LocalDate shippedDate,
 		LocalDate orderDate,
 		String comments,
-		LocalDate requiredDate,
-		LocalDate shippedDate
+		LocalDate requiredDate
 	) {
 		return ordersInterface.search(
 			customersId,
 			status,
+			shippedDate,
 			orderDate,
 			comments,
-			requiredDate,
-			shippedDate
+			requiredDate
 		);
 	}
 	
@@ -95,10 +95,10 @@ public class OrdersController {
 		@PathVariable Integer perPageNumber,
 		Long customersId,
 		String status,
+		LocalDate shippedDate,
 		LocalDate orderDate,
 		String comments,
-		LocalDate requiredDate,
-		LocalDate shippedDate
+		LocalDate requiredDate
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
@@ -106,10 +106,10 @@ public class OrdersController {
 			page,
 			customersId,
 			status,
+			shippedDate,
 			orderDate,
 			comments,
-			requiredDate,
-			shippedDate
+			requiredDate
 		);
 	}
 

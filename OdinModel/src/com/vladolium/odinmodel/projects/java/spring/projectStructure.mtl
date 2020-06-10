@@ -38,9 +38,9 @@
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public projectStructure(class : Class)]
-[comment][jpaRepositoryWithQuerydsl()/][/comment]
-[jpaRepositoryWithSpecification()/]
-[specification()/]
+[jpaRepositoryWithQuerydsl()/]
+[comment][jpaRepositoryWithSpecification()/][/comment]
+[comment][specification()/][/comment]
 [service()/]
 [interface()/]
 [controller()/]

@@ -13,7 +13,7 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -55,16 +55,15 @@ public class ReviewsService implements ReviewsInterface {
 		return reviewsRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<Reviews> search(
-		LocalTime reviewTime,
 		LocalDate reviewDate,
+		LocalTime reviewTime,
 		String reviewText
 	) {
-		Specification<Reviews> where = dynamicWhere(
-			reviewTime,
+		BooleanBuilder where = dynamicWhere(
 			reviewDate,
+			reviewTime,
 			reviewText	
 		);
 		return reviewsRepository.findAll(where);
@@ -73,30 +72,40 @@ public class ReviewsService implements ReviewsInterface {
 	@Override
 	public Page<Reviews> searchPagination(
 		Pageable page,
-		LocalTime reviewTime,
 		LocalDate reviewDate,
+		LocalTime reviewTime,
 		String reviewText
 	) {
-		Specification<Reviews> where = dynamicWhere(
-			reviewTime,
+		BooleanBuilder where = dynamicWhere(
 			reviewDate,
+			reviewTime,
 			reviewText
 		);
 		return reviewsRepository.findAll(where, page);
 	}
 	
-	public Specification<Reviews> dynamicWhere(
-		LocalTime reviewTime,
+	public BooleanBuilder dynamicWhere(
 		LocalDate reviewDate,
+		LocalTime reviewTime,
 		String reviewText
 	) {
-		Specification<Reviews> where = Specification
-			.where(reviewTime == null ? null : ReviewsSpecification.getReviewsByReviewTime(reviewTime))
-			.and(reviewDate == null ? null : ReviewsSpecification.getReviewsByReviewDate(reviewDate))
-			.and(reviewText == null ? null : ReviewsSpecification.getReviewsByReviewText(reviewText));
+		QReviews qReviews = QReviews.reviews;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (reviewDate != null) {
+			where.and(qReviews.reviewDate.eq(reviewDate));
+		}
+		if (reviewTime != null) {
+			where.and(qReviews.reviewTime.eq(reviewTime));
+		}
+		if (reviewText != null) {
+			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
+		}
 	
 		return where;
 	}
+
 
 	
 

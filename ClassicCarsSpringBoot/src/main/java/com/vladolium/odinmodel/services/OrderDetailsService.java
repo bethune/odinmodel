@@ -13,7 +13,7 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -55,21 +55,20 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		return orderDetailsRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<OrderDetails> search(
 		Long productsId,
 		Long ordersId,
-		Integer orderLineNumber,
+		Double priceEach,
 		Integer quantityOrdered,
-		Double priceEach
+		Integer orderLineNumber
 	) {
-		Specification<OrderDetails> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			productsId,
 			ordersId,
-			orderLineNumber,
+			priceEach,
 			quantityOrdered,
-			priceEach	
+			orderLineNumber	
 		);
 		return orderDetailsRepository.findAll(where);
 	}
@@ -79,36 +78,50 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		Pageable page,
 		Long productsId,
 		Long ordersId,
-		Integer orderLineNumber,
+		Double priceEach,
 		Integer quantityOrdered,
-		Double priceEach
+		Integer orderLineNumber
 	) {
-		Specification<OrderDetails> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			productsId,
 			ordersId,
-			orderLineNumber,
+			priceEach,
 			quantityOrdered,
-			priceEach
+			orderLineNumber
 		);
 		return orderDetailsRepository.findAll(where, page);
 	}
 	
-	public Specification<OrderDetails> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
 		Long productsId,
 		Long ordersId,
-		Integer orderLineNumber,
+		Double priceEach,
 		Integer quantityOrdered,
-		Double priceEach
+		Integer orderLineNumber
 	) {
-		Specification<OrderDetails> where = Specification
-			.where(orderLineNumber == null ? null : OrderDetailsSpecification.getOrderDetailsByOrderLineNumber(orderLineNumber))
-			.and(quantityOrdered == null ? null : OrderDetailsSpecification.getOrderDetailsByQuantityOrdered(quantityOrdered))
-			.and(priceEach == null ? null : OrderDetailsSpecification.getOrderDetailsByPriceEach(priceEach))
-			.and(productsId == null ? null : OrderDetailsSpecification.getOrderDetailsByProductsId(productsId))
-			.and(ordersId == null ? null : OrderDetailsSpecification.getOrderDetailsByOrdersId(ordersId));
+		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (productsId != null) {
+			where.and(qOrderDetails.products.id.eq(productsId));
+		}
+		if (ordersId != null) {
+			where.and(qOrderDetails.orders.id.eq(ordersId));
+		}
+		if (priceEach != null) {
+			where.and(qOrderDetails.priceEach.eq(priceEach));
+		}
+		if (quantityOrdered != null) {
+			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
+		}
+		if (orderLineNumber != null) {
+			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
+		}
 	
 		return where;
 	}
+
 
 	@Override
 	public Iterable<OrderDetails> readAllByProductsId(Long productsId) {
@@ -119,9 +132,6 @@ public class OrderDetailsService implements OrderDetailsInterface {
 	public Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page) {
 		return orderDetailsRepository.findByProductsIdEquals(productsId, page);
 	}
-	
-	
-	
 	
 	@Override
 	public Iterable<OrderDetails> readAllByProductsProductCode(String productsProductCode) {

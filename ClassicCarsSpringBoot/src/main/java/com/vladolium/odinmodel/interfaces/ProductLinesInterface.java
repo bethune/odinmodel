@@ -24,15 +24,15 @@ public interface ProductLinesInterface {
 
 	Iterable<ProductLines> search(
 		String productLine,
-		byte[] image,
-		String textDescription
+		String textDescription,
+		byte[] image
 	);
 	
 	Page<ProductLines> searchPagination(
 		Pageable page,
 		String productLine,
-		byte[] image,
-		String textDescription
+		String textDescription,
+		byte[] image
 	);
 
 	

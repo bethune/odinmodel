@@ -13,15 +13,15 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
 import com.querydsl.core.BooleanBuilder;
-
+/*
 @Service
 @Transactional
-public class CustomersService implements CustomersInterface {
+public class CustomersServiceQuerydsl implements CustomersInterface {
 
 	private CustomersRepository customersRepository;
 
@@ -55,108 +55,149 @@ public class CustomersService implements CustomersInterface {
 		return customersRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<Customers> search(
 		Long employeesId,
+		
+		
 		List<Reviews> reviewsList,
-		String city,
-		String phone,
-		String addressLine2,
-		String firstName,
-		Double creditLimit,
-		String customerName,
 		String addressLine1,
+		String addressLine2,
+		String customerName,
 		String country,
-		String lastName,
+		String phone,
 		String state,
-		String postalCode
+		Double creditLimit,
+		String postalCode,
+		String city,
+		String firstName,
+		String lastName
 	) {
-		/*Specification<Customers> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			employeesId,
+			
+			
 			reviewsList,
-			city,
-			phone,
-			addressLine2,
-			firstName,
-			creditLimit,
-			customerName,
 			addressLine1,
+			addressLine2,
+			customerName,
 			country,
-			lastName,
+			phone,
 			state,
-			postalCode	
-		);*/
-		return customersRepository.findAll();
+			creditLimit,
+			postalCode,
+			city,
+			firstName,
+			lastName	
+		);
+		return customersRepository.findAll(where);
 	}
 	
 	@Override
 	public Page<Customers> searchPagination(
 		Pageable page,
 		Long employeesId,
+		
+		
 		List<Reviews> reviewsList,
-		String city,
-		String phone,
-		String addressLine2,
-		String firstName,
-		Double creditLimit,
-		String customerName,
 		String addressLine1,
+		String addressLine2,
+		String customerName,
 		String country,
-		String lastName,
+		String phone,
 		String state,
-		String postalCode
+		Double creditLimit,
+		String postalCode,
+		String city,
+		String firstName,
+		String lastName
 	) {
-		Specification<Customers> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			employeesId,
+			
+			
 			reviewsList,
-			city,
-			phone,
-			addressLine2,
-			firstName,
-			creditLimit,
-			customerName,
 			addressLine1,
+			addressLine2,
+			customerName,
 			country,
-			lastName,
+			phone,
 			state,
-			postalCode
+			creditLimit,
+			postalCode,
+			city,
+			firstName,
+			lastName
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
-	public Specification<Customers> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
 		Long employeesId,
+		
+		
 		List<Reviews> reviewsList,
-		String city,
-		String phone,
-		String addressLine2,
-		String firstName,
-		Double creditLimit,
-		String customerName,
 		String addressLine1,
+		String addressLine2,
+		String customerName,
 		String country,
-		String lastName,
+		String phone,
 		String state,
-		String postalCode
+		Double creditLimit,
+		String postalCode,
+		String city,
+		String firstName,
+		String lastName
 	) {
-		Specification<Customers> where = Specification
-			.where(city == null ? null : CustomersSpecification.getCustomersByCity(city))
-			.and(phone == null ? null : CustomersSpecification.getCustomersByPhone(phone))
-			.and(addressLine2 == null ? null : CustomersSpecification.getCustomersByAddressLine2(addressLine2))
-			.and(firstName == null ? null : CustomersSpecification.getCustomersByFirstName(firstName))
-			.and(creditLimit == null ? null : CustomersSpecification.getCustomersByCreditLimit(creditLimit))
-			.and(customerName == null ? null : CustomersSpecification.getCustomersByCustomerName(customerName))
-			.and(addressLine1 == null ? null : CustomersSpecification.getCustomersByAddressLine1(addressLine1))
-			.and(country == null ? null : CustomersSpecification.getCustomersByCountry(country))
-			.and(lastName == null ? null : CustomersSpecification.getCustomersByLastName(lastName))
-			.and(state == null ? null : CustomersSpecification.getCustomersByState(state))
-			.and(postalCode == null ? null : CustomersSpecification.getCustomersByPostalCode(postalCode))
-			.and(employeesId == null ? null : CustomersSpecification.getCustomersByEmployeesId(employeesId))
-			.and(reviewsList == null ? null : CustomersSpecification.getCustomersByReviews(reviewsList));
+		QCustomers qCustomers = QCustomers.customers;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (employeesId != null) {
+			where.and(qCustomers.employees.id.eq(employeesId));
+		}
+		
+		
+		if (reviewsList != null) {
+			where.and(qCustomers.reviewsList.any().in(reviewsList));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
+		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		}
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
+		}
+		if (city != null) {
+			where.and(qCustomers.city.containsIgnoreCase(city));
+		}
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
 	
 		return where;
 	}
+
 
 	@Override
 	public Iterable<Customers> readAllByEmployeesId(Long employeesId) {
@@ -178,4 +219,4 @@ public class CustomersService implements CustomersInterface {
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code
-}
+}*/

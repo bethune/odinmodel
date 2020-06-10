@@ -1,5 +1,7 @@
 package com.vladolium.odinmodel.specifications;
 
+import java.util.List;
+
 import org.springframework.data.jpa.domain.Specification;
 import com.vladolium.odinmodel.model.*;
 
@@ -61,25 +63,18 @@ public class CustomersSpecification {
 	    };
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="employees_id")
-	private Employees employees;
+	//many to one
+	public static Specification<Customers> getCustomersByEmployeesId(Long employeesId) {
+	    return (root, query, criteriaBuilder) -> {
+	        return criteriaBuilder.equal(root.get("employees").get("id"),  employeesId);
+	    };
+	}
 	
-	public Employees getEmployees() {
-		return employees;
-	}
-	public void setEmployees(Employees employees) {
-		this.employees = employees;
-	}
-	@OneToMany
-	@JoinColumn(name="customers_id")
-	private List<Reviews> reviewsList;
-	
-	public List<Reviews> getReviewsList() {
-		return reviewsList;
-	}
-	public void setReviewsList(List<Reviews> reviewsList) {
-		this.reviewsList = reviewsList;
+	//one to many
+	public static Specification<Customers> getCustomersByReviews(List<Reviews> reviewsList) {
+	    return (root, query, criteriaBuilder) -> {
+	        return criteriaBuilder.in(root.get("reviewsList")).value(reviewsList);
+	    };
 	}
 
 /*Code between start and end will not be removed during generation.*/

@@ -44,7 +44,7 @@ import java.time.*;
 import java.util.*;
 
 import [packageName/].repositories.*;
-import [packageName/].specifications.*;
+//import [packageName/].specifications.*;
 import [packageName/].interfaces.*;
 import [packageName/].wrappers.*;
 

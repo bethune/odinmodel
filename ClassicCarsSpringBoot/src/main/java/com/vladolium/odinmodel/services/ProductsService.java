@@ -13,7 +13,7 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -55,28 +55,27 @@ public class ProductsService implements ProductsInterface {
 		return productsRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<Products> search(
 		Long productLinesId,
 		String productName,
-		Integer quantityInStock,
-		String productVendor,
-		String productDescription,
-		Double buyPrice,
 		String productScale,
 		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
-		Specification<Products> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			productLinesId,
 			productName,
-			quantityInStock,
-			productVendor,
-			productDescription,
-			buyPrice,
 			productScale,
 			msrp,
+			buyPrice,
+			productVendor,
+			quantityInStock,
+			productDescription,
 			productCode	
 		);
 		return productsRepository.findAll(where);
@@ -87,52 +86,74 @@ public class ProductsService implements ProductsInterface {
 		Pageable page,
 		Long productLinesId,
 		String productName,
-		Integer quantityInStock,
-		String productVendor,
-		String productDescription,
-		Double buyPrice,
 		String productScale,
 		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
-		Specification<Products> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			productLinesId,
 			productName,
-			quantityInStock,
-			productVendor,
-			productDescription,
-			buyPrice,
 			productScale,
 			msrp,
+			buyPrice,
+			productVendor,
+			quantityInStock,
+			productDescription,
 			productCode
 		);
 		return productsRepository.findAll(where, page);
 	}
 	
-	public Specification<Products> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
 		Long productLinesId,
 		String productName,
-		Integer quantityInStock,
-		String productVendor,
-		String productDescription,
-		Double buyPrice,
 		String productScale,
 		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
-		Specification<Products> where = Specification
-			.where(productName == null ? null : ProductsSpecification.getProductsByProductName(productName))
-			.and(quantityInStock == null ? null : ProductsSpecification.getProductsByQuantityInStock(quantityInStock))
-			.and(productVendor == null ? null : ProductsSpecification.getProductsByProductVendor(productVendor))
-			.and(productDescription == null ? null : ProductsSpecification.getProductsByProductDescription(productDescription))
-			.and(buyPrice == null ? null : ProductsSpecification.getProductsByBuyPrice(buyPrice))
-			.and(productScale == null ? null : ProductsSpecification.getProductsByProductScale(productScale))
-			.and(msrp == null ? null : ProductsSpecification.getProductsByMsrp(msrp))
-			.and(productCode == null ? null : ProductsSpecification.getProductsByProductCode(productCode))
-			.and(productLinesId == null ? null : ProductsSpecification.getProductsByProductLinesId(productLinesId));
+		QProducts qProducts = QProducts.products;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (productLinesId != null) {
+			where.and(qProducts.productLines.id.eq(productLinesId));
+		}
+		if (productName != null) {
+			where.and(qProducts.productName.containsIgnoreCase(productName));
+		}
+		if (productScale != null) {
+			where.and(qProducts.productScale.containsIgnoreCase(productScale));
+		}
+		if (msrp != null) {
+			where.and(qProducts.msrp.eq(msrp));
+		}
+		if (buyPrice != null) {
+			where.and(qProducts.buyPrice.eq(buyPrice));
+		}
+		if (productVendor != null) {
+			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
+		if (quantityInStock != null) {
+			where.and(qProducts.quantityInStock.eq(quantityInStock));
+		}
+		if (productDescription != null) {
+			where.and(qProducts.productDescription.eq(productDescription));
+		}
+		if (productCode != null) {
+			where.and(qProducts.productCode.containsIgnoreCase(productCode));
+		}
 	
 		return where;
 	}
+
 
 	@Override
 	public Iterable<Products> readAllByProductLinesId(Long productLinesId) {

@@ -13,7 +13,7 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -55,17 +55,16 @@ public class ProductLinesService implements ProductLinesInterface {
 		return productLinesRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<ProductLines> search(
 		String productLine,
-		byte[] image,
-		String textDescription
+		String textDescription,
+		byte[] image
 	) {
-		Specification<ProductLines> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			productLine,
-			image,
-			textDescription	
+			textDescription,
+			image	
 		);
 		return productLinesRepository.findAll(where);
 	}
@@ -74,29 +73,39 @@ public class ProductLinesService implements ProductLinesInterface {
 	public Page<ProductLines> searchPagination(
 		Pageable page,
 		String productLine,
-		byte[] image,
-		String textDescription
+		String textDescription,
+		byte[] image
 	) {
-		Specification<ProductLines> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			productLine,
-			image,
-			textDescription
+			textDescription,
+			image
 		);
 		return productLinesRepository.findAll(where, page);
 	}
 	
-	public Specification<ProductLines> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
 		String productLine,
-		byte[] image,
-		String textDescription
+		String textDescription,
+		byte[] image
 	) {
-		Specification<ProductLines> where = Specification
-			.where(productLine == null ? null : ProductLinesSpecification.getProductLinesByProductLine(productLine))
-			.and(image == null ? null : ProductLinesSpecification.getProductLinesByImage(image))
-			.and(textDescription == null ? null : ProductLinesSpecification.getProductLinesByTextDescription(textDescription));
+		QProductLines qProductLines = QProductLines.productLines;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (productLine != null) {
+			where.and(qProductLines.productLine.containsIgnoreCase(productLine));
+		}
+		if (textDescription != null) {
+			where.and(qProductLines.textDescription.eq(textDescription));
+		}
+		if (image != null) {
+			where.and(qProductLines.image.eq(image));
+		}
 	
 		return where;
 	}
+
 
 	
 

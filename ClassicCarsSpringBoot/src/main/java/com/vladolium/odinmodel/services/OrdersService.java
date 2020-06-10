@@ -13,7 +13,7 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -55,23 +55,22 @@ public class OrdersService implements OrdersInterface {
 		return ordersRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<Orders> search(
 		Long customersId,
 		String status,
+		LocalDate shippedDate,
 		LocalDate orderDate,
 		String comments,
-		LocalDate requiredDate,
-		LocalDate shippedDate
+		LocalDate requiredDate
 	) {
-		Specification<Orders> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			customersId,
 			status,
+			shippedDate,
 			orderDate,
 			comments,
-			requiredDate,
-			shippedDate	
+			requiredDate	
 		);
 		return ordersRepository.findAll(where);
 	}
@@ -81,59 +80,57 @@ public class OrdersService implements OrdersInterface {
 		Pageable page,
 		Long customersId,
 		String status,
+		LocalDate shippedDate,
 		LocalDate orderDate,
 		String comments,
-		LocalDate requiredDate,
-		LocalDate shippedDate
+		LocalDate requiredDate
 	) {
-		Specification<Orders> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			customersId,
 			status,
+			shippedDate,
 			orderDate,
 			comments,
-			requiredDate,
-			shippedDate
+			requiredDate
 		);
 		return ordersRepository.findAll(where, page);
 	}
 	
-	public Specification<Orders> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
 		Long customersId,
 		String status,
+		LocalDate shippedDate,
 		LocalDate orderDate,
 		String comments,
-		LocalDate requiredDate,
-		LocalDate shippedDate
+		LocalDate requiredDate
 	) {
-		Specification<Orders> where = Specification
-			.where(status == null ? null : OrdersSpecification.getOrdersByStatus(status))
-			.and(orderDate == null ? null : OrdersSpecification.getOrdersByOrderDate(orderDate))
-			.and(comments == null ? null : OrdersSpecification.getOrdersByComments(comments))
-			.and(requiredDate == null ? null : OrdersSpecification.getOrdersByRequiredDate(requiredDate))
-			.and(shippedDate == null ? null : OrdersSpecification.getOrdersByShippedDate(shippedDate))
-			.and(customersId == null ? null : OrdersSpecification.getOrdersByCustomersId(customersId));
+		QOrders qOrders = QOrders.orders;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (customersId != null) {
+			where.and(qOrders.customers.id.eq(customersId));
+		}
+		if (status != null) {
+			where.and(qOrders.status.containsIgnoreCase(status));
+		}
+		if (shippedDate != null) {
+			where.and(qOrders.shippedDate.eq(shippedDate));
+		}
+		if (orderDate != null) {
+			where.and(qOrders.orderDate.eq(orderDate));
+		}
+		if (comments != null) {
+			where.and(qOrders.comments.eq(comments));
+		}
+		if (requiredDate != null) {
+			where.and(qOrders.requiredDate.eq(requiredDate));
+		}
 	
 		return where;
 	}
 
-	@Override
-	public Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName) {
-		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName);
-	}
-	
-	@Override
-	public Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
-		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public Iterable<Orders> readAllByCustomersId(Long customersId) {
 		return ordersRepository.findByCustomersIdEquals(customersId);
@@ -142,6 +139,19 @@ public class OrdersService implements OrdersInterface {
 	@Override
 	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
 		return ordersRepository.findByCustomersIdEquals(customersId, page);
+	}
+	
+	
+	
+	
+	@Override
+	public Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName) {
+		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName);
+	}
+	
+	@Override
+	public Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
+		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
 
 	

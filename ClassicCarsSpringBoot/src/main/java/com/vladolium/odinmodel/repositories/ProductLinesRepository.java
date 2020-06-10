@@ -10,7 +10,7 @@ import org.springframework.data.querydsl.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface ProductLinesRepository extends JpaRepository<ProductLines, Long>, JpaSpecificationExecutor<ProductLines> {
+public interface ProductLinesRepository extends JpaRepository<ProductLines, Long>, QuerydslPredicateExecutor<ProductLines> {
 
 	ProductLines findByIdEquals(Long id);
 

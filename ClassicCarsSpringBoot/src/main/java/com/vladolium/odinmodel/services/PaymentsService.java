@@ -13,7 +13,7 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -55,21 +55,20 @@ public class PaymentsService implements PaymentsInterface {
 		return paymentsRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<Payments> search(
 		Long customersId,
-		String checkNumber,
-		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate
 	) {
-		Specification<Payments> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			customersId,
-			checkNumber,
-			paymentDate,
 			amount,
-			paymentTimestamp	
+			checkNumber,
+			paymentTimestamp,
+			paymentDate	
 		);
 		return paymentsRepository.findAll(where);
 	}
@@ -78,56 +77,52 @@ public class PaymentsService implements PaymentsInterface {
 	public Page<Payments> searchPagination(
 		Pageable page,
 		Long customersId,
-		String checkNumber,
-		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate
 	) {
-		Specification<Payments> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			customersId,
-			checkNumber,
-			paymentDate,
 			amount,
-			paymentTimestamp
+			checkNumber,
+			paymentTimestamp,
+			paymentDate
 		);
 		return paymentsRepository.findAll(where, page);
 	}
 	
-	public Specification<Payments> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
 		Long customersId,
-		String checkNumber,
-		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp
+		String checkNumber,
+		Instant paymentTimestamp,
+		LocalDate paymentDate
 	) {
-		Specification<Payments> where = Specification
-			.where(checkNumber == null ? null : PaymentsSpecification.getPaymentsByCheckNumber(checkNumber))
-			.and(paymentDate == null ? null : PaymentsSpecification.getPaymentsByPaymentDate(paymentDate))
-			.and(amount == null ? null : PaymentsSpecification.getPaymentsByAmount(amount))
-			.and(paymentTimestamp == null ? null : PaymentsSpecification.getPaymentsByPaymentTimestamp(paymentTimestamp))
-			.and(customersId == null ? null : PaymentsSpecification.getPaymentsByCustomersId(customersId));
+		QPayments qPayments = QPayments.payments;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (customersId != null) {
+			where.and(qPayments.customers.id.eq(customersId));
+		}
+		if (amount != null) {
+			where.and(qPayments.amount.eq(amount));
+		}
+		if (checkNumber != null) {
+			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
+		}
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		}
+		if (paymentDate != null) {
+			where.and(qPayments.paymentDate.eq(paymentDate));
+		}
 	
 		return where;
 	}
 
-	@Override
-	public Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName) {
-		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName);
-	}
-	
-	@Override
-	public Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
-		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public Iterable<Payments> readAllByCustomersId(Long customersId) {
 		return paymentsRepository.findByCustomersIdEquals(customersId);
@@ -136,6 +131,19 @@ public class PaymentsService implements PaymentsInterface {
 	@Override
 	public Page<Payments> readAllByCustomersId(Long customersId, Pageable page) {
 		return paymentsRepository.findByCustomersIdEquals(customersId, page);
+	}
+	
+	
+	
+	
+	@Override
+	public Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName) {
+		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName);
+	}
+	
+	@Override
+	public Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
+		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
 
 	

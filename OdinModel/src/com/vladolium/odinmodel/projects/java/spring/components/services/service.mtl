@@ -67,9 +67,9 @@ public class [entityNameUpperFirst/]Service implements [entityNameUpperFirst/]In
 
 	[readAll()/]
 
-[comment]	[dynamicSearchQuerydsl()/][/comment]
+	[dynamicSearchQuerydsl()/]
 
-	[dynamicSearchSpecification()/]
+	[comment][dynamicSearchSpecification()/][/comment]
 
 	[checkParentFromManyToOneRelationship()/]
 

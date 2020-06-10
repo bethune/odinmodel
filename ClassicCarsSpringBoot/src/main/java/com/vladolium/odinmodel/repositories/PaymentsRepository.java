@@ -10,7 +10,7 @@ import org.springframework.data.querydsl.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface PaymentsRepository extends JpaRepository<Payments, Long>, JpaSpecificationExecutor<Payments> {
+public interface PaymentsRepository extends JpaRepository<Payments, Long>, QuerydslPredicateExecutor<Payments> {
 
 	Payments findByIdEquals(Long id);
 

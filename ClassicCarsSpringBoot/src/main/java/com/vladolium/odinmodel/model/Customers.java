@@ -34,6 +34,17 @@ public class Customers extends ContactDetails {
 	}
 	
 	@NotNull
+	@Size(max=50)
+	private String lastName;
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	@NotNull
 	@Column(unique=true)
 	@Size(max=50)
 	private String customerName;
@@ -54,17 +65,6 @@ public class Customers extends ContactDetails {
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-	
-	@NotNull
-	@Size(max=50)
-	private String lastName;
-	
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 	
 	@ManyToOne

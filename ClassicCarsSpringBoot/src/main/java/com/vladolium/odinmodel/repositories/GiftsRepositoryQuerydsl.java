@@ -10,17 +10,15 @@ import org.springframework.data.querydsl.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long>, QuerydslPredicateExecutor<OrderDetails> {
+public interface GiftsRepositoryQuerydsl extends JpaRepository<Gifts, Long>, QuerydslPredicateExecutor<Gifts> {
 
-	OrderDetails findByIdEquals(Long id);
-
-	Iterable <OrderDetails> findByProductsIdEquals(Long productsId);
+	Gifts findByIdEquals(Long id);
 	
-	Page <OrderDetails> findByProductsIdEquals(Long productsId, Pageable page);
+	Gifts findByGiftNameEquals(String giftName);
 
-	Iterable <OrderDetails> findByProductsProductCodeEquals(String productsProductCode);
 	
-	Page <OrderDetails> findByProductsProductCodeEquals(String productsProductCode, Pageable page);
+
+	
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this repository

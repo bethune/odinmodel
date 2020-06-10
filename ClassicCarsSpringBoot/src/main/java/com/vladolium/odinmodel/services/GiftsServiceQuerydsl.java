@@ -18,10 +18,10 @@ import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
 import com.querydsl.core.BooleanBuilder;
-
+/*
 @Service
 @Transactional
-public class GiftsService implements GiftsInterface {
+public class GiftsServiceQuerydsl implements GiftsInterface {
 
 	private GiftsRepository giftsRepository;
 
@@ -143,4 +143,4 @@ public class GiftsService implements GiftsInterface {
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code
-}
+}*/

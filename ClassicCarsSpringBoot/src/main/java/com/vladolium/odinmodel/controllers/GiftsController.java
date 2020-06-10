@@ -47,11 +47,11 @@ public class GiftsController {
 		Gifts current = giftsInterface.readOneById(id);
 			
 		current.setCustomersSet(gifts.getCustomersSet());
-		current.setIsExpired(gifts.getIsExpired());
 		current.setExpiresOn(gifts.getExpiresOn());
-		current.setGiftName(gifts.getGiftName());
 		current.setGiftType(gifts.getGiftType());
+		current.setIsExpired(gifts.getIsExpired());
 		current.setBeginsOn(gifts.getBeginsOn());
+		current.setGiftName(gifts.getGiftName());
 				
 		return giftsInterface.saveOne(current);
 	}
@@ -73,19 +73,19 @@ public class GiftsController {
 	@GetMapping("/search")
 	public Iterable<Gifts> search(
 		Set<Long> customersSet,
-		Boolean isExpired,
 		LocalDateTime expiresOn,
-		String giftName,
 		GiftType giftType,
-		LocalDateTime beginsOn
+		Boolean isExpired,
+		LocalDateTime beginsOn,
+		String giftName
 	) {
 		return giftsInterface.search(
 			customersSet,
-			isExpired,
 			expiresOn,
-			giftName,
 			giftType,
-			beginsOn
+			isExpired,
+			beginsOn,
+			giftName
 		);
 	}
 	
@@ -94,22 +94,22 @@ public class GiftsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Set<Long> customersSet,
-		Boolean isExpired,
 		LocalDateTime expiresOn,
-		String giftName,
 		GiftType giftType,
-		LocalDateTime beginsOn
+		Boolean isExpired,
+		LocalDateTime beginsOn,
+		String giftName
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return giftsInterface.searchPagination(
 			page,
 			customersSet,
-			isExpired,
 			expiresOn,
-			giftName,
 			giftType,
-			beginsOn
+			isExpired,
+			beginsOn,
+			giftName
 		);
 	}
 
@@ -126,11 +126,11 @@ public class GiftsController {
 		Gifts current = giftsInterface.readOneByGiftName(giftName);
 			
 		current.setCustomersSet(gifts.getCustomersSet());
-		current.setIsExpired(gifts.getIsExpired());
 		current.setExpiresOn(gifts.getExpiresOn());
-		current.setGiftName(gifts.getGiftName());
 		current.setGiftType(gifts.getGiftType());
+		current.setIsExpired(gifts.getIsExpired());
 		current.setBeginsOn(gifts.getBeginsOn());
+		current.setGiftName(gifts.getGiftName());
 				
 		return giftsInterface.saveOne(current);
 	}
