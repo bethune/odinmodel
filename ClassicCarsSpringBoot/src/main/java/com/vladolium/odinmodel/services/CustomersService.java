@@ -71,6 +71,25 @@ public class CustomersService implements CustomersInterface {
 		String lastName,
 		String state,
 		String postalCode
+		
+		
+Long employeesId,
+		
+		
+		List<Reviews> reviewsList,
+		String addressLine1,
+		String addressLine2,
+		String customerName,
+		String country,
+		String phone,
+		String state,
+		Double creditLimit,
+		String postalCode,
+		String city,
+		String firstName,
+		String lastName
+		
+		
 	) {
 		/*Specification<Customers> where = dynamicWhere(
 			employeesId,
