@@ -1,7 +1,9 @@
 package com.vladolium.odinmodel.specifications;
 
 import org.springframework.data.jpa.domain.Specification;
-import com.vladolium.odinmodel.model.*;
+
+import com.vladolium.odinmodel.model.Gifts;
+import com.vladolium.odinmodel.model.Gifts.GiftType;
 
 public class GiftsSpecification {
 
@@ -30,7 +32,7 @@ public class GiftsSpecification {
 	        return criteriaBuilder.equal(root.get("beginsOn"), beginsOn);
 	    };
 	}
-	
+	/*
 	@ManyToMany
 	@JoinTable(name="gifts_customers", 
 		joinColumns = @JoinColumn(name = "gifts_id"), 
@@ -42,7 +44,7 @@ public class GiftsSpecification {
 	}
 	public void setCustomersSet(Set<Customers> customersSet) {
 		this.customersSet = customersSet;
-	}
+	}*/
 
 /*Code between start and end will not be removed during generation.*/
 //Start of user code for this specification
