@@ -10,7 +10,7 @@ import org.springframework.data.querydsl.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface CustomersRepository extends JpaRepository<Customers, Long>, JpaSpecificationExecutor<Customers> {
+public interface CustomersRepository extends JpaRepository<Customers, Long>, QuerydslPredicateExecutor<Customers> {
 
 	Customers findByCustomerNameEquals(String customerName);
 	

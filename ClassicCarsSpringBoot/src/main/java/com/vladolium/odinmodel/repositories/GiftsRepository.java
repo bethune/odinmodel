@@ -10,7 +10,7 @@ import org.springframework.data.querydsl.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface GiftsRepository extends JpaRepository<Gifts, Long>, JpaSpecificationExecutor<Gifts> {
+public interface GiftsRepository extends JpaRepository<Gifts, Long>, QuerydslPredicateExecutor<Gifts> {
 
 	Gifts findByIdEquals(Long id);
 	

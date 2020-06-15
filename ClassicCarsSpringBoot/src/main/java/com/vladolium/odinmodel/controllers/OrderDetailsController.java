@@ -48,9 +48,9 @@ public class OrderDetailsController {
 			
 		current.setProducts(orderDetails.getProducts());
 		current.setOrders(orderDetails.getOrders());
+		current.setOrderLineNumber(orderDetails.getOrderLineNumber());
 		current.setPriceEach(orderDetails.getPriceEach());
 		current.setQuantityOrdered(orderDetails.getQuantityOrdered());
-		current.setOrderLineNumber(orderDetails.getOrderLineNumber());
 				
 		return orderDetailsInterface.saveOne(current);
 	}
@@ -73,16 +73,16 @@ public class OrderDetailsController {
 	public Iterable<OrderDetails> search(
 		Long productsId,
 		Long ordersId,
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer quantityOrdered,
-		Integer orderLineNumber
+		Integer quantityOrdered
 	) {
 		return orderDetailsInterface.search(
 			productsId,
 			ordersId,
+			orderLineNumber,
 			priceEach,
-			quantityOrdered,
-			orderLineNumber
+			quantityOrdered
 		);
 	}
 	
@@ -92,9 +92,9 @@ public class OrderDetailsController {
 		@PathVariable Integer perPageNumber,
 		Long productsId,
 		Long ordersId,
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer quantityOrdered,
-		Integer orderLineNumber
+		Integer quantityOrdered
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
@@ -102,9 +102,9 @@ public class OrderDetailsController {
 			page,
 			productsId,
 			ordersId,
+			orderLineNumber,
 			priceEach,
-			quantityOrdered,
-			orderLineNumber
+			quantityOrdered
 		);
 	}
 

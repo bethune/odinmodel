@@ -54,14 +54,14 @@ public class Products {
 	}
 	
 	@NotNull
-	@Size(max=70)
-	private String productName;
+	@Size(max=50)
+	private String productVendor;
 	
-	public String getProductName() {
-		return productName;
+	public String getProductVendor() {
+		return productVendor;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setProductVendor(String productVendor) {
+		this.productVendor = productVendor;
 	}
 	
 	@NotNull
@@ -76,14 +76,14 @@ public class Products {
 	}
 	
 	@NotNull
-	@Size(max=50)
-	private String productVendor;
+	@Size(max=70)
+	private String productName;
 	
-	public String getProductVendor() {
-		return productVendor;
+	public String getProductName() {
+		return productName;
 	}
-	public void setProductVendor(String productVendor) {
-		this.productVendor = productVendor;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	
 	@NotNull

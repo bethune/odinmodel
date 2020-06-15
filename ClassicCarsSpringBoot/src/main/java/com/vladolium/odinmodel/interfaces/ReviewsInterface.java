@@ -23,16 +23,16 @@ public interface ReviewsInterface {
 	Page<Reviews> readAllPagination(Pageable page);
 
 	Iterable<Reviews> search(
-		LocalDate reviewDate,
+		String reviewText,
 		LocalTime reviewTime,
-		String reviewText
+		LocalDate reviewDate
 	);
 	
 	Page<Reviews> searchPagination(
 		Pageable page,
-		LocalDate reviewDate,
+		String reviewText,
 		LocalTime reviewTime,
-		String reviewText
+		LocalDate reviewDate
 	);
 
 	

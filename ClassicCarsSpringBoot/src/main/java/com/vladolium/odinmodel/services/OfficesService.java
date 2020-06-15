@@ -1,23 +1,19 @@
 package com.vladolium.odinmodel.services;
 
-import com.vladolium.odinmodel.model.*;
-import com.vladolium.odinmodel.model.Offices.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.data.domain.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.*;
-import java.util.*;
-
-import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
-import com.vladolium.odinmodel.interfaces.*;
-import com.vladolium.odinmodel.wrappers.*;
-
-import com.querydsl.core.BooleanBuilder;
+import com.vladolium.odinmodel.interfaces.OfficesInterface;
+import com.vladolium.odinmodel.model.Employees;
+import com.vladolium.odinmodel.model.Offices;
+import com.vladolium.odinmodel.repositories.EmployeesRepository;
+import com.vladolium.odinmodel.repositories.OfficesRepository;
+import com.vladolium.odinmodel.specifications.OfficesSpecification;
+import com.vladolium.odinmodel.wrappers.OfficesEmployees;
 
 @Service
 @Transactional

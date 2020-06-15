@@ -21,7 +21,7 @@ import com.querydsl.core.BooleanBuilder;
 /*
 @Service
 @Transactional
-public class OfficesServiceQuerydsl implements OfficesInterface {
+public class OfficesServiceQuerysl implements OfficesInterface {
 
 	private OfficesRepository officesRepository;
 
@@ -57,24 +57,24 @@ public class OfficesServiceQuerydsl implements OfficesInterface {
 
 	@Override
 	public Iterable<Offices> search(
-		String addressLine1,
-		String addressLine2,
-		String country,
-		String phone,
 		String state,
+		String phone,
 		String territory,
-		String postalCode,
-		String city
+		String country,
+		String addressLine1,
+		String city,
+		String addressLine2,
+		String postalCode
 	) {
 		BooleanBuilder where = dynamicWhere(
-			addressLine1,
-			addressLine2,
-			country,
-			phone,
 			state,
+			phone,
 			territory,
-			postalCode,
-			city	
+			country,
+			addressLine1,
+			city,
+			addressLine2,
+			postalCode	
 		);
 		return officesRepository.findAll(where);
 	}
@@ -82,65 +82,65 @@ public class OfficesServiceQuerydsl implements OfficesInterface {
 	@Override
 	public Page<Offices> searchPagination(
 		Pageable page,
-		String addressLine1,
-		String addressLine2,
-		String country,
-		String phone,
 		String state,
+		String phone,
 		String territory,
-		String postalCode,
-		String city
+		String country,
+		String addressLine1,
+		String city,
+		String addressLine2,
+		String postalCode
 	) {
 		BooleanBuilder where = dynamicWhere(
-			addressLine1,
-			addressLine2,
-			country,
-			phone,
 			state,
+			phone,
 			territory,
-			postalCode,
-			city
+			country,
+			addressLine1,
+			city,
+			addressLine2,
+			postalCode
 		);
 		return officesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		String addressLine1,
-		String addressLine2,
-		String country,
-		String phone,
 		String state,
+		String phone,
 		String territory,
-		String postalCode,
-		String city
+		String country,
+		String addressLine1,
+		String city,
+		String addressLine2,
+		String postalCode
 	) {
 		QOffices qOffices = QOffices.offices;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (addressLine1 != null) {
-			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (addressLine2 != null) {
-			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
-		}
-		if (country != null) {
-			where.and(qOffices.country.containsIgnoreCase(country));
+		if (state != null) {
+			where.and(qOffices.state.containsIgnoreCase(state));
 		}
 		if (phone != null) {
 			where.and(qOffices.phone.containsIgnoreCase(phone));
 		}
-		if (state != null) {
-			where.and(qOffices.state.containsIgnoreCase(state));
-		}
 		if (territory != null) {
 			where.and(qOffices.territory.containsIgnoreCase(territory));
 		}
-		if (postalCode != null) {
-			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
+		if (country != null) {
+			where.and(qOffices.country.containsIgnoreCase(country));
+		}
+		if (addressLine1 != null) {
+			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
 		}
 		if (city != null) {
 			where.and(qOffices.city.containsIgnoreCase(city));
+		}
+		if (addressLine2 != null) {
+			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (postalCode != null) {
+			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
 		}
 	
 		return where;

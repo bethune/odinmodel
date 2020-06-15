@@ -61,34 +61,34 @@ public class CustomersServiceQuerydsl implements CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String addressLine1,
-		String addressLine2,
-		String customerName,
-		String country,
-		String phone,
 		String state,
-		Double creditLimit,
-		String postalCode,
-		String city,
+		String customerName,
+		String phone,
+		String lastName,
 		String firstName,
-		String lastName
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
+		String postalCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
 			
 			
 			reviewsList,
-			addressLine1,
-			addressLine2,
-			customerName,
-			country,
-			phone,
 			state,
-			creditLimit,
-			postalCode,
-			city,
+			customerName,
+			phone,
+			lastName,
 			firstName,
-			lastName	
+			country,
+			addressLine1,
+			city,
+			creditLimit,
+			addressLine2,
+			postalCode	
 		);
 		return customersRepository.findAll(where);
 	}
@@ -100,34 +100,34 @@ public class CustomersServiceQuerydsl implements CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String addressLine1,
-		String addressLine2,
-		String customerName,
-		String country,
-		String phone,
 		String state,
-		Double creditLimit,
-		String postalCode,
-		String city,
+		String customerName,
+		String phone,
+		String lastName,
 		String firstName,
-		String lastName
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
+		String postalCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
 			
 			
 			reviewsList,
-			addressLine1,
-			addressLine2,
-			customerName,
-			country,
-			phone,
 			state,
-			creditLimit,
-			postalCode,
-			city,
+			customerName,
+			phone,
+			lastName,
 			firstName,
-			lastName
+			country,
+			addressLine1,
+			city,
+			creditLimit,
+			addressLine2,
+			postalCode
 		);
 		return customersRepository.findAll(where, page);
 	}
@@ -137,17 +137,17 @@ public class CustomersServiceQuerydsl implements CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String addressLine1,
-		String addressLine2,
-		String customerName,
-		String country,
-		String phone,
 		String state,
-		Double creditLimit,
-		String postalCode,
-		String city,
+		String customerName,
+		String phone,
+		String lastName,
 		String firstName,
-		String lastName
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
+		String postalCode
 	) {
 		QCustomers qCustomers = QCustomers.customers;
 	
@@ -161,38 +161,38 @@ public class CustomersServiceQuerydsl implements CustomersInterface {
 		if (reviewsList != null) {
 			where.and(qCustomers.reviewsList.any().in(reviewsList));
 		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (addressLine2 != null) {
-			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
 		}
 		if (customerName != null) {
 			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
 		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
-		}
 		if (phone != null) {
 			where.and(qCustomers.phone.containsIgnoreCase(phone));
 		}
-		if (state != null) {
-			where.and(qCustomers.state.containsIgnoreCase(state));
-		}
-		if (creditLimit != null) {
-			where.and(qCustomers.creditLimit.eq(creditLimit));
-		}
-		if (postalCode != null) {
-			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
-		}
-		if (city != null) {
-			where.and(qCustomers.city.containsIgnoreCase(city));
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
 		}
 		if (firstName != null) {
 			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
 		}
-		if (lastName != null) {
-			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (city != null) {
+			where.and(qCustomers.city.containsIgnoreCase(city));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
 	
 		return where;

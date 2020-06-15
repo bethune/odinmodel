@@ -35,13 +35,13 @@ public class Customers extends ContactDetails {
 	
 	@NotNull
 	@Size(max=50)
-	private String lastName;
+	private String firstName;
 	
-	public String getLastName() {
-		return lastName;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	
 	@NotNull
@@ -58,13 +58,13 @@ public class Customers extends ContactDetails {
 	
 	@NotNull
 	@Size(max=50)
-	private String firstName;
+	private String lastName;
 	
-	public String getFirstName() {
-		return firstName;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	@ManyToOne

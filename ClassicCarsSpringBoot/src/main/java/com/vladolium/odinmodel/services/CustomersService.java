@@ -13,7 +13,7 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.*;
+//import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
@@ -55,127 +55,149 @@ public class CustomersService implements CustomersInterface {
 		return customersRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<Customers> search(
 		Long employeesId,
+		
+		
 		List<Reviews> reviewsList,
-		String city,
-		String phone,
-		String addressLine2,
-		String firstName,
-		Double creditLimit,
+		String state,
 		String customerName,
-		String addressLine1,
-		String country,
+		String phone,
 		String lastName,
-		String state,
-		String postalCode
-		
-		
-Long employeesId,
-		
-		
-		List<Reviews> reviewsList,
-		String addressLine1,
-		String addressLine2,
-		String customerName,
-		String country,
-		String phone,
-		String state,
-		Double creditLimit,
-		String postalCode,
-		String city,
 		String firstName,
-		String lastName
-		
-		
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
+		String postalCode
 	) {
-		/*Specification<Customers> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			employeesId,
+			
+			
 			reviewsList,
-			city,
-			phone,
-			addressLine2,
-			firstName,
-			creditLimit,
-			customerName,
-			addressLine1,
-			country,
-			lastName,
 			state,
+			customerName,
+			phone,
+			lastName,
+			firstName,
+			country,
+			addressLine1,
+			city,
+			creditLimit,
+			addressLine2,
 			postalCode	
-		);*/
-		return customersRepository.findAll();
+		);
+		return customersRepository.findAll(where);
 	}
 	
 	@Override
 	public Page<Customers> searchPagination(
 		Pageable page,
 		Long employeesId,
+		
+		
 		List<Reviews> reviewsList,
-		String city,
-		String phone,
-		String addressLine2,
-		String firstName,
-		Double creditLimit,
-		String customerName,
-		String addressLine1,
-		String country,
-		String lastName,
 		String state,
+		String customerName,
+		String phone,
+		String lastName,
+		String firstName,
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
 		String postalCode
 	) {
-		Specification<Customers> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			employeesId,
+			
+			
 			reviewsList,
-			city,
-			phone,
-			addressLine2,
-			firstName,
-			creditLimit,
-			customerName,
-			addressLine1,
-			country,
-			lastName,
 			state,
+			customerName,
+			phone,
+			lastName,
+			firstName,
+			country,
+			addressLine1,
+			city,
+			creditLimit,
+			addressLine2,
 			postalCode
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
-	public Specification<Customers> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
 		Long employeesId,
+		
+		
 		List<Reviews> reviewsList,
-		String city,
-		String phone,
-		String addressLine2,
-		String firstName,
-		Double creditLimit,
-		String customerName,
-		String addressLine1,
-		String country,
-		String lastName,
 		String state,
+		String customerName,
+		String phone,
+		String lastName,
+		String firstName,
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
 		String postalCode
 	) {
-		Specification<Customers> where = Specification
-			.where(city == null ? null : CustomersSpecification.getCustomersByCity(city))
-			.and(phone == null ? null : CustomersSpecification.getCustomersByPhone(phone))
-			.and(addressLine2 == null ? null : CustomersSpecification.getCustomersByAddressLine2(addressLine2))
-			.and(firstName == null ? null : CustomersSpecification.getCustomersByFirstName(firstName))
-			.and(creditLimit == null ? null : CustomersSpecification.getCustomersByCreditLimit(creditLimit))
-			.and(customerName == null ? null : CustomersSpecification.getCustomersByCustomerName(customerName))
-			.and(addressLine1 == null ? null : CustomersSpecification.getCustomersByAddressLine1(addressLine1))
-			.and(country == null ? null : CustomersSpecification.getCustomersByCountry(country))
-			.and(lastName == null ? null : CustomersSpecification.getCustomersByLastName(lastName))
-			.and(state == null ? null : CustomersSpecification.getCustomersByState(state))
-			.and(postalCode == null ? null : CustomersSpecification.getCustomersByPostalCode(postalCode))
-			.and(employeesId == null ? null : CustomersSpecification.getCustomersByEmployeesId(employeesId))
-			.and(reviewsList == null ? null : CustomersSpecification.getCustomersByReviews(reviewsList));
+		QCustomers qCustomers = QCustomers.customers;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (employeesId != null) {
+			where.and(qCustomers.employees.id.eq(employeesId));
+		}
+		
+		
+		if (reviewsList != null) {
+			where.and(qCustomers.reviewsList.any().in(reviewsList));
+		}
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
+		}
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
+		}
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		}
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (city != null) {
+			where.and(qCustomers.city.containsIgnoreCase(city));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
+		}
 	
 		return where;
 	}
+
 
 	@Override
 	public Iterable<Customers> readAllByEmployeesId(Long employeesId) {

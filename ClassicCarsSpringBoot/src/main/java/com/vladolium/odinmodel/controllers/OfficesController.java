@@ -46,14 +46,14 @@ public class OfficesController {
 		
 		Offices current = officesInterface.readOneById(id);
 			
-		current.setAddressLine1(offices.getAddressLine1());
-		current.setAddressLine2(offices.getAddressLine2());
-		current.setCountry(offices.getCountry());
-		current.setPhone(offices.getPhone());
 		current.setState(offices.getState());
+		current.setPhone(offices.getPhone());
 		current.setTerritory(offices.getTerritory());
-		current.setPostalCode(offices.getPostalCode());
+		current.setCountry(offices.getCountry());
+		current.setAddressLine1(offices.getAddressLine1());
 		current.setCity(offices.getCity());
+		current.setAddressLine2(offices.getAddressLine2());
+		current.setPostalCode(offices.getPostalCode());
 				
 		return officesInterface.saveOne(current);
 	}
@@ -74,24 +74,24 @@ public class OfficesController {
 
 	@GetMapping("/search")
 	public Iterable<Offices> search(
-		String addressLine1,
-		String addressLine2,
-		String country,
-		String phone,
 		String state,
+		String phone,
 		String territory,
-		String postalCode,
-		String city
+		String country,
+		String addressLine1,
+		String city,
+		String addressLine2,
+		String postalCode
 	) {
 		return officesInterface.search(
-			addressLine1,
-			addressLine2,
-			country,
-			phone,
 			state,
+			phone,
 			territory,
-			postalCode,
-			city
+			country,
+			addressLine1,
+			city,
+			addressLine2,
+			postalCode
 		);
 	}
 	
@@ -99,27 +99,27 @@ public class OfficesController {
 	public Page<Offices> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		String addressLine1,
-		String addressLine2,
-		String country,
-		String phone,
 		String state,
+		String phone,
 		String territory,
-		String postalCode,
-		String city
+		String country,
+		String addressLine1,
+		String city,
+		String addressLine2,
+		String postalCode
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return officesInterface.searchPagination(
 			page,
-			addressLine1,
-			addressLine2,
-			country,
-			phone,
 			state,
+			phone,
 			territory,
-			postalCode,
-			city
+			country,
+			addressLine1,
+			city,
+			addressLine2,
+			postalCode
 		);
 	}
 
@@ -129,6 +129,7 @@ public class OfficesController {
 	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
 		this.employeesInterface = employeesInterface;
 	}
+	
 	
 	
 	

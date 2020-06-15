@@ -50,17 +50,17 @@ public class CustomersController {
 		
 		
 		current.setReviewsList(customers.getReviewsList());
-		current.setAddressLine1(customers.getAddressLine1());
-		current.setAddressLine2(customers.getAddressLine2());
-		current.setCustomerName(customers.getCustomerName());
-		current.setCountry(customers.getCountry());
-		current.setPhone(customers.getPhone());
 		current.setState(customers.getState());
-		current.setCreditLimit(customers.getCreditLimit());
-		current.setPostalCode(customers.getPostalCode());
-		current.setCity(customers.getCity());
-		current.setFirstName(customers.getFirstName());
+		current.setCustomerName(customers.getCustomerName());
+		current.setPhone(customers.getPhone());
 		current.setLastName(customers.getLastName());
+		current.setFirstName(customers.getFirstName());
+		current.setCountry(customers.getCountry());
+		current.setAddressLine1(customers.getAddressLine1());
+		current.setCity(customers.getCity());
+		current.setCreditLimit(customers.getCreditLimit());
+		current.setAddressLine2(customers.getAddressLine2());
+		current.setPostalCode(customers.getPostalCode());
 				
 		return customersInterface.saveOne(current);
 	}
@@ -85,34 +85,34 @@ public class CustomersController {
 		
 		
 		List<Reviews> reviewsList,
-		String addressLine1,
-		String addressLine2,
-		String customerName,
-		String country,
-		String phone,
 		String state,
-		Double creditLimit,
-		String postalCode,
-		String city,
+		String customerName,
+		String phone,
+		String lastName,
 		String firstName,
-		String lastName
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
+		String postalCode
 	) {
 		return customersInterface.search(
 			employeesId,
 			
 			
 			reviewsList,
-			addressLine1,
-			addressLine2,
-			customerName,
-			country,
-			phone,
 			state,
-			creditLimit,
-			postalCode,
-			city,
+			customerName,
+			phone,
+			lastName,
 			firstName,
-			lastName
+			country,
+			addressLine1,
+			city,
+			creditLimit,
+			addressLine2,
+			postalCode
 		);
 	}
 	
@@ -124,17 +124,17 @@ public class CustomersController {
 		
 		
 		List<Reviews> reviewsList,
-		String addressLine1,
-		String addressLine2,
-		String customerName,
-		String country,
-		String phone,
 		String state,
-		Double creditLimit,
-		String postalCode,
-		String city,
+		String customerName,
+		String phone,
+		String lastName,
 		String firstName,
-		String lastName
+		String country,
+		String addressLine1,
+		String city,
+		Double creditLimit,
+		String addressLine2,
+		String postalCode
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
@@ -144,84 +144,30 @@ public class CustomersController {
 			
 			
 			reviewsList,
-			addressLine1,
-			addressLine2,
-			customerName,
-			country,
-			phone,
 			state,
-			creditLimit,
-			postalCode,
-			city,
+			customerName,
+			phone,
+			lastName,
 			firstName,
-			lastName
+			country,
+			addressLine1,
+			city,
+			creditLimit,
+			addressLine2,
+			postalCode
 		);
 	}
 
-	private PaymentsInterface paymentsInterface;
-	
-	@Autowired
-	public void setPaymentsInterface(PaymentsInterface paymentsInterface) {
-		this.paymentsInterface = paymentsInterface;
-	}
-	
-	
-	
-	
-	
-	
-	@GetMapping("/{customersId}/payments")
-	public Iterable<Payments> readAllPaymentsByCustomersId(@PathVariable Long customersId) {
-		return paymentsInterface.readAllByCustomersId(customersId);
-	}
-	
-	@GetMapping("/{customersId}/payments/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Payments> readAllPaymentsByCustomersIdPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable Long customersId
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return paymentsInterface.readAllByCustomersId(customersId, page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@GetMapping("/customerName={customersCustomerName}/payments")
-	public Iterable<Payments> readAllPaymentsByCustomersCustomerName(@PathVariable String customersCustomerName) {
-		return paymentsInterface.readAllByCustomersCustomerName(customersCustomerName);
-	}
-	
-	@GetMapping("/customerName={customersCustomerName}/payments/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Payments> readAllPaymentsByCustomersCustomerNamePagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable String customersCustomerName
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return paymentsInterface.readAllByCustomersCustomerName(customersCustomerName, page);
-	}
-	
-	
-	
 	private OrdersInterface ordersInterface;
 	
 	@Autowired
 	public void setOrdersInterface(OrdersInterface ordersInterface) {
 		this.ordersInterface = ordersInterface;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -250,13 +196,6 @@ public class CustomersController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	@GetMapping("/customerName={customersCustomerName}/orders")
 	public Iterable<Orders> readAllOrdersByCustomersCustomerName(@PathVariable String customersCustomerName) {
 		return ordersInterface.readAllByCustomersCustomerName(customersCustomerName);
@@ -270,6 +209,64 @@ public class CustomersController {
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return ordersInterface.readAllByCustomersCustomerName(customersCustomerName, page);
+	}
+	
+	
+	
+	
+	
+	
+	private PaymentsInterface paymentsInterface;
+	
+	@Autowired
+	public void setPaymentsInterface(PaymentsInterface paymentsInterface) {
+		this.paymentsInterface = paymentsInterface;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/{customersId}/payments")
+	public Iterable<Payments> readAllPaymentsByCustomersId(@PathVariable Long customersId) {
+		return paymentsInterface.readAllByCustomersId(customersId);
+	}
+	
+	@GetMapping("/{customersId}/payments/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> readAllPaymentsByCustomersIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long customersId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return paymentsInterface.readAllByCustomersId(customersId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/customerName={customersCustomerName}/payments")
+	public Iterable<Payments> readAllPaymentsByCustomersCustomerName(@PathVariable String customersCustomerName) {
+		return paymentsInterface.readAllByCustomersCustomerName(customersCustomerName);
+	}
+	
+	@GetMapping("/customerName={customersCustomerName}/payments/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Payments> readAllPaymentsByCustomersCustomerNamePagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable String customersCustomerName
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return paymentsInterface.readAllByCustomersCustomerName(customersCustomerName, page);
 	}
 
 	@GetMapping("/customerName={customerName}")
@@ -286,17 +283,17 @@ public class CustomersController {
 		
 		
 		current.setReviewsList(customers.getReviewsList());
-		current.setAddressLine1(customers.getAddressLine1());
-		current.setAddressLine2(customers.getAddressLine2());
-		current.setCustomerName(customers.getCustomerName());
-		current.setCountry(customers.getCountry());
-		current.setPhone(customers.getPhone());
 		current.setState(customers.getState());
-		current.setCreditLimit(customers.getCreditLimit());
-		current.setPostalCode(customers.getPostalCode());
-		current.setCity(customers.getCity());
-		current.setFirstName(customers.getFirstName());
+		current.setCustomerName(customers.getCustomerName());
+		current.setPhone(customers.getPhone());
 		current.setLastName(customers.getLastName());
+		current.setFirstName(customers.getFirstName());
+		current.setCountry(customers.getCountry());
+		current.setAddressLine1(customers.getAddressLine1());
+		current.setCity(customers.getCity());
+		current.setCreditLimit(customers.getCreditLimit());
+		current.setAddressLine2(customers.getAddressLine2());
+		current.setPostalCode(customers.getPostalCode());
 				
 		return customersInterface.saveOne(current);
 	}

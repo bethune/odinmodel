@@ -105,6 +105,7 @@ public class ProductLinesController {
 		this.productsInterface = productsInterface;
 	}
 	
+	
 	@GetMapping("/{productLinesId}/products")
 	public Iterable<Products> readAllProductsByProductLinesId(@PathVariable Long productLinesId) {
 		return productsInterface.readAllByProductLinesId(productLinesId);

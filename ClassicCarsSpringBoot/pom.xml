@@ -23,8 +23,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<springfox-swagger2.version>2.8.0</springfox-swagger2.version>
 		<springfox-swagger-ui.version>2.8.0</springfox-swagger-ui.version>
-		<querydsl-apt.version>4.3.1</querydsl-apt.version>
-		<querydsl-jpa.version>4.3.1</querydsl-jpa.version>
+		<querydsl-apt.version>4.2.1</querydsl-apt.version>
+		<querydsl-jpa.version>4.2.1</querydsl-jpa.version>
 	</properties>
 
 	<dependencies>
@@ -81,20 +81,16 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-apt -->
 		<dependency>
 		    <groupId>com.querydsl</groupId>
 		    <artifactId>querydsl-apt</artifactId>
-		    <version>4.3.1</version>
+		    <version>4.1.4</version>
+		    <classifier>jpa</classifier>
 		</dependency>
-
-	<!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa -->
 		<dependency>
 		    <groupId>com.querydsl</groupId>
 		    <artifactId>querydsl-jpa</artifactId>
-		    <version>4.3.1</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>

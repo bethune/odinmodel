@@ -59,16 +59,16 @@ public class OrderDetailsService implements OrderDetailsInterface {
 	public Iterable<OrderDetails> search(
 		Long productsId,
 		Long ordersId,
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer quantityOrdered,
-		Integer orderLineNumber
+		Integer quantityOrdered
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productsId,
 			ordersId,
+			orderLineNumber,
 			priceEach,
-			quantityOrdered,
-			orderLineNumber	
+			quantityOrdered	
 		);
 		return orderDetailsRepository.findAll(where);
 	}
@@ -78,16 +78,16 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		Pageable page,
 		Long productsId,
 		Long ordersId,
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer quantityOrdered,
-		Integer orderLineNumber
+		Integer quantityOrdered
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productsId,
 			ordersId,
+			orderLineNumber,
 			priceEach,
-			quantityOrdered,
-			orderLineNumber
+			quantityOrdered
 		);
 		return orderDetailsRepository.findAll(where, page);
 	}
@@ -95,9 +95,9 @@ public class OrderDetailsService implements OrderDetailsInterface {
 	public BooleanBuilder dynamicWhere(
 		Long productsId,
 		Long ordersId,
+		Integer orderLineNumber,
 		Double priceEach,
-		Integer quantityOrdered,
-		Integer orderLineNumber
+		Integer quantityOrdered
 	) {
 		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
 	
@@ -109,14 +109,14 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		if (ordersId != null) {
 			where.and(qOrderDetails.orders.id.eq(ordersId));
 		}
+		if (orderLineNumber != null) {
+			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
+		}
 		if (priceEach != null) {
 			where.and(qOrderDetails.priceEach.eq(priceEach));
 		}
 		if (quantityOrdered != null) {
 			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
-		}
-		if (orderLineNumber != null) {
-			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
 		}
 	
 		return where;
@@ -132,6 +132,10 @@ public class OrderDetailsService implements OrderDetailsInterface {
 	public Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page) {
 		return orderDetailsRepository.findByProductsIdEquals(productsId, page);
 	}
+	
+	
+	
+	
 	
 	@Override
 	public Iterable<OrderDetails> readAllByProductsProductCode(String productsProductCode) {

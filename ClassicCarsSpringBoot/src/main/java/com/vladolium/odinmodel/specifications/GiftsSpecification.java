@@ -1,5 +1,7 @@
 package com.vladolium.odinmodel.specifications;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.jpa.domain.Specification;
 
 import com.vladolium.odinmodel.model.Gifts;
@@ -12,7 +14,7 @@ public class GiftsSpecification {
 	        return criteriaBuilder.equal(root.get("isExpired"), isExpired);
 	    };
 	}
-	public static Specification<Gifts> getGiftsByExpiresOn(DateTime expiresOn) {
+	public static Specification<Gifts> getGiftsByExpiresOn(LocalDateTime expiresOn) {
 	    return (root, query, criteriaBuilder) -> {
 	        return criteriaBuilder.equal(root.get("expiresOn"), expiresOn);
 	    };
@@ -27,7 +29,7 @@ public class GiftsSpecification {
 	        return criteriaBuilder.equal(root.get("giftType"), giftType);
 	    };
 	}
-	public static Specification<Gifts> getGiftsByBeginsOn(DateTime beginsOn) {
+	public static Specification<Gifts> getGiftsByBeginsOn(LocalDateTime beginsOn) {
 	    return (root, query, criteriaBuilder) -> {
 	        return criteriaBuilder.equal(root.get("beginsOn"), beginsOn);
 	    };
