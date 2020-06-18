@@ -83,6 +83,9 @@ public class OfficesController {
 		String addressLine2,
 		String postalCode
 	) {
+		
+		System.out.println("===========================> Hej offices kontroler za specifikaciju = country : " + country);
+		
 		return officesInterface.search(
 			state,
 			phone,

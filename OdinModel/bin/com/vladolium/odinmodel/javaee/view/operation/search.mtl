@@ -1,0 +1,189 @@
+[comment encoding = UTF-8 /]
+[module search('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+[/comment]
+
+[comment: base template /]
+[template public search(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();
+	parameter	: String = aClass.name.toLowerFirst();}]
+[comment : search all/]
+public Iterable<[type/]> search(
+	[searchRequests(aClass)/]
+) {
+	return [parameter/]Service.search(
+		[searchParameters(aClass)/]
+	);
+}
+
+[comment : search all with pagination /]
+public Page<[type/]> searchPagination(
+	Integer pageNumber,
+	Integer perPageNumber,
+	[searchRequests(aClass)/]
+) {
+	Pageable page = PageRequest.of(pageNumber, perPageNumber);
+
+	return [parameter/]Service.searchPagination(
+		page,
+		[searchParameters(aClass)/]
+	);
+}
+[/template]
+
+[comment:
+----------------------------------------------------------------------------------------------------
+subtemplates
+----------------------------------------------------------------------------------------------------
+/]
+
+[template public searchRequests(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();}]
+[comment: foreign keys/]
+[for (relationship : Property | aClass.getAssociations().memberEnd)]
+	[comment : ManyToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : OneToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[oppositeEntityField.type.name.toUpperFirst()/] [relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : ManyToMany/]
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+Set<[oppositeEntityField.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]Set,
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : OneToMany/]
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+List<[relationship.opposite.type.name.toUpperFirst()/]> [relationship.opposite.type.name.toLowerFirst()/]List,
+	[/if]
+[/for]
+[comment: fields/]
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+	[if field.type.name = 'Date']
+LocalDate [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/if]
+	[if field.type.name = 'Time']
+LocalTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/if]
+	[if field.type.name = 'DateTime']
+LocalDateTime [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/if]
+	[if field.type.name = 'Timestamp']
+Instant [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/if]
+	[if field.type.name = 'Blob']
+byte['['/][']'/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/if]
+	[if field.type.name = 'Clob']
+String [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/if]
+	[if field.type.name <> 'Date' and field.type.name <> 'Time' and field.type.name <> 'DateTime' and field.type.name <> 'Timestamp' and field.type.name <> 'Blob' and field.type.name <> 'Clob']
+[field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+	[/if]
+[/for]
+[/template]
+
+[comment:----------------------------------------------------------------------------------------------------/]
+
+[template public searchParameters(aClass : Class){
+	type 		: String = aClass.name.toUpperFirst();}]
+[comment: foreign keys/]
+[for (relationship: Property | aClass.getAssociations().memberEnd)]
+	[comment : ManyToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : OneToOne/]
+	[if (relationship.lower = 0 or relationship.lower = 1) and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 1 and relationship.opposite.upper = 1]
+		[for (p : Package | aClass._package)]
+			[for (oppositeEntity : Class | p.member -> filter(Class))]
+				[if (oppositeEntity.name.toLower() <> aClass.name.toLower()) and (oppositeEntity.name.toLower() = relationship.opposite.type.name.toLower())]
+					[for (oppositeEntityField: Property | oppositeEntity.getAllAttributes()->removeAll(oppositeEntity.getAssociations().memberEnd)) separator('\n')]
+						[if oppositeEntityField.isID = true]
+[relationship.opposite.type.name.toLowerFirst()/][oppositeEntityField.name.toUpperFirst()/],
+						[/if]
+					[/for]
+				[/if]
+			[/for]
+		[/for]
+	[/if]
+	[comment : ManyToMany/]
+	[if relationship.lower = 0 and relationship.upper = -1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+[relationship.opposite.type.name.toLowerFirst()/]Set,
+	[/if]
+	[comment : OneToMany/]
+	[if relationship.lower = 1 and relationship.upper = 1 and relationship.type.name.toUpperFirst() = type and 
+		relationship.namespace = association and relationship.opposite.lower = 0 and relationship.opposite.upper = -1]
+[relationship.opposite.type.name.toLowerFirst()/]List,
+	[/if]
+[/for]
+[comment: fields/]
+[for (field: Property | aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->select(field | field.isID = false)) ]
+[field.name.toLowerFirst()/][if aClass.getAllAttributes()->removeAll(aClass.getAssociations().memberEnd)->size()-1 > i],[else][/if]
+[/for]
+[/template]

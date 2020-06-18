@@ -1,0 +1,72 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module manyToOneWrapper('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[**
+ * Wraps entities from many-to-one relationships.
+ * 
+ * Necessary for the Inverse Referential Integrity Constraint (IRIC) 
+ * implementation on a many-to-one relationship between two entities.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize package path and/or name, as well as file name, and Java imports.
+ *   
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public manyToOneWrapper(class : Class, relationship : Property){
+	packagePath : String = class._package.name.toLowerCase();
+	packageName : String = class._package.name.replaceAll('/', '.').toLowerCase();
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = relationship.type.name.toLowerFirst();
+	oppositeEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
+	oppositeEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
+[file ('src/main/java/' + packagePath + '/wrappers/' + oppositeEntityNameUpperFirst + entityNameUpperFirst + '.java', false, 'UTF-8')]
+package [packageName/].wrappers;
+
+import [packageName/].model.*;
+
+public class [oppositeEntityNameUpperFirst/][entityNameUpperFirst/] {
+
+    private [oppositeEntityNameUpperFirst/] [oppositeEntityNameLowerFirst/];
+
+    private [entityNameUpperFirst/] [entityNameLowerFirst/];
+
+    public [oppositeEntityNameUpperFirst/] get[oppositeEntityNameUpperFirst/]() {
+	return [oppositeEntityNameLowerFirst/];
+    }
+
+    public void set[oppositeEntityNameUpperFirst/]([oppositeEntityNameUpperFirst/] [oppositeEntityNameLowerFirst/]) {
+	this.[oppositeEntityNameLowerFirst/] = [oppositeEntityNameLowerFirst/];
+    }
+
+    public [entityNameUpperFirst/] get[entityNameUpperFirst/]() {
+	return [entityNameLowerFirst/];
+    }
+
+    public void set[entityNameUpperFirst/]([entityNameUpperFirst/] [entityNameLowerFirst/]) {
+	this.[entityNameLowerFirst/] = [entityNameLowerFirst/];
+    }
+}
+[/file]
+[/template]

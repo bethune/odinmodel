@@ -1,0 +1,91 @@
+[comment encoding = UTF-8 /]
+[module service('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+
+[/comment]
+
+[import com::vladolium::odinmodel::javaee::service::operation::createUpdate /]
+[import com::vladolium::odinmodel::javaee::service::operation::readOne /]
+[import com::vladolium::odinmodel::javaee::service::operation::readAll /]
+[import com::vladolium::odinmodel::javaee::service::operation::searchQueryDSL /]
+[import com::vladolium::odinmodel::javaee::service::operation::delete /]
+
+[template public service(aClass : Class) {
+	isEntity 		: Boolean = aClass.isAbstract = false;
+	packagePath 	: String = aClass._package.name.toLowerCase();
+	type 			: String = aClass.name.toUpperFirst();
+	parameter		: String = aClass.name.toLowerFirst();
+	servicePath 	: String = aClass._package.name.replaceAll('/', '.').toLowerCase();}]
+[if isEntity]
+	[file ('src/main/java/' + packagePath + '/service/' + type + 'Service.java', false, 'UTF-8')]
+package [servicePath/].service;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
+import javax.annotation.PostConstruct;
+import [servicePath/].model.*;
+import java.time.*;
+import java.util.*;
+import org.springframework.data.domain.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
+import org.springframework.data.repository.core.support.RepositoryFactorySupport;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.querydsl.*;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import com.querydsl.core.BooleanBuilder;
+import [servicePath/].model.*;
+import [servicePath/].model.[type/];
+import [servicePath/].model.[type/].*;
+import [servicePath/].repository.*;
+import [servicePath/].repository.[type/]Repository;
+import [servicePath/].wrapper.*;
+
+@Stateless
+public class [type/]Service {
+
+ 	@PersistenceContext
+    private EntityManager em;
+
+	private [type/]Repository [parameter/]Repository;
+	
+	@PostConstruct
+	private void init() {
+		RepositoryFactorySupport factory = new JpaRepositoryFactory(em);
+		this.[parameter/]Repository = factory.getRepository([type/]Repository.class);
+	}
+
+	[aClass.createUpdate()/]
+	[aClass.readOne()/]
+	[aClass.readAll()/]
+	[aClass.searchQueryDSL()/]
+	[aClass.delete()/]
+
+//Code between start and end will not be removed during generation.
+//[protected ('for this service')]
+//[/protected]
+}
+	[/file]
+[/if]
+[/template]

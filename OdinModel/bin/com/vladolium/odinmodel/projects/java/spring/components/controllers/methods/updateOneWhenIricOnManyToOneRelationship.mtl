@@ -1,0 +1,72 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module updateOneWhenIricOnManyToOneRelationship('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::expressions::controllers::methods::setCurrentUpdateValues/]
+
+[**
+ * Generates the update one by id and update one by unique value methods for the current controller in a target project which covers create when IRIC on many-to-one relationship cases.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the method.
+ * 
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model. 
+ * @param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.  
+ * @param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.
+ * @param field represents the current field with the primary key constraint from the current UML class.
+ * @param oppositeEntityField the field with the primary key or unique constraint from the parent entity.
+ * 
+*/]
+[template public updateOneWhenIricOnManyToOneRelationship(class : Class, entityNameUpperFirst : String, entityNameLowerFirst : String, field : Property, oppositeEntityField : Property, relationship : Property){
+	oppositeEntityNameUpperFirst : String = relationship.opposite.type.name.toUpperFirst();
+	oppositeEntityNameLowerFirst : String = relationship.opposite.type.name.toLowerFirst();}]
+@PutMapping("/{[field.name.toLowerFirst()/]}/[oppositeEntityNameLowerFirst/]")
+public [entityNameUpperFirst/] updateOneBy[field.name.toUpperFirst()/]WhenIricOnManyToOneRelationship(@PathVariable [field.type.name.toUpperFirst()/] [field.name.toLowerFirst()/], @RequestBody [entityNameUpperFirst/] [entityNameLowerFirst/]) {
+
+	[entityNameUpperFirst/] current = [entityNameLowerFirst/]Interface.readOneBy[field.name.toUpperFirst()/]([field.name.toLowerFirst()/]);
+
+	if (current.get[oppositeEntityNameUpperFirst/]().get[oppositeEntityField.name.toUpperFirst()/]() == [entityNameLowerFirst/].get[oppositeEntityNameUpperFirst/]().get[oppositeEntityField.name.toUpperFirst()/]()) {
+
+		[setCurrentUpdateValues(class)/]			
+
+		return [entityNameLowerFirst/]Interface.saveOne(current);
+
+	} else {
+
+	    Iterable<[entityNameUpperFirst/]> listOf[entityNameUpperFirst/] = [entityNameLowerFirst/]Interface.readAllBy[oppositeEntityNameUpperFirst/][oppositeEntityField.name.toUpperFirst()/](current.get[oppositeEntityNameUpperFirst/]().get[oppositeEntityField.name.toUpperFirst()/]());
+
+	    Long size = listOf[entityNameUpperFirst/].spliterator().getExactSizeIfKnown();
+
+	    if (size == 1) {
+			return current;
+	    } else {
+
+			[setCurrentUpdateValues(class)/]			
+
+			return [entityNameLowerFirst/]Interface.saveOne(current);
+
+	    }
+	}
+}
+[/template]

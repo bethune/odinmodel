@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="applicationProperties" nsURI="com::vladolium::odinmodel::springboot::configuration::properties::applicationProperties" startHeaderPosition="29" endHeaderPosition="-1">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="111" endPosition="925" value="&#xA;&#x9;OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach&#xA;&#xA;    Copyright (C) 2019  Vladolium&#xA;&#xA;    This program is free software: you can redistribute it and/or modify&#xA;    it under the terms of the GNU General Public License as published by&#xA;    the Free Software Foundation, either version 3 of the License, or&#xA;    (at your option) any later version.&#xA;&#xA;    This program is distributed in the hope that it will be useful,&#xA;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the&#xA;    GNU General Public License for more details.&#xA;&#xA;    You should have received a copy of the GNU General Public License&#xA;    along with this program.  If not, see https://www.gnu.org/licenses/.&#xA;"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="applicationProperties" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#Code between start and end will not be removed during generation.&#xA;#"/>
+        <body xsi:type="mtl:ProtectedAreaBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;#-- HINT: define server port&#xA;server.port=5000&#xA;&#xA;#-- HINT: Log Level may be ERROR, WARN, INFO (for production), DEBUG, or TRACE&#xA;logging.level.org.springframework.web=DEBUG&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- H2 embedded setup -----------&#xA;&#xA;#-- HINT: enable h2 console with true; disable with false&#xA;spring.h2.console.enabled=true&#xA;&#xA;#-- HINT: set console path&#xA;spring.h2.console.path=/h2&#xA;&#xA;#-- HINT: set schema-name and local path for database file&#xA;#-- HINT: when using the URL jdbc:h2:file:./data/sample, the database is stored in the directory data (relative to the current working directory). The directory is created automatically if it does not yet exist.&#xA;#-- HINT: an example for using the fully qualified directory name (and for Windows, drive name) is jdbc:h2:file:c:/h2/schema-name&#xA;spring.datasource.url=jdbc:h2:file:./h2data/classicCars&#xA;&#xA;#-- HINT: add username&#xA;spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;spring.datasource.password=&#xA;&#xA;#-- HINT: h2 driver&#xA;spring.datasource.driver-class-name=org.h2.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect&#xA;&#xA;#----------------------------------------&#xA;&#xA;#--------- MySQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:mysql://localhost:3306/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=com.mysql.jdbc.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- PostgreSQL embedded setup ---------&#xA;&#xA;#-- HINT: set database path and schema name&#xA;#spring.datasource.url= jdbc:postgresql://localhost:5432/schema-name?verifyServerCertificate=false&amp;useSSL=true&#xA;&#xA;#-- HINT: add username&#xA;#spring.datasource.username=&#xA;&#xA;#-- HINT: add password&#xA;#spring.datasource.password=&#xA;&#xA;#spring.datasource.driver-class-name=org.postgresql.Driver&#xA;&#xA;#-- HINT: allows Hibernate to generate SQL optimized for a particular DBMS&#xA;#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect&#xA;&#xA;#-----------------------------------------&#xA;&#xA;#--------- JPA Hibernate setup ---------&#xA;&#xA;#-- HINT: true or false&#xA;spring.jpa.show-sql = false&#xA;&#xA;#-- HINT: Hibernate ddl auto (create, create-drop, update, none, validate)&#xA;spring.jpa.hibernate.ddl-auto = update&#xA;&#xA;spring.jackson.serialization.fail-on-empty-beans=false&#xA;&#xA;#----------------------------------------&#xA;&#xA;#"/>
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="for this application.properties">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </marker>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="src/main/resources/application.properties">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aClass">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="applicationProperties">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/applicationProperties"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Class_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="102"/>
+      <details key="end" value="935"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/applicationProperties">
+      <details key="start" value="937"/>
+      <details key="end" value="3880"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/applicationProperties/%">
+      <details key="start" value="993"/>
+      <details key="end" value="3868"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/applicationProperties/%/%">
+      <details key="start" value="1062"/>
+      <details key="end" value="1130"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/applicationProperties/%/%.1">
+      <details key="start" value="1130"/>
+      <details key="end" value="3860"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/applicationProperties/%/%.1/%">
+      <details key="start" value="1177"/>
+      <details key="end" value="3848"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/applicationProperties/%/%.1/%.1">
+      <details key="start" value="1142"/>
+      <details key="end" value="1175"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/applicationProperties/%/%.2">
+      <details key="start" value="3860"/>
+      <details key="end" value="3861"/>
+      <details key="line" value="112"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/applicationProperties/%/%.3">
+      <details key="start" value="1000"/>
+      <details key="end" value="1043"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/applicationProperties/%/%.4">
+      <details key="start" value="1052"/>
+      <details key="end" value="1059"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/applicationProperties/aClass">
+      <details key="start" value="976"/>
+      <details key="end" value="990"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

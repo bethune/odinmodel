@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="readAllByParentPrimaryKeyField" nsURI="com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::readAllByParentPrimaryKeyField" startHeaderPosition="1281" endHeaderPosition="1959">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="readAllByParentPrimaryKeyField" visibility="Public">
+      <init>
+        <variable name="entityNameUpperFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/readAllByParentPrimaryKeyField/relationship">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+        <variable name="entityNameLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/readAllByParentPrimaryKeyField/relationship">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+        <variable name="parentEntityNameUpperFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/readAllByParentPrimaryKeyField/relationship">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+        <variable name="parentEntityNameLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/readAllByParentPrimaryKeyField/relationship">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+        <variable name="parentFieldName">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="parentField" referredVariable="/0/readAllByParentPrimaryKeyField/parentField">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+        <variable name="parentFieldType">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="parentField" referredVariable="/0/readAllByParentPrimaryKeyField/parentField">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+      </init>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@GetMapping(&quot;/{"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.3">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}/"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.1">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xA;public Iterable&lt;"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="> readAll"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="By"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.2">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(@PathVariable "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldType" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.5">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.3">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=") {&#xA;&#x9;return "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.1">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Interface.readAllBy"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.2">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="("/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.3">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;}&#xA;&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@GetMapping(&quot;/{"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.3">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}/"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.1">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/page={pageNumber}/perPage={perPageNumber}&quot;)&#xA;public Page&lt;"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="> readAll"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="By"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.2">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Pagination(&#xA;&#x9;@PathVariable Integer pageNumber,&#xA;&#x9;@PathVariable Integer perPageNumber,&#xA;&#x9;@PathVariable "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldType" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.5">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.3">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;) {&#xA;&#x9;Pageable page = PageRequest.of(pageNumber, perPageNumber);&#xA;&#x9;return "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.1">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Interface.readAllBy"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameUpperFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.2">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="("/>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentEntityNameLowerFirst" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.3">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:VariableExp" name="parentFieldName" referredVariable="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", page);&#xA;}"/>
+      <documentation xsi:type="mtl:ModuleElementDocumentation">
+        <body startPosition="1366" endPosition="1959" value="&#xA;Generates the read all by parent field and read all by parent field with pagination methods for the current controller in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the methods.&#xA;&#xA;@param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xA;@param parentField represents the field with the primary key from the parent entity&#xA;which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <parametersDocumentation name="relationship">
+          <body value=" represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model."/>
+        </parametersDocumentation>
+        <parametersDocumentation name="parentField">
+          <body value=" represents the field with the primary key from the parent entity&#xA;which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model."/>
+        </parametersDocumentation>
+      </documentation>
+      <parameter name="relationship">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </parameter>
+      <parameter name="parentField">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="toUpperFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="toLowerFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="readAllByParentPrimaryKeyField">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/readAllByParentPrimaryKeyField"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="relationship">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        </eParameters>
+        <eParameters name="parentField">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Property_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/readAllByParentPrimaryKeyField">
+      <details key="start" value="1962"/>
+      <details key="end" value="3693"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/readAllByParentPrimaryKeyField/@init">
+      <details key="start" value="2058"/>
+      <details key="end" value="2505"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/readAllByParentPrimaryKeyField/@init/@variable.0">
+      <details key="start" value="2061"/>
+      <details key="end" value="2130"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/readAllByParentPrimaryKeyField/@init/@variable.0/%">
+      <details key="start" value="2093"/>
+      <details key="end" value="2130"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/readAllByParentPrimaryKeyField/@init/@variable.0/%/%">
+      <details key="start" value="2093"/>
+      <details key="end" value="2115"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/readAllByParentPrimaryKeyField/@init/@variable.0/%/%/%">
+      <details key="start" value="2093"/>
+      <details key="end" value="2110"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/readAllByParentPrimaryKeyField/@init/@variable.0/%/%/%/relationship">
+      <details key="start" value="2093"/>
+      <details key="end" value="2105"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/readAllByParentPrimaryKeyField/@init/@variable.1">
+      <details key="start" value="2133"/>
+      <details key="end" value="2202"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/readAllByParentPrimaryKeyField/@init/@variable.1/%">
+      <details key="start" value="2165"/>
+      <details key="end" value="2202"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/readAllByParentPrimaryKeyField/@init/@variable.1/%/%">
+      <details key="start" value="2165"/>
+      <details key="end" value="2187"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/readAllByParentPrimaryKeyField/@init/@variable.1/%/%/%">
+      <details key="start" value="2165"/>
+      <details key="end" value="2182"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/readAllByParentPrimaryKeyField/@init/@variable.1/%/%/%/relationship">
+      <details key="start" value="2165"/>
+      <details key="end" value="2177"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/readAllByParentPrimaryKeyField/@init/@variable.2">
+      <details key="start" value="2205"/>
+      <details key="end" value="2289"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/readAllByParentPrimaryKeyField/@init/@variable.2/%">
+      <details key="start" value="2243"/>
+      <details key="end" value="2289"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/readAllByParentPrimaryKeyField/@init/@variable.2/%/%">
+      <details key="start" value="2243"/>
+      <details key="end" value="2274"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/readAllByParentPrimaryKeyField/@init/@variable.2/%/%/%">
+      <details key="start" value="2243"/>
+      <details key="end" value="2269"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/readAllByParentPrimaryKeyField/@init/@variable.2/%/%/%/%">
+      <details key="start" value="2243"/>
+      <details key="end" value="2264"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/readAllByParentPrimaryKeyField/@init/@variable.2/%/%/%/%/relationship">
+      <details key="start" value="2243"/>
+      <details key="end" value="2255"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/readAllByParentPrimaryKeyField/@init/@variable.3">
+      <details key="start" value="2292"/>
+      <details key="end" value="2376"/>
+      <details key="line" value="39"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/readAllByParentPrimaryKeyField/@init/@variable.3/%">
+      <details key="start" value="2330"/>
+      <details key="end" value="2376"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/readAllByParentPrimaryKeyField/@init/@variable.3/%/%">
+      <details key="start" value="2330"/>
+      <details key="end" value="2361"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/readAllByParentPrimaryKeyField/@init/@variable.3/%/%/%">
+      <details key="start" value="2330"/>
+      <details key="end" value="2356"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/readAllByParentPrimaryKeyField/@init/@variable.3/%/%/%/%">
+      <details key="start" value="2330"/>
+      <details key="end" value="2351"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/readAllByParentPrimaryKeyField/@init/@variable.3/%/%/%/%/relationship">
+      <details key="start" value="2330"/>
+      <details key="end" value="2342"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/readAllByParentPrimaryKeyField/@init/@variable.4">
+      <details key="start" value="2379"/>
+      <details key="end" value="2437"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/readAllByParentPrimaryKeyField/@init/@variable.4/%">
+      <details key="start" value="2406"/>
+      <details key="end" value="2437"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/readAllByParentPrimaryKeyField/@init/@variable.4/%/%">
+      <details key="start" value="2406"/>
+      <details key="end" value="2422"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/readAllByParentPrimaryKeyField/@init/@variable.4/%/%/parentField">
+      <details key="start" value="2406"/>
+      <details key="end" value="2417"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/readAllByParentPrimaryKeyField/@init/@variable.5">
+      <details key="start" value="2440"/>
+      <details key="end" value="2503"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/readAllByParentPrimaryKeyField/@init/@variable.5/%">
+      <details key="start" value="2467"/>
+      <details key="end" value="2503"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/readAllByParentPrimaryKeyField/@init/@variable.5/%/%">
+      <details key="start" value="2467"/>
+      <details key="end" value="2488"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/readAllByParentPrimaryKeyField/@init/@variable.5/%/%/%">
+      <details key="start" value="2467"/>
+      <details key="end" value="2483"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/readAllByParentPrimaryKeyField/@init/@variable.5/%/%/%/parentField">
+      <details key="start" value="2467"/>
+      <details key="end" value="2478"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/readAllByParentPrimaryKeyField/%">
+      <details key="start" value="2546"/>
+      <details key="end" value="2561"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/readAllByParentPrimaryKeyField/parentEntityNameLowerFirst">
+      <details key="start" value="2562"/>
+      <details key="end" value="2588"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/readAllByParentPrimaryKeyField/parentFieldName">
+      <details key="start" value="2591"/>
+      <details key="end" value="2606"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/readAllByParentPrimaryKeyField/%.1">
+      <details key="start" value="2608"/>
+      <details key="end" value="2610"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/readAllByParentPrimaryKeyField/entityNameLowerFirst">
+      <details key="start" value="2611"/>
+      <details key="end" value="2631"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/readAllByParentPrimaryKeyField/%.2">
+      <details key="start" value="2633"/>
+      <details key="end" value="2652"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/readAllByParentPrimaryKeyField/entityNameUpperFirst">
+      <details key="start" value="2653"/>
+      <details key="end" value="2673"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/readAllByParentPrimaryKeyField/%.3">
+      <details key="start" value="2675"/>
+      <details key="end" value="2684"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/readAllByParentPrimaryKeyField/entityNameUpperFirst.1">
+      <details key="start" value="2685"/>
+      <details key="end" value="2705"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/readAllByParentPrimaryKeyField/%.4">
+      <details key="start" value="2707"/>
+      <details key="end" value="2709"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/readAllByParentPrimaryKeyField/parentEntityNameUpperFirst">
+      <details key="start" value="2710"/>
+      <details key="end" value="2736"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/readAllByParentPrimaryKeyField/parentFieldName.1">
+      <details key="start" value="2739"/>
+      <details key="end" value="2754"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/readAllByParentPrimaryKeyField/%.5">
+      <details key="start" value="2756"/>
+      <details key="end" value="2771"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/readAllByParentPrimaryKeyField/parentFieldType">
+      <details key="start" value="2772"/>
+      <details key="end" value="2787"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/readAllByParentPrimaryKeyField/%.6">
+      <details key="start" value="2789"/>
+      <details key="end" value="2790"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/readAllByParentPrimaryKeyField/parentEntityNameLowerFirst.1">
+      <details key="start" value="2791"/>
+      <details key="end" value="2817"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/readAllByParentPrimaryKeyField/parentFieldName.2">
+      <details key="start" value="2820"/>
+      <details key="end" value="2835"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/readAllByParentPrimaryKeyField/%.7">
+      <details key="start" value="2837"/>
+      <details key="end" value="2849"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/readAllByParentPrimaryKeyField/entityNameLowerFirst.1">
+      <details key="start" value="2850"/>
+      <details key="end" value="2870"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/readAllByParentPrimaryKeyField/%.8">
+      <details key="start" value="2872"/>
+      <details key="end" value="2891"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/readAllByParentPrimaryKeyField/parentEntityNameUpperFirst.1">
+      <details key="start" value="2892"/>
+      <details key="end" value="2918"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/readAllByParentPrimaryKeyField/parentFieldName.3">
+      <details key="start" value="2921"/>
+      <details key="end" value="2936"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/readAllByParentPrimaryKeyField/%.9">
+      <details key="start" value="2938"/>
+      <details key="end" value="2939"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/readAllByParentPrimaryKeyField/parentEntityNameLowerFirst.2">
+      <details key="start" value="2940"/>
+      <details key="end" value="2966"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/readAllByParentPrimaryKeyField/parentFieldName.4">
+      <details key="start" value="2969"/>
+      <details key="end" value="2984"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/readAllByParentPrimaryKeyField/%.10">
+      <details key="start" value="2986"/>
+      <details key="end" value="2992"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/readAllByParentPrimaryKeyField/%.11">
+      <details key="start" value="3047"/>
+      <details key="end" value="3062"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/readAllByParentPrimaryKeyField/parentEntityNameLowerFirst.3">
+      <details key="start" value="3063"/>
+      <details key="end" value="3089"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/readAllByParentPrimaryKeyField/parentFieldName.5">
+      <details key="start" value="3092"/>
+      <details key="end" value="3107"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/readAllByParentPrimaryKeyField/%.12">
+      <details key="start" value="3109"/>
+      <details key="end" value="3111"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/readAllByParentPrimaryKeyField/entityNameLowerFirst.2">
+      <details key="start" value="3112"/>
+      <details key="end" value="3132"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/readAllByParentPrimaryKeyField/%.13">
+      <details key="start" value="3134"/>
+      <details key="end" value="3191"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/readAllByParentPrimaryKeyField/entityNameUpperFirst.2">
+      <details key="start" value="3192"/>
+      <details key="end" value="3212"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/readAllByParentPrimaryKeyField/%.14">
+      <details key="start" value="3214"/>
+      <details key="end" value="3223"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/readAllByParentPrimaryKeyField/entityNameUpperFirst.3">
+      <details key="start" value="3224"/>
+      <details key="end" value="3244"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/readAllByParentPrimaryKeyField/%.15">
+      <details key="start" value="3246"/>
+      <details key="end" value="3248"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/readAllByParentPrimaryKeyField/parentEntityNameUpperFirst.2">
+      <details key="start" value="3249"/>
+      <details key="end" value="3275"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/readAllByParentPrimaryKeyField/parentFieldName.6">
+      <details key="start" value="3278"/>
+      <details key="end" value="3293"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/readAllByParentPrimaryKeyField/%.16">
+      <details key="start" value="3295"/>
+      <details key="end" value="3395"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/readAllByParentPrimaryKeyField/parentFieldType.1">
+      <details key="start" value="3396"/>
+      <details key="end" value="3411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/readAllByParentPrimaryKeyField/%.17">
+      <details key="start" value="3413"/>
+      <details key="end" value="3414"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/readAllByParentPrimaryKeyField/parentEntityNameLowerFirst.4">
+      <details key="start" value="3415"/>
+      <details key="end" value="3441"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/readAllByParentPrimaryKeyField/parentFieldName.7">
+      <details key="start" value="3444"/>
+      <details key="end" value="3459"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/readAllByParentPrimaryKeyField/%.18">
+      <details key="start" value="3461"/>
+      <details key="end" value="3534"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/readAllByParentPrimaryKeyField/entityNameLowerFirst.3">
+      <details key="start" value="3535"/>
+      <details key="end" value="3555"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/readAllByParentPrimaryKeyField/%.19">
+      <details key="start" value="3557"/>
+      <details key="end" value="3576"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/readAllByParentPrimaryKeyField/parentEntityNameUpperFirst.3">
+      <details key="start" value="3577"/>
+      <details key="end" value="3603"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/readAllByParentPrimaryKeyField/parentFieldName.8">
+      <details key="start" value="3606"/>
+      <details key="end" value="3621"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/readAllByParentPrimaryKeyField/%.20">
+      <details key="start" value="3623"/>
+      <details key="end" value="3624"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/readAllByParentPrimaryKeyField/parentEntityNameLowerFirst.5">
+      <details key="start" value="3625"/>
+      <details key="end" value="3651"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/readAllByParentPrimaryKeyField/parentFieldName.9">
+      <details key="start" value="3654"/>
+      <details key="end" value="3669"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/readAllByParentPrimaryKeyField/%.21">
+      <details key="start" value="3671"/>
+      <details key="end" value="3681"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/readAllByParentPrimaryKeyField/%.22">
+      <details key="start" value="1363"/>
+      <details key="end" value="1961"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/readAllByParentPrimaryKeyField/%.22/relationship">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/readAllByParentPrimaryKeyField/%.22/parentField">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/readAllByParentPrimaryKeyField/relationship">
+      <details key="start" value="2010"/>
+      <details key="end" value="2033"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/readAllByParentPrimaryKeyField/parentField">
+      <details key="start" value="2035"/>
+      <details key="end" value="2057"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

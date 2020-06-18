@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="updateOneWhenIricOnManyToOneRelationship" nsURI="com::vladolium::odinmodel::projects::java::spring::components::controllers::methods::updateOneWhenIricOnManyToOneRelationship" startHeaderPosition="1281" endHeaderPosition="1489">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <imports href="../../../expressions/controllers/methods/setCurrentUpdateValues.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="updateOneWhenIricOnManyToOneRelationship" visibility="Public">
+      <init>
+        <variable name="oppositeEntityNameUpperFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/relationship">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+        <variable name="oppositeEntityNameLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/relationship">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </initExpression>
+        </variable>
+      </init>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@PutMapping(&quot;/{"/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/field">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}/"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="oppositeEntityNameLowerFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.1">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xA;public "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" updateOneBy"/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/field">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="WhenIricOnManyToOneRelationship(@PathVariable "/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/field">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/field">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", @RequestBody "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=") {&#xA;&#xA;&#x9;"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" current = "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Interface.readOneBy"/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/field">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="("/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/field">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;&#xA;&#x9;if (current.get"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="oppositeEntityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="().get"/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="oppositeEntityField" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityField">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="() == "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".get"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="oppositeEntityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="().get"/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="oppositeEntityField" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityField">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="()) {&#xA;&#xA;&#x9;&#x9;"/>
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="../../../expressions/controllers/methods/setCurrentUpdateValues.emtl#/0/setCurrentUpdateValues"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/class">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;return "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Interface.saveOne(current);&#xA;&#xA;&#x9;} else {&#xA;&#xA;&#x9;    Iterable&lt;"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="> listOf"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Interface.readAllBy"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="oppositeEntityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="oppositeEntityField" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityField">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(current.get"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="oppositeEntityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="().get"/>
+      <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="oppositeEntityField" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityField">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </source>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="());&#xA;&#xA;&#x9;    Long size = listOf"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".spliterator().getExactSizeIfKnown();&#xA;&#xA;&#x9;    if (size == 1) {&#xA;&#x9;&#x9;&#x9;return current;&#xA;&#x9;    } else {&#xA;&#xA;&#x9;&#x9;&#x9;"/>
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="../../../expressions/controllers/methods/setCurrentUpdateValues.emtl#/0/setCurrentUpdateValues"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/class">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;&#x9;return "/>
+      <body xsi:type="ocl.ecore:VariableExp" name="entityNameLowerFirst" referredVariable="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.6">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Interface.saveOne(current);&#xA;&#xA;&#x9;    }&#xA;&#x9;}&#xA;}"/>
+      <documentation xsi:type="mtl:ModuleElementDocumentation">
+        <body startPosition="1496" endPosition="2480" value="&#xA;Generates the update one by id and update one by unique value methods for the current controller in a target project which covers create when IRIC on many-to-one relationship cases.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the method.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xA;@param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xA;@param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xA;@param field represents the current field with the primary key constraint from the current UML class.&#xA;@param oppositeEntityField the field with the primary key or unique constraint from the parent entity.&#xA;&#xA;&#xA;"/>
+        <parametersDocumentation name="class">
+          <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
+        </parametersDocumentation>
+        <parametersDocumentation name="entityNameUpperFirst">
+          <body value=" represents the name of the current class from the UML class diagram i.e. the domain model."/>
+        </parametersDocumentation>
+        <parametersDocumentation name="entityNameLowerFirst">
+          <body value=" represents the name of the current class from the UML class diagram i.e. the domain model."/>
+        </parametersDocumentation>
+        <parametersDocumentation name="relationship">
+          <body value=" represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model."/>
+        </parametersDocumentation>
+        <parametersDocumentation name="field">
+          <body value=" represents the current field with the primary key constraint from the current UML class."/>
+        </parametersDocumentation>
+        <parametersDocumentation name="oppositeEntityField">
+          <body value=" the field with the primary key or unique constraint from the parent entity."/>
+        </parametersDocumentation>
+      </documentation>
+      <parameter name="class">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </parameter>
+      <parameter name="entityNameUpperFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="entityNameLowerFirst">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="field">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </parameter>
+      <parameter name="oppositeEntityField">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </parameter>
+      <parameter name="relationship">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="toUpperFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="toLowerFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="updateOneWhenIricOnManyToOneRelationship">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/updateOneWhenIricOnManyToOneRelationship"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="class">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+        <eParameters name="entityNameUpperFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="entityNameLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="field">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        </eParameters>
+        <eParameters name="oppositeEntityField">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        </eParameters>
+        <eParameters name="relationship">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="setCurrentUpdateValues">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../expressions/controllers/methods/setCurrentUpdateValues.emtl#/0/setCurrentUpdateValues"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="class">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Class_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/updateOneWhenIricOnManyToOneRelationship">
+      <details key="start" value="2483"/>
+      <details key="end" value="4210"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/updateOneWhenIricOnManyToOneRelationship/@init">
+      <details key="start" value="2692"/>
+      <details key="end" value="2872"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0">
+      <details key="start" value="2695"/>
+      <details key="end" value="2781"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0/%">
+      <details key="start" value="2735"/>
+      <details key="end" value="2781"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0/%/%">
+      <details key="start" value="2735"/>
+      <details key="end" value="2766"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0/%/%/%">
+      <details key="start" value="2735"/>
+      <details key="end" value="2761"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0/%/%/%/%">
+      <details key="start" value="2735"/>
+      <details key="end" value="2756"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.0/%/%/%/%/relationship">
+      <details key="start" value="2735"/>
+      <details key="end" value="2747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.1">
+      <details key="start" value="2784"/>
+      <details key="end" value="2870"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.1/%">
+      <details key="start" value="2824"/>
+      <details key="end" value="2870"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.1/%/%">
+      <details key="start" value="2824"/>
+      <details key="end" value="2855"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.1/%/%/%">
+      <details key="start" value="2824"/>
+      <details key="end" value="2850"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.1/%/%/%/%">
+      <details key="start" value="2824"/>
+      <details key="end" value="2845"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/updateOneWhenIricOnManyToOneRelationship/@init/@variable.1/%/%/%/%/relationship">
+      <details key="start" value="2824"/>
+      <details key="end" value="2836"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/updateOneWhenIricOnManyToOneRelationship/%">
+      <details key="start" value="2874"/>
+      <details key="end" value="2889"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/updateOneWhenIricOnManyToOneRelationship/%.1">
+      <details key="start" value="2890"/>
+      <details key="end" value="2915"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/updateOneWhenIricOnManyToOneRelationship/%.1/%">
+      <details key="start" value="2890"/>
+      <details key="end" value="2900"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/updateOneWhenIricOnManyToOneRelationship/%.1/%/field">
+      <details key="start" value="2890"/>
+      <details key="end" value="2895"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/updateOneWhenIricOnManyToOneRelationship/%.2">
+      <details key="start" value="2917"/>
+      <details key="end" value="2919"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityNameLowerFirst">
+      <details key="start" value="2920"/>
+      <details key="end" value="2948"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/updateOneWhenIricOnManyToOneRelationship/%.3">
+      <details key="start" value="2950"/>
+      <details key="end" value="2960"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst">
+      <details key="start" value="2961"/>
+      <details key="end" value="2981"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/updateOneWhenIricOnManyToOneRelationship/%.4">
+      <details key="start" value="2983"/>
+      <details key="end" value="2995"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/updateOneWhenIricOnManyToOneRelationship/%.5">
+      <details key="start" value="2996"/>
+      <details key="end" value="3021"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/updateOneWhenIricOnManyToOneRelationship/%.5/%">
+      <details key="start" value="2996"/>
+      <details key="end" value="3006"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/updateOneWhenIricOnManyToOneRelationship/%.5/%/field">
+      <details key="start" value="2996"/>
+      <details key="end" value="3001"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/updateOneWhenIricOnManyToOneRelationship/%.6">
+      <details key="start" value="3023"/>
+      <details key="end" value="3069"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/updateOneWhenIricOnManyToOneRelationship/%.7">
+      <details key="start" value="3070"/>
+      <details key="end" value="3100"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/updateOneWhenIricOnManyToOneRelationship/%.7/%">
+      <details key="start" value="3070"/>
+      <details key="end" value="3085"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/updateOneWhenIricOnManyToOneRelationship/%.7/%/%">
+      <details key="start" value="3070"/>
+      <details key="end" value="3080"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/updateOneWhenIricOnManyToOneRelationship/%.7/%/%/field">
+      <details key="start" value="3070"/>
+      <details key="end" value="3075"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/updateOneWhenIricOnManyToOneRelationship/%.8">
+      <details key="start" value="3102"/>
+      <details key="end" value="3103"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/updateOneWhenIricOnManyToOneRelationship/%.9">
+      <details key="start" value="3104"/>
+      <details key="end" value="3129"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/updateOneWhenIricOnManyToOneRelationship/%.9/%">
+      <details key="start" value="3104"/>
+      <details key="end" value="3114"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/updateOneWhenIricOnManyToOneRelationship/%.9/%/field">
+      <details key="start" value="3104"/>
+      <details key="end" value="3109"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/updateOneWhenIricOnManyToOneRelationship/%.10">
+      <details key="start" value="3131"/>
+      <details key="end" value="3146"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.1">
+      <details key="start" value="3147"/>
+      <details key="end" value="3167"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/updateOneWhenIricOnManyToOneRelationship/%.11">
+      <details key="start" value="3169"/>
+      <details key="end" value="3170"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst">
+      <details key="start" value="3171"/>
+      <details key="end" value="3191"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/updateOneWhenIricOnManyToOneRelationship/%.12">
+      <details key="start" value="3193"/>
+      <details key="end" value="3199"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.2">
+      <details key="start" value="3200"/>
+      <details key="end" value="3220"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/updateOneWhenIricOnManyToOneRelationship/%.13">
+      <details key="start" value="3222"/>
+      <details key="end" value="3233"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.1">
+      <details key="start" value="3234"/>
+      <details key="end" value="3254"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/updateOneWhenIricOnManyToOneRelationship/%.14">
+      <details key="start" value="3256"/>
+      <details key="end" value="3275"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/updateOneWhenIricOnManyToOneRelationship/%.15">
+      <details key="start" value="3276"/>
+      <details key="end" value="3301"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/updateOneWhenIricOnManyToOneRelationship/%.15/%">
+      <details key="start" value="3276"/>
+      <details key="end" value="3286"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/updateOneWhenIricOnManyToOneRelationship/%.15/%/field">
+      <details key="start" value="3276"/>
+      <details key="end" value="3281"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/updateOneWhenIricOnManyToOneRelationship/%.16">
+      <details key="start" value="3303"/>
+      <details key="end" value="3304"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/updateOneWhenIricOnManyToOneRelationship/%.17">
+      <details key="start" value="3305"/>
+      <details key="end" value="3330"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/updateOneWhenIricOnManyToOneRelationship/%.17/%">
+      <details key="start" value="3305"/>
+      <details key="end" value="3315"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/updateOneWhenIricOnManyToOneRelationship/%.17/%/field">
+      <details key="start" value="3305"/>
+      <details key="end" value="3310"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/updateOneWhenIricOnManyToOneRelationship/%.18">
+      <details key="start" value="3332"/>
+      <details key="end" value="3352"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityNameUpperFirst">
+      <details key="start" value="3353"/>
+      <details key="end" value="3381"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/updateOneWhenIricOnManyToOneRelationship/%.19">
+      <details key="start" value="3383"/>
+      <details key="end" value="3389"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/updateOneWhenIricOnManyToOneRelationship/%.20">
+      <details key="start" value="3390"/>
+      <details key="end" value="3429"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/updateOneWhenIricOnManyToOneRelationship/%.20/%">
+      <details key="start" value="3390"/>
+      <details key="end" value="3414"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/updateOneWhenIricOnManyToOneRelationship/%.20/%/oppositeEntityField">
+      <details key="start" value="3390"/>
+      <details key="end" value="3409"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/updateOneWhenIricOnManyToOneRelationship/%.21">
+      <details key="start" value="3431"/>
+      <details key="end" value="3437"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.2">
+      <details key="start" value="3438"/>
+      <details key="end" value="3458"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/updateOneWhenIricOnManyToOneRelationship/%.22">
+      <details key="start" value="3460"/>
+      <details key="end" value="3464"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityNameUpperFirst.1">
+      <details key="start" value="3465"/>
+      <details key="end" value="3493"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/updateOneWhenIricOnManyToOneRelationship/%.23">
+      <details key="start" value="3495"/>
+      <details key="end" value="3501"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/updateOneWhenIricOnManyToOneRelationship/%.24">
+      <details key="start" value="3502"/>
+      <details key="end" value="3541"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/updateOneWhenIricOnManyToOneRelationship/%.24/%">
+      <details key="start" value="3502"/>
+      <details key="end" value="3526"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/updateOneWhenIricOnManyToOneRelationship/%.24/%/oppositeEntityField">
+      <details key="start" value="3502"/>
+      <details key="end" value="3521"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/updateOneWhenIricOnManyToOneRelationship/%.25">
+      <details key="start" value="3543"/>
+      <details key="end" value="3552"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/updateOneWhenIricOnManyToOneRelationship/%.26">
+      <details key="start" value="3553"/>
+      <details key="end" value="3582"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/updateOneWhenIricOnManyToOneRelationship/%.26/class">
+      <details key="start" value="3576"/>
+      <details key="end" value="3581"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/updateOneWhenIricOnManyToOneRelationship/%.27">
+      <details key="start" value="3584"/>
+      <details key="end" value="3598"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.3">
+      <details key="start" value="3599"/>
+      <details key="end" value="3619"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/updateOneWhenIricOnManyToOneRelationship/%.28">
+      <details key="start" value="3621"/>
+      <details key="end" value="3675"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.3">
+      <details key="start" value="3676"/>
+      <details key="end" value="3696"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/updateOneWhenIricOnManyToOneRelationship/%.29">
+      <details key="start" value="3698"/>
+      <details key="end" value="3706"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.4">
+      <details key="start" value="3707"/>
+      <details key="end" value="3727"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/updateOneWhenIricOnManyToOneRelationship/%.30">
+      <details key="start" value="3729"/>
+      <details key="end" value="3732"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.4">
+      <details key="start" value="3733"/>
+      <details key="end" value="3753"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/updateOneWhenIricOnManyToOneRelationship/%.31">
+      <details key="start" value="3755"/>
+      <details key="end" value="3774"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityNameUpperFirst.2">
+      <details key="start" value="3775"/>
+      <details key="end" value="3803"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/updateOneWhenIricOnManyToOneRelationship/%.32">
+      <details key="start" value="3806"/>
+      <details key="end" value="3845"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/updateOneWhenIricOnManyToOneRelationship/%.32/%">
+      <details key="start" value="3806"/>
+      <details key="end" value="3830"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/updateOneWhenIricOnManyToOneRelationship/%.32/%/oppositeEntityField">
+      <details key="start" value="3806"/>
+      <details key="end" value="3825"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/updateOneWhenIricOnManyToOneRelationship/%.33">
+      <details key="start" value="3847"/>
+      <details key="end" value="3859"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityNameUpperFirst.3">
+      <details key="start" value="3860"/>
+      <details key="end" value="3888"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/updateOneWhenIricOnManyToOneRelationship/%.34">
+      <details key="start" value="3890"/>
+      <details key="end" value="3896"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/updateOneWhenIricOnManyToOneRelationship/%.35">
+      <details key="start" value="3897"/>
+      <details key="end" value="3936"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/updateOneWhenIricOnManyToOneRelationship/%.35/%">
+      <details key="start" value="3897"/>
+      <details key="end" value="3921"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/updateOneWhenIricOnManyToOneRelationship/%.35/%/oppositeEntityField">
+      <details key="start" value="3897"/>
+      <details key="end" value="3916"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/updateOneWhenIricOnManyToOneRelationship/%.36">
+      <details key="start" value="3938"/>
+      <details key="end" value="3967"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.5">
+      <details key="start" value="3968"/>
+      <details key="end" value="3988"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/updateOneWhenIricOnManyToOneRelationship/%.37">
+      <details key="start" value="3990"/>
+      <details key="end" value="4088"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/updateOneWhenIricOnManyToOneRelationship/%.38">
+      <details key="start" value="4089"/>
+      <details key="end" value="4118"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/updateOneWhenIricOnManyToOneRelationship/%.38/class">
+      <details key="start" value="4112"/>
+      <details key="end" value="4117"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/updateOneWhenIricOnManyToOneRelationship/%.39">
+      <details key="start" value="4120"/>
+      <details key="end" value="4135"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.5">
+      <details key="start" value="4136"/>
+      <details key="end" value="4156"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/updateOneWhenIricOnManyToOneRelationship/%.40">
+      <details key="start" value="4158"/>
+      <details key="end" value="4198"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/updateOneWhenIricOnManyToOneRelationship/%.41">
+      <details key="start" value="1493"/>
+      <details key="end" value="2482"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/updateOneWhenIricOnManyToOneRelationship/%.41/class">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/updateOneWhenIricOnManyToOneRelationship/%.41/entityNameUpperFirst">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/updateOneWhenIricOnManyToOneRelationship/%.41/entityNameLowerFirst">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/updateOneWhenIricOnManyToOneRelationship/%.41/relationship">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/updateOneWhenIricOnManyToOneRelationship/%.41/field">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/updateOneWhenIricOnManyToOneRelationship/%.41/oppositeEntityField">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/updateOneWhenIricOnManyToOneRelationship/class">
+      <details key="start" value="2541"/>
+      <details key="end" value="2554"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameUpperFirst.6">
+      <details key="start" value="2556"/>
+      <details key="end" value="2585"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/updateOneWhenIricOnManyToOneRelationship/entityNameLowerFirst.6">
+      <details key="start" value="2587"/>
+      <details key="end" value="2616"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/updateOneWhenIricOnManyToOneRelationship/field">
+      <details key="start" value="2618"/>
+      <details key="end" value="2634"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/updateOneWhenIricOnManyToOneRelationship/oppositeEntityField">
+      <details key="start" value="2636"/>
+      <details key="end" value="2666"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/updateOneWhenIricOnManyToOneRelationship/relationship">
+      <details key="start" value="2668"/>
+      <details key="end" value="2691"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

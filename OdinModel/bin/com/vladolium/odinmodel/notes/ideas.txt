@@ -1,0 +1,46 @@
+Ideja i plan
+
+Da li bih mogao da napišem 2 rada o OdinModelu?
+
+Software Practice and Experience (SPE) je časopis gde bih mogao pisati o tome 
+kako sam rešio problem kastomizovanog generatora. Koristeći postojeće tehnologije 
+(UML + Acceleo) na „svoj“ način, omogućio sam da se bilo koji razvojni proces pretoči u 
+brzo prototipovanje. U radu bih opisao kako koristim UML i Acceleo, tačnije koje UML elemente 
+(i šta predstavljaju) kojim Acceleo izrazima pretačem u potreban kastomizovan kod. Kao primer 
+bih naveo Spring Boot „legacy“ razvojni proces koji koristi Querydsl. Poenta je da pišem o iskustvu 
+sa Acceleo softverom. Poenta je da imam search + crud. Poenta je da šijem JHipster sa JPA anotacijama 
+na modelu. Znači, zahvaljujući svom pristupu, rešavam mnoge stvari koje mi drugi alati ne 
+omogućavaju, a to je da sam diktiram šta će se desiti. Naravno, potrebno je upoznati se sa Acceleom, 
+ali ovako sažvakano nije problem i bolje je nego učiti svaki put novi frejmvork, a onda i generator za njega. Novelty deo je univerzalni pristup kastomizovanim generatorima koda baziran na standardima. Univerzalna podrška legacy tehnologijama. OdinModel4SpringBoot bez IRIC.
+
+
+KNOSYS je časopis gde bih mogao pisati o aplikaciji OdinModel koja pokriva Spring Boot REST slučaj, kao I JSF + Spring Data JPA slučaj, što do sada nije rađeno, bar ne automatizacija toga. Baziran na tehnikama iz rada SPE (ali to neće ići tako, jer ih maltene šaljem u isto vreme). Novelty deo je IRIC pristup I JSF + Spring Data generator.
+
+
+
+Nivoi kastomizacije
+Basic – menja se generisani kod aplikacije
+Medium – menja se sve unutar customizable paketa
+Advanced – menjaju se ostali templejti
+Pro – kreiraju se sopstveni templejti
+
+reusable komentari
+
+@param class represents the current class from the UML class diagram i.e. the domain model.
+
+---
+
+@param target represents the application components for which template generates code.
+
+@param field represents the current field from the current UML class.
+
+@param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.
+
+OMPOC (OdinModel Point Of Customization)
+
+separator('\n')
+post(trim())
+post (replaceAll('\n\n', '\n').trim())
+
+
+e sad... jooq

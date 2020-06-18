@@ -1,0 +1,75 @@
+[comment]
+	OdinModel is a free and open-source framework for transforming a custom web application development 
+	into a model-driven rapid prototyping approach.
+
+    Copyright (C) 2020  Vladolium
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+	sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+	WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[/comment]
+
+[comment encoding = UTF-8 /]
+[module dynamicSearchQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkSearchParameters/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkDynamicWhereParameters/]
+[import com::vladolium::odinmodel::projects::java::spring::expressions::services::methods::checkQuerydslConditions/]
+
+[**
+ * Generates the Querydsl search all and search all with pagination methods for the current service in a target project.
+ * 
+ * OMPOC (OdinModel Point Of Customization)
+ * 
+ * User may further customize the methods.
+ *    
+ * @param class represents the current class from the UML class diagram i.e. the domain model.
+*/]
+[template public dynamicSearchQuerydsl(class : Class){
+	entityNameUpperFirst : String = class.name.toUpperFirst();
+	entityNameLowerFirst : String = class.name.toLowerFirst();}]
+[comment : Search all. /]
+@Override
+public Iterable<[entityNameUpperFirst/]> search(
+	[checkSearchParameters()/]
+) {
+	BooleanBuilder where = dynamicWhere(
+		[checkDynamicWhereParameters()/]	
+	);
+	return [entityNameLowerFirst/]Repository.findAll(where);
+}
+
+[comment : Search all with pagination. /]
+@Override
+public Page<[entityNameUpperFirst/]> searchPagination(
+	Pageable page,
+	[checkSearchParameters()/]
+) {
+	BooleanBuilder where = dynamicWhere(
+		[checkDynamicWhereParameters()/]
+	);
+	return [entityNameLowerFirst/]Repository.findAll(where, page);
+}
+
+[comment : Building a dynamic query/]
+public BooleanBuilder dynamicWhere(
+	[checkSearchParameters()/]
+) {
+	Q[entityNameUpperFirst/] q[entityNameUpperFirst/] = Q[entityNameUpperFirst/].[entityNameLowerFirst/];
+
+	BooleanBuilder where = new BooleanBuilder();
+
+	[checkQuerydslConditions()/]
+
+	return where;
+}
+[/template]

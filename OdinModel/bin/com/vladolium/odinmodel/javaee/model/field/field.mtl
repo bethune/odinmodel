@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[module field('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment]
+	OdinModel is a framework for transforming a custom web application development into a model-driven rapid prototyping approach
+
+    Copyright (C) 2019  Vladolium
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see https://www.gnu.org/licenses/.
+[/comment]
+
+[import com::vladolium::odinmodel::javaee::model::field::numerical::integer /]
+[import com::vladolium::odinmodel::javaee::model::field::numerical::long /]
+[import com::vladolium::odinmodel::javaee::model::field::numerical::double /]
+[import com::vladolium::odinmodel::javaee::model::field::textual::string /]
+[import com::vladolium::odinmodel::javaee::model::field::textual::enum /]
+[import com::vladolium::odinmodel::javaee::model::field::datetime::date /]
+[import com::vladolium::odinmodel::javaee::model::field::datetime::dateTime /]
+[import com::vladolium::odinmodel::javaee::model::field::datetime::time /]
+[import com::vladolium::odinmodel::javaee::model::field::datetime::timestamp /]
+[import com::vladolium::odinmodel::javaee::model::field::logical::boolean /]
+[import com::vladolium::odinmodel::javaee::model::field::binary::clob /]
+[import com::vladolium::odinmodel::javaee::model::field::binary::blob /]
+
+[template public field(aClass : Class)]
+[aClass.long()/]
+[aClass.integer()/]
+[aClass.double()/]
+[aClass.string()/]
+[aClass.enum()/]
+[aClass.date()/]
+[aClass.dateTime()/]
+[aClass.time()/]
+[aClass.timestamp()/]
+[aClass.boolean()/]
+[aClass.clob()/]
+[aClass.blob()/]
+[/template]
