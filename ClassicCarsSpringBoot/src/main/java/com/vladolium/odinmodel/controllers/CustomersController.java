@@ -84,7 +84,7 @@ public class CustomersController {
 		Long employeesId,
 		
 		
-		List<Reviews> reviewsList,
+		//List<Reviews> reviewsList,
 		String state,
 		String customerName,
 		String phone,
@@ -101,7 +101,7 @@ public class CustomersController {
 			employeesId,
 			
 			
-			reviewsList,
+			//reviewsList,
 			state,
 			customerName,
 			phone,

@@ -62,7 +62,7 @@ public class CustomersService implements CustomersInterface {
 		Long employeesId,
 		
 		
-		List<Reviews> reviewsList,
+		//List<Reviews> reviewsList,
 		String state,
 		String customerName,
 		String phone,
@@ -73,13 +73,13 @@ public class CustomersService implements CustomersInterface {
 		String city,
 		Double creditLimit,
 		String addressLine2,
-		String postalCode
+		String postalCode		
 	) {
 		Specification<Customers> where = dynamicWhere(
 			employeesId,
 			
 			
-			reviewsList,
+			//reviewsList,
 			state,
 			customerName,
 			phone,
@@ -118,7 +118,7 @@ public class CustomersService implements CustomersInterface {
 			employeesId,
 			
 			
-			reviewsList,
+			//reviewsList,
 			state,
 			customerName,
 			phone,
@@ -130,30 +130,17 @@ public class CustomersService implements CustomersInterface {
 			creditLimit,
 			addressLine2,
 			postalCode
+			
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
 	public Specification<Customers> dynamicWhere(
-			/*Long employeesId,
-			List<Reviews> reviewsList,
-			String city,
-			String phone,
-			String addressLine2,
-			String firstName,
-			Double creditLimit,
-			String customerName,
-			String addressLine1,
-			String country,
-			String lastName,
-			String state,
-			String postalCode*/
-			
 			
 			Long employeesId,
 			
 			
-			List<Reviews> reviewsList,
+			//List<Reviews> reviewsList,
 			String state,
 			String customerName,
 			String phone,

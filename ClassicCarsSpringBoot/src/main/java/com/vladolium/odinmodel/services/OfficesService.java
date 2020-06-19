@@ -54,18 +54,14 @@ public class OfficesService implements OfficesInterface {
 
 	@Override
 	public Iterable<Offices> search(
-			
-			REDOSLED U SERVISU NIJE ISTI KAO U INTERFEJSU
-			
-			
-		String city,
-		String phone,
-		String addressLine2,
-		String territory,
-		String addressLine1,
-		String country,
-		String state,
-		String postalCode
+			String state,
+			String phone,
+			String territory,
+			String country,
+			String addressLine1,
+			String city,
+			String addressLine2,
+			String postalCode
 	) {
 		System.out.println("===========================> Hej offices service za specifikaciju = country : " + country);
 		Specification<Offices> where = dynamicWhere(
@@ -120,13 +116,13 @@ public class OfficesService implements OfficesInterface {
 		System.out.println("===========================> Hej offices service za specifikaciju dynamic where = country : " + country);
 		Specification<Offices> where = Specification
 			.where(city == null ? null : OfficesSpecification.getOfficesByCity(city))
-			.or(phone == null ? null : OfficesSpecification.getOfficesByPhone(phone))
-			.or(addressLine2 == null ? null : OfficesSpecification.getOfficesByAddressLine2(addressLine2))
-			.or(territory == null ? null : OfficesSpecification.getOfficesByTerritory(territory))
-			.or(addressLine1 == null ? null : OfficesSpecification.getOfficesByAddressLine1(addressLine1))
-			.or(country == null ? null : OfficesSpecification.getOfficesByCountry(country))
-			.or(state == null ? null : OfficesSpecification.getOfficesByState(state))
-			.or(postalCode == null ? null : OfficesSpecification.getOfficesByPostalCode(postalCode));
+			.and(phone == null ? null : OfficesSpecification.getOfficesByPhone(phone))
+			.and(addressLine2 == null ? null : OfficesSpecification.getOfficesByAddressLine2(addressLine2))
+			.and(territory == null ? null : OfficesSpecification.getOfficesByTerritory(territory))
+			.and(addressLine1 == null ? null : OfficesSpecification.getOfficesByAddressLine1(addressLine1))
+			.and(country == null ? null : OfficesSpecification.getOfficesByCountry(country))
+			.and(state == null ? null : OfficesSpecification.getOfficesByState(state))
+			.and(postalCode == null ? null : OfficesSpecification.getOfficesByPostalCode(postalCode));
 	
 		return where;
 	}
