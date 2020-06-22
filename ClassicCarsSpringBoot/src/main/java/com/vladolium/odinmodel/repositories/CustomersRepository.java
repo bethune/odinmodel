@@ -1,17 +1,20 @@
 package com.vladolium.odinmodel.repositories;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.vladolium.odinmodel.model.*;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.domain.*;
+import org.springframework.data.querydsl.*;
 
-import com.vladolium.odinmodel.model.Customers;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-public interface CustomersRepository extends JpaRepository<Customers, Long>, JpaSpecificationExecutor<Customers> {
+public interface CustomersRepository extends JpaRepository<Customers, Long>, QuerydslPredicateExecutor<Customers> {
 
-	Customers findByCustomerNameEquals(String customerName);
-	
 	Customers findByIdEquals(Long id);
+	
+	Customers findByCustomerNameEquals(String customerName);
 
 	Iterable <Customers> findByEmployeesIdEquals(Long employeesId);
 	

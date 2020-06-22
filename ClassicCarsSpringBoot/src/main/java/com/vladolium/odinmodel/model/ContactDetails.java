@@ -21,7 +21,7 @@ public abstract class ContactDetails {
 		this.state = state;
 	}
 	
-	@Size(max=50)@Pattern(regexp="(\\(\\d{3}\\)\\d{3}-\\d{4}") // \(\d{3}\)\d{3}-?\d{4}
+	@Size(max=50)//@Pattern(regexp="(\\d{3}\\)\\d{3}-\\d{4}") // \(\d{3}\)\d{3}-?\d{4}
 	private String phone;
 	
 	public String getPhone() {

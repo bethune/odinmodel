@@ -209,9 +209,6 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_VJtYgO68EemYTtJqt4KN7Q">
           <body>@Size(max=50)</body>
         </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_o5fD4O6-EemYTtJqt4KN7Q">
-          <body>@Pattern(regexp=&quot;(\\(\\d{3}\\)\\d{3}-\\d{4}&quot;) // \(\d{3}\)\d{3}-?\d{4}</body>
-        </ownedComment>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4pWPkOL4EemqlKIOh2pa2g"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QB9swN-AEemhFrfFZLxexQ" name="addressLine1" type="_LFJuIN94EemhFrfFZLxexQ" isUnique="false">

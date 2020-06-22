@@ -13,8 +13,6 @@ import java.time.*;
 import java.util.*;
 
 import com.vladolium.odinmodel.repositories.*;
-import com.vladolium.odinmodel.specifications.CustomersSpecification;
-import com.vladolium.odinmodel.specifications.OfficesSpecification;
 //import com.vladolium.odinmodel.specifications.*;
 import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
@@ -62,7 +60,7 @@ public class CustomersService implements CustomersInterface {
 		Long employeesId,
 		
 		
-		//List<Reviews> reviewsList,
+		List<Reviews> reviewsList,
 		String state,
 		String customerName,
 		String phone,
@@ -73,13 +71,13 @@ public class CustomersService implements CustomersInterface {
 		String city,
 		Double creditLimit,
 		String addressLine2,
-		String postalCode		
+		String postalCode
 	) {
-		Specification<Customers> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			employeesId,
 			
 			
-			//reviewsList,
+			reviewsList,
 			state,
 			customerName,
 			phone,
@@ -114,11 +112,11 @@ public class CustomersService implements CustomersInterface {
 		String addressLine2,
 		String postalCode
 	) {
-		Specification<Customers> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
 			employeesId,
 			
 			
-			//reviewsList,
+			reviewsList,
 			state,
 			customerName,
 			phone,
@@ -130,51 +128,11 @@ public class CustomersService implements CustomersInterface {
 			creditLimit,
 			addressLine2,
 			postalCode
-			
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
-	public Specification<Customers> dynamicWhere(
-			
-			Long employeesId,
-			
-			
-			//List<Reviews> reviewsList,
-			String state,
-			String customerName,
-			String phone,
-			String lastName,
-			String firstName,
-			String country,
-			String addressLine1,
-			String city,
-			Double creditLimit,
-			String addressLine2,
-			String postalCode
-			
-		) {
-			Specification<Customers> where = Specification
-				.where(city == null ? null : CustomersSpecification.getCustomersByCity(city))
-				.and(phone == null ? null : CustomersSpecification.getCustomersByPhone(phone))
-				.and(addressLine2 == null ? null : CustomersSpecification.getCustomersByAddressLine2(addressLine2))
-				.and(firstName == null ? null : CustomersSpecification.getCustomersByFirstName(firstName))
-				.and(creditLimit == null ? null : CustomersSpecification.getCustomersByCreditLimit(creditLimit))
-				.and(customerName == null ? null : CustomersSpecification.getCustomersByCustomerName(customerName))
-				.and(addressLine1 == null ? null : CustomersSpecification.getCustomersByAddressLine1(addressLine1))
-				.and(country == null ? null : CustomersSpecification.getCustomersByCountry(country))
-				.and(lastName == null ? null : CustomersSpecification.getCustomersByLastName(lastName))
-				.and(state == null ? null : CustomersSpecification.getCustomersByState(state))
-				.and(postalCode == null ? null : CustomersSpecification.getCustomersByPostalCode(postalCode))
-				.and(employeesId == null ? null : CustomersSpecification.getCustomersByEmployeesId(employeesId))
-				//.and(reviewsList == null ? null : CustomersSpecification.getCustomersByReviews(reviewsList))
-				;
-		
-			return where;
-		}
-	
-	/*
-	public BooleanBuilder dynamicWhere1(
+	public BooleanBuilder dynamicWhere(
 		Long employeesId,
 		
 		
@@ -239,7 +197,7 @@ public class CustomersService implements CustomersInterface {
 	
 		return where;
 	}
-*/
+
 
 	@Override
 	public Iterable<Customers> readAllByEmployeesId(Long employeesId) {
