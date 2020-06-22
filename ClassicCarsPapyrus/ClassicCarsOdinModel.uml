@@ -123,6 +123,10 @@
           <body>@Size(max=50)</body>
         </ownedComment>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mVkdYrTGEeqOhaRCkV3AUg" type="_irRV4LTGEeqOhaRCkV3AUg" association="_mVjPQLTGEeqOhaRCkV3AUg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mVlEcLTGEeqOhaRCkV3AUg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mVlEcbTGEeqOhaRCkV3AUg" value="*"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_7B-b4N9rEemJF-HGxlolYw" name="OrderDetails">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5mqokN94EemhFrfFZLxexQ" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
@@ -240,6 +244,14 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OJbQYOL6EemqlKIOh2pa2g"/>
       </ownedAttribute>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_irRV4LTGEeqOhaRCkV3AUg" name="Marks">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_p_jb0LTGEeqOhaRCkV3AUg" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dkGLQbTHEeqOhaRCkV3AUg" type="_noWUwN9rEemJF-HGxlolYw" association="_dkDvALTHEeqOhaRCkV3AUg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_uyM2ALTHEeqOhaRCkV3AUg" name="markType" type="_8JSBULTGEeqOhaRCkV3AUg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wnjOELTHEeqOhaRCkV3AUg" name="comment" type="_LFJuIN94EemhFrfFZLxexQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5IWKcLTHEeqOhaRCkV3AUg"/>
+      </ownedAttribute>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_wovgwN93EemhFrfFZLxexQ" name="Integer"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_xTwMoN93EemhFrfFZLxexQ" name="Long"/>
@@ -334,4 +346,31 @@
   <packagedElement xmi:type="uml:DataType" xmi:id="_coD-oOLCEemqlKIOh2pa2g" name="Clob">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_QhFBEOL2EemqlKIOh2pa2g" name="Operation1"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mVjPQLTGEeqOhaRCkV3AUg" memberEnd="_mVkdYrTGEeqOhaRCkV3AUg _mVlrgLTGEeqOhaRCkV3AUg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mVkdYLTGEeqOhaRCkV3AUg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mVkdYbTGEeqOhaRCkV3AUg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mVlrgLTGEeqOhaRCkV3AUg" type="_pNCaoN9rEemJF-HGxlolYw" association="_mVjPQLTGEeqOhaRCkV3AUg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_8JSBULTGEeqOhaRCkV3AUg" name="MarkType">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ADi3cLTHEeqOhaRCkV3AUg" name="EXCELLENT"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_TpaDwLTHEeqOhaRCkV3AUg" name="GOOD"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_U9aCQLTHEeqOhaRCkV3AUg" name="AVERAGE"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WegBkLTHEeqOhaRCkV3AUg" name="BAD"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_dkDvALTHEeqOhaRCkV3AUg" memberEnd="_dkGLQbTHEeqOhaRCkV3AUg _dkGyUrTHEeqOhaRCkV3AUg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dkFkMLTHEeqOhaRCkV3AUg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dkGLQLTHEeqOhaRCkV3AUg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dkGyUrTHEeqOhaRCkV3AUg" type="_irRV4LTGEeqOhaRCkV3AUg" association="_dkDvALTHEeqOhaRCkV3AUg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rkQTULTHEeqOhaRCkV3AUg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rkUkwLTHEeqOhaRCkV3AUg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_g5BVILTGEeqOhaRCkV3AUg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_g5DxYLTGEeqOhaRCkV3AUg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
 </uml:Model>

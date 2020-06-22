@@ -47,12 +47,15 @@ public class EmployeesController {
 		Employees current = employeesInterface.readOneById(id);
 			
 		current.setOffices(employees.getOffices());
-		current.setJobTitle(employees.getJobTitle());
+		
+		
+		current.setMarksList(employees.getMarksList());
+		current.setIsActive(employees.getIsActive());
+		current.setReportsTo(employees.getReportsTo());
+		current.setLastName(employees.getLastName());
 		current.setExtension(employees.getExtension());
 		current.setEmail(employees.getEmail());
-		current.setReportsTo(employees.getReportsTo());
-		current.setIsActive(employees.getIsActive());
-		current.setLastName(employees.getLastName());
+		current.setJobTitle(employees.getJobTitle());
 		current.setFirstName(employees.getFirstName());
 				
 		return employeesInterface.saveOne(current);
@@ -75,22 +78,28 @@ public class EmployeesController {
 	@GetMapping("/search")
 	public Iterable<Employees> search(
 		Long officesId,
-		String jobTitle,
+		
+		
+		List<Marks> marksList,
+		Boolean isActive,
+		Integer reportsTo,
+		String lastName,
 		String extension,
 		String email,
-		Integer reportsTo,
-		Boolean isActive,
-		String lastName,
+		String jobTitle,
 		String firstName
 	) {
 		return employeesInterface.search(
 			officesId,
-			jobTitle,
+			
+			
+			marksList,
+			isActive,
+			reportsTo,
+			lastName,
 			extension,
 			email,
-			reportsTo,
-			isActive,
-			lastName,
+			jobTitle,
 			firstName
 		);
 	}
@@ -100,12 +109,15 @@ public class EmployeesController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long officesId,
-		String jobTitle,
+		
+		
+		List<Marks> marksList,
+		Boolean isActive,
+		Integer reportsTo,
+		String lastName,
 		String extension,
 		String email,
-		Integer reportsTo,
-		Boolean isActive,
-		String lastName,
+		String jobTitle,
 		String firstName
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -113,12 +125,15 @@ public class EmployeesController {
 		return employeesInterface.searchPagination(
 			page,
 			officesId,
-			jobTitle,
+			
+			
+			marksList,
+			isActive,
+			reportsTo,
+			lastName,
 			extension,
 			email,
-			reportsTo,
-			isActive,
-			lastName,
+			jobTitle,
 			firstName
 		);
 	}
@@ -129,10 +144,6 @@ public class EmployeesController {
 	public void setCustomersInterface(CustomersInterface customersInterface) {
 		this.customersInterface = customersInterface;
 	}
-	
-	
-	
-	
 	
 	
 	@GetMapping("/{employeesId}/customers")
@@ -177,12 +188,15 @@ public class EmployeesController {
 		if (current.getOffices().getId() == employees.getOffices().getId()) {
 	
 			current.setOffices(employees.getOffices());
-			current.setJobTitle(employees.getJobTitle());
+			
+			
+			current.setMarksList(employees.getMarksList());
+			current.setIsActive(employees.getIsActive());
+			current.setReportsTo(employees.getReportsTo());
+			current.setLastName(employees.getLastName());
 			current.setExtension(employees.getExtension());
 			current.setEmail(employees.getEmail());
-			current.setReportsTo(employees.getReportsTo());
-			current.setIsActive(employees.getIsActive());
-			current.setLastName(employees.getLastName());
+			current.setJobTitle(employees.getJobTitle());
 			current.setFirstName(employees.getFirstName());			
 	
 			return employeesInterface.saveOne(current);
@@ -198,12 +212,15 @@ public class EmployeesController {
 		    } else {
 	
 				current.setOffices(employees.getOffices());
-				current.setJobTitle(employees.getJobTitle());
+				
+				
+				current.setMarksList(employees.getMarksList());
+				current.setIsActive(employees.getIsActive());
+				current.setReportsTo(employees.getReportsTo());
+				current.setLastName(employees.getLastName());
 				current.setExtension(employees.getExtension());
 				current.setEmail(employees.getEmail());
-				current.setReportsTo(employees.getReportsTo());
-				current.setIsActive(employees.getIsActive());
-				current.setLastName(employees.getLastName());
+				current.setJobTitle(employees.getJobTitle());
 				current.setFirstName(employees.getFirstName());			
 	
 				return employeesInterface.saveOne(current);

@@ -1,19 +1,23 @@
 package com.vladolium.odinmodel.services;
 
+import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Offices.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.vladolium.odinmodel.interfaces.OfficesInterface;
-import com.vladolium.odinmodel.model.Employees;
-import com.vladolium.odinmodel.model.Offices;
-import com.vladolium.odinmodel.repositories.EmployeesRepository;
-import com.vladolium.odinmodel.repositories.OfficesRepository;
-import com.vladolium.odinmodel.specifications.OfficesSpecification;
-import com.vladolium.odinmodel.wrappers.OfficesEmployees;
+import java.time.*;
+import java.util.*;
+
+import com.vladolium.odinmodel.repositories.*;
+//import com.vladolium.odinmodel.specifications.*;
+import com.vladolium.odinmodel.interfaces.*;
+import com.vladolium.odinmodel.wrappers.*;
+
+import com.querydsl.core.BooleanBuilder;
 
 @Service
 @Transactional
@@ -51,28 +55,26 @@ public class OfficesService implements OfficesInterface {
 		return officesRepository.findAll(page);
 	}
 
-
 	@Override
 	public Iterable<Offices> search(
-			String state,
-			String phone,
-			String territory,
-			String country,
-			String addressLine1,
-			String city,
-			String addressLine2,
-			String postalCode
+		String addressLine1,
+		String postalCode,
+		String territory,
+		String city,
+		String phone,
+		String country,
+		String state,
+		String addressLine2
 	) {
-		System.out.println("===========================> Hej offices service za specifikaciju = country : " + country);
-		Specification<Offices> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
+			addressLine1,
+			postalCode,
+			territory,
 			city,
 			phone,
-			addressLine2,
-			territory,
-			addressLine1,
 			country,
 			state,
-			postalCode	
+			addressLine2	
 		);
 		return officesRepository.findAll(where);
 	}
@@ -80,52 +82,70 @@ public class OfficesService implements OfficesInterface {
 	@Override
 	public Page<Offices> searchPagination(
 		Pageable page,
+		String addressLine1,
+		String postalCode,
+		String territory,
 		String city,
 		String phone,
-		String addressLine2,
-		String territory,
-		String addressLine1,
 		String country,
 		String state,
-		String postalCode
+		String addressLine2
 	) {
-		Specification<Offices> where = dynamicWhere(
+		BooleanBuilder where = dynamicWhere(
+			addressLine1,
+			postalCode,
+			territory,
 			city,
 			phone,
-			addressLine2,
-			territory,
-			addressLine1,
 			country,
 			state,
-			postalCode
+			addressLine2
 		);
 		return officesRepository.findAll(where, page);
 	}
 	
-	public Specification<Offices> dynamicWhere(
+	public BooleanBuilder dynamicWhere(
+		String addressLine1,
+		String postalCode,
+		String territory,
 		String city,
 		String phone,
-		String addressLine2,
-		String territory,
-		String addressLine1,
 		String country,
 		String state,
-		String postalCode
+		String addressLine2
 	) {
-		
-		System.out.println("===========================> Hej offices service za specifikaciju dynamic where = country : " + country);
-		Specification<Offices> where = Specification
-			.where(city == null ? null : OfficesSpecification.getOfficesByCity(city))
-			.and(phone == null ? null : OfficesSpecification.getOfficesByPhone(phone))
-			.and(addressLine2 == null ? null : OfficesSpecification.getOfficesByAddressLine2(addressLine2))
-			.and(territory == null ? null : OfficesSpecification.getOfficesByTerritory(territory))
-			.and(addressLine1 == null ? null : OfficesSpecification.getOfficesByAddressLine1(addressLine1))
-			.and(country == null ? null : OfficesSpecification.getOfficesByCountry(country))
-			.and(state == null ? null : OfficesSpecification.getOfficesByState(state))
-			.and(postalCode == null ? null : OfficesSpecification.getOfficesByPostalCode(postalCode));
+		QOffices qOffices = QOffices.offices;
+	
+		BooleanBuilder where = new BooleanBuilder();
+	
+		if (addressLine1 != null) {
+			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (postalCode != null) {
+			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
+		}
+		if (territory != null) {
+			where.and(qOffices.territory.containsIgnoreCase(territory));
+		}
+		if (city != null) {
+			where.and(qOffices.city.containsIgnoreCase(city));
+		}
+		if (phone != null) {
+			where.and(qOffices.phone.containsIgnoreCase(phone));
+		}
+		if (country != null) {
+			where.and(qOffices.country.containsIgnoreCase(country));
+		}
+		if (state != null) {
+			where.and(qOffices.state.containsIgnoreCase(state));
+		}
+		if (addressLine2 != null) {
+			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
+		}
 	
 		return where;
 	}
+
 
 	
 

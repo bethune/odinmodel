@@ -61,34 +61,34 @@ public class CustomersService implements CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String state,
-		String customerName,
-		String phone,
-		String lastName,
-		String firstName,
-		String country,
 		String addressLine1,
+		String postalCode,
+		String customerName,
 		String city,
 		Double creditLimit,
-		String addressLine2,
-		String postalCode
+		String country,
+		String phone,
+		String firstName,
+		String state,
+		String lastName,
+		String addressLine2
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
 			
 			
 			reviewsList,
-			state,
-			customerName,
-			phone,
-			lastName,
-			firstName,
-			country,
 			addressLine1,
+			postalCode,
+			customerName,
 			city,
 			creditLimit,
-			addressLine2,
-			postalCode	
+			country,
+			phone,
+			firstName,
+			state,
+			lastName,
+			addressLine2	
 		);
 		return customersRepository.findAll(where);
 	}
@@ -100,34 +100,34 @@ public class CustomersService implements CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String state,
-		String customerName,
-		String phone,
-		String lastName,
-		String firstName,
-		String country,
 		String addressLine1,
+		String postalCode,
+		String customerName,
 		String city,
 		Double creditLimit,
-		String addressLine2,
-		String postalCode
+		String country,
+		String phone,
+		String firstName,
+		String state,
+		String lastName,
+		String addressLine2
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
 			
 			
 			reviewsList,
-			state,
-			customerName,
-			phone,
-			lastName,
-			firstName,
-			country,
 			addressLine1,
+			postalCode,
+			customerName,
 			city,
 			creditLimit,
-			addressLine2,
-			postalCode
+			country,
+			phone,
+			firstName,
+			state,
+			lastName,
+			addressLine2
 		);
 		return customersRepository.findAll(where, page);
 	}
@@ -137,17 +137,17 @@ public class CustomersService implements CustomersInterface {
 		
 		
 		List<Reviews> reviewsList,
-		String state,
-		String customerName,
-		String phone,
-		String lastName,
-		String firstName,
-		String country,
 		String addressLine1,
+		String postalCode,
+		String customerName,
 		String city,
 		Double creditLimit,
-		String addressLine2,
-		String postalCode
+		String country,
+		String phone,
+		String firstName,
+		String state,
+		String lastName,
+		String addressLine2
 	) {
 		QCustomers qCustomers = QCustomers.customers;
 	
@@ -161,26 +161,14 @@ public class CustomersService implements CustomersInterface {
 		if (reviewsList != null) {
 			where.and(qCustomers.reviewsList.any().in(reviewsList));
 		}
-		if (state != null) {
-			where.and(qCustomers.state.containsIgnoreCase(state));
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
 		if (customerName != null) {
 			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
-		}
-		if (phone != null) {
-			where.and(qCustomers.phone.containsIgnoreCase(phone));
-		}
-		if (lastName != null) {
-			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
-		}
-		if (firstName != null) {
-			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
-		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
-		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
 		}
 		if (city != null) {
 			where.and(qCustomers.city.containsIgnoreCase(city));
@@ -188,11 +176,23 @@ public class CustomersService implements CustomersInterface {
 		if (creditLimit != null) {
 			where.and(qCustomers.creditLimit.eq(creditLimit));
 		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		}
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
+		}
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
 		if (addressLine2 != null) {
 			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
-		}
-		if (postalCode != null) {
-			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
 	
 		return where;

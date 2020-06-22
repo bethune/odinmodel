@@ -47,13 +47,13 @@ public class ProductsController {
 		Products current = productsInterface.readOneById(id);
 			
 		current.setProductLines(products.getProductLines());
-		current.setProductVendor(products.getProductVendor());
-		current.setProductScale(products.getProductScale());
-		current.setQuantityInStock(products.getQuantityInStock());
-		current.setMsrp(products.getMsrp());
-		current.setProductDescription(products.getProductDescription());
-		current.setBuyPrice(products.getBuyPrice());
 		current.setProductName(products.getProductName());
+		current.setProductScale(products.getProductScale());
+		current.setMsrp(products.getMsrp());
+		current.setBuyPrice(products.getBuyPrice());
+		current.setProductVendor(products.getProductVendor());
+		current.setQuantityInStock(products.getQuantityInStock());
+		current.setProductDescription(products.getProductDescription());
 		current.setProductCode(products.getProductCode());
 				
 		return productsInterface.saveOne(current);
@@ -76,24 +76,24 @@ public class ProductsController {
 	@GetMapping("/search")
 	public Iterable<Products> search(
 		Long productLinesId,
-		String productVendor,
-		String productScale,
-		Integer quantityInStock,
-		Double msrp,
-		String productDescription,
-		Double buyPrice,
 		String productName,
+		String productScale,
+		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
 		return productsInterface.search(
 			productLinesId,
-			productVendor,
-			productScale,
-			quantityInStock,
-			msrp,
-			productDescription,
-			buyPrice,
 			productName,
+			productScale,
+			msrp,
+			buyPrice,
+			productVendor,
+			quantityInStock,
+			productDescription,
 			productCode
 		);
 	}
@@ -103,13 +103,13 @@ public class ProductsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long productLinesId,
-		String productVendor,
-		String productScale,
-		Integer quantityInStock,
-		Double msrp,
-		String productDescription,
-		Double buyPrice,
 		String productName,
+		String productScale,
+		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -117,13 +117,13 @@ public class ProductsController {
 		return productsInterface.searchPagination(
 			page,
 			productLinesId,
-			productVendor,
-			productScale,
-			quantityInStock,
-			msrp,
-			productDescription,
-			buyPrice,
 			productName,
+			productScale,
+			msrp,
+			buyPrice,
+			productVendor,
+			quantityInStock,
+			productDescription,
 			productCode
 		);
 	}
@@ -134,6 +134,10 @@ public class ProductsController {
 	public void setOrderDetailsInterface(OrderDetailsInterface orderDetailsInterface) {
 		this.orderDetailsInterface = orderDetailsInterface;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -152,10 +156,6 @@ public class ProductsController {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return orderDetailsInterface.readAllByProductsId(productsId, page);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -191,13 +191,13 @@ public class ProductsController {
 		Products current = productsInterface.readOneByProductCode(productCode);
 			
 		current.setProductLines(products.getProductLines());
-		current.setProductVendor(products.getProductVendor());
-		current.setProductScale(products.getProductScale());
-		current.setQuantityInStock(products.getQuantityInStock());
-		current.setMsrp(products.getMsrp());
-		current.setProductDescription(products.getProductDescription());
-		current.setBuyPrice(products.getBuyPrice());
 		current.setProductName(products.getProductName());
+		current.setProductScale(products.getProductScale());
+		current.setMsrp(products.getMsrp());
+		current.setBuyPrice(products.getBuyPrice());
+		current.setProductVendor(products.getProductVendor());
+		current.setQuantityInStock(products.getQuantityInStock());
+		current.setProductDescription(products.getProductDescription());
 		current.setProductCode(products.getProductCode());
 				
 		return productsInterface.saveOne(current);
@@ -228,13 +228,13 @@ public class ProductsController {
 		if (current.getProductLines().getId() == products.getProductLines().getId()) {
 	
 			current.setProductLines(products.getProductLines());
-			current.setProductVendor(products.getProductVendor());
-			current.setProductScale(products.getProductScale());
-			current.setQuantityInStock(products.getQuantityInStock());
-			current.setMsrp(products.getMsrp());
-			current.setProductDescription(products.getProductDescription());
-			current.setBuyPrice(products.getBuyPrice());
 			current.setProductName(products.getProductName());
+			current.setProductScale(products.getProductScale());
+			current.setMsrp(products.getMsrp());
+			current.setBuyPrice(products.getBuyPrice());
+			current.setProductVendor(products.getProductVendor());
+			current.setQuantityInStock(products.getQuantityInStock());
+			current.setProductDescription(products.getProductDescription());
 			current.setProductCode(products.getProductCode());			
 	
 			return productsInterface.saveOne(current);
@@ -250,13 +250,13 @@ public class ProductsController {
 		    } else {
 	
 				current.setProductLines(products.getProductLines());
-				current.setProductVendor(products.getProductVendor());
-				current.setProductScale(products.getProductScale());
-				current.setQuantityInStock(products.getQuantityInStock());
-				current.setMsrp(products.getMsrp());
-				current.setProductDescription(products.getProductDescription());
-				current.setBuyPrice(products.getBuyPrice());
 				current.setProductName(products.getProductName());
+				current.setProductScale(products.getProductScale());
+				current.setMsrp(products.getMsrp());
+				current.setBuyPrice(products.getBuyPrice());
+				current.setProductVendor(products.getProductVendor());
+				current.setQuantityInStock(products.getQuantityInStock());
+				current.setProductDescription(products.getProductDescription());
 				current.setProductCode(products.getProductCode());			
 	
 				return productsInterface.saveOne(current);
@@ -264,10 +264,6 @@ public class ProductsController {
 		    }
 		}
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -285,13 +281,13 @@ public class ProductsController {
 		if (current.getProductLines().getId() == products.getProductLines().getId()) {
 	
 			current.setProductLines(products.getProductLines());
-			current.setProductVendor(products.getProductVendor());
-			current.setProductScale(products.getProductScale());
-			current.setQuantityInStock(products.getQuantityInStock());
-			current.setMsrp(products.getMsrp());
-			current.setProductDescription(products.getProductDescription());
-			current.setBuyPrice(products.getBuyPrice());
 			current.setProductName(products.getProductName());
+			current.setProductScale(products.getProductScale());
+			current.setMsrp(products.getMsrp());
+			current.setBuyPrice(products.getBuyPrice());
+			current.setProductVendor(products.getProductVendor());
+			current.setQuantityInStock(products.getQuantityInStock());
+			current.setProductDescription(products.getProductDescription());
 			current.setProductCode(products.getProductCode());			
 	
 			return productsInterface.saveOne(current);
@@ -307,13 +303,13 @@ public class ProductsController {
 		    } else {
 	
 				current.setProductLines(products.getProductLines());
-				current.setProductVendor(products.getProductVendor());
-				current.setProductScale(products.getProductScale());
-				current.setQuantityInStock(products.getQuantityInStock());
-				current.setMsrp(products.getMsrp());
-				current.setProductDescription(products.getProductDescription());
-				current.setBuyPrice(products.getBuyPrice());
 				current.setProductName(products.getProductName());
+				current.setProductScale(products.getProductScale());
+				current.setMsrp(products.getMsrp());
+				current.setBuyPrice(products.getBuyPrice());
+				current.setProductVendor(products.getProductVendor());
+				current.setQuantityInStock(products.getQuantityInStock());
+				current.setProductDescription(products.getProductDescription());
 				current.setProductCode(products.getProductCode());			
 	
 				return productsInterface.saveOne(current);

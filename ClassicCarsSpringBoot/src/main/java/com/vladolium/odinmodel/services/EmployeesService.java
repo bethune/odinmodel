@@ -1,17 +1,23 @@
 package com.vladolium.odinmodel.services;
 
+import com.vladolium.odinmodel.model.*;
+import com.vladolium.odinmodel.model.Employees.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.querydsl.core.BooleanBuilder;
+import java.time.*;
+import java.util.*;
+
+import com.vladolium.odinmodel.repositories.*;
 //import com.vladolium.odinmodel.specifications.*;
-import com.vladolium.odinmodel.interfaces.EmployeesInterface;
-import com.vladolium.odinmodel.model.Employees;
-import com.vladolium.odinmodel.model.QEmployees;
-import com.vladolium.odinmodel.repositories.EmployeesRepository;
+import com.vladolium.odinmodel.interfaces.*;
+import com.vladolium.odinmodel.wrappers.*;
+
+import com.querydsl.core.BooleanBuilder;
 
 @Service
 @Transactional
@@ -52,22 +58,28 @@ public class EmployeesService implements EmployeesInterface {
 	@Override
 	public Iterable<Employees> search(
 		Long officesId,
-		String jobTitle,
+		
+		
+		List<Marks> marksList,
+		Boolean isActive,
+		Integer reportsTo,
+		String lastName,
 		String extension,
 		String email,
-		Integer reportsTo,
-		Boolean isActive,
-		String lastName,
+		String jobTitle,
 		String firstName
 	) {
 		BooleanBuilder where = dynamicWhere(
 			officesId,
-			jobTitle,
+			
+			
+			marksList,
+			isActive,
+			reportsTo,
+			lastName,
 			extension,
 			email,
-			reportsTo,
-			isActive,
-			lastName,
+			jobTitle,
 			firstName	
 		);
 		return employeesRepository.findAll(where);
@@ -77,22 +89,28 @@ public class EmployeesService implements EmployeesInterface {
 	public Page<Employees> searchPagination(
 		Pageable page,
 		Long officesId,
-		String jobTitle,
+		
+		
+		List<Marks> marksList,
+		Boolean isActive,
+		Integer reportsTo,
+		String lastName,
 		String extension,
 		String email,
-		Integer reportsTo,
-		Boolean isActive,
-		String lastName,
+		String jobTitle,
 		String firstName
 	) {
 		BooleanBuilder where = dynamicWhere(
 			officesId,
-			jobTitle,
+			
+			
+			marksList,
+			isActive,
+			reportsTo,
+			lastName,
 			extension,
 			email,
-			reportsTo,
-			isActive,
-			lastName,
+			jobTitle,
 			firstName
 		);
 		return employeesRepository.findAll(where, page);
@@ -100,12 +118,15 @@ public class EmployeesService implements EmployeesInterface {
 	
 	public BooleanBuilder dynamicWhere(
 		Long officesId,
-		String jobTitle,
+		
+		
+		List<Marks> marksList,
+		Boolean isActive,
+		Integer reportsTo,
+		String lastName,
 		String extension,
 		String email,
-		Integer reportsTo,
-		Boolean isActive,
-		String lastName,
+		String jobTitle,
 		String firstName
 	) {
 		QEmployees qEmployees = QEmployees.employees;
@@ -115,8 +136,19 @@ public class EmployeesService implements EmployeesInterface {
 		if (officesId != null) {
 			where.and(qEmployees.offices.id.eq(officesId));
 		}
-		if (jobTitle != null) {
-			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
+		
+		
+		if (marksList != null) {
+			where.and(qEmployees.marksList.any().in(marksList));
+		}
+		if (isActive != null) {
+			where.and(qEmployees.isActive.eq(isActive));
+		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
+		}
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
 		}
 		if (extension != null) {
 			where.and(qEmployees.extension.containsIgnoreCase(extension));
@@ -124,14 +156,8 @@ public class EmployeesService implements EmployeesInterface {
 		if (email != null) {
 			where.and(qEmployees.email.containsIgnoreCase(email));
 		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
-		}
-		if (isActive != null) {
-			where.and(qEmployees.isActive.eq(isActive));
-		}
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
+		if (jobTitle != null) {
+			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
 		}
 		if (firstName != null) {
 			where.and(qEmployees.firstName.containsIgnoreCase(firstName));

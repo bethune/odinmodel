@@ -46,14 +46,14 @@ public class OfficesController {
 		
 		Offices current = officesInterface.readOneById(id);
 			
-		current.setState(offices.getState());
-		current.setPhone(offices.getPhone());
-		current.setTerritory(offices.getTerritory());
-		current.setCountry(offices.getCountry());
 		current.setAddressLine1(offices.getAddressLine1());
-		current.setCity(offices.getCity());
-		current.setAddressLine2(offices.getAddressLine2());
 		current.setPostalCode(offices.getPostalCode());
+		current.setTerritory(offices.getTerritory());
+		current.setCity(offices.getCity());
+		current.setPhone(offices.getPhone());
+		current.setCountry(offices.getCountry());
+		current.setState(offices.getState());
+		current.setAddressLine2(offices.getAddressLine2());
 				
 		return officesInterface.saveOne(current);
 	}
@@ -74,27 +74,24 @@ public class OfficesController {
 
 	@GetMapping("/search")
 	public Iterable<Offices> search(
-		String state,
-		String phone,
-		String territory,
-		String country,
 		String addressLine1,
+		String postalCode,
+		String territory,
 		String city,
-		String addressLine2,
-		String postalCode
+		String phone,
+		String country,
+		String state,
+		String addressLine2
 	) {
-		
-		System.out.println("===========================> Hej offices kontroler za specifikaciju = country : " + country);
-		
 		return officesInterface.search(
-			state,
-			phone,
-			territory,
-			country,
 			addressLine1,
+			postalCode,
+			territory,
 			city,
-			addressLine2,
-			postalCode
+			phone,
+			country,
+			state,
+			addressLine2
 		);
 	}
 	
@@ -102,27 +99,27 @@ public class OfficesController {
 	public Page<Offices> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		String state,
-		String phone,
-		String territory,
-		String country,
 		String addressLine1,
+		String postalCode,
+		String territory,
 		String city,
-		String addressLine2,
-		String postalCode
+		String phone,
+		String country,
+		String state,
+		String addressLine2
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return officesInterface.searchPagination(
 			page,
-			state,
-			phone,
-			territory,
-			country,
 			addressLine1,
+			postalCode,
+			territory,
 			city,
-			addressLine2,
-			postalCode
+			phone,
+			country,
+			state,
+			addressLine2
 		);
 	}
 
@@ -132,9 +129,6 @@ public class OfficesController {
 	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
 		this.employeesInterface = employeesInterface;
 	}
-	
-	
-	
 	
 	
 	

@@ -34,13 +34,13 @@ public class Employees {
 	
 	@NotNull
 	@Size(max=50)
-	private String jobTitle;
+	private String lastName;
 	
-	public String getJobTitle() {
-		return jobTitle;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	@NotNull
@@ -67,13 +67,13 @@ public class Employees {
 	
 	@NotNull
 	@Size(max=50)
-	private String lastName;
+	private String jobTitle;
 	
-	public String getLastName() {
-		return lastName;
+	public String getJobTitle() {
+		return jobTitle;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 	
 	@NotNull
@@ -106,6 +106,16 @@ public class Employees {
 	}
 	public void setOffices(Offices offices) {
 		this.offices = offices;
+	}
+	@OneToMany
+	@JoinColumn(name="employees_id")
+	private List<Marks> marksList;
+	
+	public List<Marks> getMarksList() {
+		return marksList;
+	}
+	public void setMarksList(List<Marks> marksList) {
+		this.marksList = marksList;
 	}
 
 /*Code between start and end will not be removed during generation.*/

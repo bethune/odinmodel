@@ -18,15 +18,15 @@ import com.vladolium.odinmodel.interfaces.*;
 import com.vladolium.odinmodel.wrappers.*;
 
 import com.querydsl.core.BooleanBuilder;
-
+/*
 @Service
 @Transactional
-public class GiftsService implements GiftsInterface {
+public class GiftsServiceSpecification implements GiftsInterface {
 
-	private GiftsRepository giftsRepository;
+	private GiftsRepositorySpecification giftsRepository;
 
 	@Autowired
-	public void setGiftsRepository(GiftsRepository giftsRepository) {
+	public void setGiftsRepository(GiftsRepositorySpecification giftsRepository) {
 		this.giftsRepository = giftsRepository;
 	}
 
@@ -58,19 +58,19 @@ public class GiftsService implements GiftsInterface {
 	@Override
 	public Iterable<Gifts> search(
 		Set<Long> customersSet,
-		LocalDateTime expiresOn,
 		GiftType giftType,
-		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
+		String giftName,
 		Boolean isExpired,
-		String giftName
+		LocalDateTime beginsOn
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
-			expiresOn,
 			giftType,
-			beginsOn,
+			expiresOn,
+			giftName,
 			isExpired,
-			giftName	
+			beginsOn	
 		);
 		return giftsRepository.findAll(where);
 	}
@@ -79,30 +79,30 @@ public class GiftsService implements GiftsInterface {
 	public Page<Gifts> searchPagination(
 		Pageable page,
 		Set<Long> customersSet,
-		LocalDateTime expiresOn,
 		GiftType giftType,
-		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
+		String giftName,
 		Boolean isExpired,
-		String giftName
+		LocalDateTime beginsOn
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersSet,
-			expiresOn,
 			giftType,
-			beginsOn,
+			expiresOn,
+			giftName,
 			isExpired,
-			giftName
+			beginsOn
 		);
 		return giftsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Set<Long> customersSet,
-		LocalDateTime expiresOn,
 		GiftType giftType,
-		LocalDateTime beginsOn,
+		LocalDateTime expiresOn,
+		String giftName,
 		Boolean isExpired,
-		String giftName
+		LocalDateTime beginsOn
 	) {
 		QGifts qGifts = QGifts.gifts;
 	
@@ -111,20 +111,20 @@ public class GiftsService implements GiftsInterface {
 		if (customersSet != null) {
 			where.and(qGifts.customersSet.any().id.in(customersSet));
 		}
-		if (expiresOn != null) {
-			where.and(qGifts.expiresOn.eq(expiresOn));
-		}
 		if (giftType != null) {
 			where.and(qGifts.giftType.eq(giftType));
 		}
-		if (beginsOn != null) {
-			where.and(qGifts.beginsOn.eq(beginsOn));
+		if (expiresOn != null) {
+			where.and(qGifts.expiresOn.eq(expiresOn));
+		}
+		if (giftName != null) {
+			where.and(qGifts.giftName.containsIgnoreCase(giftName));
 		}
 		if (isExpired != null) {
 			where.and(qGifts.isExpired.eq(isExpired));
 		}
-		if (giftName != null) {
-			where.and(qGifts.giftName.containsIgnoreCase(giftName));
+		if (beginsOn != null) {
+			where.and(qGifts.beginsOn.eq(beginsOn));
 		}
 	
 		return where;
@@ -143,4 +143,4 @@ public class GiftsService implements GiftsInterface {
 //Code between start and end will not be removed during generation.
 //Start of user code for this serviceImpl
 //End of user code
-}
+}*/

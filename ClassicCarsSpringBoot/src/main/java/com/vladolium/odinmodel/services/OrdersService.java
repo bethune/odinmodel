@@ -58,19 +58,19 @@ public class OrdersService implements OrdersInterface {
 	@Override
 	public Iterable<Orders> search(
 		Long customersId,
-		String comments,
-		LocalDate orderDate,
-		LocalDate shippedDate,
 		LocalDate requiredDate,
-		String status
+		LocalDate orderDate,
+		String status,
+		LocalDate shippedDate,
+		String comments
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			comments,
-			orderDate,
-			shippedDate,
 			requiredDate,
-			status	
+			orderDate,
+			status,
+			shippedDate,
+			comments	
 		);
 		return ordersRepository.findAll(where);
 	}
@@ -79,30 +79,30 @@ public class OrdersService implements OrdersInterface {
 	public Page<Orders> searchPagination(
 		Pageable page,
 		Long customersId,
-		String comments,
-		LocalDate orderDate,
-		LocalDate shippedDate,
 		LocalDate requiredDate,
-		String status
+		LocalDate orderDate,
+		String status,
+		LocalDate shippedDate,
+		String comments
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			comments,
-			orderDate,
-			shippedDate,
 			requiredDate,
-			status
+			orderDate,
+			status,
+			shippedDate,
+			comments
 		);
 		return ordersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
-		String comments,
-		LocalDate orderDate,
-		LocalDate shippedDate,
 		LocalDate requiredDate,
-		String status
+		LocalDate orderDate,
+		String status,
+		LocalDate shippedDate,
+		String comments
 	) {
 		QOrders qOrders = QOrders.orders;
 	
@@ -111,38 +111,26 @@ public class OrdersService implements OrdersInterface {
 		if (customersId != null) {
 			where.and(qOrders.customers.id.eq(customersId));
 		}
-		if (comments != null) {
-			where.and(qOrders.comments.eq(comments));
+		if (requiredDate != null) {
+			where.and(qOrders.requiredDate.eq(requiredDate));
 		}
 		if (orderDate != null) {
 			where.and(qOrders.orderDate.eq(orderDate));
 		}
+		if (status != null) {
+			where.and(qOrders.status.containsIgnoreCase(status));
+		}
 		if (shippedDate != null) {
 			where.and(qOrders.shippedDate.eq(shippedDate));
 		}
-		if (requiredDate != null) {
-			where.and(qOrders.requiredDate.eq(requiredDate));
-		}
-		if (status != null) {
-			where.and(qOrders.status.containsIgnoreCase(status));
+		if (comments != null) {
+			where.and(qOrders.comments.eq(comments));
 		}
 	
 		return where;
 	}
 
 
-	@Override
-	public Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName) {
-		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName);
-	}
-	
-	@Override
-	public Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
-		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
-	}
-	
-	
-	
 	@Override
 	public Iterable<Orders> readAllByCustomersId(Long customersId) {
 		return ordersRepository.findByCustomersIdEquals(customersId);
@@ -151,6 +139,20 @@ public class OrdersService implements OrdersInterface {
 	@Override
 	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
 		return ordersRepository.findByCustomersIdEquals(customersId, page);
+	}
+	
+	
+	
+	
+	
+	@Override
+	public Iterable<Orders> readAllByCustomersCustomerName(String customersCustomerName) {
+		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName);
+	}
+	
+	@Override
+	public Page<Orders> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
+		return ordersRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
 
 	

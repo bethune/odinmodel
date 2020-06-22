@@ -58,24 +58,24 @@ public class ProductsService implements ProductsInterface {
 	@Override
 	public Iterable<Products> search(
 		Long productLinesId,
-		String productVendor,
-		String productScale,
-		Integer quantityInStock,
-		Double msrp,
-		String productDescription,
-		Double buyPrice,
 		String productName,
+		String productScale,
+		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productLinesId,
-			productVendor,
-			productScale,
-			quantityInStock,
-			msrp,
-			productDescription,
-			buyPrice,
 			productName,
+			productScale,
+			msrp,
+			buyPrice,
+			productVendor,
+			quantityInStock,
+			productDescription,
 			productCode	
 		);
 		return productsRepository.findAll(where);
@@ -85,24 +85,24 @@ public class ProductsService implements ProductsInterface {
 	public Page<Products> searchPagination(
 		Pageable page,
 		Long productLinesId,
-		String productVendor,
-		String productScale,
-		Integer quantityInStock,
-		Double msrp,
-		String productDescription,
-		Double buyPrice,
 		String productName,
+		String productScale,
+		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productLinesId,
-			productVendor,
-			productScale,
-			quantityInStock,
-			msrp,
-			productDescription,
-			buyPrice,
 			productName,
+			productScale,
+			msrp,
+			buyPrice,
+			productVendor,
+			quantityInStock,
+			productDescription,
 			productCode
 		);
 		return productsRepository.findAll(where, page);
@@ -110,13 +110,13 @@ public class ProductsService implements ProductsInterface {
 	
 	public BooleanBuilder dynamicWhere(
 		Long productLinesId,
-		String productVendor,
-		String productScale,
-		Integer quantityInStock,
-		Double msrp,
-		String productDescription,
-		Double buyPrice,
 		String productName,
+		String productScale,
+		Double msrp,
+		Double buyPrice,
+		String productVendor,
+		Integer quantityInStock,
+		String productDescription,
 		String productCode
 	) {
 		QProducts qProducts = QProducts.products;
@@ -126,26 +126,26 @@ public class ProductsService implements ProductsInterface {
 		if (productLinesId != null) {
 			where.and(qProducts.productLines.id.eq(productLinesId));
 		}
-		if (productVendor != null) {
-			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		if (productName != null) {
+			where.and(qProducts.productName.containsIgnoreCase(productName));
 		}
 		if (productScale != null) {
 			where.and(qProducts.productScale.containsIgnoreCase(productScale));
 		}
-		if (quantityInStock != null) {
-			where.and(qProducts.quantityInStock.eq(quantityInStock));
-		}
 		if (msrp != null) {
 			where.and(qProducts.msrp.eq(msrp));
-		}
-		if (productDescription != null) {
-			where.and(qProducts.productDescription.eq(productDescription));
 		}
 		if (buyPrice != null) {
 			where.and(qProducts.buyPrice.eq(buyPrice));
 		}
-		if (productName != null) {
-			where.and(qProducts.productName.containsIgnoreCase(productName));
+		if (productVendor != null) {
+			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
+		if (quantityInStock != null) {
+			where.and(qProducts.quantityInStock.eq(quantityInStock));
+		}
+		if (productDescription != null) {
+			where.and(qProducts.productDescription.eq(productDescription));
 		}
 		if (productCode != null) {
 			where.and(qProducts.productCode.containsIgnoreCase(productCode));

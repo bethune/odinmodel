@@ -58,17 +58,17 @@ public class PaymentsService implements PaymentsInterface {
 	@Override
 	public Iterable<Payments> search(
 		Long customersId,
+		String checkNumber,
 		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp,
-		String checkNumber
+		Instant paymentTimestamp
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
+			checkNumber,
 			paymentDate,
 			amount,
-			paymentTimestamp,
-			checkNumber	
+			paymentTimestamp	
 		);
 		return paymentsRepository.findAll(where);
 	}
@@ -77,27 +77,27 @@ public class PaymentsService implements PaymentsInterface {
 	public Page<Payments> searchPagination(
 		Pageable page,
 		Long customersId,
+		String checkNumber,
 		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp,
-		String checkNumber
+		Instant paymentTimestamp
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
+			checkNumber,
 			paymentDate,
 			amount,
-			paymentTimestamp,
-			checkNumber
+			paymentTimestamp
 		);
 		return paymentsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
+		String checkNumber,
 		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp,
-		String checkNumber
+		Instant paymentTimestamp
 	) {
 		QPayments qPayments = QPayments.payments;
 	
@@ -105,6 +105,9 @@ public class PaymentsService implements PaymentsInterface {
 	
 		if (customersId != null) {
 			where.and(qPayments.customers.id.eq(customersId));
+		}
+		if (checkNumber != null) {
+			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
 		}
 		if (paymentDate != null) {
 			where.and(qPayments.paymentDate.eq(paymentDate));
@@ -115,26 +118,11 @@ public class PaymentsService implements PaymentsInterface {
 		if (paymentTimestamp != null) {
 			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
 		}
-		if (checkNumber != null) {
-			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
-		}
 	
 		return where;
 	}
 
 
-	@Override
-	public Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName) {
-		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName);
-	}
-	
-	@Override
-	public Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
-		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
-	}
-	
-	
-	
 	@Override
 	public Iterable<Payments> readAllByCustomersId(Long customersId) {
 		return paymentsRepository.findByCustomersIdEquals(customersId);
@@ -143,6 +131,20 @@ public class PaymentsService implements PaymentsInterface {
 	@Override
 	public Page<Payments> readAllByCustomersId(Long customersId, Pageable page) {
 		return paymentsRepository.findByCustomersIdEquals(customersId, page);
+	}
+	
+	
+	
+	
+	
+	@Override
+	public Iterable<Payments> readAllByCustomersCustomerName(String customersCustomerName) {
+		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName);
+	}
+	
+	@Override
+	public Page<Payments> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
+		return paymentsRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
 
 	

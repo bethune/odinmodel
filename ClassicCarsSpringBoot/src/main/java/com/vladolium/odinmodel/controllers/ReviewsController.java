@@ -47,8 +47,8 @@ public class ReviewsController {
 		Reviews current = reviewsInterface.readOneById(id);
 			
 		current.setReviewText(reviews.getReviewText());
-		current.setReviewTime(reviews.getReviewTime());
 		current.setReviewDate(reviews.getReviewDate());
+		current.setReviewTime(reviews.getReviewTime());
 				
 		return reviewsInterface.saveOne(current);
 	}
@@ -70,13 +70,13 @@ public class ReviewsController {
 	@GetMapping("/search")
 	public Iterable<Reviews> search(
 		String reviewText,
-		LocalTime reviewTime,
-		LocalDate reviewDate
+		LocalDate reviewDate,
+		LocalTime reviewTime
 	) {
 		return reviewsInterface.search(
 			reviewText,
-			reviewTime,
-			reviewDate
+			reviewDate,
+			reviewTime
 		);
 	}
 	
@@ -85,16 +85,16 @@ public class ReviewsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		String reviewText,
-		LocalTime reviewTime,
-		LocalDate reviewDate
+		LocalDate reviewDate,
+		LocalTime reviewTime
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return reviewsInterface.searchPagination(
 			page,
 			reviewText,
-			reviewTime,
-			reviewDate
+			reviewDate,
+			reviewTime
 		);
 	}
 

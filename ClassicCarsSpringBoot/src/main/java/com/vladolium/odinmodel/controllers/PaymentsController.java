@@ -47,10 +47,10 @@ public class PaymentsController {
 		Payments current = paymentsInterface.readOneById(id);
 			
 		current.setCustomers(payments.getCustomers());
+		current.setCheckNumber(payments.getCheckNumber());
 		current.setPaymentDate(payments.getPaymentDate());
 		current.setAmount(payments.getAmount());
 		current.setPaymentTimestamp(payments.getPaymentTimestamp());
-		current.setCheckNumber(payments.getCheckNumber());
 				
 		return paymentsInterface.saveOne(current);
 	}
@@ -72,17 +72,17 @@ public class PaymentsController {
 	@GetMapping("/search")
 	public Iterable<Payments> search(
 		Long customersId,
+		String checkNumber,
 		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp,
-		String checkNumber
+		Instant paymentTimestamp
 	) {
 		return paymentsInterface.search(
 			customersId,
+			checkNumber,
 			paymentDate,
 			amount,
-			paymentTimestamp,
-			checkNumber
+			paymentTimestamp
 		);
 	}
 	
@@ -91,20 +91,20 @@ public class PaymentsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long customersId,
+		String checkNumber,
 		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp,
-		String checkNumber
+		Instant paymentTimestamp
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return paymentsInterface.searchPagination(
 			page,
 			customersId,
+			checkNumber,
 			paymentDate,
 			amount,
-			paymentTimestamp,
-			checkNumber
+			paymentTimestamp
 		);
 	}
 
