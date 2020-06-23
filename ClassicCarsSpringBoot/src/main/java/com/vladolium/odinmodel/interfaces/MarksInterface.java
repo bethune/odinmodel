@@ -24,15 +24,37 @@ public interface MarksInterface {
 
 	Iterable<Marks> search(
 		Long customersId,
-		MarkType markType,
-		String comment
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		String comment,
+		MarkType markType
 	);
 	
 	Page<Marks> searchPagination(
 		Pageable page,
 		Long customersId,
-		MarkType markType,
-		String comment
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		String comment,
+		MarkType markType
 	);
 
 	Iterable<Marks> readAllByCustomersId(Long customersId);
@@ -41,15 +63,20 @@ public interface MarksInterface {
 	
 	
 	
-	
-	
 	Iterable<Marks> readAllByCustomersCustomerName(String customersCustomerName);
 	
 	Page<Marks> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
+	
+	
+	
+	
+	
+	
+	
+	Iterable<Marks> readAllByEmployeesId(Long employeesId);
+	
+	Page<Marks> readAllByEmployeesId(Long employeesId, Pageable page);
 
-	Marks readOneByMarkType(MarkType markType);
-	
-	
 	Marks readOneByComment(String comment);
 
 	

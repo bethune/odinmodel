@@ -47,16 +47,13 @@ public class EmployeesController {
 		Employees current = employeesInterface.readOneById(id);
 			
 		current.setOffices(employees.getOffices());
-		
-		
-		current.setMarksList(employees.getMarksList());
 		current.setIsActive(employees.getIsActive());
-		current.setReportsTo(employees.getReportsTo());
-		current.setLastName(employees.getLastName());
-		current.setExtension(employees.getExtension());
 		current.setEmail(employees.getEmail());
+		current.setReportsTo(employees.getReportsTo());
 		current.setJobTitle(employees.getJobTitle());
 		current.setFirstName(employees.getFirstName());
+		current.setExtension(employees.getExtension());
+		current.setLastName(employees.getLastName());
 				
 		return employeesInterface.saveOne(current);
 	}
@@ -78,29 +75,23 @@ public class EmployeesController {
 	@GetMapping("/search")
 	public Iterable<Employees> search(
 		Long officesId,
-		
-		
-		List<Marks> marksList,
 		Boolean isActive,
-		Integer reportsTo,
-		String lastName,
-		String extension,
 		String email,
+		Integer reportsTo,
 		String jobTitle,
-		String firstName
+		String firstName,
+		String extension,
+		String lastName
 	) {
 		return employeesInterface.search(
 			officesId,
-			
-			
-			marksList,
 			isActive,
-			reportsTo,
-			lastName,
-			extension,
 			email,
+			reportsTo,
 			jobTitle,
-			firstName
+			firstName,
+			extension,
+			lastName
 		);
 	}
 	
@@ -109,32 +100,26 @@ public class EmployeesController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long officesId,
-		
-		
-		List<Marks> marksList,
 		Boolean isActive,
-		Integer reportsTo,
-		String lastName,
-		String extension,
 		String email,
+		Integer reportsTo,
 		String jobTitle,
-		String firstName
+		String firstName,
+		String extension,
+		String lastName
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return employeesInterface.searchPagination(
 			page,
 			officesId,
-			
-			
-			marksList,
 			isActive,
-			reportsTo,
-			lastName,
-			extension,
 			email,
+			reportsTo,
 			jobTitle,
-			firstName
+			firstName,
+			extension,
+			lastName
 		);
 	}
 
@@ -144,6 +129,10 @@ public class EmployeesController {
 	public void setCustomersInterface(CustomersInterface customersInterface) {
 		this.customersInterface = customersInterface;
 	}
+	
+	
+	
+	
 	
 	
 	@GetMapping("/{employeesId}/customers")
@@ -159,6 +148,41 @@ public class EmployeesController {
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return customersInterface.readAllByEmployeesId(employeesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	private MarksInterface marksInterface;
+	
+	@Autowired
+	public void setMarksInterface(MarksInterface marksInterface) {
+		this.marksInterface = marksInterface;
+	}
+	
+	
+	
+	
+	
+	
+	@GetMapping("/{employeesId}/marks")
+	public Iterable<Marks> readAllMarksByEmployeesId(@PathVariable Long employeesId) {
+		return marksInterface.readAllByEmployeesId(employeesId);
+	}
+	
+	@GetMapping("/{employeesId}/marks/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Marks> readAllMarksByEmployeesIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long employeesId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return marksInterface.readAllByEmployeesId(employeesId, page);
 	}
 
 	
@@ -188,16 +212,13 @@ public class EmployeesController {
 		if (current.getOffices().getId() == employees.getOffices().getId()) {
 	
 			current.setOffices(employees.getOffices());
-			
-			
-			current.setMarksList(employees.getMarksList());
 			current.setIsActive(employees.getIsActive());
-			current.setReportsTo(employees.getReportsTo());
-			current.setLastName(employees.getLastName());
-			current.setExtension(employees.getExtension());
 			current.setEmail(employees.getEmail());
+			current.setReportsTo(employees.getReportsTo());
 			current.setJobTitle(employees.getJobTitle());
-			current.setFirstName(employees.getFirstName());			
+			current.setFirstName(employees.getFirstName());
+			current.setExtension(employees.getExtension());
+			current.setLastName(employees.getLastName());			
 	
 			return employeesInterface.saveOne(current);
 	
@@ -212,16 +233,13 @@ public class EmployeesController {
 		    } else {
 	
 				current.setOffices(employees.getOffices());
-				
-				
-				current.setMarksList(employees.getMarksList());
 				current.setIsActive(employees.getIsActive());
-				current.setReportsTo(employees.getReportsTo());
-				current.setLastName(employees.getLastName());
-				current.setExtension(employees.getExtension());
 				current.setEmail(employees.getEmail());
+				current.setReportsTo(employees.getReportsTo());
 				current.setJobTitle(employees.getJobTitle());
-				current.setFirstName(employees.getFirstName());			
+				current.setFirstName(employees.getFirstName());
+				current.setExtension(employees.getExtension());
+				current.setLastName(employees.getLastName());			
 	
 				return employeesInterface.saveOne(current);
 	

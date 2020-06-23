@@ -47,11 +47,11 @@ public class GiftsController {
 		Gifts current = giftsInterface.readOneById(id);
 			
 		current.setCustomersSet(gifts.getCustomersSet());
-		current.setExpiresOn(gifts.getExpiresOn());
-		current.setGiftType(gifts.getGiftType());
-		current.setBeginsOn(gifts.getBeginsOn());
 		current.setIsExpired(gifts.getIsExpired());
 		current.setGiftName(gifts.getGiftName());
+		current.setBeginsOn(gifts.getBeginsOn());
+		current.setGiftType(gifts.getGiftType());
+		current.setExpiresOn(gifts.getExpiresOn());
 				
 		return giftsInterface.saveOne(current);
 	}
@@ -73,19 +73,19 @@ public class GiftsController {
 	@GetMapping("/search")
 	public Iterable<Gifts> search(
 		Set<Long> customersSet,
-		LocalDateTime expiresOn,
-		GiftType giftType,
-		LocalDateTime beginsOn,
 		Boolean isExpired,
-		String giftName
+		String giftName,
+		LocalDateTime beginsOn,
+		GiftType giftType,
+		LocalDateTime expiresOn
 	) {
 		return giftsInterface.search(
 			customersSet,
-			expiresOn,
-			giftType,
-			beginsOn,
 			isExpired,
-			giftName
+			giftName,
+			beginsOn,
+			giftType,
+			expiresOn
 		);
 	}
 	
@@ -94,22 +94,22 @@ public class GiftsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Set<Long> customersSet,
-		LocalDateTime expiresOn,
-		GiftType giftType,
-		LocalDateTime beginsOn,
 		Boolean isExpired,
-		String giftName
+		String giftName,
+		LocalDateTime beginsOn,
+		GiftType giftType,
+		LocalDateTime expiresOn
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return giftsInterface.searchPagination(
 			page,
 			customersSet,
-			expiresOn,
-			giftType,
-			beginsOn,
 			isExpired,
-			giftName
+			giftName,
+			beginsOn,
+			giftType,
+			expiresOn
 		);
 	}
 
@@ -126,11 +126,11 @@ public class GiftsController {
 		Gifts current = giftsInterface.readOneByGiftName(giftName);
 			
 		current.setCustomersSet(gifts.getCustomersSet());
-		current.setExpiresOn(gifts.getExpiresOn());
-		current.setGiftType(gifts.getGiftType());
-		current.setBeginsOn(gifts.getBeginsOn());
 		current.setIsExpired(gifts.getIsExpired());
 		current.setGiftName(gifts.getGiftName());
+		current.setBeginsOn(gifts.getBeginsOn());
+		current.setGiftType(gifts.getGiftType());
+		current.setExpiresOn(gifts.getExpiresOn());
 				
 		return giftsInterface.saveOne(current);
 	}

@@ -33,28 +33,6 @@ public class Employees {
 	}
 	
 	@NotNull
-	@Size(max=50)
-	private String lastName;
-	
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	@NotNull
-	@Size(max=10)
-	private String extension;
-	
-	public String getExtension() {
-		return extension;
-	}
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}
-	
-	@NotNull
 	@Size(max=100)
 	private String email;
 	
@@ -88,6 +66,28 @@ public class Employees {
 	}
 	
 	@NotNull
+	@Size(max=10)
+	private String extension;
+	
+	public String getExtension() {
+		return extension;
+	}
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String lastName;
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	@NotNull
 	private Boolean isActive;
 	
 	public Boolean getIsActive() {
@@ -106,16 +106,6 @@ public class Employees {
 	}
 	public void setOffices(Offices offices) {
 		this.offices = offices;
-	}
-	@OneToMany
-	@JoinColumn(name="employees_id")
-	private List<Marks> marksList;
-	
-	public List<Marks> getMarksList() {
-		return marksList;
-	}
-	public void setMarksList(List<Marks> marksList) {
-		this.marksList = marksList;
 	}
 
 /*Code between start and end will not be removed during generation.*/

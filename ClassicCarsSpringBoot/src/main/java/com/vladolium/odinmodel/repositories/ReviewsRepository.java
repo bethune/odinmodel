@@ -14,9 +14,13 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Long>, Queryds
 
 	Reviews findByIdEquals(Long id);
 
+	Iterable <Reviews> findByCustomersIdEquals(Long customersId);
 	
+	Page <Reviews> findByCustomersIdEquals(Long customersId, Pageable page);
 
+	Iterable <Reviews> findByCustomersCustomerNameEquals(String customersCustomerName);
 	
+	Page <Reviews> findByCustomersCustomerNameEquals(String customersCustomerName, Pageable page);
 
 //Code between start and end will not be removed during generation.
 //Start of user code for this repository

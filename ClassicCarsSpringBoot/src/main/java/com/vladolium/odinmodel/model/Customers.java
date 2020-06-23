@@ -35,6 +35,17 @@ public class Customers extends ContactDetails {
 	
 	@NotNull
 	@Size(max=50)
+	private String firstName;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	@NotNull
+	@Size(max=50)
 	private String lastName;
 	
 	public String getLastName() {
@@ -56,17 +67,6 @@ public class Customers extends ContactDetails {
 		this.customerName = customerName;
 	}
 	
-	@NotNull
-	@Size(max=50)
-	private String firstName;
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
 	@ManyToOne
 	@JoinColumn(name="employees_id")
 	private Employees employees;
@@ -76,16 +76,6 @@ public class Customers extends ContactDetails {
 	}
 	public void setEmployees(Employees employees) {
 		this.employees = employees;
-	}
-	@OneToMany
-	@JoinColumn(name="customers_id")
-	private List<Reviews> reviewsList;
-	
-	public List<Reviews> getReviewsList() {
-		return reviewsList;
-	}
-	public void setReviewsList(List<Reviews> reviewsList) {
-		this.reviewsList = reviewsList;
 	}
 		
 /*Code between start and end will not be removed during generation.*/

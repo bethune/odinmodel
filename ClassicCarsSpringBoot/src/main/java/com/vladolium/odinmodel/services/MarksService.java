@@ -58,13 +58,35 @@ public class MarksService implements MarksInterface {
 	@Override
 	public Iterable<Marks> search(
 		Long customersId,
-		MarkType markType,
-		String comment
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		String comment,
+		MarkType markType
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			markType,
-			comment	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			employeesId,
+			comment,
+			markType	
 		);
 		return marksRepository.findAll(where);
 	}
@@ -73,21 +95,54 @@ public class MarksService implements MarksInterface {
 	public Page<Marks> searchPagination(
 		Pageable page,
 		Long customersId,
-		MarkType markType,
-		String comment
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		String comment,
+		MarkType markType
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			markType,
-			comment
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			employeesId,
+			comment,
+			markType
 		);
 		return marksRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
-		MarkType markType,
-		String comment
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		String comment,
+		MarkType markType
 	) {
 		QMarks qMarks = QMarks.marks;
 	
@@ -96,11 +151,24 @@ public class MarksService implements MarksInterface {
 		if (customersId != null) {
 			where.and(qMarks.customers.id.eq(customersId));
 		}
-		if (markType != null) {
-			where.and(qMarks.markType.eq(markType));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		if (employeesId != null) {
+			where.and(qMarks.employees.id.eq(employeesId));
 		}
 		if (comment != null) {
 			where.and(qMarks.comment.containsIgnoreCase(comment));
+		}
+		if (markType != null) {
+			where.and(qMarks.markType.eq(markType));
 		}
 	
 		return where;
@@ -119,8 +187,6 @@ public class MarksService implements MarksInterface {
 	
 	
 	
-	
-	
 	@Override
 	public Iterable<Marks> readAllByCustomersCustomerName(String customersCustomerName) {
 		return marksRepository.findByCustomersCustomerNameEquals(customersCustomerName);
@@ -130,13 +196,23 @@ public class MarksService implements MarksInterface {
 	public Page<Marks> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
 		return marksRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
-
+	
+	
+	
+	
+	
+	
+	
 	@Override
-	public Marks readOneByMarkType(MarkType markType) {
-		return marksRepository.findByMarkTypeEquals(markType);
+	public Iterable<Marks> readAllByEmployeesId(Long employeesId) {
+		return marksRepository.findByEmployeesIdEquals(employeesId);
 	}
 	
-	
+	@Override
+	public Page<Marks> readAllByEmployeesId(Long employeesId, Pageable page) {
+		return marksRepository.findByEmployeesIdEquals(employeesId, page);
+	}
+
 	@Override
 	public Marks readOneByComment(String comment) {
 		return marksRepository.findByCommentEquals(comment);

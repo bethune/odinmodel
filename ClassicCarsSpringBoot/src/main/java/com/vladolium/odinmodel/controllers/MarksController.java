@@ -46,9 +46,10 @@ public class MarksController {
 		
 		Marks current = marksInterface.readOneById(id);
 			
-		current.setCustomers(marks.getCustomers());
-		current.setMarkType(marks.getMarkType());
+		current.setCustomers(marks.getCustomers());				
+		current.setEmployees(marks.getEmployees());
 		current.setComment(marks.getComment());
+		current.setMarkType(marks.getMarkType());
 				
 		return marksInterface.saveOne(current);
 	}
@@ -70,13 +71,35 @@ public class MarksController {
 	@GetMapping("/search")
 	public Iterable<Marks> search(
 		Long customersId,
-		MarkType markType,
-		String comment
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		String comment,
+		MarkType markType
 	) {
 		return marksInterface.search(
 			customersId,
-			markType,
-			comment
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			employeesId,
+			comment,
+			markType
 		);
 	}
 	
@@ -85,39 +108,43 @@ public class MarksController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long customersId,
-		MarkType markType,
-		String comment
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long employeesId,
+		String comment,
+		MarkType markType
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return marksInterface.searchPagination(
 			page,
 			customersId,
-			markType,
-			comment
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			employeesId,
+			comment,
+			markType
 		);
 	}
 
 	
 
-	@GetMapping("/markType={markType}")
-	public Marks readOneByMarkType(@PathVariable MarkType markType) {
-		return marksInterface.readOneByMarkType(markType);
-	}
-	
-	@PutMapping("/markType={markType}")
-	public Marks updateOneByMarkType(@PathVariable MarkType markType, @RequestBody Marks marks) {
-		
-		Marks current = marksInterface.readOneByMarkType(markType);
-			
-		current.setCustomers(marks.getCustomers());
-		current.setMarkType(marks.getMarkType());
-		current.setComment(marks.getComment());
-				
-		return marksInterface.saveOne(current);
-	}
-	
-	
 	@GetMapping("/comment={comment}")
 	public Marks readOneByComment(@PathVariable String comment) {
 		return marksInterface.readOneByComment(comment);
@@ -128,9 +155,10 @@ public class MarksController {
 		
 		Marks current = marksInterface.readOneByComment(comment);
 			
-		current.setCustomers(marks.getCustomers());
-		current.setMarkType(marks.getMarkType());
+		current.setCustomers(marks.getCustomers());				
+		current.setEmployees(marks.getEmployees());
 		current.setComment(marks.getComment());
+		current.setMarkType(marks.getMarkType());
 				
 		return marksInterface.saveOne(current);
 	}

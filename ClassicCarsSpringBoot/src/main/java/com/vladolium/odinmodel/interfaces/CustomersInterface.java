@@ -24,39 +24,33 @@ public interface CustomersInterface {
 
 	Iterable<Customers> search(
 		Long employeesId,
-		
-		
-		List<Reviews> reviewsList,
-		String addressLine1,
-		String postalCode,
-		String customerName,
-		String city,
-		Double creditLimit,
-		String country,
-		String phone,
-		String firstName,
 		String state,
+		String city,
+		String customerName,
+		String firstName,
 		String lastName,
-		String addressLine2
+		String country,
+		String addressLine1,
+		Double creditLimit,
+		String addressLine2,
+		String phone,
+		String postalCode
 	);
 	
 	Page<Customers> searchPagination(
 		Pageable page,
 		Long employeesId,
-		
-		
-		List<Reviews> reviewsList,
-		String addressLine1,
-		String postalCode,
-		String customerName,
-		String city,
-		Double creditLimit,
-		String country,
-		String phone,
-		String firstName,
 		String state,
+		String city,
+		String customerName,
+		String firstName,
 		String lastName,
-		String addressLine2
+		String country,
+		String addressLine1,
+		Double creditLimit,
+		String addressLine2,
+		String phone,
+		String postalCode
 	);
 
 	Iterable<Customers> readAllByEmployeesId(Long employeesId);

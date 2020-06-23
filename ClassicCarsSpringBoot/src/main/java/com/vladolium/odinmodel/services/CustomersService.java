@@ -58,37 +58,31 @@ public class CustomersService implements CustomersInterface {
 	@Override
 	public Iterable<Customers> search(
 		Long employeesId,
-		
-		
-		List<Reviews> reviewsList,
-		String addressLine1,
-		String postalCode,
-		String customerName,
-		String city,
-		Double creditLimit,
-		String country,
-		String phone,
-		String firstName,
 		String state,
+		String city,
+		String customerName,
+		String firstName,
 		String lastName,
-		String addressLine2
+		String country,
+		String addressLine1,
+		Double creditLimit,
+		String addressLine2,
+		String phone,
+		String postalCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
-			
-			
-			reviewsList,
-			addressLine1,
-			postalCode,
-			customerName,
-			city,
-			creditLimit,
-			country,
-			phone,
-			firstName,
 			state,
+			city,
+			customerName,
+			firstName,
 			lastName,
-			addressLine2	
+			country,
+			addressLine1,
+			creditLimit,
+			addressLine2,
+			phone,
+			postalCode	
 		);
 		return customersRepository.findAll(where);
 	}
@@ -97,57 +91,48 @@ public class CustomersService implements CustomersInterface {
 	public Page<Customers> searchPagination(
 		Pageable page,
 		Long employeesId,
-		
-		
-		List<Reviews> reviewsList,
-		String addressLine1,
-		String postalCode,
-		String customerName,
-		String city,
-		Double creditLimit,
-		String country,
-		String phone,
-		String firstName,
 		String state,
+		String city,
+		String customerName,
+		String firstName,
 		String lastName,
-		String addressLine2
+		String country,
+		String addressLine1,
+		Double creditLimit,
+		String addressLine2,
+		String phone,
+		String postalCode
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
-			
-			
-			reviewsList,
-			addressLine1,
-			postalCode,
-			customerName,
-			city,
-			creditLimit,
-			country,
-			phone,
-			firstName,
 			state,
+			city,
+			customerName,
+			firstName,
 			lastName,
-			addressLine2
+			country,
+			addressLine1,
+			creditLimit,
+			addressLine2,
+			phone,
+			postalCode
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long employeesId,
-		
-		
-		List<Reviews> reviewsList,
-		String addressLine1,
-		String postalCode,
-		String customerName,
-		String city,
-		Double creditLimit,
-		String country,
-		String phone,
-		String firstName,
 		String state,
+		String city,
+		String customerName,
+		String firstName,
 		String lastName,
-		String addressLine2
+		String country,
+		String addressLine1,
+		Double creditLimit,
+		String addressLine2,
+		String phone,
+		String postalCode
 	) {
 		QCustomers qCustomers = QCustomers.customers;
 	
@@ -156,43 +141,38 @@ public class CustomersService implements CustomersInterface {
 		if (employeesId != null) {
 			where.and(qCustomers.employees.id.eq(employeesId));
 		}
-		
-		
-		if (reviewsList != null) {
-			where.and(qCustomers.reviewsList.any().in(reviewsList));
-		}
-		if (addressLine1 != null) {
-			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
-		}
-		if (postalCode != null) {
-			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
-		}
-		if (customerName != null) {
-			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
+		if (state != null) {
+			where.and(qCustomers.state.containsIgnoreCase(state));
 		}
 		if (city != null) {
 			where.and(qCustomers.city.containsIgnoreCase(city));
 		}
-		if (creditLimit != null) {
-			where.and(qCustomers.creditLimit.eq(creditLimit));
-		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
-		}
-		if (phone != null) {
-			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
 		}
 		if (firstName != null) {
 			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
 		}
-		if (state != null) {
-			where.and(qCustomers.state.containsIgnoreCase(state));
-		}
 		if (lastName != null) {
 			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
 		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (addressLine1 != null) {
+			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
+		}
+		if (creditLimit != null) {
+			where.and(qCustomers.creditLimit.eq(creditLimit));
+		}
 		if (addressLine2 != null) {
 			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (phone != null) {
+			where.and(qCustomers.phone.containsIgnoreCase(phone));
+		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
 		}
 	
 		return where;

@@ -58,29 +58,23 @@ public class EmployeesService implements EmployeesInterface {
 	@Override
 	public Iterable<Employees> search(
 		Long officesId,
-		
-		
-		List<Marks> marksList,
 		Boolean isActive,
-		Integer reportsTo,
-		String lastName,
-		String extension,
 		String email,
+		Integer reportsTo,
 		String jobTitle,
-		String firstName
+		String firstName,
+		String extension,
+		String lastName
 	) {
 		BooleanBuilder where = dynamicWhere(
 			officesId,
-			
-			
-			marksList,
 			isActive,
-			reportsTo,
-			lastName,
-			extension,
 			email,
+			reportsTo,
 			jobTitle,
-			firstName	
+			firstName,
+			extension,
+			lastName	
 		);
 		return employeesRepository.findAll(where);
 	}
@@ -89,45 +83,36 @@ public class EmployeesService implements EmployeesInterface {
 	public Page<Employees> searchPagination(
 		Pageable page,
 		Long officesId,
-		
-		
-		List<Marks> marksList,
 		Boolean isActive,
-		Integer reportsTo,
-		String lastName,
-		String extension,
 		String email,
+		Integer reportsTo,
 		String jobTitle,
-		String firstName
+		String firstName,
+		String extension,
+		String lastName
 	) {
 		BooleanBuilder where = dynamicWhere(
 			officesId,
-			
-			
-			marksList,
 			isActive,
-			reportsTo,
-			lastName,
-			extension,
 			email,
+			reportsTo,
 			jobTitle,
-			firstName
+			firstName,
+			extension,
+			lastName
 		);
 		return employeesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long officesId,
-		
-		
-		List<Marks> marksList,
 		Boolean isActive,
-		Integer reportsTo,
-		String lastName,
-		String extension,
 		String email,
+		Integer reportsTo,
 		String jobTitle,
-		String firstName
+		String firstName,
+		String extension,
+		String lastName
 	) {
 		QEmployees qEmployees = QEmployees.employees;
 	
@@ -136,31 +121,26 @@ public class EmployeesService implements EmployeesInterface {
 		if (officesId != null) {
 			where.and(qEmployees.offices.id.eq(officesId));
 		}
-		
-		
-		if (marksList != null) {
-			where.and(qEmployees.marksList.any().in(marksList));
-		}
 		if (isActive != null) {
 			where.and(qEmployees.isActive.eq(isActive));
 		}
-		if (reportsTo != null) {
-			where.and(qEmployees.reportsTo.eq(reportsTo));
-		}
-		if (lastName != null) {
-			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
-		}
-		if (extension != null) {
-			where.and(qEmployees.extension.containsIgnoreCase(extension));
-		}
 		if (email != null) {
 			where.and(qEmployees.email.containsIgnoreCase(email));
+		}
+		if (reportsTo != null) {
+			where.and(qEmployees.reportsTo.eq(reportsTo));
 		}
 		if (jobTitle != null) {
 			where.and(qEmployees.jobTitle.containsIgnoreCase(jobTitle));
 		}
 		if (firstName != null) {
 			where.and(qEmployees.firstName.containsIgnoreCase(firstName));
+		}
+		if (extension != null) {
+			where.and(qEmployees.extension.containsIgnoreCase(extension));
+		}
+		if (lastName != null) {
+			where.and(qEmployees.lastName.containsIgnoreCase(lastName));
 		}
 	
 		return where;

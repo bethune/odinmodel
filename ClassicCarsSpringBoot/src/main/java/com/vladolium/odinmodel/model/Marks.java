@@ -41,7 +41,6 @@ public class Marks {
 	}
 	
 	@NotNull
-	@Column(unique=true)
 	@Enumerated(javax.persistence.EnumType.STRING) // --obligatory for saving the value as string, not int
 	private MarkType markType;
 	
@@ -61,6 +60,16 @@ public class Marks {
 	}
 	public void setCustomers(Customers customers) {
 		this.customers = customers;
+	}
+	@ManyToOne
+	@JoinColumn(name="employees_id")
+	private Employees employees;
+	
+	public Employees getEmployees() {
+		return employees;
+	}
+	public void setEmployees(Employees employees) {
+		this.employees = employees;
 	}
 
 /*Code between start and end will not be removed during generation.*/

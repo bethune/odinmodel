@@ -57,14 +57,16 @@ public class ReviewsService implements ReviewsInterface {
 
 	@Override
 	public Iterable<Reviews> search(
-		String reviewText,
+		Long customersId,
 		LocalDate reviewDate,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 	) {
 		BooleanBuilder where = dynamicWhere(
-			reviewText,
+			customersId,
 			reviewDate,
-			reviewTime	
+			reviewTime,
+			reviewText	
 		);
 		return reviewsRepository.findAll(where);
 	}
@@ -72,29 +74,32 @@ public class ReviewsService implements ReviewsInterface {
 	@Override
 	public Page<Reviews> searchPagination(
 		Pageable page,
-		String reviewText,
+		Long customersId,
 		LocalDate reviewDate,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 	) {
 		BooleanBuilder where = dynamicWhere(
-			reviewText,
+			customersId,
 			reviewDate,
-			reviewTime
+			reviewTime,
+			reviewText
 		);
 		return reviewsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		String reviewText,
+		Long customersId,
 		LocalDate reviewDate,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 	) {
 		QReviews qReviews = QReviews.reviews;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (reviewText != null) {
-			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
+		if (customersId != null) {
+			where.and(qReviews.customers.id.eq(customersId));
 		}
 		if (reviewDate != null) {
 			where.and(qReviews.reviewDate.eq(reviewDate));
@@ -102,12 +107,35 @@ public class ReviewsService implements ReviewsInterface {
 		if (reviewTime != null) {
 			where.and(qReviews.reviewTime.eq(reviewTime));
 		}
+		if (reviewText != null) {
+			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));
+		}
 	
 		return where;
 	}
 
 
+	@Override
+	public Iterable<Reviews> readAllByCustomersId(Long customersId) {
+		return reviewsRepository.findByCustomersIdEquals(customersId);
+	}
 	
+	@Override
+	public Page<Reviews> readAllByCustomersId(Long customersId, Pageable page) {
+		return reviewsRepository.findByCustomersIdEquals(customersId, page);
+	}
+	
+	
+	
+	@Override
+	public Iterable<Reviews> readAllByCustomersCustomerName(String customersCustomerName) {
+		return reviewsRepository.findByCustomersCustomerNameEquals(customersCustomerName);
+	}
+	
+	@Override
+	public Page<Reviews> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
+		return reviewsRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
+	}
 
 	
 	

@@ -58,18 +58,18 @@ public class OrdersService implements OrdersInterface {
 	@Override
 	public Iterable<Orders> search(
 		Long customersId,
-		LocalDate requiredDate,
 		LocalDate orderDate,
-		String status,
 		LocalDate shippedDate,
+		String status,
+		LocalDate requiredDate,
 		String comments
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			requiredDate,
 			orderDate,
-			status,
 			shippedDate,
+			status,
+			requiredDate,
 			comments	
 		);
 		return ordersRepository.findAll(where);
@@ -79,18 +79,18 @@ public class OrdersService implements OrdersInterface {
 	public Page<Orders> searchPagination(
 		Pageable page,
 		Long customersId,
-		LocalDate requiredDate,
 		LocalDate orderDate,
-		String status,
 		LocalDate shippedDate,
+		String status,
+		LocalDate requiredDate,
 		String comments
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			requiredDate,
 			orderDate,
-			status,
 			shippedDate,
+			status,
+			requiredDate,
 			comments
 		);
 		return ordersRepository.findAll(where, page);
@@ -98,10 +98,10 @@ public class OrdersService implements OrdersInterface {
 	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
-		LocalDate requiredDate,
 		LocalDate orderDate,
-		String status,
 		LocalDate shippedDate,
+		String status,
+		LocalDate requiredDate,
 		String comments
 	) {
 		QOrders qOrders = QOrders.orders;
@@ -111,17 +111,17 @@ public class OrdersService implements OrdersInterface {
 		if (customersId != null) {
 			where.and(qOrders.customers.id.eq(customersId));
 		}
-		if (requiredDate != null) {
-			where.and(qOrders.requiredDate.eq(requiredDate));
-		}
 		if (orderDate != null) {
 			where.and(qOrders.orderDate.eq(orderDate));
+		}
+		if (shippedDate != null) {
+			where.and(qOrders.shippedDate.eq(shippedDate));
 		}
 		if (status != null) {
 			where.and(qOrders.status.containsIgnoreCase(status));
 		}
-		if (shippedDate != null) {
-			where.and(qOrders.shippedDate.eq(shippedDate));
+		if (requiredDate != null) {
+			where.and(qOrders.requiredDate.eq(requiredDate));
 		}
 		if (comments != null) {
 			where.and(qOrders.comments.eq(comments));
@@ -140,8 +140,6 @@ public class OrdersService implements OrdersInterface {
 	public Page<Orders> readAllByCustomersId(Long customersId, Pageable page) {
 		return ordersRepository.findByCustomersIdEquals(customersId, page);
 	}
-	
-	
 	
 	
 	

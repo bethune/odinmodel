@@ -1,7 +1,6 @@
 package com.vladolium.odinmodel.repositories;
 
 import com.vladolium.odinmodel.model.*;
-import com.vladolium.odinmodel.model.Marks.MarkType;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -13,15 +12,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface MarksRepository extends JpaRepository<Marks, Long>, QuerydslPredicateExecutor<Marks> {
 
-	Marks findByMarkTypeEquals(MarkType markType);
+	Marks findByCommentEquals(String comment);
 	
 	Marks findByIdEquals(Long id);
-	
-	Marks findByCommentEquals(String comment);
 
 	Iterable <Marks> findByCustomersIdEquals(Long customersId);
 	
-	Page <Marks> findByCustomersIdEquals(Long customersId, Pageable page);
+	Page <Marks> findByCustomersIdEquals(Long customersId, Pageable page);						
+	
+	Iterable <Marks> findByEmployeesIdEquals(Long employeesId);
+	
+	Page <Marks> findByEmployeesIdEquals(Long employeesId, Pageable page);
 
 	Iterable <Marks> findByCustomersCustomerNameEquals(String customersCustomerName);
 	

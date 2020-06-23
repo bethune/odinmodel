@@ -47,10 +47,10 @@ public class OrdersController {
 		Orders current = ordersInterface.readOneById(id);
 			
 		current.setCustomers(orders.getCustomers());
-		current.setRequiredDate(orders.getRequiredDate());
 		current.setOrderDate(orders.getOrderDate());
-		current.setStatus(orders.getStatus());
 		current.setShippedDate(orders.getShippedDate());
+		current.setStatus(orders.getStatus());
+		current.setRequiredDate(orders.getRequiredDate());
 		current.setComments(orders.getComments());
 				
 		return ordersInterface.saveOne(current);
@@ -73,18 +73,18 @@ public class OrdersController {
 	@GetMapping("/search")
 	public Iterable<Orders> search(
 		Long customersId,
-		LocalDate requiredDate,
 		LocalDate orderDate,
-		String status,
 		LocalDate shippedDate,
+		String status,
+		LocalDate requiredDate,
 		String comments
 	) {
 		return ordersInterface.search(
 			customersId,
-			requiredDate,
 			orderDate,
-			status,
 			shippedDate,
+			status,
+			requiredDate,
 			comments
 		);
 	}
@@ -94,10 +94,10 @@ public class OrdersController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long customersId,
-		LocalDate requiredDate,
 		LocalDate orderDate,
-		String status,
 		LocalDate shippedDate,
+		String status,
+		LocalDate requiredDate,
 		String comments
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -105,10 +105,10 @@ public class OrdersController {
 		return ordersInterface.searchPagination(
 			page,
 			customersId,
-			requiredDate,
 			orderDate,
-			status,
 			shippedDate,
+			status,
+			requiredDate,
 			comments
 		);
 	}

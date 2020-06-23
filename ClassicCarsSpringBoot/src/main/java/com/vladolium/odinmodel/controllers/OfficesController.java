@@ -46,14 +46,14 @@ public class OfficesController {
 		
 		Offices current = officesInterface.readOneById(id);
 			
-		current.setAddressLine1(offices.getAddressLine1());
-		current.setPostalCode(offices.getPostalCode());
-		current.setTerritory(offices.getTerritory());
-		current.setCity(offices.getCity());
-		current.setPhone(offices.getPhone());
-		current.setCountry(offices.getCountry());
 		current.setState(offices.getState());
+		current.setCity(offices.getCity());
+		current.setCountry(offices.getCountry());
+		current.setTerritory(offices.getTerritory());
+		current.setAddressLine1(offices.getAddressLine1());
 		current.setAddressLine2(offices.getAddressLine2());
+		current.setPhone(offices.getPhone());
+		current.setPostalCode(offices.getPostalCode());
 				
 		return officesInterface.saveOne(current);
 	}
@@ -74,24 +74,24 @@ public class OfficesController {
 
 	@GetMapping("/search")
 	public Iterable<Offices> search(
-		String addressLine1,
-		String postalCode,
-		String territory,
-		String city,
-		String phone,
-		String country,
 		String state,
-		String addressLine2
+		String city,
+		String country,
+		String territory,
+		String addressLine1,
+		String addressLine2,
+		String phone,
+		String postalCode
 	) {
 		return officesInterface.search(
-			addressLine1,
-			postalCode,
-			territory,
-			city,
-			phone,
-			country,
 			state,
-			addressLine2
+			city,
+			country,
+			territory,
+			addressLine1,
+			addressLine2,
+			phone,
+			postalCode
 		);
 	}
 	
@@ -99,27 +99,27 @@ public class OfficesController {
 	public Page<Offices> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		String addressLine1,
-		String postalCode,
-		String territory,
-		String city,
-		String phone,
-		String country,
 		String state,
-		String addressLine2
+		String city,
+		String country,
+		String territory,
+		String addressLine1,
+		String addressLine2,
+		String phone,
+		String postalCode
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return officesInterface.searchPagination(
 			page,
-			addressLine1,
-			postalCode,
-			territory,
-			city,
-			phone,
-			country,
 			state,
-			addressLine2
+			city,
+			country,
+			territory,
+			addressLine1,
+			addressLine2,
+			phone,
+			postalCode
 		);
 	}
 
@@ -129,6 +129,7 @@ public class OfficesController {
 	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
 		this.employeesInterface = employeesInterface;
 	}
+	
 	
 	
 	

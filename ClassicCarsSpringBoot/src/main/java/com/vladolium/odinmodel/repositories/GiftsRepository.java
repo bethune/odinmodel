@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface GiftsRepository extends JpaRepository<Gifts, Long>, QuerydslPredicateExecutor<Gifts> {
 
-	Gifts findByIdEquals(Long id);
-	
 	Gifts findByGiftNameEquals(String giftName);
+	
+	Gifts findByIdEquals(Long id);
 
 	
 

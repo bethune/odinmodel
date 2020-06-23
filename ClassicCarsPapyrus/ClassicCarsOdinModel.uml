@@ -240,7 +240,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_irRV4LTGEeqOhaRCkV3AUg" name="Marks">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_p_jb0LTGEeqOhaRCkV3AUg" name="id" type="_xTwMoN93EemhFrfFZLxexQ" isID="true"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_dkGLQbTHEeqOhaRCkV3AUg" type="_noWUwN9rEemJF-HGxlolYw" association="_dkDvALTHEeqOhaRCkV3AUg"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_uyM2ALTHEeqOhaRCkV3AUg" name="markType" type="_8JSBULTGEeqOhaRCkV3AUg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_uyM2ALTHEeqOhaRCkV3AUg" name="markType" type="_8JSBULTGEeqOhaRCkV3AUg" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wnjOELTHEeqOhaRCkV3AUg" name="comment" type="_LFJuIN94EemhFrfFZLxexQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5IWKcLTHEeqOhaRCkV3AUg"/>
       </ownedAttribute>

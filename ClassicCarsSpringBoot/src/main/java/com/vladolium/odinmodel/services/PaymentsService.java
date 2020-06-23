@@ -58,17 +58,17 @@ public class PaymentsService implements PaymentsInterface {
 	@Override
 	public Iterable<Payments> search(
 		Long customersId,
+		Instant paymentTimestamp,
 		String checkNumber,
-		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp
+		LocalDate paymentDate
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
+			paymentTimestamp,
 			checkNumber,
-			paymentDate,
 			amount,
-			paymentTimestamp	
+			paymentDate	
 		);
 		return paymentsRepository.findAll(where);
 	}
@@ -77,27 +77,27 @@ public class PaymentsService implements PaymentsInterface {
 	public Page<Payments> searchPagination(
 		Pageable page,
 		Long customersId,
+		Instant paymentTimestamp,
 		String checkNumber,
-		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp
+		LocalDate paymentDate
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
+			paymentTimestamp,
 			checkNumber,
-			paymentDate,
 			amount,
-			paymentTimestamp
+			paymentDate
 		);
 		return paymentsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
+		Instant paymentTimestamp,
 		String checkNumber,
-		LocalDate paymentDate,
 		Double amount,
-		Instant paymentTimestamp
+		LocalDate paymentDate
 	) {
 		QPayments qPayments = QPayments.payments;
 	
@@ -106,17 +106,17 @@ public class PaymentsService implements PaymentsInterface {
 		if (customersId != null) {
 			where.and(qPayments.customers.id.eq(customersId));
 		}
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		}
 		if (checkNumber != null) {
 			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
-		}
-		if (paymentDate != null) {
-			where.and(qPayments.paymentDate.eq(paymentDate));
 		}
 		if (amount != null) {
 			where.and(qPayments.amount.eq(amount));
 		}
-		if (paymentTimestamp != null) {
-			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
+		if (paymentDate != null) {
+			where.and(qPayments.paymentDate.eq(paymentDate));
 		}
 	
 		return where;
@@ -132,8 +132,6 @@ public class PaymentsService implements PaymentsInterface {
 	public Page<Payments> readAllByCustomersId(Long customersId, Pageable page) {
 		return paymentsRepository.findByCustomersIdEquals(customersId, page);
 	}
-	
-	
 	
 	
 	

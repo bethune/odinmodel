@@ -23,26 +23,26 @@ public interface OfficesInterface {
 	Page<Offices> readAllPagination(Pageable page);
 
 	Iterable<Offices> search(
-		String addressLine1,
-		String postalCode,
-		String territory,
-		String city,
-		String phone,
-		String country,
 		String state,
-		String addressLine2
+		String city,
+		String country,
+		String territory,
+		String addressLine1,
+		String addressLine2,
+		String phone,
+		String postalCode
 	);
 	
 	Page<Offices> searchPagination(
 		Pageable page,
-		String addressLine1,
-		String postalCode,
-		String territory,
-		String city,
-		String phone,
-		String country,
 		String state,
-		String addressLine2
+		String city,
+		String country,
+		String territory,
+		String addressLine1,
+		String addressLine2,
+		String phone,
+		String postalCode
 	);
 
 	

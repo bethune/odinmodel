@@ -60,15 +60,15 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		Long productsId,
 		Long ordersId,
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productsId,
 			ordersId,
 			quantityOrdered,
-			priceEach,
-			orderLineNumber	
+			orderLineNumber,
+			priceEach	
 		);
 		return orderDetailsRepository.findAll(where);
 	}
@@ -79,15 +79,15 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		Long productsId,
 		Long ordersId,
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productsId,
 			ordersId,
 			quantityOrdered,
-			priceEach,
-			orderLineNumber
+			orderLineNumber,
+			priceEach
 		);
 		return orderDetailsRepository.findAll(where, page);
 	}
@@ -96,8 +96,8 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		Long productsId,
 		Long ordersId,
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 	) {
 		QOrderDetails qOrderDetails = QOrderDetails.orderDetails;
 	
@@ -112,11 +112,11 @@ public class OrderDetailsService implements OrderDetailsInterface {
 		if (quantityOrdered != null) {
 			where.and(qOrderDetails.quantityOrdered.eq(quantityOrdered));
 		}
-		if (priceEach != null) {
-			where.and(qOrderDetails.priceEach.eq(priceEach));
-		}
 		if (orderLineNumber != null) {
 			where.and(qOrderDetails.orderLineNumber.eq(orderLineNumber));
+		}
+		if (priceEach != null) {
+			where.and(qOrderDetails.priceEach.eq(priceEach));
 		}
 	
 		return where;

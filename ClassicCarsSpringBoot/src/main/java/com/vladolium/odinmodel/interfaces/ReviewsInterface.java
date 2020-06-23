@@ -23,19 +23,29 @@ public interface ReviewsInterface {
 	Page<Reviews> readAllPagination(Pageable page);
 
 	Iterable<Reviews> search(
-		String reviewText,
+		Long customersId,
 		LocalDate reviewDate,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 	);
 	
 	Page<Reviews> searchPagination(
 		Pageable page,
-		String reviewText,
+		Long customersId,
 		LocalDate reviewDate,
-		LocalTime reviewTime
+		LocalTime reviewTime,
+		String reviewText
 	);
 
+	Iterable<Reviews> readAllByCustomersId(Long customersId);
 	
+	Page<Reviews> readAllByCustomersId(Long customersId, Pageable page);
+	
+	
+	
+	Iterable<Reviews> readAllByCustomersCustomerName(String customersCustomerName);
+	
+	Page<Reviews> readAllByCustomersCustomerName(String customersCustomerName, Pageable page);
 
 	
 

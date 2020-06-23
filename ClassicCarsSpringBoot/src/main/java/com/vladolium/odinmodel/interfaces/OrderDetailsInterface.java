@@ -26,8 +26,8 @@ public interface OrderDetailsInterface {
 		Long productsId,
 		Long ordersId,
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 	);
 	
 	Page<OrderDetails> searchPagination(
@@ -35,8 +35,8 @@ public interface OrderDetailsInterface {
 		Long productsId,
 		Long ordersId,
 		Integer quantityOrdered,
-		Double priceEach,
-		Integer orderLineNumber
+		Integer orderLineNumber,
+		Double priceEach
 	);
 
 	Iterable<OrderDetails> readAllByProductsId(Long productsId);
