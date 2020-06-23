@@ -4,10 +4,10 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../../../../components/models/jpa/relationships/manyToOne.emtl#/0"/>
-    <imports href="../../../../components/models/jpa/relationships/manyToMany.emtl#/0"/>
-    <imports href="../../../../components/models/jpa/relationships/oneToOne.emtl#/0"/>
-    <imports href="../../../../components/models/jpa/relationships/oneToMany.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToOne.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToMany.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToOne.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToMany.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="checkAllRelationships" visibility="Public">
       <init>
         <variable name="classNameUpperFirst">
@@ -28,7 +28,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
+            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -208,7 +208,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
+            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -374,7 +374,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
+            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -546,168 +546,6 @@
           </iterator>
         </iterSet>
       </body>
-      <body xsi:type="mtl:ForBlock">
-        <body xsi:type="mtl:IfBlock">
-          <body xsi:type="mtl:TemplateInvocation">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../components/models/jpa/relationships/oneToMany.emtl#/0/oneToMany"/>
-            <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-            </argument>
-            <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkAllRelationships/%.3/relationship">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-            </argument>
-          </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;"/>
-          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <source xsi:type="ocl.ecore:OperationCallExp">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <source xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:OperationCallExp">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <source xsi:type="ocl.ecore:OperationCallExp">
-                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                      <source xsi:type="ocl.ecore:PropertyCallExp">
-                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                        <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkAllRelationships/%.3/relationship">
-                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                        </source>
-                        <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/lower"/>
-                      </source>
-                      <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
-                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                      </argument>
-                      <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-                    </source>
-                    <argument xsi:type="ocl.ecore:OperationCallExp">
-                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                      <source xsi:type="ocl.ecore:PropertyCallExp">
-                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                        <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkAllRelationships/%.3/relationship">
-                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                        </source>
-                        <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/upper"/>
-                      </source>
-                      <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
-                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                      </argument>
-                      <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-                    </argument>
-                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:OperationCallExp">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
-                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:PropertyCallExp">
-                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <source xsi:type="ocl.ecore:PropertyCallExp">
-                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
-                          <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkAllRelationships/%.3/relationship">
-                            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                          </source>
-                          <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
-                        </source>
-                        <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-                      </source>
-                    </source>
-                    <argument xsi:type="ocl.ecore:VariableExp" name="classNameUpperFirst" referredVariable="/0/checkAllRelationships/@init/@variable.0">
-                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    </argument>
-                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
-                  </argument>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-                </source>
-                <argument xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Namespace"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkAllRelationships/%.3/relationship">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/namespace"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/29">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/association"/>
-                  </argument>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-              </source>
-              <argument xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                  <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkAllRelationships/%.3/relationship">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                    </source>
-                    <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/lower"/>
-                </source>
-                <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-              </argument>
-              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-            </source>
-            <argument xsi:type="ocl.ecore:OperationCallExp">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <source xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkAllRelationships/%.3/relationship">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/opposite"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//MultiplicityElement/upper"/>
-              </source>
-              <argument xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                <source xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                </source>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/-.1"/>
-              </argument>
-              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
-            </argument>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
-          </ifExpr>
-        </body>
-        <loopVariable name="relationship">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-        </loopVariable>
-        <iterSet xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Bag(Property)">
-          <source xsi:type="ocl.ecore:OperationCallExp" eType="/8/Set(Association)">
-            <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-            </source>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type/getAssociations"/>
-          </source>
-          <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Property)">
-            <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/checkAllRelationships/%.3/collect/temp4">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
-            </source>
-            <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association/memberEnd"/>
-          </body>
-          <iterator xsi:type="ocl.ecore:Variable" name="temp4">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
-          </iterator>
-        </iterSet>
-      </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
         <body startPosition="1802" endPosition="1941" value="&#xA;Covers all entity relationships.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
         <parametersDocumentation name="class">
@@ -768,7 +606,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -783,7 +621,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -798,22 +636,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="class">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-        <eParameters name="relationship">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="oneToMany">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="../../../../components/models/jpa/relationships/oneToMany.emtl#/0/oneToMany"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -934,30 +757,12 @@
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="i">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/checkAllRelationships">
       <details key="start" value="1944"/>
-      <details key="end" value="3608"/>
+      <details key="end" value="3627"/>
       <details key="line" value="34"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/checkAllRelationships/@init">
@@ -1756,266 +1561,26 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.160" references="/0/checkAllRelationships/%.3">
-      <details key="start" value="3231"/>
-      <details key="end" value="3596"/>
-      <details key="line" value="66"/>
-    </eAnnotations>
-    <eAnnotations source="positions.161" references="/0/checkAllRelationships/%.3/%">
-      <details key="start" value="3300"/>
-      <details key="end" value="3589"/>
-      <details key="line" value="67"/>
-    </eAnnotations>
-    <eAnnotations source="positions.162" references="/0/checkAllRelationships/%.3/%/%">
-      <details key="start" value="3549"/>
-      <details key="end" value="3579"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.163" references="/0/checkAllRelationships/%.3/%/%/class">
-      <details key="start" value="3559"/>
-      <details key="end" value="3564"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.164" references="/0/checkAllRelationships/%.3/%/%/relationship">
-      <details key="start" value="3566"/>
-      <details key="end" value="3578"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.165" references="/0/checkAllRelationships/%.3/%/%.1">
-      <details key="start" value="3581"/>
-      <details key="end" value="3583"/>
-      <details key="line" value="73"/>
-    </eAnnotations>
-    <eAnnotations source="positions.166" references="/0/checkAllRelationships/%.3/%/%.2">
-      <details key="start" value="3304"/>
-      <details key="end" value="3546"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.167" references="/0/checkAllRelationships/%.3/%/%.2/%">
-      <details key="start" value="3304"/>
-      <details key="end" value="3506"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.168" references="/0/checkAllRelationships/%.3/%/%.2/%/%">
-      <details key="start" value="3304"/>
-      <details key="end" value="3467"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.169" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%">
-      <details key="start" value="3304"/>
-      <details key="end" value="3423"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.170" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%">
-      <details key="start" value="3304"/>
-      <details key="end" value="3356"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.171" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%">
-      <details key="start" value="3304"/>
-      <details key="end" value="3326"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.172" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%/%">
-      <details key="start" value="3304"/>
-      <details key="end" value="3322"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.173" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%/%/relationship">
-      <details key="start" value="3304"/>
-      <details key="end" value="3316"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.174" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%/%.1">
-      <details key="start" value="3325"/>
-      <details key="end" value="3326"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.175" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%.1">
-      <details key="start" value="3334"/>
-      <details key="end" value="3356"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.176" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%.1/%">
-      <details key="start" value="3334"/>
-      <details key="end" value="3352"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.177" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%.1/%/relationship">
-      <details key="start" value="3334"/>
-      <details key="end" value="3346"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.178" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%/%.1/%.1">
-      <details key="start" value="3355"/>
-      <details key="end" value="3356"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.179" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%.1">
-      <details key="start" value="3364"/>
-      <details key="end" value="3423"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.180" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%.1/%">
-      <details key="start" value="3364"/>
-      <details key="end" value="3401"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.181" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%.1/%/%">
-      <details key="start" value="3364"/>
-      <details key="end" value="3386"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.182" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%.1/%/%/%">
-      <details key="start" value="3364"/>
-      <details key="end" value="3381"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.183" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%.1/%/%/%/relationship">
-      <details key="start" value="3364"/>
-      <details key="end" value="3376"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.184" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%/%.1/classNameUpperFirst">
-      <details key="start" value="3404"/>
-      <details key="end" value="3423"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.185" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%.1">
-      <details key="start" value="3431"/>
-      <details key="end" value="3467"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.186" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%.1/%">
-      <details key="start" value="3431"/>
-      <details key="end" value="3453"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.187" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%.1/%/relationship">
-      <details key="start" value="3431"/>
-      <details key="end" value="3443"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.188" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%.1/%.1">
-      <details key="start" value="3456"/>
-      <details key="end" value="3467"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.189" references="/0/checkAllRelationships/%.3/%/%.2/%/%/%.1/%.1/self">
-      <details key="start" value="-1"/>
-      <details key="end" value="-1"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.190" references="/0/checkAllRelationships/%.3/%/%.2/%/%.1">
-      <details key="start" value="3475"/>
-      <details key="end" value="3506"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.191" references="/0/checkAllRelationships/%.3/%/%.2/%/%.1/%">
-      <details key="start" value="3475"/>
-      <details key="end" value="3502"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.192" references="/0/checkAllRelationships/%.3/%/%.2/%/%.1/%/%">
-      <details key="start" value="3475"/>
-      <details key="end" value="3496"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.193" references="/0/checkAllRelationships/%.3/%/%.2/%/%.1/%/%/relationship">
-      <details key="start" value="3475"/>
-      <details key="end" value="3487"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.194" references="/0/checkAllRelationships/%.3/%/%.2/%/%.1/%.1">
-      <details key="start" value="3505"/>
-      <details key="end" value="3506"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.195" references="/0/checkAllRelationships/%.3/%/%.2/%.1">
-      <details key="start" value="3514"/>
-      <details key="end" value="3546"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.196" references="/0/checkAllRelationships/%.3/%/%.2/%.1/%">
-      <details key="start" value="3514"/>
-      <details key="end" value="3541"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.197" references="/0/checkAllRelationships/%.3/%/%.2/%.1/%/%">
-      <details key="start" value="3514"/>
-      <details key="end" value="3535"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.198" references="/0/checkAllRelationships/%.3/%/%.2/%.1/%/%/relationship">
-      <details key="start" value="3514"/>
-      <details key="end" value="3526"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.199" references="/0/checkAllRelationships/%.3/%/%.2/%.1/%.1">
-      <details key="start" value="3544"/>
-      <details key="end" value="3546"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.200" references="/0/checkAllRelationships/%.3/%/%.2/%.1/%.1/%">
-      <details key="start" value="3545"/>
-      <details key="end" value="3546"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.201" references="/0/checkAllRelationships/%.3/relationship">
-      <details key="start" value="3237"/>
-      <details key="end" value="3260"/>
-      <details key="line" value="66"/>
-    </eAnnotations>
-    <eAnnotations source="positions.202" references="/0/checkAllRelationships/%.3/collect">
-      <details key="start" value="3263"/>
-      <details key="end" value="3296"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.203" references="/0/checkAllRelationships/%.3/collect/%">
-      <details key="start" value="3263"/>
-      <details key="end" value="3286"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.204" references="/0/checkAllRelationships/%.3/collect/%/class">
-      <details key="start" value="3263"/>
-      <details key="end" value="3268"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.205" references="/0/checkAllRelationships/%.3/collect/%.1">
-      <details key="start" value="3287"/>
-      <details key="end" value="3296"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.206" references="/0/checkAllRelationships/%.3/collect/%.1/temp1">
-      <details key="start" value="-1"/>
-      <details key="end" value="-1"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.207" references="/0/checkAllRelationships/%.3/collect/temp4">
-      <details key="start" value="-1"/>
-      <details key="end" value="-1"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.208" references="/0/checkAllRelationships/%.4">
       <details key="start" value="1799"/>
       <details key="end" value="1943"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.209" references="/0/checkAllRelationships/%.4/class">
+    <eAnnotations source="positions.161" references="/0/checkAllRelationships/%.3/class">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.210" references="/0/checkAllRelationships/class">
+    <eAnnotations source="positions.162" references="/0/checkAllRelationships/class">
       <details key="start" value="1983"/>
       <details key="end" value="1996"/>
       <details key="line" value="34"/>
     </eAnnotations>
-    <eAnnotations source="positions.211" references="/0/checkAllRelationships/%.5">
+    <eAnnotations source="positions.163" references="/0/checkAllRelationships/%.4">
       <details key="start" value="2004"/>
       <details key="end" value="2010"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.212" references="/0/checkAllRelationships/%.5/self">
+    <eAnnotations source="positions.164" references="/0/checkAllRelationships/%.4/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>

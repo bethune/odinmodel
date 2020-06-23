@@ -63,7 +63,7 @@
 [oneToOne(class, relationship)/]		
 	[/if]
 [/for]
-[for (relationship : Property | class.getAssociations().memberEnd)]
+[comment][for (relationship : Property | class.getAssociations().memberEnd)]
 	[if relationship.lower = 1 and 
 		relationship.upper = 1 and 
 		relationship.type.name.toUpperFirst() = classNameUpperFirst and 
@@ -72,5 +72,5 @@
 		relationship.opposite.upper = -1]
 [oneToMany(class, relationship)/]	
 	[/if]
-[/for]
+[/for][/comment]
 [/template]

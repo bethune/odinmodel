@@ -67,7 +67,7 @@
 [checkManyToOneRelationship()/]
 [checkOneToOneRelationship()/]
 [checkManyToManyRelationship()/]
-[checkOneToManyRelationship()/]
+[comment][checkOneToManyRelationship()/][/comment]
 [/template]
 
 [template public checkManyToOneRelationship(class : Class) post(trim()){
