@@ -47,12 +47,12 @@ public class EmployeesController {
 		Employees current = employeesInterface.readOneById(id);
 			
 		current.setOffices(employees.getOffices());
-		current.setIsActive(employees.getIsActive());
-		current.setEmail(employees.getEmail());
-		current.setReportsTo(employees.getReportsTo());
-		current.setJobTitle(employees.getJobTitle());
 		current.setFirstName(employees.getFirstName());
 		current.setExtension(employees.getExtension());
+		current.setReportsTo(employees.getReportsTo());
+		current.setEmail(employees.getEmail());
+		current.setJobTitle(employees.getJobTitle());
+		current.setIsActive(employees.getIsActive());
 		current.setLastName(employees.getLastName());
 				
 		return employeesInterface.saveOne(current);
@@ -75,22 +75,22 @@ public class EmployeesController {
 	@GetMapping("/search")
 	public Iterable<Employees> search(
 		Long officesId,
-		Boolean isActive,
-		String email,
-		Integer reportsTo,
-		String jobTitle,
 		String firstName,
 		String extension,
+		Integer reportsTo,
+		String email,
+		String jobTitle,
+		Boolean isActive,
 		String lastName
 	) {
 		return employeesInterface.search(
 			officesId,
-			isActive,
-			email,
-			reportsTo,
-			jobTitle,
 			firstName,
 			extension,
+			reportsTo,
+			email,
+			jobTitle,
+			isActive,
 			lastName
 		);
 	}
@@ -100,12 +100,12 @@ public class EmployeesController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long officesId,
-		Boolean isActive,
-		String email,
-		Integer reportsTo,
-		String jobTitle,
 		String firstName,
 		String extension,
+		Integer reportsTo,
+		String email,
+		String jobTitle,
+		Boolean isActive,
 		String lastName
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -113,58 +113,22 @@ public class EmployeesController {
 		return employeesInterface.searchPagination(
 			page,
 			officesId,
-			isActive,
-			email,
-			reportsTo,
-			jobTitle,
 			firstName,
 			extension,
+			reportsTo,
+			email,
+			jobTitle,
+			isActive,
 			lastName
 		);
 	}
 
-	private CustomersInterface customersInterface;
-	
-	@Autowired
-	public void setCustomersInterface(CustomersInterface customersInterface) {
-		this.customersInterface = customersInterface;
-	}
-	
-	
-	
-	
-	
-	
-	@GetMapping("/{employeesId}/customers")
-	public Iterable<Customers> readAllCustomersByEmployeesId(@PathVariable Long employeesId) {
-		return customersInterface.readAllByEmployeesId(employeesId);
-	}
-	
-	@GetMapping("/{employeesId}/customers/page={pageNumber}/perPage={perPageNumber}")
-	public Page<Customers> readAllCustomersByEmployeesIdPagination(
-		@PathVariable Integer pageNumber,
-		@PathVariable Integer perPageNumber,
-		@PathVariable Long employeesId
-	) {
-		Pageable page = PageRequest.of(pageNumber, perPageNumber);
-		return customersInterface.readAllByEmployeesId(employeesId, page);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	private MarksInterface marksInterface;
 	
 	@Autowired
 	public void setMarksInterface(MarksInterface marksInterface) {
 		this.marksInterface = marksInterface;
 	}
-	
 	
 	
 	
@@ -183,6 +147,41 @@ public class EmployeesController {
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 		return marksInterface.readAllByEmployeesId(employeesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	private CustomersInterface customersInterface;
+	
+	@Autowired
+	public void setCustomersInterface(CustomersInterface customersInterface) {
+		this.customersInterface = customersInterface;
+	}
+	
+	
+	
+	
+	
+	@GetMapping("/{employeesId}/customers")
+	public Iterable<Customers> readAllCustomersByEmployeesId(@PathVariable Long employeesId) {
+		return customersInterface.readAllByEmployeesId(employeesId);
+	}
+	
+	@GetMapping("/{employeesId}/customers/page={pageNumber}/perPage={perPageNumber}")
+	public Page<Customers> readAllCustomersByEmployeesIdPagination(
+		@PathVariable Integer pageNumber,
+		@PathVariable Integer perPageNumber,
+		@PathVariable Long employeesId
+	) {
+		Pageable page = PageRequest.of(pageNumber, perPageNumber);
+		return customersInterface.readAllByEmployeesId(employeesId, page);
 	}
 
 	
@@ -212,12 +211,12 @@ public class EmployeesController {
 		if (current.getOffices().getId() == employees.getOffices().getId()) {
 	
 			current.setOffices(employees.getOffices());
-			current.setIsActive(employees.getIsActive());
-			current.setEmail(employees.getEmail());
-			current.setReportsTo(employees.getReportsTo());
-			current.setJobTitle(employees.getJobTitle());
 			current.setFirstName(employees.getFirstName());
 			current.setExtension(employees.getExtension());
+			current.setReportsTo(employees.getReportsTo());
+			current.setEmail(employees.getEmail());
+			current.setJobTitle(employees.getJobTitle());
+			current.setIsActive(employees.getIsActive());
 			current.setLastName(employees.getLastName());			
 	
 			return employeesInterface.saveOne(current);
@@ -233,12 +232,12 @@ public class EmployeesController {
 		    } else {
 	
 				current.setOffices(employees.getOffices());
-				current.setIsActive(employees.getIsActive());
-				current.setEmail(employees.getEmail());
-				current.setReportsTo(employees.getReportsTo());
-				current.setJobTitle(employees.getJobTitle());
 				current.setFirstName(employees.getFirstName());
 				current.setExtension(employees.getExtension());
+				current.setReportsTo(employees.getReportsTo());
+				current.setEmail(employees.getEmail());
+				current.setJobTitle(employees.getJobTitle());
+				current.setIsActive(employees.getIsActive());
 				current.setLastName(employees.getLastName());			
 	
 				return employeesInterface.saveOne(current);

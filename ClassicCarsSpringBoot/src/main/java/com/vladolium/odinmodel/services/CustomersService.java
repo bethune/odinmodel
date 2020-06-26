@@ -58,31 +58,31 @@ public class CustomersService implements CustomersInterface {
 	@Override
 	public Iterable<Customers> search(
 		Long employeesId,
+		String postalCode,
 		String state,
 		String city,
-		String customerName,
-		String firstName,
-		String lastName,
-		String country,
 		String addressLine1,
 		Double creditLimit,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String firstName,
+		String addressLine2,
+		String lastName,
+		String country,
+		String customerName
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
+			postalCode,
 			state,
 			city,
-			customerName,
-			firstName,
-			lastName,
-			country,
 			addressLine1,
 			creditLimit,
-			addressLine2,
 			phone,
-			postalCode	
+			firstName,
+			addressLine2,
+			lastName,
+			country,
+			customerName	
 		);
 		return customersRepository.findAll(where);
 	}
@@ -91,48 +91,48 @@ public class CustomersService implements CustomersInterface {
 	public Page<Customers> searchPagination(
 		Pageable page,
 		Long employeesId,
+		String postalCode,
 		String state,
 		String city,
-		String customerName,
-		String firstName,
-		String lastName,
-		String country,
 		String addressLine1,
 		Double creditLimit,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String firstName,
+		String addressLine2,
+		String lastName,
+		String country,
+		String customerName
 	) {
 		BooleanBuilder where = dynamicWhere(
 			employeesId,
+			postalCode,
 			state,
 			city,
-			customerName,
-			firstName,
-			lastName,
-			country,
 			addressLine1,
 			creditLimit,
-			addressLine2,
 			phone,
-			postalCode
+			firstName,
+			addressLine2,
+			lastName,
+			country,
+			customerName
 		);
 		return customersRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long employeesId,
+		String postalCode,
 		String state,
 		String city,
-		String customerName,
-		String firstName,
-		String lastName,
-		String country,
 		String addressLine1,
 		Double creditLimit,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String firstName,
+		String addressLine2,
+		String lastName,
+		String country,
+		String customerName
 	) {
 		QCustomers qCustomers = QCustomers.customers;
 	
@@ -141,23 +141,14 @@ public class CustomersService implements CustomersInterface {
 		if (employeesId != null) {
 			where.and(qCustomers.employees.id.eq(employeesId));
 		}
+		if (postalCode != null) {
+			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
+		}
 		if (state != null) {
 			where.and(qCustomers.state.containsIgnoreCase(state));
 		}
 		if (city != null) {
 			where.and(qCustomers.city.containsIgnoreCase(city));
-		}
-		if (customerName != null) {
-			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
-		}
-		if (firstName != null) {
-			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
-		}
-		if (lastName != null) {
-			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
-		}
-		if (country != null) {
-			where.and(qCustomers.country.containsIgnoreCase(country));
 		}
 		if (addressLine1 != null) {
 			where.and(qCustomers.addressLine1.containsIgnoreCase(addressLine1));
@@ -165,14 +156,23 @@ public class CustomersService implements CustomersInterface {
 		if (creditLimit != null) {
 			where.and(qCustomers.creditLimit.eq(creditLimit));
 		}
-		if (addressLine2 != null) {
-			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
-		}
 		if (phone != null) {
 			where.and(qCustomers.phone.containsIgnoreCase(phone));
 		}
-		if (postalCode != null) {
-			where.and(qCustomers.postalCode.containsIgnoreCase(postalCode));
+		if (firstName != null) {
+			where.and(qCustomers.firstName.containsIgnoreCase(firstName));
+		}
+		if (addressLine2 != null) {
+			where.and(qCustomers.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (lastName != null) {
+			where.and(qCustomers.lastName.containsIgnoreCase(lastName));
+		}
+		if (country != null) {
+			where.and(qCustomers.country.containsIgnoreCase(country));
+		}
+		if (customerName != null) {
+			where.and(qCustomers.customerName.containsIgnoreCase(customerName));
 		}
 	
 		return where;

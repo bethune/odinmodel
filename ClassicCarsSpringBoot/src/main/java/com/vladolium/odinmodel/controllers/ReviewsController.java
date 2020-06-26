@@ -47,8 +47,8 @@ public class ReviewsController {
 		Reviews current = reviewsInterface.readOneById(id);
 			
 		current.setCustomers(reviews.getCustomers());
-		current.setReviewDate(reviews.getReviewDate());
 		current.setReviewTime(reviews.getReviewTime());
+		current.setReviewDate(reviews.getReviewDate());
 		current.setReviewText(reviews.getReviewText());
 				
 		return reviewsInterface.saveOne(current);
@@ -71,14 +71,14 @@ public class ReviewsController {
 	@GetMapping("/search")
 	public Iterable<Reviews> search(
 		Long customersId,
-		LocalDate reviewDate,
 		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText
 	) {
 		return reviewsInterface.search(
 			customersId,
-			reviewDate,
 			reviewTime,
+			reviewDate,
 			reviewText
 		);
 	}
@@ -88,8 +88,8 @@ public class ReviewsController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		Long customersId,
-		LocalDate reviewDate,
 		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
@@ -97,8 +97,8 @@ public class ReviewsController {
 		return reviewsInterface.searchPagination(
 			page,
 			customersId,
-			reviewDate,
 			reviewTime,
+			reviewDate,
 			reviewText
 		);
 	}

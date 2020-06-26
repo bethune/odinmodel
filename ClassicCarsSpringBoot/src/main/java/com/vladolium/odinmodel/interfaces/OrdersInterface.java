@@ -26,9 +26,9 @@ public interface OrdersInterface {
 		Long customersId,
 		LocalDate orderDate,
 		LocalDate shippedDate,
-		String status,
+		String comments,
 		LocalDate requiredDate,
-		String comments
+		String status
 	);
 	
 	Page<Orders> searchPagination(
@@ -36,9 +36,9 @@ public interface OrdersInterface {
 		Long customersId,
 		LocalDate orderDate,
 		LocalDate shippedDate,
-		String status,
+		String comments,
 		LocalDate requiredDate,
-		String comments
+		String status
 	);
 
 	Iterable<Orders> readAllByCustomersId(Long customersId);

@@ -49,9 +49,9 @@ public class OrdersController {
 		current.setCustomers(orders.getCustomers());
 		current.setOrderDate(orders.getOrderDate());
 		current.setShippedDate(orders.getShippedDate());
-		current.setStatus(orders.getStatus());
-		current.setRequiredDate(orders.getRequiredDate());
 		current.setComments(orders.getComments());
+		current.setRequiredDate(orders.getRequiredDate());
+		current.setStatus(orders.getStatus());
 				
 		return ordersInterface.saveOne(current);
 	}
@@ -75,17 +75,17 @@ public class OrdersController {
 		Long customersId,
 		LocalDate orderDate,
 		LocalDate shippedDate,
-		String status,
+		String comments,
 		LocalDate requiredDate,
-		String comments
+		String status
 	) {
 		return ordersInterface.search(
 			customersId,
 			orderDate,
 			shippedDate,
-			status,
+			comments,
 			requiredDate,
-			comments
+			status
 		);
 	}
 	
@@ -96,9 +96,9 @@ public class OrdersController {
 		Long customersId,
 		LocalDate orderDate,
 		LocalDate shippedDate,
-		String status,
+		String comments,
 		LocalDate requiredDate,
-		String comments
+		String status
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
@@ -107,9 +107,9 @@ public class OrdersController {
 			customersId,
 			orderDate,
 			shippedDate,
-			status,
+			comments,
 			requiredDate,
-			comments
+			status
 		);
 	}
 

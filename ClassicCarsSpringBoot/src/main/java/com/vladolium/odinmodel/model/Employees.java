@@ -33,28 +33,6 @@ public class Employees {
 	}
 	
 	@NotNull
-	@Size(max=100)
-	private String email;
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	@NotNull
-	@Size(max=50)
-	private String jobTitle;
-	
-	public String getJobTitle() {
-		return jobTitle;
-	}
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
-	}
-	
-	@NotNull
 	@Size(max=50)
 	private String firstName;
 	
@@ -74,6 +52,28 @@ public class Employees {
 	}
 	public void setExtension(String extension) {
 		this.extension = extension;
+	}
+	
+	@NotNull
+	@Size(max=100)
+	private String email;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String jobTitle;
+	
+	public String getJobTitle() {
+		return jobTitle;
+	}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 	
 	@NotNull

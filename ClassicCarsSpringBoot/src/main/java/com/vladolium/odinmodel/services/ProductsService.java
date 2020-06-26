@@ -58,25 +58,25 @@ public class ProductsService implements ProductsInterface {
 	@Override
 	public Iterable<Products> search(
 		Long productLinesId,
-		String productName,
-		String productScale,
-		Double msrp,
-		Double buyPrice,
-		String productVendor,
+		String productCode,
 		Integer quantityInStock,
+		String productScale,
+		Double buyPrice,
+		String productName,
+		String productVendor,
 		String productDescription,
-		String productCode
+		Double msrp
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productLinesId,
-			productName,
-			productScale,
-			msrp,
-			buyPrice,
-			productVendor,
+			productCode,
 			quantityInStock,
+			productScale,
+			buyPrice,
+			productName,
+			productVendor,
 			productDescription,
-			productCode	
+			msrp	
 		);
 		return productsRepository.findAll(where);
 	}
@@ -85,39 +85,39 @@ public class ProductsService implements ProductsInterface {
 	public Page<Products> searchPagination(
 		Pageable page,
 		Long productLinesId,
-		String productName,
-		String productScale,
-		Double msrp,
-		Double buyPrice,
-		String productVendor,
+		String productCode,
 		Integer quantityInStock,
+		String productScale,
+		Double buyPrice,
+		String productName,
+		String productVendor,
 		String productDescription,
-		String productCode
+		Double msrp
 	) {
 		BooleanBuilder where = dynamicWhere(
 			productLinesId,
-			productName,
-			productScale,
-			msrp,
-			buyPrice,
-			productVendor,
+			productCode,
 			quantityInStock,
+			productScale,
+			buyPrice,
+			productName,
+			productVendor,
 			productDescription,
-			productCode
+			msrp
 		);
 		return productsRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		Long productLinesId,
-		String productName,
-		String productScale,
-		Double msrp,
-		Double buyPrice,
-		String productVendor,
+		String productCode,
 		Integer quantityInStock,
+		String productScale,
+		Double buyPrice,
+		String productName,
+		String productVendor,
 		String productDescription,
-		String productCode
+		Double msrp
 	) {
 		QProducts qProducts = QProducts.products;
 	
@@ -126,29 +126,29 @@ public class ProductsService implements ProductsInterface {
 		if (productLinesId != null) {
 			where.and(qProducts.productLines.id.eq(productLinesId));
 		}
-		if (productName != null) {
-			where.and(qProducts.productName.containsIgnoreCase(productName));
-		}
-		if (productScale != null) {
-			where.and(qProducts.productScale.containsIgnoreCase(productScale));
-		}
-		if (msrp != null) {
-			where.and(qProducts.msrp.eq(msrp));
-		}
-		if (buyPrice != null) {
-			where.and(qProducts.buyPrice.eq(buyPrice));
-		}
-		if (productVendor != null) {
-			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		if (productCode != null) {
+			where.and(qProducts.productCode.containsIgnoreCase(productCode));
 		}
 		if (quantityInStock != null) {
 			where.and(qProducts.quantityInStock.eq(quantityInStock));
 		}
+		if (productScale != null) {
+			where.and(qProducts.productScale.containsIgnoreCase(productScale));
+		}
+		if (buyPrice != null) {
+			where.and(qProducts.buyPrice.eq(buyPrice));
+		}
+		if (productName != null) {
+			where.and(qProducts.productName.containsIgnoreCase(productName));
+		}
+		if (productVendor != null) {
+			where.and(qProducts.productVendor.containsIgnoreCase(productVendor));
+		}
 		if (productDescription != null) {
 			where.and(qProducts.productDescription.eq(productDescription));
 		}
-		if (productCode != null) {
-			where.and(qProducts.productCode.containsIgnoreCase(productCode));
+		if (msrp != null) {
+			where.and(qProducts.msrp.eq(msrp));
 		}
 	
 		return where;

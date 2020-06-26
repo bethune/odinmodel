@@ -58,15 +58,15 @@ public class PaymentsService implements PaymentsInterface {
 	@Override
 	public Iterable<Payments> search(
 		Long customersId,
-		Instant paymentTimestamp,
 		String checkNumber,
+		Instant paymentTimestamp,
 		Double amount,
 		LocalDate paymentDate
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			paymentTimestamp,
 			checkNumber,
+			paymentTimestamp,
 			amount,
 			paymentDate	
 		);
@@ -77,15 +77,15 @@ public class PaymentsService implements PaymentsInterface {
 	public Page<Payments> searchPagination(
 		Pageable page,
 		Long customersId,
-		Instant paymentTimestamp,
 		String checkNumber,
+		Instant paymentTimestamp,
 		Double amount,
 		LocalDate paymentDate
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			paymentTimestamp,
 			checkNumber,
+			paymentTimestamp,
 			amount,
 			paymentDate
 		);
@@ -94,8 +94,8 @@ public class PaymentsService implements PaymentsInterface {
 	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
-		Instant paymentTimestamp,
 		String checkNumber,
+		Instant paymentTimestamp,
 		Double amount,
 		LocalDate paymentDate
 	) {
@@ -106,11 +106,11 @@ public class PaymentsService implements PaymentsInterface {
 		if (customersId != null) {
 			where.and(qPayments.customers.id.eq(customersId));
 		}
-		if (paymentTimestamp != null) {
-			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
-		}
 		if (checkNumber != null) {
 			where.and(qPayments.checkNumber.containsIgnoreCase(checkNumber));
+		}
+		if (paymentTimestamp != null) {
+			where.and(qPayments.paymentTimestamp.eq(paymentTimestamp));
 		}
 		if (amount != null) {
 			where.and(qPayments.amount.eq(amount));

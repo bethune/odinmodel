@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface ProductsRepository extends JpaRepository<Products, Long>, QuerydslPredicateExecutor<Products> {
 
-	Products findByIdEquals(Long id);
-	
 	Products findByProductCodeEquals(String productCode);
+	
+	Products findByIdEquals(Long id);
 
 	Iterable <Products> findByProductLinesIdEquals(Long productLinesId);
 	

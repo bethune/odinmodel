@@ -25,27 +25,28 @@ public interface OrderDetailsInterface {
 	Iterable<OrderDetails> search(
 		Long productsId,
 		Long ordersId,
+		Double priceEach,
 		Integer quantityOrdered,
-		Integer orderLineNumber,
-		Double priceEach
+		Integer orderLineNumber
 	);
 	
 	Page<OrderDetails> searchPagination(
 		Pageable page,
 		Long productsId,
 		Long ordersId,
+		Double priceEach,
 		Integer quantityOrdered,
-		Integer orderLineNumber,
-		Double priceEach
+		Integer orderLineNumber
 	);
 
-	Iterable<OrderDetails> readAllByProductsId(Long productsId);
-	
-	Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page);
-	
 	Iterable<OrderDetails> readAllByProductsProductCode(String productsProductCode);
 	
 	Page<OrderDetails> readAllByProductsProductCode(String productsProductCode, Pageable page);
+	
+	
+	Iterable<OrderDetails> readAllByProductsId(Long productsId);
+	
+	Page<OrderDetails> readAllByProductsId(Long productsId, Pageable page);
 
 	
 

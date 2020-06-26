@@ -24,8 +24,8 @@ public interface PaymentsInterface {
 
 	Iterable<Payments> search(
 		Long customersId,
-		Instant paymentTimestamp,
 		String checkNumber,
+		Instant paymentTimestamp,
 		Double amount,
 		LocalDate paymentDate
 	);
@@ -33,8 +33,8 @@ public interface PaymentsInterface {
 	Page<Payments> searchPagination(
 		Pageable page,
 		Long customersId,
-		Instant paymentTimestamp,
 		String checkNumber,
+		Instant paymentTimestamp,
 		Double amount,
 		LocalDate paymentDate
 	);

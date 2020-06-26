@@ -21,6 +21,16 @@ public abstract class ContactDetails {
 		this.state = state;
 	}
 	
+	@Size(max=15)
+	private String postalCode;
+	
+	public String getPostalCode() {
+		return postalCode;
+	}
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+	
 	@NotNull
 	@Size(max=50)
 	private String city;
@@ -30,17 +40,6 @@ public abstract class ContactDetails {
 	}
 	public void setCity(String city) {
 		this.city = city;
-	}
-	
-	@NotNull
-	@Size(max=50)
-	private String country;
-	
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
 	}
 	
 	@NotNull
@@ -55,16 +54,6 @@ public abstract class ContactDetails {
 	}
 	
 	@Size(max=50)
-	private String addressLine2;
-	
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
-	}
-	
-	@Size(max=50)
 	private String phone;
 	
 	public String getPhone() {
@@ -74,14 +63,25 @@ public abstract class ContactDetails {
 		this.phone = phone;
 	}
 	
-	@Size(max=15)
-	private String postalCode;
+	@Size(max=50)
+	private String addressLine2;
 	
-	public String getPostalCode() {
-		return postalCode;
+	public String getAddressLine2() {
+		return addressLine2;
 	}
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+	
+	@NotNull
+	@Size(max=50)
+	private String country;
+	
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 /*Code between start and end will not be removed during generation.*/

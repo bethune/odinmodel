@@ -57,36 +57,36 @@ public class MarksService implements MarksInterface {
 
 	@Override
 	public Iterable<Marks> search(
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Long employeesId,
-		String comment,
-		MarkType markType
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long customersId,
+		MarkType markType,
+		String comment
 	) {
 		BooleanBuilder where = dynamicWhere(
-			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			employeesId,
-			comment,
-			markType	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			customersId,
+			markType,
+			comment	
 		);
 		return marksRepository.findAll(where);
 	}
@@ -94,87 +94,106 @@ public class MarksService implements MarksInterface {
 	@Override
 	public Page<Marks> searchPagination(
 		Pageable page,
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Long employeesId,
-		String comment,
-		MarkType markType
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long customersId,
+		MarkType markType,
+		String comment
 	) {
 		BooleanBuilder where = dynamicWhere(
-			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			employeesId,
-			comment,
-			markType
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			customersId,
+			markType,
+			comment
 		);
 		return marksRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Long employeesId,
-		String comment,
-		MarkType markType
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long customersId,
+		MarkType markType,
+		String comment
 	) {
 		QMarks qMarks = QMarks.marks;
 	
 		BooleanBuilder where = new BooleanBuilder();
 	
-		if (customersId != null) {
-			where.and(qMarks.customers.id.eq(customersId));
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		if (employeesId != null) {
 			where.and(qMarks.employees.id.eq(employeesId));
 		}
-		if (comment != null) {
-			where.and(qMarks.comment.containsIgnoreCase(comment));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		if (customersId != null) {
+			where.and(qMarks.customers.id.eq(customersId));
 		}
 		if (markType != null) {
 			where.and(qMarks.markType.eq(markType));
+		}
+		if (comment != null) {
+			where.and(qMarks.comment.containsIgnoreCase(comment));
 		}
 	
 		return where;
 	}
 
 
+	@Override
+	public Iterable<Marks> readAllByEmployeesId(Long employeesId) {
+		return marksRepository.findByEmployeesIdEquals(employeesId);
+	}
+	
+	@Override
+	public Page<Marks> readAllByEmployeesId(Long employeesId, Pageable page) {
+		return marksRepository.findByEmployeesIdEquals(employeesId, page);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Iterable<Marks> readAllByCustomersId(Long customersId) {
 		return marksRepository.findByCustomersIdEquals(customersId);
@@ -196,27 +215,8 @@ public class MarksService implements MarksInterface {
 	public Page<Marks> readAllByCustomersCustomerName(String customersCustomerName, Pageable page) {
 		return marksRepository.findByCustomersCustomerNameEquals(customersCustomerName, page);
 	}
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public Iterable<Marks> readAllByEmployeesId(Long employeesId) {
-		return marksRepository.findByEmployeesIdEquals(employeesId);
-	}
-	
-	@Override
-	public Page<Marks> readAllByEmployeesId(Long employeesId, Pageable page) {
-		return marksRepository.findByEmployeesIdEquals(employeesId, page);
-	}
 
-	@Override
-	public Marks readOneByComment(String comment) {
-		return marksRepository.findByCommentEquals(comment);
-	}
+	
 	
 	
 

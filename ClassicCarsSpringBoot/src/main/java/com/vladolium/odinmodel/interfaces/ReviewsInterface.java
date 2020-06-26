@@ -24,16 +24,16 @@ public interface ReviewsInterface {
 
 	Iterable<Reviews> search(
 		Long customersId,
-		LocalDate reviewDate,
 		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText
 	);
 	
 	Page<Reviews> searchPagination(
 		Pageable page,
 		Long customersId,
-		LocalDate reviewDate,
 		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText
 	);
 

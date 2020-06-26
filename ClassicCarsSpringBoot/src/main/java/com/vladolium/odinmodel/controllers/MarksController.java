@@ -46,10 +46,10 @@ public class MarksController {
 		
 		Marks current = marksInterface.readOneById(id);
 			
-		current.setCustomers(marks.getCustomers());				
-		current.setEmployees(marks.getEmployees());
-		current.setComment(marks.getComment());
+		current.setEmployees(marks.getEmployees());				
+		current.setCustomers(marks.getCustomers());
 		current.setMarkType(marks.getMarkType());
+		current.setComment(marks.getComment());
 				
 		return marksInterface.saveOne(current);
 	}
@@ -70,36 +70,36 @@ public class MarksController {
 
 	@GetMapping("/search")
 	public Iterable<Marks> search(
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Long employeesId,
-		String comment,
-		MarkType markType
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long customersId,
+		MarkType markType,
+		String comment
 	) {
 		return marksInterface.search(
-			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			employeesId,
-			comment,
-			markType
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			customersId,
+			markType,
+			comment
 		);
 	}
 	
@@ -107,61 +107,45 @@ public class MarksController {
 	public Page<Marks> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		Long customersId,
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Long employeesId,
-		String comment,
-		MarkType markType
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Long customersId,
+		MarkType markType,
+		String comment
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return marksInterface.searchPagination(
 			page,
-			customersId,
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			employeesId,
-			comment,
-			markType
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			customersId,
+			markType,
+			comment
 		);
 	}
 
 	
 
-	@GetMapping("/comment={comment}")
-	public Marks readOneByComment(@PathVariable String comment) {
-		return marksInterface.readOneByComment(comment);
-	}
 	
-	@PutMapping("/comment={comment}")
-	public Marks updateOneByComment(@PathVariable String comment, @RequestBody Marks marks) {
-		
-		Marks current = marksInterface.readOneByComment(comment);
-			
-		current.setCustomers(marks.getCustomers());				
-		current.setEmployees(marks.getEmployees());
-		current.setComment(marks.getComment());
-		current.setMarkType(marks.getMarkType());
-				
-		return marksInterface.saveOne(current);
-	}
 
 	
 

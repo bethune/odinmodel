@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="main" name="OdinModel">
-    <property name="ECLIPSE_HOME" value="../../../../../../vsoftware/sts/sts-4.6.2.RELEASE"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../../vdeveloper/workspaces/odinmodel-dev"/>
+    <property name="ECLIPSE_HOME" value="../../../../software/eclipse20"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../workspace-odinmodel"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="OdinModel.libraryclasspath">

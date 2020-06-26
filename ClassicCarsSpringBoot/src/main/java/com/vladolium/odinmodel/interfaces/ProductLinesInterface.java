@@ -23,16 +23,16 @@ public interface ProductLinesInterface {
 	Page<ProductLines> readAllPagination(Pageable page);
 
 	Iterable<ProductLines> search(
-		String productLine,
+		byte[] image,
 		String textDescription,
-		byte[] image
+		String productLine
 	);
 	
 	Page<ProductLines> searchPagination(
 		Pageable page,
-		String productLine,
+		byte[] image,
 		String textDescription,
-		byte[] image
+		String productLine
 	);
 
 	

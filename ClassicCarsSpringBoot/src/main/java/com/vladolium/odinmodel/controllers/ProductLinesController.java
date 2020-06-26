@@ -46,9 +46,9 @@ public class ProductLinesController {
 		
 		ProductLines current = productLinesInterface.readOneById(id);
 			
-		current.setProductLine(productLines.getProductLine());
-		current.setTextDescription(productLines.getTextDescription());
 		current.setImage(productLines.getImage());
+		current.setTextDescription(productLines.getTextDescription());
+		current.setProductLine(productLines.getProductLine());
 				
 		return productLinesInterface.saveOne(current);
 	}
@@ -69,14 +69,14 @@ public class ProductLinesController {
 
 	@GetMapping("/search")
 	public Iterable<ProductLines> search(
-		String productLine,
+		byte[] image,
 		String textDescription,
-		byte[] image
+		String productLine
 	) {
 		return productLinesInterface.search(
-			productLine,
+			image,
 			textDescription,
-			image
+			productLine
 		);
 	}
 	
@@ -84,17 +84,17 @@ public class ProductLinesController {
 	public Page<ProductLines> searchPagination(
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
-		String productLine,
+		byte[] image,
 		String textDescription,
-		byte[] image
+		String productLine
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return productLinesInterface.searchPagination(
 			page,
-			productLine,
+			image,
 			textDescription,
-			image
+			productLine
 		);
 	}
 

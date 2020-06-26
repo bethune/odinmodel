@@ -47,13 +47,13 @@ public class OfficesController {
 		Offices current = officesInterface.readOneById(id);
 			
 		current.setState(offices.getState());
-		current.setCity(offices.getCity());
-		current.setCountry(offices.getCountry());
-		current.setTerritory(offices.getTerritory());
-		current.setAddressLine1(offices.getAddressLine1());
-		current.setAddressLine2(offices.getAddressLine2());
-		current.setPhone(offices.getPhone());
 		current.setPostalCode(offices.getPostalCode());
+		current.setCity(offices.getCity());
+		current.setAddressLine1(offices.getAddressLine1());
+		current.setPhone(offices.getPhone());
+		current.setTerritory(offices.getTerritory());
+		current.setAddressLine2(offices.getAddressLine2());
+		current.setCountry(offices.getCountry());
 				
 		return officesInterface.saveOne(current);
 	}
@@ -75,23 +75,23 @@ public class OfficesController {
 	@GetMapping("/search")
 	public Iterable<Offices> search(
 		String state,
+		String postalCode,
 		String city,
-		String country,
-		String territory,
 		String addressLine1,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String territory,
+		String addressLine2,
+		String country
 	) {
 		return officesInterface.search(
 			state,
+			postalCode,
 			city,
-			country,
-			territory,
 			addressLine1,
-			addressLine2,
 			phone,
-			postalCode
+			territory,
+			addressLine2,
+			country
 		);
 	}
 	
@@ -100,26 +100,26 @@ public class OfficesController {
 		@PathVariable Integer pageNumber,
 		@PathVariable Integer perPageNumber,
 		String state,
+		String postalCode,
 		String city,
-		String country,
-		String territory,
 		String addressLine1,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String territory,
+		String addressLine2,
+		String country
 	) {
 		Pageable page = PageRequest.of(pageNumber, perPageNumber);
 	
 		return officesInterface.searchPagination(
 			page,
 			state,
+			postalCode,
 			city,
-			country,
-			territory,
 			addressLine1,
-			addressLine2,
 			phone,
-			postalCode
+			territory,
+			addressLine2,
+			country
 		);
 	}
 
@@ -129,8 +129,6 @@ public class OfficesController {
 	public void setEmployeesInterface(EmployeesInterface employeesInterface) {
 		this.employeesInterface = employeesInterface;
 	}
-	
-	
 	
 	
 	

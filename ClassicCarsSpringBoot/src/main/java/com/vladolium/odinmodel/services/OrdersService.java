@@ -60,17 +60,17 @@ public class OrdersService implements OrdersInterface {
 		Long customersId,
 		LocalDate orderDate,
 		LocalDate shippedDate,
-		String status,
+		String comments,
 		LocalDate requiredDate,
-		String comments
+		String status
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
 			orderDate,
 			shippedDate,
-			status,
+			comments,
 			requiredDate,
-			comments	
+			status	
 		);
 		return ordersRepository.findAll(where);
 	}
@@ -81,17 +81,17 @@ public class OrdersService implements OrdersInterface {
 		Long customersId,
 		LocalDate orderDate,
 		LocalDate shippedDate,
-		String status,
+		String comments,
 		LocalDate requiredDate,
-		String comments
+		String status
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
 			orderDate,
 			shippedDate,
-			status,
+			comments,
 			requiredDate,
-			comments
+			status
 		);
 		return ordersRepository.findAll(where, page);
 	}
@@ -100,9 +100,9 @@ public class OrdersService implements OrdersInterface {
 		Long customersId,
 		LocalDate orderDate,
 		LocalDate shippedDate,
-		String status,
+		String comments,
 		LocalDate requiredDate,
-		String comments
+		String status
 	) {
 		QOrders qOrders = QOrders.orders;
 	
@@ -117,14 +117,14 @@ public class OrdersService implements OrdersInterface {
 		if (shippedDate != null) {
 			where.and(qOrders.shippedDate.eq(shippedDate));
 		}
-		if (status != null) {
-			where.and(qOrders.status.containsIgnoreCase(status));
+		if (comments != null) {
+			where.and(qOrders.comments.eq(comments));
 		}
 		if (requiredDate != null) {
 			where.and(qOrders.requiredDate.eq(requiredDate));
 		}
-		if (comments != null) {
-			where.and(qOrders.comments.eq(comments));
+		if (status != null) {
+			where.and(qOrders.status.containsIgnoreCase(status));
 		}
 	
 		return where;

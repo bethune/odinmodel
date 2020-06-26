@@ -33,16 +33,6 @@ public class Products {
 	}
 	
 	@NotNull
-	private Double msrp;
-	
-	public Double getMsrp() {
-		return msrp;
-	}
-	public void setMsrp(Double msrp) {
-		this.msrp = msrp;
-	}
-	
-	@NotNull
 	@DecimalMin("10.00")
 	private Double buyPrice;
 	
@@ -54,14 +44,25 @@ public class Products {
 	}
 	
 	@NotNull
-	@Size(max=70)
-	private String productName;
+	private Double msrp;
 	
-	public String getProductName() {
-		return productName;
+	public Double getMsrp() {
+		return msrp;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setMsrp(Double msrp) {
+		this.msrp = msrp;
+	}
+	
+	@NotNull
+	@Column(unique=true)
+	@Size(max=15)
+	private String productCode;
+	
+	public String getProductCode() {
+		return productCode;
+	}
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 	
 	@NotNull
@@ -76,6 +77,17 @@ public class Products {
 	}
 	
 	@NotNull
+	@Size(max=70)
+	private String productName;
+	
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	
+	@NotNull
 	@Size(max=50)
 	private String productVendor;
 	
@@ -84,18 +96,6 @@ public class Products {
 	}
 	public void setProductVendor(String productVendor) {
 		this.productVendor = productVendor;
-	}
-	
-	@NotNull
-	@Column(unique=true)
-	@Size(max=15)
-	private String productCode;
-	
-	public String getProductCode() {
-		return productCode;
-	}
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
 	}
 	
 	@NotNull

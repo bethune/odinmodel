@@ -58,14 +58,14 @@ public class ReviewsService implements ReviewsInterface {
 	@Override
 	public Iterable<Reviews> search(
 		Long customersId,
-		LocalDate reviewDate,
 		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			reviewDate,
 			reviewTime,
+			reviewDate,
 			reviewText	
 		);
 		return reviewsRepository.findAll(where);
@@ -75,14 +75,14 @@ public class ReviewsService implements ReviewsInterface {
 	public Page<Reviews> searchPagination(
 		Pageable page,
 		Long customersId,
-		LocalDate reviewDate,
 		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText
 	) {
 		BooleanBuilder where = dynamicWhere(
 			customersId,
-			reviewDate,
 			reviewTime,
+			reviewDate,
 			reviewText
 		);
 		return reviewsRepository.findAll(where, page);
@@ -90,8 +90,8 @@ public class ReviewsService implements ReviewsInterface {
 	
 	public BooleanBuilder dynamicWhere(
 		Long customersId,
-		LocalDate reviewDate,
 		LocalTime reviewTime,
+		LocalDate reviewDate,
 		String reviewText
 	) {
 		QReviews qReviews = QReviews.reviews;
@@ -101,11 +101,11 @@ public class ReviewsService implements ReviewsInterface {
 		if (customersId != null) {
 			where.and(qReviews.customers.id.eq(customersId));
 		}
-		if (reviewDate != null) {
-			where.and(qReviews.reviewDate.eq(reviewDate));
-		}
 		if (reviewTime != null) {
 			where.and(qReviews.reviewTime.eq(reviewTime));
+		}
+		if (reviewDate != null) {
+			where.and(qReviews.reviewDate.eq(reviewDate));
 		}
 		if (reviewText != null) {
 			where.and(qReviews.reviewText.containsIgnoreCase(reviewText));

@@ -22,7 +22,6 @@ public class Marks {
 		this.id = id;
 	}
 	
-	@Column(unique=true)
 	private String comment;
 	
 	public String getComment() {
@@ -52,16 +51,6 @@ public class Marks {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name="customers_id")
-	private Customers customers;
-	
-	public Customers getCustomers() {
-		return customers;
-	}
-	public void setCustomers(Customers customers) {
-		this.customers = customers;
-	}
-	@ManyToOne
 	@JoinColumn(name="employees_id")
 	private Employees employees;
 	
@@ -70,6 +59,16 @@ public class Marks {
 	}
 	public void setEmployees(Employees employees) {
 		this.employees = employees;
+	}
+	@ManyToOne
+	@JoinColumn(name="customers_id")
+	private Customers customers;
+	
+	public Customers getCustomers() {
+		return customers;
+	}
+	public void setCustomers(Customers customers) {
+		this.customers = customers;
 	}
 
 /*Code between start and end will not be removed during generation.*/

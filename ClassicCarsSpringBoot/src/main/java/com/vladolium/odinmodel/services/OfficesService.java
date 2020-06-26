@@ -58,23 +58,23 @@ public class OfficesService implements OfficesInterface {
 	@Override
 	public Iterable<Offices> search(
 		String state,
+		String postalCode,
 		String city,
-		String country,
-		String territory,
 		String addressLine1,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String territory,
+		String addressLine2,
+		String country
 	) {
 		BooleanBuilder where = dynamicWhere(
 			state,
+			postalCode,
 			city,
-			country,
-			territory,
 			addressLine1,
-			addressLine2,
 			phone,
-			postalCode	
+			territory,
+			addressLine2,
+			country	
 		);
 		return officesRepository.findAll(where);
 	}
@@ -83,36 +83,36 @@ public class OfficesService implements OfficesInterface {
 	public Page<Offices> searchPagination(
 		Pageable page,
 		String state,
+		String postalCode,
 		String city,
-		String country,
-		String territory,
 		String addressLine1,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String territory,
+		String addressLine2,
+		String country
 	) {
 		BooleanBuilder where = dynamicWhere(
 			state,
+			postalCode,
 			city,
-			country,
-			territory,
 			addressLine1,
-			addressLine2,
 			phone,
-			postalCode
+			territory,
+			addressLine2,
+			country
 		);
 		return officesRepository.findAll(where, page);
 	}
 	
 	public BooleanBuilder dynamicWhere(
 		String state,
+		String postalCode,
 		String city,
-		String country,
-		String territory,
 		String addressLine1,
-		String addressLine2,
 		String phone,
-		String postalCode
+		String territory,
+		String addressLine2,
+		String country
 	) {
 		QOffices qOffices = QOffices.offices;
 	
@@ -121,26 +121,26 @@ public class OfficesService implements OfficesInterface {
 		if (state != null) {
 			where.and(qOffices.state.containsIgnoreCase(state));
 		}
+		if (postalCode != null) {
+			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
+		}
 		if (city != null) {
 			where.and(qOffices.city.containsIgnoreCase(city));
-		}
-		if (country != null) {
-			where.and(qOffices.country.containsIgnoreCase(country));
-		}
-		if (territory != null) {
-			where.and(qOffices.territory.containsIgnoreCase(territory));
 		}
 		if (addressLine1 != null) {
 			where.and(qOffices.addressLine1.containsIgnoreCase(addressLine1));
 		}
-		if (addressLine2 != null) {
-			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
-		}
 		if (phone != null) {
 			where.and(qOffices.phone.containsIgnoreCase(phone));
 		}
-		if (postalCode != null) {
-			where.and(qOffices.postalCode.containsIgnoreCase(postalCode));
+		if (territory != null) {
+			where.and(qOffices.territory.containsIgnoreCase(territory));
+		}
+		if (addressLine2 != null) {
+			where.and(qOffices.addressLine2.containsIgnoreCase(addressLine2));
+		}
+		if (country != null) {
+			where.and(qOffices.country.containsIgnoreCase(country));
 		}
 	
 		return where;

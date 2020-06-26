@@ -12,17 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface MarksRepository extends JpaRepository<Marks, Long>, QuerydslPredicateExecutor<Marks> {
 
-	Marks findByCommentEquals(String comment);
-	
 	Marks findByIdEquals(Long id);
 
-	Iterable <Marks> findByCustomersIdEquals(Long customersId);
-	
-	Page <Marks> findByCustomersIdEquals(Long customersId, Pageable page);						
-	
 	Iterable <Marks> findByEmployeesIdEquals(Long employeesId);
 	
-	Page <Marks> findByEmployeesIdEquals(Long employeesId, Pageable page);
+	Page <Marks> findByEmployeesIdEquals(Long employeesId, Pageable page);						
+	
+	Iterable <Marks> findByCustomersIdEquals(Long customersId);
+	
+	Page <Marks> findByCustomersIdEquals(Long customersId, Pageable page);
 
 	Iterable <Marks> findByCustomersCustomerNameEquals(String customersCustomerName);
 	
