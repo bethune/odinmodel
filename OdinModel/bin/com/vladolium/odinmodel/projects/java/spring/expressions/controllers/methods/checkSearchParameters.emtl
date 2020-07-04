@@ -4,10 +4,10 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../../../components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0"/>
-    <imports href="../../../components/controllers/parameters/searchParameterManyToManyRelationship.emtl#/0"/>
-    <imports href="../../../components/controllers/parameters/searchParameterOneToManyRelationship.emtl#/0"/>
-    <imports href="../../../components/controllers/parameters/searchParameterField.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterManyToManyRelationship.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterOneToManyRelationship.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterField.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="checkSearchParameters" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation" definition="/0/checkRelationshipForeignKeys">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -23,7 +23,7 @@
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1888" endPosition="2241" value="&#xA;Checks for the search parameters among relationships (foreign keys) and fields&#xA;of the currrent class from the UML class diagram i.e. the domain model.&#xA;&#xA;This template uses subtemplates for the better overview of the Acceleo expressions.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1888" endPosition="2241" value="&#xD;&#xA;Checks for the search parameters among relationships (foreign keys) and fields&#xD;&#xA;of the currrent class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;This template uses subtemplates for the better overview of the Acceleo expressions.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
@@ -98,7 +98,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="../../../components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
+                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkManyToOneRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -447,7 +447,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="../../../components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
+                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkOneToOneRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -792,7 +792,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="../../../components/controllers/parameters/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
+                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkManyToManyRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -1119,7 +1119,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../components/controllers/parameters/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
+            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkOneToManyRelationship/%/relationship">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1288,7 +1288,7 @@
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="../../../components/controllers/parameters/searchParameterField.emtl#/0/searchParameterField"/>
+          <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterField.emtl#/0/searchParameterField"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
           </argument>
@@ -1539,7 +1539,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1554,7 +1554,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/controllers/parameters/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1566,7 +1566,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/controllers/parameters/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1578,7 +1578,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/controllers/parameters/searchParameterField.emtl#/0/searchParameterField"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/controllers/parameters/searchParameterField.emtl#/0/searchParameterField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">

@@ -19,24 +19,27 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module project('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module chooseProjectType('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::expressions::springBootWithSpringDataJpaRestProject/]
+[import com::vladolium::odinmodel::projects::java::spring::springBoot/]
+[**
+ * Future types: Spring 3, JSF.
+*/]
+[comment][import com::vladolium::odinmodel::projects::java::spring::expressions::springBootWithSpringDataJpaRestProject/][/comment]
 [comment][import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/][/comment]
 
 [**
- * Project setting
+ * Project type setting.
  * 
  * OMPOC (OdinModel Point Of Customization)
  * 
- * User may set which project OdinModel prototypes 
- * by leaving target project's template uncommented.
+ * User may set which project OdinModel prototypes by leaving the target project's template uncommented.
  * 
  * NOTE: Only one project template should stay uncommented.
  * 
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public project(class : Class)]
+[template public chooseProjectType(class : Class)]
 [springBootWithSpringDataJpaRestProject()/]
 [comment][jsfWithSpringDataJpaProject()/][/comment]
 [/template]

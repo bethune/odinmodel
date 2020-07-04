@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="main" nsURI="com::vladolium::odinmodel::main::main" startHeaderPosition="1281" endHeaderPosition="1389">
+  <mtl:Module name="main" nsURI="com::vladolium::odinmodel::main::main" startHeaderPosition="1281" endHeaderPosition="1399">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../projects/project.emtl#/0"/>
-    <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="1401" endPosition="1460" value="[import com::vladolium::odinmodel::springboot::springboot/]"/>
-    </ownedModuleElement>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/chooseProjectType.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="main" visibility="Public" main="true">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="../projects/project.emtl#/0/project"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/chooseProjectType.emtl#/0/chooseProjectType"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/6">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1475" endPosition="1640" value="&#xA;Represents a single entry point for the project prototyping.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1406" endPosition="1616" value="&#xD;&#xA;Represents a single entry point for the project prototyping.&#xD;&#xA;The beginning of the generation workflow.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
@@ -58,12 +54,12 @@
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
-      <eOperations name="project">
+      <eOperations name="chooseProjectType">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../projects/project.emtl#/0/project"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/chooseProjectType.emtl#/0/chooseProjectType"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -116,44 +112,34 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/%">
-      <details key="start" value="1392"/>
-      <details key="end" value="1470"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/main">
-      <details key="start" value="1643"/>
-      <details key="end" value="1757"/>
+    <eAnnotations source="positions.0" references="/0/main">
+      <details key="start" value="1619"/>
+      <details key="end" value="1708"/>
       <details key="line" value="32"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/main/%">
-      <details key="start" value="1699"/>
-      <details key="end" value="1708"/>
+    <eAnnotations source="positions.1" references="/0/main/%">
+      <details key="start" value="1675"/>
+      <details key="end" value="1694"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/main/%/self">
+    <eAnnotations source="positions.2" references="/0/main/%/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/main/%.1">
-      <details key="start" value="1710"/>
-      <details key="end" value="1711"/>
-      <details key="line" value="35"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/main/%.2">
-      <details key="start" value="1472"/>
-      <details key="end" value="1642"/>
+    <eAnnotations source="positions.3" references="/0/main/%.1">
+      <details key="start" value="1403"/>
+      <details key="end" value="1618"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/main/%.2/class">
+    <eAnnotations source="positions.4" references="/0/main/%.1/class">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/main/class">
-      <details key="start" value="1665"/>
-      <details key="end" value="1678"/>
+    <eAnnotations source="positions.5" references="/0/main/class">
+      <details key="start" value="1641"/>
+      <details key="end" value="1654"/>
       <details key="line" value="32"/>
     </eAnnotations>
   </ecore:EAnnotation>

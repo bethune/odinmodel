@@ -4,11 +4,11 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../../../components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0"/>
-    <imports href="../../../components/services/conditions/specification/specificationConditionManyToManyRelationship.emtl#/0"/>
-    <imports href="../../../components/services/conditions/specification/specificationConditionOneToManyRelationship.emtl#/0"/>
-    <imports href="../../../components/services/conditions/specification/specificationConditionStringField.emtl#/0"/>
-    <imports href="../../../components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionManyToManyRelationship.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionOneToManyRelationship.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionStringField.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="checkSpecificationConditions" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation" definition="/0/checkFields">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -24,7 +24,7 @@
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="2141" endPosition="2501" value="&#xA;Checks for the query builder parameters among relationships (foreign keys) and fields&#xA;of the currrent class from the UML class diagram i.e. the domain model.&#xA;&#xA;This template uses subtemplates for the better overview of the Acceleo expressions.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="2141" endPosition="2501" value="&#xD;&#xA;Checks for the query builder parameters among relationships (foreign keys) and fields&#xD;&#xA;of the currrent class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;This template uses subtemplates for the better overview of the Acceleo expressions.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
@@ -64,7 +64,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".where"/>
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="../../../components/services/conditions/specification/specificationConditionStringField.emtl#/0/specificationConditionStringField"/>
+              <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionStringField.emtl#/0/specificationConditionStringField"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkFields/@init/@variable.0">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               </argument>
@@ -95,7 +95,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".where"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="../../../components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0/specificationConditionOtherThanStringField"/>
+                <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0/specificationConditionOtherThanStringField"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkFields/@init/@variable.0">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </argument>
@@ -122,7 +122,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".and"/>
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="../../../components/services/conditions/specification/specificationConditionStringField.emtl#/0/specificationConditionStringField"/>
+              <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionStringField.emtl#/0/specificationConditionStringField"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkFields/@init/@variable.0">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               </argument>
@@ -153,7 +153,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".and"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="../../../components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0/specificationConditionOtherThanStringField"/>
+                <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0/specificationConditionOtherThanStringField"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkFields/@init/@variable.0">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </argument>
@@ -291,7 +291,7 @@
                     <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".and"/>
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="../../../components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0/specificationConditionManyOrOneToOneRelationship"/>
+                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0/specificationConditionManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkManyToOneRelationship/@init/@variable.0">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                       </argument>
@@ -644,7 +644,7 @@
                     <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".and"/>
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="../../../components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0/specificationConditionManyOrOneToOneRelationship"/>
+                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0/specificationConditionManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkOneToOneRelationship/@init/@variable.0">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                       </argument>
@@ -993,7 +993,7 @@
                     <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".and"/>
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="../../../components/services/conditions/specification/specificationConditionManyToManyRelationship.emtl#/0/specificationConditionManyToManyRelationship"/>
+                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionManyToManyRelationship.emtl#/0/specificationConditionManyToManyRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkManyToManyRelationship/@init/@variable.0">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                       </argument>
@@ -1327,7 +1327,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".and"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../components/services/conditions/specification/specificationConditionOneToManyRelationship.emtl#/0/specificationConditionOneToManyRelationship"/>
+            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionOneToManyRelationship.emtl#/0/specificationConditionOneToManyRelationship"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="entityNameUpperFirst" referredVariable="/0/checkOneToManyRelationship/@init/@variable.0">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </argument>
@@ -1599,7 +1599,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0/specificationConditionManyOrOneToOneRelationship"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionManyOrOneToOneRelationship.emtl#/0/specificationConditionManyOrOneToOneRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="entityNameUpperFirst">
@@ -1617,7 +1617,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/services/conditions/specification/specificationConditionManyToManyRelationship.emtl#/0/specificationConditionManyToManyRelationship"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionManyToManyRelationship.emtl#/0/specificationConditionManyToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="entityNameUpperFirst">
@@ -1635,7 +1635,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/services/conditions/specification/specificationConditionOneToManyRelationship.emtl#/0/specificationConditionOneToManyRelationship"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionOneToManyRelationship.emtl#/0/specificationConditionOneToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="entityNameUpperFirst">
@@ -1650,7 +1650,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/services/conditions/specification/specificationConditionStringField.emtl#/0/specificationConditionStringField"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionStringField.emtl#/0/specificationConditionStringField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="entityNameUpperFirst">
@@ -1665,7 +1665,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0/specificationConditionOtherThanStringField"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/conditions/specification/specificationConditionOtherThanStringField.emtl#/0/specificationConditionOtherThanStringField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="entityNameUpperFirst">
