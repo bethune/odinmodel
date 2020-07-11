@@ -4,10 +4,10 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToOne.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToMany.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToOne.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToMany.emtl#/0"/>
+    <imports href="../../../../components/models/jpa/relationships/manyToOne.emtl#/0"/>
+    <imports href="../../../../components/models/jpa/relationships/manyToMany.emtl#/0"/>
+    <imports href="../../../../components/models/jpa/relationships/oneToOne.emtl#/0"/>
+    <imports href="../../../../components/models/jpa/relationships/oneToMany.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="checkAllRelationships" visibility="Public">
       <init>
         <variable name="classNameUpperFirst">
@@ -28,7 +28,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
+            <definition href="../../../../components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -208,7 +208,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
+            <definition href="../../../../components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -374,7 +374,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
+            <definition href="../../../../components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/checkAllRelationships/class">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -606,7 +606,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
+          <references href="../../../../components/models/jpa/relationships/manyToOne.emtl#/0/manyToOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -621,7 +621,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
+          <references href="../../../../components/models/jpa/relationships/manyToMany.emtl#/0/manyToMany"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -636,7 +636,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
+          <references href="../../../../components/models/jpa/relationships/oneToOne.emtl#/0/oneToOne"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">

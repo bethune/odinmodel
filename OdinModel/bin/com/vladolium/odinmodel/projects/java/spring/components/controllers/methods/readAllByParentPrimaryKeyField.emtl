@@ -226,12 +226,12 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", page);&#xA;}"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1366" endPosition="1959" value="&#xA;Generates the read all by parent field and read all by parent field with pagination methods for the current controller in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the methods.&#xA;&#xA;@param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xA;@param parentField represents the field with the primary key from the parent entity&#xA;which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1366" endPosition="1959" value="&#xD;&#xA;Generates the read all by parent field and read all by parent field with pagination methods for the current controller in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the methods.&#xD;&#xA;&#xD;&#xA;@param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param parentField represents the field with the primary key from the parent entity&#xD;&#xA;which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="relationship">
           <body value=" represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
         <parametersDocumentation name="parentField">
-          <body value=" represents the field with the primary key from the parent entity&#xA;which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model."/>
+          <body value=" represents the field with the primary key from the parent entity&#xD;&#xA;which is in many-to-one relationship with the currrent class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
       </documentation>
       <parameter name="relationship">

@@ -124,7 +124,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Set;&#xA;}"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1346" endPosition="1736" value="&#xA;Generates code for many-to-many relationships.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize relationship definition.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;@param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1346" endPosition="1736" value="&#xD;&#xA;Generates code for many-to-many relationships.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize relationship definition.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param relationship represents the current relationship of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

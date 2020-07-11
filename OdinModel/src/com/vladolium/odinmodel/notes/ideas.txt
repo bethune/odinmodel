@@ -43,4 +43,13 @@ post(trim())
 post (replaceAll('\n\n', '\n').trim())
 
 
-e sad... jooq
+e sad... jooq --- ništa od toga, sranje je... koritim spring jpa specifikaciju...
+
+--------------------------------------------------------------------------------------------------------------------------
+	STRUKTURA ODINMODELA
+--------------------------------------------------------------------------------------------------------------------------
+0. main
+1. choose project platform: java, python... First level of choice for target platform...
+2. choose java project: spring, jsf...
+3. choose spring project: querydsl, jpaspecification...
+4.

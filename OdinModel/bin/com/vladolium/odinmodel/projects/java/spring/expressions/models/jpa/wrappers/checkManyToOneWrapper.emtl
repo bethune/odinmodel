@@ -184,7 +184,7 @@
         </iterSet>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1471" endPosition="1640" value="&#xA;Covers all many-to-one relationships for a current UML class.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1471" endPosition="1640" value="&#xD;&#xA;Covers all many-to-one relationships for a current UML class.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

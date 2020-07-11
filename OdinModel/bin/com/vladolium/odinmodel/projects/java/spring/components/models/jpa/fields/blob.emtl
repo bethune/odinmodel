@@ -98,7 +98,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;}"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1458" endPosition="1608" value="&#xA;Covers fields of type Blob with possible constraints if present.&#xA;&#xA;@param field represents the current field from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1458" endPosition="1608" value="&#xD;&#xA;Covers fields of type Blob with possible constraints if present.&#xD;&#xA;&#xD;&#xA;@param field represents the current field from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="field">
           <body value=" represents the current field from the current UML class."/>
         </parametersDocumentation>

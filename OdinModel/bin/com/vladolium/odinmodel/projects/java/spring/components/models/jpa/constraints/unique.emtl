@@ -7,7 +7,7 @@
     <ownedModuleElement xsi:type="mtl:Template" name="unique" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@Column(unique=true)"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1342" endPosition="1583" value="&#xA;Generates the unique constraint in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the constraint code.&#xA;&#xA;@param field represents the current field from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1342" endPosition="1583" value="&#xD;&#xA;Generates the unique constraint in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the constraint code.&#xD;&#xA;&#xD;&#xA;@param field represents the current field from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="field">
           <body value=" represents the current field from the current UML class."/>
         </parametersDocumentation>

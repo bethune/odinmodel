@@ -19,14 +19,14 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module projectStructure('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module springBootJpaSpecification('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithQuerydsl/]
+[comment][import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithQuerydsl/]
 [import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithSpecification/]
 [import com::vladolium::odinmodel::projects::java::spring::components::specifications::specification/]
 [import com::vladolium::odinmodel::projects::java::spring::components::services::service/]
 [import com::vladolium::odinmodel::projects::java::spring::components::interfaces::interface/]
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::controller/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::controller/][/comment]
 
 [**
  * Project structure setting
@@ -37,11 +37,11 @@
  *  
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public projectStructure(class : Class)]
-[jpaRepositoryWithQuerydsl()/]
+[template public springBootJpaSpecification(class : Class)]
+[comment][jpaRepositoryWithQuerydsl()/][/comment]
 [comment][jpaRepositoryWithSpecification()/][/comment]
 [comment][specification()/][/comment]
-[service()/]
+[comment][service()/]
 [interface()/]
-[controller()/]
+[controller()/][/comment]
 [/template]

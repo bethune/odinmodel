@@ -163,12 +163,12 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", Pageable page);&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1376" endPosition="1900" value="&#xA;Generates methods for the current repository in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the methods.&#xA;&#xA;@param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xA;@param oppositeEntityField represents the current field with the primary key constraint from the entity which is&#xA;&#x9;&#x9;  on the opposite end in the current many-to-one relationship from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1376" endPosition="1900" value="&#xD;&#xA;Generates methods for the current repository in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the methods.&#xD;&#xA;&#xD;&#xA;@param relationship represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param oppositeEntityField represents the current field with the primary key constraint from the entity which is&#xD;&#xA;&#x9;&#x9;  on the opposite end in the current many-to-one relationship from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="relationship">
           <body value=" represents the current many-to-one relationship of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
         <parametersDocumentation name="oppositeEntityField">
-          <body value=" represents the current field with the primary key constraint from the entity which is&#xA;&#x9;&#x9;  on the opposite end in the current many-to-one relationship from the current UML class."/>
+          <body value=" represents the current field with the primary key constraint from the entity which is&#xD;&#xA;&#x9;&#x9;  on the opposite end in the current many-to-one relationship from the current UML class."/>
         </parametersDocumentation>
       </documentation>
       <parameter name="relationship">

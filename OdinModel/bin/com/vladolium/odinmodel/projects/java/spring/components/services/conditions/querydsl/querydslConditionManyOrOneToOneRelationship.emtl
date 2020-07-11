@@ -82,7 +82,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xA;}"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1379" endPosition="2112" value="&#xA;Generates the query builder parameter of the dynamic search method for the current service in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the parameter.&#xA;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xA;@param relationship represents the current many-to-one or one-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xA;@param oppositeEntityField represents the field with the primary key from the parent entity&#xA;which is in many-to-one or one-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1379" endPosition="2112" value="&#xD;&#xA;Generates the query builder parameter of the dynamic search method for the current service in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the parameter.&#xD;&#xA;&#xD;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param relationship represents the current many-to-one or one-to-one relationship of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param oppositeEntityField represents the field with the primary key from the parent entity&#xD;&#xA;which is in many-to-one or one-to-one relationship with the currrent class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="entityNameUpperFirst">
           <body value=" represents the name of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
@@ -90,7 +90,7 @@
           <body value=" represents the current many-to-one or one-to-one relationship of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
         <parametersDocumentation name="oppositeEntityField">
-          <body value=" represents the field with the primary key from the parent entity&#xA;which is in many-to-one or one-to-one relationship with the currrent class from the UML class diagram i.e. the domain model."/>
+          <body value=" represents the field with the primary key from the parent entity&#xD;&#xA;which is in many-to-one or one-to-one relationship with the currrent class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
       </documentation>
       <parameter name="entityNameUpperFirst">

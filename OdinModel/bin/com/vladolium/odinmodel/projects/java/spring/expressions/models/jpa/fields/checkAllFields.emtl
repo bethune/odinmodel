@@ -606,7 +606,7 @@
         </iterSet>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="2556" endPosition="2790" value="&#xA;Covers all fields which persist in a database.&#xA;&#xA;NOTE: Fileds that entity inherits from an abstract class are not covered.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="2556" endPosition="2790" value="&#xD;&#xA;Covers all fields which persist in a database.&#xD;&#xA;&#xD;&#xA;NOTE: Fileds that entity inherits from an abstract class are not covered.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

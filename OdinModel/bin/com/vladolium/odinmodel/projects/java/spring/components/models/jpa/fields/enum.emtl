@@ -45,7 +45,7 @@
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1689" endPosition="1917" value="&#xA;Covers fields of type Enum with possible constraints if present.&#xA;&#xA;@param field represents the current field from the current UML class.&#xA;@param enum represents the current enumeration from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1689" endPosition="1917" value="&#xD;&#xA;Covers fields of type Enum with possible constraints if present.&#xD;&#xA;&#xD;&#xA;@param field represents the current field from the current UML class.&#xD;&#xA;@param enum represents the current enumeration from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="field">
           <body value=" represents the current field from the current UML class."/>
         </parametersDocumentation>

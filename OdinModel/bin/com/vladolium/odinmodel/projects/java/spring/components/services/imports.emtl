@@ -77,7 +77,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".wrappers.*;&#xA;&#xA;import com.querydsl.core.BooleanBuilder;"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1343" endPosition="1566" value="&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may set Java imports for all Spring services in a single place.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1343" endPosition="1566" value="&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may set Java imports for all Spring services in a single place.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

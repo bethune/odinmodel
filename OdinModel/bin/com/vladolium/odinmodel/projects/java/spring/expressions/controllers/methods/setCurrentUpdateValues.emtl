@@ -23,7 +23,7 @@
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1857" endPosition="2199" value="&#xA;Checks for the values among relationships (foreign keys) and fields&#xA;of the currrent class from the UML class diagram i.e. the domain model.&#xA;&#xA;This template uses subtemplates for the better overview of the Acceleo expressions.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1857" endPosition="2199" value="&#xD;&#xA;Checks for the values among relationships (foreign keys) and fields&#xD;&#xA;of the currrent class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;This template uses subtemplates for the better overview of the Acceleo expressions.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

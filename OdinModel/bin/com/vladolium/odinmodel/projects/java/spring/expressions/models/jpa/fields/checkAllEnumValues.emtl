@@ -25,7 +25,7 @@
         </iterSet>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1354" endPosition="1495" value="&#xA;Covers all values of the current enumeration field.&#xA;&#xA;@param enum represents the current enumeration from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1354" endPosition="1495" value="&#xD;&#xA;Covers all values of the current enumeration field.&#xD;&#xA;&#xD;&#xA;@param enum represents the current enumeration from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="enum">
           <body value=" represents the current enumeration from the current UML class."/>
         </parametersDocumentation>

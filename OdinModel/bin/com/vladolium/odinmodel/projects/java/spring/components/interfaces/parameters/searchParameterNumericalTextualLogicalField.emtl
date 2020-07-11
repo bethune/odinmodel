@@ -31,7 +31,7 @@
         </source>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1379" endPosition="1713" value="&#xA;Generates the search parameter of the dynamic search method for the current interface in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the parameter.&#xA;&#xA;@param field represents the current field with the primary key or unique constraint from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1379" endPosition="1713" value="&#xD;&#xA;Generates the search parameter of the dynamic search method for the current interface in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the parameter.&#xD;&#xA;&#xD;&#xA;@param field represents the current field with the primary key or unique constraint from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="field">
           <body value=" represents the current field with the primary key or unique constraint from the current UML class."/>
         </parametersDocumentation>

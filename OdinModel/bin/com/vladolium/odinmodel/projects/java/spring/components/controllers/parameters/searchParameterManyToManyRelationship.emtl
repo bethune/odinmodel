@@ -33,7 +33,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Set,"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1373" endPosition="1739" value="&#xA;Generates the search parameter of the dynamic search method for the current controller in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the parameter.&#xA;&#xA;@param relationship represents the current many-to-many relationship of the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1373" endPosition="1739" value="&#xD;&#xA;Generates the search parameter of the dynamic search method for the current controller in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the parameter.&#xD;&#xA;&#xD;&#xA;@param relationship represents the current many-to-many relationship of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="relationship">
           <body value=" represents the current many-to-many relationship of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

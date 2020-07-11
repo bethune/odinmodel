@@ -47,7 +47,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1343" endPosition="1802" value="&#xA;Generates the read one by id and read one by unique value methods for the current interface in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the method.&#xA;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xA;@param field represents the current field with the primary key or unique constraint from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1343" endPosition="1802" value="&#xD;&#xA;Generates the read one by id and read one by unique value methods for the current interface in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the method.&#xD;&#xA;&#xD;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param field represents the current field with the primary key or unique constraint from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="entityNameUpperFirst">
           <body value=" represents the name of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

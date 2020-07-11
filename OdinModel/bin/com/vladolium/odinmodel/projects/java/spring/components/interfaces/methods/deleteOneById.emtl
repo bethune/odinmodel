@@ -44,7 +44,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1349" endPosition="1646" value="&#xA;Generates a delete one by id method for the current interface in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the method.&#xA;&#xA;@param field represents the current field with the primary key constraint from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1349" endPosition="1646" value="&#xD;&#xA;Generates a delete one by id method for the current interface in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the method.&#xD;&#xA;&#xD;&#xA;@param field represents the current field with the primary key constraint from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="field">
           <body value=" represents the current field with the primary key constraint from the current UML class."/>
         </parametersDocumentation>

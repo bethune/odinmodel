@@ -63,7 +63,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;}"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1343" endPosition="1880" value="&#xA;Generates a read one by id method for the current service in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the method.&#xA;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xA;@param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xA;@param field represents the current field with the primary key constraint from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1343" endPosition="1880" value="&#xD;&#xA;Generates a read one by id method for the current service in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the method.&#xD;&#xA;&#xD;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param entityNameLowerFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param field represents the current field with the primary key constraint from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="entityNameUpperFirst">
           <body value=" represents the name of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

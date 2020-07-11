@@ -77,7 +77,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;}&#xA;"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1461" endPosition="1614" value="&#xA;Covers fields of type Instant with possible constraints if present.&#xA;&#xA;@param field represents the current field from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1461" endPosition="1614" value="&#xD;&#xA;Covers fields of type Instant with possible constraints if present.&#xD;&#xA;&#xD;&#xA;@param field represents the current field from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="field">
           <body value=" represents the current field from the current UML class."/>
         </parametersDocumentation>

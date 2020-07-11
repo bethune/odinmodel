@@ -4,16 +4,16 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterManyToManyRelationship.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterOneToManyRelationship.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterDateField.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterTimeField.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterDateTimeField.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterInstantField.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterBlobField.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterClobField.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterNumericalTextualLogicalField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterManyToManyRelationship.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterOneToManyRelationship.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterDateField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterTimeField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterDateTimeField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterInstantField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterBlobField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterClobField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/search/searchParameterNumericalTextualLogicalField.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="checkSearchParameters" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation" definition="/0/checkRelationshipForeignKeys">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -104,7 +104,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
+                      <definition href="../../../components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkManyToOneRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -453,7 +453,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
+                      <definition href="../../../components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkOneToOneRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -798,7 +798,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
+                      <definition href="../../../components/services/parameters/search/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkManyToManyRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -1128,7 +1128,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
+            <definition href="../../../components/services/parameters/search/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkOneToManyRelationship/%/relationship">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1298,7 +1298,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterDateField.emtl#/0/searchParameterDateField"/>
+            <definition href="../../../components/services/parameters/search/searchParameterDateField.emtl#/0/searchParameterDateField"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1335,7 +1335,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterTimeField.emtl#/0/searchParameterTimeField"/>
+            <definition href="../../../components/services/parameters/search/searchParameterTimeField.emtl#/0/searchParameterTimeField"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1372,7 +1372,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterDateTimeField.emtl#/0/searchParameterDateTimeField"/>
+            <definition href="../../../components/services/parameters/search/searchParameterDateTimeField.emtl#/0/searchParameterDateTimeField"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1409,7 +1409,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterInstantField.emtl#/0/searchParameterInstantField"/>
+            <definition href="../../../components/services/parameters/search/searchParameterInstantField.emtl#/0/searchParameterInstantField"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1446,7 +1446,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterBlobField.emtl#/0/searchParameterBlobField"/>
+            <definition href="../../../components/services/parameters/search/searchParameterBlobField.emtl#/0/searchParameterBlobField"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1483,7 +1483,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterClobField.emtl#/0/searchParameterClobField"/>
+            <definition href="../../../components/services/parameters/search/searchParameterClobField.emtl#/0/searchParameterClobField"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1520,7 +1520,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterNumericalTextualLogicalField.emtl#/0/searchParameterNumericalTextualLogicalField"/>
+            <definition href="../../../components/services/parameters/search/searchParameterNumericalTextualLogicalField.emtl#/0/searchParameterNumericalTextualLogicalField"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1900,7 +1900,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
+          <references href="../../../components/services/parameters/search/searchParameterManyOrOneToOneRelationship.emtl#/0/searchParameterManyOrOneToOneRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1915,7 +1915,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
+          <references href="../../../components/services/parameters/search/searchParameterManyToManyRelationship.emtl#/0/searchParameterManyToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1930,7 +1930,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
+          <references href="../../../components/services/parameters/search/searchParameterOneToManyRelationship.emtl#/0/searchParameterOneToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1942,7 +1942,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterDateField.emtl#/0/searchParameterDateField"/>
+          <references href="../../../components/services/parameters/search/searchParameterDateField.emtl#/0/searchParameterDateField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">
@@ -1954,7 +1954,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterTimeField.emtl#/0/searchParameterTimeField"/>
+          <references href="../../../components/services/parameters/search/searchParameterTimeField.emtl#/0/searchParameterTimeField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">
@@ -1966,7 +1966,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterDateTimeField.emtl#/0/searchParameterDateTimeField"/>
+          <references href="../../../components/services/parameters/search/searchParameterDateTimeField.emtl#/0/searchParameterDateTimeField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">
@@ -1978,7 +1978,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterInstantField.emtl#/0/searchParameterInstantField"/>
+          <references href="../../../components/services/parameters/search/searchParameterInstantField.emtl#/0/searchParameterInstantField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">
@@ -1990,7 +1990,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterBlobField.emtl#/0/searchParameterBlobField"/>
+          <references href="../../../components/services/parameters/search/searchParameterBlobField.emtl#/0/searchParameterBlobField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">
@@ -2002,7 +2002,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterClobField.emtl#/0/searchParameterClobField"/>
+          <references href="../../../components/services/parameters/search/searchParameterClobField.emtl#/0/searchParameterClobField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">
@@ -2014,7 +2014,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/search/searchParameterNumericalTextualLogicalField.emtl#/0/searchParameterNumericalTextualLogicalField"/>
+          <references href="../../../components/services/parameters/search/searchParameterNumericalTextualLogicalField.emtl#/0/searchParameterNumericalTextualLogicalField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">

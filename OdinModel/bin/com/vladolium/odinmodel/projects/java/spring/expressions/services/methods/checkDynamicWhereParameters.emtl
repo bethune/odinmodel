@@ -4,10 +4,10 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterManyToManyRelationship.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterOneToManyRelationship.emtl#/0"/>
-    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterField.emtl#/0"/>
+    <imports href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0"/>
+    <imports href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterManyToManyRelationship.emtl#/0"/>
+    <imports href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterOneToManyRelationship.emtl#/0"/>
+    <imports href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterField.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="checkDynamicWhereParameters" visibility="Public">
       <body xsi:type="mtl:TemplateInvocation" definition="/0/checkRelationshipForeignKeys">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -98,7 +98,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0/dynamicWhereParameterManyOrOneToOneRelationship"/>
+                      <definition href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0/dynamicWhereParameterManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkManyToOneRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -447,7 +447,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0/dynamicWhereParameterManyOrOneToOneRelationship"/>
+                      <definition href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0/dynamicWhereParameterManyOrOneToOneRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkOneToOneRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -792,7 +792,7 @@
                   <body xsi:type="mtl:IfBlock">
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterManyToManyRelationship.emtl#/0/dynamicWhereParameterManyToManyRelationship"/>
+                      <definition href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterManyToManyRelationship.emtl#/0/dynamicWhereParameterManyToManyRelationship"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkManyToManyRelationship/%/relationship">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -1119,7 +1119,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterOneToManyRelationship.emtl#/0/dynamicWhereParameterOneToManyRelationship"/>
+            <definition href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterOneToManyRelationship.emtl#/0/dynamicWhereParameterOneToManyRelationship"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="relationship" referredVariable="/0/checkOneToManyRelationship/%/relationship">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
             </argument>
@@ -1288,7 +1288,7 @@
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterField.emtl#/0/dynamicWhereParameterField"/>
+          <definition href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterField.emtl#/0/dynamicWhereParameterField"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="field" referredVariable="/0/checkFields/%/field">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
           </argument>
@@ -1539,7 +1539,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0/dynamicWhereParameterManyOrOneToOneRelationship"/>
+          <references href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterManyOrOneToOneRelationship.emtl#/0/dynamicWhereParameterManyOrOneToOneRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1554,7 +1554,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterManyToManyRelationship.emtl#/0/dynamicWhereParameterManyToManyRelationship"/>
+          <references href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterManyToManyRelationship.emtl#/0/dynamicWhereParameterManyToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1566,7 +1566,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterOneToManyRelationship.emtl#/0/dynamicWhereParameterOneToManyRelationship"/>
+          <references href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterOneToManyRelationship.emtl#/0/dynamicWhereParameterOneToManyRelationship"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="relationship">
@@ -1578,7 +1578,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/components/services/parameters/dynamicwhere/dynamicWhereParameterField.emtl#/0/dynamicWhereParameterField"/>
+          <references href="../../../components/services/parameters/dynamicwhere/dynamicWhereParameterField.emtl#/0/dynamicWhereParameterField"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="field">

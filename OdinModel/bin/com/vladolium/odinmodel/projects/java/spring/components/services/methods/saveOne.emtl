@@ -55,7 +55,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;}"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1343" endPosition="1669" value="&#xA;Generates a save method for the current service in a target project which covers create, update, and update when IRIC cases.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the method.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1343" endPosition="1669" value="&#xD;&#xA;Generates a save method for the current service in a target project which covers create, update, and update when IRIC cases.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the method.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

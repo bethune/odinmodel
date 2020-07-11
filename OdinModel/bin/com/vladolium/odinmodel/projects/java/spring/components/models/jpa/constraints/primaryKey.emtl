@@ -7,7 +7,7 @@
     <ownedModuleElement xsi:type="mtl:Template" name="primaryKey" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@Id&#xA;@GeneratedValue(strategy = GenerationType.AUTO)"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1346" endPosition="1592" value="&#xA;Generates the primary key constraint in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the constraint code.&#xA;&#xA;@param field represents the current field from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1346" endPosition="1592" value="&#xD;&#xA;Generates the primary key constraint in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the constraint code.&#xD;&#xA;&#xD;&#xA;@param field represents the current field from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="field">
           <body value=" represents the current field from the current UML class."/>
         </parametersDocumentation>

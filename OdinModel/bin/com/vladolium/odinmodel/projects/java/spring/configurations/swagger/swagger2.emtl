@@ -130,7 +130,7 @@
         </charset>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1344" endPosition="1590" value="&#xA;Project structure setting&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize swagger for the target project.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1344" endPosition="1590" value="&#xD;&#xA;Project structure setting&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize swagger for the target project.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

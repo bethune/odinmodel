@@ -22,7 +22,7 @@
 [module springBootWithSpringDataJpaRestProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::expressions::models::jpaModel/]
-[import com::vladolium::odinmodel::projects::java::spring::projectStructure/]
+[import com::vladolium::odinmodel::projects::java::spring::chooseSpringBootProjectStructure/]
 [import com::vladolium::odinmodel::projects::java::spring::configurations::configuration /]
 
 [**

@@ -7,7 +7,7 @@
     <ownedModuleElement xsi:type="mtl:Template" name="imports" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import javax.persistence.*;&#xA;import javax.validation.constraints.*;&#xA;import java.time.*;&#xA;import java.util.*;&#xA;&#xA;import org.springframework.format.annotation.DateTimeFormat;&#xA;import com.fasterxml.jackson.annotation.JsonFormat;"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1343" endPosition="1567" value="&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may set Java imports for all project entities in a single place.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1343" endPosition="1567" value="&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may set Java imports for all project entities in a single place.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

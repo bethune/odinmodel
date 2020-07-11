@@ -19,27 +19,23 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module chooseProjectType('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module chooseSpringProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::springBoot/]
-[**
- * Future types: Spring 3, JSF.
-*/]
-[comment][import com::vladolium::odinmodel::projects::java::spring::expressions::springBootWithSpringDataJpaRestProject/][/comment]
-[comment][import com::vladolium::odinmodel::projects::java::jsf::jsfWithSpringDataJpaProject/][/comment]
+[import com::vladolium::odinmodel::projects::java::spring::springboot::springBootJpaSpecification/]
+[import com::vladolium::odinmodel::projects::java::spring::springboot::springBootJpaWithQuerydsl/]
 
 [**
- * Project type setting.
+ * Spring project setting.
  * 
- * OMPOC (OdinModel Point Of Customization)
+ * OMPOC
  * 
- * User may set which project OdinModel prototypes by leaving the target project's template uncommented.
+ * User may set which Spring project OdinModel prototypes (for example: SpringBoot, Spring 3, etc.).
  * 
- * NOTE: Only one project template should stay uncommented.
+ * NOTE: Only one template should stay uncommented. Current OdinModel version supports only SpringBoot variants.
  * 
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public chooseProjectType(class : Class)]
-[springBootWithSpringDataJpaRestProject()/]
-[comment][jsfWithSpringDataJpaProject()/][/comment]
+[template public chooseSpringProject(class : Class)]
+[comment][springBootJpaSpecification()/][/comment]
+[springBootJpaWithQuerydsl()/]
 [/template]

@@ -4,9 +4,9 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="models/jpaModel.emtl#/0"/>
-    <imports href="../projectStructure.emtl#/0"/>
-    <imports href="../configurations/configuration.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/expressions/models/jpaModel.emtl#/0"/>
+    <imports href="../chooseSpringBootProjectStructure.emtl#/0"/>
+    <imports href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/configurations/configuration.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="springBootWithSpringDataJpaRestProject" visibility="Public">
       <init>
         <variable name="isEntity">
@@ -29,7 +29,7 @@
       </init>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="models/jpaModel.emtl#/0/jpaModel"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/expressions/models/jpaModel.emtl#/0/jpaModel"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/7">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -38,7 +38,7 @@
       <body xsi:type="mtl:IfBlock">
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="../projectStructure.emtl#/0/projectStructure"/>
+          <definition href="../chooseSpringBootProjectStructure.emtl#/0/projectStructure"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/9">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -50,13 +50,13 @@
       </body>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="../configurations/configuration.emtl#/0/configuration"/>
+        <definition href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/configurations/configuration.emtl#/0/configuration"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/10">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1636" endPosition="1897" value="&#xA;Base for project structure.&#xA;&#xA;Checks for a UML class that is not an abstract one - important for controller, interface, service, and repository files.&#xA;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1652" endPosition="1913" value="&#xD;&#xA;Base for project structure.&#xD;&#xA;&#xD;&#xA;Checks for a UML class that is not an abstract one - important for controller, interface, service, and repository files.&#xD;&#xA;&#xD;&#xA;@param class represents the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" represents the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
@@ -101,7 +101,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="models/jpaModel.emtl#/0/jpaModel"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/expressions/models/jpaModel.emtl#/0/jpaModel"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -113,7 +113,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../projectStructure.emtl#/0/projectStructure"/>
+          <references href="../chooseSpringBootProjectStructure.emtl#/0/projectStructure"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="class">
@@ -125,7 +125,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../configurations/configuration.emtl#/0/configuration"/>
+          <references href="platform:/resource/OdinModel/bin/com/vladolium/odinmodel/projects/java/spring/configurations/configuration.emtl#/0/configuration"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -191,43 +191,43 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/springBootWithSpringDataJpaRestProject">
-      <details key="start" value="1900"/>
-      <details key="end" value="2108"/>
+      <details key="start" value="1916"/>
+      <details key="end" value="2124"/>
       <details key="line" value="35"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/springBootWithSpringDataJpaRestProject/@init">
-      <details key="start" value="1970"/>
-      <details key="end" value="2020"/>
+      <details key="start" value="1986"/>
+      <details key="end" value="2036"/>
       <details key="line" value="35"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/springBootWithSpringDataJpaRestProject/@init/@variable.0">
-      <details key="start" value="1973"/>
-      <details key="end" value="2018"/>
+      <details key="start" value="1989"/>
+      <details key="end" value="2034"/>
       <details key="line" value="36"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/springBootWithSpringDataJpaRestProject/@init/@variable.0/%">
-      <details key="start" value="1994"/>
-      <details key="end" value="2018"/>
+      <details key="start" value="2010"/>
+      <details key="end" value="2034"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/springBootWithSpringDataJpaRestProject/@init/@variable.0/%/%">
-      <details key="start" value="1994"/>
-      <details key="end" value="2010"/>
+      <details key="start" value="2010"/>
+      <details key="end" value="2026"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/springBootWithSpringDataJpaRestProject/@init/@variable.0/%/%/class">
-      <details key="start" value="1994"/>
-      <details key="end" value="1999"/>
+      <details key="start" value="2010"/>
+      <details key="end" value="2015"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/springBootWithSpringDataJpaRestProject/@init/@variable.0/%/%.1">
-      <details key="start" value="2013"/>
-      <details key="end" value="2018"/>
+      <details key="start" value="2029"/>
+      <details key="end" value="2034"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/springBootWithSpringDataJpaRestProject/%">
-      <details key="start" value="2023"/>
-      <details key="end" value="2033"/>
+      <details key="start" value="2039"/>
+      <details key="end" value="2049"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/springBootWithSpringDataJpaRestProject/%/self">
@@ -236,18 +236,18 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/springBootWithSpringDataJpaRestProject/%.1">
-      <details key="start" value="2035"/>
-      <details key="end" value="2036"/>
+      <details key="start" value="2051"/>
+      <details key="end" value="2052"/>
       <details key="line" value="38"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/springBootWithSpringDataJpaRestProject/%.2">
-      <details key="start" value="2036"/>
-      <details key="end" value="2077"/>
+      <details key="start" value="2052"/>
+      <details key="end" value="2093"/>
       <details key="line" value="38"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/springBootWithSpringDataJpaRestProject/%.2/%">
-      <details key="start" value="2051"/>
-      <details key="end" value="2069"/>
+      <details key="start" value="2067"/>
+      <details key="end" value="2085"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/springBootWithSpringDataJpaRestProject/%.2/%/self">
@@ -256,18 +256,18 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/springBootWithSpringDataJpaRestProject/%.2/%.1">
-      <details key="start" value="2071"/>
-      <details key="end" value="2072"/>
+      <details key="start" value="2087"/>
+      <details key="end" value="2088"/>
       <details key="line" value="40"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/springBootWithSpringDataJpaRestProject/%.2/isEntity">
-      <details key="start" value="2040"/>
-      <details key="end" value="2048"/>
+      <details key="start" value="2056"/>
+      <details key="end" value="2064"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/springBootWithSpringDataJpaRestProject/%.3">
-      <details key="start" value="2079"/>
-      <details key="end" value="2094"/>
+      <details key="start" value="2095"/>
+      <details key="end" value="2110"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/springBootWithSpringDataJpaRestProject/%.3/self">
@@ -276,8 +276,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/springBootWithSpringDataJpaRestProject/%.4">
-      <details key="start" value="1633"/>
-      <details key="end" value="1899"/>
+      <details key="start" value="1649"/>
+      <details key="end" value="1915"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/springBootWithSpringDataJpaRestProject/%.4/class">
@@ -286,8 +286,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/springBootWithSpringDataJpaRestProject/class">
-      <details key="start" value="1956"/>
-      <details key="end" value="1969"/>
+      <details key="start" value="1972"/>
+      <details key="end" value="1985"/>
       <details key="line" value="35"/>
     </eAnnotations>
   </ecore:EAnnotation>

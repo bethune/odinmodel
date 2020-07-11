@@ -19,17 +19,24 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module main('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module springBootJpaWithQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::chooseProjectPlatform/]
+[comment][import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithQuerydsl/]
+[import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithSpecification/]
+[import com::vladolium::odinmodel::projects::java::spring::components::specifications::specification/]
+[import com::vladolium::odinmodel::projects::java::spring::components::services::service/]
+[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::interface/]
+[import com::vladolium::odinmodel::projects::java::spring::components::controllers::controller/][/comment]
 
 [**
- * Represents a single entry point for the project prototyping.
- * The beginning of the generation workflow.
- * 
+ * Project structure
+ *  
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public main(class : Class)]
-[comment @main/]
-[chooseProjectPlatform()/]
+[template public springBootJpaWithQuerydsl(class : Class)]
+[jpaRepositoryWithQuerydsl()/]
+[service()/]
+[interface()/]
+[controller()/]
+springBootWithSpringDataJpaRestProject KOD EXPRESSIONS
 [/template]

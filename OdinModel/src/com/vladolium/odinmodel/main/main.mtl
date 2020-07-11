@@ -21,7 +21,7 @@
 [comment encoding = UTF-8 /]
 [module main('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::chooseProjectType/]
+[import com::vladolium::odinmodel::projects::chooseProjectPlatform/]
 
 [**
  * Represents a single entry point for the project prototyping.
@@ -31,5 +31,5 @@
 */]
 [template public main(class : Class)]
 [comment @main/]
-[chooseProjectType()/]
+[chooseProjectPlatform()/]
 [/template]

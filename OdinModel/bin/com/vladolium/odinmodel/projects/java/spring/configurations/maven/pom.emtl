@@ -63,7 +63,7 @@
         </charset>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1339" endPosition="1571" value="&#xA;Project structure setting&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize pom file for the target project.&#xA;&#xA;@param model represents the current UML class diagram i.e. the domain model.&#xA;&#xA;"/>
+        <body startPosition="1339" endPosition="1571" value="&#xD;&#xA;Project structure setting&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize pom file for the target project.&#xD;&#xA;&#xD;&#xA;@param model represents the current UML class diagram i.e. the domain model.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="model">
           <body value=" represents the current UML class diagram i.e. the domain model."/>
         </parametersDocumentation>

@@ -44,7 +44,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xA;}"/>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1364" endPosition="1797" value="&#xA;Generates the query builder parameter of the dynamic search method for the current service in a target project.&#xA;&#xA;OMPOC (OdinModel Point Of Customization)&#xA;&#xA;User may further customize the parameter.&#xA;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xA;@param field represents the current String field from the current UML class.&#xA;&#xA;"/>
+        <body startPosition="1364" endPosition="1797" value="&#xD;&#xA;Generates the query builder parameter of the dynamic search method for the current service in a target project.&#xD;&#xA;&#xD;&#xA;OMPOC (OdinModel Point Of Customization)&#xD;&#xA;&#xD;&#xA;User may further customize the parameter.&#xD;&#xA;&#xD;&#xA;@param entityNameUpperFirst represents the name of the current class from the UML class diagram i.e. the domain model.&#xD;&#xA;@param field represents the current String field from the current UML class.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="entityNameUpperFirst">
           <body value=" represents the name of the current class from the UML class diagram i.e. the domain model."/>
         </parametersDocumentation>
