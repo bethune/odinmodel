@@ -19,29 +19,18 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module springBootJpaSpecification('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[comment][import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithQuerydsl/]
-[import com::vladolium::odinmodel::projects::java::spring::components::repositories::jpaRepositoryWithSpecification/]
-[import com::vladolium::odinmodel::projects::java::spring::components::specifications::specification/]
-[import com::vladolium::odinmodel::projects::java::spring::components::services::service/]
-[import com::vladolium::odinmodel::projects::java::spring::components::interfaces::interface/]
-[import com::vladolium::odinmodel::projects::java::spring::components::controllers::controller/][/comment]
+[module checkBusinessEntities('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [**
- * Project structure setting
+ * Base for project structure.
  * 
- * OMPOC (OdinModel Point Of Customization) 
- * 
- * User may set the target project structure.
+ * Checks for a UML class that is not an abstract one - important for controller, interface, service, and repository files.
  *  
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public springBootJpaSpecification(class : Class)]
-[comment][jpaRepositoryWithQuerydsl()/][/comment]
-[comment][jpaRepositoryWithSpecification()/][/comment]
-[comment][specification()/][/comment]
-[comment][service()/]
-[interface()/]
-[controller()/][/comment]
+[template public checkBusinessEntities(class : Class){
+	isEntity : Boolean = class.isAbstract = false;}]
+[if isEntity]
+[comment][projectStructure()/][/comment]
+[/if]
 [/template]

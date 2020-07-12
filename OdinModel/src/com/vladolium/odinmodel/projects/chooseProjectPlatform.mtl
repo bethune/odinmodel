@@ -24,11 +24,11 @@
 [import com::vladolium::odinmodel::projects::java::chooseJavaProject/]
 
 [**
- * Project platform setting.
+ * A project platform setting.
  * 
  * OdinModel Point Of Customization (OMPOC)
  * 
- * User may set the target project's platform (for example: Java, Python, PHP, C#, etc.).
+ * A user may set the target project's platform (for example: Java, Python, PHP, C#, etc.).
  * 
  * NOTE: Only one template should stay uncommented. Current OdinModel version supports only Java.
  * 

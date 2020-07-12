@@ -24,11 +24,11 @@
 [import com::vladolium::odinmodel::projects::java::spring::chooseSpringProject/]
 
 [**
- * Java project setting.
+ * A Java project setting.
  * 
  * OMPOC
  * 
- * User may set which Java project OdinModel prototypes (for example: Spring, JSF, Play, etc.).
+ * A user may set which Java project OdinModel prototypes (for example: Spring, JSF, Play, etc.).
  * 
  * NOTE: Only one template should stay uncommented. Current OdinModel version supports only Spring.
  * 

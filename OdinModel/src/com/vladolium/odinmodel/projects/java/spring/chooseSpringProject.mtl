@@ -21,21 +21,21 @@
 [comment encoding = UTF-8 /]
 [module chooseSpringProject('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import com::vladolium::odinmodel::projects::java::spring::springboot::springBootJpaSpecification/]
+[import com::vladolium::odinmodel::projects::java::spring::springboot::springBootJpaSpecifications/]
 [import com::vladolium::odinmodel::projects::java::spring::springboot::springBootJpaWithQuerydsl/]
 
 [**
- * Spring project setting.
+ * A Spring project setting.
  * 
  * OMPOC
  * 
- * User may set which Spring project OdinModel prototypes (for example: SpringBoot, Spring 3, etc.).
+ * A user may set which Spring project OdinModel prototypes (for example: SpringBoot, Spring 3, etc.).
  * 
  * NOTE: Only one template should stay uncommented. Current OdinModel version supports only SpringBoot variants.
  * 
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
 [template public chooseSpringProject(class : Class)]
-[comment][springBootJpaSpecification()/][/comment]
+[comment][springBootJpaSpecifications()/][/comment]
 [springBootJpaWithQuerydsl()/]
 [/template]

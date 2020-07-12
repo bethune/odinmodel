@@ -19,25 +19,20 @@
 [/comment]
 
 [comment encoding = UTF-8 /]
-[module springBootJpaWithQuerydsl('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module springBootJpaSpecifications('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import com::vladolium::odinmodel::projects::java::spring::components::models::jpaModel/]
 [import com::vladolium::odinmodel::projects::java::spring::expressions::business::checkBusinessEntities/]
-[comment][import com::vladolium::odinmodel::projects::java::spring::components::configurations::chooseConfiguration/][/comment]
 
 [**
  * The project structure base.
- * 
- * OMPOC
- * 
- * A user may set the target project's platform (for example: Java, Python, PHP, C#, etc.).
  *  
  * @param class represents the current class from the UML class diagram i.e. the domain model.
 */]
-[template public springBootJpaWithQuerydsl(class : Class)]
+[template public springBootJpaSpecifications(class : Class)]
 [jpaModel()/]
 [checkBusinessEntities()/]
-[comment][getModel().pom()/] pom with querydsl springboot 2.1[/comment]
+[comment][getModel().pom()/] pom without qerydsl springboot 2.2[/comment]
 [comment][applicationProperties()/] database [/comment]
 [comment][swagger2()/] yes or no[/comment]
 [/template]
