@@ -26,13 +26,11 @@
 [**
  * A project platform setting.
  * 
- * OdinModel Point Of Customization (OMPOC)
- * 
  * A user may set the target project's platform (for example: Java, Python, PHP, C#, etc.).
  * 
  * NOTE: Only one template should stay uncommented. Current OdinModel version supports only Java.
  * 
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param class : represents the current class from the UML class diagram (the domain model).
 */]
 [template public chooseProjectPlatform(class : Class)]
 [chooseJavaProject()/]

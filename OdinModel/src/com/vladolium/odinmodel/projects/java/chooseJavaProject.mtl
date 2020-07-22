@@ -26,13 +26,11 @@
 [**
  * A Java project setting.
  * 
- * OMPOC
- * 
- * A user may set which Java project OdinModel prototypes (for example: Spring, JSF, Play, etc.).
+ * A user may set the target Java project's type (for example: Spring, JSF, Play, etc.).
  * 
  * NOTE: Only one template should stay uncommented. Current OdinModel version supports only Spring.
  * 
- * @param class represents the current class from the UML class diagram i.e. the domain model.
+ * @param class : represents the current class from the UML class diagram (the domain model).
 */]
 [template public chooseJavaProject(class : Class)]
 [chooseSpringProject()/]

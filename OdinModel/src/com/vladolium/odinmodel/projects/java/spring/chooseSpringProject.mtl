@@ -27,8 +27,6 @@
 [**
  * A Spring project setting.
  * 
- * OMPOC
- * 
  * A user may set which Spring project OdinModel prototypes (for example: SpringBoot, Spring 3, etc.).
  * 
  * NOTE: Only one template should stay uncommented. Current OdinModel version supports only SpringBoot variants.

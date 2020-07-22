@@ -1,3 +1,34 @@
+--------------------------------------------------------------------------------------------------------------------------
+	STRUKTURA ODINMODELA
+--------------------------------------------------------------------------------------------------------------------------
+0.  main
+	-> Ulazna tačka za generisanje koda.
+	-> Korisnik ništa ne radi.
+
+1.  Choose project platform 
+	-> java, python, php, c#... 
+	-> Korisnik može da odabere ciljnu platormu.
+
+2.  Choose java project (analogno je za ostale platforme)
+	-> spring, jsf, play...
+	-> Korisnik bira koji tip, koju vrstu Java projekta želi u odnosu na framework
+	
+3.  Choose spring project (analogno je za ostale tipove)
+	-> querydsl, jpaspecification, Spring 3 (ostavi za SPE časopis, jer je to onda dodatak na već postojeći odinModel :P)
+	-> Korisnik bira varijantu odabranog tipa
+	
+4.  springBootJpaWithQuerydsl
+	springBootJpaSpecifications
+	spring3Jdbc
+	jsfSpringJpaDataWithQuerydsl
+	struktura će biti takva da se kontroler, servis, interfejs, nalaze pod paketom domenskog entiteta
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+	RAZNO
+--------------------------------------------------------------------------------------------------------------------------	
+	
 Ideja i plan
 
 Da li bih mogao da napišem 2 rada o OdinModelu?
@@ -11,10 +42,16 @@ bih naveo Spring Boot „legacy“ razvojni proces koji koristi Querydsl. Poenta
 sa Acceleo softverom. Poenta je da imam search + crud. Poenta je da šijem JHipster sa JPA anotacijama 
 na modelu. Znači, zahvaljujući svom pristupu, rešavam mnoge stvari koje mi drugi alati ne 
 omogućavaju, a to je da sam diktiram šta će se desiti. Naravno, potrebno je upoznati se sa Acceleom, 
-ali ovako sažvakano nije problem i bolje je nego učiti svaki put novi frejmvork, a onda i generator za njega. Novelty deo je univerzalni pristup kastomizovanim generatorima koda baziran na standardima. Univerzalna podrška legacy tehnologijama. OdinModel4SpringBoot bez IRIC.
+ali ovako sažvakano nije problem i bolje je nego učiti svaki put novi frejmvork, a onda i generator za njega. 
+Novelty deo je univerzalni pristup kastomizovanim generatorima koda baziran na standardima. Univerzalna podrška legacy tehnologijama. 
+
+OdinModel4SpringBoot bez IRIC.
 
 
-KNOSYS je časopis gde bih mogao pisati o aplikaciji OdinModel koja pokriva Spring Boot REST slučaj, kao I JSF + Spring Data JPA slučaj, što do sada nije rađeno, bar ne automatizacija toga. Baziran na tehnikama iz rada SPE (ali to neće ići tako, jer ih maltene šaljem u isto vreme). Novelty deo je IRIC pristup I JSF + Spring Data generator.
+KNOSYS je časopis gde bih mogao pisati o aplikaciji OdinModel koja pokriva Spring Boot REST slučaj, kao I JSF + Spring Data JPA slučaj, 
+što do sada nije rađeno, bar ne automatizacija toga. 
+Baziran na tehnikama iz rada SPE (ali to neće ići tako, jer ih maltene šaljem u isto vreme). 
+Novelty deo je IRIC pristup I JSF + Spring Data generator.
 
 
 
@@ -43,18 +80,4 @@ post(trim())
 post (replaceAll('\n\n', '\n').trim())
 
 
-e sad... jooq --- ništa od toga, sranje je... koritim spring jpa specifikaciju...
-
---------------------------------------------------------------------------------------------------------------------------
-	STRUKTURA ODINMODELA
---------------------------------------------------------------------------------------------------------------------------
-0.  main
-1.  choose project platform: java, python... First level of choice for target platform...
-2.  choose java project: spring, jsf...
-3.  choose spring project: querydsl, jpaspecification... Dodaću ja Spring 3 sa posla... :) nek' ide život...
-	choose jsf project: jsfSpringJpaDataWithQuerydsl
-4.  springBootJpaWithQuerydsl
-	springBootJpaSpecifications
-	spring3Jdbc
-	jsfSpringJpaDataWithQuerydsl
-	struktura će biti takva da se kontroler, servis, interfejs, nalaze pod paketom domenskog entiteta
+e sad... jooq --- ništa od toga, sranje je... koritim spring jpa specifikaciju...	
