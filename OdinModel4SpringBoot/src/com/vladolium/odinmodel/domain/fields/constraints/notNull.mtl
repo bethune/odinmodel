@@ -1,6 +1,0 @@
-[comment encoding = UTF-8 /]
-[module notNull('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[template public notNull(p : Property)]
-@NotNull
-[/template]

@@ -14,7 +14,7 @@
         </argument>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="1410" endPosition="1624" value="&#xA;Represents a single entry point for the project prototyping.&#xA;The beginning of the code generation workflow.&#xA;&#xA;@param class : represents the current class from the UML class diagram (the domain model).&#xA;&#xA;"/>
+        <body startPosition="1410" endPosition="1624" value="&#xD;&#xA;Represents a single entry point for the project prototyping.&#xD;&#xA;The beginning of the code generation workflow.&#xD;&#xA;&#xD;&#xA;@param class : represents the current class from the UML class diagram (the domain model).&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="class">
           <body value=" : represents the current class from the UML class diagram (the domain model)."/>
         </parametersDocumentation>

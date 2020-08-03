@@ -1,7 +1,0 @@
-[comment encoding = UTF-8 /]
-[module primaryKey('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-[template public primaryKey(p : Property)]
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-[/template]
