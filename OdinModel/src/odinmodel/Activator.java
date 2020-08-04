@@ -15,6 +15,8 @@ import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle.
+ * 
+ * OdinModel users should not change this class. 
  */
 public class Activator extends Plugin {
 

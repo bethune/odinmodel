@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 /**
  * Entry point of the 'Main' generation module.
  *
- * @generated
+ * OdinModel users should not change this class.
  */
 public class Main extends AbstractAcceleoGenerator {
     /**
